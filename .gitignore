@@ -1,3 +1,9 @@
+#go
+api/config/
+.env.local
+.env.production
+#exe
+api/main.exe
 # Logs
 logs
 *.log
