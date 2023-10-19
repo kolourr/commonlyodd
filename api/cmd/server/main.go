@@ -26,8 +26,7 @@ func main() {
 		log.Fatalf("Error loading %s file", envFilePath)
 	}
 	databaseURL := os.Getenv("DATABASE_URL")
-	log.Println("databaseURL: ", databaseURL)
-	database.InitDB(databaseURL)
+ 	database.InitDB(databaseURL)
 
 	// Setup gin router
  	router := gin.Default()
