@@ -10,6 +10,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/kolourr/commonlyodd/database"
+	"github.com/kolourr/commonlyodd/gameplay"
 	"github.com/kolourr/commonlyodd/info"
 )
 
@@ -48,9 +49,15 @@ func main() {
 		})
 	})
 
+	router.GET("/home",  info.Home)
+	router.GET("/game",  info.Game)
 	router.GET("/about",  info.About)
 	router.GET("/contact", info.Contact)
 	router.GET("/rules", info.Rules)
+
+	// New route for starting a game
+    router.POST("/game/start", gameplay.StartNewGame)
+
 
 	//Start server
 	router.Run(":8080")

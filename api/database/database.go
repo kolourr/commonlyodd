@@ -8,11 +8,11 @@ import (
 	_ "github.com/lib/pq" // Import the PostgreSQL driver
 )
 
-var db *sql.DB
+var DB *sql.DB
 
 func InitDB(dataSourceName string) {
 	var err error
-	db, err = sql.Open("postgres", dataSourceName)
+	DB, err = sql.Open("postgres", dataSourceName)
 	if err != nil {
 		log.Fatal(err)
 	}

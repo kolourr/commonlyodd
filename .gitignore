@@ -4,11 +4,18 @@ api/config/
 .env.production
 #exe
 api/main.exe
-#oen-ai
-open-ai/
+#ui
+ui/
+node_modules/
+dist
+environment/.env.local
+environment/.env.production
+.gitignore
+#scripts
+scripts/
 .env
 # Dependency directories
-open-ai/node_modules/
+scripts/node_modules/
 # Logs
 logs
 *.log
