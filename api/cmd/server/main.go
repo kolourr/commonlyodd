@@ -56,8 +56,8 @@ func main() {
 	router.GET("/rules", info.Rules)
 
 	// New route for starting a game
-    router.POST("/game/start", gameplay.StartNewGame)
-
+    router.POST("/game/start-session", gameplay.StartSession)
+	router.GET("/game/ws", gameplay.HandleGameWebSocket)
 
 	//Start server
 	router.Run(":8080")
