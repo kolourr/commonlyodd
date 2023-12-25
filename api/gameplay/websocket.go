@@ -12,14 +12,17 @@ import (
 
 
 type WebSocketMessage struct {
-    GameState             string              `json:"game_state"`
-    ObjsImageLinks        map[string]string   `json:"objs_image_links"` // obj1, obj2, obj3, img_link1, img_link2, img_link3
-    OddReasonForSimilarity map[string]string  `json:"odd_reason_for_similarity"` // odd, reason for similarity
-    IndividualTeamScore   map[string]int      `json:"individual_team_score"` // team number/name with their score
-    Timer                 int                 `json:"timer"`
-    GameTeamsScore        []TeamScore         `json:"game_teams_score"` // team number/name with their score in JSON array
-    GameWinner            string              `json:"game_winner"`
+    GameState              string              `json:"game_state"`
+    ObjsImageLinks         map[string]string   `json:"objs_image_links"` // obj1, obj2, obj3, img_link1, img_link2, img_link3
+    OddReasonForSimilarity map[string]string   `json:"odd_reason_for_similarity"` // odd, reason for similarity
+    IndividualTeamScore    map[string]int      `json:"individual_team_score"` // team number/name with their score
+    Timer                  int                 `json:"timer"`
+    GameTeamsScore         []TeamScore         `json:"game_teams_score"` // team number/name with their score in JSON array
+    GameWinner             string              `json:"game_winner"`
+    TeamID                 int                 `json:"team_id"`
+    TeamName               string              `json:"team_name"`
 }
+
 
 type TeamScore struct {
     TeamName string `json:"team_name"`
@@ -79,7 +82,9 @@ func HandleGameWebSocket(c *gin.Context) {
         case "score":
             handleScore(conn, sessionUUID, msg)
         case "continue":
-            handleContinue(conn, sessionUUID)
+            handleContinue(conn, sessionUUID, msg, gameDataMap[sessionUUID])
+        case "new-game":
+            handleNewGame(conn, sessionUUID, msg)
         case "end":
             handleEndSession(conn, sessionUUID)
         // Add other cases as necessary
