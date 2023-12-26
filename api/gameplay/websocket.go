@@ -21,6 +21,8 @@ type WebSocketMessage struct {
     GameWinner             string              `json:"game_winner"`
     TeamID                 int                 `json:"team_id"`
     TeamName               string              `json:"team_name"`
+    NumberOfTeams int `json:"number_of_teams" binding:"required"`
+	TargetScore   int `json:"target_score" binding:"required"`
 }
 
 
@@ -84,7 +86,7 @@ func HandleGameWebSocket(c *gin.Context) {
         case "continue":
             handleContinue(conn, sessionUUID, msg, gameDataMap[sessionUUID])
         case "new-game":
-            handleNewGame(conn, sessionUUID, msg)
+            handleNewGame(conn, sessionUUID, msg, gameDataMap[sessionUUID])
         case "end":
             handleEndSession(conn, sessionUUID)
         // Add other cases as necessary
