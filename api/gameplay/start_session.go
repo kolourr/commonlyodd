@@ -17,6 +17,7 @@ type StartGameRequest struct {
 type GameSessionResponse struct {
 	SessionUUID  string `json:"session_uuid"`
 	StarterToken string `json:"starter_token"`
+	JoinLink     string `json:"join_link"`
 }
 
 func StartSession(c *gin.Context) {
@@ -92,9 +93,13 @@ func StartSession(c *gin.Context) {
 		return
 	}
 
-	// Return the session UUID and starter token to the client
+	// Construct the join link using the sessionUUID
+	joinLink := fmt.Sprintf("https://www.commonlyodd.com/join?session=%s", sessionUUID)
+
+	// Return the session UUID, starter token, and join link to the client
 	c.JSON(http.StatusOK, GameSessionResponse{
 		SessionUUID:  sessionUUID,
 		StarterToken: starterToken,
+		JoinLink:     joinLink,
 	})
 }

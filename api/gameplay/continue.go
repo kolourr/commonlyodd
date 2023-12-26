@@ -46,9 +46,8 @@ func handleContinue(conn *websocket.Conn, sessionUUID string,msg WebSocketMessag
         TeamID:         msg.TeamID,
         TeamName:       msg.TeamName,
     }
-    if err := conn.WriteJSON(continueMsg); err != nil {
-        log.Printf("Error sending continue message: %v", err)
-    }
+    // Broadcast the continue message to all clients in the session
+    broadcastToSession(sessionUUID, continueMsg)
 
     // Start a 20-second timer in a separate goroutine
     go startCountdown(conn, sessionUUID, 20)

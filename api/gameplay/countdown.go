@@ -1,7 +1,6 @@
 package gameplay
 
 import (
-	"log"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -15,15 +14,13 @@ func startCountdown(conn *websocket.Conn, sessionUUID string, duration int) {
     for remaining := duration; remaining >= 0; remaining-- {
         select {
         case <-ticker.C:
-            // Send a timer update message
-            msg := WebSocketMessage{
-                GameState: "timer_update",
-                Timer:     remaining,
-            }
-            if err := conn.WriteJSON(msg); err != nil {
-                log.Printf("Error sending timer update: %v", err)
-                return
-            }
+              // Broadcast a timer update message
+        timerMsg := WebSocketMessage{
+            GameState: "timer_update",
+            Timer:     remaining,
+        }
+        broadcastToSession(sessionUUID, timerMsg)
+
         }
 
         if remaining == 0 {
@@ -32,11 +29,9 @@ func startCountdown(conn *websocket.Conn, sessionUUID string, duration int) {
         }
     }
 
-    // After the countdown, you can send a 'time_up' message or handle it as needed
-    msg := WebSocketMessage{
+    // Broadcast the 'time_up' message
+    timeUpMsg := WebSocketMessage{
         GameState: "time_up",
     }
-    if err := conn.WriteJSON(msg); err != nil {
-        log.Printf("Error sending time up message: %v", err)
-    }
+    broadcastToSession(sessionUUID, timeUpMsg)
 }

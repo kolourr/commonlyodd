@@ -1,8 +1,6 @@
 package gameplay
 
 import (
-	"log"
-
 	"github.com/gorilla/websocket"
 )
 
@@ -15,9 +13,8 @@ func handleReveal(conn *websocket.Conn, sessionUUID string, gameData map[string]
             "reason": gameData["reason"],
         },
     }
-    if err := conn.WriteJSON(msg); err != nil {
-        log.Printf("Error sending reveal message: %v", err)
-    }
+    // Broadcast the reveal message to all clients in the session
+    broadcastToSession(sessionUUID, msg)
 
     // Optionally, clear the data for the next question
     delete(gameData, "odd")

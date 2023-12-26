@@ -51,16 +51,15 @@ func handleStart(conn *websocket.Conn, sessionUUID string, gameData map[string]s
     delete(questionData, "reason")
 
     // Send start message
-    msg := WebSocketMessage{
+    startMsg  := WebSocketMessage{
         GameState:     "start",
         ObjsImageLinks: questionData,
         GameTeamsScore: teamScores,
         TeamID:         firstTeam.ID,
         TeamName:       firstTeam.Name,
     }
-    if err := conn.WriteJSON(msg); err != nil {
-        log.Printf("Error sending start message: %v", err)
-    }
+    // Broadcast the start message to all clients in the session
+    broadcastToSession(sessionUUID, startMsg)
 
     // Start a 20-second timer in a separate goroutine
     go startCountdown(conn, sessionUUID, 20)

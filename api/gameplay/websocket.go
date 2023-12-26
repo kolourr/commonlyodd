@@ -1,7 +1,6 @@
 package gameplay
 
 import (
-	"database/sql"
 	"log"
 	"net/http"
 
@@ -9,7 +8,6 @@ import (
 	"github.com/gorilla/websocket"
 	"github.com/kolourr/commonlyodd/database"
 )
-
 
 type WebSocketMessage struct {
     GameState              string              `json:"game_state"`
@@ -21,8 +19,8 @@ type WebSocketMessage struct {
     GameWinner             string              `json:"game_winner"`
     TeamID                 int                 `json:"team_id"`
     TeamName               string              `json:"team_name"`
-    NumberOfTeams int `json:"number_of_teams" binding:"required"`
-	TargetScore   int `json:"target_score" binding:"required"`
+    NumberOfTeams          int                 `json:"number_of_teams" binding:"required"`
+	TargetScore            int                 `json:"target_score" binding:"required"`
 }
 
 
@@ -30,6 +28,12 @@ type TeamScore struct {
     TeamName string `json:"team_name"`
     Score    int    `json:"score"`
 }
+
+type client struct {
+    conn      *websocket.Conn
+    isStarter bool
+}
+
 
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
@@ -40,12 +44,13 @@ var upgrader = websocket.Upgrader{
 }
 
 var gameDataMap = make(map[string]map[string]string)
+var sessionClients = make(map[string][]client)
 
 
 // HandleGameWebSocket manages the WebSocket connection and game state transitions
 func HandleGameWebSocket(c *gin.Context) {
-    starterToken := c.GetHeader("Starter-Token")
-    sessionUUID := c.GetHeader("Session-UUID")
+    sessionUUID := c.Query("sessionUUID")
+    starterToken, hasToken := c.GetQuery("starterToken")
 
     conn, err := upgrader.Upgrade(c.Writer, c.Request, nil)
     if err != nil {
@@ -53,30 +58,77 @@ func HandleGameWebSocket(c *gin.Context) {
         return
     }
 
-    // Validate starterToken and sessionUUID to ensure only session starter can connect
-    if !validateSessionStarter(starterToken, sessionUUID) {
-        log.Printf("Invalid starter token or session UUID")
-        conn.Close() // Close the WebSocket connection if validation fails
+    if !validateSessionUUID(sessionUUID) {
+        log.Printf("Invalid session UUID")
+        conn.Close()
         return
     }
 
-	    // Check if game data for this session exists, if not create it
-        if _, exists := gameDataMap[sessionUUID]; !exists {
-            gameDataMap[sessionUUID] = make(map[string]string)
-        }
-
+    isStarter := false
+    if hasToken {
+        isStarter = validateStarterToken(sessionUUID, starterToken)
+    }
+    addClientToSession(sessionUUID, conn, isStarter)
+    defer removeClientFromSession(sessionUUID, conn)
 
     for {
         var msg WebSocketMessage
         err := conn.ReadJSON(&msg)
         if err != nil {
-            // Handle error, remove client from management
             log.Printf("Error reading json: %v", err)
             break
         }
 
-        // Delegate message handling based on game state
-        switch msg.GameState {
+        if isStarter {
+            handleGameStateChange(conn, sessionUUID, msg)
+        } else {
+            log.Printf("Non-starter client attempted to control the game")
+        }
+    }
+}
+
+func validateSessionUUID(sessionUUID string) bool {
+    var exists bool
+    err := database.DB.QueryRow(`SELECT EXISTS(SELECT 1 FROM game_sessions WHERE session_uuid = $1)`, sessionUUID).Scan(&exists)
+    if err != nil {
+        log.Printf("Error querying database for session UUID validation: %v", err)
+        return false
+    }
+    return exists
+}
+
+func validateStarterToken(sessionUUID, starterToken string) bool {
+    var exists bool
+    err := database.DB.QueryRow(`
+        SELECT EXISTS(
+            SELECT 1 FROM game_sessions
+            WHERE session_uuid = $1 AND starter_token = $2
+        )`, sessionUUID, starterToken).Scan(&exists)
+
+    if err != nil {
+        log.Printf("Error querying database for starter token validation: %v", err)
+        return false
+    }
+    return exists
+}
+
+
+func addClientToSession(sessionUUID string, conn *websocket.Conn, isStarter bool) {
+    sessionClients[sessionUUID] = append(sessionClients[sessionUUID], client{conn, isStarter})
+}
+
+func removeClientFromSession(sessionUUID string, conn *websocket.Conn) {
+    clients := sessionClients[sessionUUID]
+    for i, c := range clients {
+        if c.conn == conn {
+            sessionClients[sessionUUID] = append(clients[:i], clients[i+1:]...)
+            break
+        }
+    }
+}
+
+func handleGameStateChange(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage) {
+    switch msg.GameState {
         case "start":
             handleStart(conn, sessionUUID, gameDataMap[sessionUUID])
         case "reveal":
@@ -89,27 +141,6 @@ func HandleGameWebSocket(c *gin.Context) {
             handleNewGame(conn, sessionUUID, msg, gameDataMap[sessionUUID])
         case "end":
             handleEndSession(conn, sessionUUID)
-        // Add other cases as necessary
-        }
     }
 }
 
-
-func validateSessionStarter(starterToken, sessionUUID string) bool {
-    var exists bool
-
-    err := database.DB.QueryRow(`
-        SELECT EXISTS(
-            SELECT 1 FROM game_sessions
-            WHERE session_uuid = $1 AND starter_token = $2
-        )`, sessionUUID, starterToken).Scan(&exists)
-
-    if err != nil {
-        if err != sql.ErrNoRows {
-            log.Printf("Error querying database: %v", err)
-        }
-        return false
-    }
-
-    return exists
-}
