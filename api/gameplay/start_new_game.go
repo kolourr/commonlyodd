@@ -72,7 +72,7 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
 
     // Send new game start message
     newMsg := WebSocketMessage{
-        GameState:     "new-game",
+        GameState:     "new-game-started",
         ObjsImageLinks: questionData,
         GameTeamsScore: teamScores,
         TeamID:         teams[0].ID,  // First team ID for new game

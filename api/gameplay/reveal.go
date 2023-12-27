@@ -7,7 +7,7 @@ import (
 // handleReveal processes the 'reveal' game state
 func handleReveal(conn *websocket.Conn, sessionUUID string, gameData map[string]string) {
     msg := WebSocketMessage{
-        GameState: "reveal",
+        GameState: "reveal-answer",
         OddReasonForSimilarity: map[string]string{
             "odd":    gameData["odd"],
             "reason": gameData["reason"],

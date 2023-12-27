@@ -40,7 +40,7 @@ func handleContinue(conn *websocket.Conn, sessionUUID string,msg WebSocketMessag
 
     // Send continue message with updated data
     continueMsg  := WebSocketMessage{
-        GameState:     "continue",
+        GameState:     "continue-answer",
         ObjsImageLinks: questionData,
         GameTeamsScore: teamScores,
         TeamID:         msg.TeamID,
