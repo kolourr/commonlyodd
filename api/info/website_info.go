@@ -15,8 +15,6 @@ func Game(c *gin.Context) {
 	})
 }
 
-
-
 func About(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"status": "UP",

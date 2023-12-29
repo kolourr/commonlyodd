@@ -29,7 +29,7 @@ func StartSession(c *gin.Context) {
 		return
 	}
 
-	// Generate UUIDs in Go
+	// Generate UUIDs for the session and starter token
 	sessionUUID := uuid.New().String()
 	starterToken := uuid.New().String()
 
