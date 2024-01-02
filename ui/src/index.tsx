@@ -5,10 +5,9 @@ import App from "./App";
 import { Router, Route, Routes } from "@solidjs/router";
 import { lazy } from "solid-js";
 
-const Game = lazy(() => import("./components/game"));
 const Contact = lazy(() => import("./components/contact"));
 const Home = lazy(() => import("./components/home"));
-const Rules = lazy(() => import("./components/rules"));
+const Rules = lazy(() => import("./components/faq"));
 const About = lazy(() => import("./components/about"));
 
 const root = document.getElementById("root");
@@ -26,7 +25,6 @@ render(
         <Route path="/" component={App} />
         <Route path="/contact" component={Contact} />
         <Route path="/about" component={About} />
-        <Route path="/game" component={Game} />
         <Route path="/home" component={Home} />
         <Route path="/rules" component={Rules} />
       </Routes>

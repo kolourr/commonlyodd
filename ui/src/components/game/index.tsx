@@ -1,8 +1,11 @@
+import Answer from "./answer";
+
 export default function Game() {
   return (
-    <div>
-      <h2>This is the game page</h2>
-    </div>
+    <>
+      <div class="text-pink-600	">These are the modals</div>
+      <Answer />
+    </>
   );
 }
 
