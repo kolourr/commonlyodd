@@ -13,6 +13,7 @@ import InfoModal from "../game/info_modal";
 import { gameRules } from "~/public/data/gamerules";
 import { faqTerminology } from "~/public/data/faq";
 import { legalDocuments } from "~/public/data/legal";
+import TimesUp from "./times_up";
 
 export default function Game() {
   const [timer, setTimer] = createSignal("00:00");
