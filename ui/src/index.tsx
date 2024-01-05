@@ -8,7 +8,6 @@ import { lazy } from "solid-js";
 const Contact = lazy(() => import("./components/contact"));
 const Home = lazy(() => import("./components/home"));
 const Rules = lazy(() => import("./components/faq"));
-const About = lazy(() => import("./components/about"));
 
 const root = document.getElementById("root");
 
@@ -24,7 +23,6 @@ render(
       <Routes>
         <Route path="/" component={App} />
         <Route path="/contact" component={Contact} />
-        <Route path="/about" component={About} />
         <Route path="/home" component={Home} />
         <Route path="/rules" component={Rules} />
       </Routes>
