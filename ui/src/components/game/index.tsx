@@ -14,12 +14,15 @@ import { gameRules } from "~/public/data/gamerules";
 import { faqTerminology } from "~/public/data/faq";
 import { legalDocuments } from "~/public/data/legal";
 import TimesUp from "./times_up";
+import StartSession from "./start_session";
+import CopyLink from "./start_session/copy_link";
+
+export const [sessionLink, setSessionLink] = createSignal(
+  "https://co.com/test"
+);
 
 export default function Game() {
   const [timer, setTimer] = createSignal("00:00");
-  const [sessionLink, setSessionLink] = createSignal(
-    "commonlyodd.com/join?session=12345"
-  );
   const [showRulesModal, setShowRulesModal] = createSignal(false);
   const [showFAQModal, setShowFAQModal] = createSignal(false);
   const [showLegalModal, setShowLegalModal] = createSignal(false);
@@ -34,12 +37,10 @@ export default function Game() {
       {/* Main Section */}
       <div class="flex flex-row bg-slate-50">
         <div class="flex w-1/5 justify-center items-center">
-          <Button size="large">Start Session</Button>
+          <StartSession />
         </div>
         <div class="flex w-3/5 flex-row items-center justify-center">
-          <ContentCopy
-            onClick={() => navigator.clipboard.writeText(sessionLink())}
-          />
+          <CopyLink />
           <input
             type="text"
             class="border p-2 rounded ml-2 w-full md:w-auto lg:w-5/12"

@@ -12,6 +12,7 @@ export default defineConfig({
     target: "esnext",
   },
   envDir: "environment/",
+  envPrefix: "CO_",
   resolve: {
     alias: {
       "~": path.resolve(__dirname, "./src"),

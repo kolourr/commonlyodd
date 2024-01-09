@@ -1,11 +1,14 @@
 import { lazy, type Component } from "solid-js";
-// import { A } from "@solidjs/router";
 const Game = lazy(() => import("./components/game"));
+const ConfirmStartDialog = lazy(
+  () => import("./components/game/start_session/confirm_start")
+);
 
 const App: Component = () => {
   return (
     <>
       <Game />
+      <ConfirmStartDialog />
     </>
   );
 };
