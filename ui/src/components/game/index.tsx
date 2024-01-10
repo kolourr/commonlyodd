@@ -9,16 +9,15 @@ import {
   PrivacyTipOutlined,
   SportsScoreOutlined,
 } from "@suid/icons-material";
-import InfoModal from "../game/info_modal";
+import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
 import { faqTerminology } from "~/public/data/faq";
 import { legalDocuments } from "~/public/data/legal";
-import TimesUp from "./times_up";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
 
 export const [sessionLink, setSessionLink] = createSignal(
-  "https://co.com/test"
+  "https://co.com/click-to-start"
 );
 
 export default function Game() {
