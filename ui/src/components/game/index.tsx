@@ -15,6 +15,7 @@ import { faqTerminology } from "~/public/data/faq";
 import { legalDocuments } from "~/public/data/legal";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
+import EndGameSession from "./end_game_session";
 
 export const [sessionLink, setSessionLink] = createSignal(
   "https://co.com/click-to-start"
@@ -98,9 +99,7 @@ export default function Game() {
         </div>
         <div class="flex flex-col items-center w-2/12 pt-20 lg:pt-6 sm:justify-start lg:justify-center bg-slate-50">
           <div class="flex flex-col space-y-20 items-center">
-            <Button sx={{ bgcolor: "#fecdd3", color: "#db2777" }}>
-              <CancelOutlined fontSize="large" />
-            </Button>
+            <EndGameSession />
             <Button sx={{ bgcolor: "#fecdd3", color: "#db2777" }}>
               <InfoModal
                 title={legalDocuments.title}
