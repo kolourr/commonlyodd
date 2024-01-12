@@ -16,6 +16,8 @@ import { legalDocuments } from "~/public/data/legal";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
+import StartGame from "./start_game";
+import GameImages from "./start_game/images";
 
 export const [sessionLink, setSessionLink] = createSignal(
   "https://co.com/click-to-start"
@@ -29,16 +31,14 @@ export default function Game() {
 
   return (
     <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-7xl mx-auto">
-      {/* Header */}
       <div class="bg-slate-50 text-center py-4">
         <h1 class="text-3xl font-bold">Commonly Odd</h1>
       </div>
 
-      {/* Bottom Section */}
       <div class="flex flex-grow">
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
           <div class="flex flex-col items-center justify-start space-y-20 ">
-            <Button>Start Game</Button>
+            <StartGame />
           </div>
           <div class="flex flex-col space-y-20 items-center justify-center pt-44">
             <InfoModal
@@ -60,7 +60,6 @@ export default function Game() {
             </Button>
           </div>
         </div>
-        {/* flex-col lg:flex-row items-center lg:space-x-4 */}
         <div class="flex w-11/12 flex-col bg-slate-100 ">
           <div class="flex flex-row items-center justify-center bg-slate-50   ">
             <CopyLink />
@@ -75,21 +74,7 @@ export default function Game() {
           <div class="flex flex-row items-center justify-center  pt-12   ">
             <StartSession />
           </div>
-
-          <div class="flex flex-col lg:flex-row justify-center items-center lg:space-x-4 lg:pt-20  ">
-            <div class="py-4">
-              <p class="text-center">Obj1</p>
-              <img src="https://via.placeholder.com/400" alt="Obj1" />
-            </div>
-            <div class="py-4">
-              <p class="text-center">Obj2</p>
-              <img src="https://via.placeholder.com/400" alt="Obj2" />
-            </div>
-            <div class="py-4">
-              <p class="text-center">Obj3</p>
-              <img src="https://via.placeholder.com/400" alt="Obj3" />
-            </div>
-          </div>
+          <GameImages />
         </div>
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
           <div class="flex flex-col items-center justify-start space-y-20 ">
