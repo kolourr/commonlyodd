@@ -1,11 +1,9 @@
 import { createSignal } from "solid-js";
 import { Button } from "@suid/material";
 import {
-  ContentCopy,
   SportsEsportsOutlined,
   RuleOutlined,
   SearchOutlined,
-  CancelOutlined,
   PrivacyTipOutlined,
   SportsScoreOutlined,
 } from "@suid/icons-material";
@@ -16,15 +14,15 @@ import { legalDocuments } from "~/public/data/legal";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
-import StartGame from "./start_game";
+import StartGame, { objectsImages } from "./start_game";
 import GameImages from "./start_game/images";
+import Timer from "./start_game/timer";
 
 export const [sessionLink, setSessionLink] = createSignal(
   "https://co.com/click-to-start"
 );
 
 export default function Game() {
-  const [timer, setTimer] = createSignal("00:00");
   const [showRulesModal, setShowRulesModal] = createSignal(false);
   const [showFAQModal, setShowFAQModal] = createSignal(false);
   const [showLegalModal, setShowLegalModal] = createSignal(false);
@@ -74,15 +72,10 @@ export default function Game() {
           <div class="flex flex-row items-center justify-center  pt-12   ">
             <StartSession />
           </div>
-          <GameImages />
+          <GameImages gameData={objectsImages()} />
         </div>
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
-          <div class="flex flex-col items-center justify-start space-y-20 ">
-            <div class="text-center">
-              <p class="text-lg">Timer</p>
-              <p class="text-lg font-bold">{timer()}</p>
-            </div>
-          </div>
+          <Timer />
           <div class="flex flex-col space-y-20 items-center justify-center pt-40">
             <EndGameSession />
             <InfoModal

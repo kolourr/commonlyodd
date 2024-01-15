@@ -62,6 +62,13 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
         return
     }
 
+    // Fetch session details
+    numberOfTeams, targetScore, err := FetchSessionDetails(sessionUUID)
+    if err != nil {
+        log.Printf("Error fetching session details: %v", err)
+        return
+    }
+
     // Store odd and reason for similarity in gameData map
     gameData["odd"] = questionData["odd"]
     gameData["reason"] = questionData["reason"]
@@ -75,8 +82,11 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
         GameState:     "new-game-started",
         ObjsImageLinks: questionData,
         GameTeamsScore: teamScores,
-        TeamID:         teams[0].ID,  // First team ID for new game
-        TeamName:       teams[0].Name, // First team name for new game
+        TeamID:         teams[0].ID,
+        TeamName:       teams[0].Name,
+        NumberOfTeams: numberOfTeams,
+        TargetScore:   targetScore,
+
     }
 
     // Broadcast the new game message to all clients in the session

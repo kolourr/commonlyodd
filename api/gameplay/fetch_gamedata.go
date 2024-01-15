@@ -1,6 +1,7 @@
 package gameplay
 
 import (
+	"database/sql"
 	"fmt"
 
 	"github.com/kolourr/commonlyodd/database"
@@ -28,10 +29,13 @@ func fetchRandomQuestion(sessionUUID string) (map[string]string, error) {
         return nil, fmt.Errorf("error fetching random object similarity: %w", err)
     }
 
+
     imageLinks, err := fetchObjectImageLinks(objSim)
     if err != nil {
         return nil, fmt.Errorf("error fetching object image links: %w", err)
     }
+
+
 
     // Combine object names and image links into one map
     combinedData := map[string]string{
@@ -55,7 +59,7 @@ func fetchUsedObjectSimilarityIds(sessionUUID string) ([]int, error) {
     var usedIds []int
 
     query := `
-        SELECT objects_similarity_id FROM session_objects
+        SELECT object_similarity_id FROM session_objects
         WHERE session_id = (SELECT session_id FROM game_sessions WHERE session_uuid = $1)`
     rows, err := database.DB.Query(query, sessionUUID)
     if err != nil {
@@ -78,23 +82,40 @@ func fetchUsedObjectSimilarityIds(sessionUUID string) ([]int, error) {
     return usedIds, nil
 }
 
-// fetchRandomObjectSimilarity fetches a random object similarity record that hasn't been used.
+ // fetchRandomObjectSimilarity fetches a random object similarity record that hasn't been used.
 func fetchRandomObjectSimilarity(usedIds []int) (ObjectSimilarity, error) {
     var objSim ObjectSimilarity
+    var err error
 
-    // Creating a dynamic SQL query to exclude used IDs
-    query := `
-        SELECT obj_1, obj_2, obj_3, odd, reason_for_similarity FROM objects_similarity
-        WHERE id != ALL($1)
-        ORDER BY RANDOM()
-        LIMIT 1`
-    err := database.DB.QueryRow(query, pq.Array(usedIds)).Scan(&objSim.Obj1, &objSim.Obj2, &objSim.Obj3, &objSim.Odd, &objSim.Reason)
+    if len(usedIds) == 0 {
+        // If no IDs have been used, select any record
+        query := `
+            SELECT obj_1, obj_2, obj_3, odd, reason_for_similarity FROM objects_similarity
+            ORDER BY RANDOM()
+            LIMIT 1`
+        err = database.DB.QueryRow(query).Scan(&objSim.Obj1, &objSim.Obj2, &objSim.Obj3, &objSim.Odd, &objSim.Reason)
+    } else {
+        // If there are used IDs, exclude them
+        query := `
+            SELECT obj_1, obj_2, obj_3, odd, reason_for_similarity FROM objects_similarity
+            WHERE id != ALL($1)
+            ORDER BY RANDOM()
+            LIMIT 1`
+        err = database.DB.QueryRow(query, pq.Array(usedIds)).Scan(&objSim.Obj1, &objSim.Obj2, &objSim.Obj3, &objSim.Odd, &objSim.Reason)
+    }
+
     if err != nil {
-        return ObjectSimilarity{}, err
+        if err == sql.ErrNoRows {
+            // No unused object similarities found, return a zero value of ObjectSimilarity and no error
+            return ObjectSimilarity{}, nil
+        }
+        // An actual error occurred, return it
+        return ObjectSimilarity{}, fmt.Errorf("error fetching random object similarity: %w", err)
     }
 
     return objSim, nil
 }
+
 
 // fetchObjectImageLinks retrieves the image links for the given object similarity record.
 func fetchObjectImageLinks(objSim ObjectSimilarity) (map[string]string, error) {
@@ -106,11 +127,18 @@ func fetchObjectImageLinks(objSim ObjectSimilarity) (map[string]string, error) {
         var imgLink string
         err := database.DB.QueryRow(query, obj).Scan(&imgLink)
         if err != nil {
-            return nil, err
+            if err == sql.ErrNoRows {
+                // No image link found for this object, continue to the next one
+                continue
+            } else {
+                // An actual error occurred, return it
+                return nil, err
+            }
         }
         imageLinks[obj] = imgLink
     }
 
     return imageLinks, nil
 }
+
 

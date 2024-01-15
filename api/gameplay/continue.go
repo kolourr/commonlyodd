@@ -16,6 +16,14 @@ func handleContinue(conn *websocket.Conn, sessionUUID string,msg WebSocketMessag
         return
     }
 
+    // Fetch session details
+    numberOfTeams, targetScore, err := FetchSessionDetails(sessionUUID)
+    if err != nil {
+        log.Printf("Error fetching session details: %v", err)
+        return
+    }
+
+
     // Fetch current team scores
     teamScores, err := fetchTeamScores(sessionUUID)
     if err != nil {
@@ -45,6 +53,9 @@ func handleContinue(conn *websocket.Conn, sessionUUID string,msg WebSocketMessag
         GameTeamsScore: teamScores,
         TeamID:         msg.TeamID,
         TeamName:       msg.TeamName,
+        NumberOfTeams: numberOfTeams,
+        TargetScore:   targetScore,
+
     }
     // Broadcast the continue message to all clients in the session
     broadcastToSession(sessionUUID, continueMsg)

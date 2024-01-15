@@ -11,8 +11,15 @@ import (
 // handleScore processes the 'score' game state
 func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage) {
     // Update the team score in the database
-    if err := updateTeamScore(sessionUUID, msg.TeamID, msg.IndividualTeamScore[msg.TeamName]); err != nil {
+    if err := updateTeamScore(sessionUUID, msg.TeamID, msg.IndividualTeamScore); err != nil {
         log.Printf("Error updating team score: %v", err)
+        return
+    }
+
+    // Fetch session details
+    numberOfTeams, targetScore, err := FetchSessionDetails(sessionUUID)
+    if err != nil {
+        log.Printf("Error fetching session details: %v", err)
         return
     }
 
@@ -24,6 +31,9 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
     }
 
     nextMsg := WebSocketMessage{}
+
+    nextMsg.NumberOfTeams = numberOfTeams
+    nextMsg.TargetScore = targetScore
 
     if targetScoreReached {
         // Target score is reached, end the game
@@ -58,19 +68,22 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
 }
 
 
-func updateTeamScore(sessionUUID string, teamID int, newScore int) error {
+func updateTeamScore(sessionUUID string, teamID int, newScore float64) error {
     // First, get the teamScoreID for the team in the current session
     var teamScoreID int
-    err := database.DB.QueryRow(`
+    query := `
         SELECT ts.team_score_id
         FROM team_scores ts
         INNER JOIN teams t ON ts.team_id = t.team_id
         INNER JOIN game_sessions gs ON t.session_id = gs.session_id
-        WHERE gs.session_uuid = $1 AND t.team_id = $2`,
-        sessionUUID, teamID).Scan(&teamScoreID)
+        WHERE gs.session_uuid = $1 AND t.team_id = $2`
+    err := database.DB.QueryRow(query, sessionUUID, teamID).Scan(&teamScoreID)
     if err != nil {
+        log.Printf("Query: %s", query)
+        log.Printf("Session UUID: %s, Team ID: %d", sessionUUID, teamID)
         return fmt.Errorf("error finding team score ID: %w", err)
     }
+
 
     // Next, update the score for the found teamScoreID
     _, err = database.DB.Exec(`
@@ -88,7 +101,7 @@ func updateTeamScore(sessionUUID string, teamID int, newScore int) error {
 
 func checkTargetScore(sessionUUID string, teamID int) (bool, error) {
     // Get the target score for the session
-    var targetScore int
+    var targetScore float64
     err := database.DB.QueryRow(`
         SELECT target_score FROM game_sessions WHERE session_uuid = $1`,
         sessionUUID).Scan(&targetScore)
@@ -97,7 +110,7 @@ func checkTargetScore(sessionUUID string, teamID int) (bool, error) {
     }
 
     // Get the current score of the specified team
-    var currentScore int
+    var currentScore float64
     err = database.DB.QueryRow(`
         SELECT score FROM team_scores
         WHERE team_id = $1`,

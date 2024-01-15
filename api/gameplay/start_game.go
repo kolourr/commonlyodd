@@ -13,6 +13,14 @@ func handleStart(conn *websocket.Conn, sessionUUID string, gameData map[string]s
         return
     }
 
+    // Fetch session details
+    numberOfTeams, targetScore, err := FetchSessionDetails(sessionUUID)
+    if err != nil {
+        log.Printf("Error fetching session details: %v", err)
+        return
+    }
+
+
     // Fetch team details
     teams, err := fetchTeamsForSession(sessionUUID)
     if err != nil {
@@ -42,6 +50,11 @@ func handleStart(conn *websocket.Conn, sessionUUID string, gameData map[string]s
         return
     }
 
+    // Initialize gameData if it's nil
+    if gameData == nil {
+        gameData = make(map[string]string)
+    }
+
     // Store odd and reason for similarity in gameData map
     gameData["odd"] = questionData["odd"]
     gameData["reason"] = questionData["reason"]
@@ -52,11 +65,14 @@ func handleStart(conn *websocket.Conn, sessionUUID string, gameData map[string]s
 
     // Send start message
     startMsg  := WebSocketMessage{
-        GameState:     "start",
+        GameState:     "start-in-progress",
         ObjsImageLinks: questionData,
         GameTeamsScore: teamScores,
         TeamID:         firstTeam.ID,
         TeamName:       firstTeam.Name,
+        NumberOfTeams: numberOfTeams,
+        TargetScore:   targetScore,
+
     }
     // Broadcast the start message to all clients in the session
     broadcastToSession(sessionUUID, startMsg)

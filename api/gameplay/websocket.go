@@ -13,20 +13,20 @@ type WebSocketMessage struct {
     GameState              string              `json:"game_state"`
     ObjsImageLinks         map[string]string   `json:"objs_image_links"` // obj1, obj2, obj3, img_link1, img_link2, img_link3
     OddReasonForSimilarity map[string]string   `json:"odd_reason_for_similarity"` // odd, reason for similarity
-    IndividualTeamScore    map[string]int      `json:"individual_team_score"` // team number/name with their score
+    IndividualTeamScore    float64      `json:"individual_team_score"`
     Timer                  int                 `json:"timer"`
     GameTeamsScore         []TeamScore         `json:"game_teams_score"` // team number/name with their score in JSON array
     GameWinner             string              `json:"game_winner"`
     TeamID                 int                 `json:"team_id"`
     TeamName               string              `json:"team_name"`
-    NumberOfTeams          int                 `json:"number_of_teams" binding:"required"`
-	TargetScore            int                 `json:"target_score" binding:"required"`
+    NumberOfTeams          int                 `json:"number_of_teams"`
+	TargetScore            float64              `json:"target_score"`
 }
 
 
 type TeamScore struct {
     TeamName string `json:"team_name"`
-    Score    int    `json:"score"`
+    Score    float64    `json:"score"`
 }
 
 type client struct {
@@ -128,6 +128,11 @@ func removeClientFromSession(sessionUUID string, conn *websocket.Conn) {
 }
 
 func handleGameStateChange(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage) {
+        // Initialize gameDataMap for the session if it's nil
+    if gameDataMap[sessionUUID] == nil {
+        gameDataMap[sessionUUID] = make(map[string]string)
+    }
+
     switch msg.GameState {
         case "start":
             handleStart(conn, sessionUUID, gameDataMap[sessionUUID])
