@@ -61,7 +61,7 @@ func handleContinue(conn *websocket.Conn, sessionUUID string,msg WebSocketMessag
     broadcastToSession(sessionUUID, continueMsg)
 
     // Start a 20-second timer in a separate goroutine
-    go startCountdown(conn, sessionUUID, 20)
+    go startCountdown(conn, sessionUUID, 5)
 }
 
 func fetchTeamScores(sessionUUID string) ([]TeamScore, error) {
