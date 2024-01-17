@@ -5,8 +5,6 @@ const ConfirmStartDialog = lazy(
   () => import("./components/game/start_session/confirm_start")
 );
 
-console.info("App.tsx");
-
 const App: Component = () => {
   return (
     <>
