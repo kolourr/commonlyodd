@@ -6,6 +6,7 @@ import {
   SearchOutlined,
   PrivacyTipOutlined,
   SportsScoreOutlined,
+  Score,
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
@@ -36,7 +37,8 @@ export default function Game() {
       <div class="flex flex-grow">
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
           <div class="flex flex-col items-center justify-start space-y-20 ">
-            <StartGame />
+            {" "}
+            <StartSession />
           </div>
           <div class="flex flex-col space-y-20 items-center justify-center pt-44">
             <InfoModal
@@ -70,7 +72,7 @@ export default function Game() {
           </div>
 
           <div class="flex flex-row items-center justify-center  pt-12   ">
-            <StartSession />
+            <StartGame />
           </div>
           <GameImages gameData={objectsImages()} />
         </div>
