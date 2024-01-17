@@ -44,8 +44,6 @@ export const openScoreDialog = () => {
   setOpen(true);
 };
 
-console.log("wqwq");
-
 export default function Score() {
   return (
     <div>
