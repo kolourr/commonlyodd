@@ -53,3 +53,7 @@ export interface messageData {
   team_id?: number | undefined;
   individual_team_score?: number | undefined;
 }
+
+export interface GameWinner {
+  game_winner?: string;
+}

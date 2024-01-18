@@ -8,44 +8,31 @@ import {
   DialogContentText,
   DialogTitle,
 } from "@suid/material";
-import { setSessionLink } from "../index";
 import CommonDialog from "../common_dialog";
-import { useNavigate } from "solid-app-router";
+import { sendMessage } from "../start_game";
 
-export default function EndGame() {
+export default function EndSessionMessage() {
   const [open, setOpen] = createSignal(false);
   const [loading, setLoading] = createSignal(false);
   const [dialogOpen, setDialogOpen] = createSignal(false);
   const [dialogContent, setDialogContent] = createSignal<
     string | JSX.Element
   >();
-  const navigate = useNavigate();
 
   async function endSession() {
     setLoading(true);
     try {
-      // Remove session UUID and starter token in local storage
-      localStorage.removeItem("session_uuid");
-
-      // Reset session link and Notify user
-      setSessionLink("https://co.com/click-to-start");
+      sendMessage({ game_state: "end" });
       setDialogContent(
         <>
-          Game ended <span class="text-success-500">successfully</span>.
+          Session has ended <span class="text-success-500">successfully</span>.
         </>
       );
-
       setDialogOpen(true);
-
-      // Refresh the page after a short delay
-      setTimeout(() => {
-        location.reload();
-        navigate("/");
-      }, 1000);
     } catch (error) {
       setDialogContent(
         <>
-          <span class="text-error-500">Error</span>ending game. Please try
+          <span class="text-error-500">Error</span> ending session. Please try
           again.
         </>
       );
@@ -68,7 +55,7 @@ export default function EndGame() {
         }}
         onClick={() => setOpen(true)}
       >
-        End Game
+        End Session
       </Button>
       <Dialog open={open()} onClose={() => setOpen(false)}>
         <DialogTitle class="flex justify-center items-center">
@@ -77,7 +64,7 @@ export default function EndGame() {
         <DialogContent>
           <DialogContentText>
             Are you sure you want to{" "}
-            <span class="text-error-500"> end this game</span>?
+            <span class="text-error-500"> end the session</span>?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}
@@ -95,7 +82,7 @@ export default function EndGame() {
       <Show when={dialogOpen()}>
         <CommonDialog
           open={dialogOpen()}
-          title="Session Status"
+          title="Ending Session Status"
           content={dialogContent()}
           onClose={() => setDialogOpen(false)}
           showCancelButton={false}

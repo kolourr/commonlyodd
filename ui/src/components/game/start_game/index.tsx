@@ -17,6 +17,8 @@ import {
   messageData,
 } from "./types";
 import Score, { openScoreDialog } from "./score";
+import NewGameEndSession from "../end";
+import Complete from "./complete";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -45,6 +47,9 @@ const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 const [dialogTitle, setDialogTitle] = createSignal<string | JSX.Element>();
 const [enterScore, setEnterScore] = createSignal(false);
 const [readyToContinue, setReadyToContinue] = createSignal(false);
+const [gameWinner, setGameWinner] = createSignal(false);
+const [teamGameWinner, setTeamGameWinner] = createSignal<string>();
+const [gameComplete, setGameComplete] = createSignal(false);
 
 export const sendMessage = (message: messageData) => {
   if (isSessionActive() && isSessionStarter() && gameWebSocket) {
@@ -137,6 +142,7 @@ export default function StartGame() {
         break;
       case "continue-answer":
         // Update game state with new objects and images
+        setGameWinner(false);
         setObjectsImages(msg);
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);
@@ -144,8 +150,25 @@ export default function StartGame() {
         setReadyToContinue(false); // Reset ready to continue
         break;
       case "end-game":
+        setTeamGameWinner(msg.game_winner);
+        setGameWinner(true);
         break;
-      // Handle other game states as needed
+      case "new-game-started":
+        setGameWinner(false);
+        setIsGameInProgress(true);
+        setObjectsImages(msg);
+        setTeamID(msg.team_id);
+        setTeamName(msg.team_name);
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
+        setReadyToContinue(false);
+        break;
+      case "complete":
+        setIsGameInProgress(false);
+        setGameComplete(true);
+        localStorage.removeItem("session_uuid");
+        localStorage.removeItem("starter_token");
+        break;
     }
   }
 
@@ -228,6 +251,12 @@ export default function StartGame() {
       </Show>
       <Show when={enterScore()}>
         <Score />
+      </Show>
+      <Show when={gameWinner()}>
+        <NewGameEndSession game_winner={teamGameWinner()} />
+      </Show>
+      <Show when={gameComplete()}>
+        <Complete />
       </Show>
     </div>
   );
