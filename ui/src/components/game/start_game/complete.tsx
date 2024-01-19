@@ -8,14 +8,17 @@ import {
 } from "@suid/material";
 import { createSignal } from "solid-js";
 
-export default function Complete() {
-  const [open, setOpen] = createSignal(false);
+const [open, setOpen] = createSignal(false);
 
-  const handleClose = (event: Event, reason?: string) => {
-    if (reason !== "backdropClick") {
-      setOpen(false);
-    }
-  };
+const handleClose = () => {
+  setOpen(false);
+};
+
+export const handleCompleteOpen = () => {
+  setOpen(true);
+};
+
+export default function Complete() {
   return (
     <div>
       <Dialog

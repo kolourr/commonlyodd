@@ -20,7 +20,7 @@ import CommonDialog from "../common_dialog";
 const [open, setOpen] = createSignal(false);
 const [value, setValue] = createSignal<number>(0);
 const [confirmOpen, setConfirmOpen] = createSignal(false);
-const [scoreSubmittedDialogOpen, setScoreSubmittedDialogOpen] =
+export const [scoreSubmittedDialogOpen, setScoreSubmittedDialogOpen] =
   createSignal(false);
 
 const handleClose = () => {
@@ -38,6 +38,10 @@ const handleSubmitScore = () => {
 
 const handleScoreSubmitted = () => {
   setScoreSubmittedDialogOpen(true);
+};
+
+const closeScoreSubmittedDialog = () => {
+  setScoreSubmittedDialogOpen(false);
 };
 
 export const openScoreDialog = () => {
@@ -100,7 +104,7 @@ export default function Score() {
           open={scoreSubmittedDialogOpen()}
           title="Score Status"
           content="Thanks for submitting the score."
-          onClose={() => setScoreSubmittedDialogOpen(false)}
+          onClose={closeScoreSubmittedDialog}
           showCancelButton={false}
         />
       </Show>

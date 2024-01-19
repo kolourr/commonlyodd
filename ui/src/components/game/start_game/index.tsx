@@ -17,8 +17,9 @@ import {
   messageData,
 } from "./types";
 import Score, { openScoreDialog } from "./score";
-import NewGameEndSession from "../end";
-import Complete from "./complete";
+import NewGameEndSession, { handleClickOpenNewGameEndSession } from "../end";
+import Complete, { handleCompleteOpen } from "./complete";
+import { setScoreSubmittedDialogOpen } from "./score";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -50,6 +51,8 @@ const [readyToContinue, setReadyToContinue] = createSignal(false);
 const [gameWinner, setGameWinner] = createSignal(false);
 const [teamGameWinner, setTeamGameWinner] = createSignal<string>();
 const [gameComplete, setGameComplete] = createSignal(false);
+const [newGameStarted, setNewGameStarted] = createSignal(false);
+const [complete, setComplete] = createSignal(false);
 
 export const sendMessage = (message: messageData) => {
   if (isSessionActive() && isSessionStarter() && gameWebSocket) {
@@ -139,6 +142,8 @@ export default function StartGame() {
         setTeamID(msg.team_id);
         setTeamName(msg.team_name);
         setReadyToContinue(true);
+        setScoreSubmittedDialogOpen(false);
+        setNewGameStarted(false);
         break;
       case "continue-answer":
         // Update game state with new objects and images
@@ -147,13 +152,18 @@ export default function StartGame() {
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);
         setIsGameInProgress(true);
-        setReadyToContinue(false); // Reset ready to continue
+        setReadyToContinue(false);
+        setScoreSubmittedDialogOpen(false);
+        setNewGameStarted(false);
         break;
       case "end-game":
+        console.info("end-game");
         setTeamGameWinner(msg.game_winner);
         setGameWinner(true);
         break;
       case "new-game-started":
+        console.info("new-game-started");
+        setNewGameStarted(true);
         setGameWinner(false);
         setIsGameInProgress(true);
         setObjectsImages(msg);
@@ -162,8 +172,11 @@ export default function StartGame() {
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);
         setReadyToContinue(false);
+        setScoreSubmittedDialogOpen(false);
         break;
       case "complete":
+        console.info("complete");
+        setComplete(true);
         setIsGameInProgress(false);
         setGameComplete(true);
         localStorage.removeItem("session_uuid");
@@ -188,6 +201,10 @@ export default function StartGame() {
       setEnterScore(true);
     } else if (readyToContinue()) {
       sendMessage({ game_state: "continue" });
+    } else if (gameWinner()) {
+      handleClickOpenNewGameEndSession();
+    } else if (complete()) {
+      handleCompleteOpen();
     } else {
       sendMessage({ game_state: "start" });
     }
@@ -200,7 +217,13 @@ export default function StartGame() {
     return (
       !isSessionActive() ||
       !isSessionStarter() ||
-      (isGameInProgress() && !timerUp() && !enterScore() && !readyToContinue())
+      (isGameInProgress() &&
+        !timerUp() &&
+        !enterScore() &&
+        !readyToContinue() &&
+        !newGameStarted() &&
+        !gameWinner() &&
+        !gameComplete())
     );
   }
 
@@ -213,6 +236,10 @@ export default function StartGame() {
       return "Continue";
     } else if (isGameInProgress()) {
       return "Game in Progress";
+    } else if (newGameStarted()) {
+      return "New Game Started";
+    } else if (gameWinner()) {
+      return "End Session or Start New Game";
     } else {
       return "Start Game";
     }

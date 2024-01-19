@@ -11,31 +11,29 @@ import { GameWinner } from "../start_game/types";
 import EndSessionMessage from "./end_session";
 import NewGame from "./new_game";
 
-export default function NewGameEndSession(props: GameWinner) {
-  const [open, setOpen] = createSignal(false);
-  const [isSessionStarter, setIsSessionStarter] = createSignal(
-    checkIfSessionStarter()
-  );
+const [open, setOpen] = createSignal(false);
+const [isSessionStarter, setIsSessionStarter] = createSignal(
+  checkIfSessionStarter()
+);
 
-  function checkIfSessionStarter() {
-    const sessionUuid = localStorage.getItem("session_uuid");
-    const starterToken = localStorage.getItem("starter_token");
-    return !!sessionUuid && !!starterToken;
+function checkIfSessionStarter() {
+  const sessionUuid = localStorage.getItem("session_uuid");
+  const starterToken = localStorage.getItem("starter_token");
+  return !!sessionUuid && !!starterToken;
+}
+
+const handleClose = (event: Event, reason?: string) => {
+  if (reason !== "backdropClick") {
+    setOpen(false);
   }
+};
+export const handleClickOpenNewGameEndSession = () => {
+  setOpen(true);
+};
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event: Event, reason?: string) => {
-    if (reason !== "backdropClick") {
-      setOpen(false);
-    }
-  };
-
+export default function NewGameEndSession(props: GameWinner) {
   return (
     <div>
-      <Button onClick={handleClickOpen}>Open Dialog</Button>
       <Dialog
         open={open()}
         onClose={handleClose}
