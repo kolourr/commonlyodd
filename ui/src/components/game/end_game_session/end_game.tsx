@@ -24,7 +24,7 @@ export default function EndGame() {
   async function endSession() {
     setLoading(true);
     try {
-      // Remove session UUID and starter token in local storage
+      // Remove session UUID from local storage
       localStorage.removeItem("session_uuid");
 
       // Reset session link and Notify user

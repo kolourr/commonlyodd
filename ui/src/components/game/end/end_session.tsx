@@ -10,6 +10,7 @@ import {
 } from "@suid/material";
 import CommonDialog from "../common_dialog";
 import { sendMessage } from "../start_game";
+import { useNavigate } from "solid-app-router";
 
 export default function EndSessionMessage() {
   const [open, setOpen] = createSignal(false);
@@ -18,11 +19,21 @@ export default function EndSessionMessage() {
   const [dialogContent, setDialogContent] = createSignal<
     string | JSX.Element
   >();
+  const navigate = useNavigate();
 
   async function endSession() {
     setLoading(true);
     try {
       sendMessage({ game_state: "end" });
+      // Remove session UUID and starter token in local storage
+      localStorage.removeItem("session_uuid");
+      localStorage.removeItem("starter_token");
+
+      // Refresh the page after a short delay
+      setTimeout(() => {
+        location.reload();
+        navigate("/");
+      }, 1000);
       setDialogContent(
         <>
           Session has ended <span class="text-success-500">successfully</span>.

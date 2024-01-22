@@ -24,7 +24,9 @@ export default function ConfirmScoreDialog(props: ConfirmScoreDialogProps) {
       game_state: "score",
       team_id: props.teamId,
       individual_team_score: props.score,
+      team_name: props.teamName,
     };
+    console.info(message);
     sendMessage(message);
     props.onScoreSubmitted();
     props.onClose();

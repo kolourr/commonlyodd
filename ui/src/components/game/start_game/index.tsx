@@ -39,7 +39,7 @@ export const [targetScore, setTargetScore] = createSignal<number | undefined>(
 );
 
 const [isSessionActive, setIsSessionActive] = createSignal(false);
-const [isSessionStarter, setIsSessionStarter] = createSignal(false);
+export const [isSessionStarter, setIsSessionStarter] = createSignal(false);
 const [isGameInProgress, setIsGameInProgress] = createSignal(false);
 let gameWebSocket: WebSocket | null = null;
 const BASE_API = import.meta.env.CO_API_URL;
@@ -49,7 +49,7 @@ const [dialogTitle, setDialogTitle] = createSignal<string | JSX.Element>();
 const [enterScore, setEnterScore] = createSignal(false);
 const [readyToContinue, setReadyToContinue] = createSignal(false);
 const [gameWinner, setGameWinner] = createSignal(false);
-const [teamGameWinner, setTeamGameWinner] = createSignal<string>();
+const [teamGameWinner, setTeamGameWinner] = createSignal<string | undefined>();
 const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
 const [complete, setComplete] = createSignal(false);
@@ -158,29 +158,35 @@ export default function StartGame() {
         break;
       case "end-game":
         console.info("end-game");
-        setTeamGameWinner(msg.game_winner);
+        console.info(msg);
+        setEnterScore(false);
+        setTimerUp(false);
+        setScoreSubmittedDialogOpen(false);
+        setNewGameStarted(false);
+        setIsGameInProgress(false);
+        setReadyToContinue(false);
         setGameWinner(true);
+        setTeamGameWinner(msg.game_winner);
+        console.info(teamGameWinner());
         break;
       case "new-game-started":
         console.info("new-game-started");
         setNewGameStarted(true);
-        setGameWinner(false);
         setIsGameInProgress(true);
+        setGameWinner(false);
+        setReadyToContinue(false);
+        setScoreSubmittedDialogOpen(false);
         setObjectsImages(msg);
         setTeamID(msg.team_id);
         setTeamName(msg.team_name);
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);
-        setReadyToContinue(false);
-        setScoreSubmittedDialogOpen(false);
         break;
       case "complete":
         console.info("complete");
         setComplete(true);
         setIsGameInProgress(false);
         setGameComplete(true);
-        localStorage.removeItem("session_uuid");
-        localStorage.removeItem("starter_token");
         break;
     }
   }
@@ -196,13 +202,13 @@ export default function StartGame() {
   function handleButtonClick() {
     if (enterScore()) {
       openScoreDialog();
+    } else if (gameWinner()) {
+      handleClickOpenNewGameEndSession();
     } else if (timerUp()) {
       sendMessage({ game_state: "reveal" });
       setEnterScore(true);
     } else if (readyToContinue()) {
       sendMessage({ game_state: "continue" });
-    } else if (gameWinner()) {
-      handleClickOpenNewGameEndSession();
     } else if (complete()) {
       handleCompleteOpen();
     } else {
@@ -236,8 +242,6 @@ export default function StartGame() {
       return "Continue";
     } else if (isGameInProgress()) {
       return "Game in Progress";
-    } else if (newGameStarted()) {
-      return "New Game Started";
     } else if (gameWinner()) {
       return "End Session or Start New Game";
     } else {

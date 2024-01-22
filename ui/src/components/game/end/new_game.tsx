@@ -1,47 +1,53 @@
-import { JSX, Show, createSignal } from "solid-js";
+import { createSignal, JSX, Show } from "solid-js";
 import {
   Button,
-  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
+  Slide,
 } from "@suid/material";
+import { TransitionProps } from "@suid/material/transitions";
+import NumberOfTeams from "../start_session/number_of_teams";
+import TargetScore from "../start_session/target_score";
 import CommonDialog from "../common_dialog";
-import { sendMessage } from "../start_game";
+import { openNewGameConfirmDialog } from "./confirm_new_game_start";
+
+const Transition = (props: TransitionProps & { children: any }) => (
+  <Slide direction="down" {...props} />
+);
 
 export default function NewGame() {
   const [open, setOpen] = createSignal(false);
-  const [loading, setLoading] = createSignal(false);
+  const [teams, setTeams] = createSignal<number>(0);
+  const [targetScore, setTargetScore] = createSignal<number>(0);
   const [dialogOpen, setDialogOpen] = createSignal(false);
   const [dialogContent, setDialogContent] = createSignal<
     string | JSX.Element
   >();
 
-  async function startNewGame() {
-    setLoading(true);
-    try {
-      sendMessage({ game_state: "new-game" });
-      setDialogContent(
-        <>
-          New game started <span class="text-success-500">successfully</span>.
-        </>
-      );
-      setDialogOpen(true);
-    } catch (error) {
-      setDialogContent(
-        <>
-          <span class="text-error-500">Error</span> starting new game. Please
-          try again.
-        </>
-      );
-      setDialogOpen(true);
-    } finally {
-      setLoading(false);
+  const handleStartClick = () => {
+    if (teams() > 0 && targetScore() > 0) {
       setOpen(false);
+      console.info("teams and target scorer:", teams(), targetScore());
+      openNewGameConfirmDialog(teams(), targetScore());
+    } else {
+      setDialogContent(
+        <>
+          Please select both the
+          <span class="text-error-500"> number of teams</span> and a
+          <span class="text-error-500"> target score</span> to start the
+          session.
+        </>
+      );
+
+      setDialogOpen(true);
     }
-  }
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
@@ -57,32 +63,26 @@ export default function NewGame() {
       >
         Start New Game
       </Button>
-      <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle class="flex justify-center items-center">
-          Please Confirm
+      <Dialog
+        open={open()}
+        TransitionComponent={Transition}
+        onClose={handleClose}
+      >
+        <DialogTitle>
+          {"Select the target score and number of teams to start!"}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText>
-            Are you sure you want to{" "}
-            <span class="text-error-500"> start a new game</span>?
-          </DialogContentText>
-          <div class="flex flex-row justify-center py-4">
-            {loading() && <CircularProgress color="success" />}{" "}
-          </div>
+          <NumberOfTeams setTeams={setTeams} />
+          <TargetScore setTargetScore={setTargetScore} />
         </DialogContent>
         <DialogActions>
-          <Button onClick={() => setOpen(false)} disabled={loading()}>
-            Cancel
-          </Button>
-          <Button onClick={startNewGame} disabled={loading()}>
-            Confirm
-          </Button>
+          <Button onClick={handleStartClick}>Start New Game</Button>
         </DialogActions>
       </Dialog>
       <Show when={dialogOpen()}>
         <CommonDialog
           open={dialogOpen()}
-          title="New Game Status"
+          title="Just making sure!"
           content={dialogContent()}
           onClose={() => setDialogOpen(false)}
           showCancelButton={false}

@@ -52,6 +52,9 @@ export interface messageData {
   game_state: string;
   team_id?: number | undefined;
   individual_team_score?: number | undefined;
+  team_name?: string;
+  number_of_teams?: number;
+  target_score?: number;
 }
 
 export interface GameWinner {

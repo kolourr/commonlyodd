@@ -22,12 +22,13 @@ export default function EndSession() {
   const sessionUuid = localStorage.getItem("session_uuid");
   const starterToken = localStorage.getItem("starter_token");
   const navigate = useNavigate();
+  const BASE_API = import.meta.env.CO_API_URL;
 
   async function endSession() {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:8080/end-session?sessionUUID=${sessionUuid}&starterToken=${starterToken}`,
+        `${BASE_API}/end-session?sessionUUID=${sessionUuid}&starterToken=${starterToken}`,
         {
           method: "POST",
         }
