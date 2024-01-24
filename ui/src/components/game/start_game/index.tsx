@@ -135,6 +135,7 @@ export default function StartGame() {
         setDialogOpen(true);
         break;
       case "continue":
+        console.info(msg);
         // Prepare for the next round
         setEnterScore(false);
         setTimerUp(false);
@@ -149,8 +150,6 @@ export default function StartGame() {
         // Update game state with new objects and images
         setGameWinner(false);
         setObjectsImages(msg);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
         setIsGameInProgress(true);
         setReadyToContinue(false);
         setScoreSubmittedDialogOpen(false);
@@ -178,6 +177,7 @@ export default function StartGame() {
         setScoreSubmittedDialogOpen(false);
         setObjectsImages(msg);
         setTeamID(msg.team_id);
+        console.info(msg.team_id);
         setTeamName(msg.team_name);
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);

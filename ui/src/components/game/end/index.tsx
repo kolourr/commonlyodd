@@ -47,7 +47,9 @@ export default function NewGameEndSession(props: GameWinner) {
                   of teams and have no repeat questions, click below
                 </DialogContentText>
                 <div class="flex justify-center">
-                  <NewGame />
+                  <Router>
+                    <NewGame />
+                  </Router>
                 </div>
               </DialogContent>
             </div>
@@ -58,7 +60,9 @@ export default function NewGameEndSession(props: GameWinner) {
                   button below.
                 </DialogContentText>
                 <div class="flex justify-center">
-                  <EndSessionMessage />
+                  <Router>
+                    <EndSessionMessage />
+                  </Router>
                 </div>
               </DialogContent>
             </div>

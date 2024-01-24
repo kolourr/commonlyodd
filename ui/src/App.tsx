@@ -13,9 +13,11 @@ const ConfirmStartNewGameDialog = lazy(
 const App: Component = () => {
   return (
     <>
-      <Game />
-      <ConfirmStartDialog />
-      <ConfirmStartNewGameDialog />
+      <Router>
+        <Game />
+        <ConfirmStartDialog />
+        <ConfirmStartNewGameDialog />
+      </Router>
     </>
   );
 };

@@ -8,10 +8,18 @@ import (
 )
 
 func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage, gameData map[string]string) {
+
     // Start a database transaction
     tx, err := database.DB.Begin()
     if err != nil {
         log.Printf("Error starting transaction: %v", err)
+        return
+    }
+
+    // Update game state to 'new-game' in the database
+    if err := updateGameStateInDB(sessionUUID, "new-game"); err != nil {
+        tx.Rollback()
+        log.Printf("Error updating game state to 'new-game': %v", err)
         return
     }
 
@@ -29,18 +37,20 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
         return
     }
 
-    // Update game state to 'new-game' in the database
-    if err := updateGameStateInDB(sessionUUID, "new-game"); err != nil {
-        tx.Rollback()
-        log.Printf("Error updating game state to 'new-game': %v", err)
-        return
-    }
-
     // Commit the transaction
     if err := tx.Commit(); err != nil {
         log.Printf("Error committing transaction: %v", err)
         return
     }
+
+
+    // Fetch session details
+    numberOfTeams, targetScore, err := FetchSessionDetails(sessionUUID)
+    if err != nil {
+        log.Printf("Error fetching session details: %v", err)
+        return
+    }
+
 
     // Fetch updated team details
     teams, err := fetchTeamsForSession(sessionUUID)
@@ -48,6 +58,15 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
         log.Printf("Error fetching updated teams: %v", err)
         return
     }
+
+    // Ensure there is at least one team
+    if len(teams) == 0 {
+        log.Printf("No teams found for session: %s", sessionUUID)
+        return
+    }
+
+    // Prepare the first team's details
+    firstTeam := teams[0]
 
     // Prepare updated team scores for the message
     teamScores := make([]TeamScore, len(teams))
@@ -62,11 +81,9 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
         return
     }
 
-    // Fetch session details
-    numberOfTeams, targetScore, err := FetchSessionDetails(sessionUUID)
-    if err != nil {
-        log.Printf("Error fetching session details: %v", err)
-        return
+    // Initialize gameData if it's nil
+    if gameData == nil {
+        gameData = make(map[string]string)
     }
 
     // Store odd and reason for similarity in gameData map
@@ -82,8 +99,8 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
         GameState:     "new-game-started",
         ObjsImageLinks: questionData,
         GameTeamsScore: teamScores,
-        TeamID:         teams[0].ID,
-        TeamName:       teams[0].Name,
+        TeamID:         firstTeam.ID,
+        TeamName:       firstTeam.Name,
         NumberOfTeams: numberOfTeams,
         TargetScore:   targetScore,
 

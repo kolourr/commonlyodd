@@ -18,6 +18,7 @@ import EndGameSession from "./end_game_session";
 import StartGame, { objectsImages } from "./start_game";
 import GameImages from "./start_game/images";
 import Timer from "./start_game/timer";
+import TeamScores from "./team_scores";
 
 export const [sessionLink, setSessionLink] = createSignal(
   "https://co.com/click-to-start"
@@ -75,6 +76,8 @@ export default function Game() {
             <StartGame />
           </div>
           <GameImages gameData={objectsImages()} />
+
+          <TeamScores />
         </div>
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
           <Timer />

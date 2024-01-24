@@ -11,8 +11,6 @@ import {
 import { sendMessage } from "../start_game";
 import CommonDialog from "../common_dialog";
 import { messageData } from "../start_game/types";
-import { useNavigate } from "solid-app-router";
-import { sessionLink, setSessionLink } from "../index";
 
 const [open, setOpen] = createSignal(false);
 const [loading, setLoading] = createSignal(false);
@@ -20,17 +18,17 @@ const [selectedTeams, setSelectedTeams] = createSignal<number>(0);
 const [selectedScore, setSelectedScore] = createSignal<number>(0);
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
-const navigate = useNavigate();
-const oldSessionLink = sessionLink();
 
-export function openNewGameConfirmDialog(teams: number, targetScore: number) {
+export async function openNewGameConfirmDialog(
+  teams: number,
+  targetScore: number
+) {
   setSelectedTeams(teams);
   setSelectedScore(targetScore);
   setOpen(true);
 }
 
 async function startNewGame() {
-  console.info("oldsesssionlink:", oldSessionLink);
   setLoading(true);
   try {
     const message: messageData = {
@@ -48,14 +46,6 @@ async function startNewGame() {
     );
 
     setDialogOpen(true);
-
-    // Refresh the page after a short delay
-    setTimeout(() => {
-      location.reload();
-      navigate("/");
-    }, 1000);
-
-    setSessionLink(oldSessionLink);
   } catch (error) {
     console.error("Failed to start new game:", error);
     setDialogContent(

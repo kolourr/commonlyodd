@@ -18,7 +18,7 @@ const [selectedScore, setSelectedScore] = createSignal<number>(0);
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 
-export function openConfirmDialog(teams: number, targetScore: number) {
+export async function openConfirmDialog(teams: number, targetScore: number) {
   setSelectedTeams(teams);
   setSelectedScore(targetScore);
   setOpen(true);
