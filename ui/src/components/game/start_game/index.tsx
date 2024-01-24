@@ -156,8 +156,6 @@ export default function StartGame() {
         setNewGameStarted(false);
         break;
       case "end-game":
-        console.info("end-game");
-        console.info(msg);
         setEnterScore(false);
         setTimerUp(false);
         setScoreSubmittedDialogOpen(false);
@@ -169,7 +167,6 @@ export default function StartGame() {
         console.info(teamGameWinner());
         break;
       case "new-game-started":
-        console.info("new-game-started");
         setNewGameStarted(true);
         setIsGameInProgress(true);
         setGameWinner(false);

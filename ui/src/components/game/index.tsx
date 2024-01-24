@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js";
+import { Show, createSignal } from "solid-js";
 import { Button } from "@suid/material";
 import {
   SportsEsportsOutlined,
@@ -28,6 +28,7 @@ export default function Game() {
   const [showRulesModal, setShowRulesModal] = createSignal(false);
   const [showFAQModal, setShowFAQModal] = createSignal(false);
   const [showLegalModal, setShowLegalModal] = createSignal(false);
+  const [showTeamScores, setShowTeamScores] = createSignal(false);
 
   return (
     <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-7xl mx-auto">
@@ -76,8 +77,9 @@ export default function Game() {
             <StartGame />
           </div>
           <GameImages gameData={objectsImages()} />
-
-          <TeamScores />
+          <Show when={showTeamScores()}>
+            <TeamScores />
+          </Show>
         </div>
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
           <Timer />
@@ -90,7 +92,10 @@ export default function Game() {
               openModal={showLegalModal()}
               setOpenModal={setShowLegalModal}
             />
-            <Button sx={{ bgcolor: "#fecdd3", color: "#db2777" }}>
+            <Button
+              onClick={() => setShowTeamScores(!showTeamScores())}
+              sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
+            >
               <SportsScoreOutlined fontSize="large" />
             </Button>
           </div>
