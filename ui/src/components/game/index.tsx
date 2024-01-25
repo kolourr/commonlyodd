@@ -1,4 +1,4 @@
-import { Show, createSignal } from "solid-js";
+import { Show, createEffect, createSignal } from "solid-js";
 import { Button } from "@suid/material";
 import {
   SportsEsportsOutlined,
@@ -18,7 +18,7 @@ import EndGameSession from "./end_game_session";
 import StartGame, { objectsImages } from "./start_game";
 import GameImages from "./start_game/images";
 import Timer from "./start_game/timer";
-import TeamScores from "./team_scores";
+import TeamScores, { dialogOpen, sessionStarted } from "./team_scores";
 
 export const [sessionLink, setSessionLink] = createSignal(
   "https://co.com/click-to-start"
@@ -29,6 +29,12 @@ export default function Game() {
   const [showFAQModal, setShowFAQModal] = createSignal(false);
   const [showLegalModal, setShowLegalModal] = createSignal(false);
   const [showTeamScores, setShowTeamScores] = createSignal(false);
+
+  createEffect(() => {
+    if (sessionStarted() && !dialogOpen()) {
+      setShowTeamScores(false);
+    }
+  });
 
   return (
     <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-7xl mx-auto">
@@ -78,7 +84,7 @@ export default function Game() {
           </div>
           <GameImages gameData={objectsImages()} />
           <Show when={showTeamScores()}>
-            <TeamScores />
+            <TeamScores showTeamScores={showTeamScores()} />
           </Show>
         </div>
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">

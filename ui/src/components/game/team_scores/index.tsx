@@ -19,17 +19,13 @@ export const [messageSent, setMessageSent] = createSignal<messageData>();
 const [teamScores, setTeamScores] = createStore<number[]>([]);
 let lastProcessedMessage: messageData | undefined;
 
-export default function TeamScores() {
-  const [dialogOpen, setDialogOpen] = createSignal(false);
+export const [dialogOpen, setDialogOpen] = createSignal(false);
 
-  // Initialize or update the teamScores array length based on numberOfTeams
-  createEffect(() => {
-    const numTeams = numberOfTeams() || 0;
-    if (teamScores.length !== numTeams) {
-      setTeamScores(Array(numTeams).fill(0));
-    }
-  });
+// Check if the session has started
+export const sessionStarted = () =>
+  numberOfTeams() !== undefined && targetScore() !== undefined;
 
+export default function TeamScores(props: { showTeamScores: boolean }) {
   const updateTeamScore = () => {
     const currentMessage = messageSent();
     const teamName = currentMessage?.team_name;
@@ -48,6 +44,13 @@ export default function TeamScores() {
       }
     }
   };
+  // Initialize or update the teamScores array length based on numberOfTeams
+  createEffect(() => {
+    const numTeams = numberOfTeams() || 0;
+    if (teamScores.length !== numTeams) {
+      setTeamScores(Array(numTeams).fill(0));
+    }
+  });
 
   createEffect(() => {
     if (
@@ -58,14 +61,9 @@ export default function TeamScores() {
     }
   });
 
-  // Check if the session has started
-  const sessionStarted = () =>
-    numberOfTeams() !== undefined && targetScore() !== undefined;
-
   createEffect(() => {
     setDialogOpen(!sessionStarted());
   });
-
   return (
     <>
       <Show when={dialogOpen()}>
@@ -78,7 +76,7 @@ export default function TeamScores() {
         />
       </Show>
 
-      <Show when={!dialogOpen() && sessionStarted()}>
+      <Show when={props.showTeamScores && !dialogOpen() && sessionStarted()}>
         <TableContainer component={Paper}>
           <Table
             sx={{ backgroundColor: "#e0f2fe", border: "1px solid #38bdf8" }}
