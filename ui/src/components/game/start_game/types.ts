@@ -55,6 +55,7 @@ export interface messageData {
   team_name?: string | undefined;
   number_of_teams?: number;
   target_score?: number;
+  timestamp?: number;
 }
 
 export interface GameWinner {

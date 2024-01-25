@@ -1,6 +1,4 @@
 import { createSignal, Show, For, createEffect } from "solid-js";
-import CommonDialog from "../common_dialog";
-import { numberOfTeams, targetScore } from "../start_game";
 import {
   Paper,
   Table,
@@ -10,60 +8,22 @@ import {
   TableHead,
   TableRow,
 } from "@suid/material";
-import { messageData } from "../start_game/types";
-import { createStore } from "solid-js/store";
+import CommonDialog from "../common_dialog";
+import { numberOfTeams, targetScore } from "../start_game";
 
-export const [messageSent, setMessageSent] = createSignal<messageData>();
+type TeamScoresProps = {
+  teamScores: number[];
+  sessionStarted: boolean;
+};
 
-// Global store for team scores
-const [teamScores, setTeamScores] = createStore<number[]>([]);
-let lastProcessedMessage: messageData | undefined;
+export default function TeamScores(props: TeamScoresProps) {
+  const [dialogOpen, setDialogOpen] = createSignal(false);
 
-export const [dialogOpen, setDialogOpen] = createSignal(false);
-
-// Check if the session has started
-export const sessionStarted = () =>
-  numberOfTeams() !== undefined && targetScore() !== undefined;
-
-export default function TeamScores(props: { showTeamScores: boolean }) {
-  const updateTeamScore = () => {
-    const currentMessage = messageSent();
-    const teamName = currentMessage?.team_name;
-    const score = currentMessage?.individual_team_score;
-
-    // Check if the current message is different from the last processed one
-    if (
-      teamName &&
-      score !== undefined &&
-      currentMessage !== lastProcessedMessage
-    ) {
-      const teamIndex = parseInt(teamName.split(" ")[1]) - 1;
-      if (!isNaN(teamIndex)) {
-        setTeamScores(teamIndex, (prevScore) => prevScore + score);
-        lastProcessedMessage = currentMessage; // Update the last processed message
-      }
-    }
-  };
-  // Initialize or update the teamScores array length based on numberOfTeams
+  // Update dialogOpen based on sessionStarted
   createEffect(() => {
-    const numTeams = numberOfTeams() || 0;
-    if (teamScores.length !== numTeams) {
-      setTeamScores(Array(numTeams).fill(0));
-    }
+    setDialogOpen(!props.sessionStarted);
   });
 
-  createEffect(() => {
-    if (
-      messageSent()?.team_name &&
-      messageSent()?.individual_team_score !== undefined
-    ) {
-      updateTeamScore();
-    }
-  });
-
-  createEffect(() => {
-    setDialogOpen(!sessionStarted());
-  });
   return (
     <>
       <Show when={dialogOpen()}>
@@ -76,7 +36,7 @@ export default function TeamScores(props: { showTeamScores: boolean }) {
         />
       </Show>
 
-      <Show when={props.showTeamScores && !dialogOpen() && sessionStarted()}>
+      <Show when={props.sessionStarted}>
         <TableContainer component={Paper}>
           <Table
             sx={{ backgroundColor: "#e0f2fe", border: "1px solid #38bdf8" }}
@@ -98,7 +58,7 @@ export default function TeamScores(props: { showTeamScores: boolean }) {
                 <TableCell component="th" scope="row">
                   Score
                 </TableCell>
-                <For each={teamScores}>
+                <For each={props.teamScores}>
                   {(score, index) => (
                     <TableCell align="center">{score}</TableCell>
                   )}

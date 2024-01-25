@@ -6,7 +6,6 @@ import {
   SearchOutlined,
   PrivacyTipOutlined,
   SportsScoreOutlined,
-  Score,
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
@@ -15,26 +14,71 @@ import { legalDocuments } from "~/public/data/legal";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
-import StartGame, { objectsImages } from "./start_game";
+import StartGame, {
+  objectsImages,
+  numberOfTeams,
+  targetScore,
+} from "./start_game";
 import GameImages from "./start_game/images";
 import Timer from "./start_game/timer";
-import TeamScores, { dialogOpen, sessionStarted } from "./team_scores";
+import TeamScores from "./team_scores";
+import { messageData } from "./start_game/types";
+import { createStore } from "solid-js/store";
 
 export const [sessionLink, setSessionLink] = createSignal(
   "https://co.com/click-to-start"
 );
+export const [messageSent, setMessageSent] = createSignal<messageData>();
 
 export default function Game() {
   const [showRulesModal, setShowRulesModal] = createSignal(false);
   const [showFAQModal, setShowFAQModal] = createSignal(false);
   const [showLegalModal, setShowLegalModal] = createSignal(false);
   const [showTeamScores, setShowTeamScores] = createSignal(false);
+  const [teamScores, setTeamScores] = createStore<number[]>([]);
+  let lastProcessedTimestamp: number | undefined;
 
+  // Check if the session has started
+  const sessionStarted = () =>
+    numberOfTeams() !== undefined && targetScore() !== undefined;
+
+  // Initialize or update the teamScores array length based on numberOfTeams
   createEffect(() => {
-    if (sessionStarted() && !dialogOpen()) {
-      setShowTeamScores(false);
+    const numTeams = numberOfTeams() || 0;
+    if (teamScores.length !== numTeams) {
+      setTeamScores(Array(numTeams).fill(0));
     }
   });
+
+  const updateTeamScore = (message: messageData) => {
+    const teamName = message?.team_name;
+    const score = message?.individual_team_score;
+    const timestamp = message?.timestamp;
+
+    if (
+      teamName &&
+      score !== undefined &&
+      timestamp !== undefined &&
+      timestamp !== lastProcessedTimestamp
+    ) {
+      const teamIndex = parseInt(teamName.split(" ")[1]) - 1;
+      if (!isNaN(teamIndex)) {
+        setTeamScores(teamIndex, (prevScore) => prevScore + score);
+        lastProcessedTimestamp = timestamp;
+      }
+    }
+  };
+
+  createEffect(() => {
+    const message = messageSent();
+    if (message?.team_name && message?.individual_team_score !== undefined) {
+      updateTeamScore(message);
+    }
+  });
+
+  const handleOpenTeamScores = () => {
+    setShowTeamScores(!showTeamScores());
+  };
 
   return (
     <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-7xl mx-auto">
@@ -84,7 +128,10 @@ export default function Game() {
           </div>
           <GameImages gameData={objectsImages()} />
           <Show when={showTeamScores()}>
-            <TeamScores showTeamScores={showTeamScores()} />
+            <TeamScores
+              teamScores={teamScores}
+              sessionStarted={sessionStarted()}
+            />
           </Show>
         </div>
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
@@ -99,7 +146,7 @@ export default function Game() {
               setOpenModal={setShowLegalModal}
             />
             <Button
-              onClick={() => setShowTeamScores(!showTeamScores())}
+              onClick={handleOpenTeamScores}
               sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
             >
               <SportsScoreOutlined fontSize="large" />
