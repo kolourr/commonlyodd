@@ -22,7 +22,7 @@ import StartGame, {
 import GameImages from "./start_game/images";
 import Timer from "./start_game/timer";
 import TeamScores from "./team_scores";
-import { messageData } from "./start_game/types";
+import { scoreMessageSent } from "./start_game/types";
 import { createStore } from "solid-js/store";
 
 const BASE_API = import.meta.env.CO_UI_URL;
@@ -30,7 +30,7 @@ const BASE_API = import.meta.env.CO_UI_URL;
 export const [sessionLink, setSessionLink] = createSignal(
   `${BASE_API}/click-to-start`
 );
-export const [messageSent, setMessageSent] = createSignal<messageData>();
+export const [messageSent, setMessageSent] = createSignal<scoreMessageSent>();
 
 export default function Game() {
   const [showRulesModal, setShowRulesModal] = createSignal(false);
@@ -52,10 +52,10 @@ export default function Game() {
     }
   });
 
-  const updateTeamScore = (message: messageData) => {
-    const teamName = message?.team_name;
-    const score = message?.individual_team_score;
-    const timestamp = message?.timestamp;
+  const updateTeamScore = (message: scoreMessageSent) => {
+    const teamName = message?.team_name_received;
+    const score = message?.individual_team_score_received;
+    const timestamp = message?.time_stamp_received;
 
     if (
       teamName &&
@@ -73,7 +73,10 @@ export default function Game() {
 
   createEffect(() => {
     const message = messageSent();
-    if (message?.team_name && message?.individual_team_score !== undefined) {
+    if (
+      message?.team_name_received &&
+      message?.individual_team_score_received !== undefined
+    ) {
       updateTeamScore(message);
     }
   });

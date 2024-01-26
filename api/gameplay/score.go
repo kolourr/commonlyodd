@@ -34,11 +34,16 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
 
     nextMsg.NumberOfTeams = numberOfTeams
     nextMsg.TargetScore = targetScore
+    nextMsg.TeamNameReceived = msg.TeamName
+    nextMsg.IndividualTeamScoreReceived = msg.IndividualTeamScore
+    nextMsg.TimeStampReceived = msg.TimeStamp
+
 
     if targetScoreReached {
         // Target score is reached, end the game
         nextMsg.GameState = "end-game"
         nextMsg.GameWinner = msg.TeamName
+
          // Update game state in the database to 'end-game'
         if err := updateGameStateInDB(sessionUUID, "end-game"); err != nil {
             log.Printf("Error updating game state: %v", err)
@@ -55,7 +60,7 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
         nextMsg.GameState = "continue"
         nextMsg.TeamID = nextTeamID
         nextMsg.TeamName = nextTeamName
-        // Update game state in the database to 'continue'
+         // Update game state in the database to 'continue'
         if err := updateGameStateInDB(sessionUUID, "continue"); err != nil {
             log.Printf("Error updating game state: %v", err)
             return

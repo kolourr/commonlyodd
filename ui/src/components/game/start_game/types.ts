@@ -10,6 +10,10 @@ export interface WebSocketMessage {
   team_name?: string;
   number_of_teams?: number;
   target_score?: number;
+  team_name_received?: string | undefined;
+  individual_team_score_received?: number | undefined;
+  time_stamp?: number;
+  time_stamp_received?: number;
 }
 
 export interface TeamScore {
@@ -55,9 +59,15 @@ export interface messageData {
   team_name?: string | undefined;
   number_of_teams?: number;
   target_score?: number;
-  timestamp?: number;
+  time_stamp?: number;
 }
 
 export interface GameWinner {
   game_winner?: string;
+}
+
+export interface scoreMessageSent {
+  team_name_received?: string | undefined;
+  individual_team_score_received?: number | undefined;
+  time_stamp_received?: number;
 }

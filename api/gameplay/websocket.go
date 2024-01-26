@@ -21,6 +21,10 @@ type WebSocketMessage struct {
     TeamName               string              `json:"team_name"`
     NumberOfTeams          int                 `json:"number_of_teams"`
 	TargetScore            float64              `json:"target_score"`
+    TeamNameReceived      string              `json:"team_name_received"`
+    IndividualTeamScoreReceived float64      `json:"individual_team_score_received"`
+    TimeStamp             int              `json:"time_stamp"`
+    TimeStampReceived      int              `json:"time_stamp_received"`
 }
 
 

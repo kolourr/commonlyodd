@@ -8,7 +8,6 @@ import {
 } from "@suid/material";
 import { sendMessage } from ".";
 import { messageData } from "./types";
-import { setMessageSent } from "../index";
 
 interface ConfirmScoreDialogProps {
   open: boolean;
@@ -26,11 +25,9 @@ export default function ConfirmScoreDialog(props: ConfirmScoreDialogProps) {
       team_id: props.teamId,
       individual_team_score: props.score,
       team_name: props.teamName,
-      timestamp: Date.now(),
+      time_stamp: Date.now(),
     };
     sendMessage(message);
-    setMessageSent(message);
-    console.info("Sent message: ", message);
     props.onScoreSubmitted();
     props.onClose();
   };

@@ -34,8 +34,6 @@ func main() {
 	// absPath, _ := filepath.Abs(staticFilesPath)
  	// log.Println("Serving static files from:", absPath)
 
-
-
 	// Setup gin router
  	router := gin.Default()
 	router.GET("/debug/pprof/*any", gin.WrapH(http.DefaultServeMux))

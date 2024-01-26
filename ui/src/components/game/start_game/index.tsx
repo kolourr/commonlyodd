@@ -20,6 +20,7 @@ import Score, { openScoreDialog } from "./score";
 import NewGameEndSession, { handleClickOpenNewGameEndSession } from "../end";
 import Complete, { handleCompleteOpen } from "./complete";
 import { setScoreSubmittedDialogOpen } from "./score";
+import { setMessageSent } from "../index";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -135,8 +136,8 @@ export default function StartGame() {
         setDialogOpen(true);
         break;
       case "continue":
-        console.info(msg);
         // Prepare for the next round
+        setMessageSent(msg);
         setEnterScore(false);
         setTimerUp(false);
         setIsGameInProgress(true);
