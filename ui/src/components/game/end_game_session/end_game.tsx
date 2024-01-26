@@ -20,6 +20,7 @@ export default function EndGame() {
     string | JSX.Element
   >();
   const navigate = useNavigate();
+  const BASE_API = import.meta.env.CO_API_URL;
 
   async function endSession() {
     setLoading(true);
@@ -28,7 +29,7 @@ export default function EndGame() {
       localStorage.removeItem("session_uuid");
 
       // Reset session link and Notify user
-      setSessionLink("https://co.com/click-to-start");
+      setSessionLink(`${BASE_API}/click-to-start`);
       setDialogContent(
         <>
           Game ended <span class="text-success-500">successfully</span>.

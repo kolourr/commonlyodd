@@ -25,8 +25,10 @@ import TeamScores from "./team_scores";
 import { messageData } from "./start_game/types";
 import { createStore } from "solid-js/store";
 
+const BASE_API = import.meta.env.CO_UI_URL;
+
 export const [sessionLink, setSessionLink] = createSignal(
-  "https://co.com/click-to-start"
+  `${BASE_API}/click-to-start`
 );
 export const [messageSent, setMessageSent] = createSignal<messageData>();
 

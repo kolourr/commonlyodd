@@ -252,6 +252,18 @@ export default function StartGame() {
   });
 
   onMount(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuid =
+      urlParams.get("session") || localStorage.getItem("session_uuid");
+    const starterToken = localStorage.getItem("starter_token");
+
+    setIsSessionActive(!!sessionUuid);
+    setIsSessionStarter(!!starterToken);
+
+    if (sessionUuid && !gameWebSocket) {
+      initializeWebSocket(sessionUuid, starterToken || "");
+    }
+
     checkSessionStatus();
   });
 

@@ -17,6 +17,7 @@ render(
     <Router>
       <Routes>
         <Route path="/" component={App} />
+        <Route path="/join" component={App} />
       </Routes>
     </Router>
   ),

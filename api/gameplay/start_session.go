@@ -3,6 +3,7 @@ package gameplay
 import (
 	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
@@ -93,8 +94,9 @@ func StartSession(c *gin.Context) {
 		return
 	}
 
+	appURL := os.Getenv("APP_URL_DEV")
 	// Construct the join link using the sessionUUID
-	joinLink := fmt.Sprintf("https://www.commonlyodd.com/join?session=%s", sessionUUID)
+	joinLink := fmt.Sprintf("%s/join?session=%s",appURL, sessionUUID)
 
 	// Return the session UUID, starter token, and join link to the client
 	c.JSON(http.StatusOK, GameSessionResponse{
