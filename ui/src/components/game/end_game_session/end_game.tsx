@@ -38,11 +38,13 @@ export default function EndGame() {
 
       setDialogOpen(true);
 
-      // Refresh the page after a short delay
+      // Navigate to the base URL
+      navigate("/");
+
+      // Refresh the page after a short delay to ensure navigation is complete
       setTimeout(() => {
         location.reload();
-        navigate("/");
-      }, 1000);
+      }, 500); // Adjust the delay as needed
     } catch (error) {
       setDialogContent(
         <>
