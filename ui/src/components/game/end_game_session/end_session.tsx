@@ -11,6 +11,7 @@ import {
 import { setSessionLink } from "../index";
 import CommonDialog from "../common_dialog";
 import { useNavigate } from "solid-app-router";
+import { sendMessage, setIsSessionEndedEndpoint } from "../start_game";
 
 export default function EndSession() {
   const [open, setOpen] = createSignal(false);
@@ -23,6 +24,7 @@ export default function EndSession() {
   const starterToken = localStorage.getItem("starter_token");
   const navigate = useNavigate();
   const BASE_API = import.meta.env.CO_API_URL;
+  const BASE_UI = import.meta.env.CO_UI_URL;
 
   async function endSession() {
     setLoading(true);
@@ -38,12 +40,15 @@ export default function EndSession() {
         throw new Error("Network response was not ok");
       }
 
+      sendMessage({ game_state: "end" });
+      setIsSessionEndedEndpoint(true);
+
       // Remove session UUID and starter token in local storage
       localStorage.removeItem("session_uuid");
       localStorage.removeItem("starter_token");
 
       // Reset session link and Notify user
-      setSessionLink("https://co.com/click-to-start");
+      setSessionLink(`${BASE_UI}/click-to-start`);
       setDialogContent(
         <>
           Session ended <span class="text-success-500">successfully</span>.
@@ -52,11 +57,13 @@ export default function EndSession() {
 
       setDialogOpen(true);
 
-      // Refresh the page after a short delay
+      // Navigate to the base URL
+      navigate("/");
+
+      // Refresh the page after a short delay to ensure navigation is complete
       setTimeout(() => {
         location.reload();
-        navigate("/");
-      }, 1000);
+      }, 1000); // Adjust the delay as needed
     } catch (error) {
       console.error("Failed to end session:", error);
       setDialogContent(

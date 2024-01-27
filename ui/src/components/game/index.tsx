@@ -1,4 +1,4 @@
-import { Show, createEffect, createSignal } from "solid-js";
+import { Show, createEffect, createSignal, onCleanup, onMount } from "solid-js";
 import { Button } from "@suid/material";
 import {
   SportsEsportsOutlined,
@@ -24,6 +24,7 @@ import Timer from "./start_game/timer";
 import TeamScores from "./team_scores";
 import { scoreMessageSent } from "./start_game/types";
 import { createStore } from "solid-js/store";
+import { Router } from "solid-app-router";
 
 const BASE_API = import.meta.env.CO_UI_URL;
 
@@ -39,10 +40,20 @@ export default function Game() {
   const [showTeamScores, setShowTeamScores] = createSignal(false);
   const [teamScores, setTeamScores] = createStore<number[]>([]);
   let lastProcessedTimestamp: number | undefined;
+  let checkSessionInterval;
 
   // Check if the session has started
   const sessionStarted = () =>
     numberOfTeams() !== undefined && targetScore() !== undefined;
+
+  onMount(() => {
+    // Set up an interval to constantly check the session status
+    checkSessionInterval = setInterval(() => {
+      const sessionHasStarted = sessionStarted();
+      // console.info("Session Started:", sessionHasStarted);
+      // You can perform additional actions here based on session status
+    }, 1000); // Check every 500 milliseconds
+  });
 
   // Initialize or update the teamScores array length based on numberOfTeams
   createEffect(() => {
@@ -129,7 +140,9 @@ export default function Game() {
           </div>
 
           <div class="flex flex-row items-center justify-center  pt-12   ">
-            <StartGame />
+            <Router>
+              <StartGame />
+            </Router>
           </div>
           <GameImages gameData={objectsImages()} />
           <Show when={showTeamScores()}>

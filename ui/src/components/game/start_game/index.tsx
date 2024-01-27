@@ -21,6 +21,7 @@ import NewGameEndSession, { handleClickOpenNewGameEndSession } from "../end";
 import Complete, { handleCompleteOpen } from "./complete";
 import { setScoreSubmittedDialogOpen } from "./score";
 import { setMessageSent } from "../index";
+import { useNavigate } from "solid-app-router";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -38,9 +39,11 @@ export const [numberOfTeams, setNumberOfTeams] = createSignal<
 export const [targetScore, setTargetScore] = createSignal<number | undefined>(
   undefined
 );
+export const [isSessionStarter, setIsSessionStarter] = createSignal(false);
+export const [isSessionEndedEndpoint, setIsSessionEndedEndpoint] =
+  createSignal(false);
 
 const [isSessionActive, setIsSessionActive] = createSignal(false);
-export const [isSessionStarter, setIsSessionStarter] = createSignal(false);
 const [isGameInProgress, setIsGameInProgress] = createSignal(false);
 let gameWebSocket: WebSocket | null = null;
 const BASE_API = import.meta.env.CO_API_URL;
@@ -66,6 +69,8 @@ export const sendMessage = (message: messageData) => {
 };
 
 export default function StartGame() {
+  const navigate = useNavigate();
+
   const checkSessionStatus = () => {
     const sessionUuid = localStorage.getItem("session_uuid");
     const starterToken = localStorage.getItem("starter_token");
@@ -81,6 +86,8 @@ export default function StartGame() {
     const msg: WebSocketMessage = JSON.parse(event.data);
     switch (msg.game_state) {
       case "start-in-progress":
+        console.info(msg);
+
         setIsGameInProgress(true);
         setObjectsImages(msg);
         setTeamID(msg.team_id);
@@ -92,6 +99,8 @@ export default function StartGame() {
         setGameTime(msg);
         break;
       case "time_up":
+        console.info(msg);
+
         setGameTime(msg);
         setTimerUp(true);
         setDialogTitle("Time's Up!!");
@@ -112,6 +121,8 @@ export default function StartGame() {
         setDialogOpen(true);
         break;
       case "reveal-answer":
+        console.info(msg);
+
         setOddReasonForSimilarity(msg);
         setDialogTitle("Answer Revealed!!");
         setDialogContent(
@@ -136,6 +147,8 @@ export default function StartGame() {
         setDialogOpen(true);
         break;
       case "continue":
+        console.info(msg);
+
         // Prepare for the next round
         setMessageSent(msg);
         setEnterScore(false);
@@ -148,6 +161,8 @@ export default function StartGame() {
         setNewGameStarted(false);
         break;
       case "continue-answer":
+        console.info(msg);
+
         // Update game state with new objects and images
         setGameWinner(false);
         setObjectsImages(msg);
@@ -157,6 +172,8 @@ export default function StartGame() {
         setNewGameStarted(false);
         break;
       case "end-game":
+        console.info(msg);
+
         setEnterScore(false);
         setTimerUp(false);
         setScoreSubmittedDialogOpen(false);
@@ -168,6 +185,8 @@ export default function StartGame() {
         console.info(teamGameWinner());
         break;
       case "new-game-started":
+        console.info(msg);
+
         setNewGameStarted(true);
         setIsGameInProgress(true);
         setGameWinner(false);
@@ -181,7 +200,7 @@ export default function StartGame() {
         setTargetScore(msg.target_score);
         break;
       case "complete":
-        console.info("complete");
+        console.info(msg);
         setComplete(true);
         setIsGameInProgress(false);
         setGameComplete(true);
@@ -252,6 +271,24 @@ export default function StartGame() {
     onCleanup(() => clearInterval(interval));
   });
 
+  createEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuid = urlParams.get("session");
+
+    if (
+      (complete() && sessionUuid) ||
+      (isSessionEndedEndpoint() && sessionUuid)
+    ) {
+      // Navigate to the base URL
+      navigate("/");
+
+      // Refresh the page after a short delay to ensure navigation is complete
+      setTimeout(() => {
+        location.reload();
+      }, 1000); // Adjust the delay as needed
+    }
+  });
+
   onMount(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionUuid =
@@ -264,7 +301,6 @@ export default function StartGame() {
     if (sessionUuid && !gameWebSocket) {
       initializeWebSocket(sessionUuid, starterToken || "");
     }
-
     checkSessionStatus();
   });
 

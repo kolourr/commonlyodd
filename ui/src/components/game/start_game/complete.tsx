@@ -21,12 +21,7 @@ export const handleCompleteOpen = () => {
 export default function Complete() {
   return (
     <div>
-      <Dialog
-        open={open()}
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
+      <Dialog open={open()} onClose={handleClose}>
         <DialogTitle id="alert-dialog-title">
           {"The game and session have ended!"}
         </DialogTitle>

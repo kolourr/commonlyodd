@@ -29,17 +29,20 @@ export default function EndSessionMessage() {
       localStorage.removeItem("session_uuid");
       localStorage.removeItem("starter_token");
 
-      // Refresh the page after a short delay
-      setTimeout(() => {
-        location.reload();
-        navigate("/");
-      }, 1000);
       setDialogContent(
         <>
           Session has ended <span class="text-success-500">successfully</span>.
         </>
       );
       setDialogOpen(true);
+
+      // Navigate to the base URL
+      navigate("/");
+
+      // Refresh the page after a short delay to ensure navigation is complete
+      setTimeout(() => {
+        location.reload();
+      }, 1000); // Adjust the delay as needed
     } catch (error) {
       setDialogContent(
         <>
