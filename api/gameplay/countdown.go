@@ -1,7 +1,6 @@
 package gameplay
 
 import (
-	"log"
 	"time"
 
 	"github.com/gorilla/websocket"
@@ -30,19 +29,12 @@ func startCountdown(conn *websocket.Conn, sessionUUID string, duration int) {
         }
     }
 
-        // Fetch session details
-    numberOfTeams, targetScore, err := FetchSessionDetails(sessionUUID)
-    if err != nil {
-        log.Printf("Error fetching session details: %v", err)
-        return
-    }
+
 
 
     // Broadcast the 'time_up' message
     timeUpMsg := WebSocketMessage{
         GameState: "time_up",
-        NumberOfTeams: numberOfTeams,
-        TargetScore: targetScore,
-    }
+     }
     broadcastToSession(sessionUUID, timeUpMsg)
 }

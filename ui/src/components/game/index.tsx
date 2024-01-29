@@ -40,20 +40,20 @@ export default function Game() {
   const [showTeamScores, setShowTeamScores] = createSignal(false);
   const [teamScores, setTeamScores] = createStore<number[]>([]);
   let lastProcessedTimestamp: number | undefined;
-  let checkSessionInterval;
+  // let checkSessionInterval;
 
   // Check if the session has started
   const sessionStarted = () =>
     numberOfTeams() !== undefined && targetScore() !== undefined;
 
-  onMount(() => {
-    // Set up an interval to constantly check the session status
-    checkSessionInterval = setInterval(() => {
-      const sessionHasStarted = sessionStarted();
-      // console.info("Session Started:", sessionHasStarted);
-      // You can perform additional actions here based on session status
-    }, 1000); // Check every 500 milliseconds
-  });
+  // onMount(() => {
+  //   // Set up an interval to constantly check the session status
+  //   checkSessionInterval = setInterval(() => {
+  //     const sessionHasStarted = sessionStarted();
+  //     // console.info("Session Started:", sessionHasStarted);
+  //     // You can perform additional actions here based on session status
+  //   }, 1000); // Check every 500 milliseconds
+  // });
 
   // Initialize or update the teamScores array length based on numberOfTeams
   createEffect(() => {
