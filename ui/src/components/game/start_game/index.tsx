@@ -21,7 +21,6 @@ import NewGameEndSession, { handleClickOpenNewGameEndSession } from "../end";
 import Complete, { handleCompleteOpen } from "./complete";
 import { setScoreSubmittedDialogOpen } from "./score";
 import { setMessageSent } from "../index";
-import { useNavigate } from "solid-app-router";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -57,6 +56,7 @@ const [teamGameWinner, setTeamGameWinner] = createSignal<string | undefined>();
 const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
 const [complete, setComplete] = createSignal(false);
+import { useNavigate } from "solid-app-router";
 
 export const sendMessage = (message: messageData) => {
   if (isSessionActive() && isSessionStarter() && gameWebSocket) {
@@ -294,6 +294,23 @@ export default function StartGame() {
     onCleanup(() => clearInterval(interval));
   });
 
+  //End game for non-starter user if session is ended by starter
+  createEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuid = urlParams.get("session");
+
+    if (complete() && sessionUuid) {
+      // Navigate to the base URL
+      navigate("/");
+
+      // Refresh the page after a short delay to ensure navigation is complete
+      setTimeout(() => {
+        location.reload();
+      }, 1000);
+    }
+  });
+
+  //Start game for non-starter
   onMount(() => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionUuid =
