@@ -59,9 +59,7 @@ export default function TeamScores(props: TeamScoresProps) {
                   Score
                 </TableCell>
                 <For each={props.teamScores}>
-                  {(score, index) => (
-                    <TableCell align="center">{score}</TableCell>
-                  )}
+                  {(score) => <TableCell align="center">{score}</TableCell>}
                 </For>
                 <TableCell align="center">{targetScore()}</TableCell>
               </TableRow>

@@ -87,7 +87,8 @@ export default function StartGame() {
     switch (msg.game_state) {
       case "start-in-progress":
         console.info(msg);
-
+        //update Team Score
+        setMessageSent(msg);
         setIsGameInProgress(true);
         setObjectsImages(msg);
         setTeamID(msg.team_id);
@@ -97,11 +98,16 @@ export default function StartGame() {
         break;
       case "timer_update":
         setGameTime(msg);
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
         break;
       case "time_up":
         console.info(msg);
-
+        //update Team Score
+        setMessageSent(msg);
         setGameTime(msg);
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
         setTimerUp(true);
         setDialogTitle("Time's Up!!");
         setDialogContent(
@@ -122,8 +128,11 @@ export default function StartGame() {
         break;
       case "reveal-answer":
         console.info(msg);
-
+        //update Team Score
+        setMessageSent(msg);
         setOddReasonForSimilarity(msg);
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
         setDialogTitle("Answer Revealed!!");
         setDialogContent(
           <>
@@ -148,9 +157,10 @@ export default function StartGame() {
         break;
       case "continue":
         console.info(msg);
-
-        // Prepare for the next round
+        //update Team Score
         setMessageSent(msg);
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
         setEnterScore(false);
         setTimerUp(false);
         setIsGameInProgress(true);
@@ -162,7 +172,10 @@ export default function StartGame() {
         break;
       case "continue-answer":
         console.info(msg);
-
+        //update Team Score
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
+        setMessageSent(msg);
         // Update game state with new objects and images
         setGameWinner(false);
         setObjectsImages(msg);
@@ -173,7 +186,10 @@ export default function StartGame() {
         break;
       case "end-game":
         console.info(msg);
-
+        //update Team Score
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
+        setMessageSent(msg);
         setEnterScore(false);
         setTimerUp(false);
         setScoreSubmittedDialogOpen(false);
@@ -186,7 +202,10 @@ export default function StartGame() {
         break;
       case "new-game-started":
         console.info(msg);
-
+        //update Team Score
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
+        setMessageSent(msg);
         setNewGameStarted(true);
         setIsGameInProgress(true);
         setGameWinner(false);
@@ -201,6 +220,10 @@ export default function StartGame() {
         break;
       case "complete":
         console.info(msg);
+        //update Team Score
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
+        setMessageSent(msg);
         setComplete(true);
         setIsGameInProgress(false);
         setGameComplete(true);
@@ -269,24 +292,6 @@ export default function StartGame() {
   createEffect(() => {
     const interval = setInterval(checkSessionStatus, 1000);
     onCleanup(() => clearInterval(interval));
-  });
-
-  createEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionUuid = urlParams.get("session");
-
-    if (
-      (complete() && sessionUuid) ||
-      (isSessionEndedEndpoint() && sessionUuid)
-    ) {
-      // Navigate to the base URL
-      navigate("/");
-
-      // Refresh the page after a short delay to ensure navigation is complete
-      setTimeout(() => {
-        location.reload();
-      }, 1000); // Adjust the delay as needed
-    }
   });
 
   onMount(() => {

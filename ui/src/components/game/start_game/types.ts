@@ -67,7 +67,5 @@ export interface GameWinner {
 }
 
 export interface scoreMessageSent {
-  team_name_received?: string | undefined;
-  individual_team_score_received?: number | undefined;
-  time_stamp_received?: number;
+  game_teams_score?: TeamScore[];
 }

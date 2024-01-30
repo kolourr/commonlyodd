@@ -23,6 +23,13 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
         return
     }
 
+    // Fetch current team scores
+    teamScores, err := fetchTeamScores(sessionUUID)
+    if err != nil {
+        log.Printf("Error fetching team scores: %v", err)
+        return
+    }
+
     // Check if target score is reached
     targetScoreReached, err := checkTargetScore(sessionUUID, msg.TeamID)
     if err != nil {
@@ -34,6 +41,9 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
 
     nextMsg.NumberOfTeams = numberOfTeams
     nextMsg.TargetScore = targetScore
+    nextMsg.GameTeamsScore = teamScores
+
+    //Received data
     nextMsg.TeamNameReceived = msg.TeamName
     nextMsg.IndividualTeamScoreReceived = msg.IndividualTeamScore
     nextMsg.TimeStampReceived = msg.TimeStamp
