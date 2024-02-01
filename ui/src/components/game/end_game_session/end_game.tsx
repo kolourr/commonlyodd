@@ -28,6 +28,9 @@ export default function EndGame() {
       // Remove session UUID from local storage
       localStorage.removeItem("session_uuid");
 
+      //incase they left and joined someone else's game
+      localStorage.removeItem("starter_token");
+
       // Reset session link and Notify user
       setSessionLink(`${BASE_API}/click-to-start`);
       setDialogContent(

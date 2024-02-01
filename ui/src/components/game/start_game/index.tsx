@@ -20,7 +20,7 @@ import Score, { openScoreDialog } from "./score";
 import NewGameEndSession, { handleClickOpenNewGameEndSession } from "../end";
 import Complete, { handleCompleteOpen } from "./complete";
 import { setScoreSubmittedDialogOpen } from "./score";
-import { setMessageSent } from "../index";
+import { setMessageSent, setSessionLink } from "../index";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -231,12 +231,19 @@ export default function StartGame() {
     }
   }
 
-  function initializeWebSocket(sessionUuid: string, starterToken: string) {
-    gameWebSocket = createReconnectingWS(
-      BASE_API.replace("http", "ws") +
-        `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
-    );
-    gameWebSocket.addEventListener("message", handleWebSocketMessage);
+  function initializeWebSocket(sessionUuid: string, starterToken?: string) {
+    if (starterToken) {
+      gameWebSocket = createReconnectingWS(
+        BASE_API.replace("http", "ws") +
+          `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
+      );
+      gameWebSocket.addEventListener("message", handleWebSocketMessage);
+    } else {
+      gameWebSocket = createReconnectingWS(
+        BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
+      );
+      gameWebSocket.addEventListener("message", handleWebSocketMessage);
+    }
   }
 
   function handleButtonClick() {
@@ -321,7 +328,8 @@ export default function StartGame() {
     setIsSessionStarter(!!starterToken);
 
     if (sessionUuid && !gameWebSocket) {
-      initializeWebSocket(sessionUuid, starterToken || "");
+      initializeWebSocket(sessionUuid);
+      setSessionLink(window.location.href);
     }
     checkSessionStatus();
   });

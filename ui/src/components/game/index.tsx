@@ -1,11 +1,13 @@
 import { Show, createEffect, createSignal, onCleanup, onMount } from "solid-js";
-import { Button } from "@suid/material";
+import { Button, Typography } from "@suid/material";
 import {
   SportsEsportsOutlined,
   RuleOutlined,
   SearchOutlined,
   PrivacyTipOutlined,
   SportsScoreOutlined,
+  SecurityOutlined,
+  LockClockOutlined,
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
@@ -39,6 +41,7 @@ export default function Game() {
   const [showLegalModal, setShowLegalModal] = createSignal(false);
   const [showTeamScores, setShowTeamScores] = createSignal(false);
   const [teamScores, setTeamScores] = createStore<number[]>([]);
+  const [isTargetScoreReached, setIsTargetScoreReached] = createSignal(false);
 
   // Check if the session has started
   const sessionStarted = () =>
@@ -60,6 +63,13 @@ export default function Game() {
     const message = messageSent();
     if (message?.game_teams_score) {
       updateTeamScores(message.game_teams_score);
+      const target = targetScore();
+      if (target !== undefined) {
+        const reached = message.game_teams_score.some(
+          (score) => score.score >= target
+        );
+        setIsTargetScoreReached(reached);
+      }
     }
   });
 
@@ -81,21 +91,24 @@ export default function Game() {
           </div>
           <div class="flex flex-col space-y-20 items-center justify-center pt-44">
             <InfoModal
-              title={gameRules.title}
-              content={gameRules.content}
-              icon={<RuleOutlined fontSize="large" />}
-              openModal={showRulesModal()}
-              setOpenModal={setShowRulesModal}
-            />
-            <InfoModal
               title={faqTerminology.title}
               content={faqTerminology.content}
               icon={<SportsEsportsOutlined fontSize="large" />}
               openModal={showFAQModal()}
               setOpenModal={setShowFAQModal}
             />
-            <Button sx={{ bgcolor: "#fecdd3", color: "#db2777" }}>
-              <SearchOutlined fontSize="large" />
+            <InfoModal
+              title={gameRules.title}
+              content={gameRules.content}
+              icon={<RuleOutlined fontSize="large" />}
+              openModal={showRulesModal()}
+              setOpenModal={setShowRulesModal}
+            />
+            <Button
+              onClick={handleOpenTeamScores}
+              sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
+            >
+              <SportsScoreOutlined fontSize="large" />
             </Button>
           </div>
         </div>
@@ -115,6 +128,19 @@ export default function Game() {
               <StartGame />
             </Router>
           </div>
+          <Show when={isTargetScoreReached()}>
+            <div class="flex flex-row items-center justify-center  ">
+              <div class="text-center p-4">
+                <Typography variant="h5" gutterBottom component="div">
+                  Head's up!
+                </Typography>
+                <Typography variant="body1" gutterBottom>
+                  The target score has been reached! The game will continue
+                  until a clear winner emerges.
+                </Typography>
+              </div>
+            </div>
+          </Show>
           <GameImages gameData={objectsImages()} />
           <Show when={showTeamScores()}>
             <TeamScores
@@ -134,12 +160,13 @@ export default function Game() {
               openModal={showLegalModal()}
               setOpenModal={setShowLegalModal}
             />
-            <Button
-              onClick={handleOpenTeamScores}
-              sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
-            >
-              <SportsScoreOutlined fontSize="large" />
-            </Button>
+            <InfoModal
+              title={legalDocuments.title}
+              content={legalDocuments.content}
+              icon={<LockClockOutlined fontSize="large" />}
+              openModal={showLegalModal()}
+              setOpenModal={setShowLegalModal}
+            />
           </div>
         </div>
       </div>

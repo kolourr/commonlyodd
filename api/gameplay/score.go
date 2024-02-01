@@ -162,10 +162,6 @@ func checkGameStatus(sessionUUID string, targetScore float64) (bool, bool, bool,
 
 	tieExists := teamsAtHighestScore > 1
 
-	log.Println("Target score reached:", targetScoreReached)
-	log.Println("All teams equal turns:", allTeamsEqualTurns)
-	log.Println("Tie exists:", tieExists)
-
 	return targetScoreReached, allTeamsEqualTurns, tieExists, nil
 }
 

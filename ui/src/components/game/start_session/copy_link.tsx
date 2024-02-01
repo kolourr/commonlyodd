@@ -24,8 +24,8 @@ export default function CopyLink() {
 
   return (
     <div>
-      <Button>
-        <ContentCopy onClick={handleClickOpen} />
+      <Button onClick={handleClickOpen}>
+        <ContentCopy />
       </Button>
       <Dialog
         open={open()}
