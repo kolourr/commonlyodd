@@ -3,10 +3,8 @@ import { Button, Typography } from "@suid/material";
 import {
   SportsEsportsOutlined,
   RuleOutlined,
-  SearchOutlined,
   PrivacyTipOutlined,
   SportsScoreOutlined,
-  SecurityOutlined,
   LockClockOutlined,
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
@@ -91,8 +89,8 @@ export default function Game() {
           </div>
           <div class="flex flex-col space-y-20 items-center justify-center pt-44">
             <InfoModal
-              title={faqTerminology.title}
-              content={faqTerminology.content}
+              title={gameRules.title}
+              content={gameRules.content}
               icon={<SportsEsportsOutlined fontSize="large" />}
               openModal={showFAQModal()}
               setOpenModal={setShowFAQModal}
