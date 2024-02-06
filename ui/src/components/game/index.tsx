@@ -9,7 +9,6 @@ import {
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
-import { faqTerminology } from "~/public/data/faq";
 import { legalDocuments } from "~/public/data/legal";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
@@ -25,6 +24,7 @@ import TeamScores from "./team_scores";
 import { TeamScore, scoreMessageSent } from "./start_game/types";
 import { createStore } from "solid-js/store";
 import { Router } from "solid-app-router";
+import Voice from "./voice";
 
 const BASE_API = import.meta.env.CO_UI_URL;
 
@@ -121,10 +121,16 @@ export default function Game() {
             />
           </div>
 
-          <div class="flex flex-row items-center justify-center  pt-12   ">
-            <Router>
-              <StartGame />
-            </Router>
+          <div class="flex flex-row justify-between p-8   ">
+            <div>
+              {" "}
+              <Router>
+                <StartGame />
+              </Router>
+            </div>
+            <div>
+              <Voice />
+            </div>
           </div>
           <Show when={isTargetScoreReached()}>
             <div class="flex flex-row items-center justify-center  ">
