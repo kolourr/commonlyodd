@@ -35,6 +35,9 @@ export default function Voice() {
   //Unique identifier for the users entering the voice chat
   const rtcUid = Math.floor(Math.random() * 2032);
   const rtmUid = String(Math.floor(Math.random() * 2032));
+  //Host does not count towards the participant limit
+  const MAX_PARTICIPANTS = 9;
+  let totalParticipants: number = 0;
 
   //Check if user is session starter or not
   const checkUserstatus = () => {
@@ -58,19 +61,35 @@ export default function Voice() {
   const initRtc = async () => {
     checkUserstatus();
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
-    await rtcClient.on("user-joined", handleUserJoined);
+
+    // Check if the number of participants exceeds the maximum
+    await rtcClient.on("user-joined", (user: any) => {
+      totalParticipants = Object.keys(audioTracks.remoteAudioTracks).length;
+
+      if (totalParticipants < MAX_PARTICIPANTS) {
+        handleUserJoined(user);
+      } else {
+        //Add indicator for maximum participants reached to let the user know
+        console.info("Maximum participants reached.");
+      }
+    });
     await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("user-left", handleUserLeft);
 
     //Join the channel
     await rtcClient.join(appid, roomId(), token, rtcUid);
-
     //Publish audio track
     audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
     await rtcClient.publish([audioTracks.localAudioTrack]);
     addSessionStarterToDOM(rtcUid);
     setIsInChat(true);
     initVolumeIndicator();
+  };
+
+  const joinVoiceChat = () => {
+    if (totalParticipants < MAX_PARTICIPANTS) {
+      initRtc();
+    }
   };
 
   const initVolumeIndicator = async () => {
@@ -142,11 +161,6 @@ export default function Voice() {
   const toggleMic = () => {
     audioTracks.localAudioTrack.setMuted(micMuted());
     setMicMuted(!micMuted());
-  };
-
-  const joinVoiceChat = () => {
-    // Implement logic to join the voice chat channel here
-    initRtc();
   };
 
   const leaveVoiceChat = async (userId: number) => {
