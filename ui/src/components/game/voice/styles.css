@@ -1,0 +1,9 @@
+.speaker {
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  text-align: center;
+  margin: 0.5em;
+}
