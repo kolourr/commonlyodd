@@ -5,17 +5,21 @@ import {
   MicOutlined,
   MicOffOutlined,
   LogoutOutlined,
-  LoginOutlined,
   HeadsetMicOutlined,
-  HeadsetOffOutlined,
 } from "@suid/icons-material";
-import AgoraRTC, { IMicrophoneAudioTrack } from "agora-rtc-sdk-ng";
+import AgoraRTC, {
+  IAgoraRTCClient,
+  IMicrophoneAudioTrack,
+  UID,
+  IRemoteAudioTrack,
+  IAgoraRTCRemoteUser,
+} from "agora-rtc-sdk-ng";
 import AgoraRTM from "agora-rtm-sdk";
 
 // Audio tracks forlocal and remote users
 let audioTracks = {
   localAudioTrack: null as null | IMicrophoneAudioTrack,
-  remoteAudioTracks: {},
+  remoteAudioTracks: {} as IRemoteAudioTrack[],
 };
 
 export default function Voice() {
@@ -27,7 +31,7 @@ export default function Voice() {
   const appid = import.meta.env.CO_AGORA_APP_ID;
   const token = null;
   // Agora clients and channel
-  let rtcClient: any;
+  let rtcClient: IAgoraRTCClient;
   //Unique identifier for the users entering the voice chat
   const rtcUid = Math.floor(Math.random() * 2032);
   const rtmUid = String(Math.floor(Math.random() * 2032));
@@ -55,10 +59,10 @@ export default function Voice() {
     checkUserstatus();
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
     await rtcClient.on("user-joined", handleUserJoined);
+    await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("user-left", handleUserLeft);
 
     //Join the channel
-
     await rtcClient.join(appid, roomId(), token, rtcUid);
 
     //Publish audio track
@@ -66,6 +70,32 @@ export default function Voice() {
     await rtcClient.publish([audioTracks.localAudioTrack]);
     addSessionStarterToDOM(rtcUid);
     setIsInChat(true);
+    initVolumeIndicator();
+  };
+
+  const initVolumeIndicator = async () => {
+    AgoraRTC.setParameter("AUDIO_VOLUME_INDICATION_INTERVAL", 150);
+    rtcClient.enableAudioVolumeIndicator();
+
+    rtcClient.on("volume-indicator", (volumes) => {
+      volumes.forEach((volume) => {
+        try {
+          const item = document.getElementsByClassName(
+            `user-rtc-${volume.uid}`
+          )[0] as HTMLElement;
+
+          if (item !== null) {
+            if (volume.level >= 50) {
+              item.style.borderColor = "#86efac";
+            } else {
+              item.style.borderColor = "#fca5a5";
+            }
+          }
+        } catch (error) {
+          console.error(error);
+        }
+      });
+    });
   };
 
   const handleUserLeft = async (user: any) => {
@@ -91,6 +121,14 @@ export default function Voice() {
     }
   };
 
+  const handleUserPublished = async (user: any, mediaType: "audio") => {
+    await rtcClient.subscribe(user, mediaType);
+    if (mediaType == "audio") {
+      audioTracks.remoteAudioTracks[user.uid] = [user.audioTrack];
+      user.audioTrack.play();
+    }
+  };
+
   const addSessionStarterToDOM = (userId: number) => {
     const usersDiv = document.querySelector(".users");
     if (usersDiv) {
@@ -102,8 +140,8 @@ export default function Voice() {
   };
 
   const toggleMic = () => {
-    // Implement logic to toggle microphone on/off here
-    // You can use the `setMicMuted` function to update the micMuted state
+    audioTracks.localAudioTrack.setMuted(micMuted());
+    setMicMuted(!micMuted());
   };
 
   const joinVoiceChat = () => {
@@ -155,11 +193,11 @@ export default function Voice() {
           <div class="flex flex-col">
             <div>
               <Button onClick={toggleMic}>
-                {micMuted() ? <MicOffOutlined /> : <MicOutlined />}
+                {micMuted() ? <MicOutlined /> : <MicOffOutlined />}
               </Button>
             </div>
             <span class="text-xs text-center">
-              {micMuted() ? "Mic Off" : "Mic On"}
+              {micMuted() ? "Mic On" : "Mic Off"}
             </span>
           </div>
           <div class="flex flex-col">
