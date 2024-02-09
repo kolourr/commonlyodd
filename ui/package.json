@@ -29,6 +29,7 @@
     "@suid/vite-plugin": "^0.1.5",
     "agora-rtc-sdk-ng": "^4.20.0",
     "agora-rtm-sdk": "^2.1.7",
+    "agora-token": "^2.0.3",
     "path": "^0.12.7",
     "solid-app-router": "^0.4.2",
     "solid-js": "^1.7.6"

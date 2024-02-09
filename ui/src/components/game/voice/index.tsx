@@ -14,7 +14,7 @@ import AgoraRTC, {
   IRemoteAudioTrack,
   IAgoraRTCRemoteUser,
 } from "agora-rtc-sdk-ng";
-import AgoraRTM from "agora-rtm-sdk";
+import AgoraRTMClient from "agora-rtm-sdk";
 
 // Audio tracks forlocal and remote users
 let audioTracks = {
@@ -29,12 +29,18 @@ export default function Voice() {
   const [roomId, setRoomId] = createSignal("");
   const [isInChat, setIsInChat] = createSignal(false);
   const appid = import.meta.env.CO_AGORA_APP_ID;
-  const token = null;
-  // Agora clients and channel
-  let rtcClient: IAgoraRTCClient;
+  const rtmCertificate = import.meta.env.CO_AGORA_APP_CERTIFICATE;
+  const BASE_API = import.meta.env.CO_API_URL;
+
+  const [rtmToken, setRtmToken] = createSignal("");
   //Unique identifier for the users entering the voice chat
   const rtcUid = Math.floor(Math.random() * 2032);
   const rtmUid = String(Math.floor(Math.random() * 2032));
+  // Agora clients and channel
+  let rtcClient: IAgoraRTCClient;
+  let rtmClient: any;
+  let channel: any;
+
   //Host does not count towards the participant limit
   const MAX_PARTICIPANTS = 9;
   let totalParticipants: number = 0;
@@ -57,39 +63,76 @@ export default function Voice() {
     }
   };
 
-  // Agora RTC client
+  const fetchRtmToken = async () => {
+    try {
+      const response = await fetch(`${BASE_API}/generate-tokens`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userId: rtmUid,
+          appId: appid,
+          appCertificate: rtmCertificate,
+        }),
+      });
+      const data = await response.json();
+      const { token } = data;
+      console.info;
+      setRtmToken(token);
+    } catch (error) {
+      console.error("Failed to generate RTM token:", error);
+    }
+  };
+
+  // Agora RTC client - lets only use the RTC for the audio signalling
   const initRtc = async () => {
     checkUserstatus();
+    await fetchRtmToken();
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+    // // Check if the number of participants exceeds the maximum
+    // await rtcClient.on("user-joined", (user: any) => {
+    //   totalParticipants = Object.keys(audioTracks.remoteAudioTracks).length;
 
-    // Check if the number of participants exceeds the maximum
-    await rtcClient.on("user-joined", (user: any) => {
-      totalParticipants = Object.keys(audioTracks.remoteAudioTracks).length;
-
-      if (totalParticipants < MAX_PARTICIPANTS) {
-        handleUserJoined(user);
-      } else {
-        //Add indicator for maximum participants reached to let the user know
-        console.info("Maximum participants reached.");
-      }
-    });
+    //   if (totalParticipants < MAX_PARTICIPANTS) {
+    //     handleUserJoined(user);
+    //   } else {
+    //     //Add indicator for maximum participants reached to let the user know
+    //     console.info("Maximum participants reached.");
+    //   }
+    // });
     await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("user-left", handleUserLeft);
 
     //Join the channel
-    await rtcClient.join(appid, roomId(), token, rtcUid);
+    await rtcClient.join(appid, roomId(), rtmToken(), rtcUid);
     //Publish audio track
     audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
     await rtcClient.publish([audioTracks.localAudioTrack]);
-    addSessionStarterToDOM(rtcUid);
+    // addSessionStarterToDOM(rtcUid);
     setIsInChat(true);
-    initVolumeIndicator();
+    // initVolumeIndicator();
+  };
+
+  const initRtm = async (name) => {
+    checkUserstatus();
+    await fetchRtmToken();
+
+    rtmClient = new AgoraRTMClient.RTM(appid, rtmUid, { token: rtmToken() });
+    await rtmClient.login(); // Login to the RTM service
+
+    channel = rtmClient.createChannel(roomId());
+    await channel.join();
   };
 
   const joinVoiceChat = () => {
-    if (totalParticipants < MAX_PARTICIPANTS) {
-      initRtc();
-    }
+    let displayName = "";
+    initRtc();
+    initRtm(displayName);
+
+    // if (totalParticipants < MAX_PARTICIPANTS) {
+    //   initRtc();
+    // }
   };
 
   const initVolumeIndicator = async () => {
@@ -120,25 +163,25 @@ export default function Voice() {
   const handleUserLeft = async (user: any) => {
     if (audioTracks.localAudioTrack !== null) {
       delete audioTracks.remoteAudioTracks[user.uid];
-      const userElement = document.getElementById(user.uid.toString());
-      if (userElement) {
-        const usersDiv = userElement.parentNode;
-        if (usersDiv) {
-          usersDiv.removeChild(userElement);
-        }
-      }
+      // const userElement = document.getElementById(user.uid.toString());
+      // if (userElement) {
+      //   const usersDiv = userElement.parentNode;
+      //   if (usersDiv) {
+      //     usersDiv.removeChild(userElement);
+      //   }
+      // }
     }
   };
 
-  const handleUserJoined = (user: any) => {
-    const usersDiv = document.querySelector(".users");
-    if (usersDiv) {
-      usersDiv.insertAdjacentHTML(
-        "beforeend",
-        `<div class="speaker user-rtc-${user.uid}" id="${user.uid}"><p>${user.uid}</p></div>`
-      );
-    }
-  };
+  // const handleUserJoined = (user: any) => {
+  //   const usersDiv = document.querySelector(".users");
+  //   if (usersDiv) {
+  //     usersDiv.insertAdjacentHTML(
+  //       "beforeend",
+  //       `<div class="speaker user-rtc-${user.uid}" id="${user.uid}"><p>${user.uid}</p></div>`
+  //     );
+  //   }
+  // };
 
   const handleUserPublished = async (user: any, mediaType: "audio") => {
     await rtcClient.subscribe(user, mediaType);
