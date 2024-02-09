@@ -12,7 +12,7 @@ import (
 )
 
 type RequestBody struct {
-	RtcUid         string `json:"rtcUid"`
+	RtcUid         uint32 `json:"rtcUid"`
 	RtmUid         string `json:"rtmUid"`
 	AppID          string `json:"appId"`
 	AppCertificate string `json:"appCertificate"`
@@ -38,22 +38,24 @@ func Init() {
 		appID = appIDEnv
 		appCertificate = appCertEnv
 	}
+
 }
 
 func GenerateTokens(c *gin.Context) {
+	Init()
 	var requestBody RequestBody
 	if err := c.BindJSON(&requestBody); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 
-	rtcToken, rtcErr := generateRtcToken(requestBody.AppID, requestBody.AppCertificate, requestBody.RtcUid, requestBody.ChannelName, requestBody.Role)
+	rtcToken, rtcErr := generateRtcToken(appID, appCertificate, requestBody.RtcUid, requestBody.ChannelName, requestBody.Role)
 	if rtcErr != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": rtcErr.Error()})
 		return
 	}
 
-	rtmToken, rtmErr := generateRtmToken(requestBody.AppID, requestBody.AppCertificate, requestBody.RtmUid)
+	rtmToken, rtmErr := generateRtmToken(appID, appCertificate, requestBody.RtmUid, requestBody.ChannelName)
 	if rtmErr != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": rtmErr.Error()})
 		return
@@ -63,7 +65,7 @@ func GenerateTokens(c *gin.Context) {
 	c.JSON(http.StatusOK, response)
 }
 
-func generateRtcToken(appID, appCertificate, userID, channelName, role string) (string, error) {
+func generateRtcToken(appID string, appCertificate string, userID uint32, channelName string, role string) (string, error) {
 	expirationTimeInSeconds := 3600 // 1 hour
 	currentTimestamp := time.Now().Unix()
 	expirationTimestamp := currentTimestamp + int64(expirationTimeInSeconds)
@@ -75,7 +77,7 @@ func generateRtcToken(appID, appCertificate, userID, channelName, role string) (
 		rtcRole = rtctokenbuilder2.RoleSubscriber
 	}
 
-	rtcToken, err := rtctokenbuilder2.BuildTokenWithAccount(appID, appCertificate, channelName, userID, rtcRole, uint32(expirationTimestamp))
+	rtcToken, err := rtctokenbuilder2.BuildTokenWithUid(appID, appCertificate, channelName, userID, rtcRole, uint32(expirationTimestamp))
 	if err != nil {
 		return "", err
 	}
@@ -83,12 +85,12 @@ func generateRtcToken(appID, appCertificate, userID, channelName, role string) (
 	return rtcToken, nil
 }
 
-func generateRtmToken(appID, appCertificate, userID string) (string, error) {
+func generateRtmToken(appID, appCertificate, userID, channel string) (string, error) {
 	expirationTimeInSeconds := 3600 // 1 hour
 	currentTimestamp := time.Now().Unix()
 	expirationTimestamp := currentTimestamp + int64(expirationTimeInSeconds)
 
-	rtmToken, err := rtmtokenbuilder2.BuildToken(appID, appCertificate, userID, uint32(expirationTimestamp), "")
+	rtmToken, err := rtmtokenbuilder2.BuildToken(appID, appCertificate, userID, uint32(expirationTimestamp), channel)
 	if err != nil {
 		return "", err
 	}

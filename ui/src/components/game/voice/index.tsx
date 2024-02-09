@@ -29,10 +29,9 @@ export default function Voice() {
   const [roomId, setRoomId] = createSignal("");
   const [isInChat, setIsInChat] = createSignal(false);
   const appid = import.meta.env.CO_AGORA_APP_ID;
-  const rtmCertificate = import.meta.env.CO_AGORA_APP_CERTIFICATE;
   const BASE_API = import.meta.env.CO_API_URL;
-
   const [rtmToken, setRtmToken] = createSignal("");
+  const [rtcToken, setRtcToken] = createSignal("");
   //Unique identifier for the users entering the voice chat
   const rtcUid = Math.floor(Math.random() * 2032);
   const rtmUid = String(Math.floor(Math.random() * 2032));
@@ -63,7 +62,7 @@ export default function Voice() {
     }
   };
 
-  const fetchRtmToken = async () => {
+  const fetchTokens = async () => {
     try {
       const response = await fetch(`${BASE_API}/generate-tokens`, {
         method: "POST",
@@ -71,42 +70,34 @@ export default function Voice() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userId: rtmUid,
-          appId: appid,
-          appCertificate: rtmCertificate,
+          rtcUid: rtcUid,
+          rtmUid: rtmUid,
+          channelName: roomId(),
+          role: "publisher",
         }),
       });
       const data = await response.json();
-      const { token } = data;
-      console.info;
-      setRtmToken(token);
+      const { rtcToken, rtmToken } = data;
+      setRtmToken(rtmToken);
+      setRtcToken(rtcToken);
     } catch (error) {
-      console.error("Failed to generate RTM token:", error);
+      console.error("Failed to generate tokens:", error);
     }
   };
 
   // Agora RTC client - lets only use the RTC for the audio signalling
   const initRtc = async () => {
     checkUserstatus();
-    await fetchRtmToken();
+    await fetchTokens();
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
-    // // Check if the number of participants exceeds the maximum
-    // await rtcClient.on("user-joined", (user: any) => {
-    //   totalParticipants = Object.keys(audioTracks.remoteAudioTracks).length;
-
-    //   if (totalParticipants < MAX_PARTICIPANTS) {
-    //     handleUserJoined(user);
-    //   } else {
-    //     //Add indicator for maximum participants reached to let the user know
-    //     console.info("Maximum participants reached.");
-    //   }
-    // });
     await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("user-left", handleUserLeft);
 
-    //Join the channel
-    await rtcClient.join(appid, roomId(), rtmToken(), rtcUid);
-    //Publish audio track
+    console.info("RTC Token:", rtcToken());
+
+    // Join the channel using the received RTC token
+    await rtcClient.join(appid, roomId(), rtcToken(), rtcUid);
+    // Publish audio track
     audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
     await rtcClient.publish([audioTracks.localAudioTrack]);
     // addSessionStarterToDOM(rtcUid);
@@ -116,13 +107,16 @@ export default function Voice() {
 
   const initRtm = async (name) => {
     checkUserstatus();
-    await fetchRtmToken();
+    await fetchTokens();
 
-    rtmClient = new AgoraRTMClient.RTM(appid, rtmUid, { token: rtmToken() });
-    await rtmClient.login(); // Login to the RTM service
+    rtmClient = new AgoraRTMClient.RTM(appid, rtmUid, {
+      token: rtmToken(),
+      logLevel: "debug",
+    });
+    await rtmClient.login();
 
-    channel = rtmClient.createChannel(roomId());
-    await channel.join();
+    channel = await rtmClient.subscribe(roomId());
+    console.info("channel", channel);
   };
 
   const joinVoiceChat = () => {
