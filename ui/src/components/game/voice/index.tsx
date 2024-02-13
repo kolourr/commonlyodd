@@ -29,7 +29,6 @@ export default function Voice() {
   const [roomId, setRoomId] = createSignal("");
   const [isInChat, setIsInChat] = createSignal(false);
   const appid = import.meta.env.CO_AGORA_APP_ID;
-  const token = null;
   // Agora clients and channel
   let rtcClient: IAgoraRTCClient;
   //Unique identifier for the users entering the voice chat
@@ -57,6 +56,30 @@ export default function Voice() {
     }
   };
 
+  const fetchTokens = async () => {
+    try {
+      const response = await fetch(`${BASE_API}/generate-tokens`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          rtcUid: rtcUid,
+          rtmUid: rtmUid,
+          channelName: roomId(),
+          role: "publisher",
+        }),
+      });
+
+      const data = await response.json();
+      const { rtcToken, rtmToken } = data;
+      setRtmToken(rtmToken);
+      setRtcToken(rtcToken);
+    } catch (error) {
+      console.error("Failed to generate tokens:", error);
+    }
+  };
+
   // Agora RTC client
   const initRtc = async () => {
     checkUserstatus();
@@ -75,6 +98,8 @@ export default function Voice() {
     });
     await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("user-left", handleUserLeft);
+    const members = await rtcClient.getListeners("user-joined");
+    console.info("Members", members);
 
     //Join the channel
     await rtcClient.join(appid, roomId(), token, rtcUid);

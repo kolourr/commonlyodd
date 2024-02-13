@@ -59,6 +59,7 @@ func main() {
 	// New route for starting a game
 	router.POST("/start-session", gameplay.StartSession)
 	router.POST("/end-session", gameplay.EndSessionEndpoint)
+	router.POST("/generate-tokens", gameplay.GenerateTokens)
 	router.GET("/ws", gameplay.HandleGameWebSocket)
 
 	// Catch-all route to serve index.html for SPA routes
