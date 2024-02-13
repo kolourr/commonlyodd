@@ -12,12 +12,10 @@ import (
 )
 
 type RequestBody struct {
-	RtcUid         uint32 `json:"rtcUid"`
-	RtmUid         string `json:"rtmUid"`
-	AppID          string `json:"appId"`
-	AppCertificate string `json:"appCertificate"`
-	ChannelName    string `json:"channelName"`
-	Role           string `json:"role"`
+	RtcUid      uint32 `json:"rtcUid"`
+	RtmUid      string `json:"rtmUid"`
+	ChannelName string `json:"channelName"`
+	Role        string `json:"role"`
 }
 
 type ResponseBody struct {
@@ -55,7 +53,10 @@ func GenerateTokens(c *gin.Context) {
 		return
 	}
 
-	rtmToken, rtmErr := generateRtmToken(appID, appCertificate, requestBody.RtmUid, requestBody.ChannelName)
+	//convert rtcUid to string
+	// updatedRtmUid := fmt.Sprint(requestBody.RtcUid)
+
+	rtmToken, rtmErr := generateRtmToken(appID, appCertificate, requestBody.RtmUid)
 	if rtmErr != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": rtmErr.Error()})
 		return
@@ -85,12 +86,12 @@ func generateRtcToken(appID string, appCertificate string, userID uint32, channe
 	return rtcToken, nil
 }
 
-func generateRtmToken(appID, appCertificate, userID, channel string) (string, error) {
+func generateRtmToken(appID, appCertificate, userID string) (string, error) {
 	expirationTimeInSeconds := 3600 // 1 hour
 	currentTimestamp := time.Now().Unix()
 	expirationTimestamp := currentTimestamp + int64(expirationTimeInSeconds)
 
-	rtmToken, err := rtmtokenbuilder2.BuildToken(appID, appCertificate, userID, uint32(expirationTimestamp), channel)
+	rtmToken, err := rtmtokenbuilder2.BuildToken(appID, appCertificate, userID, uint32(expirationTimestamp), "")
 	if err != nil {
 		return "", err
 	}

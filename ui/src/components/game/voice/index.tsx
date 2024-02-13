@@ -15,6 +15,7 @@ import AgoraRTC, {
   IAgoraRTCRemoteUser,
 } from "agora-rtc-sdk-ng";
 import AgoraRTMClient from "agora-rtm-sdk";
+import { parse } from "path";
 
 // Audio tracks forlocal and remote users
 let audioTracks = {
@@ -33,8 +34,9 @@ export default function Voice() {
   const [rtmToken, setRtmToken] = createSignal("");
   const [rtcToken, setRtcToken] = createSignal("");
   //Unique identifier for the users entering the voice chat
-  const rtcUid = Math.floor(Math.random() * 2032);
   const rtmUid = String(Math.floor(Math.random() * 2032));
+  let rtcUid = Math.floor(Math.random() * 2032);
+
   // Agora clients and channel
   let rtcClient: IAgoraRTCClient;
   let rtmClient: any;
@@ -76,6 +78,7 @@ export default function Voice() {
           role: "publisher",
         }),
       });
+
       const data = await response.json();
       const { rtcToken, rtmToken } = data;
       setRtmToken(rtmToken);
@@ -89,11 +92,16 @@ export default function Voice() {
   const initRtc = async () => {
     checkUserstatus();
     await fetchTokens();
+
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+    //     0: DEBUG. Output all API logs.
+    // 1: INFO. Output logs of the INFO, WARNING and ERROR level.
+    // 2: WARNING. Output logs of the WARNING and ERROR level.
+    // 3: ERROR. Output logs of the ERROR level.
+    // 4: NONE. Do not output any log.
+    AgoraRTC.setLogLevel(2);
     await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("user-left", handleUserLeft);
-
-    console.info("RTC Token:", rtcToken());
 
     // Join the channel using the received RTC token
     await rtcClient.join(appid, roomId(), rtcToken(), rtcUid);
@@ -107,16 +115,58 @@ export default function Voice() {
 
   const initRtm = async (name) => {
     checkUserstatus();
+    rtcUid = Math.floor(Math.random() * 2032);
     await fetchTokens();
-
-    rtmClient = new AgoraRTMClient.RTM(appid, rtmUid, {
+    const rtmConfig = {
       token: rtmToken(),
-      logLevel: "debug",
-    });
-    await rtmClient.login();
+      useStringUserId: true,
+      presenceTimeout: 300,
+    };
 
-    channel = await rtmClient.subscribe(roomId());
-    console.info("channel", channel);
+    //convert rtcUid to string
+    const updatedRtmUid = rtcUid.toString();
+
+    rtmClient = new AgoraRTMClient.RTM(appid, updatedRtmUid, rtmConfig);
+    const result = await rtmClient.login();
+    if (result) {
+      console.log("Logged in to RTM successfully", result);
+    } else {
+      console.error("Failed to login to RTM", result);
+    }
+
+    // Create and join a stream channel
+    channel = await rtmClient.createStreamChannel(roomId());
+    if (channel) {
+      console.log("Stream Channel created successfully");
+    } else {
+      console.error("Failed to create Stream Channel");
+    }
+
+    const options = {
+      token: rtcToken(),
+      withPresence: true,
+      withMetadata: false,
+      withLock: false,
+    };
+    const members = await channel.join(options);
+
+    if (members) {
+      console.log("Members in the channel", members);
+    } else {
+      console.error("Failed to join the channel");
+    }
+    // const options2 = {
+    //   includeUserId: true,
+    //   includeState: true,
+    // };
+    // rtmClient.presence.getOnlineUsers({
+    //   channelName: roomId(),
+    //   channelType: "MESSAGE",
+    //   options2,
+    // });
+    // console.info("Members in the channel", members);
+
+    setIsInChat(true);
   };
 
   const joinVoiceChat = () => {
@@ -208,6 +258,17 @@ export default function Voice() {
       //unpublish the audio track and leave channel
       await rtcClient.unpublish();
       await rtcClient.leave();
+    }
+
+    // Leave the RTM stream channel and clean up
+    if (channel) {
+      try {
+        await channel.leave();
+        console.log("Left RTM Stream Channel successfully");
+      } catch (error) {
+        console.error("Failed to leave RTM stream channel:", error);
+      }
+      await rtmClient.logout();
     }
 
     const userElement = document.getElementById(userId.toString());
