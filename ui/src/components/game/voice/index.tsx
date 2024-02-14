@@ -29,6 +29,9 @@ export default function Voice() {
   const [roomId, setRoomId] = createSignal("");
   const [isInChat, setIsInChat] = createSignal(false);
   const appid = import.meta.env.CO_AGORA_APP_ID;
+  const BASE_API = import.meta.env.CO_API_URL;
+  const [rtmToken, setRtmToken] = createSignal("");
+  const [rtcToken, setRtcToken] = createSignal("");
   // Agora clients and channel
   let rtcClient: IAgoraRTCClient;
   //Unique identifier for the users entering the voice chat
@@ -65,7 +68,7 @@ export default function Voice() {
         },
         body: JSON.stringify({
           rtcUid: rtcUid,
-          rtmUid: rtmUid,
+          // rtmUid: rtmUid,
           channelName: roomId(),
           role: "publisher",
         }),
@@ -83,7 +86,10 @@ export default function Voice() {
   // Agora RTC client
   const initRtc = async () => {
     checkUserstatus();
+    await fetchTokens();
+
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
+    AgoraRTC.setLogLevel(2);
 
     // Check if the number of participants exceeds the maximum
     await rtcClient.on("user-joined", (user: any) => {
@@ -98,11 +104,9 @@ export default function Voice() {
     });
     await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("user-left", handleUserLeft);
-    const members = await rtcClient.getListeners("user-joined");
-    console.info("Members", members);
 
     //Join the channel
-    await rtcClient.join(appid, roomId(), token, rtcUid);
+    await rtcClient.join(appid, roomId(), rtcToken(), rtcUid);
     //Publish audio track
     audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
     await rtcClient.publish([audioTracks.localAudioTrack]);

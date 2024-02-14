@@ -1,6 +1,7 @@
 package gameplay
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -12,8 +13,8 @@ import (
 )
 
 type RequestBody struct {
-	RtcUid      uint32 `json:"rtcUid"`
-	RtmUid      string `json:"rtmUid"`
+	RtcUid uint32 `json:"rtcUid"`
+	// RtmUid      string `json:"rtmUid"`
 	ChannelName string `json:"channelName"`
 	Role        string `json:"role"`
 }
@@ -53,10 +54,10 @@ func GenerateTokens(c *gin.Context) {
 		return
 	}
 
-	//convert rtcUid to string
-	// updatedRtmUid := fmt.Sprint(requestBody.RtcUid)
+	// convert rtcUid to string
+	updatedRtmUid := fmt.Sprint(requestBody.RtcUid)
 
-	rtmToken, rtmErr := generateRtmToken(appID, appCertificate, requestBody.RtmUid)
+	rtmToken, rtmErr := generateRtmToken(appID, appCertificate, updatedRtmUid)
 	if rtmErr != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": rtmErr.Error()})
 		return
