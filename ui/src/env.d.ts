@@ -2,6 +2,8 @@
 
 interface ImportMetaEnv {
   readonly CO_API_URL: string;
+  readonly CO_AGORA_APP_ID: string;
+  readonly CO_AGORA_APP_TOKEN: string;
   // more env variables...
 }
 
