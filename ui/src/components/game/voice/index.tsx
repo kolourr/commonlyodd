@@ -10,12 +10,9 @@ import {
 import AgoraRTC, {
   IAgoraRTCClient,
   IMicrophoneAudioTrack,
-  UID,
   IRemoteAudioTrack,
-  IAgoraRTCRemoteUser,
 } from "agora-rtc-sdk-ng";
-import AgoraRTMClient from "agora-rtm-sdk";
-import { parse } from "path";
+import AgoraRTM from "agora-rtm-sdk";
 
 // Audio tracks forlocal and remote users
 let audioTracks = {
@@ -35,7 +32,7 @@ export default function Voice() {
   const [rtcToken, setRtcToken] = createSignal("");
   //Unique identifier for the users entering the voice chat
   const rtmUid = String(Math.floor(Math.random() * 2032));
-  let rtcUid = Math.floor(Math.random() * 2032);
+  const rtcUid = Math.floor(Math.random() * 2032);
 
   // Agora clients and channel
   let rtcClient: IAgoraRTCClient;
@@ -90,9 +87,6 @@ export default function Voice() {
 
   // Agora RTC client - lets only use the RTC for the audio signalling
   const initRtc = async () => {
-    checkUserstatus();
-    await fetchTokens();
-
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
     //     0: DEBUG. Output all API logs.
     // 1: INFO. Output logs of the INFO, WARNING and ERROR level.
@@ -114,62 +108,28 @@ export default function Voice() {
   };
 
   const initRtm = async (name) => {
-    checkUserstatus();
-    rtcUid = Math.floor(Math.random() * 2032);
-    await fetchTokens();
-    const rtmConfig = {
-      token: rtmToken(),
-      useStringUserId: true,
-      presenceTimeout: 300,
-    };
+    rtmClient = AgoraRTM.createInstance(appid, { enableLogUpload: false });
 
-    //convert rtcUid to string
-    const updatedRtmUid = rtcUid.toString();
+    await rtmClient.login({ uid: rtmUid, token: rtmToken() });
+    channel = rtmClient.createChannel(roomId());
 
-    rtmClient = new AgoraRTMClient.RTM(appid, updatedRtmUid, rtmConfig);
-    const result = await rtmClient.login();
-    if (result) {
-      console.log("Logged in to RTM successfully", result);
-    } else {
-      console.error("Failed to login to RTM", result);
-    }
-
-    // Create and join a stream channel
-    channel = await rtmClient.createStreamChannel(roomId());
+    // Join the RTM stream channel and clean up
     if (channel) {
-      console.log("Stream Channel created successfully");
-    } else {
-      console.error("Failed to create Stream Channel");
+      try {
+        await channel.join();
+        console.log("Joined RTM Stream Channel successfully");
+      } catch (error) {
+        console.error("Failed to join RTM Stream Channel:", error);
+      }
     }
-
-    const options = {
-      token: rtcToken(),
-      withPresence: true,
-      withMetadata: false,
-      withLock: false,
-    };
-    const members = await channel.join(options);
-
-    if (members) {
-      console.log("Members in the channel", members);
-    } else {
-      console.error("Failed to join the channel");
-    }
-    // const options2 = {
-    //   includeUserId: true,
-    //   includeState: true,
-    // };
-    // rtmClient.presence.getOnlineUsers({
-    //   channelName: roomId(),
-    //   channelType: "MESSAGE",
-    //   options2,
-    // });
-    // console.info("Members in the channel", members);
 
     setIsInChat(true);
   };
 
-  const joinVoiceChat = () => {
+  const joinVoiceChat = async () => {
+    checkUserstatus();
+    await fetchTokens();
+
     let displayName = "";
     initRtc();
     initRtm(displayName);
@@ -266,7 +226,7 @@ export default function Voice() {
         await channel.leave();
         console.log("Left RTM Stream Channel successfully");
       } catch (error) {
-        console.error("Failed to leave RTM stream channel:", error);
+        console.error("Failed to leave RTM Stream Channel:", error);
       }
       await rtmClient.logout();
     }

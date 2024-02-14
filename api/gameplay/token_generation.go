@@ -53,9 +53,6 @@ func GenerateTokens(c *gin.Context) {
 		return
 	}
 
-	//convert rtcUid to string
-	// updatedRtmUid := fmt.Sprint(requestBody.RtcUid)
-
 	rtmToken, rtmErr := generateRtmToken(appID, appCertificate, requestBody.RtmUid)
 	if rtmErr != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": rtmErr.Error()})
