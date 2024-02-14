@@ -64,7 +64,7 @@ func GenerateTokens(c *gin.Context) {
 }
 
 func generateRtcToken(appID string, appCertificate string, userID uint32, channelName string, role string) (string, error) {
-	expirationTimeInSeconds := 3600 // 1 hour
+	expirationTimeInSeconds := 3600 * 24
 	currentTimestamp := time.Now().Unix()
 	expirationTimestamp := currentTimestamp + int64(expirationTimeInSeconds)
 
@@ -84,7 +84,7 @@ func generateRtcToken(appID string, appCertificate string, userID uint32, channe
 }
 
 func generateRtmToken(appID, appCertificate, userID string) (string, error) {
-	expirationTimeInSeconds := 3600 // 1 hour
+	expirationTimeInSeconds := 3600 * 24
 	currentTimestamp := time.Now().Unix()
 	expirationTimestamp := currentTimestamp + int64(expirationTimeInSeconds)
 

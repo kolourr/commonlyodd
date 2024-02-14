@@ -31,17 +31,16 @@ export default function Voice() {
   const [rtmToken, setRtmToken] = createSignal("");
   const [rtcToken, setRtcToken] = createSignal("");
   //Unique identifier for the users entering the voice chat
-  const rtmUid = String(Math.floor(Math.random() * 2032));
-  const rtcUid = Math.floor(Math.random() * 2032);
+  let rtmUid = String(Math.floor(Math.random() * 2032));
+  let rtcUid = Math.floor(Math.random() * 2032);
 
   // Agora clients and channel
   let rtcClient: IAgoraRTCClient;
   let rtmClient: any;
   let channel: any;
 
-  //Host does not count towards the participant limit
-  const MAX_PARTICIPANTS = 9;
-  let totalParticipants: number = 0;
+  //Users in channel
+  const MAX_PARTICIPANTS = 10;
 
   //Check if user is session starter or not
   const checkUserstatus = () => {
@@ -88,55 +87,105 @@ export default function Voice() {
   // Agora RTC client - lets only use the RTC for the audio signalling
   const initRtc = async () => {
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
-    //     0: DEBUG. Output all API logs.
-    // 1: INFO. Output logs of the INFO, WARNING and ERROR level.
-    // 2: WARNING. Output logs of the WARNING and ERROR level.
-    // 3: ERROR. Output logs of the ERROR level.
-    // 4: NONE. Do not output any log.
     AgoraRTC.setLogLevel(2);
     await rtcClient.on("user-published", handleUserPublished);
-    await rtcClient.on("user-left", handleUserLeft);
+    await rtcClient.on("token-privilege-will-expire", async () => {
+      rtcUid = Math.floor(Math.random() * 2032);
+      checkUserstatus();
+      fetchTokens();
+      await rtcClient.renewToken(rtcToken());
+    });
+    await rtcClient.on("token-privilege-did-expire", async () => {
+      rtcUid = Math.floor(Math.random() * 2032);
+      checkUserstatus();
+      fetchTokens();
+      await rtcClient.join(appid, roomId(), rtcToken());
+    });
 
     // Join the channel using the received RTC token
     await rtcClient.join(appid, roomId(), rtcToken(), rtcUid);
     // Publish audio track
     audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
     await rtcClient.publish([audioTracks.localAudioTrack]);
-    // addSessionStarterToDOM(rtcUid);
     setIsInChat(true);
-    // initVolumeIndicator();
+    initVolumeIndicator();
   };
 
-  const initRtm = async (name) => {
+  const initRtm = async (memberType: string): Promise<boolean> => {
     rtmClient = AgoraRTM.createInstance(appid, { enableLogUpload: false });
-
     await rtmClient.login({ uid: rtmUid, token: rtmToken() });
     channel = rtmClient.createChannel(roomId());
 
-    // Join the RTM stream channel and clean up
-    if (channel) {
-      try {
-        await channel.join();
-        console.log("Joined RTM Stream Channel successfully");
-      } catch (error) {
-        console.error("Failed to join RTM Stream Channel:", error);
+    try {
+      await channel.join();
+      console.log("Joined RTM Stream Channel successfully");
+
+      // Update local user attributes with member type and RTC UID
+      await rtmClient.addOrUpdateLocalUserAttributes({
+        membertype: memberType,
+        userRtcUid: rtcUid.toString(),
+      });
+
+      const members = await channel.getMembers();
+      // Check if the session starter is present in the call
+      if (memberType !== "starter") {
+        const starterPresent = await checkStarterPresence(members);
+        if (!starterPresent) {
+          console.error("Session starter must be in the call.");
+          await leaveRTMChannel();
+          return false;
+        }
+      }
+
+      // Check if the participant limit has been reached
+      if (members.length > MAX_PARTICIPANTS) {
+        console.error("Maximum call participants limit reached.");
+        await leaveRTMChannel();
+        return false;
+      }
+
+      window.addEventListener("beforeunload", leaveRTMChannel);
+      channel.on("MemberJoined", (memberId: number) => {
+        handleMemberJoined(memberId);
+      });
+      channel.on("MemberLeft", (memberId: number) => {
+        handleMemberLeft(memberId);
+      });
+
+      getChannelMembers();
+      setIsInChat(true);
+      return true;
+    } catch (error) {
+      console.error("Failed to join RTM Stream Channel:", error);
+      return false;
+    }
+  };
+
+  const checkStarterPresence = async (members: []) => {
+    let starterPresent = false;
+    for (let memberId of members) {
+      const attributes = await rtmClient.getUserAttributes(memberId);
+      if (attributes.membertype === "starter") {
+        starterPresent = true;
+        break;
       }
     }
-
-    setIsInChat(true);
+    return starterPresent;
   };
 
   const joinVoiceChat = async () => {
     checkUserstatus();
     await fetchTokens();
 
-    let displayName = "";
-    initRtc();
-    initRtm(displayName);
+    const memberType = isSessionStarter() ? "starter" : "non-starter";
 
-    // if (totalParticipants < MAX_PARTICIPANTS) {
-    //   initRtc();
-    // }
+    const canJoinRtc = await initRtm(memberType);
+
+    if (canJoinRtc) {
+      initRtc();
+    } else {
+      console.log("Cannot join RTC due to RTM conditions not being met.");
+    }
   };
 
   const initVolumeIndicator = async () => {
@@ -164,28 +213,43 @@ export default function Voice() {
     });
   };
 
-  const handleUserLeft = async (user: any) => {
-    if (audioTracks.localAudioTrack !== null) {
-      delete audioTracks.remoteAudioTracks[user.uid];
-      // const userElement = document.getElementById(user.uid.toString());
-      // if (userElement) {
-      //   const usersDiv = userElement.parentNode;
-      //   if (usersDiv) {
-      //     usersDiv.removeChild(userElement);
-      //   }
-      // }
+  const handleMemberJoined = async (memberId: number) => {
+    const attributes = await rtmClient.getUserAttributes(memberId);
+    const userRtcUid = attributes.userRtcUid;
+
+    const usersDiv = document.querySelector(".users");
+    if (usersDiv) {
+      usersDiv.insertAdjacentHTML(
+        "beforeend",
+        `<div class="speaker user-rtc-${userRtcUid}" id="member-${memberId}"><p>${memberId}</p></div>`
+      );
     }
   };
 
-  // const handleUserJoined = (user: any) => {
-  //   const usersDiv = document.querySelector(".users");
-  //   if (usersDiv) {
-  //     usersDiv.insertAdjacentHTML(
-  //       "beforeend",
-  //       `<div class="speaker user-rtc-${user.uid}" id="${user.uid}"><p>${user.uid}</p></div>`
-  //     );
-  //   }
-  // };
+  const handleMemberLeft = (memberId: number) => {
+    const userElement = document.getElementById(`member-${memberId}`);
+    if (userElement) {
+      const usersDiv = userElement.parentNode;
+      if (usersDiv) {
+        usersDiv.removeChild(userElement);
+      }
+    }
+  };
+
+  const getChannelMembers = async () => {
+    const members = await channel.getMembers();
+    members.forEach(async (memberId: number) => {
+      const attributes = await rtmClient.getUserAttributes(memberId);
+      const userRtcUid = attributes.userRtcUid;
+      const usersDiv = document.querySelector(".users");
+      if (usersDiv) {
+        usersDiv.insertAdjacentHTML(
+          "beforeend",
+          `<div class="speaker user-rtc-${userRtcUid}" id="member-${memberId}"><p>${memberId}</p></div>`
+        );
+      }
+    });
+  };
 
   const handleUserPublished = async (user: any, mediaType: "audio") => {
     await rtcClient.subscribe(user, mediaType);
@@ -195,19 +259,21 @@ export default function Voice() {
     }
   };
 
-  const addSessionStarterToDOM = (userId: number) => {
-    const usersDiv = document.querySelector(".users");
-    if (usersDiv) {
-      usersDiv.insertAdjacentHTML(
-        "beforeend",
-        `<div class="speaker user-rtc-${userId}" id="${userId}"><p>${userId}</p></div>`
-      );
-    }
-  };
-
   const toggleMic = () => {
     audioTracks.localAudioTrack.setMuted(micMuted());
     setMicMuted(!micMuted());
+  };
+
+  const leaveRTMChannel = async () => {
+    if (channel) {
+      try {
+        await channel.leave();
+        console.log("Left RTM Stream Channel successfully");
+      } catch (error) {
+        console.error("Failed to leave RTM Stream Channel:", error);
+      }
+      await rtmClient.logout();
+    }
   };
 
   const leaveVoiceChat = async (userId: number) => {
@@ -221,16 +287,9 @@ export default function Voice() {
     }
 
     // Leave the RTM stream channel and clean up
-    if (channel) {
-      try {
-        await channel.leave();
-        console.log("Left RTM Stream Channel successfully");
-      } catch (error) {
-        console.error("Failed to leave RTM Stream Channel:", error);
-      }
-      await rtmClient.logout();
-    }
+    leaveRTMChannel();
 
+    // Remove the user from the DOM
     const userElement = document.getElementById(userId.toString());
     if (userElement) {
       const usersDiv = userElement.parentNode;
