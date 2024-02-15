@@ -1,5 +1,5 @@
-import { createSignal, createEffect, onMount, onCleanup, Show } from "solid-js";
-import { Button } from "@suid/material";
+import { createSignal, onMount, onCleanup, Show } from "solid-js";
+import { Button, CircularProgress, Typography } from "@suid/material";
 import "./styles.css";
 import {
   MicOutlined,
@@ -13,23 +13,25 @@ import AgoraRTC, {
   IRemoteAudioTrack,
 } from "agora-rtc-sdk-ng";
 import AgoraRTM from "agora-rtm-sdk";
-
-// Audio tracks forlocal and remote users
-let audioTracks = {
-  localAudioTrack: null as null | IMicrophoneAudioTrack,
-  remoteAudioTracks: {} as IRemoteAudioTrack[],
-};
+import CommonDialog from "../common_dialog";
 
 export default function Voice() {
   const [micMuted, setMicMuted] = createSignal(true);
   const [isSessionStarter, setIsSessionStarter] = createSignal(false);
-  const [nonSessionStarter, setNonSessionStarter] = createSignal(false);
   const [roomId, setRoomId] = createSignal("");
   const [isInChat, setIsInChat] = createSignal(false);
   const appid = import.meta.env.CO_AGORA_APP_ID;
   const BASE_API = import.meta.env.CO_API_URL;
   const [rtmToken, setRtmToken] = createSignal("");
   const [rtcToken, setRtcToken] = createSignal("");
+  const [sessionStarterNotInCall, setSessionStarterNotInCall] =
+    createSignal(false);
+  const [maxCallParticipantsReached, setMaxCallParticipantsReached] =
+    createSignal(false);
+  const [sessionStarterEndedCall, setSessionStarterEndedCall] =
+    createSignal(false);
+  const [isJoining, setIsJoining] = createSignal(false);
+
   //Unique identifier for the users entering the voice chat
   let rtmUid = String(Math.floor(Math.random() * 2032));
   let rtcUid = Math.floor(Math.random() * 2032);
@@ -38,6 +40,12 @@ export default function Voice() {
   let rtcClient: IAgoraRTCClient;
   let rtmClient: any;
   let channel: any;
+
+  // Audio tracks forlocal and remote users
+  let audioTracks = {
+    localAudioTrack: null as null | IMicrophoneAudioTrack,
+    remoteAudioTracks: {} as IRemoteAudioTrack[],
+  };
 
   //Users in channel
   const MAX_PARTICIPANTS = 10;
@@ -51,8 +59,8 @@ export default function Voice() {
 
     if (sessionUuid && starterToken) {
       setIsSessionStarter(true);
-    } else if (sessionUuid && !starterToken) {
-      setNonSessionStarter(true);
+    } else {
+      setIsSessionStarter(false);
     }
 
     if (sessionUuid !== null) {
@@ -111,6 +119,7 @@ export default function Voice() {
     initVolumeIndicator();
   };
 
+  // Agora RTM client - for chat and signalling
   const initRtm = async (memberType: string): Promise<boolean> => {
     rtmClient = AgoraRTM.createInstance(appid, { enableLogUpload: false });
     await rtmClient.login({ uid: rtmUid, token: rtmToken() });
@@ -118,7 +127,15 @@ export default function Voice() {
 
     try {
       await channel.join();
-      console.log("Joined RTM Stream Channel successfully");
+
+      window.addEventListener("beforeunload", async (event) => {
+        if (isSessionStarter()) {
+          await channel.sendMessage({
+            text: JSON.stringify({ type: "SESSION_END" }),
+          });
+        }
+        await leaveRTMChannel();
+      });
 
       // Update local user attributes with member type and RTC UID
       await rtmClient.addOrUpdateLocalUserAttributes({
@@ -131,7 +148,7 @@ export default function Voice() {
       if (memberType !== "starter") {
         const starterPresent = await checkStarterPresence(members);
         if (!starterPresent) {
-          console.error("Session starter must be in the call.");
+          setSessionStarterNotInCall(true);
           await leaveRTMChannel();
           return false;
         }
@@ -139,7 +156,7 @@ export default function Voice() {
 
       // Check if the participant limit has been reached
       if (members.length > MAX_PARTICIPANTS) {
-        console.error("Maximum call participants limit reached.");
+        setMaxCallParticipantsReached(true);
         await leaveRTMChannel();
         return false;
       }
@@ -150,6 +167,14 @@ export default function Voice() {
       });
       channel.on("MemberLeft", (memberId: number) => {
         handleMemberLeft(memberId);
+      });
+
+      channel.on("ChannelMessage", async (message: any) => {
+        const parsedMessage = JSON.parse(message.text);
+        if (parsedMessage.type === "SESSION_END") {
+          setSessionStarterEndedCall(true);
+          await leaveVoiceChat(rtcUid);
+        }
       });
 
       getChannelMembers();
@@ -174,6 +199,7 @@ export default function Voice() {
   };
 
   const joinVoiceChat = async () => {
+    setIsJoining(true);
     checkUserstatus();
     await fetchTokens();
 
@@ -183,8 +209,10 @@ export default function Voice() {
 
     if (canJoinRtc) {
       initRtc();
+      setIsJoining(false); // Successfully joined, so set isJoining to false
     } else {
       console.log("Cannot join RTC due to RTM conditions not being met.");
+      setIsJoining(false);
     }
   };
 
@@ -277,6 +305,12 @@ export default function Voice() {
   };
 
   const leaveVoiceChat = async (userId: number) => {
+    if (isSessionStarter()) {
+      await channel.sendMessage({
+        text: JSON.stringify({ type: "SESSION_END" }),
+      });
+    }
+
     if (audioTracks.localAudioTrack !== null) {
       // close tracks
       audioTracks.localAudioTrack.stop();
@@ -287,7 +321,7 @@ export default function Voice() {
     }
 
     // Leave the RTM stream channel and clean up
-    leaveRTMChannel();
+    await leaveRTMChannel();
 
     // Remove the user from the DOM
     const userElement = document.getElementById(userId.toString());
@@ -305,8 +339,6 @@ export default function Voice() {
     setIsInChat(false);
   };
 
-  // You can add more event handlers and functions for voice chat controls
-
   onMount(() => {
     checkUserstatus();
   });
@@ -318,8 +350,16 @@ export default function Voice() {
 
   return (
     <div>
-      {/* Voice chat UI goes here */}
       <div class="flex flex-col">
+        <Typography
+          variant="subtitle1"
+          gutterBottom
+          component="div"
+          class="text-center"
+        >
+          Join the Session Call
+        </Typography>
+
         <div class="flex justify-between">
           <div class="flex flex-col">
             <div>
@@ -334,8 +374,10 @@ export default function Voice() {
           <div class="flex flex-col">
             <Show when={!isInChat()}>
               <div>
-                <Button onClick={joinVoiceChat}>
-                  <HeadsetMicOutlined />
+                <Button onClick={joinVoiceChat} disabled={isJoining()}>
+                  <Show when={isJoining()} fallback={<HeadsetMicOutlined />}>
+                    <CircularProgress size={24} />
+                  </Show>
                 </Button>
               </div>
             </Show>
@@ -352,8 +394,38 @@ export default function Voice() {
             </span>
           </div>
         </div>
-        <div class="users" id="users"></div>
+        <div
+          class="users grid grid-cols-5 gap-3 h-[100px]  w-[400px] "
+          id="users"
+        ></div>
       </div>
+      <Show when={sessionStarterNotInCall()}>
+        <CommonDialog
+          open={sessionStarterNotInCall()}
+          title="Session Starter Not In Call"
+          content={"The session starter must be in the call to participate."}
+          onClose={() => setSessionStarterNotInCall(false)}
+          showCancelButton={false}
+        />
+      </Show>
+      <Show when={maxCallParticipantsReached()}>
+        <CommonDialog
+          open={maxCallParticipantsReached()}
+          title="Maximum Call Participants Reached"
+          content={"A session call can only have a maximum of 10 participants."}
+          onClose={() => setMaxCallParticipantsReached(false)}
+          showCancelButton={false}
+        />
+      </Show>
+      <Show when={sessionStarterEndedCall()}>
+        <CommonDialog
+          open={sessionStarterEndedCall()}
+          title="Session Starter Ended Call"
+          content={"The session starter must be in the call to participate."}
+          onClose={() => setSessionStarterEndedCall(false)}
+          showCancelButton={false}
+        />
+      </Show>
     </div>
   );
 }

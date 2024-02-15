@@ -121,8 +121,8 @@ export default function Game() {
             />
           </div>
 
-          <div class="flex flex-row items-center justify-between  pt-12   ">
-            <div>
+          <div class="flex flex-col items-center justify-center  pt-12   ">
+            <div class="pb-4">
               {" "}
               <Router>
                 <StartGame />
