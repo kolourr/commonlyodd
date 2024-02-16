@@ -1,4 +1,4 @@
-import { createSignal, onMount, onCleanup, Show } from "solid-js";
+import { createSignal, onMount, onCleanup, Show, For } from "solid-js";
 import { Button, CircularProgress, Typography } from "@suid/material";
 import "./styles.css";
 import {
@@ -14,6 +14,13 @@ import AgoraRTC, {
 } from "agora-rtc-sdk-ng";
 import AgoraRTM from "agora-rtm-sdk";
 import CommonDialog from "../common_dialog";
+import { createStore } from "solid-js/store";
+
+type UserState = {
+  uid: string;
+  memberId: number;
+  isTalking: boolean;
+};
 
 export default function Voice() {
   const [micMuted, setMicMuted] = createSignal(true);
@@ -31,6 +38,29 @@ export default function Voice() {
   const [sessionStarterEndedCall, setSessionStarterEndedCall] =
     createSignal(false);
   const [isJoining, setIsJoining] = createSignal(false);
+  const [users, setUsers] = createStore<UserState[]>([]);
+
+  // Function to add a user to the store
+  const addUser = (memberId: number, userRtcUid: string) => {
+    setUsers((users) => [
+      ...users,
+      { uid: userRtcUid, memberId, isTalking: false },
+    ]);
+  };
+
+  // Function to remove a user from the store
+  const removeUser = (memberId: number) => {
+    setUsers(users.filter((user) => user.memberId !== memberId));
+  };
+
+  // Function to update user's talking state
+  const updateUserTalkingState = (userRtcUid: string, isTalking: boolean) => {
+    setUsers((users) =>
+      users.map((user) =>
+        user.uid === userRtcUid ? { ...user, isTalking } : user
+      )
+    );
+  };
 
   //Unique identifier for the users entering the voice chat
   let rtmUid = String(Math.floor(Math.random() * 2032));
@@ -243,39 +273,18 @@ export default function Voice() {
 
   const handleMemberJoined = async (memberId: number) => {
     const attributes = await rtmClient.getUserAttributes(memberId);
-    const userRtcUid = attributes.userRtcUid;
-
-    const usersDiv = document.querySelector(".users");
-    if (usersDiv) {
-      usersDiv.insertAdjacentHTML(
-        "beforeend",
-        `<div class="speaker user-rtc-${userRtcUid}" id="member-${memberId}"><p>${memberId}</p></div>`
-      );
-    }
+    addUser(memberId, attributes.userRtcUid);
   };
 
   const handleMemberLeft = (memberId: number) => {
-    const userElement = document.getElementById(`member-${memberId}`);
-    if (userElement) {
-      const usersDiv = userElement.parentNode;
-      if (usersDiv) {
-        usersDiv.removeChild(userElement);
-      }
-    }
+    removeUser(memberId);
   };
 
   const getChannelMembers = async () => {
     const members = await channel.getMembers();
     members.forEach(async (memberId: number) => {
       const attributes = await rtmClient.getUserAttributes(memberId);
-      const userRtcUid = attributes.userRtcUid;
-      const usersDiv = document.querySelector(".users");
-      if (usersDiv) {
-        usersDiv.insertAdjacentHTML(
-          "beforeend",
-          `<div class="speaker user-rtc-${userRtcUid}" id="member-${memberId}"><p>${memberId}</p></div>`
-        );
-      }
+      addUser(memberId, attributes.userRtcUid);
     });
   };
 
@@ -288,7 +297,7 @@ export default function Voice() {
   };
 
   const toggleMic = () => {
-    audioTracks.localAudioTrack.setMuted(micMuted());
+    audioTracks.localAudioTrack.setEnabled(!micMuted());
     setMicMuted(!micMuted());
   };
 
@@ -386,8 +395,23 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      {/* grid grid-col-5 gap-3 h-[100px] w-[400px] */}
-      <div class="users flex flex-col h-[500px]" id="users"></div>
+      <div class="users flex flex-col h-[500px]" id="users">
+        <For each={users}>
+          {(user) => (
+            <button
+              class={`speaker user-rtc-${user.uid} ${
+                user.isTalking ? "talking" : ""
+              }`}
+              onclick={() => {
+                /* Handle user button click */
+              }}
+            >
+              {user.memberId}
+            </button>
+          )}
+        </For>
+      </div>
+
       <Show when={sessionStarterNotInCall()}>
         <CommonDialog
           open={sessionStarterNotInCall()}
