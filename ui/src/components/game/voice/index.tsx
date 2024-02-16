@@ -351,26 +351,7 @@ export default function Voice() {
   return (
     <div>
       <div class="flex flex-col">
-        <Typography
-          variant="subtitle1"
-          gutterBottom
-          component="div"
-          class="text-center"
-        >
-          Join the Session Call
-        </Typography>
-
-        <div class="flex justify-between">
-          <div class="flex flex-col">
-            <div>
-              <Button onClick={toggleMic}>
-                {micMuted() ? <MicOutlined /> : <MicOffOutlined />}
-              </Button>
-            </div>
-            <span class="text-xs text-center">
-              {micMuted() ? "Mic On" : "Mic Off"}
-            </span>
-          </div>
+        <div class="flex sm: flex-col md:flex-row justify-between">
           <div class="flex flex-col">
             <Show when={!isInChat()}>
               <div>
@@ -393,12 +374,20 @@ export default function Voice() {
               <Show when={isInChat()}>Leave Call</Show>
             </span>
           </div>
+          <div class="flex flex-col">
+            <div>
+              <Button onClick={toggleMic}>
+                {micMuted() ? <MicOutlined /> : <MicOffOutlined />}
+              </Button>
+            </div>
+            <span class="text-xs text-center">
+              {micMuted() ? "Mic On" : "Mic Off"}
+            </span>
+          </div>
         </div>
-        <div
-          class="users grid grid-cols-5 gap-3 h-[100px]  w-[400px] "
-          id="users"
-        ></div>
       </div>
+      {/* grid grid-col-5 gap-3 h-[100px] w-[400px] */}
+      <div class="users flex flex-col h-[500px]" id="users"></div>
       <Show when={sessionStarterNotInCall()}>
         <CommonDialog
           open={sessionStarterNotInCall()}

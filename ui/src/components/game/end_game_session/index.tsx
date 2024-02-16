@@ -68,7 +68,7 @@ export default function EndGameSession() {
         sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
         onClick={handleClickOpen}
       >
-        <CancelOutlined fontSize="large" />
+        <CancelOutlined fontSize="medium" />
       </Button>
 
       <Dialog

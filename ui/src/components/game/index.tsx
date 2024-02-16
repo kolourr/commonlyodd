@@ -87,18 +87,18 @@ export default function Game() {
             {" "}
             <StartSession />
           </div>
-          <div class="flex flex-col space-y-20 items-center justify-center pt-44">
+          <div class="flex flex-col space-y-20 items-center justify-center pt-12">
             <InfoModal
               title={gameRules.title}
               content={gameRules.content}
-              icon={<SportsEsportsOutlined fontSize="large" />}
+              icon={<SportsEsportsOutlined fontSize="medium" />}
               openModal={showFAQModal()}
               setOpenModal={setShowFAQModal}
             />
             <InfoModal
               title={gameRules.title}
               content={gameRules.content}
-              icon={<RuleOutlined fontSize="large" />}
+              icon={<RuleOutlined fontSize="medium" />}
               openModal={showRulesModal()}
               setOpenModal={setShowRulesModal}
             />
@@ -106,8 +106,24 @@ export default function Game() {
               onClick={handleOpenTeamScores}
               sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
             >
-              <SportsScoreOutlined fontSize="large" />
+              <SportsScoreOutlined fontSize="medium" />
             </Button>
+
+            <EndGameSession />
+            {/* <InfoModal
+              title={legalDocuments.title}
+              content={legalDocuments.content}
+              icon={<PrivacyTipOutlined fontSize="medium" />}
+              openModal={showLegalModal()}
+              setOpenModal={setShowLegalModal}
+            />
+            <InfoModal
+              title={legalDocuments.title}
+              content={legalDocuments.content}
+              icon={<LockClockOutlined fontSize="medium" />}
+              openModal={showLegalModal()}
+              setOpenModal={setShowLegalModal}
+            /> */}
           </div>
         </div>
         <div class="flex w-11/12 flex-col bg-slate-100 ">
@@ -121,15 +137,12 @@ export default function Game() {
             />
           </div>
 
-          <div class="flex flex-col items-center justify-center  pt-12   ">
+          <div class="flex flex-col items-center justify-center  pt-6   ">
             <div class="pb-4">
               {" "}
               <Router>
                 <StartGame />
               </Router>
-            </div>
-            <div>
-              <Voice />
             </div>
           </div>
           <Show when={isTargetScoreReached()}>
@@ -155,22 +168,8 @@ export default function Game() {
         </div>
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
           <Timer />
-          <div class="flex flex-col space-y-20 items-center justify-center pt-40">
-            <EndGameSession />
-            <InfoModal
-              title={legalDocuments.title}
-              content={legalDocuments.content}
-              icon={<PrivacyTipOutlined fontSize="large" />}
-              openModal={showLegalModal()}
-              setOpenModal={setShowLegalModal}
-            />
-            <InfoModal
-              title={legalDocuments.title}
-              content={legalDocuments.content}
-              icon={<LockClockOutlined fontSize="large" />}
-              openModal={showLegalModal()}
-              setOpenModal={setShowLegalModal}
-            />
+          <div class="flex flex-col space-y-20 items-center justify-center pt-12">
+            <Voice />
           </div>
         </div>
       </div>

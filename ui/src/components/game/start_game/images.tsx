@@ -40,7 +40,7 @@ export default function GameImages(props: GameImagesProps) {
   });
 
   return (
-    <div class="flex flex-col lg:flex-row justify-center items-center lg:space-x-4 lg:pt-20">
+    <div class="flex flex-col lg:flex-row justify-center items-center lg:space-x-4 lg:pt-10">
       {imagesToShow().map((obj, index) => (
         <div class="py-4">
           <p class="text-center">{obj.name}</p>
