@@ -1,5 +1,5 @@
 import { createSignal, onMount, onCleanup, Show, For } from "solid-js";
-import { Button, CircularProgress, Typography } from "@suid/material";
+import { Button, CircularProgress } from "@suid/material";
 import "./styles.css";
 import {
   MicOutlined,
@@ -18,9 +18,27 @@ import { createStore } from "solid-js/store";
 
 type UserState = {
   uid: string;
-  memberId: number;
-  isTalking: boolean;
+  memberId: string;
+  isMuted: boolean;
 };
+
+//Unique identifier for the users entering the voice chat
+let rtmUid = String(Math.floor(Math.random() * 2032));
+let rtcUid = Math.floor(Math.random() * 2032);
+
+// Agora clients and channel
+let rtcClient: IAgoraRTCClient;
+let rtmClient: any;
+let channel: any;
+
+// Audio tracks forlocal and remote users
+let audioTracks = {
+  localAudioTrack: null as null | IMicrophoneAudioTrack,
+  remoteAudioTracks: {} as IRemoteAudioTrack[],
+};
+
+//Users in channel
+const MAX_PARTICIPANTS = 10;
 
 export default function Voice() {
   const [micMuted, setMicMuted] = createSignal(true);
@@ -41,44 +59,18 @@ export default function Voice() {
   const [users, setUsers] = createStore<UserState[]>([]);
 
   // Function to add a user to the store
-  const addUser = (memberId: number, userRtcUid: string) => {
-    setUsers((users) => [
-      ...users,
-      { uid: userRtcUid, memberId, isTalking: false },
-    ]);
+  const addUser = (
+    userRtcUid: string,
+    memberId: string,
+    isMuted: boolean = false
+  ) => {
+    setUsers((users) => [...users, { uid: userRtcUid, memberId, isMuted }]);
   };
 
   // Function to remove a user from the store
-  const removeUser = (memberId: number) => {
+  const removeUser = (memberId: string) => {
     setUsers(users.filter((user) => user.memberId !== memberId));
   };
-
-  // Function to update user's talking state
-  const updateUserTalkingState = (userRtcUid: string, isTalking: boolean) => {
-    setUsers((users) =>
-      users.map((user) =>
-        user.uid === userRtcUid ? { ...user, isTalking } : user
-      )
-    );
-  };
-
-  //Unique identifier for the users entering the voice chat
-  let rtmUid = String(Math.floor(Math.random() * 2032));
-  let rtcUid = Math.floor(Math.random() * 2032);
-
-  // Agora clients and channel
-  let rtcClient: IAgoraRTCClient;
-  let rtmClient: any;
-  let channel: any;
-
-  // Audio tracks forlocal and remote users
-  let audioTracks = {
-    localAudioTrack: null as null | IMicrophoneAudioTrack,
-    remoteAudioTracks: {} as IRemoteAudioTrack[],
-  };
-
-  //Users in channel
-  const MAX_PARTICIPANTS = 10;
 
   //Check if user is session starter or not
   const checkUserstatus = () => {
@@ -192,18 +184,37 @@ export default function Voice() {
       }
 
       window.addEventListener("beforeunload", leaveRTMChannel);
-      channel.on("MemberJoined", (memberId: number) => {
+      channel.on("MemberJoined", (memberId: string) => {
         handleMemberJoined(memberId);
       });
-      channel.on("MemberLeft", (memberId: number) => {
+      channel.on("MemberLeft", (memberId: string) => {
         handleMemberLeft(memberId);
       });
 
+      // Adjust the ChannelMessage handler within initRtm to handle both session end and mute commands
       channel.on("ChannelMessage", async (message: any) => {
         const parsedMessage = JSON.parse(message.text);
-        if (parsedMessage.type === "SESSION_END") {
-          setSessionStarterEndedCall(true);
-          await leaveVoiceChat(rtcUid);
+        switch (parsedMessage.type) {
+          case "SESSION_END":
+            setSessionStarterEndedCall(true);
+            await leaveVoiceChat(rtcUid);
+            break;
+          case "MUTE_COMMAND":
+            const { targetMemberId, mute } = parsedMessage;
+            setUsers((users) =>
+              users.map((user) =>
+                user.memberId === targetMemberId
+                  ? { ...user, isMuted: mute }
+                  : user
+              )
+            );
+            // If the current client is the target, mute/unmute local audio track
+            if (targetMemberId === rtmUid && audioTracks.localAudioTrack) {
+              toggleMic();
+              // audioTracks.localAudioTrack.setEnabled(!mute);
+            }
+            break;
+          // Handle other message types as needed
         }
       });
 
@@ -213,6 +224,50 @@ export default function Voice() {
     } catch (error) {
       console.error("Failed to join RTM Stream Channel:", error);
       return false;
+    }
+  };
+
+  // Utility function to get the current mute state of a user
+  const getUserMuteState = (memberId: string): boolean => {
+    const user = users.find((u) => u.memberId === memberId);
+    return user ? user.isMuted : false;
+  };
+
+  // Adjusted handleMuteButtonClick function to toggle the mute state and send the command
+  const handleMuteButtonClick = (memberId: string) => {
+    // Determine the current mute state of the user
+    const isCurrentlyMuted = getUserMuteState(memberId);
+    // Toggle the mute state
+    sendMuteCommand(memberId, !isCurrentlyMuted);
+    // Immediately update the local state for immediate feedback
+    setUsers((users) =>
+      users.map((user) =>
+        user.memberId === memberId
+          ? { ...user, isMuted: !isCurrentlyMuted }
+          : user
+      )
+    );
+  };
+
+  // Implementation of sendMuteCommand to send RTM messages
+  const sendMuteCommand = async (memberId: string, mute: boolean) => {
+    if (isSessionStarter()) {
+      // Construct the command message
+      const message = JSON.stringify({
+        type: "MUTE_COMMAND",
+        targetMemberId: memberId,
+        mute: mute,
+      });
+      // Send the command via RTM
+      await channel.sendMessage({ text: message });
+    }
+  };
+
+  // Correctly implemented handleUserButtonClick function
+  const handleUserButtonClick = (memberId: string) => {
+    if (isSessionStarter()) {
+      // Call handleMuteButtonClick directly with the memberId
+      handleMuteButtonClick(memberId);
     }
   };
 
@@ -259,9 +314,9 @@ export default function Voice() {
 
           if (item !== null) {
             if (volume.level >= 50) {
-              item.style.borderColor = "#86efac";
+              item.style.borderColor = "#166534";
             } else {
-              item.style.borderColor = "#fca5a5";
+              item.style.borderColor = "#9f1239";
             }
           }
         } catch (error) {
@@ -271,20 +326,20 @@ export default function Voice() {
     });
   };
 
-  const handleMemberJoined = async (memberId: number) => {
+  const handleMemberJoined = async (memberId: string) => {
     const attributes = await rtmClient.getUserAttributes(memberId);
-    addUser(memberId, attributes.userRtcUid);
+    addUser(attributes.userRtcUid, memberId);
   };
 
-  const handleMemberLeft = (memberId: number) => {
+  const handleMemberLeft = (memberId: string) => {
     removeUser(memberId);
   };
 
   const getChannelMembers = async () => {
     const members = await channel.getMembers();
-    members.forEach(async (memberId: number) => {
+    members.forEach(async (memberId: string) => {
       const attributes = await rtmClient.getUserAttributes(memberId);
-      addUser(memberId, attributes.userRtcUid);
+      addUser(attributes.userRtcUid, memberId);
     });
   };
 
@@ -333,13 +388,14 @@ export default function Voice() {
     await leaveRTMChannel();
 
     // Remove the user from the DOM
-    const userElement = document.getElementById(userId.toString());
-    if (userElement) {
-      const usersDiv = userElement.parentNode;
-      if (usersDiv) {
-        usersDiv.removeChild(userElement);
-      }
-    }
+    handleMemberLeft(rtmUid);
+    // const userElement = document.getElementById(userId.toString());
+    // if (userElement) {
+    //   const usersDiv = userElement.parentNode;
+    //   if (usersDiv) {
+    //     usersDiv.removeChild(userElement);
+    //   }
+    // }
 
     const usersDiv = document.querySelector(".users");
     if (usersDiv) {
@@ -399,12 +455,9 @@ export default function Voice() {
         <For each={users}>
           {(user) => (
             <button
-              class={`speaker user-rtc-${user.uid} ${
-                user.isTalking ? "talking" : ""
-              }`}
-              onclick={() => {
-                /* Handle user button click */
-              }}
+              class={`speaker user-rtc-${user.uid}`}
+              style={{ background: user.isMuted ? "#fecaca" : "#bae6fd" }}
+              onclick={() => handleUserButtonClick(user.memberId)}
             >
               {user.memberId}
             </button>
