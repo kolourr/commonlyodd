@@ -57,8 +57,8 @@ export default function Voice() {
     createSignal(false);
   const [isJoining, setIsJoining] = createSignal(false);
   const [users, setUsers] = createStore<UserState[]>([]);
+  const [volumes, setVolumes] = createStore({});
 
-  // Function to add a user to the store
   const addUser = (
     userRtcUid: string,
     memberId: string,
@@ -67,12 +67,10 @@ export default function Voice() {
     setUsers((users) => [...users, { uid: userRtcUid, memberId, isMuted }]);
   };
 
-  // Function to remove a user from the store
   const removeUser = (memberId: string) => {
     setUsers(users.filter((user) => user.memberId !== memberId));
   };
 
-  //Check if user is session starter or not
   const checkUserstatus = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionUuid =
@@ -114,7 +112,7 @@ export default function Voice() {
     }
   };
 
-  // Agora RTC client - lets only use the RTC for the audio signalling
+  // Agora RTC client
   const initRtc = async () => {
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
     AgoraRTC.setLogLevel(2);
@@ -141,7 +139,7 @@ export default function Voice() {
     initVolumeIndicator();
   };
 
-  // Agora RTM client - for chat and signalling
+  // Agora RTM client
   const initRtm = async (memberType: string): Promise<boolean> => {
     rtmClient = AgoraRTM.createInstance(appid, { enableLogUpload: false });
     await rtmClient.login({ uid: rtmUid, token: rtmToken() });
@@ -198,6 +196,9 @@ export default function Voice() {
           case "SESSION_END":
             setSessionStarterEndedCall(true);
             await leaveVoiceChat(rtcUid);
+            if (!micMuted()) {
+              toggleMic();
+            }
             break;
           case "MUTE_COMMAND":
             const { targetMemberId, mute } = parsedMessage;
@@ -211,10 +212,8 @@ export default function Voice() {
             // If the current client is the target, mute/unmute local audio track
             if (targetMemberId === rtmUid && audioTracks.localAudioTrack) {
               toggleMic();
-              // audioTracks.localAudioTrack.setEnabled(!mute);
             }
             break;
-          // Handle other message types as needed
         }
       });
 
@@ -235,11 +234,8 @@ export default function Voice() {
 
   // Adjusted handleMuteButtonClick function to toggle the mute state and send the command
   const handleMuteButtonClick = (memberId: string) => {
-    // Determine the current mute state of the user
     const isCurrentlyMuted = getUserMuteState(memberId);
-    // Toggle the mute state
     sendMuteCommand(memberId, !isCurrentlyMuted);
-    // Immediately update the local state for immediate feedback
     setUsers((users) =>
       users.map((user) =>
         user.memberId === memberId
@@ -252,21 +248,17 @@ export default function Voice() {
   // Implementation of sendMuteCommand to send RTM messages
   const sendMuteCommand = async (memberId: string, mute: boolean) => {
     if (isSessionStarter()) {
-      // Construct the command message
       const message = JSON.stringify({
         type: "MUTE_COMMAND",
         targetMemberId: memberId,
         mute: mute,
       });
-      // Send the command via RTM
       await channel.sendMessage({ text: message });
     }
   };
 
-  // Correctly implemented handleUserButtonClick function
   const handleUserButtonClick = (memberId: string) => {
     if (isSessionStarter()) {
-      // Call handleMuteButtonClick directly with the memberId
       handleMuteButtonClick(memberId);
     }
   };
@@ -283,13 +275,24 @@ export default function Voice() {
     return starterPresent;
   };
 
+  const initChatSession = () => {
+    // Clear users store
+    setUsers([]);
+
+    // Regenerate IDs for RTM and RTC for session
+    rtmUid = String(Math.floor(Math.random() * 10000 + 1));
+    rtcUid = Math.floor(Math.random() * 10000 + 1);
+  };
+
   const joinVoiceChat = async () => {
     setIsJoining(true);
+
+    initChatSession();
+
     checkUserstatus();
     await fetchTokens();
 
     const memberType = isSessionStarter() ? "starter" : "non-starter";
-
     const canJoinRtc = await initRtm(memberType);
 
     if (canJoinRtc) {
@@ -301,27 +304,13 @@ export default function Voice() {
     }
   };
 
-  const initVolumeIndicator = async () => {
+  const initVolumeIndicator = () => {
     AgoraRTC.setParameter("AUDIO_VOLUME_INDICATION_INTERVAL", 150);
     rtcClient.enableAudioVolumeIndicator();
 
-    rtcClient.on("volume-indicator", (volumes) => {
-      volumes.forEach((volume) => {
-        try {
-          const item = document.getElementsByClassName(
-            `user-rtc-${volume.uid}`
-          )[0] as HTMLElement;
-
-          if (item !== null) {
-            if (volume.level >= 50) {
-              item.style.borderColor = "#166534";
-            } else {
-              item.style.borderColor = "#9f1239";
-            }
-          }
-        } catch (error) {
-          console.error(error);
-        }
+    rtcClient.on("volume-indicator", (volumeInfo) => {
+      volumeInfo.forEach(({ uid, level }) => {
+        setVolumes(uid, level);
       });
     });
   };
@@ -389,14 +378,7 @@ export default function Voice() {
 
     // Remove the user from the DOM
     handleMemberLeft(rtmUid);
-    // const userElement = document.getElementById(userId.toString());
-    // if (userElement) {
-    //   const usersDiv = userElement.parentNode;
-    //   if (usersDiv) {
-    //     usersDiv.removeChild(userElement);
-    //   }
-    // }
-
+    // Reset the state
     const usersDiv = document.querySelector(".users");
     if (usersDiv) {
       usersDiv.innerHTML = "";
@@ -408,9 +390,9 @@ export default function Voice() {
     checkUserstatus();
   });
 
-  // Cleanup logic
   onCleanup(() => {
     leaveVoiceChat(rtcUid);
+    leaveRTMChannel();
   });
 
   return (
@@ -456,7 +438,13 @@ export default function Voice() {
           {(user) => (
             <button
               class={`speaker user-rtc-${user.uid}`}
-              style={{ background: user.isMuted ? "#fecaca" : "#bae6fd" }}
+              style={{
+                background: user.isMuted
+                  ? "#fee2e2"
+                  : volumes[user.uid] > 50
+                  ? "#4ade80"
+                  : "#e0f2fe",
+              }}
               onclick={() => handleUserButtonClick(user.memberId)}
             >
               {user.memberId}
@@ -464,7 +452,6 @@ export default function Voice() {
           )}
         </For>
       </div>
-
       <Show when={sessionStarterNotInCall()}>
         <CommonDialog
           open={sessionStarterNotInCall()}
