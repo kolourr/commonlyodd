@@ -133,7 +133,10 @@ export default function Voice() {
     // Join the channel using the received RTC token
     await rtcClient.join(appid, roomId(), rtcToken(), rtcUid);
     // Publish audio track
-    audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack();
+    audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack({
+      AEC: true,
+      ANS: true,
+    });
     await rtcClient.publish([audioTracks.localAudioTrack]);
     setIsInChat(true);
     initVolumeIndicator();
