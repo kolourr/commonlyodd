@@ -15,6 +15,7 @@ import AgoraRTC, {
 import AgoraRTM from "agora-rtm-sdk";
 import CommonDialog from "../common_dialog";
 import { createStore } from "solid-js/store";
+import { AIDenoiserExtension } from "agora-extension-ai-denoiser";
 
 type UserState = {
   uid: string;
@@ -39,6 +40,10 @@ let audioTracks = {
 
 //Users in channel
 const MAX_PARTICIPANTS = 10;
+let denoiser: AIDenoiserExtension;
+denoiser = new AIDenoiserExtension({
+  assetsPath: "/src/components/game/voice/external",
+});
 
 export default function Voice() {
   const [micMuted, setMicMuted] = createSignal(true);
@@ -116,6 +121,8 @@ export default function Voice() {
   const initRtc = async () => {
     rtcClient = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
     AgoraRTC.setLogLevel(2);
+    AgoraRTC.registerExtensions([denoiser]);
+
     await rtcClient.on("user-published", handleUserPublished);
     await rtcClient.on("token-privilege-will-expire", async () => {
       rtcUid = Math.floor(Math.random() * 2032);
@@ -132,11 +139,22 @@ export default function Voice() {
 
     // Join the channel using the received RTC token
     await rtcClient.join(appid, roomId(), rtcToken(), rtcUid);
+
+    const processor = denoiser.createProcessor();
+
     // Publish audio track
     audioTracks.localAudioTrack = await AgoraRTC.createMicrophoneAudioTrack({
       AEC: true,
       ANS: true,
     });
+
+    audioTracks.localAudioTrack
+      .pipe(processor)
+      .pipe(audioTracks.localAudioTrack.processorDestination);
+
+    await processor.enable();
+    // Optional, listen the processor`s overlaod callback to catch overload message
+
     await rtcClient.publish([audioTracks.localAudioTrack]);
     setIsInChat(true);
     initVolumeIndicator();
