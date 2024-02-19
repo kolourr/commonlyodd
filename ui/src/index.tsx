@@ -16,8 +16,8 @@ render(
   () => (
     <Router>
       <Routes>
-        <Route path="/game" component={App} />
-        <Route path="/game/join" component={App} />
+        <Route path="/" component={App} />
+        <Route path="/join" component={App} />
       </Routes>
     </Router>
   ),
