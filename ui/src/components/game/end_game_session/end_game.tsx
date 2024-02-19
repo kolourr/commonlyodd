@@ -42,7 +42,7 @@ export default function EndGame() {
       setDialogOpen(true);
 
       // Navigate to the base URL
-      navigate("/");
+      navigate("/game");
 
       // Refresh the page after a short delay to ensure navigation is complete
       setTimeout(() => {

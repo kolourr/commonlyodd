@@ -96,7 +96,7 @@ func StartSession(c *gin.Context) {
 
 	appURL := os.Getenv("APP_URL_DEV")
 	// Construct the join link using the sessionUUID
-	joinLink := fmt.Sprintf("%s/join?session=%s", appURL, sessionUUID)
+	joinLink := fmt.Sprintf("%s/game/join?session=%s", appURL, sessionUUID)
 
 	// Return the session UUID, starter token, and join link to the client
 	c.JSON(http.StatusOK, GameSessionResponse{

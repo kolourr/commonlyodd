@@ -308,7 +308,7 @@ export default function StartGame() {
 
     if (complete() && sessionUuid) {
       // Navigate to the base URL
-      navigate("/");
+      navigate("/game");
 
       // Refresh the page after a short delay to ensure navigation is complete
       setTimeout(() => {

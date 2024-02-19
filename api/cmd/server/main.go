@@ -47,7 +47,7 @@ func main() {
 		},
 	}))
 	router.Static("/static", staticFilesPath)
-	router.StaticFile("/", filepath.Join(staticFilesPath, "index.html"))
+	router.StaticFile("/game", filepath.Join(staticFilesPath, "index.html"))
 
 	// Setup routes
 	router.GET("/health", func(ctx *gin.Context) {
