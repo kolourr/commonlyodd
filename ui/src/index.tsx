@@ -3,8 +3,10 @@ import "./index.css";
 import { render } from "solid-js/web";
 import App from "./App";
 import { Router, Route, Routes } from "@solidjs/router";
+import { lazy } from "solid-js";
 
 const root = document.getElementById("root");
+const LandingPage = lazy(() => import("./components/landing_page"));
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(
@@ -16,6 +18,7 @@ render(
   () => (
     <Router>
       <Routes>
+        <Route path="/" component={LandingPage} />
         <Route path="/game" component={App} />
         <Route path="/game/join" component={App} />
       </Routes>

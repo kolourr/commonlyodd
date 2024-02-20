@@ -2,15 +2,13 @@ package main
 
 import (
 	"log"
-	"net/http"
 	"os"
 	"path/filepath"
 
-	"github.com/gin-contrib/cors"
-	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 	"github.com/kolourr/commonlyodd/database"
-	"github.com/kolourr/commonlyodd/gameplay"
+	"github.com/kolourr/commonlyodd/platform/authenticator"
+	"github.com/kolourr/commonlyodd/platform/router"
 )
 
 func main() {
@@ -28,54 +26,15 @@ func main() {
 	databaseURL := os.Getenv("DATABASE_URL")
 	database.InitDB(databaseURL)
 
-	// Path to the static files
-	staticFilesPath := "../../../ui/dist"
+	//initiate auth0 authenticator
+	auth, err := authenticator.New()
+	if err != nil {
+		log.Fatalf("Failed to initialize the authenticator: %v", err)
+	}
 
-	// absPath, _ := filepath.Abs(staticFilesPath)
-	// log.Println("Serving static files from:", absPath)
-
-	// Setup gin router
-	router := gin.Default()
-	router.GET("/debug/pprof/*any", gin.WrapH(http.DefaultServeMux))
-	router.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"*"},
-		AllowMethods: []string{"POST", "GET", "PUT", "OPTIONS"},
-		AllowHeaders: []string{
-			"Content-Type",
-			"Access-Control-Allow-Origin",
-			"Access-Control-Allow-Headers",
-		},
-	}))
-	router.Static("/static", staticFilesPath)
-	router.StaticFile("/game", filepath.Join(staticFilesPath, "index.html"))
-
-	// Setup routes
-	router.GET("/health", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"status": "UP",
-		})
-	})
-
-	// New route for starting a game
-	router.POST("/start-session", gameplay.StartSession)
-	router.POST("/end-session", gameplay.EndSessionEndpoint)
-	router.POST("/generate-tokens", gameplay.GenerateTokens)
-	router.GET("/ws", gameplay.HandleGameWebSocket)
-
-	// Catch-all route to serve index.html for SPA routes
-	router.NoRoute(func(c *gin.Context) {
-
-		// Check if the request is for a static file
-		if filepath.Ext(c.Request.URL.Path) != "" {
-			// Let Gin handle static files (e.g., .js, .css, .png)
-			c.Status(http.StatusNotFound)
-		} else {
-			// Serve index.html for any other requests
-			c.File(filepath.Join(staticFilesPath, "index.html"))
-		}
-	})
+	rtr := router.New(auth)
 
 	//Start server
-	router.Run(":8080")
+	rtr.Run(":8080")
 
 }
