@@ -3,6 +3,7 @@ package router
 import (
 	"encoding/gob"
 	"net/http"
+	"os"
 	"path/filepath"
 
 	"github.com/gin-contrib/cors"
@@ -12,6 +13,7 @@ import (
 
 	"github.com/kolourr/commonlyodd/gameplay"
 	"github.com/kolourr/commonlyodd/platform/authenticator"
+	"github.com/kolourr/commonlyodd/platform/middleware"
 	"github.com/kolourr/commonlyodd/web/app/callback"
 	"github.com/kolourr/commonlyodd/web/app/login"
 	"github.com/kolourr/commonlyodd/web/app/logout"
@@ -23,13 +25,15 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router := gin.Default()
 	router.GET("/debug/pprof/*any", gin.WrapH(http.DefaultServeMux))
 	router.Use(cors.New(cors.Config{
-		AllowOrigins: []string{"*"},
+		AllowOrigins: []string{"http://localhost:3000"},
 		AllowMethods: []string{"POST", "GET", "PUT", "OPTIONS"},
 		AllowHeaders: []string{
 			"Content-Type",
 			"Access-Control-Allow-Origin",
 			"Access-Control-Allow-Headers",
+			"Authorization",
 		},
+		AllowCredentials: true,
 	}))
 
 	// To store custom types in our cookies,
@@ -50,11 +54,12 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	})
 	router.GET("/login", login.Handler(auth))
 	router.GET("/callback", callback.Handler(auth))
-	router.GET("/user", user.Handler)
+	router.GET("/user", middleware.IsAuthenticated, user.Handler)
 	router.GET("/logout", logout.Handler)
+	router.GET("/log-out", logOutGameHandler)
 
-	// Routes for starting a game
-	router.POST("/start-session", gameplay.StartSession)
+	// New route for starting a game
+	router.POST("/start-session", middleware.IsAuthenticated, gameplay.StartSession)
 	router.POST("/end-session", gameplay.EndSessionEndpoint)
 	router.POST("/generate-tokens", gameplay.GenerateTokens)
 	router.GET("/ws", gameplay.HandleGameWebSocket)
@@ -73,4 +78,13 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	})
 
 	return router
+}
+
+func logOutGameHandler(ctx *gin.Context) {
+	appURL := os.Getenv("APP_URL_DEV") // Make sure this is set in your environment
+	if appURL == "" {
+		// Default to a fallback URL if APP_URL_DEV is not set
+		appURL = "http://localhost:3000"
+	}
+	ctx.Redirect(http.StatusFound, appURL)
 }

@@ -34,6 +34,7 @@ async function startSession() {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify({
           number_of_teams: selectedTeams(),
           target_score: selectedScore(),

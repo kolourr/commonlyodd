@@ -1,7 +1,9 @@
 package callback
 
 import (
+	"fmt"
 	"net/http"
+	"os"
 
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
@@ -43,7 +45,12 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 			return
 		}
 
+		appURL := os.Getenv("APP_URL_DEV")
+		joinLink := fmt.Sprintf("%s/user", appURL)
+
 		// Redirect to logged in page.
-		ctx.Redirect(http.StatusTemporaryRedirect, "/user")
+		// ctx.Redirect(http.Redirect(), "http://localhost:3000/user")
+		//Redirect user to http://localhost:3000/user
+		ctx.Redirect(http.StatusFound, joinLink)
 	}
 }
