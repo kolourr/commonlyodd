@@ -56,7 +56,8 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.GET("/callback", callback.Handler(auth))
 	router.GET("/user", middleware.IsAuthenticated, user.Handler)
 	router.GET("/logout", logout.Handler)
-	router.GET("/log-out", logOutGameHandler)
+	router.GET("/logout-auth", logOutAuthRedirectHandler)
+	router.GET("/check-auth", isUserAuthenticated)
 
 	// New route for starting a game
 	router.POST("/start-session", middleware.IsAuthenticated, gameplay.StartSession)
@@ -80,11 +81,26 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	return router
 }
 
-func logOutGameHandler(ctx *gin.Context) {
+func logOutAuthRedirectHandler(ctx *gin.Context) {
 	appURL := os.Getenv("APP_URL_DEV") // Make sure this is set in your environment
 	if appURL == "" {
 		// Default to a fallback URL if APP_URL_DEV is not set
 		appURL = "http://localhost:3000"
 	}
 	ctx.Redirect(http.StatusFound, appURL)
+}
+
+func isUserAuthenticated(ctx *gin.Context) {
+	// Check if the session has a "profile" key
+	session := sessions.Default(ctx)
+	profile := session.Get("profile")
+
+	// If the profile exists, the user is considered authenticated
+	if profile != nil {
+		ctx.JSON(http.StatusOK, gin.H{"authenticated": true})
+	} else {
+		// Respond with false if not authenticated
+		ctx.JSON(http.StatusOK, gin.H{"authenticated": false})
+	}
+
 }

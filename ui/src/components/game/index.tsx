@@ -25,11 +25,13 @@ import { TeamScore, scoreMessageSent } from "./start_game/types";
 import { createStore } from "solid-js/store";
 import { Router } from "solid-app-router";
 import Voice from "./voice";
+import { checkAuth } from "../auth/use_auth";
 
-const BASE_API = import.meta.env.CO_UI_URL;
+const BASE_UI_URL = import.meta.env.CO_UI_URL;
+const BASE_API_URL = import.meta.env.CO_API_URL;
 
 export const [sessionLink, setSessionLink] = createSignal(
-  `${BASE_API}/click-to-start`
+  `${BASE_UI_URL}/click-to-start`
 );
 export const [messageSent, setMessageSent] = createSignal<scoreMessageSent>();
 
@@ -40,6 +42,7 @@ export default function Game() {
   const [showTeamScores, setShowTeamScores] = createSignal(false);
   const [teamScores, setTeamScores] = createStore<number[]>([]);
   const [isTargetScoreReached, setIsTargetScoreReached] = createSignal(false);
+  const [isAuthenticated, setIsAuthenticated] = createSignal(false);
 
   // Check if the session has started
   const sessionStarted = () =>
@@ -75,18 +78,24 @@ export default function Game() {
     setShowTeamScores(!showTeamScores());
   };
 
+  createEffect(async () => {
+    const auth = await checkAuth(); // Wait for the promise to resolve
+    setIsAuthenticated(auth);
+  });
+
   return (
     <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-7xl mx-auto">
       <div class="bg-slate-50 text-center py-4">
         <h1 class="text-3xl font-bold">Commonly Odd</h1>
       </div>
-
       <div class="flex flex-grow">
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
-          <div class="flex flex-col items-center justify-start space-y-20 ">
-            {" "}
-            <StartSession />
-          </div>
+          <Show when={isAuthenticated()}>
+            <div class="flex flex-col items-center justify-start space-y-20 ">
+              {" "}
+              <StartSession />
+            </div>
+          </Show>
           <div class="flex flex-col space-y-20 items-center justify-center pt-12">
             <InfoModal
               title={gameRules.title}
@@ -110,33 +119,29 @@ export default function Game() {
             </Button>
 
             <EndGameSession />
-            {/* <InfoModal
-              title={legalDocuments.title}
-              content={legalDocuments.content}
-              icon={<PrivacyTipOutlined fontSize="medium" />}
-              openModal={showLegalModal()}
-              setOpenModal={setShowLegalModal}
-            />
-            <InfoModal
-              title={legalDocuments.title}
-              content={legalDocuments.content}
-              icon={<LockClockOutlined fontSize="medium" />}
-              openModal={showLegalModal()}
-              setOpenModal={setShowLegalModal}
-            /> */}
+            <Show when={isAuthenticated()}>
+              <Button
+                variant="contained"
+                color="primary"
+                href={`${BASE_API_URL}/logout`}
+              >
+                Logout
+              </Button>
+            </Show>
           </div>
         </div>
         <div class="flex w-11/12 flex-col bg-slate-100 ">
-          <div class="flex flex-row items-center justify-center bg-slate-50   ">
-            <CopyLink />
-            <input
-              type="text"
-              class="border p-2 rounded ml-2 w-full md:w-auto lg:w-5/12"
-              readOnly
-              value={sessionLink()}
-            />
-          </div>
-
+          <Show when={isAuthenticated()}>
+            <div class="flex flex-row items-center justify-center bg-slate-50   ">
+              <CopyLink />
+              <input
+                type="text"
+                class="border p-2 rounded ml-2 w-full md:w-auto lg:w-5/12"
+                readOnly
+                value={sessionLink()}
+              />
+            </div>
+          </Show>
           <div class="flex flex-col items-center justify-center  pt-6   ">
             <div class="pb-4">
               {" "}

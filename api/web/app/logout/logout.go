@@ -32,7 +32,7 @@ func Handler(ctx *gin.Context) {
 	if ctx.Request.TLS != nil {
 		scheme = "https"
 	}
-	startGameURL := scheme + "://" + ctx.Request.Host + "/log-out"
+	startGameURL := scheme + "://" + ctx.Request.Host + "/logout-auth"
 
 	parameters := url.Values{}
 	parameters.Add("returnTo", startGameURL)

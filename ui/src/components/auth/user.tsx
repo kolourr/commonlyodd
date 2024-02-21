@@ -30,13 +30,16 @@ const User = () => {
   const [userProfile] = createResource(fetchUserProfile);
 
   return (
-    <div class="flex flex-col items-center justify-center h-screen bg-gray-100">
+    <div class="flex flex-col items-center justify-center ">
       <h1 class="mb-4 text-2xl font-bold">
         Welcome, {userProfile()?.firstName}
       </h1>
       <img src={userProfile()?.pictureURL} alt="Profile Picture" class="mb-4" />
       <Button variant="contained" color="primary" href={`${BASE_API}/logout`}>
         Logout
+      </Button>
+      <Button variant="contained" color="secondary" href="/game">
+        Play Game
       </Button>
     </div>
   );
