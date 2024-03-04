@@ -9,6 +9,7 @@ import (
 	"github.com/kolourr/commonlyodd/database"
 	"github.com/kolourr/commonlyodd/platform/authenticator"
 	"github.com/kolourr/commonlyodd/platform/router"
+	"github.com/stripe/stripe-go/v76"
 )
 
 func main() {
@@ -25,6 +26,9 @@ func main() {
 	}
 	databaseURL := os.Getenv("DATABASE_URL")
 	database.InitDB(databaseURL)
+
+	// This is your test secret API key.
+	stripe.Key = os.Getenv("STRIPE_TEST_KEY")
 
 	//initiate auth0 authenticator
 	auth, err := authenticator.New()

@@ -1,6 +1,7 @@
 package user
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
 	"strings"
@@ -9,15 +10,17 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/kolourr/commonlyodd/database"
 	_ "github.com/lib/pq"
+	"github.com/stripe/stripe-go/v76"
+	"github.com/stripe/stripe-go/v76/customer"
 )
 
-func insertUser(auth0ID, email, connection, firstName, pictureURL string) error {
+func insertUser(auth0ID, email, connection, firstName, pictureURL, customerID string) error {
 	query := `
-		INSERT INTO Users (auth0_id, email, connection, first_name, picture_url)
-		VALUES ($1, $2, $3, $4, $5)
+		INSERT INTO Users (auth0_id, email, connection, first_name, picture_url, customer_id)
+		VALUES ($1, $2, $3, $4, $5, $6)
 		ON CONFLICT (auth0_id) DO NOTHING
 	`
-	_, err := database.DB.Exec(query, auth0ID, email, connection, firstName, pictureURL)
+	_, err := database.DB.Exec(query, auth0ID, email, connection, firstName, pictureURL, customerID)
 	return err
 }
 
@@ -64,9 +67,30 @@ func Handler(ctx *gin.Context) {
 		return
 	}
 
-	err := insertUser(userID, email, connection, firstName, pictureURL)
+	// Check if a Stripe customer already exists for this user
+	customerID, err := getStripeCustomerID(userID)
 	if err != nil {
-		log.Println("Error inserting user:", err)
+		log.Printf("Error querying existing customer ID: %v", err)
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to query existing customer ID"})
+		return
+	}
+
+	if customerID == "" {
+		// No existing customer, create a new Stripe customer
+		cust, err := CreateStripeCustomer(email, firstName)
+		if err != nil {
+			log.Printf("Failed to create Stripe customer: %v", err)
+			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create Stripe customer"})
+			return
+		}
+		customerID = cust.ID // Use the new Stripe customer ID
+	}
+
+	// Now include the Stripe customer ID when inserting the user
+	err = insertUser(userID, email, connection, firstName, pictureURL, customerID)
+	if err != nil {
+		log.Printf("Error inserting user with Stripe customer ID: %v", err)
+		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to insert user"})
 		return
 	}
 
@@ -76,4 +100,33 @@ func Handler(ctx *gin.Context) {
 		"pictureURL": pictureURL,
 	})
 
+}
+
+func getStripeCustomerID(auth0ID string) (string, error) {
+	var customerID string
+	query := `SELECT customer_id FROM Users WHERE auth0_id = $1`
+	err := database.DB.QueryRow(query, auth0ID).Scan(&customerID)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			// No existing customer ID found
+			return "", nil
+		}
+		// An error occurred during the query
+		return "", err
+	}
+	// Existing customer ID found
+	return customerID, nil
+}
+
+func CreateStripeCustomer(email, name string) (*stripe.Customer, error) {
+	params := &stripe.CustomerParams{
+		Email: stripe.String(email),
+		Name:  stripe.String(name),
+	}
+	cust, err := customer.New(params)
+	if err != nil {
+		log.Printf("Failed to create Stripe customer: %v", err)
+		return nil, err
+	}
+	return cust, nil
 }
