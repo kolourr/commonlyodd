@@ -8,6 +8,8 @@ import { lazy } from "solid-js";
 const root = document.getElementById("root");
 const User = lazy(() => import("./components/auth/user"));
 const LandingPage = lazy(() => import("./components/auth/landing"));
+const Success = lazy(() => import("./components/stripe/success"));
+const Failure = lazy(() => import("./components/stripe/failure"));
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(
@@ -23,6 +25,8 @@ render(
         <Route path="/" component={LandingPage} />
         <Route path="/game" component={App} />
         <Route path="/game/join" component={App} />
+        <Route path="/success" component={Success} />
+        <Route path="/cancel" component={Failure} />
       </Routes>
     </Router>
   ),

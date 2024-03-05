@@ -14,6 +14,7 @@ import (
 	"github.com/kolourr/commonlyodd/gameplay"
 	"github.com/kolourr/commonlyodd/platform/authenticator"
 	"github.com/kolourr/commonlyodd/platform/middleware"
+	"github.com/kolourr/commonlyodd/stripeintegration"
 	"github.com/kolourr/commonlyodd/web/app/callback"
 	"github.com/kolourr/commonlyodd/web/app/login"
 	"github.com/kolourr/commonlyodd/web/app/logout"
@@ -64,6 +65,10 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.POST("/end-session", gameplay.EndSessionEndpoint)
 	router.POST("/generate-tokens", gameplay.GenerateTokens)
 	router.GET("/ws", gameplay.HandleGameWebSocket)
+	router.POST("/create-checkout-session", stripeintegration.CreateCheckoutSessionHandler)
+
+	// router.POST("/create-checkout-session", middleware.IsAuthenticated, stripeintegration.CreateCheckoutSessionHandler)
+	// router.POST("/webhook", stripeintegration.WebhookHandler)
 
 	// Catch-all route to serve index.html for SPA routes
 	router.NoRoute(func(c *gin.Context) {

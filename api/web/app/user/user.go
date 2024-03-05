@@ -1,7 +1,6 @@
 package user
 
 import (
-	"database/sql"
 	"log"
 	"net/http"
 	"strings"
@@ -9,9 +8,8 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/kolourr/commonlyodd/database"
+	"github.com/kolourr/commonlyodd/stripeintegration"
 	_ "github.com/lib/pq"
-	"github.com/stripe/stripe-go/v76"
-	"github.com/stripe/stripe-go/v76/customer"
 )
 
 func insertUser(auth0ID, email, connection, firstName, pictureURL, customerID string) error {
@@ -68,7 +66,7 @@ func Handler(ctx *gin.Context) {
 	}
 
 	// Check if a Stripe customer already exists for this user
-	customerID, err := getStripeCustomerID(userID)
+	customerID, err := stripeintegration.GetStripeCustomerID(userID)
 	if err != nil {
 		log.Printf("Error querying existing customer ID: %v", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to query existing customer ID"})
@@ -77,7 +75,7 @@ func Handler(ctx *gin.Context) {
 
 	if customerID == "" {
 		// No existing customer, create a new Stripe customer
-		cust, err := CreateStripeCustomer(email, firstName)
+		cust, err := stripeintegration.CreateStripeCustomer(email, firstName)
 		if err != nil {
 			log.Printf("Failed to create Stripe customer: %v", err)
 			ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to create Stripe customer"})
@@ -100,33 +98,4 @@ func Handler(ctx *gin.Context) {
 		"pictureURL": pictureURL,
 	})
 
-}
-
-func getStripeCustomerID(auth0ID string) (string, error) {
-	var customerID string
-	query := `SELECT customer_id FROM Users WHERE auth0_id = $1`
-	err := database.DB.QueryRow(query, auth0ID).Scan(&customerID)
-	if err != nil {
-		if err == sql.ErrNoRows {
-			// No existing customer ID found
-			return "", nil
-		}
-		// An error occurred during the query
-		return "", err
-	}
-	// Existing customer ID found
-	return customerID, nil
-}
-
-func CreateStripeCustomer(email, name string) (*stripe.Customer, error) {
-	params := &stripe.CustomerParams{
-		Email: stripe.String(email),
-		Name:  stripe.String(name),
-	}
-	cust, err := customer.New(params)
-	if err != nil {
-		log.Printf("Failed to create Stripe customer: %v", err)
-		return nil, err
-	}
-	return cust, nil
 }
