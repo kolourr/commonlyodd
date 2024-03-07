@@ -84,6 +84,10 @@ func Handler(ctx *gin.Context) {
 		customerID = cust.ID // Use the new Stripe customer ID
 	}
 
+	session.Set("email", email)
+	session.Set("customerID", customerID)
+	session.Save()
+
 	// Now include the Stripe customer ID when inserting the user
 	err = insertUser(userID, email, connection, firstName, pictureURL, customerID)
 	if err != nil {
