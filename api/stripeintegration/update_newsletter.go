@@ -4,7 +4,6 @@ import (
 	"database/sql"
 	"fmt"
 	"io"
-	"log"
 	"net/http"
 	"net/url"
 	"os"
@@ -30,9 +29,10 @@ func updateNewsletterSubs(subscription_id string) error {
 		subscriptionEndsAtStr = subscription_ends_at.Time.Format(time.RFC3339)
 
 	}
-	lastPaymentAttemptStr := last_payment_attempt.Time.Format(time.RFC3339)
-
-	log.Println("lastPaymentAttemptStr: ", lastPaymentAttemptStr)
+	lastPaymentAttemptStr := ""
+	if last_payment_attempt.Valid {
+		lastPaymentAttemptStr = last_payment_attempt.Time.Format(time.RFC3339)
+	}
 
 	// Setup for sending data to Sendy
 	apiKey := os.Getenv("SENDY_API_KEY")

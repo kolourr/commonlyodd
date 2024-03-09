@@ -87,8 +87,6 @@ func handleSubscriptionCreated(c *gin.Context, event stripe.Event) {
 	executeSQL("INSERT INTO Users (auth0_id, subscription_id, subscription_status, subscription_type, customer_id) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (customer_id) DO UPDATE SET auth0_id = EXCLUDED.auth0_id, subscription_id = EXCLUDED.subscription_id, subscription_status = EXCLUDED.subscription_status, subscription_type = EXCLUDED.subscription_type",
 		auth0ID, subscription.ID, subscription.Status, subscriptionType, subscription.Customer.ID)
 
-	updateNewsletterSubs(subscription.Customer.ID)
-
 	fmt.Println("Subscription for user updated with new subscription details.")
 	c.JSON(http.StatusOK, gin.H{"received": true})
 }
@@ -108,8 +106,6 @@ func handleCheckoutSessionCompleted(c *gin.Context, event stripe.Event) {
 	// Update user's subscription status to 'active'
 	executeSQL("UPDATE Users SET subscription_status = $1, subscription_id = $2 WHERE customer_id = $3", "active", subscriptionID, checkoutSession.Customer.ID)
 
-	updateNewsletterSubs(checkoutSession.Customer.ID)
-
 	fmt.Println("Checkout session completed")
 }
 
@@ -124,6 +120,7 @@ func handleInvoicePaid(c *gin.Context, event stripe.Event) {
 
 	// Log payment success
 	executeSQL("UPDATE Users SET last_payment_attempt = $1 WHERE customer_id = $2", time.Now(), invoice.Customer.ID)
+
 	updateNewsletterSubs(invoice.Customer.ID)
 	fmt.Println("Invoice paid")
 }
@@ -161,8 +158,8 @@ func handleSubscriptionUpdatedDeleted(c *gin.Context, event stripe.Event) {
 	subscriptionType := subscription.Items.Data[0].Plan.Interval
 
 	// Extract necessary information and update subscription details including subscription_type
-	executeSQL("UPDATE Users SET subscription_status = $1, subscription_ends_at = $2, cancel_at_period_end = $3, subscription_type = $4 WHERE subscription_id = $5",
-		subscription.Status, periodEnd, subscription.CancelAtPeriodEnd, subscriptionType, subscription.ID)
+	executeSQL("UPDATE Users SET subscription_status = $1, subscription_ends_at = $2, cancel_at_period_end = $3, subscription_type = $4, last_payment_attempt = $5 WHERE subscription_id = $6",
+		subscription.Status, periodEnd, subscription.CancelAtPeriodEnd, subscriptionType, time.Now(), subscription.ID)
 
 	updateNewsletterSubs(subscription.ID)
 
