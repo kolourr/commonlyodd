@@ -6,10 +6,16 @@ import { Router, Route, Routes } from "@solidjs/router";
 import { lazy } from "solid-js";
 
 const root = document.getElementById("root");
-const User = lazy(() => import("./components/auth/user"));
-const LandingPage = lazy(() => import("./components/auth/landing"));
-const Success = lazy(() => import("./components/stripe/success"));
-const Failure = lazy(() => import("./components/stripe/failure"));
+const User = lazy(() => import("./components/auth_payments_landing/user"));
+const LandingPage = lazy(
+  () => import("./components/auth_payments_landing/landing")
+);
+const Success = lazy(
+  () => import("./components/auth_payments_landing/success")
+);
+const Failure = lazy(
+  () => import("./components/auth_payments_landing/failure")
+);
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(

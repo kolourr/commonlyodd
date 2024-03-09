@@ -44,9 +44,9 @@ func WebhookHandler(c *gin.Context) {
 	case "customer.subscription.created":
 		handleSubscriptionCreated(c, event)
 	case "customer.subscription.updated":
-		handleSubscriptionUpdated(c, event)
+		handleSubscriptionUpdatedDeleted(c, event)
 	case "customer.subscription.deleted":
-		handleSubscriptionDeleted(c, event)
+		handleSubscriptionUpdatedDeleted(c, event)
 	case "invoice.paid":
 		handleInvoicePaid(c, event)
 	case "invoice.payment_failed":
@@ -80,15 +80,16 @@ func handleSubscriptionCreated(c *gin.Context, event stripe.Event) {
 		return
 	}
 
-	// Determine the subscription type based on the plan ID or other criteria
+	//  Extract subscription type from subscription
 	subscriptionType := subscription.Items.Data[0].Plan.Interval
 
 	// Now, update or create subscription in the database with auth0_id
-	// Adjusted SQL query to insert auth0_id. Ensure your table schema and business logic allow this.
 	executeSQL("INSERT INTO Users (auth0_id, subscription_id, subscription_status, subscription_type, customer_id) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (customer_id) DO UPDATE SET auth0_id = EXCLUDED.auth0_id, subscription_id = EXCLUDED.subscription_id, subscription_status = EXCLUDED.subscription_status, subscription_type = EXCLUDED.subscription_type",
 		auth0ID, subscription.ID, subscription.Status, subscriptionType, subscription.Customer.ID)
-	fmt.Println("Subscription for user updated with new subscription details.")
 
+	updateNewsletterSubs(subscription.Customer.ID)
+
+	fmt.Println("Subscription for user updated with new subscription details.")
 	c.JSON(http.StatusOK, gin.H{"received": true})
 }
 
@@ -102,10 +103,13 @@ func handleCheckoutSessionCompleted(c *gin.Context, event stripe.Event) {
 	}
 
 	// Extract subscription ID from checkout session
-	subscriptionID := checkoutSession.Subscription
+	subscriptionID := checkoutSession.Subscription.ID
 
 	// Update user's subscription status to 'active'
 	executeSQL("UPDATE Users SET subscription_status = $1, subscription_id = $2 WHERE customer_id = $3", "active", subscriptionID, checkoutSession.Customer.ID)
+
+	updateNewsletterSubs(checkoutSession.Customer.ID)
+
 	fmt.Println("Checkout session completed")
 }
 
@@ -120,6 +124,7 @@ func handleInvoicePaid(c *gin.Context, event stripe.Event) {
 
 	// Log payment success
 	executeSQL("UPDATE Users SET last_payment_attempt = $1 WHERE customer_id = $2", time.Now(), invoice.Customer.ID)
+	updateNewsletterSubs(invoice.Customer.ID)
 	fmt.Println("Invoice paid")
 }
 
@@ -134,10 +139,13 @@ func handleInvoicePaymentFailed(c *gin.Context, event stripe.Event) {
 
 	// Update subscription status to 'past_due'
 	executeSQL("UPDATE Users SET subscription_status = $1, last_payment_attempt = $2 WHERE customer_id = $3", "past_due", time.Now(), invoice.Customer.ID)
+
+	updateNewsletterSubs(invoice.Customer.ID)
+
 	fmt.Println("Invoice payment failed")
 }
 
-func handleSubscriptionUpdated(c *gin.Context, event stripe.Event) {
+func handleSubscriptionUpdatedDeleted(c *gin.Context, event stripe.Event) {
 	var subscription stripe.Subscription
 	err := json.Unmarshal(event.Data.Raw, &subscription)
 	if err != nil {
@@ -149,22 +157,14 @@ func handleSubscriptionUpdated(c *gin.Context, event stripe.Event) {
 	// Convert CurrentPeriodEnd (UNIX timestamp) to a Go time.Time
 	periodEnd := time.Unix(subscription.CurrentPeriodEnd, 0)
 
-	// Extract necessary information and update subscription details
-	executeSQL("UPDATE Users SET subscription_status = $1, subscription_ends_at = $2, cancel_at_period_end = $3 WHERE subscription_id = $4",
-		subscription.Status, periodEnd, subscription.CancelAtPeriodEnd, subscription.ID)
-	fmt.Println("Subscription updated")
-}
+	// Extract subscription type from the updated subscription plan interval
+	subscriptionType := subscription.Items.Data[0].Plan.Interval
 
-func handleSubscriptionDeleted(c *gin.Context, event stripe.Event) {
-	var subscription stripe.Subscription
-	err := json.Unmarshal(event.Data.Raw, &subscription)
-	if err != nil {
-		log.Printf("Error unmarshalling subscription: %v", err)
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error processing event"})
-		return
-	}
+	// Extract necessary information and update subscription details including subscription_type
+	executeSQL("UPDATE Users SET subscription_status = $1, subscription_ends_at = $2, cancel_at_period_end = $3, subscription_type = $4 WHERE subscription_id = $5",
+		subscription.Status, periodEnd, subscription.CancelAtPeriodEnd, subscriptionType, subscription.ID)
 
-	// Mark the user's subscription as cancelled
-	executeSQL("UPDATE Users SET subscription_status = $1 WHERE subscription_id = $2", "cancelled", subscription.ID)
-	fmt.Println("Subscription deleted")
+	updateNewsletterSubs(subscription.ID)
+
+	fmt.Println("Subscription updated with new plan details.")
 }

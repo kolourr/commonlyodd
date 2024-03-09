@@ -25,7 +25,11 @@ import { TeamScore, scoreMessageSent } from "./start_game/types";
 import { createStore } from "solid-js/store";
 import { Router } from "solid-app-router";
 import Voice from "./voice";
-import { checkAuth } from "../auth/use_auth";
+import { checkAuth } from "../auth_payments_landing/use_auth";
+import {
+  checkSubStatus,
+  userSubstatus,
+} from "../auth_payments_landing/subscription_status";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 const BASE_API_URL = import.meta.env.CO_API_URL;
@@ -81,6 +85,11 @@ export default function Game() {
   createEffect(async () => {
     const auth = await checkAuth(); // Wait for the promise to resolve
     setIsAuthenticated(auth);
+    checkSubStatus();
+  });
+
+  onMount(() => {
+    checkSubStatus();
   });
 
   return (
@@ -90,7 +99,7 @@ export default function Game() {
       </div>
       <div class="flex flex-grow">
         <div class="flex flex-col w-2/12 justify-start bg-slate-50">
-          <Show when={isAuthenticated()}>
+          <Show when={isAuthenticated() && userSubstatus()}>
             <div class="flex flex-col items-center justify-start space-y-20 ">
               {" "}
               <StartSession />
@@ -119,7 +128,7 @@ export default function Game() {
             </Button>
 
             <EndGameSession />
-            <Show when={isAuthenticated()}>
+            <Show when={isAuthenticated() && userSubstatus()}>
               <Button
                 variant="contained"
                 color="primary"
@@ -131,7 +140,7 @@ export default function Game() {
           </div>
         </div>
         <div class="flex w-11/12 flex-col bg-slate-100 ">
-          <Show when={isAuthenticated()}>
+          <Show when={isAuthenticated() && userSubstatus()}>
             <div class="flex flex-row items-center justify-center bg-slate-50   ">
               <CopyLink />
               <input

@@ -67,8 +67,8 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.GET("/ws", gameplay.HandleGameWebSocket)
 	router.POST("/create-checkout-session", middleware.IsAuthenticated, stripeintegration.CreateCheckoutSessionHandler)
 	router.POST("/webhook", stripeintegration.WebhookHandler)
-
-	// router.POST("/create-checkout-session", middleware.IsAuthenticated, stripeintegration.CreateCheckoutSessionHandler)
+	router.POST("/portal", middleware.IsAuthenticated, stripeintegration.PortalSessionHandler)
+	router.GET("/check-status", middleware.IsAuthenticated, stripeintegration.CheckSubStatus)
 
 	// Catch-all route to serve index.html for SPA routes
 	router.NoRoute(func(c *gin.Context) {
@@ -87,9 +87,8 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 }
 
 func logOutAuthRedirectHandler(ctx *gin.Context) {
-	appURL := os.Getenv("APP_URL_DEV") // Make sure this is set in your environment
+	appURL := os.Getenv("APP_URL_DEV")
 	if appURL == "" {
-		// Default to a fallback URL if APP_URL_DEV is not set
 		appURL = "http://localhost:3000"
 	}
 	ctx.Redirect(http.StatusFound, appURL)
