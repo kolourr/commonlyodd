@@ -3,13 +3,10 @@ import { Button, Typography } from "@suid/material";
 import {
   SportsEsportsOutlined,
   RuleOutlined,
-  PrivacyTipOutlined,
   SportsScoreOutlined,
-  LockClockOutlined,
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
-import { legalDocuments } from "~/public/data/legal";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
