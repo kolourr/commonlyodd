@@ -80,7 +80,7 @@ export default function Game() {
   };
 
   createEffect(async () => {
-    const auth = await checkAuth(); // Wait for the promise to resolve
+    const auth = await checkAuth();
     setIsAuthenticated(auth);
     checkSubStatus();
   });
@@ -91,11 +91,11 @@ export default function Game() {
 
   return (
     <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-7xl mx-auto">
-      <div class="bg-slate-50 text-center py-4">
-        <h1 class="text-3xl font-bold">Commonly Odd</h1>
+      <div class="bg-slate-50 text-center py-2">
+        <h1 class="text-2xl font-bold">Commonly Odd</h1>
       </div>
       <div class="flex flex-grow">
-        <div class="flex flex-col w-2/12 justify-start bg-slate-50">
+        <div class="flex flex-col w-2.5/12 justify-start bg-slate-50">
           <Show when={isAuthenticated() && userSubstatus()}>
             <div class="flex flex-col items-center justify-start space-y-20 ">
               {" "}
@@ -136,7 +136,7 @@ export default function Game() {
             </Show>
           </div>
         </div>
-        <div class="flex w-11/12 flex-col bg-slate-100 ">
+        <div class="flex w-7/12 flex-col bg-slate-100 ">
           <Show when={isAuthenticated() && userSubstatus()}>
             <div class="flex flex-row items-center justify-center bg-slate-50   ">
               <CopyLink />
