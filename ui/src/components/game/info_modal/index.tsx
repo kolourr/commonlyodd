@@ -23,16 +23,11 @@ interface InfoModalProps {
 }
 
 export default function InfoModal(props: InfoModalProps) {
-  const handleClose = () => props.setOpenModal(false);
+  const handleClose = () => props.setOpenModal(!props.openModal);
 
   return (
     <div>
-      <Button
-        onClick={() => props.setOpenModal(true)}
-        sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
-      >
-        {props.icon}
-      </Button>
+      <Button onClick={() => props.setOpenModal(true)}>{props.icon}</Button>
 
       <Modal open={props.openModal} onClose={handleClose}>
         <Box
