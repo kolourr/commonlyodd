@@ -84,8 +84,10 @@ export default function StartSession() {
         variant="outlined"
         onClick={() => setOpen(true)}
         disabled={isSessionActive()}
+        fullWidth={false}
+        style="border: none; width: 32px; height: 25px;padding: 0; font-size: 18px; font-weight: bold; color: #166534; text-align: center;"
       >
-        {isSessionActive() ? "Session Active" : "Start Session"}
+        {isSessionActive() ? "Active" : "Start"}
       </Button>
       <Dialog
         open={open()}

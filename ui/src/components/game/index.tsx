@@ -4,6 +4,8 @@ import {
   SportsEsportsOutlined,
   RuleOutlined,
   SportsScoreOutlined,
+  HeadsetMicOutlined,
+  MicOutlined,
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
@@ -39,8 +41,6 @@ export const [messageSent, setMessageSent] = createSignal<scoreMessageSent>();
 
 export default function Game() {
   const [showRulesModal, setShowRulesModal] = createSignal(false);
-  const [showFAQModal, setShowFAQModal] = createSignal(false);
-  const [showLegalModal, setShowLegalModal] = createSignal(false);
   const [showTeamScores, setShowTeamScores] = createSignal(false);
   const [teamScores, setTeamScores] = createStore<number[]>([]);
   const [isTargetScoreReached, setIsTargetScoreReached] = createSignal(false);
@@ -78,6 +78,12 @@ export default function Game() {
 
   const handleOpenTeamScores = () => {
     setShowTeamScores(!showTeamScores());
+    //after button click, reset button state
+    if (showTeamScores()) {
+      setShowTeamScores(showTeamScores());
+    } else {
+      setShowTeamScores(!showTeamScores());
+    }
   };
 
   createEffect(async () => {
@@ -102,8 +108,54 @@ export default function Game() {
           Commonly Odd
         </div>
       </div>
+
+      <div class="flex flex-grow bg-slate-50">
+        <div class="flex flex-row h-8 w-[20%] justify-center items-center ">
+          <StartSession />
+        </div>
+        <div class="flex flex-row h-8 w-[60%] justify-center items-center ">
+          <div class="flex flex-row items-center justify-center     ">
+            <CopyLink />
+            <input
+              type="text"
+              class="border-2 border-dashed border-slate-100 p-2 rounded w-full h-[30px]"
+              readOnly
+              value={sessionLink()}
+            />
+          </div>
+        </div>
+        <div class="flex flex-row h-8 w-[20%] justify-center items-center ">
+          <EndGameSession />
+        </div>
+      </div>
+
+      <div class="flex flex-grow  bg-slate-50">
+        <div class="flex flex-row h-32 w-[20%] justify-center items-center ">
+          4
+        </div>
+        <div class="flex flex-row h-32 w-[60%] justify-center items-center ">
+          5
+        </div>
+        <div class="flex flex-row h-32 w-[20%] justify-center items-center ">
+          6
+        </div>
+      </div>
+
+      <div class="flex flex-grow bg-slate-50">
+        <Voice />
+        <div class="flex flex-row h-32 w-[20%] justify-center items-center ">
+          <Button onClick={handleOpenTeamScores}>
+            <SportsScoreOutlined fontSize="large" />
+          </Button>
+        </div>
+      </div>
+
+      <div class="flex flex-grow justify-center items-center bg-slate-50 px-10">
+        {/* <GameImages gameData={objectsImages()} /> */}10
+      </div>
+
       <div class="flex flex-grow">
-        <div class="flex flex-col w-3/12 justify-start bg-slate-50">
+        <div class="flex flex-col w-[20%] justify-start bg-slate-50">
           <Show when={isAuthenticated() && userSubstatus()}>
             <div class="flex flex-col items-center justify-start space-y-20 ">
               {" "}
@@ -111,13 +163,26 @@ export default function Game() {
             </div>
           </Show>
           <div class="flex flex-col space-y-20 items-center justify-center pt-12">
-            <InfoModal
-              title={gameRules.title}
-              content={gameRules.content}
-              icon={<SportsEsportsOutlined fontSize="medium" />}
-              openModal={showFAQModal()}
-              setOpenModal={setShowFAQModal}
-            />
+            <div class="flex flex-col  ">
+              {/* <InfoModal
+                title={gameRules.title}
+                content={gameRules.content}
+                icon={<SportsEsportsOutlined fontSize="small" />}
+                openModal={showFAQModal()}
+                setOpenModal={setShowFAQModal}
+              /> */}
+              <div class="pb-4">
+                <Button size="small">
+                  <HeadsetMicOutlined fontSize="medium" />
+                </Button>
+              </div>
+              <div>
+                <Button size="small">
+                  <MicOutlined fontSize="medium" />
+                </Button>
+              </div>
+            </div>
+
             <InfoModal
               title={gameRules.title}
               content={gameRules.content}
@@ -144,7 +209,7 @@ export default function Game() {
             </Show>
           </div>
         </div>
-        <div class="flex w-6/12 flex-col bg-slate-100 ">
+        <div class="flex w-[60%] flex-col bg-slate-100 ">
           <Show when={isAuthenticated() && userSubstatus()}>
             <div class="flex flex-row items-center justify-center bg-slate-50   ">
               <CopyLink />
@@ -185,11 +250,8 @@ export default function Game() {
             />
           </Show>
         </div>
-        <div class="flex flex-col w-3/12 justify-start bg-slate-50">
+        <div class="flex flex-col w-[20%] justify-start bg-slate-50">
           <Timer />
-          <div class="flex flex-col space-y-20 items-center justify-center pt-12">
-            <Voice />
-          </div>
         </div>
       </div>
     </div>

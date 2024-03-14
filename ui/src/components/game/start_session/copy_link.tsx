@@ -24,7 +24,10 @@ export default function CopyLink() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen}>
+      <Button
+        onClick={handleClickOpen}
+        style="border: none; width: 20px; height: 30px; padding: 0;   "
+      >
         <ContentCopy />
       </Button>
       <Dialog
@@ -33,8 +36,8 @@ export default function CopyLink() {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          Your Session link has been copied!
+        <DialogTitle id="alert-dialog-title" class="text-center">
+          Your Session link has been copied
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

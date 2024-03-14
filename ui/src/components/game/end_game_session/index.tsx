@@ -65,10 +65,12 @@ export default function EndGameSession() {
   return (
     <div>
       <Button
-        sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
+        color="error"
+        // sx={{ bgcolor: "#fff1f2" }}
         onClick={handleClickOpen}
+        style="border: none; width: 32px; height: 25px; padding: 0;"
       >
-        <CancelOutlined fontSize="medium" />
+        <CancelOutlined fontSize="small" />
       </Button>
 
       <Dialog

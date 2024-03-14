@@ -399,14 +399,17 @@ export default function Voice() {
   });
 
   return (
-    <div>
-      <div class="flex flex-col">
-        <div class="flex sm: flex-col md:flex-row justify-between">
+    <>
+      <div class="flex flex-row h-32 w-[20%] justify-center items-center">
+        <div class="flex flex-col justify-between">
           <div class="flex flex-col">
             <Show when={!isInChat()}>
               <div>
                 <Button onClick={joinVoiceChat} disabled={isJoining()}>
-                  <Show when={isJoining()} fallback={<HeadsetMicOutlined />}>
+                  <Show
+                    when={isJoining()}
+                    fallback={<HeadsetMicOutlined fontSize="small" />}
+                  >
                     <CircularProgress size={24} />
                   </Show>
                 </Button>
@@ -415,7 +418,7 @@ export default function Voice() {
             <Show when={isInChat()}>
               <div>
                 <Button onClick={() => leaveVoiceChat(rtcUid)}>
-                  <LogoutOutlined />
+                  <LogoutOutlined fontSize="small" />
                 </Button>
               </div>
             </Show>
@@ -427,7 +430,11 @@ export default function Voice() {
           <div class="flex flex-col">
             <div>
               <Button onClick={toggleMic}>
-                {micMuted() ? <MicOutlined /> : <MicOffOutlined />}
+                {micMuted() ? (
+                  <MicOutlined fontSize="small" />
+                ) : (
+                  <MicOffOutlined fontSize="small" />
+                )}
               </Button>
             </div>
             <span class="text-xs text-center">
@@ -436,7 +443,10 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      <div class="users flex flex-col h-[500px]" id="users">
+      <div
+        class="users flex flex-row h-32 w-[60%] justify-start items-center"
+        id="users"
+      >
         <For each={users}>
           {(user) => (
             <button
@@ -482,6 +492,6 @@ export default function Voice() {
           showCancelButton={false}
         />
       </Show>
-    </div>
+    </>
   );
 }
