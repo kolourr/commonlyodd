@@ -97,7 +97,7 @@ export default function Game() {
   });
 
   return (
-    <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-7xl mx-auto">
+    <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-5xl mx-auto">
       <div class="flex flex-grow bg-slate-50">
         <div class="flex flex-row w-1/12 justify-center items-center">
           <Router>
@@ -111,7 +111,9 @@ export default function Game() {
 
       <div class="flex flex-grow bg-slate-50">
         <div class="flex flex-row h-8 w-[20%] justify-center items-center ">
-          <StartSession />
+          <Show when={isAuthenticated() && userSubstatus()}>
+            <StartSession />
+          </Show>
         </div>
         <div class="flex flex-row h-8 w-[60%] justify-center items-center ">
           <div class="flex flex-row items-center justify-center     ">
@@ -130,14 +132,16 @@ export default function Game() {
       </div>
 
       <div class="flex flex-grow  bg-slate-50">
-        <div class="flex flex-row h-32 w-[20%] justify-center items-center ">
-          4
+        <div class="flex flex-row h-40 w-[20%] justify-center items-center ">
+          <Router>
+            <StartGame />
+          </Router>
         </div>
-        <div class="flex flex-row h-32 w-[60%] justify-center items-center ">
+        <div class="flex flex-row h-40 w-[60%] justify-center items-center ">
           5
         </div>
-        <div class="flex flex-row h-32 w-[20%] justify-center items-center ">
-          6
+        <div class="flex flex-row h-40 w-[20%] justify-center items-center ">
+          <Timer />
         </div>
       </div>
 
@@ -150,110 +154,25 @@ export default function Game() {
         </div>
       </div>
 
-      <div class="flex flex-grow justify-center items-center bg-slate-50 px-10">
-        {/* <GameImages gameData={objectsImages()} /> */}10
+      <div class="flex flex-grow justify-center items-center bg-slate-50 px-10 pb-20">
+        <GameImages gameData={objectsImages()} />
       </div>
-
-      <div class="flex flex-grow">
-        <div class="flex flex-col w-[20%] justify-start bg-slate-50">
-          <Show when={isAuthenticated() && userSubstatus()}>
-            <div class="flex flex-col items-center justify-start space-y-20 ">
-              {" "}
-              <StartSession />
-            </div>
-          </Show>
-          <div class="flex flex-col space-y-20 items-center justify-center pt-12">
-            <div class="flex flex-col  ">
-              {/* <InfoModal
-                title={gameRules.title}
-                content={gameRules.content}
-                icon={<SportsEsportsOutlined fontSize="small" />}
-                openModal={showFAQModal()}
-                setOpenModal={setShowFAQModal}
-              /> */}
-              <div class="pb-4">
-                <Button size="small">
-                  <HeadsetMicOutlined fontSize="medium" />
-                </Button>
-              </div>
-              <div>
-                <Button size="small">
-                  <MicOutlined fontSize="medium" />
-                </Button>
-              </div>
-            </div>
-
-            <InfoModal
-              title={gameRules.title}
-              content={gameRules.content}
-              icon={<RuleOutlined fontSize="medium" />}
-              openModal={showRulesModal()}
-              setOpenModal={setShowRulesModal}
-            />
-            <Button
-              onClick={handleOpenTeamScores}
-              sx={{ bgcolor: "#fecdd3", color: "#db2777" }}
-            >
-              <SportsScoreOutlined fontSize="medium" />
-            </Button>
-
-            <EndGameSession />
-            <Show when={isAuthenticated() && userSubstatus()}>
-              <Button
-                variant="contained"
-                color="primary"
-                href={`${BASE_API_URL}/logout`}
-              >
-                Logout
-              </Button>
-            </Show>
+      <Show when={isTargetScoreReached()}>
+        <div class="flex flex-row items-center justify-center  ">
+          <div class="text-center p-4">
+            <Typography variant="h5" gutterBottom component="div">
+              Head's up!
+            </Typography>
+            <Typography variant="body1" gutterBottom>
+              The target score has been reached! The game will continue until a
+              clear winner emerges.
+            </Typography>
           </div>
         </div>
-        <div class="flex w-[60%] flex-col bg-slate-100 ">
-          <Show when={isAuthenticated() && userSubstatus()}>
-            <div class="flex flex-row items-center justify-center bg-slate-50   ">
-              <CopyLink />
-              <input
-                type="text"
-                class="border p-2 rounded ml-2 w-full md:w-auto lg:w-5/12"
-                readOnly
-                value={sessionLink()}
-              />
-            </div>
-          </Show>
-          <div class="flex flex-col items-center justify-center  pt-6   ">
-            <div class="pb-4">
-              {" "}
-              <Router>
-                <StartGame />
-              </Router>
-            </div>
-          </div>
-          <Show when={isTargetScoreReached()}>
-            <div class="flex flex-row items-center justify-center  ">
-              <div class="text-center p-4">
-                <Typography variant="h5" gutterBottom component="div">
-                  Head's up!
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  The target score has been reached! The game will continue
-                  until a clear winner emerges.
-                </Typography>
-              </div>
-            </div>
-          </Show>
-          <GameImages gameData={objectsImages()} />
-          <Show when={showTeamScores()}>
-            <TeamScores
-              teamScores={teamScores}
-              sessionStarted={sessionStarted()}
-            />
-          </Show>
-        </div>
-        <div class="flex flex-col w-[20%] justify-start bg-slate-50">
-          <Timer />
-        </div>
-      </div>
+      </Show>
+      <Show when={showTeamScores()}>
+        <TeamScores teamScores={teamScores} sessionStarted={sessionStarted()} />
+      </Show>
     </div>
   );
 }

@@ -400,7 +400,10 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-row h-32 w-[20%] justify-center items-center">
+      <div class="flex flex-col h-32 w-[20%] justify-center items-center">
+        <div class="flex flex-col justify-center items-center pb-2">
+          <div class="text-sm font-bold">Voice Chat</div>
+        </div>
         <div class="flex flex-col justify-between">
           <div class="flex flex-col">
             <Show when={!isInChat()}>
@@ -443,27 +446,35 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      <div
-        class="users flex flex-row h-32 w-[60%] justify-start items-center"
-        id="users"
-      >
-        <For each={users}>
-          {(user) => (
-            <button
-              class={`speaker user-rtc-${user.uid}`}
-              style={{
-                background: user.isMuted
-                  ? "#fee2e2"
-                  : volumes[user.uid] > 50
-                  ? "#4ade80"
-                  : "#e0f2fe",
-              }}
-              onclick={() => handleUserButtonClick(user.memberId)}
-            >
-              {user.memberId}
-            </button>
-          )}
-        </For>
+      <div class="h-32 w-[60%] flex flex-col">
+        <div class="text-xs h-4 font-bold flex justify-center">
+          Players in Voice Chat
+        </div>
+        <div
+          class="users grid grid-cols-5 h-24 gap-px items-center justify-start"
+          id="users"
+        >
+          <For each={users}>
+            {(user) => (
+              <button
+                class={`speaker user-rtc-${user.uid}`}
+                style={{
+                  background: user.isMuted
+                    ? "#fee2e2"
+                    : volumes[user.uid] > 50
+                    ? "#4ade80"
+                    : "#e0f2fe",
+                }}
+                onclick={() => handleUserButtonClick(user.memberId)}
+              >
+                {user.memberId}
+              </button>
+            )}
+          </For>
+        </div>
+        <div class="text-xs h-4   flex justify-center">
+          Session starter must be in chat to join
+        </div>
       </div>
       <Show when={sessionStarterNotInCall()}>
         <CommonDialog
