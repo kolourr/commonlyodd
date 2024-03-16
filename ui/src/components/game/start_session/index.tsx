@@ -18,7 +18,7 @@ const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
 );
 
-function isSessionStarted() {
+export function isSessionStarted() {
   // Check local storage for session UUID, URL for session parameter, session link contains the word "session"
   const sessionUuid = localStorage.getItem("session_uuid");
   if (sessionUuid) return true;
@@ -85,9 +85,18 @@ export default function StartSession() {
         onClick={() => setOpen(true)}
         disabled={isSessionActive()}
         fullWidth={false}
-        style="border: none; width: 32px; height: 25px;padding: 0; font-size: 18px; font-weight: bold; color: #166534; text-align: center;"
+        style="border: none; width: 35px; height: 30px;padding: 0; font-size: 18px; font-weight: bold;   text-align: center;  "
+        color="success"
       >
-        {isSessionActive() ? "Active" : "Start"}
+        {isSessionActive() ? (
+          <span class="text-error-700 italic text-xs bg-error-100">
+            Session Active
+          </span>
+        ) : (
+          <span class="text-success-600 text-xs bg-error-100">
+            Create Session
+          </span>
+        )}
       </Button>
       <Dialog
         open={open()}

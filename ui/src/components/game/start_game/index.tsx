@@ -20,7 +20,7 @@ import Score, { openScoreDialog } from "./score";
 import NewGameEndSession, { handleClickOpenNewGameEndSession } from "../end";
 import Complete, { handleCompleteOpen } from "./complete";
 import { setScoreSubmittedDialogOpen } from "./score";
-import { setMessageSent, setSessionLink } from "../index";
+import { setMessageSent, setSessionLink, setGameInfo } from "../index";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -57,6 +57,7 @@ const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
 const [complete, setComplete] = createSignal(false);
 import { useNavigate } from "solid-app-router";
+import { PlayCircleOutlined } from "@suid/icons-material";
 
 export const sendMessage = (message: messageData) => {
   if (isSessionActive() && isSessionStarter() && gameWebSocket) {
@@ -95,6 +96,15 @@ export default function StartGame() {
         setTeamName(msg.team_name);
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);
+        setGameInfo(
+          <>
+            <div class="text-md">
+              {teamName()} has <span class="text-error-500 font-bold">15 </span>
+              seconds to figure out the which one is odd and the reason for
+              commonality.
+            </div>
+          </>
+        );
         break;
       case "timer_update":
         setGameTime(msg);
@@ -109,22 +119,20 @@ export default function StartGame() {
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);
         setTimerUp(true);
-        setDialogTitle("Time's Up!!");
-        setDialogContent(
-          <>
-            <div class="flex flex-col p-6 justify-start">
-              <div>
-                Which one of is{" "}
-                <span class="text-error-500 font-bold">odd</span>?
-              </div>
-              <div>
-                What do the other two have in{" "}
-                <span class="text-error-500 font-bold">common</span>?
-              </div>
+        setGameInfo(
+          <div class="flex flex-col ">
+            <div class="text-sm font-bold pb-2 justify-center">Time's Up!</div>
+            <div class="text-sm justify-start pb-4">
+              {teamName()}, what's your{" "}
+              <span class="text-error-500 font-bold">answer</span>?
             </div>
-          </>
+            <div class="text-xs">
+              Session starter must click on the{" "}
+              <PlayCircleOutlined fontSize="small" /> button to reveal the
+              answer.
+            </div>
+          </div>
         );
-        setDialogOpen(true);
         break;
       case "reveal-answer":
         console.info(msg);
@@ -133,27 +141,29 @@ export default function StartGame() {
         setOddReasonForSimilarity(msg);
         setNumberOfTeams(msg.number_of_teams);
         setTargetScore(msg.target_score);
-        setDialogTitle("Answer Revealed!!");
-        setDialogContent(
+        setGameInfo(
           <>
-            <div class="flex flex-col p-6 justify-start">
-              <div>
-                The odd one is{" "}
-                <span class="text-error-500 font-bold">
-                  {oddReasonForSimilarity()?.odd_reason_for_similarity?.odd}
-                </span>
-              </div>
-              <div>
-                Reson for commonality:{" "}
-                <span class="text-error-500 font-bold">
-                  {" "}
-                  {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
-                </span>
-              </div>
+            <div>
+              The odd one is{" "}
+              <span class="text-error-500 font-bold">
+                {oddReasonForSimilarity()?.odd_reason_for_similarity?.odd}
+              </span>
+            </div>
+            <div>
+              Reson for commonality:{" "}
+              <span class="text-error-500 font-bold">
+                {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
+              </span>
+            </div>
+
+            <div>
+              Session starter must now enter{" "}
+              <span class="text-error-500 font-bold">{teamName()}'s' </span>
+              score in the dialog box after clicking on the{" "}
+              <PlayCircleOutlined fontSize="small" /> symbol.
             </div>
           </>
         );
-        setDialogOpen(true);
         break;
       case "continue":
         console.info(msg);
@@ -169,6 +179,16 @@ export default function StartGame() {
         setReadyToContinue(true);
         setScoreSubmittedDialogOpen(false);
         setNewGameStarted(false);
+
+        setGameInfo(
+          <>
+            <div>
+              Click on the <PlayCircleOutlined fontSize="small" /> button to
+              continue to {teamName()}'s round.
+            </div>
+          </>
+        );
+
         break;
       case "continue-answer":
         console.info(msg);
@@ -288,9 +308,9 @@ export default function StartGame() {
     } else if (readyToContinue()) {
       return "Continue";
     } else if (isGameInProgress()) {
-      return "Game in Progress";
+      return "In Progress";
     } else if (gameWinner()) {
-      return "End Session or Start New Game";
+      return "End Session or Start New Game?";
     } else {
       return "Start Game";
     }
@@ -340,13 +360,26 @@ export default function StartGame() {
 
   return (
     <div>
-      <Button
-        variant="outlined"
-        onClick={handleButtonClick}
-        disabled={isButtonDisabled()}
-      >
-        {getButtonLabel()}
-      </Button>
+      <div class="flex flex-col justify-center items-center">
+        <div class="h-6 text-center text-sm pb-8 font-bold">
+          {" "}
+          {getButtonLabel()}
+        </div>
+        <div>
+          <Button
+            variant="outlined"
+            onClick={handleButtonClick}
+            disabled={isButtonDisabled()}
+            style="border: none; width: 60px; height: 60px;   font-size: 18px; font-weight: bold;   text-align: center;"
+            class="h-32"
+          >
+            <PlayCircleOutlined fontSize="large" />
+          </Button>
+
+          <div class="h-2 text-center text-xs pb-8 font-bold">{"Controls"}</div>
+        </div>
+      </div>
+
       <Show when={dialogOpen()}>
         <CommonDialog
           open={dialogOpen()}

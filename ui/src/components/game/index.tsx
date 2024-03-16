@@ -6,6 +6,7 @@ import {
   SportsScoreOutlined,
   HeadsetMicOutlined,
   MicOutlined,
+  PlayCircleOutlined,
 } from "@suid/icons-material";
 import InfoModal from "./info_modal";
 import { gameRules } from "~/public/data/gamerules";
@@ -30,6 +31,8 @@ import {
   userSubstatus,
 } from "../auth_payments_landing/subscription_status";
 import AccountMenu from "../settings";
+import { isSessionStarted } from "./start_session";
+import { JSX } from "solid-js";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 const BASE_API_URL = import.meta.env.CO_API_URL;
@@ -38,13 +41,14 @@ export const [sessionLink, setSessionLink] = createSignal(
   `${BASE_UI_URL}/click-to-start`
 );
 export const [messageSent, setMessageSent] = createSignal<scoreMessageSent>();
+export const [gameInfo, setGameInfo] = createSignal<JSX.Element>();
 
 export default function Game() {
-  const [showRulesModal, setShowRulesModal] = createSignal(false);
   const [showTeamScores, setShowTeamScores] = createSignal(false);
   const [teamScores, setTeamScores] = createStore<number[]>([]);
   const [isTargetScoreReached, setIsTargetScoreReached] = createSignal(false);
   const [isAuthenticated, setIsAuthenticated] = createSignal(false);
+  const [nonSessionNotStarter, setNonSessionNotStarter] = createSignal(false);
 
   // Check if the session has started
   const sessionStarted = () =>
@@ -92,8 +96,84 @@ export default function Game() {
     checkSubStatus();
   });
 
+  createEffect(() => {
+    if (!isSessionStarted() && isAuthenticated() && userSubstatus()) {
+      setGameInfo(
+        <div class="flex flex-col justify-start">
+          <div class="pb-2">
+            Click on <span class="font-bold">Create Session</span> to begin.
+          </div>
+          <div class="pb-2">
+            Each game requires you to set the target score and number of teams.
+          </div>
+          <div>Only the session starter can do so.</div>
+        </div>
+      );
+    }
+  });
+
+  createEffect(() => {
+    if (isSessionStarted()) {
+      setGameInfo(
+        <div class="flex flex-col  justify-start">
+          <div class="pb-2">
+            Share the link above with all players prior to starting the game.
+          </div>
+          <div>
+            Once all players are in the game, click the{" "}
+            <PlayCircleOutlined fontSize="small" /> Button to begin.
+          </div>
+        </div>
+      );
+    }
+  });
+
+  createEffect(() => {
+    // const urlParams = new URLSearchParams(window.location.search);
+    // const sessionUuid =
+    //   urlParams.get("session") || localStorage.getItem("session_uuid");
+    const starterToken = localStorage.getItem("starter_token");
+
+    if (!isAuthenticated() && !userSubstatus() && !starterToken) {
+      setGameInfo(
+        <div class="flex flex-col  justify-start">
+          <div class="pb-2">
+            The game has not yet started. This message here will update when it
+            does.
+          </div>
+          <div>
+            Also, you can join the voice channel once the session starter joins
+            the channel.
+          </div>
+        </div>
+      );
+    }
+  });
+
+  createEffect(() => {
+    if (isTargetScoreReached()) {
+      setGameInfo(
+        <div class="flex flex-col items-center justify-center">
+          <div class="text-center pb-2">Head's up!</div>
+          <div>
+            The target score has been reached! The game will continue until a
+            clear winner emerges.
+          </div>
+        </div>
+      );
+    }
+  });
+
   onMount(() => {
     checkSubStatus();
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuid =
+      urlParams.get("session") || localStorage.getItem("session_uuid");
+    const starterToken = localStorage.getItem("starter_token");
+
+    if (!starterToken && !sessionUuid) {
+      setNonSessionNotStarter(true);
+    }
   });
 
   return (
@@ -113,6 +193,25 @@ export default function Game() {
         <div class="flex flex-row h-8 w-[20%] justify-center items-center ">
           <Show when={isAuthenticated() && userSubstatus()}>
             <StartSession />
+          </Show>
+          <Show when={!isAuthenticated() && !userSubstatus()}>
+            <Button
+              variant="outlined"
+              disabled={true}
+              fullWidth={false}
+              style="border: none; width: 35px; height: 30px;padding: 0; font-size: 18px; font-weight: bold;   text-align: center;  "
+              color="success"
+            >
+              {nonSessionNotStarter() ? (
+                <span class="text-error-700 italic text-xs bg-error-100">
+                  Session InActive
+                </span>
+              ) : (
+                <span class="text-error-700 italic text-xs bg-error-100">
+                  Session Active
+                </span>
+              )}
+            </Button>
           </Show>
         </div>
         <div class="flex flex-row h-8 w-[60%] justify-center items-center ">
@@ -138,8 +237,14 @@ export default function Game() {
           </Router>
         </div>
         <div class="flex flex-row h-40 w-[60%] justify-center items-center ">
-          5
+          <div
+            class="flex flex-col justify-start items-center w-[90%] h-[80%] border-2 border-slate-300 bg-slate-200 p-2 text-xs break-words"
+            id="gameInfo"
+          >
+            {gameInfo()}
+          </div>
         </div>
+
         <div class="flex flex-row h-40 w-[20%] justify-center items-center ">
           <Timer />
         </div>
@@ -157,19 +262,6 @@ export default function Game() {
       <div class="flex flex-grow justify-center items-center bg-slate-50 px-10 pb-20">
         <GameImages gameData={objectsImages()} />
       </div>
-      <Show when={isTargetScoreReached()}>
-        <div class="flex flex-row items-center justify-center  ">
-          <div class="text-center p-4">
-            <Typography variant="h5" gutterBottom component="div">
-              Head's up!
-            </Typography>
-            <Typography variant="body1" gutterBottom>
-              The target score has been reached! The game will continue until a
-              clear winner emerges.
-            </Typography>
-          </div>
-        </div>
-      </Show>
       <Show when={showTeamScores()}>
         <TeamScores teamScores={teamScores} sessionStarted={sessionStarted()} />
       </Show>
