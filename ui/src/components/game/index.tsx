@@ -82,12 +82,6 @@ export default function Game() {
 
   const handleOpenTeamScores = () => {
     setShowTeamScores(!showTeamScores());
-    //after button click, reset button state
-    if (showTeamScores()) {
-      setShowTeamScores(showTeamScores());
-    } else {
-      setShowTeamScores(!showTeamScores());
-    }
   };
 
   createEffect(async () => {
@@ -258,13 +252,18 @@ export default function Game() {
           </Button>
         </div>
       </div>
+      <div class="flex flex-grow flex-col justify-center items-center bg-slate-50  ">
+        <Show when={showTeamScores()}>
+          <TeamScores
+            teamScores={teamScores}
+            sessionStarted={sessionStarted()}
+          />
+        </Show>
+      </div>
 
       <div class="flex flex-grow justify-center items-center bg-slate-50 px-10 pb-20">
         <GameImages gameData={objectsImages()} />
       </div>
-      <Show when={showTeamScores()}>
-        <TeamScores teamScores={teamScores} sessionStarted={sessionStarted()} />
-      </Show>
     </div>
   );
 }

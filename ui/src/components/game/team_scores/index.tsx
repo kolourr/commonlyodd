@@ -37,11 +37,10 @@ export default function TeamScores(props: TeamScoresProps) {
       </Show>
 
       <Show when={props.sessionStarted}>
+        <div class="text-md uppercase">Scores</div>
+
         <TableContainer component={Paper}>
-          <Table
-            sx={{ backgroundColor: "#e0f2fe", border: "1px solid #38bdf8" }}
-            aria-label="team scores"
-          >
+          <Table aria-label="team scores">
             <TableHead>
               <TableRow>
                 <TableCell>Teams</TableCell>
