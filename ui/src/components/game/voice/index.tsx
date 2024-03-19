@@ -384,10 +384,11 @@ export default function Voice() {
   };
 
   const leaveVoiceChat = async (userId: number) => {
-    if (isSessionStarter()) {
+    if (isSessionStarter() && userSubstatus()) {
       await channel.sendMessage({
         text: JSON.stringify({ type: "SESSION_END" }),
       });
+      sendMessage({ game_state: "starter-not-in-call" });
     }
 
     if (audioTracks.localAudioTrack !== null) {
@@ -413,27 +414,35 @@ export default function Voice() {
   };
 
   const voiceCallInfoSetSessionStarter = () => {
-    if (users.length === 0 && userSubstatus()) {
+    if (!canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo(
         <div class="text-xs flex items-center justify-center">
-          You can start the voice start when the session is active. Then, other
-          players can join you.
+          Start the voice start when the session is active. Then, other players
+          can join.
         </div>
       );
-    } else if (users.length !== 0 && userSubstatus()) {
+    } else if (canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo();
     }
   };
 
-  const voiceCallInfoSetNonSessionStarter = () => {
-    if (users.length === 0 && !userSubstatus()) {
+  const notifyOtherPlayers = () => {
+    if (canJoinVoiceCall() && !userSubstatus()) {
       setVoiceCallInfo(
         <div class="text-xs flex items-center justify-center">
-          You can join the voice chat once the session starter has joined.
+          The session starter is in the voice call. You may now join.
         </div>
       );
-    } else if (users.length !== 0 && !userSubstatus()) {
-      setVoiceCallInfo();
+    }
+  };
+
+  const voiceCallInfoSetNonSessionStarter = () => {
+    if (!canJoinVoiceCall() && !userSubstatus()) {
+      setVoiceCallInfo(
+        <div class="text-xs flex items-center justify-center">
+          You can join the voice chat once the session starter joins.
+        </div>
+      );
     }
   };
 
@@ -452,19 +461,38 @@ export default function Voice() {
     }
   };
 
-  const notifyOtherPlayers = () => {
-    if (canJoinVoiceCall()) {
-      setNotifyOtherPlayersInfo(
-        <div class="text-center p-2">
-          The session starter is in the voice call. You may now join.
-        </div>
+  const getSessionStarterStatus = async () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuid = urlParams.get("session");
+
+    try {
+      const response = await fetch(
+        `http://localhost:8080/session-starter-status`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            sessionUuid: sessionUuid,
+          }),
+        }
       );
-    } else {
-      setNotifyOtherPlayersInfo();
+      const data = await response.json();
+
+      if (data.starterInCall !== undefined) {
+        setCanJoinVoiceCall(data.starterInCall);
+      } else {
+        console.error("Starter in call status not found");
+      }
+    } catch (error) {
+      console.error("Failed to get starter in call status:", error);
     }
   };
 
   onMount(() => {
+    getSessionStarterStatus();
     checkUserstatus();
     voiceCallInfoSetSessionStarter();
     voiceCallInfoSetNonSessionStarter();

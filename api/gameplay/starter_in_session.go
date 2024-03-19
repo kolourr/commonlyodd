@@ -2,9 +2,15 @@ package gameplay
 
 import (
 	"log"
+	"net/http"
 
+	"github.com/gin-gonic/gin"
 	"github.com/kolourr/commonlyodd/database"
 )
+
+type SessionRequest struct {
+	SessionUuid string `json:"sessionUuid"`
+}
 
 func handleStarterInCall(sessionUUID string) {
 	// Update the database to set starter_in_call to true
@@ -61,4 +67,19 @@ func broadcastToSessionSessionStarter(sessionUUID string, msg WebSocketMessageSt
 			log.Printf("Error broadcasting to client: %v", err)
 		}
 	}
+}
+
+func StarterInCallStatus(c *gin.Context) {
+	var request SessionRequest
+	if err := c.ShouldBindJSON(&request); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid request"})
+		return
+	}
+	starterInCall, err := getStarterInCallStatus(request.SessionUuid)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error fetching starter_in_call status"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"starterInCall": starterInCall})
 }

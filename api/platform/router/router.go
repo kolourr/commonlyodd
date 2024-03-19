@@ -65,6 +65,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.POST("/end-session", gameplay.EndSessionEndpoint)
 	router.POST("/generate-tokens", gameplay.GenerateTokens)
 	router.GET("/ws", gameplay.HandleGameWebSocket)
+	router.POST("/session-starter-status", gameplay.StarterInCallStatus)
 	router.POST("/create-checkout-session", middleware.IsAuthenticated, stripeintegration.CreateCheckoutSessionHandler)
 	router.POST("/webhook", stripeintegration.WebhookHandler)
 	router.POST("/portal", middleware.IsAuthenticated, stripeintegration.PortalSessionHandler)

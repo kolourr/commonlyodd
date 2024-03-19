@@ -101,6 +101,7 @@ function handleWebSocketMessage(event: MessageEvent) {
   const msg: WebSocketMessage = JSON.parse(event.data);
   switch (msg.game_state) {
     case "session-starter-update":
+      console.info(msg);
       setCanJoinVoiceCall(msg.starter_in_call);
       break;
     case "start-in-progress":
