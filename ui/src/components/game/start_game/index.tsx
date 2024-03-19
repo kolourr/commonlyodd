@@ -21,6 +21,9 @@ import NewGameEndSession, { handleClickOpenNewGameEndSession } from "../end";
 import Complete, { handleCompleteOpen } from "./complete";
 import { setScoreSubmittedDialogOpen } from "./score";
 import { setMessageSent, setSessionLink, setGameInfo } from "../index";
+import { useNavigate } from "solid-app-router";
+import { PlayCircleOutlined } from "@suid/icons-material";
+import { setCanJoinVoiceCall } from "../voice";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -56,12 +59,11 @@ const [teamGameWinner, setTeamGameWinner] = createSignal<string | undefined>();
 const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
 const [complete, setComplete] = createSignal(false);
-import { useNavigate } from "solid-app-router";
-import { PlayCircleOutlined } from "@suid/icons-material";
 
 export const sendMessage = (message: messageData) => {
+  checkSessionStatus();
   if (isSessionActive() && isSessionStarter() && gameWebSocket) {
-    setIsGameInProgress(true);
+    // setIsGameInProgress(true);
     gameWebSocket.send(JSON.stringify(message));
     if (message.game_state === "reveal") {
       setIsGameInProgress(false);
@@ -69,206 +71,211 @@ export const sendMessage = (message: messageData) => {
   }
 };
 
+const checkSessionStatus = () => {
+  const sessionUuid = localStorage.getItem("session_uuid");
+  const starterToken = localStorage.getItem("starter_token");
+  setIsSessionActive(!!sessionUuid && !!starterToken);
+  setIsSessionStarter(!!starterToken);
+
+  if (sessionUuid && starterToken && !gameWebSocket) {
+    initializeWebSocket(sessionUuid, starterToken);
+  }
+};
+
+function initializeWebSocket(sessionUuid: string, starterToken?: string) {
+  if (starterToken) {
+    gameWebSocket = createReconnectingWS(
+      BASE_API.replace("http", "ws") +
+        `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
+    );
+    gameWebSocket.addEventListener("message", handleWebSocketMessage);
+  } else {
+    gameWebSocket = createReconnectingWS(
+      BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
+    );
+    gameWebSocket.addEventListener("message", handleWebSocketMessage);
+  }
+}
+
+function handleWebSocketMessage(event: MessageEvent) {
+  const msg: WebSocketMessage = JSON.parse(event.data);
+  switch (msg.game_state) {
+    case "session-starter-update":
+      setCanJoinVoiceCall(msg.starter_in_call);
+      break;
+    case "start-in-progress":
+      //update Team Score
+      setMessageSent(msg);
+      setIsGameInProgress(true);
+      setObjectsImages(msg);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setTeamID(msg.team_id);
+      setTeamName(msg.team_name);
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setGameInfo(
+        <>
+          <div class="text-md">
+            {teamName()} has <span class="text-error-500 font-bold">15 </span>
+            seconds to figure out the which one is odd and the reason for
+            commonality.
+          </div>
+        </>
+      );
+      break;
+    case "timer_update":
+      setGameTime(msg);
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      break;
+    case "time_up":
+      console.info(msg);
+      //update Team Score
+      setMessageSent(msg);
+      setGameTime(msg);
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setTimerUp(true);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <div class="flex flex-col ">
+          <div class="text-sm font-bold pb-2 justify-center">Time's Up!</div>
+          <div class="text-sm justify-start pb-4">
+            {teamName()}, what's your{" "}
+            <span class="text-error-500 font-bold">answer</span>?
+          </div>
+          <div class="text-xs">
+            Session starter must click on the{" "}
+            <PlayCircleOutlined fontSize="small" /> button to reveal the answer.
+          </div>
+        </div>
+      );
+      break;
+
+    case "reveal-answer":
+      //update Team Score
+      setMessageSent(msg);
+      setOddReasonForSimilarity(msg);
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <>
+          <div>
+            The odd one is{" "}
+            <span class="text-error-500 font-bold">
+              {oddReasonForSimilarity()?.odd_reason_for_similarity?.odd}
+            </span>
+          </div>
+          <div>
+            Reson for commonality:{" "}
+            <span class="text-error-500 font-bold">
+              {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
+            </span>
+          </div>
+
+          <div>
+            Session starter must now enter{" "}
+            <span class="text-error-500 font-bold">{teamName()}'s' </span>
+            score in the dialog box after clicking on the{" "}
+            <PlayCircleOutlined fontSize="small" /> symbol.
+          </div>
+        </>
+      );
+      break;
+    case "continue":
+      console.info(msg);
+      //update Team Score
+      setMessageSent(msg);
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setEnterScore(false);
+      setTimerUp(false);
+      setIsGameInProgress(true);
+      setTeamID(msg.team_id);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setTeamName(msg.team_name);
+      setReadyToContinue(true);
+      setScoreSubmittedDialogOpen(false);
+      setNewGameStarted(false);
+
+      setGameInfo(
+        <>
+          <div>
+            Click on the <PlayCircleOutlined fontSize="small" /> button to
+            continue to {teamName()}'s round.
+          </div>
+        </>
+      );
+
+      break;
+    case "continue-answer":
+      console.info(msg);
+      //update Team Score
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setMessageSent(msg);
+      // Update game state with new objects and images
+      setGameWinner(false);
+      setObjectsImages(msg);
+      setIsGameInProgress(true);
+      setReadyToContinue(false);
+      setScoreSubmittedDialogOpen(false);
+      setNewGameStarted(false);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      break;
+    case "end-game":
+      console.info(msg);
+      //update Team Score
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setMessageSent(msg);
+      setEnterScore(false);
+      setTimerUp(false);
+      setScoreSubmittedDialogOpen(false);
+      setNewGameStarted(false);
+      setIsGameInProgress(false);
+      setReadyToContinue(false);
+      setGameWinner(true);
+      setTeamGameWinner(msg.game_winner);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      break;
+    case "new-game-started":
+      console.info(msg);
+      //update Team Score
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setMessageSent(msg);
+      setNewGameStarted(true);
+      setIsGameInProgress(true);
+      setGameWinner(false);
+      setReadyToContinue(false);
+      setScoreSubmittedDialogOpen(false);
+      setObjectsImages(msg);
+      setTeamID(msg.team_id);
+      console.info(msg.team_id);
+      setTeamName(msg.team_name);
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      break;
+    case "complete":
+      console.info(msg);
+      //update Team Score
+      setNumberOfTeams(msg.number_of_teams);
+      setTargetScore(msg.target_score);
+      setMessageSent(msg);
+      setComplete(true);
+      setIsGameInProgress(false);
+      setGameComplete(true);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      break;
+  }
+}
+
 export default function StartGame() {
   const navigate = useNavigate();
-
-  const checkSessionStatus = () => {
-    const sessionUuid = localStorage.getItem("session_uuid");
-    const starterToken = localStorage.getItem("starter_token");
-    setIsSessionActive(!!sessionUuid && !!starterToken);
-    setIsSessionStarter(!!starterToken);
-
-    if (sessionUuid && starterToken && !gameWebSocket) {
-      initializeWebSocket(sessionUuid, starterToken);
-    }
-  };
-
-  function handleWebSocketMessage(event: MessageEvent) {
-    const msg: WebSocketMessage = JSON.parse(event.data);
-    switch (msg.game_state) {
-      case "start-in-progress":
-        //update Team Score
-        setMessageSent(msg);
-        setIsGameInProgress(true);
-        setObjectsImages(msg);
-        setTeamID(msg.team_id);
-        setTeamName(msg.team_name);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setGameInfo(
-          <>
-            <div class="text-md">
-              {teamName()} has <span class="text-error-500 font-bold">15 </span>
-              seconds to figure out the which one is odd and the reason for
-              commonality.
-            </div>
-          </>
-        );
-        break;
-      case "timer_update":
-        setGameTime(msg);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        break;
-      case "time_up":
-        console.info(msg);
-        //update Team Score
-        setMessageSent(msg);
-        setGameTime(msg);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setTimerUp(true);
-        setGameInfo(
-          <div class="flex flex-col ">
-            <div class="text-sm font-bold pb-2 justify-center">Time's Up!</div>
-            <div class="text-sm justify-start pb-4">
-              {teamName()}, what's your{" "}
-              <span class="text-error-500 font-bold">answer</span>?
-            </div>
-            <div class="text-xs">
-              Session starter must click on the{" "}
-              <PlayCircleOutlined fontSize="small" /> button to reveal the
-              answer.
-            </div>
-          </div>
-        );
-        break;
-      case "session-starter-update":
-        console.info(msg);
-        //update Team Score
-        setMessageSent(msg);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-      case "reveal-answer":
-        //update Team Score
-        setMessageSent(msg);
-        setOddReasonForSimilarity(msg);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setGameInfo(
-          <>
-            <div>
-              The odd one is{" "}
-              <span class="text-error-500 font-bold">
-                {oddReasonForSimilarity()?.odd_reason_for_similarity?.odd}
-              </span>
-            </div>
-            <div>
-              Reson for commonality:{" "}
-              <span class="text-error-500 font-bold">
-                {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
-              </span>
-            </div>
-
-            <div>
-              Session starter must now enter{" "}
-              <span class="text-error-500 font-bold">{teamName()}'s' </span>
-              score in the dialog box after clicking on the{" "}
-              <PlayCircleOutlined fontSize="small" /> symbol.
-            </div>
-          </>
-        );
-        break;
-      case "continue":
-        console.info(msg);
-        //update Team Score
-        setMessageSent(msg);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setEnterScore(false);
-        setTimerUp(false);
-        setIsGameInProgress(true);
-        setTeamID(msg.team_id);
-        setTeamName(msg.team_name);
-        setReadyToContinue(true);
-        setScoreSubmittedDialogOpen(false);
-        setNewGameStarted(false);
-
-        setGameInfo(
-          <>
-            <div>
-              Click on the <PlayCircleOutlined fontSize="small" /> button to
-              continue to {teamName()}'s round.
-            </div>
-          </>
-        );
-
-        break;
-      case "continue-answer":
-        console.info(msg);
-        //update Team Score
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setMessageSent(msg);
-        // Update game state with new objects and images
-        setGameWinner(false);
-        setObjectsImages(msg);
-        setIsGameInProgress(true);
-        setReadyToContinue(false);
-        setScoreSubmittedDialogOpen(false);
-        setNewGameStarted(false);
-        break;
-      case "end-game":
-        console.info(msg);
-        //update Team Score
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setMessageSent(msg);
-        setEnterScore(false);
-        setTimerUp(false);
-        setScoreSubmittedDialogOpen(false);
-        setNewGameStarted(false);
-        setIsGameInProgress(false);
-        setReadyToContinue(false);
-        setGameWinner(true);
-        setTeamGameWinner(msg.game_winner);
-        console.info(teamGameWinner());
-        break;
-      case "new-game-started":
-        console.info(msg);
-        //update Team Score
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setMessageSent(msg);
-        setNewGameStarted(true);
-        setIsGameInProgress(true);
-        setGameWinner(false);
-        setReadyToContinue(false);
-        setScoreSubmittedDialogOpen(false);
-        setObjectsImages(msg);
-        setTeamID(msg.team_id);
-        console.info(msg.team_id);
-        setTeamName(msg.team_name);
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        break;
-      case "complete":
-        console.info(msg);
-        //update Team Score
-        setNumberOfTeams(msg.number_of_teams);
-        setTargetScore(msg.target_score);
-        setMessageSent(msg);
-        setComplete(true);
-        setIsGameInProgress(false);
-        setGameComplete(true);
-        break;
-    }
-  }
-
-  function initializeWebSocket(sessionUuid: string, starterToken?: string) {
-    if (starterToken) {
-      gameWebSocket = createReconnectingWS(
-        BASE_API.replace("http", "ws") +
-          `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
-      );
-      gameWebSocket.addEventListener("message", handleWebSocketMessage);
-    } else {
-      gameWebSocket = createReconnectingWS(
-        BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
-      );
-      gameWebSocket.addEventListener("message", handleWebSocketMessage);
-    }
-  }
 
   function handleButtonClick() {
     if (enterScore()) {

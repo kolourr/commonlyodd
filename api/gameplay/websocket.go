@@ -25,7 +25,12 @@ type WebSocketMessage struct {
 	IndividualTeamScoreReceived float64           `json:"individual_team_score_received"`
 	TimeStamp                   int               `json:"time_stamp"`
 	TimeStampReceived           int               `json:"time_stamp_received"`
-	StarterInCall               bool              `json:"handle_starter_in_call"`
+	StarterInCall               bool              `json:"starter_in_call"`
+}
+
+type WebSocketMessageStarter struct {
+	GameState     string `json:"game_state"`
+	StarterInCall bool   `json:"starter_in_call"`
 }
 
 type TeamScore struct {

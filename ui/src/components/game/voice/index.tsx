@@ -53,6 +53,9 @@ let audioTracks = {
 //Users in channel
 const MAX_PARTICIPANTS = 10;
 
+export const [canJoinVoiceCall, setCanJoinVoiceCall] =
+  createSignal<boolean>(false);
+
 export default function Voice() {
   const [micMuted, setMicMuted] = createSignal(true);
   const [isSessionStarter, setIsSessionStarter] = createSignal(false);
@@ -74,6 +77,8 @@ export default function Voice() {
   const [sessionStarterPresent, setSessionStarterPresent] = createSignal(false);
   const [voiceCallInfo, setVoiceCallInfo] = createSignal<JSX.Element>();
   const [sessionStarterJoinedCall, setSessionStarterJoinedCall] =
+    createSignal<JSX.Element>();
+  const [notifyOtherPlayersInfo, setNotifyOtherPlayersInfo] =
     createSignal<JSX.Element>();
 
   const addUser = (
@@ -447,11 +452,24 @@ export default function Voice() {
     }
   };
 
+  const notifyOtherPlayers = () => {
+    if (canJoinVoiceCall()) {
+      setNotifyOtherPlayersInfo(
+        <div class="text-center p-2">
+          The session starter is in the voice call. You may now join.
+        </div>
+      );
+    } else {
+      setNotifyOtherPlayersInfo();
+    }
+  };
+
   onMount(() => {
     checkUserstatus();
     voiceCallInfoSetSessionStarter();
     voiceCallInfoSetNonSessionStarter();
     notifyOtherPlayerOfSessionStarterviaGameWebscoket();
+    notifyOtherPlayers();
   });
 
   onCleanup(() => {
@@ -463,6 +481,7 @@ export default function Voice() {
     voiceCallInfoSetSessionStarter();
     voiceCallInfoSetNonSessionStarter();
     notifyOtherPlayerOfSessionStarterviaGameWebscoket();
+    notifyOtherPlayers();
   });
 
   return (
@@ -518,12 +537,7 @@ export default function Voice() {
           Players in Voice Chat
         </div>
         {voiceCallInfo()}
-
-        <Show when={sessionStarterPresent()}>
-          <div class="text-center p-2">
-            The session starter is in the voice call. You may now join.
-          </div>
-        </Show>
+        {notifyOtherPlayersInfo()}
 
         <div
           class="users grid grid-cols-5 h-24 gap-1 items-center justify-start"
