@@ -14,6 +14,7 @@ export interface WebSocketMessage {
   individual_team_score_received?: number | undefined;
   time_stamp?: number;
   time_stamp_received?: number;
+  handle_starter_in_call?: boolean;
 }
 
 export interface TeamScore {

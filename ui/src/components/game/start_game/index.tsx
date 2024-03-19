@@ -87,7 +87,6 @@ export default function StartGame() {
     const msg: WebSocketMessage = JSON.parse(event.data);
     switch (msg.game_state) {
       case "start-in-progress":
-        console.info(msg);
         //update Team Score
         setMessageSent(msg);
         setIsGameInProgress(true);
@@ -134,8 +133,13 @@ export default function StartGame() {
           </div>
         );
         break;
-      case "reveal-answer":
+      case "session-starter-update":
         console.info(msg);
+        //update Team Score
+        setMessageSent(msg);
+        setNumberOfTeams(msg.number_of_teams);
+        setTargetScore(msg.target_score);
+      case "reveal-answer":
         //update Team Score
         setMessageSent(msg);
         setOddReasonForSimilarity(msg);

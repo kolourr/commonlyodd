@@ -25,6 +25,7 @@ type WebSocketMessage struct {
 	IndividualTeamScoreReceived float64           `json:"individual_team_score_received"`
 	TimeStamp                   int               `json:"time_stamp"`
 	TimeStampReceived           int               `json:"time_stamp_received"`
+	StarterInCall               bool              `json:"handle_starter_in_call"`
 }
 
 type TeamScore struct {
@@ -140,6 +141,10 @@ func handleGameStateChange(conn *websocket.Conn, sessionUUID string, msg WebSock
 		handleReveal(conn, sessionUUID, gameDataMap[sessionUUID])
 	case "score":
 		handleScore(conn, sessionUUID, msg)
+	case "starter-in-call":
+		handleStarterInCall(sessionUUID)
+	case "starter-not-in-call":
+		handleStarterNotInCall(sessionUUID)
 	case "continue":
 		handleContinue(conn, sessionUUID, msg, gameDataMap[sessionUUID])
 	case "new-game":

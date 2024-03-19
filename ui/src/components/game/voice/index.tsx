@@ -1,4 +1,12 @@
-import { createSignal, onMount, onCleanup, Show, For } from "solid-js";
+import {
+  createSignal,
+  onMount,
+  onCleanup,
+  Show,
+  For,
+  createEffect,
+  JSX,
+} from "solid-js";
 import { Button, CircularProgress } from "@suid/material";
 import "./styles.css";
 import {
@@ -15,6 +23,11 @@ import AgoraRTC, {
 import AgoraRTM from "agora-rtm-sdk";
 import CommonDialog from "../common_dialog";
 import { createStore } from "solid-js/store";
+import {
+  checkSubStatus,
+  userSubstatus,
+} from "../../auth_payments_landing/subscription_status";
+import { sendMessage } from "../start_game";
 
 type UserState = {
   uid: string;
@@ -58,6 +71,10 @@ export default function Voice() {
   const [isJoining, setIsJoining] = createSignal(false);
   const [users, setUsers] = createStore<UserState[]>([]);
   const [volumes, setVolumes] = createStore({});
+  const [sessionStarterPresent, setSessionStarterPresent] = createSignal(false);
+  const [voiceCallInfo, setVoiceCallInfo] = createSignal<JSX.Element>();
+  const [sessionStarterJoinedCall, setSessionStarterJoinedCall] =
+    createSignal<JSX.Element>();
 
   const addUser = (
     userRtcUid: string,
@@ -170,6 +187,7 @@ export default function Voice() {
       // Check if the session starter is present in the call
       if (memberType !== "starter") {
         const starterPresent = await checkStarterPresence(members);
+        setSessionStarterPresent(starterPresent);
         if (!starterPresent) {
           setSessionStarterNotInCall(true);
           await leaveRTMChannel();
@@ -389,13 +407,62 @@ export default function Voice() {
     setIsInChat(false);
   };
 
+  const voiceCallInfoSetSessionStarter = () => {
+    if (users.length === 0 && userSubstatus()) {
+      setVoiceCallInfo(
+        <div class="text-xs flex items-center justify-center">
+          You can start the voice start when the session is active. Then, other
+          players can join you.
+        </div>
+      );
+    } else if (users.length !== 0 && userSubstatus()) {
+      setVoiceCallInfo();
+    }
+  };
+
+  const voiceCallInfoSetNonSessionStarter = () => {
+    if (users.length === 0 && !userSubstatus()) {
+      setVoiceCallInfo(
+        <div class="text-xs flex items-center justify-center">
+          You can join the voice chat once the session starter has joined.
+        </div>
+      );
+    } else if (users.length !== 0 && !userSubstatus()) {
+      setVoiceCallInfo();
+    }
+  };
+
+  const notifyOtherPlayerOfSessionStarterviaGameWebscoket = async () => {
+    if (isSessionStarter() && users.length > 0) {
+      const members = await channel.getMembers();
+      const starterPresent = await checkStarterPresence(members);
+      console.info("Starter present", starterPresent);
+      if (starterPresent) {
+        sendMessage({ game_state: "starter-in-call" });
+      }
+    }
+
+    if (isSessionStarter() && users.length === 0) {
+      sendMessage({ game_state: "starter-not-in-call" });
+    }
+  };
+
   onMount(() => {
     checkUserstatus();
+    voiceCallInfoSetSessionStarter();
+    voiceCallInfoSetNonSessionStarter();
+    notifyOtherPlayerOfSessionStarterviaGameWebscoket();
   });
 
   onCleanup(() => {
     leaveVoiceChat(rtcUid);
     leaveRTMChannel();
+  });
+
+  createEffect(() => {
+    voiceCallInfoSetSessionStarter();
+    voiceCallInfoSetNonSessionStarter();
+    notifyOtherPlayerOfSessionStarterviaGameWebscoket();
   });
 
   return (
@@ -450,8 +517,16 @@ export default function Voice() {
         <div class="text-xs h-4 font-bold flex justify-center">
           Players in Voice Chat
         </div>
+        {voiceCallInfo()}
+
+        <Show when={sessionStarterPresent()}>
+          <div class="text-center p-2">
+            The session starter is in the voice call. You may now join.
+          </div>
+        </Show>
+
         <div
-          class="users grid grid-cols-5 h-24 gap-px items-center justify-start"
+          class="users grid grid-cols-5 h-24 gap-1 items-center justify-start"
           id="users"
         >
           <For each={users}>
@@ -472,9 +547,7 @@ export default function Voice() {
             )}
           </For>
         </div>
-        <div class="text-xs h-4   flex justify-center">
-          Session starter must be in chat to join
-        </div>
+        {sessionStarterJoinedCall()}
       </div>
       <Show when={sessionStarterNotInCall()}>
         <CommonDialog

@@ -135,10 +135,6 @@ export default function Game() {
             The game has not yet started. This message here will update when it
             does.
           </div>
-          <div>
-            Also, you can join the voice channel once the session starter joins
-            the channel.
-          </div>
         </div>
       );
     }

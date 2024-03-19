@@ -43,6 +43,13 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
 		return
 	}
 
+	// Fetch the starter_in_call status from the database
+	starterInCall, err := getStarterInCallStatus(sessionUUID)
+	if err != nil {
+		log.Printf("Failed to fetch starter_in_call status: %v", err)
+		return
+	}
+
 	nextMsg := WebSocketMessage{
 		NumberOfTeams:               numberOfTeams,
 		TargetScore:                 targetScore,
@@ -50,6 +57,7 @@ func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage)
 		TeamNameReceived:            msg.TeamName,
 		IndividualTeamScoreReceived: msg.IndividualTeamScore,
 		TimeStampReceived:           msg.TimeStamp,
+		StarterInCall:               starterInCall,
 	}
 
 	if targetScoreReached && allTeamsEqualTurns && !tieExists {
