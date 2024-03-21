@@ -1,15 +1,6 @@
 import { Show, createEffect, createSignal, onCleanup, onMount } from "solid-js";
-import { Button, Typography } from "@suid/material";
-import {
-  SportsEsportsOutlined,
-  RuleOutlined,
-  SportsScoreOutlined,
-  HeadsetMicOutlined,
-  MicOutlined,
-  PlayCircleOutlined,
-} from "@suid/icons-material";
-import InfoModal from "./info_modal";
-import { gameRules } from "~/public/data/gamerules";
+import { Button } from "@suid/material";
+import { SportsScoreOutlined, PlayCircleOutlined } from "@suid/icons-material";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
@@ -33,9 +24,9 @@ import {
 import AccountMenu from "../settings";
 import { isSessionStarted } from "./start_session";
 import { JSX } from "solid-js";
+import { gameTime } from "./start_game";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
-const BASE_API_URL = import.meta.env.CO_API_URL;
 
 export const [sessionLink, setSessionLink] = createSignal(
   `${BASE_UI_URL}/click-to-start`
@@ -123,9 +114,6 @@ export default function Game() {
   });
 
   createEffect(() => {
-    // const urlParams = new URLSearchParams(window.location.search);
-    // const sessionUuid =
-    //   urlParams.get("session") || localStorage.getItem("session_uuid");
     const starterToken = localStorage.getItem("starter_token");
 
     if (!isAuthenticated() && !userSubstatus() && !starterToken) {
@@ -167,20 +155,20 @@ export default function Game() {
   });
 
   return (
-    <div class="flex flex-col h-screen md:max-w-5xl lg:max-w-5xl mx-auto">
-      <div class="flex flex-grow bg-slate-50">
+    <div class="flex flex-col h-max md:max-w-5xl lg:max-w-7xl mx-auto ">
+      <div class="flex flex-grow ">
         <div class="flex flex-row w-1/12 justify-center items-center">
           <Router>
             <AccountMenu />
           </Router>
         </div>
-        <div class="flex flex-row w-11/12 justify-center items-center text-2xl font-bold ">
+        <div class="flex flex-row w-11/12 justify-center items-center text-2xl font-bold text-gray-800 ">
           Commonly Odd
         </div>
       </div>
 
-      <div class="flex flex-grow bg-slate-50">
-        <div class="flex flex-row h-8 w-[20%] justify-center items-center ">
+      <div class="flex flex-grow  ">
+        <div class="flex flex-row h-12 w-[20%] justify-center items-center ">
           <Show when={isAuthenticated() && userSubstatus()}>
             <StartSession />
           </Show>
@@ -204,23 +192,25 @@ export default function Game() {
             </Button>
           </Show>
         </div>
-        <div class="flex flex-row h-8 w-[60%] justify-center items-center ">
+        <div class="flex flex-row h-12 w-[60%] justify-center items-center ">
           <div class="flex flex-row items-center justify-center     ">
             <CopyLink />
             <input
               type="text"
-              class="border-2 border-dashed border-slate-100 p-2 rounded w-full h-[30px]"
+              class="border-2 border-dashed border-coolGray-100 p-2 rounded w-full h-[30px] shadow-md"
               readOnly
               value={sessionLink()}
             />
           </div>
         </div>
-        <div class="flex flex-row h-8 w-[20%] justify-center items-center ">
-          <EndGameSession />
+        <div class="flex flex-row h-12 w-[20%] justify-center items-center ">
+          <Button onClick={handleOpenTeamScores}>
+            <SportsScoreOutlined fontSize="large" />
+          </Button>{" "}
         </div>
       </div>
 
-      <div class="flex flex-grow  bg-slate-50">
+      <div class="flex flex-grow   ">
         <div class="flex flex-row h-40 w-[20%] justify-center items-center ">
           <Router>
             <StartGame />
@@ -228,19 +218,17 @@ export default function Game() {
         </div>
         <div class="flex flex-row h-40 w-[60%] justify-center items-center ">
           <div
-            class="flex flex-col justify-start items-center w-[90%] h-[80%] border-2 border-slate-300 bg-slate-200 p-2 text-xs break-words"
+            class="flex flex-col justify-start items-center w-[100%] h-[100%]  bg-gradient-to-bl from-purple-300 via-blue-100 to-cyan-200 shadow-md p-2 text-xs break-words"
             id="gameInfo"
           >
             {gameInfo()}
           </div>
         </div>
 
-        <div class="flex flex-row h-40 w-[20%] justify-center items-center ">
-          <Timer />
-        </div>
+        <div class="flex flex-row h-40 w-[20%] justify-center items-center "></div>
       </div>
 
-      <div class="flex flex-grow bg-slate-50">
+      <div class="flex flex-grow  ">
         <Voice />
         <div class="flex flex-row h-32 w-[20%] justify-center items-center ">
           <Button onClick={handleOpenTeamScores}>
@@ -248,7 +236,7 @@ export default function Game() {
           </Button>
         </div>
       </div>
-      <div class="flex flex-grow flex-col justify-center items-center bg-slate-50  ">
+      <div class="flex flex-grow flex-col justify-center items-center  ">
         <Show when={showTeamScores()}>
           <TeamScores
             teamScores={teamScores}
@@ -257,9 +245,11 @@ export default function Game() {
         </Show>
       </div>
 
-      <div class="flex flex-grow justify-center items-center bg-slate-50 px-10 pb-20">
+      <div class="flex flex-grow justify-center items-center ">
         <GameImages gameData={objectsImages()} />
       </div>
+      <EndGameSession />
+      <Timer />
     </div>
   );
 }

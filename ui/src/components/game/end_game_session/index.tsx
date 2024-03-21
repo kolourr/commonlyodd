@@ -22,6 +22,19 @@ const Transition = function Transition(
   return <Slide direction="down" {...props} />;
 };
 
+const [open, setOpen] = createSignal(false);
+const [gameSessionStatus, setGameSessionStatus] = createSignal(
+  checkGameSessionStatus()
+);
+
+export const handleClickOpenEndGameSession = () => {
+  setOpen(true);
+};
+
+const handleClose = () => {
+  setOpen(false);
+};
+
 function checkGameSessionStatus() {
   const sessionUuid = localStorage.getItem("session_uuid");
   const starterToken = localStorage.getItem("starter_token");
@@ -38,19 +51,6 @@ function checkGameSessionStatus() {
 }
 
 export default function EndGameSession() {
-  const [open, setOpen] = createSignal(false);
-  const [gameSessionStatus, setGameSessionStatus] = createSignal(
-    checkGameSessionStatus()
-  );
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
   // Periodically check the game session status
   function updateGameSessionStatus() {
     const interval = setInterval(() => {
@@ -64,15 +64,6 @@ export default function EndGameSession() {
 
   return (
     <div>
-      <Button
-        color="error"
-        // sx={{ bgcolor: "#fff1f2" }}
-        onClick={handleClickOpen}
-        style="border: none; width: 32px; height: 25px; padding: 0;"
-      >
-        <CancelOutlined fontSize="small" />
-      </Button>
-
       <Dialog
         open={open()}
         TransitionComponent={Transition}

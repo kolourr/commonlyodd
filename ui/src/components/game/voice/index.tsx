@@ -28,6 +28,7 @@ import {
   userSubstatus,
 } from "../../auth_payments_landing/subscription_status";
 import { sendMessage } from "../start_game";
+import { isSessionStarted } from "../start_session";
 
 type UserState = {
   uid: string;
@@ -78,8 +79,7 @@ export default function Voice() {
   const [voiceCallInfo, setVoiceCallInfo] = createSignal<JSX.Element>();
   const [sessionStarterJoinedCall, setSessionStarterJoinedCall] =
     createSignal<JSX.Element>();
-  const [notifyOtherPlayersInfo, setNotifyOtherPlayersInfo] =
-    createSignal<JSX.Element>();
+  const [hasSessionStarted, setHasSessionStarted] = createSignal(false);
 
   const addUser = (
     userRtcUid: string,
@@ -311,9 +311,15 @@ export default function Voice() {
   };
 
   const joinVoiceChat = async () => {
+    if (!isSessionStarted() && userSubstatus()) {
+      setHasSessionStarted(!isSessionStarted() && userSubstatus());
+      return;
+    }
     setIsJoining(true);
 
     initChatSession();
+    console.info("is session started", isSessionStarted());
+    console.info("user substatus", userSubstatus());
 
     checkUserstatus();
     await fetchTokens();
@@ -417,18 +423,24 @@ export default function Voice() {
     if (!canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo(
         <div class="text-xs flex items-center justify-center">
-          Start the voice start when the session is active. Then, other players
-          can join.
+          Start the voice start when the session is active. Other players will
+          be notified when you join.
         </div>
       );
+      setSessionStarterJoinedCall();
     } else if (canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo();
+      setSessionStarterJoinedCall(
+        <div class="text-xs flex items-center justify-center">
+          Players can be muted and unmuted by clicking on their number.
+        </div>
+      );
     }
   };
 
   const notifyOtherPlayers = () => {
     if (canJoinVoiceCall() && !userSubstatus()) {
-      setVoiceCallInfo(
+      setSessionStarterJoinedCall(
         <div class="text-xs flex items-center justify-center">
           The session starter is in the voice call. You may now join.
         </div>
@@ -438,7 +450,7 @@ export default function Voice() {
 
   const voiceCallInfoSetNonSessionStarter = () => {
     if (!canJoinVoiceCall() && !userSubstatus()) {
-      setVoiceCallInfo(
+      setSessionStarterJoinedCall(
         <div class="text-xs flex items-center justify-center">
           You can join the voice chat once the session starter joins.
         </div>
@@ -514,10 +526,7 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col h-32 w-[20%] justify-center items-center">
-        <div class="flex flex-col justify-center items-center pb-2">
-          <div class="text-sm font-bold">Voice Chat</div>
-        </div>
+      <div class="flex flex-col h-32 w-[20%] justify-center items-center ">
         <div class="flex flex-col justify-between">
           <div class="flex flex-col">
             <Show when={!isInChat()}>
@@ -561,14 +570,10 @@ export default function Voice() {
         </div>
       </div>
       <div class="h-32 w-[60%] flex flex-col">
-        <div class="text-xs h-4 font-bold flex justify-center">
-          Players in Voice Chat
-        </div>
-        {voiceCallInfo()}
-        {notifyOtherPlayersInfo()}
+        <div class="text-xs h-4 font-bold flex justify-center">Voice Chat</div>
 
         <div
-          class="users grid grid-cols-5 h-24 gap-1 items-center justify-start"
+          class="users grid grid-cols-5 h-24 gap-1 items-center justify-start  "
           id="users"
         >
           <For each={users}>
@@ -589,6 +594,7 @@ export default function Voice() {
             )}
           </For>
         </div>
+        {voiceCallInfo()}
         {sessionStarterJoinedCall()}
       </div>
       <Show when={sessionStarterNotInCall()}>
@@ -597,6 +603,17 @@ export default function Voice() {
           title="Session Starter Not In Call"
           content={"The session starter must be in the call to participate."}
           onClose={() => setSessionStarterNotInCall(false)}
+          showCancelButton={false}
+        />
+      </Show>
+      <Show when={hasSessionStarted()}>
+        <CommonDialog
+          open={hasSessionStarted()}
+          title="A session must be created before entering call"
+          content={
+            "Voice chats can only be joined after a session has started."
+          }
+          onClose={() => setHasSessionStarted(false)}
           showCancelButton={false}
         />
       </Show>

@@ -373,10 +373,7 @@ export default function StartGame() {
   return (
     <div>
       <div class="flex flex-col justify-center items-center">
-        <div class="h-6 text-center text-sm pb-8 font-bold">
-          {" "}
-          {getButtonLabel()}
-        </div>
+        {/* <div class="h-6 text-center text-sm pb-8 font-bold"> </div> */}
         <div>
           <Button
             variant="outlined"
@@ -388,7 +385,10 @@ export default function StartGame() {
             <PlayCircleOutlined fontSize="large" />
           </Button>
 
-          <div class="h-2 text-center text-xs pb-8 font-bold">{"Controls"}</div>
+          <div class="h-2 text-center text-xs pb-8 font-bold">
+            {" "}
+            {getButtonLabel()}
+          </div>
         </div>
       </div>
 

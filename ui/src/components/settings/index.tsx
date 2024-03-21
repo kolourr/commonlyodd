@@ -32,6 +32,7 @@ import {
   NotesRounded,
   PersonPinOutlined,
   LogoutOutlined,
+  CancelOutlined,
 } from "@suid/icons-material";
 import useTheme from "@suid/material/styles/useTheme";
 import {
@@ -41,6 +42,7 @@ import {
 import { checkAuth } from "../auth_payments_landing/use_auth";
 import { TransitionProps } from "@suid/material/transitions";
 import EndSessionLogout from "./endsession_logout";
+import { handleClickOpenEndGameSession } from "../game/end_game_session";
 
 const Transition = function Transition(
   props: TransitionProps & {
@@ -181,6 +183,14 @@ export default function AccountMenu() {
           </ListItemIcon>
           <Typography variant="body1"> Privacy Policy</Typography>
         </MenuItem>
+
+        <MenuItem onClick={handleClickOpenEndGameSession}>
+          <ListItemIcon>
+            <CancelOutlined />
+          </ListItemIcon>
+          <Typography variant="body1"> End Session</Typography>
+        </MenuItem>
+
         <Divider />
         <MenuItem onClick={handleClickOpenLogout}>
           <ListItemIcon>
