@@ -81,15 +81,14 @@ export default function StartSession() {
   return (
     <div>
       <Button
-        variant="outlined"
         onClick={() => setOpen(true)}
         disabled={isSessionActive()}
         fullWidth={false}
-        style="border: none; width: 35px; height: 30px;padding: 0; font-size: 18px; font-weight: bold;   text-align: center;  "
+        style="    font-weight: bold;   text-align: center;  "
         color="success"
       >
         {isSessionActive() ? (
-          <span class="text-error-700 italic text-xs bg-error-100">
+          <span class="text-error-700 italic sm:text-sm lg:text-2xl bg-gradient-to-r from-rose-200 via-pink-100 to-error-200 shadow-md">
             Session Active
           </span>
         ) : (

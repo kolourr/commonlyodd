@@ -423,8 +423,7 @@ export default function Voice() {
     if (!canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo(
         <div class="text-xs flex items-center justify-center">
-          Start the voice start when the session is active. Other players will
-          be notified when you join.
+          Voice chat requires session to be active.
         </div>
       );
       setSessionStarterJoinedCall();
@@ -526,9 +525,9 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col h-32 w-[20%] justify-center items-center ">
+      <div class="flex flex-col h-32 w-[20%] justify-center items-center    ">
         <div class="flex flex-col justify-between">
-          <div class="flex flex-col">
+          <div class="flex flex-col ">
             <Show when={!isInChat()}>
               <div>
                 <Button onClick={joinVoiceChat} disabled={isJoining()}>
@@ -548,7 +547,7 @@ export default function Voice() {
                 </Button>
               </div>
             </Show>
-            <span class="text-xs text-center">
+            <span class="text-xs text-center ">
               <Show when={!isInChat()}>Join Call</Show>
               <Show when={isInChat()}>Leave Call</Show>
             </span>
@@ -569,7 +568,7 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      <div class="h-32 w-[60%] flex flex-col">
+      <div class="h-32 w-[60%] flex flex-col     ">
         <div class="text-xs h-4 font-bold flex justify-center">Voice Chat</div>
 
         <div
