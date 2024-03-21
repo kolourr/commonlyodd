@@ -23,19 +23,30 @@ export default function NumberOfTeams({ setTeams }: NumberOfTeamsProps) {
         paddingRight: "5px",
         paddingTop: "5px",
         paddingLeft: "5px",
+        color: "white",
       }}
     >
       <FormControl fullWidth>
-        <InputLabel id="number-of-teams-label">Number of Teams</InputLabel>
+        <InputLabel id="number-of-teams-label" sx={{ color: "black" }}>
+          Number of Teams
+        </InputLabel>
         <Select
           labelId="number-of-teams-label"
           id="number-of-teams"
           value={selectedTeams()}
           label="Number of Teams"
           onChange={handleChange}
+          class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
+          sx={{ color: "black" }}
         >
           {Array.from({ length: 10 }, (_, i) => (
-            <MenuItem value={i + 1}>{i + 1}</MenuItem>
+            <MenuItem
+              class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
+              value={i + 1}
+              sx={{ color: "black" }}
+            >
+              {i + 1}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>

@@ -195,6 +195,9 @@ module.exports = {
         900: "#581c87",
         950: "#3b0764",
       },
+      white: {
+        900: "#FFFFFF",
+      },
     },
     extend: {
       fontFamily: {

@@ -155,7 +155,7 @@ export default function Game() {
   });
 
   return (
-    <div class="flex flex-col h-max md:max-w-5xl lg:max-w-7xl mx-auto ">
+    <div class="flex flex-col h-max md:max-w-5xl lg:max-w-5xl mx-auto bg-gradient-to-r from-purple-200 via-blue-200 to-cyan-200 min-h-screen">
       <div class="flex flex-grow  ">
         <div class="flex flex-row w-1/12 justify-center items-center">
           <Router>
@@ -181,11 +181,11 @@ export default function Game() {
               color="success"
             >
               {nonSessionNotStarter() ? (
-                <span class="text-error-700 italic text-xs bg-error-100">
+                <span class="italic sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
                   Session InActive
                 </span>
               ) : (
-                <span class="text-error-700 italic text-xs bg-error-100">
+                <span class="italic sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
                   Session Active
                 </span>
               )}
@@ -210,7 +210,7 @@ export default function Game() {
         </div>
       </div>
 
-      <div class="flex flex-grow p-2  ">
+      {/* <div class="flex flex-grow p-2  ">
         <div class="flex flex-row h-40 w-[100%] justify-center items-center  ">
           <div
             class="flex flex-col justify-start items-center w-[100%] h-[100%]   p-2 text-xs break-words"
@@ -219,8 +219,11 @@ export default function Game() {
             {gameInfo()}
           </div>
         </div>
-      </div>
+      </div> */}
 
+      <div class="flex flex-grow justify-center items-center    ">
+        <GameImages gameData={objectsImages()} />
+      </div>
       <div class="flex flex-grow  ">
         <Voice />
         <div class="flex flex-row h-32 w-[20%] justify-center items-center     ">
@@ -238,9 +241,6 @@ export default function Game() {
         </Show>
       </div>
 
-      <div class="flex flex-grow justify-center items-center    ">
-        <GameImages gameData={objectsImages()} />
-      </div>
       <EndGameSession />
       <Timer />
     </div>

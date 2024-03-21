@@ -29,20 +29,25 @@ export default function GameImages(props: GameImagesProps) {
           name: gameData.objs_image_links.obj3 || "Obj3",
           url: gameData.objs_image_links.img_link3,
         },
+        {
+          name: gameData.objs_image_links.obj3 || "Obj3",
+          url: gameData.objs_image_links.img_link3,
+        },
       ]);
     } else {
       setImagesToShow([
-        { name: "Obj1", url: "https://via.placeholder.com/400" },
-        { name: "Obj2", url: "https://via.placeholder.com/400" },
-        { name: "Obj3", url: "https://via.placeholder.com/400" },
+        { name: "Obj1", url: "https://via.placeholder.com/200" },
+        { name: "Obj2", url: "https://via.placeholder.com/200" },
+        { name: "Obj3", url: "https://via.placeholder.com/200" },
+        { name: "Obj3", url: "https://via.placeholder.com/200" },
       ]);
     }
   });
 
   return (
-    <div class="flex flex-col lg:flex-row justify-center items-center lg:space-x-4 lg:pt-10">
+    <div class=" grid grid-cols-2   justify-center items-center    ">
       {imagesToShow().map((obj, index) => (
-        <div class="py-4">
+        <div class="px-1">
           <p class="text-center">{obj.name}</p>
           <img src={obj.url} alt={obj.name} />
         </div>

@@ -64,6 +64,15 @@ export default function EndGameSession() {
 
   return (
     <div>
+      {/* <Button
+        color="error"
+        // sx={{ bgcolor: "#fff1f2" }}
+        onClick={handleClickOpenEndGameSession}
+        style="border: none; width: 32px; height: 25px; padding: 0;"
+      >
+        <CancelOutlined fontSize="small" />
+      </Button> */}
+
       <Dialog
         open={open()}
         TransitionComponent={Transition}
@@ -72,9 +81,9 @@ export default function EndGameSession() {
       >
         <Show when={gameSessionStatus() === "endSessionAndGame"}>
           <div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
               <div>
-                <DialogContent>
+                <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
                   <DialogTitle class="flex justify-center items-center">
                     {"End Session"}
                   </DialogTitle>
@@ -90,17 +99,19 @@ export default function EndGameSession() {
                 </Router>
               </div>
             </div>
-            <DialogActions>
-              <Button onClick={handleClose}>Cancel</Button>
+            <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+              <Button onClick={handleClose} sx={{ color: "black" }}>
+                Cancel
+              </Button>
             </DialogActions>
           </div>
         </Show>
 
         <Show when={gameSessionStatus() === "endGameOnly"}>
           <div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
               <div>
-                <DialogContent>
+                <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
                   <DialogTitle class="flex justify-center items-center">
                     {"End Game"}
                   </DialogTitle>
@@ -116,17 +127,19 @@ export default function EndGameSession() {
                 </Router>
               </div>
             </div>
-            <DialogActions>
-              <Button onClick={handleClose}>Cancel</Button>
+            <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+              <Button onClick={handleClose} sx={{ color: "black" }}>
+                Cancel
+              </Button>
             </DialogActions>
           </div>
         </Show>
 
         <Show when={gameSessionStatus() === "noSessionOrGameToEnd"}>
           <div>
-            <div class="flex flex-col justify-center items-center">
+            <div class="flex flex-col justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
               <div>
-                <DialogContent>
+                <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
                   <DialogTitle class="flex justify-center items-center">
                     {"Nothing to see here for now"}
                   </DialogTitle>
@@ -154,8 +167,10 @@ export default function EndGameSession() {
                 </DialogContent>
               </div>
             </div>
-            <DialogActions>
-              <Button onClick={handleClose}>Cancel</Button>
+            <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+              <Button onClick={handleClose} sx={{ color: "black" }}>
+                Cancel
+              </Button>
             </DialogActions>
           </div>
         </Show>

@@ -568,11 +568,11 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      <div class="h-32 w-[60%] flex flex-col     ">
-        <div class="text-xs h-4 font-bold flex justify-center">Voice Chat</div>
+      <div class="h-32 w-[60%] flex flex-col  shadow-md   ">
+        {/* <div class="text-xs h-4 font-bold flex justify-center">Voice Chat</div> */}
 
         <div
-          class="users grid grid-cols-5 h-24 gap-1 items-center justify-start  "
+          class="users grid grid-cols-5 h-28 gap-1 items-center justify-start  "
           id="users"
         >
           <For each={users}>
@@ -608,9 +608,9 @@ export default function Voice() {
       <Show when={hasSessionStarted()}>
         <CommonDialog
           open={hasSessionStarted()}
-          title="A session must be created before entering call"
+          title="A session must be created before entering voice chat"
           content={
-            "Voice chats can only be joined after a session has started."
+            "Click on create session to set the number of teams and target score."
           }
           onClose={() => setHasSessionStarted(false)}
           showCancelButton={false}

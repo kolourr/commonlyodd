@@ -26,16 +26,26 @@ export default function TargetScore({ setTargetScore }: TargetScoreProps) {
       }}
     >
       <FormControl fullWidth>
-        <InputLabel id="target-score-label">Target Score</InputLabel>
+        <InputLabel id="target-score-label" sx={{ color: "black" }}>
+          Target Score
+        </InputLabel>
         <Select
           labelId="target-score-label"
           id="target-score"
           value={selectedScore()}
           label="Target Score"
           onChange={handleChange}
+          class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
+          sx={{ color: "black" }}
         >
           {[10, 20, 30, 40, 50].map((score) => (
-            <MenuItem value={score}>{score}</MenuItem>
+            <MenuItem
+              class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
+              value={score}
+              sx={{ color: "black" }}
+            >
+              {score}
+            </MenuItem>
           ))}
         </Select>
       </FormControl>

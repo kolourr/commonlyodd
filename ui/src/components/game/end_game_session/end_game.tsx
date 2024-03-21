@@ -35,7 +35,7 @@ export default function EndGame() {
       setSessionLink(`${BASE_API}/click-to-start`);
       setDialogContent(
         <>
-          Game ended <span class="text-success-500">successfully</span>.
+          Game ended <span class="text-success-800">successfully</span>.
         </>
       );
 
@@ -51,7 +51,7 @@ export default function EndGame() {
     } catch (error) {
       setDialogContent(
         <>
-          <span class="text-error-500">Error</span>ending game. Please try
+          <span class="text-error-800">Error</span>ending game. Please try
           again.
         </>
       );
@@ -77,10 +77,10 @@ export default function EndGame() {
         End Game
       </Button>
       <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle class="flex justify-center items-center">
+        <DialogTitle class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           Please Confirm
         </DialogTitle>
-        <DialogContent>
+        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           <DialogContentText>
             Are you sure you want to{" "}
             <span class="text-error-500"> end this game</span>?
@@ -89,7 +89,7 @@ export default function EndGame() {
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions>
+        <DialogActions class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           <Button onClick={() => setOpen(false)} disabled={loading()}>
             Cancel
           </Button>

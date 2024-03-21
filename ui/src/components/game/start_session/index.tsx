@@ -83,16 +83,15 @@ export default function StartSession() {
       <Button
         onClick={() => setOpen(true)}
         disabled={isSessionActive()}
-        fullWidth={false}
-        style="    font-weight: bold;   text-align: center;  "
-        color="success"
+        fullWidth={true}
+        style="font-weight: bold;   text-align: center;  "
       >
         {isSessionActive() ? (
-          <span class="text-error-700 italic sm:text-sm lg:text-2xl bg-gradient-to-r from-rose-200 via-pink-100 to-error-200 shadow-md">
+          <span class="italic sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
             Session Active
           </span>
         ) : (
-          <span class="text-success-600 text-xs bg-error-100">
+          <span class="text-success-700 w-[100%] h-[100%] sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
             Create Session
           </span>
         )}
@@ -102,15 +101,17 @@ export default function StartSession() {
         TransitionComponent={Transition}
         onClose={handleClose}
       >
-        <DialogTitle>
+        <DialogTitle class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           {"Select the target score and number of teams to start!"}
         </DialogTitle>
-        <DialogContent>
+        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           <NumberOfTeams setTeams={setTeams} />
           <TargetScore setTargetScore={setTargetScore} />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleStartClick}>Create Session</Button>
+        <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+          <Button onClick={handleStartClick} sx={{ color: "black" }}>
+            Create Session
+          </Button>
         </DialogActions>
       </Dialog>
       <Show when={dialogOpen()}>

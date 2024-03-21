@@ -34,16 +34,16 @@ const CommonDialog: Component<CommonDialogProps> = (props) => {
     >
       <DialogTitle
         id="common-dialog-title"
-        class="flex justify-center items-center"
+        class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
       >
         {props.title}
       </DialogTitle>
-      <DialogContent>
+      <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
         <DialogContentText id="common-dialog-description">
           {props.content}
         </DialogContentText>
       </DialogContent>
-      <DialogActions>
+      <DialogActions class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
         <Show when={props.showCancelButton}>
           <Button onClick={handleClose}>
             {props.confirmButtonText || "OK"}

@@ -55,7 +55,7 @@ async function startSession() {
     setSessionLink(data.join_link);
     setDialogContent(
       <>
-        Session created <span class="text-success-500">successfully</span>.
+        Session created <span class="text-success-800">successfully</span>.
         Please copy the session link and send it to all players before starting
         the game.
       </>
@@ -66,7 +66,7 @@ async function startSession() {
     console.error("Failed to start session:", error);
     setDialogContent(
       <>
-        <span class="text-error-500">Error</span> starting session. Please try
+        <span class="text-error-800">Error</span> starting session. Please try
         again.
       </>
     );
@@ -81,24 +81,38 @@ export default function ConfirmStartDialog() {
   return (
     <div>
       <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle>Confirm Game Settings</DialogTitle>
-        <DialogContent>
+        <DialogTitle class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 flex justify-center items-center">
+          Confirm Game Settings
+        </DialogTitle>
+        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           <DialogContentText>
             You have selected{" "}
-            <span class="text-error-500">{selectedTeams()}</span> team(s) with a
-            target score of{" "}
-            <span class="text-error-500">{selectedScore()}</span>. Are you sure
-            you want to start the session with these settings?
+            <span class="text-error-800 font-bold text-xl">
+              {selectedTeams()}
+            </span>{" "}
+            team(s) with a target score of{" "}
+            <span class="text-error-800 font-bold text-xl">
+              {selectedScore()}
+            </span>
+            . Are you sure you want to start the session with these settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} disabled={loading()}>
+        <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+          <Button
+            onClick={() => setOpen(false)}
+            disabled={loading()}
+            sx={{ color: "black" }}
+          >
             Cancel
           </Button>
-          <Button onClick={startSession} disabled={loading()}>
+          <Button
+            onClick={startSession}
+            disabled={loading()}
+            sx={{ color: "black" }}
+          >
             Confirm
           </Button>
         </DialogActions>

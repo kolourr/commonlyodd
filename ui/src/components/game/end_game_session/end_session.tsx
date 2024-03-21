@@ -51,7 +51,7 @@ export default function EndSession() {
       setSessionLink(`${BASE_UI}/click-to-start`);
       setDialogContent(
         <>
-          Session ended <span class="text-success-500">successfully</span>.
+          Session ended <span class="text-success-800">successfully</span>.
         </>
       );
 
@@ -68,7 +68,7 @@ export default function EndSession() {
       console.error("Failed to end session:", error);
       setDialogContent(
         <>
-          <span class="text-error-500">Error</span>ending session. Please try
+          <span class="text-error-800">Error</span>ending session. Please try
           again.
         </>
       );
@@ -82,36 +82,46 @@ export default function EndSession() {
   return (
     <div>
       <Button
-        class="flex justify-center items-center "
         sx={{
-          bgcolor: "#881337",
-          color: "#fecdd3",
+          color: "black",
           width: 150,
           height: 50,
         }}
+        class="flex justify-center items-center bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-500"
         onClick={() => setOpen(true)}
       >
         End Session
       </Button>
       <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle class="flex justify-center items-center">
+        <DialogTitle class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           Please Confirm
         </DialogTitle>
-        <DialogContent>
+        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
           <DialogContentText>
             Are you sure you want to{" "}
-            <span class="text-error-500"> end the session</span>? All game data
-            will be deleted.
+            <span class="text-error-800 font-bold text-lg">
+              {" "}
+              end the session
+            </span>
+            ? All game data will be deleted.
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} disabled={loading()}>
+        <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+          <Button
+            onClick={() => setOpen(false)}
+            disabled={loading()}
+            sx={{ color: "black" }}
+          >
             Cancel
           </Button>
-          <Button onClick={endSession} disabled={loading()}>
+          <Button
+            onClick={endSession}
+            disabled={loading()}
+            sx={{ color: "black" }}
+          >
             Confirm
           </Button>
         </DialogActions>

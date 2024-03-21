@@ -25,7 +25,7 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(
   () => (
-    <div class="bg-gradient-to-bl from-purple-200 via-blue-100 to-cyan-200 min-h-screen">
+    <>
       <Router>
         <Routes>
           <Route path="/user" component={User} />
@@ -36,7 +36,7 @@ render(
           <Route path="/cancel" component={Failure} />
         </Routes>
       </Router>
-    </div>
+    </>
   ),
   root!
 );
