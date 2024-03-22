@@ -212,7 +212,7 @@ function handleWebSocketMessage(event: MessageEvent) {
           <div class="text-base">
             {teamName()} has <span class="text-error-700 font-bold">15 </span>
             seconds to figure out the which one is odd and the reason for
-            commonality.
+            commonality
           </div>
         </div>
       );
