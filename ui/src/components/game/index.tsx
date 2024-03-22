@@ -209,7 +209,7 @@ export default function Game() {
         </div>
       </div>
 
-      <div class="flex   flex-col   shadow-md   h-32">
+      <div class="flex   flex-col       h-32">
         <div class="flex justify-center items-center font-bold text-xs lg:text-sm">
           Game Messages
         </div>

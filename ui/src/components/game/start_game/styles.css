@@ -1,3 +1,15 @@
+.px-1 {
+  width: 180px; /* Adjust based on your layout */
+  height: 180px; /* Adjust based on the aspect ratio of your images */
+  overflow: hidden; /* To handle any overflow if images don't exactly match the container size */
+}
+
+.px-1 {
+  width: 180px;
+  aspect-ratio: 1; /* Example for square images; adjust as needed */
+  overflow: hidden;
+}
+
 .timerFlashing {
   animation: flash 1s infinite alternate, popInOut 0.5s infinite alternate;
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 0, 0, 0.6),
@@ -66,4 +78,34 @@
 
 .text-bright-green {
   color: rgba(0, 255, 0, 0.9); /* Dark bright green */
+}
+
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromSide {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.image-slide-in-top {
+  animation: slideInFromTop 0.1s ease-out;
+}
+
+.image-slide-in-side {
+  animation: slideInFromSide 0.1s ease-out;
 }
