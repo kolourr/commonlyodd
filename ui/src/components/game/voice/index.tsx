@@ -525,7 +525,7 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col h-32 w-[20%] justify-center items-center    ">
+      <div class="flex flex-col h-40 w-[16%] justify-center items-center   ">
         <div class="flex flex-col justify-between">
           <div class="flex flex-col ">
             <Show when={!isInChat()}>
@@ -568,11 +568,13 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      <div class="h-32 w-[60%] flex flex-col  shadow-md   ">
-        {/* <div class="text-xs h-4 font-bold flex justify-center">Voice Chat</div> */}
+      <div class="h-40 w-[68%] flex flex-col  shadow-md   ">
+        <div class="text-xs   font-bold flex justify-center">
+          Session Voice Chat
+        </div>
 
         <div
-          class="users grid grid-cols-5 h-28 gap-1 items-center justify-start  "
+          class="users grid grid-cols-5 h-40 gap-1 items-center justify-start  "
           id="users"
         >
           <For each={users}>

@@ -40,3 +40,30 @@
     transform: scale(1.2) translate(-50%, -50%);
   }
 }
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.9), 0 0 20px rgba(0, 255, 0, 0.7),
+      0 0 35px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 230, 0, 0.9), 0 0 25px rgba(0, 230, 0, 0.7),
+      0 0 45px rgba(0, 230, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.9), 0 0 20px rgba(0, 255, 0, 0.7),
+      0 0 35px rgba(0, 255, 0, 0.5);
+  }
+}
+
+.glowing-border {
+  animation: glow 1.5s infinite ease-in-out;
+}
+
+.border-bright-green {
+  border-color: rgba(0, 255, 0, 0.9); /* Dark bright green */
+}
+
+.text-bright-green {
+  color: rgba(0, 255, 0, 0.9); /* Dark bright green */
+}

@@ -37,7 +37,7 @@ export default function Timer() {
               <p
                 class={`flex flex-col justify-center items-center text-6xl font-bold h-32 text-white timerFlashingText`}
               >
-                Time's Up!
+                Time's Up
               </p>
             )
           )}

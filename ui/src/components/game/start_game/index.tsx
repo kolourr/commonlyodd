@@ -115,13 +115,13 @@ function handleWebSocketMessage(event: MessageEvent) {
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setGameInfo(
-        <>
-          <div class="text-md">
-            {teamName()} has <span class="text-error-500 font-bold">15 </span>
+        <div class="flex flex-col justify-center items-center">
+          <div class="text-base">
+            {teamName()} has <span class="text-error-700 font-bold">15 </span>
             seconds to figure out the which one is odd and the reason for
             commonality.
           </div>
-        </>
+        </div>
       );
       break;
     case "timer_update":
@@ -140,15 +140,10 @@ function handleWebSocketMessage(event: MessageEvent) {
       setTimerUp(true);
       setCanJoinVoiceCall(msg.starter_in_call);
       setGameInfo(
-        <div class="flex flex-col ">
-          <div class="text-sm font-bold pb-2 justify-center">Time's Up!</div>
-          <div class="text-sm justify-start pb-4">
+        <div class="flex flex-col justify-center items-center">
+          <div class="text-base">
             {teamName()}, what's your{" "}
-            <span class="text-error-500 font-bold">answer</span>?
-          </div>
-          <div class="text-xs">
-            Session starter must click on the{" "}
-            <PlayCircleOutlined fontSize="small" /> button to reveal the answer.
+            <span class="text-error-700 font-bold italic">answer</span>?
           </div>
         </div>
       );
@@ -162,27 +157,13 @@ function handleWebSocketMessage(event: MessageEvent) {
       setTargetScore(msg.target_score);
       setCanJoinVoiceCall(msg.starter_in_call);
       setGameInfo(
-        <>
+        <div class="flex flex-col justify-center items-center">
           <div>
-            The odd one is{" "}
-            <span class="text-error-500 font-bold">
-              {oddReasonForSimilarity()?.odd_reason_for_similarity?.odd}
-            </span>
-          </div>
-          <div>
-            Reson for commonality:{" "}
-            <span class="text-error-500 font-bold">
+            <span class="font-bold text-base">
               {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
             </span>
           </div>
-
-          <div>
-            Session starter must now enter{" "}
-            <span class="text-error-500 font-bold">{teamName()}'s' </span>
-            score in the dialog box after clicking on the{" "}
-            <PlayCircleOutlined fontSize="small" /> symbol.
-          </div>
-        </>
+        </div>
       );
       break;
     case "continue":
@@ -202,12 +183,13 @@ function handleWebSocketMessage(event: MessageEvent) {
       setNewGameStarted(false);
 
       setGameInfo(
-        <>
-          <div>
-            Click on the <PlayCircleOutlined fontSize="small" /> button to
-            continue to {teamName()}'s round.
+        <div class="flex flex-col justify-center items-center">
+          <div class="text-base">
+            Session starter must click on{" "}
+            <PlayCircleOutlined fontSize="medium" /> to continue to {teamName()}
+            's round.
           </div>
-        </>
+        </div>
       );
 
       break;
@@ -225,6 +207,15 @@ function handleWebSocketMessage(event: MessageEvent) {
       setScoreSubmittedDialogOpen(false);
       setNewGameStarted(false);
       setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <div class="flex flex-col justify-center items-center">
+          <div class="text-base">
+            {teamName()} has <span class="text-error-700 font-bold">15 </span>
+            seconds to figure out the which one is odd and the reason for
+            commonality.
+          </div>
+        </div>
+      );
       break;
     case "end-game":
       console.info(msg);
@@ -372,23 +363,20 @@ export default function StartGame() {
 
   return (
     <div>
-      <div class="flex flex-col justify-center items-center">
-        {/* <div class="h-6 text-center text-sm pb-8 font-bold"> </div> */}
+      <div class="flex flex-col justify-center items-center h-12 ">
         <div>
           <Button
             variant="outlined"
             onClick={handleButtonClick}
             disabled={isButtonDisabled()}
-            style="border: none; width: 60px; height: 60px;   font-size: 18px; font-weight: bold;   text-align: center;"
-            class="h-32"
+            style="border: none;  "
+            class="h-10"
           >
             <PlayCircleOutlined fontSize="large" />
           </Button>
-
-          <div class="h-2 text-center text-xs   pb-8    ">
-            {" "}
-            {getButtonLabel()}
-          </div>
+        </div>
+        <div class="text-center font-bold text-xs lg:text-sm h-2">
+          {getButtonLabel()}
         </div>
       </div>
 

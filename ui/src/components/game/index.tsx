@@ -1,6 +1,10 @@
 import { Show, createEffect, createSignal, onCleanup, onMount } from "solid-js";
 import { Button } from "@suid/material";
-import { SportsScoreOutlined, PlayCircleOutlined } from "@suid/icons-material";
+import {
+  SportsScoreOutlined,
+  PlayCircleOutlined,
+  EditOutlined,
+} from "@suid/icons-material";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
@@ -84,14 +88,11 @@ export default function Game() {
   createEffect(() => {
     if (!isSessionStarted() && isAuthenticated() && userSubstatus()) {
       setGameInfo(
-        <div class="flex flex-col justify-start">
-          <div class="pb-2">
-            Click on <span class="font-bold">Create Session</span> to begin.
+        <div class="flex flex-col justify-center items-center">
+          <div class="text-base">
+            Click on <EditOutlined fontSize="medium" /> to set the target score
+            and number of teams to begin the game.
           </div>
-          <div class="pb-2">
-            Each game requires you to set the target score and number of teams.
-          </div>
-          <div>Only the session starter can do so.</div>
         </div>
       );
     }
@@ -101,12 +102,8 @@ export default function Game() {
     if (isSessionStarted()) {
       setGameInfo(
         <div class="flex flex-col  justify-start">
-          <div class="pb-2">
+          <div class="text-base">
             Share the link above with all players prior to starting the game.
-          </div>
-          <div>
-            Once all players are in the game, click the{" "}
-            <PlayCircleOutlined fontSize="small" /> Button to begin.
           </div>
         </div>
       );
@@ -118,11 +115,8 @@ export default function Game() {
 
     if (!isAuthenticated() && !userSubstatus() && !starterToken) {
       setGameInfo(
-        <div class="flex flex-col  justify-start">
-          <div class="pb-2">
-            The game has not yet started. This message here will update when it
-            does.
-          </div>
+        <div class="flex flex-col justify-center items-center">
+          <div>Once the game starts, this message will disappear.</div>
         </div>
       );
     }
@@ -132,7 +126,7 @@ export default function Game() {
     if (isTargetScoreReached()) {
       setGameInfo(
         <div class="flex flex-col items-center justify-center">
-          <div class="text-center pb-2">Head's up!</div>
+          <div class="text-center">Head's up!</div>
           <div>
             The target score has been reached! The game will continue until a
             clear winner emerges.
@@ -155,8 +149,8 @@ export default function Game() {
   });
 
   return (
-    <div class="flex flex-col h-max md:max-w-5xl lg:max-w-5xl mx-auto bg-gradient-to-r from-purple-200 via-blue-200 to-cyan-200 min-h-screen">
-      <div class="flex flex-grow  ">
+    <div class="flex flex-col h-max  max-w-5xl   mx-auto bg-gradient-to-r from-purple-200 via-blue-200 to-cyan-200 min-h-screen">
+      <div class="flex">
         <div class="flex flex-row w-1/12 justify-center items-center">
           <Router>
             <AccountMenu />
@@ -167,29 +161,34 @@ export default function Game() {
         </div>
       </div>
 
-      <div class="flex flex-grow        ">
+      <div class="flex  ">
         <div class="flex flex-row h-12 w-[20%] justify-center items-center   ">
           <Show when={isAuthenticated() && userSubstatus()}>
             <StartSession />
           </Show>
           <Show when={!isAuthenticated() && !userSubstatus()}>
-            <Button
-              variant="outlined"
-              disabled={true}
-              fullWidth={false}
-              style="border: none; width: 35px; height: 30px;padding: 0; font-size: 18px; font-weight: bold;   text-align: center;  "
-              color="success"
-            >
-              {nonSessionNotStarter() ? (
-                <span class="italic sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
-                  Session InActive
-                </span>
-              ) : (
-                <span class="italic sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
-                  Session Active
-                </span>
-              )}
-            </Button>
+            <div class="flex flex-col">
+              <Button
+                disabled={true}
+                fullWidth={false}
+                style="font-weight: bold; text-align: center;"
+                color="success"
+                class="h-10"
+              >
+                <EditOutlined fontSize="large" />
+              </Button>
+              <div class="text-center font-bold text-xs h-2">
+                {nonSessionNotStarter() ? (
+                  <span class="italic text-center font-bold text-xs h-2">
+                    Session Inactive
+                  </span>
+                ) : (
+                  <span class="italic text-center font-bold text-xs h-2">
+                    Session Active
+                  </span>
+                )}
+              </div>
+            </div>
           </Show>
         </div>
         <div class="flex flex-row h-12 w-[60%] justify-center items-center  ">
@@ -204,35 +203,36 @@ export default function Game() {
           </div>
         </div>
         <div class="flex flex-row h-12 w-[20%] justify-center items-center   ">
+          <Router>
+            <StartGame />
+          </Router>
+        </div>
+      </div>
+
+      <div class="flex   flex-col   shadow-md   h-32">
+        <div class="flex justify-center items-center font-bold text-xs lg:text-sm">
+          Game Messages
+        </div>
+        <div
+          class="flex mt-4 w-[100%] justify-center items-center     h-[100%]  p-2 break-words "
+          id="gameInfo"
+        >
+          {gameInfo()}
+        </div>
+      </div>
+
+      <div class="flex   justify-center items-center    ">
+        <GameImages gameData={objectsImages()} />
+      </div>
+      <div class="flex h-40 pt-4 pb-2  ">
+        <Voice />
+        <div class="flex flex-row h-40 w-[16%] justify-center items-center     ">
           <Button onClick={handleOpenTeamScores}>
             <SportsScoreOutlined fontSize="large" />
           </Button>{" "}
         </div>
       </div>
-
-      {/* <div class="flex flex-grow p-2  ">
-        <div class="flex flex-row h-40 w-[100%] justify-center items-center  ">
-          <div
-            class="flex flex-col justify-start items-center w-[100%] h-[100%]   p-2 text-xs break-words"
-            id="gameInfo"
-          >
-            {gameInfo()}
-          </div>
-        </div>
-      </div> */}
-
-      <div class="flex flex-grow justify-center items-center    ">
-        <GameImages gameData={objectsImages()} />
-      </div>
-      <div class="flex flex-grow  ">
-        <Voice />
-        <div class="flex flex-row h-32 w-[20%] justify-center items-center     ">
-          <Router>
-            <StartGame />
-          </Router>{" "}
-        </div>
-      </div>
-      <div class="flex flex-grow flex-col justify-center items-center  ">
+      <div class="flex   flex-col justify-center items-center  ">
         <Show when={showTeamScores()}>
           <TeamScores
             teamScores={teamScores}

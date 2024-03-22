@@ -13,6 +13,7 @@ import TargetScore from "./target_score";
 import { openConfirmDialog } from "./confirm_start";
 import CommonDialog from "../common_dialog";
 import { sessionLink } from "../index";
+import { EditOutlined } from "@suid/icons-material";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -84,18 +85,18 @@ export default function StartSession() {
         onClick={() => setOpen(true)}
         disabled={isSessionActive()}
         fullWidth={true}
-        style="font-weight: bold;   text-align: center;  "
+        style="font-weight: bold; text-align: center;"
+        class="h-10"
       >
-        {isSessionActive() ? (
-          <span class="italic sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
-            Session Active
-          </span>
-        ) : (
-          <span class="text-success-700 w-[100%] h-[100%] sm:text-sm lg:text-xl bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 shadow-md">
-            Create Session
-          </span>
-        )}
+        <EditOutlined fontSize="large" />
       </Button>
+      <div class="text-center font-bold text-xs lg:text-sm h-2">
+        {isSessionActive() ? (
+          <span class="italic  ">Active</span>
+        ) : (
+          <span class="text-center font-bold ">Create Session</span>
+        )}
+      </div>
       <Dialog
         open={open()}
         TransitionComponent={Transition}
