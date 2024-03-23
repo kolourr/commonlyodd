@@ -24,6 +24,7 @@ import { setMessageSent, setSessionLink, setGameInfo } from "../index";
 import { useNavigate } from "solid-app-router";
 import { PlayCircleOutlined } from "@suid/icons-material";
 import { setCanJoinVoiceCall } from "../voice";
+import { startNewTurn } from "./images";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -117,7 +118,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="text-base">
-            {teamName()} has <span class="text-error-700 font-bold">15 </span>
+            {teamName()} has{" "}
+            <span class="text-error-700 font-bold">{gameTime()?.timer} </span>
             seconds to figure out the which one is odd and the reason for
             commonality.
           </div>
@@ -159,7 +161,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div>
-            <span class="font-bold text-base">
+            <span class="text-base">
               {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
             </span>
           </div>
@@ -181,12 +183,13 @@ function handleWebSocketMessage(event: MessageEvent) {
       setReadyToContinue(true);
       setScoreSubmittedDialogOpen(false);
       setNewGameStarted(false);
+      startNewTurn();
 
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="text-base">
-            Session starter must click on{" "}
-            <PlayCircleOutlined fontSize="medium" /> to continue to {teamName()}
+            Session starter, press <PlayCircleOutlined fontSize="medium" /> to
+            continue to {teamName()}
             's round.
           </div>
         </div>
@@ -210,12 +213,15 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="text-base">
-            {teamName()} has <span class="text-error-700 font-bold">15 </span>
+            {teamName()} has{" "}
+            <span class="text-error-700 font-bold">{gameTime()?.timer} </span>
             seconds to figure out the which one is odd and the reason for
             commonality.
           </div>
         </div>
       );
+      startNewTurn();
+
       break;
     case "end-game":
       console.info(msg);
@@ -232,6 +238,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameWinner(true);
       setTeamGameWinner(msg.game_winner);
       setCanJoinVoiceCall(msg.starter_in_call);
+      startNewTurn();
       break;
     case "new-game-started":
       console.info(msg);
@@ -251,6 +258,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setCanJoinVoiceCall(msg.starter_in_call);
+      startNewTurn();
       break;
     case "complete":
       console.info(msg);

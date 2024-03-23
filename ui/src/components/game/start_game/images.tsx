@@ -11,11 +11,13 @@ interface ImageObject {
   name: string;
   url: string;
 }
+const [imagesToShow, setImagesToShow] = createSignal<ImageObject[]>([]);
+const [highlightName, setHighlightName] = createSignal("");
 
+export const startNewTurn = () => {
+  setHighlightName("");
+};
 export default function GameImages(props: GameImagesProps) {
-  const [imagesToShow, setImagesToShow] = createSignal<ImageObject[]>([]);
-  const [highlightName, setHighlightName] = createSignal("");
-
   createEffect(() => {
     const gameData = props.gameData;
     if (gameData && gameData.objs_image_links) {
@@ -23,22 +25,22 @@ export default function GameImages(props: GameImagesProps) {
         {
           name: gameData.objs_image_links.obj1 || "Obj1",
           url: gameData.objs_image_links.img_link1,
-          animationClass: "image-slide-in-top", // Use top animation for the first image
+          animationClass: "image-slide-in-top",
         },
         {
           name: gameData.objs_image_links.obj2 || "Obj2",
           url: gameData.objs_image_links.img_link2,
-          animationClass: "image-slide-in-side", // Use side animation for the second image
+          animationClass: "image-slide-in-side",
         },
         {
           name: gameData.objs_image_links.obj3 || "Obj3",
           url: gameData.objs_image_links.img_link3,
-          animationClass: "image-slide-in-top", // Alternate back to top
+          animationClass: "image-slide-in-bottom",
         },
         {
           name: gameData.objs_image_links.obj3 || "Obj3",
           url: gameData.objs_image_links.img_link3,
-          animationClass: "image-slide-in-side", // And back to side
+          animationClass: "image-slide-in-other-side",
         },
       ]);
     } else {
@@ -56,12 +58,12 @@ export default function GameImages(props: GameImagesProps) {
         {
           name: "Obj3",
           url: "https://via.placeholder.com/180",
-          animationClass: "image-slide-in-top",
+          animationClass: "image-slide-in-bottom",
         },
         {
           name: "Obj4",
           url: "https://via.placeholder.com/180",
-          animationClass: "image-slide-in-side",
+          animationClass: "image-slide-in-other-side",
         },
       ]);
     }
@@ -70,14 +72,23 @@ export default function GameImages(props: GameImagesProps) {
     setHighlightName(oddReason);
   });
 
+  const shouldApplyBlur = (imageName) => {
+    return (
+      highlightName() && highlightName() !== "" && highlightName() !== imageName
+    );
+  };
+
+  // lg: grid - cols - 4;
   return (
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-1 justify-center items-center">
+    <div class="grid grid-cols-2 gap-1 justify-center items-center">
       <For each={imagesToShow()}>
         {(obj, index) => (
           <div
             class={`px-1 relative ${obj.animationClass} ${
               obj.name === highlightName()
                 ? "border-6 border-bright-green glowing-border"
+                : shouldApplyBlur(obj.name)
+                ? "blur-effect"
                 : ""
             }`}
           >
@@ -87,7 +98,11 @@ export default function GameImages(props: GameImagesProps) {
               alt={obj.name}
               loading="lazy"
               class={`${
-                obj.name === highlightName() ? "text-bright-green" : ""
+                obj.name === highlightName()
+                  ? "text-bright-green"
+                  : shouldApplyBlur(obj.name)
+                  ? "blur-effect"
+                  : ""
               }`}
             />
             {obj.name === highlightName() && (

@@ -90,8 +90,8 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="text-base">
-            Click on <EditOutlined fontSize="medium" /> to set the target score
-            and number of teams to begin the game.
+            <EditOutlined fontSize="medium" /> to create session prior to
+            starting the game.
           </div>
         </div>
       );
@@ -125,9 +125,8 @@ export default function Game() {
   createEffect(() => {
     if (isTargetScoreReached()) {
       setGameInfo(
-        <div class="flex flex-col items-center justify-center">
-          <div class="text-center">Head's up!</div>
-          <div>
+        <div class="flex flex-col  justify-start">
+          <div class="text-base">
             The target score has been reached! The game will continue until a
             clear winner emerges.
           </div>
@@ -209,12 +208,12 @@ export default function Game() {
         </div>
       </div>
 
-      <div class="flex   flex-col       h-32">
-        <div class="flex justify-center items-center font-bold text-xs lg:text-sm">
+      <div class="flex   flex-col       ">
+        {/* <div class="flex justify-center items-center font-bold text-xs lg:text-sm  ">
           Game Messages
-        </div>
+        </div> */}
         <div
-          class="flex mt-4 w-[100%] justify-center items-center     h-[100%]  p-2 break-words "
+          class="flex mt-4 w-[100%] justify-center items-center shadow-lg    h-[100%]  p-4 break-words "
           id="gameInfo"
         >
           {gameInfo()}
@@ -224,12 +223,13 @@ export default function Game() {
       <div class="flex   justify-center items-center    ">
         <GameImages gameData={objectsImages()} />
       </div>
-      <div class="flex h-40 pt-4 pb-2  ">
+      <div class="flex h-52 pt-4 pb-2  ">
         <Voice />
-        <div class="flex flex-row h-40 w-[16%] justify-center items-center     ">
+        <div class="flex flex-col h-52 w-[16%] justify-center items-center     ">
           <Button onClick={handleOpenTeamScores}>
             <SportsScoreOutlined fontSize="large" />
-          </Button>{" "}
+          </Button>
+          <span class="text-xs lg:text-sm text-center font-bold ">Score</span>
         </div>
       </div>
       <div class="flex   flex-col justify-center items-center  ">

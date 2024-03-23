@@ -1,0 +1,41 @@
+.scores-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* Creates 5 columns */
+  gap: 20px; /* Adjusts the gap between grid items */
+  padding: 20px; /* Adjust padding as needed */
+}
+
+.team-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.team-number {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+.medal {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 25px;
+}
+
+.team-score {
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+  margin-top: 8px; /* Adjusts the space between the circle and the score */
+}

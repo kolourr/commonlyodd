@@ -422,16 +422,21 @@ export default function Voice() {
   const voiceCallInfoSetSessionStarter = () => {
     if (!canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo(
-        <div class="text-xs flex items-center justify-center">
-          Voice chat requires session to be active.
-        </div>
+        <>
+          <div class="text-xs flex items-center justify-center">
+            Join call when session is active.
+          </div>
+          <div class="text-xs flex items-center justify-center">
+            Players will be notified accordingly.
+          </div>
+        </>
       );
       setSessionStarterJoinedCall();
     } else if (canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo();
       setSessionStarterJoinedCall(
         <div class="text-xs flex items-center justify-center">
-          Players can be muted and unmuted by clicking on their number.
+          Players can be muted by clicking on their number.
         </div>
       );
     }
@@ -451,7 +456,7 @@ export default function Voice() {
     if (!canJoinVoiceCall() && !userSubstatus()) {
       setSessionStarterJoinedCall(
         <div class="text-xs flex items-center justify-center">
-          You can join the voice chat once the session starter joins.
+          You can join the call once the session starter joins.
         </div>
       );
     }
@@ -525,7 +530,7 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col h-40 w-[16%] justify-center items-center   ">
+      <div class="flex flex-col h-52 w-[16%] justify-center items-center   ">
         <div class="flex flex-col justify-between">
           <div class="flex flex-col ">
             <Show when={!isInChat()}>
@@ -533,7 +538,7 @@ export default function Voice() {
                 <Button onClick={joinVoiceChat} disabled={isJoining()}>
                   <Show
                     when={isJoining()}
-                    fallback={<HeadsetMicOutlined fontSize="small" />}
+                    fallback={<HeadsetMicOutlined fontSize="medium" />}
                   >
                     <CircularProgress size={24} />
                   </Show>
@@ -547,7 +552,7 @@ export default function Voice() {
                 </Button>
               </div>
             </Show>
-            <span class="text-xs text-center ">
+            <span class="text-xs lg:text-sm text-center font-bold ">
               <Show when={!isInChat()}>Join Call</Show>
               <Show when={isInChat()}>Leave Call</Show>
             </span>
@@ -556,25 +561,25 @@ export default function Voice() {
             <div>
               <Button onClick={toggleMic}>
                 {micMuted() ? (
-                  <MicOutlined fontSize="small" />
+                  <MicOutlined fontSize="medium" />
                 ) : (
-                  <MicOffOutlined fontSize="small" />
+                  <MicOffOutlined fontSize="medium" />
                 )}
               </Button>
             </div>
-            <span class="text-xs text-center">
+            <span class="text-xs lg:text-sm text-center font-bold">
               {micMuted() ? "Mic On" : "Mic Off"}
             </span>
           </div>
         </div>
       </div>
-      <div class="h-40 w-[68%] flex flex-col  shadow-md   ">
-        <div class="text-xs   font-bold flex justify-center">
-          Session Voice Chat
+      <div class="h-48 w-[68%] flex flex-col  shadow-md   ">
+        <div class="text-xs lg:text-sm   font-bold flex justify-center">
+          Group Voice Call
         </div>
 
         <div
-          class="users grid grid-cols-5 h-40 gap-1 items-center justify-start  "
+          class="users grid grid-cols-5 h-44 gap-1 items-center justify-start  "
           id="users"
         >
           <For each={users}>
