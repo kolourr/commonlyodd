@@ -15,5 +15,16 @@ const theme = createTheme({
       default: "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
     },
   },
+  components: {
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          "&:hover": {
+            backgroundColor: "rgba(255, 255, 255, 0.08)",
+          },
+        },
+      },
+    },
+  },
 });
 export default theme;

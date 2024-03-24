@@ -39,8 +39,8 @@ export default function NewGame() {
       setDialogContent(
         <>
           Please select both the
-          <span class="text-error-500"> number of teams</span> and a
-          <span class="text-error-500"> target score</span> to start the
+          <span class="text-error-700"> number of teams</span> and a
+          <span class="text-error-700"> target score</span> to start the
           session.
         </>
       );

@@ -149,6 +149,9 @@ export default function AccountMenu() {
               },
               "& .MuiMenuItem-root": {
                 minHeight: "24px",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                },
               },
             },
           }}
@@ -239,6 +242,9 @@ export default function AccountMenu() {
               },
               "& .MuiMenuItem-root": {
                 minHeight: "24px",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                },
               },
             },
           }}

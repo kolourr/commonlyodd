@@ -31,7 +31,12 @@ export default function NumberOfTeams({ setTeams }: NumberOfTeamsProps) {
           "& .MuiOutlinedInput-notchedOutline": { borderColor: "#f9fafb" },
         }}
       >
-        <InputLabel id="number-of-teams-label" sx={{ color: "#f9fafb" }}>
+        <InputLabel
+          id="number-of-teams-label"
+          sx={{
+            color: "#f9fafb",
+          }}
+        >
           Number of Teams
         </InputLabel>
         <Select
@@ -49,7 +54,14 @@ export default function NumberOfTeams({ setTeams }: NumberOfTeamsProps) {
             <MenuItem
               class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900"
               value={i + 1}
-              sx={{ color: "#f9fafb" }}
+              sx={{
+                color: "#f9fafb",
+                "& .MuiMenuItem-root": {
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  },
+                },
+              }}
             >
               {i + 1}
             </MenuItem>

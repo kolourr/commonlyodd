@@ -579,7 +579,7 @@ export default function Voice() {
         </div>
 
         <div
-          class="users grid grid-cols-5 h-44 gap-1 items-center justify-start text-gray-50 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
+          class="users grid grid-cols-5 h-40 gap-1 items-center justify-start text-gray-50 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
           id="users"
         >
           <For each={users}>
@@ -600,7 +600,7 @@ export default function Voice() {
             )}
           </For>
         </div>
-        <div class="pt-2  h-8 text-xs lg:text-sm">
+        <div class="pt-2  h-10 text-xs lg:text-sm">
           {voiceCallInfo()}
           {sessionStarterJoinedCall()}
         </div>

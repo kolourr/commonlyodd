@@ -78,7 +78,6 @@ export default function GameImages(props: GameImagesProps) {
     );
   };
 
-  // lg: grid - cols - 4;
   return (
     <div class="grid grid-cols-2 gap-1 justify-center items-center">
       <For each={imagesToShow()}>

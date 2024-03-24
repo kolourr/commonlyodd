@@ -105,8 +105,8 @@ export default function ConfirmStartDialog() {
             You have selected{" "}
             <span class="text-error-700 font-bold  ">{selectedTeams()}</span>{" "}
             team(s) with a target score of{" "}
-            <span class="text-error-700 font-bold  ">{selectedScore()}</span>
-            .Want to proceed with these settings?
+            <span class="text-error-700 font-bold  ">{selectedScore()}</span>.
+            Want to proceed with these settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

@@ -32,7 +32,12 @@ export default function TargetScore({ setTargetScore }: TargetScoreProps) {
           "& .MuiOutlinedInput-notchedOutline": { borderColor: "#f9fafb" },
         }}
       >
-        <InputLabel id="target-score-label" sx={{ color: "#f9fafb" }}>
+        <InputLabel
+          id="target-score-label"
+          sx={{
+            color: "#f9fafb",
+          }}
+        >
           Target Score
         </InputLabel>
         <Select
@@ -42,13 +47,22 @@ export default function TargetScore({ setTargetScore }: TargetScoreProps) {
           label="Target Score"
           onChange={handleChange}
           class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900"
-          sx={{ color: "#f9fafb" }}
+          sx={{
+            color: "#f9fafb",
+          }}
         >
           {[10, 20, 30, 40, 50].map((score) => (
             <MenuItem
               class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900"
               value={score}
-              sx={{ color: "#f9fafb" }}
+              sx={{
+                color: "#f9fafb",
+                "& .MuiMenuItem-root": {
+                  "&:hover": {
+                    backgroundColor: "rgba(255, 255, 255, 0.08)",
+                  },
+                },
+              }}
             >
               {score}
             </MenuItem>

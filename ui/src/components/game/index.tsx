@@ -30,6 +30,7 @@ import AccountMenu from "../settings";
 import { isSessionStarted } from "./start_session";
 import { JSX } from "solid-js";
 import { gameTime } from "./start_game";
+import "./styles.css";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -159,13 +160,25 @@ export default function Game() {
             <AccountMenu />
           </Router>
         </div>
-        <div class="flex flex-row w-11/12 justify-center items-center text-3xl mr-12 font-bold text-gray-50 ">
-          Commonly Odd
+        <div class="flex flex-row w-11/12 justify-center items-center text-3xl font-bold text-gray-50     ">
+          <div class="flex flex-row items-center justify-center">
+            <span class="pr-2">C</span>
+            <div class="flex flex-col items-center justify-center   ">
+              <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50   ">
+                oo
+              </span>
+              <span class=" text-xl  hover:scale-105 rounded     ">mm</span>
+            </div>
+            <span class="p-2">nly</span>
+          </div>
+          <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50    text-3xl  hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+            Odd
+          </span>
         </div>
       </div>
 
-      <div class="flex  ">
-        <div class="flex flex-row   w-[20%] justify-center items-center   ">
+      <div class="flex h-24 ">
+        <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
           <Show when={isAuthenticated() && userSubstatus()}>
             <StartSession />
           </Show>
@@ -193,32 +206,30 @@ export default function Game() {
             </div>
           </Show>
         </div>
-        <div class="flex flex-row   w-[60%] justify-center items-center mr-8 ">
+        <div class="flex flex-row h-24  w-[60%] justify-center items-center  ">
           <div class="flex flex-row justify-start items-start">
             <CopyLink />
             <div class="fle flex-col  ">
               <input
                 type="text"
-                class="  p-2 rounded w-full  shadow-md shadow-gray-50 "
+                class="  p-2 rounded w-full  shadow-sm shadow-gray-50 "
                 readOnly
                 value={sessionLink()}
               />
-              <Show when={isSessionStarted()}>
-                <div class="flex items-center justify-center font-bold text-xs text-gray-50 p-2">
-                  Game Session Link
-                </div>
-              </Show>
+              <div class="flex items-center h-8 justify-center font-bold text-xs text-gray-50 p-2">
+                <Show when={isSessionStarted()}>Game Session Link</Show>
+              </div>
             </div>
           </div>
         </div>
-        <div class="flex flex-row   w-[20%] justify-center items-center   ">
+        <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
           <Router>
             <StartGame />
           </Router>
         </div>
       </div>
 
-      <div class="flex flex-col ">
+      <div class="flex flex-col h-28 ">
         <div
           class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-50 h-28    p-4 break-words "
           id="gameInfo"
