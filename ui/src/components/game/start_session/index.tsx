@@ -19,6 +19,10 @@ const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
 );
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 export function isSessionStarted() {
   // Check local storage for session UUID, URL for session parameter, session link contains the word "session"
   const sessionUuid = localStorage.getItem("session_uuid");
@@ -50,8 +54,8 @@ export default function StartSession() {
       setDialogContent(
         <>
           Please select both the
-          <span class="text-error-500"> number of teams</span> and a
-          <span class="text-error-500"> target score</span> to start the
+          <span class="text-error-700"> number of teams</span> and a
+          <span class="text-error-700"> target score</span> to start the
           session.
         </>
       );
@@ -85,12 +89,14 @@ export default function StartSession() {
         onClick={() => setOpen(true)}
         disabled={isSessionActive()}
         fullWidth={true}
-        style="font-weight: bold; text-align: center;"
-        class="h-10"
+        style={{
+          "font-weight": "bold",
+          "text-align": "center",
+        }}
       >
         <EditOutlined fontSize="large" />
       </Button>
-      <div class="text-center font-bold text-xs lg:text-sm h-2">
+      <div class="text-center font-bold text-xs lg:text-sm text-zinc-200">
         {isSessionActive() ? (
           <span class="italic  ">Active</span>
         ) : (
@@ -101,16 +107,26 @@ export default function StartSession() {
         open={open()}
         TransitionComponent={Transition}
         onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
       >
-        <DialogTitle class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-          {"Select the target score and number of teams to start!"}
+        <DialogTitle
+          class="flex justify-center items-center"
+          style={dialogTextStyle}
+          sx={{ textAlign: "center" }}
+        >
+          {"Select the target score and number of teams to start"}
         </DialogTitle>
-        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+        <DialogContent style={dialogTextStyle}>
           <NumberOfTeams setTeams={setTeams} />
           <TargetScore setTargetScore={setTargetScore} />
         </DialogContent>
-        <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-          <Button onClick={handleStartClick} sx={{ color: "black" }}>
+        <DialogActions style={dialogTextStyle}>
+          <Button class="font-bold" onClick={handleStartClick}>
             Create Session
           </Button>
         </DialogActions>

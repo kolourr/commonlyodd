@@ -26,6 +26,10 @@ export default function EndSession() {
   const BASE_API = import.meta.env.CO_API_URL;
   const BASE_UI = import.meta.env.CO_UI_URL;
 
+  const dialogTextStyle = {
+    color: "#f9fafb",
+  };
+
   async function endSession() {
     setLoading(true);
     try {
@@ -51,7 +55,7 @@ export default function EndSession() {
       setSessionLink(`${BASE_UI}/click-to-start`);
       setDialogContent(
         <>
-          Session ended <span class="text-success-800">successfully</span>.
+          Session ended <span class="text-success-400">successfully</span>.
         </>
       );
 
@@ -68,7 +72,7 @@ export default function EndSession() {
       console.error("Failed to end session:", error);
       setDialogContent(
         <>
-          <span class="text-error-800">Error</span>ending session. Please try
+          <span class="text-error-400">Error</span>ending session. Please try
           again.
         </>
       );
@@ -83,44 +87,53 @@ export default function EndSession() {
     <div>
       <Button
         sx={{
-          color: "black",
+          color: "#f9fafb",
           width: 150,
           height: 50,
         }}
-        class="flex justify-center items-center bg-gradient-to-r from-purple-500 via-blue-400 to-cyan-500"
+        class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800"
         onClick={() => setOpen(true)}
       >
         End Session
       </Button>
-      <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+      <Dialog
+        open={open()}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <DialogTitle
+          class="flex justify-center items-center "
+          style={dialogTextStyle}
+        >
           Please Confirm
         </DialogTitle>
-        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-          <DialogContentText>
+        <DialogContent style={dialogTextStyle}>
+          <DialogContentText style={dialogTextStyle}>
             Are you sure you want to{" "}
-            <span class="text-error-800 font-bold text-lg">
-              {" "}
-              end the session
-            </span>
-            ? All game data will be deleted.
+            <span class="text-error-400 font-bold"> end the session</span>? All
+            game data will be deleted.
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+        <DialogActions style={dialogTextStyle}>
           <Button
             onClick={() => setOpen(false)}
             disabled={loading()}
-            sx={{ color: "black" }}
+            sx={{ color: "#f9fafb" }}
           >
             Cancel
           </Button>
           <Button
             onClick={endSession}
             disabled={loading()}
-            sx={{ color: "black" }}
+            sx={{ color: "#f9fafb" }}
           >
             Confirm
           </Button>

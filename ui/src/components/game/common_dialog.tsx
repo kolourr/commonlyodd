@@ -17,6 +17,10 @@ interface CommonDialogProps {
   confirmButtonText?: string;
 }
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 const CommonDialog: Component<CommonDialogProps> = (props) => {
   const [open, setOpen] = createSignal(props.open);
 
@@ -31,21 +35,34 @@ const CommonDialog: Component<CommonDialogProps> = (props) => {
       onClose={handleClose}
       aria-labelledby="common-dialog-title"
       aria-describedby="common-dialog-description"
+      PaperProps={{
+        sx: {
+          backgroundImage:
+            "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+        },
+      }}
     >
       <DialogTitle
         id="common-dialog-title"
-        class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
+        class="flex justify-center items-center"
+        style={dialogTextStyle}
       >
         {props.title}
       </DialogTitle>
-      <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-        <DialogContentText id="common-dialog-description">
+      <DialogContent style={dialogTextStyle}>
+        <DialogContentText
+          id="common-dialog-description"
+          style={dialogTextStyle}
+        >
           {props.content}
         </DialogContentText>
       </DialogContent>
-      <DialogActions class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+      <DialogActions
+        class="flex justify-center items-center"
+        style={dialogTextStyle}
+      >
         <Show when={props.showCancelButton}>
-          <Button onClick={handleClose}>
+          <Button onClick={handleClose} style={dialogTextStyle}>
             {props.confirmButtonText || "OK"}
           </Button>
         </Show>

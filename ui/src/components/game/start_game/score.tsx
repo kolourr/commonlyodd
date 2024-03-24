@@ -17,6 +17,10 @@ import { teamName, teamID } from ".";
 import ConfirmScoreDialog from "./confirm_score";
 import CommonDialog from "../common_dialog";
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 const [open, setOpen] = createSignal(false);
 const [value, setValue] = createSignal<number>(0);
 const [confirmOpen, setConfirmOpen] = createSignal(false);
@@ -56,35 +60,78 @@ export default function Score() {
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
       >
-        <DialogTitle id="alert-dialog-title">
+        <DialogTitle
+          id="alert-dialog-title"
+          style={dialogTextStyle}
+          class="flex justify-center items-center"
+        >
           Enter {teamName()}'s Score
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            <FormControl>
+        <DialogContent style={dialogTextStyle}>
+          <DialogContentText
+            id="alert-dialog-description"
+            style={dialogTextStyle}
+          >
+            <FormControl style={dialogTextStyle}>
               <RadioGroup
                 aria-labelledby="demo-controlled-radio-buttons-group"
                 name="controlled-radio-buttons-group"
                 value={value()}
                 onChange={handleChange}
+                style={dialogTextStyle}
+                sx={{
+                  color: "#f9fafb",
+                  "&.Mui-checked": {
+                    color: "#f9fafb",
+                  },
+                  "&:hover": {
+                    bgcolor: "transparent",
+                  },
+                }}
               >
                 <div class="flex flex-row justify-center px-6 py-4">
-                  <FormControlLabel value="0" control={<Radio />} label="0" />
-                  <FormControlLabel value="1" control={<Radio />} label="1" />
+                  <FormControlLabel
+                    value="0"
+                    control={<Radio />}
+                    label="0"
+                    style={dialogTextStyle}
+                  />
+                  <FormControlLabel
+                    value="1"
+                    control={<Radio />}
+                    label="1"
+                    style={dialogTextStyle}
+                  />
                   <FormControlLabel
                     value="1.5"
                     control={<Radio />}
                     label="1.5"
+                    style={dialogTextStyle}
                   />
-                  <FormControlLabel value="2" control={<Radio />} label="2" />
+                  <FormControlLabel
+                    value="2"
+                    control={<Radio />}
+                    label="2"
+                    style={dialogTextStyle}
+                  />
                 </div>
               </RadioGroup>
             </FormControl>
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button variant="outlined" onClick={handleSubmitScore}>
+        <DialogActions style={dialogTextStyle}>
+          <Button
+            variant="outlined"
+            onClick={handleSubmitScore}
+            style="color: #f9fafb; border: none;"
+          >
             Submit score
           </Button>
         </DialogActions>

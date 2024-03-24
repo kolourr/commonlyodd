@@ -423,10 +423,10 @@ export default function Voice() {
     if (!canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo(
         <>
-          <div class="text-xs flex items-center justify-center">
+          <div class=" flex items-center justify-center  ">
             Join call when session is active.
           </div>
-          <div class="text-xs flex items-center justify-center">
+          <div class=" flex items-center justify-center">
             Players will be notified accordingly.
           </div>
         </>
@@ -435,7 +435,7 @@ export default function Voice() {
     } else if (canJoinVoiceCall() && userSubstatus()) {
       setVoiceCallInfo();
       setSessionStarterJoinedCall(
-        <div class="text-xs flex items-center justify-center">
+        <div class=" flex items-center justify-center">
           Players can be muted by clicking on their number.
         </div>
       );
@@ -445,7 +445,7 @@ export default function Voice() {
   const notifyOtherPlayers = () => {
     if (canJoinVoiceCall() && !userSubstatus()) {
       setSessionStarterJoinedCall(
-        <div class="text-xs flex items-center justify-center">
+        <div class=" flex items-center justify-center">
           The session starter is in the voice call. You may now join.
         </div>
       );
@@ -455,7 +455,7 @@ export default function Voice() {
   const voiceCallInfoSetNonSessionStarter = () => {
     if (!canJoinVoiceCall() && !userSubstatus()) {
       setSessionStarterJoinedCall(
-        <div class="text-xs flex items-center justify-center">
+        <div class=" flex items-center justify-center">
           You can join the call once the session starter joins.
         </div>
       );
@@ -552,7 +552,7 @@ export default function Voice() {
                 </Button>
               </div>
             </Show>
-            <span class="text-xs lg:text-sm text-center font-bold ">
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-50">
               <Show when={!isInChat()}>Join Call</Show>
               <Show when={isInChat()}>Leave Call</Show>
             </span>
@@ -567,19 +567,19 @@ export default function Voice() {
                 )}
               </Button>
             </div>
-            <span class="text-xs lg:text-sm text-center font-bold">
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-50">
               {micMuted() ? "Mic On" : "Mic Off"}
             </span>
           </div>
         </div>
       </div>
-      <div class="h-48 w-[68%] flex flex-col  shadow-md   ">
-        <div class="text-xs lg:text-sm   font-bold flex justify-center">
+      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-50  ">
+        <div class="text-xs lg:text-sm  h-4 text-gray-50  font-bold flex justify-center mb-2   ">
           Group Voice Call
         </div>
 
         <div
-          class="users grid grid-cols-5 h-44 gap-1 items-center justify-start  "
+          class="users grid grid-cols-5 h-44 gap-1 items-center justify-start text-gray-50 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
           id="users"
         >
           <For each={users}>
@@ -588,10 +588,10 @@ export default function Voice() {
                 class={`speaker user-rtc-${user.uid}`}
                 style={{
                   background: user.isMuted
-                    ? "#fee2e2"
+                    ? "#991b1b"
                     : volumes[user.uid] > 50
                     ? "#4ade80"
-                    : "#e0f2fe",
+                    : "#111827",
                 }}
                 onclick={() => handleUserButtonClick(user.memberId)}
               >
@@ -600,14 +600,16 @@ export default function Voice() {
             )}
           </For>
         </div>
-        {voiceCallInfo()}
-        {sessionStarterJoinedCall()}
+        <div class="pt-2  h-8 text-xs lg:text-sm">
+          {voiceCallInfo()}
+          {sessionStarterJoinedCall()}
+        </div>
       </div>
       <Show when={sessionStarterNotInCall()}>
         <CommonDialog
           open={sessionStarterNotInCall()}
           title="Session Starter Not In Call"
-          content={"The session starter must be in the call to participate."}
+          content={"Session starter must be in the call to participate."}
           onClose={() => setSessionStarterNotInCall(false)}
           showCancelButton={false}
         />
@@ -615,10 +617,8 @@ export default function Voice() {
       <Show when={hasSessionStarted()}>
         <CommonDialog
           open={hasSessionStarted()}
-          title="A session must be created before entering voice chat"
-          content={
-            "Click on create session to set the number of teams and target score."
-          }
+          title="Session Inactive"
+          content={"Session must be active prior to joining call."}
           onClose={() => setHasSessionStarted(false)}
           showCancelButton={false}
         />

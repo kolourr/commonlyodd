@@ -4,6 +4,8 @@ import { render } from "solid-js/web";
 import App from "./App";
 import { Router, Route, Routes } from "@solidjs/router";
 import { lazy } from "solid-js";
+import { ThemeProvider } from "@suid/material/styles";
+import theme from "./theme";
 
 const root = document.getElementById("root");
 const User = lazy(() => import("./components/auth_payments_landing/user"));

@@ -38,7 +38,6 @@ export default function InfoModal(props: InfoModalProps) {
             transform: "translate(-50%, -50%)",
             overflow: "scroll",
             display: "block",
-            bgcolor: "background.paper",
             boxShadow: 24,
             marginTop: "5px",
             paddingRight: "5px",
@@ -49,7 +48,6 @@ export default function InfoModal(props: InfoModalProps) {
               width: 5,
             },
             "&::-webkit-scrollbar-thumb": {
-              backgroundColor: "#fbcfe8",
               borderRadius: 1,
             },
           }}

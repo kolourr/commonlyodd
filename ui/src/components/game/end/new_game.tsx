@@ -17,6 +17,10 @@ const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
 );
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 export default function NewGame() {
   const [open, setOpen] = createSignal(false);
   const [teams, setTeams] = createSignal<number>(0);
@@ -67,16 +71,24 @@ export default function NewGame() {
         open={open()}
         TransitionComponent={Transition}
         onClose={handleClose}
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
       >
-        <DialogTitle>
+        <DialogTitle style={dialogTextStyle}>
           {"Select the target score and number of teams to start!"}
         </DialogTitle>
-        <DialogContent>
+        <DialogContent style={dialogTextStyle}>
           <NumberOfTeams setTeams={setTeams} />
           <TargetScore setTargetScore={setTargetScore} />
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleStartClick}>Start New Game</Button>
+        <DialogActions style={dialogTextStyle}>
+          <Button onClick={handleStartClick} style={dialogTextStyle}>
+            Start New Game
+          </Button>
         </DialogActions>
       </Dialog>
       <Show when={dialogOpen()}>

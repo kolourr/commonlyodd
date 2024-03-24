@@ -106,7 +106,10 @@ export default function GameImages(props: GameImagesProps) {
               }`}
             />
             {obj.name === highlightName() && (
-              <div class="absolute top-0 left-0 w-full h-full border-4 border-solid border-bright-green rounded-lg animate-pulse"></div>
+              <>
+                <div class="absolute  top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse"></div>
+                <p class="odd-overlay">ODD</p>
+              </>
             )}
           </div>
         )}

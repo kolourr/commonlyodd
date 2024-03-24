@@ -10,6 +10,9 @@ import {
 import { createSignal } from "solid-js";
 import { sessionLink } from "../index";
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
 export default function CopyLink() {
   const [open, setOpen] = createSignal(false);
 
@@ -24,10 +27,7 @@ export default function CopyLink() {
 
   return (
     <div>
-      <Button
-        onClick={handleClickOpen}
-        style="border: none; width: 20px; height: 30px; padding: 0;   "
-      >
+      <Button onClick={handleClickOpen} style="border: none;      ">
         <ContentCopy />
       </Button>
       <Dialog
@@ -35,13 +35,26 @@ export default function CopyLink() {
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
       >
-        <DialogTitle id="alert-dialog-title" class="text-center">
-          Your Session link has been copied
+        <DialogTitle
+          id="alert-dialog-title"
+          class="text-center"
+          style={dialogTextStyle}
+        >
+          Session link has been copied
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Share this link with all players before starting the game!
+        <DialogContent style={dialogTextStyle}>
+          <DialogContentText
+            id="alert-dialog-description"
+            style={dialogTextStyle}
+          >
+            Share the link before starting the game!
           </DialogContentText>
         </DialogContent>
       </Dialog>

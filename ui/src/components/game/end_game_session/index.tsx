@@ -35,6 +35,10 @@ const handleClose = () => {
   setOpen(false);
 };
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 function checkGameSessionStatus() {
   const sessionUuid = localStorage.getItem("session_uuid");
   const starterToken = localStorage.getItem("starter_token");
@@ -64,30 +68,33 @@ export default function EndGameSession() {
 
   return (
     <div>
-      {/* <Button
-        color="error"
-        // sx={{ bgcolor: "#fff1f2" }}
-        onClick={handleClickOpenEndGameSession}
-        style="border: none; width: 32px; height: 25px; padding: 0;"
-      >
-        <CancelOutlined fontSize="small" />
-      </Button> */}
-
       <Dialog
         open={open()}
         TransitionComponent={Transition}
         onClose={handleClose}
         aria-describedby="alert-dialog-slide-description"
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
       >
         <Show when={gameSessionStatus() === "endSessionAndGame"}>
           <div>
-            <div class="flex flex-col justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+            <div class="flex flex-col justify-center items-center ">
               <div>
-                <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-                  <DialogTitle class="flex justify-center items-center">
+                <DialogContent style={dialogTextStyle}>
+                  <DialogTitle
+                    class="flex justify-center items-center"
+                    style={dialogTextStyle}
+                  >
                     {"End Session"}
                   </DialogTitle>
-                  <DialogContentText id="alert-dialog-slide-description">
+                  <DialogContentText
+                    id="alert-dialog-slide-description"
+                    style={dialogTextStyle}
+                  >
                     Before you end the game session, notify all players that the
                     game will be ending soon.
                   </DialogContentText>
@@ -99,23 +106,27 @@ export default function EndGameSession() {
                 </Router>
               </div>
             </div>
-            <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-              <Button onClick={handleClose} sx={{ color: "black" }}>
-                Cancel
-              </Button>
+            <DialogActions style={dialogTextStyle}>
+              <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
           </div>
         </Show>
 
         <Show when={gameSessionStatus() === "endGameOnly"}>
           <div>
-            <div class="flex flex-col justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+            <div class="flex flex-col justify-center items-center ">
               <div>
-                <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-                  <DialogTitle class="flex justify-center items-center">
+                <DialogContent style={dialogTextStyle}>
+                  <DialogTitle
+                    class="flex justify-center items-center"
+                    style={dialogTextStyle}
+                  >
                     {"End Game"}
                   </DialogTitle>
-                  <DialogContentText id="alert-dialog-slide-description">
+                  <DialogContentText
+                    id="alert-dialog-slide-description"
+                    style={dialogTextStyle}
+                  >
                     If you would like to leave this current game session and
                     start your own, click the button below.
                   </DialogContentText>
@@ -127,50 +138,41 @@ export default function EndGameSession() {
                 </Router>
               </div>
             </div>
-            <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-              <Button onClick={handleClose} sx={{ color: "black" }}>
-                Cancel
-              </Button>
+            <DialogActions style={dialogTextStyle}>
+              <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
           </div>
         </Show>
 
         <Show when={gameSessionStatus() === "noSessionOrGameToEnd"}>
           <div>
-            <div class="flex flex-col justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+            <div class="flex flex-col justify-center items-center ">
               <div>
-                <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-                  <DialogTitle class="flex justify-center items-center">
-                    {"Nothing to see here for now"}
+                <DialogContent style={dialogTextStyle}>
+                  <DialogTitle
+                    class="flex justify-center items-center"
+                    style={dialogTextStyle}
+                  >
+                    {"Nothing to see for now"}
                   </DialogTitle>
                   <div class="flex flex-col justify-center items-center ">
                     <div>
                       <DialogContentText
                         id="alert-dialog-slide-description"
                         class="pt-4"
+                        style={dialogTextStyle}
                       >
-                        If you start a session and want to end it, you can do so
-                        by clicking the X button as you did.
-                      </DialogContentText>
-                    </div>
-                    <div>
-                      <DialogContentText
-                        id="alert-dialog-slide-description"
-                        class="pt-4"
-                      >
-                        Similarly, if your friend invited you to their game and
-                        you want to leave or create your own session, clicking
-                        on the X button will allow you to do so.
+                        The session is not active right now. If the session were
+                        active, you would be able to end the session or the game
+                        here.
                       </DialogContentText>
                     </div>
                   </div>
                 </DialogContent>
               </div>
             </div>
-            <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-              <Button onClick={handleClose} sx={{ color: "black" }}>
-                Cancel
-              </Button>
+            <DialogActions style={dialogTextStyle}>
+              <Button onClick={handleClose}>Cancel</Button>
             </DialogActions>
           </div>
         </Show>

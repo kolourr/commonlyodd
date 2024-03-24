@@ -12,6 +12,9 @@ import { setSessionLink } from "../index";
 import CommonDialog from "../common_dialog";
 import { useNavigate } from "solid-app-router";
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
 export default function EndGame() {
   const [open, setOpen] = createSignal(false);
   const [loading, setLoading] = createSignal(false);
@@ -65,23 +68,34 @@ export default function EndGame() {
   return (
     <div>
       <Button
-        class="flex justify-center items-center "
         sx={{
-          bgcolor: "#881337",
-          color: "#fecdd3",
+          color: "#f9fafb",
           width: 150,
           height: 50,
         }}
+        class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800"
         onClick={() => setOpen(true)}
       >
         End Game
       </Button>
-      <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+      <Dialog
+        open={open()}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <DialogTitle
+          class="flex justify-center items-center "
+          style={dialogTextStyle}
+        >
           Please Confirm
         </DialogTitle>
-        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-          <DialogContentText>
+        <DialogContent style={dialogTextStyle}>
+          <DialogContentText style={dialogTextStyle}>
             Are you sure you want to{" "}
             <span class="text-error-500"> end this game</span>?
           </DialogContentText>
@@ -89,11 +103,22 @@ export default function EndGame() {
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions class="flex justify-center items-center bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-          <Button onClick={() => setOpen(false)} disabled={loading()}>
+        <DialogActions
+          class="flex justify-center items-center "
+          style={dialogTextStyle}
+        >
+          <Button
+            onClick={() => setOpen(false)}
+            disabled={loading()}
+            style={dialogTextStyle}
+          >
             Cancel
           </Button>
-          <Button onClick={endSession} disabled={loading()}>
+          <Button
+            onClick={endSession}
+            disabled={loading()}
+            style={dialogTextStyle}
+          >
             Confirm
           </Button>
         </DialogActions>

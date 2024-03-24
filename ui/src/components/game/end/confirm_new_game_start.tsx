@@ -19,6 +19,10 @@ const [selectedScore, setSelectedScore] = createSignal<number>(0);
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 export async function openNewGameConfirmDialog(
   teams: number,
   targetScore: number
@@ -41,7 +45,7 @@ async function startNewGame() {
     //   Notify user
     setDialogContent(
       <>
-        New game created <span class="text-success-500">successfully</span>.
+        New game created <span class="text-success-400">successfully</span>.
       </>
     );
 
@@ -50,7 +54,7 @@ async function startNewGame() {
     console.error("Failed to start new game:", error);
     setDialogContent(
       <>
-        <span class="text-error-500">Error</span> starting new game. Please try
+        <span class="text-error-400">Error</span> starting new game. Please try
         again.
       </>
     );
@@ -64,25 +68,42 @@ async function startNewGame() {
 export default function ConfirmStartNewGameDialog() {
   return (
     <div>
-      <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle>Confirm Game Settings</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
+      <Dialog
+        open={open()}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <DialogTitle style={dialogTextStyle}>Confirm Game Settings</DialogTitle>
+        <DialogContent style={dialogTextStyle}>
+          <DialogContentText style={dialogTextStyle}>
             You have selected{" "}
-            <span class="text-error-500">{selectedTeams()}</span> team(s) with a
+            <span class="text-error-400">{selectedTeams()}</span> team(s) with a
             target score of{" "}
-            <span class="text-error-500">{selectedScore()}</span>. Are you sure
+            <span class="text-error-400">{selectedScore()}</span>. Are you sure
             you want to start the session with these settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} disabled={loading()}>
+        <DialogActions style={dialogTextStyle}>
+          <Button
+            onClick={() => setOpen(false)}
+            disabled={loading()}
+            style={dialogTextStyle}
+          >
             Cancel
           </Button>
-          <Button onClick={startNewGame} disabled={loading()}>
+          <Button
+            onClick={startNewGame}
+            disabled={loading()}
+            style={dialogTextStyle}
+          >
             Confirm
           </Button>
         </DialogActions>

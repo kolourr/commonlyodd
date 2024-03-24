@@ -4,6 +4,7 @@ import {
   SportsScoreOutlined,
   PlayCircleOutlined,
   EditOutlined,
+  LinkOutlined,
 } from "@suid/icons-material";
 import StartSession from "./start_session";
 import CopyLink from "./start_session/copy_link";
@@ -101,9 +102,9 @@ export default function Game() {
   createEffect(() => {
     if (isSessionStarted()) {
       setGameInfo(
-        <div class="flex flex-col  justify-start">
+        <div class="flex flex-col  justify-center items-center">
           <div class="text-base">
-            Share the link above with all players prior to starting the game.
+            Share the game link prior to starting the game.
           </div>
         </div>
       );
@@ -125,7 +126,7 @@ export default function Game() {
   createEffect(() => {
     if (isTargetScoreReached()) {
       setGameInfo(
-        <div class="flex flex-col  justify-start">
+        <div class="flex flex-col  justify-center items-center">
           <div class="text-base">
             The target score has been reached! The game will continue until a
             clear winner emerges.
@@ -148,20 +149,23 @@ export default function Game() {
   });
 
   return (
-    <div class="flex flex-col h-max  max-w-5xl   mx-auto bg-gradient-to-r from-purple-200 via-blue-200 to-cyan-200 min-h-screen">
+    <div
+      class="flex flex-col    max-w-5xl  mx-auto min-h-screen    bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900
+"
+    >
       <div class="flex">
         <div class="flex flex-row w-1/12 justify-center items-center">
           <Router>
             <AccountMenu />
           </Router>
         </div>
-        <div class="flex flex-row w-11/12 justify-center items-center text-2xl font-bold text-gray-800 ">
+        <div class="flex flex-row w-11/12 justify-center items-center text-3xl mr-12 font-bold text-gray-50 ">
           Commonly Odd
         </div>
       </div>
 
       <div class="flex  ">
-        <div class="flex flex-row h-12 w-[20%] justify-center items-center   ">
+        <div class="flex flex-row   w-[20%] justify-center items-center   ">
           <Show when={isAuthenticated() && userSubstatus()}>
             <StartSession />
           </Show>
@@ -172,17 +176,16 @@ export default function Game() {
                 fullWidth={false}
                 style="font-weight: bold; text-align: center;"
                 color="success"
-                class="h-10"
               >
                 <EditOutlined fontSize="large" />
               </Button>
-              <div class="text-center font-bold text-xs h-2">
+              <div class="text-center font-bold  ">
                 {nonSessionNotStarter() ? (
-                  <span class="italic text-center font-bold text-xs h-2">
+                  <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
                     Session Inactive
                   </span>
                 ) : (
-                  <span class="italic text-center font-bold text-xs h-2">
+                  <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
                     Session Active
                   </span>
                 )}
@@ -190,30 +193,34 @@ export default function Game() {
             </div>
           </Show>
         </div>
-        <div class="flex flex-row h-12 w-[60%] justify-center items-center  ">
-          <div class="flex flex-row items-center justify-center     ">
+        <div class="flex flex-row   w-[60%] justify-center items-center mr-8 ">
+          <div class="flex flex-row justify-start items-start">
             <CopyLink />
-            <input
-              type="text"
-              class="border-2 border-dashed border-coolGray-100 p-2 rounded w-full h-[30px]  "
-              readOnly
-              value={sessionLink()}
-            />
+            <div class="fle flex-col  ">
+              <input
+                type="text"
+                class="  p-2 rounded w-full  shadow-md shadow-gray-50 "
+                readOnly
+                value={sessionLink()}
+              />
+              <Show when={isSessionStarted()}>
+                <div class="flex items-center justify-center font-bold text-xs text-gray-50 p-2">
+                  Game Session Link
+                </div>
+              </Show>
+            </div>
           </div>
         </div>
-        <div class="flex flex-row h-12 w-[20%] justify-center items-center   ">
+        <div class="flex flex-row   w-[20%] justify-center items-center   ">
           <Router>
             <StartGame />
           </Router>
         </div>
       </div>
 
-      <div class="flex   flex-col       ">
-        {/* <div class="flex justify-center items-center font-bold text-xs lg:text-sm  ">
-          Game Messages
-        </div> */}
+      <div class="flex flex-col ">
         <div
-          class="flex mt-4 w-[100%] justify-center items-center shadow-lg    h-[100%]  p-4 break-words "
+          class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-50   h-[100%]  p-4 break-words "
           id="gameInfo"
         >
           {gameInfo()}
@@ -223,16 +230,16 @@ export default function Game() {
       <div class="flex   justify-center items-center    ">
         <GameImages gameData={objectsImages()} />
       </div>
-      <div class="flex h-52 pt-4 pb-2  ">
+      <div class="flex   py-4     ">
         <Voice />
-        <div class="flex flex-col h-52 w-[16%] justify-center items-center     ">
+        <div class="flex flex-col   w-[16%] justify-center items-center text-gray-50    ">
           <Button onClick={handleOpenTeamScores}>
             <SportsScoreOutlined fontSize="large" />
           </Button>
           <span class="text-xs lg:text-sm text-center font-bold ">Score</span>
         </div>
       </div>
-      <div class="flex   flex-col justify-center items-center  ">
+      <div class="flex   flex-col justify-center items-center text-gray-50 ">
         <Show when={showTeamScores()}>
           <TeamScores
             teamScores={teamScores}

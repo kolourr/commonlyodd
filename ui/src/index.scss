@@ -7,6 +7,10 @@ html {
   text-size-adjust: none; /* for other mobile browsers */
 }
 
+.custom-select-hover .MuiMenuItem-root:hover {
+  background-color: #f9fafb !important;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

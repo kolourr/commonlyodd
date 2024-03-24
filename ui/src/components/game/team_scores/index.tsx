@@ -11,7 +11,6 @@ type TeamScoresProps = {
 export default function TeamScores(props: TeamScoresProps) {
   const [dialogOpen, setDialogOpen] = createSignal(false);
 
-  // Update dialogOpen based on sessionStarted
   createEffect(() => {
     setDialogOpen(!props.sessionStarted);
   });
@@ -28,7 +27,7 @@ export default function TeamScores(props: TeamScoresProps) {
     .map((item) => item.index);
 
   const teamColors = [
-    "bg-slate-500",
+    "bg-error-500",
     "bg-pink-500",
     "bg-blue-500",
     "bg-fuchsia-500",
@@ -42,7 +41,15 @@ export default function TeamScores(props: TeamScoresProps) {
   // Content for the CommonDialog
   const scoresContent = (
     <div class="flex flex-col items-center justify-center">
-      <div class="scores-container overflow-auto">
+      <div
+        class="scores-container overflow-auto"
+        style={{
+          "grid-template-columns": `repeat(${Math.min(
+            numberOfTeams(),
+            5
+          )}, 1fr)`,
+        }}
+      >
         <For each={Array(numberOfTeams())}>
           {(team, index) => (
             <div class="team-container">
@@ -68,7 +75,7 @@ export default function TeamScores(props: TeamScoresProps) {
         <CommonDialog
           open={dialogOpen()}
           title="Team Scores"
-          content="Team scores and game information will be displayed when a session is underway."
+          content="Team scores will be available when a session is underway."
           onClose={() => setDialogOpen(false)}
           showCancelButton={false}
         />

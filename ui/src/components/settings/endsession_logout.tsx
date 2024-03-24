@@ -12,6 +12,10 @@ import {
 import CommonDialog from "../game/common_dialog";
 import { sendMessage, setIsSessionEndedEndpoint } from "../game/start_game";
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 export default function EndSessionLogout() {
   const [open, setOpen] = createSignal(false);
   const [loading, setLoading] = createSignal(false);
@@ -75,12 +79,24 @@ export default function EndSessionLogout() {
       >
         End Game
       </Button>
-      <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle class="flex justify-center items-center">
+      <Dialog
+        open={open()}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <DialogTitle
+          class="flex justify-center items-center"
+          style={dialogTextStyle}
+        >
           Please Confirm
         </DialogTitle>
-        <DialogContent>
-          <DialogContentText>
+        <DialogContent style={dialogTextStyle}>
+          <DialogContentText style={dialogTextStyle}>
             Before you end the game session and logout, notify all players that
             the game will be ending soon. Click on{" "}
             <span class="text-error-500"> confirm</span> to end the game session
@@ -90,11 +106,19 @@ export default function EndSessionLogout() {
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpen(false)} disabled={loading()}>
+        <DialogActions style={dialogTextStyle}>
+          <Button
+            onClick={() => setOpen(false)}
+            disabled={loading()}
+            style={dialogTextStyle}
+          >
             Cancel
           </Button>
-          <Button onClick={endSession} disabled={loading()}>
+          <Button
+            onClick={endSession}
+            disabled={loading()}
+            style={dialogTextStyle}
+          >
             Confirm
           </Button>
         </DialogActions>

@@ -18,6 +18,10 @@ const [selectedScore, setSelectedScore] = createSignal<number>(0);
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 
+const dialogTextStyle = {
+  color: "#f9fafb",
+};
+
 export async function openConfirmDialog(teams: number, targetScore: number) {
   setSelectedTeams(teams);
   setSelectedScore(targetScore);
@@ -55,7 +59,7 @@ async function startSession() {
     setSessionLink(data.join_link);
     setDialogContent(
       <>
-        Session created <span class="text-success-800">successfully</span>.
+        Session created <span class="text-success-400">successfully</span>.
         Please copy the session link and send it to all players before starting
         the game.
       </>
@@ -66,7 +70,7 @@ async function startSession() {
     console.error("Failed to start session:", error);
     setDialogContent(
       <>
-        <span class="text-error-800">Error</span> starting session. Please try
+        <span class="text-error-400">Error</span> starting session. Please try
         again.
       </>
     );
@@ -80,18 +84,30 @@ async function startSession() {
 export default function ConfirmStartDialog() {
   return (
     <div>
-      <Dialog open={open()} onClose={() => setOpen(false)}>
-        <DialogTitle class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300 flex justify-center items-center">
+      <Dialog
+        open={open()}
+        onClose={() => setOpen(false)}
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <DialogTitle
+          class="flex justify-center items-center"
+          style={dialogTextStyle}
+        >
           Confirm Game Settings
         </DialogTitle>
-        <DialogContent class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
-          <DialogContentText>
+        <DialogContent style={dialogTextStyle}>
+          <DialogContentText style={dialogTextStyle}>
             You have selected{" "}
-            <span class="text-error-800 font-bold text-xl">
+            <span class="text-error-400 font-bold text-xl">
               {selectedTeams()}
             </span>{" "}
             team(s) with a target score of{" "}
-            <span class="text-error-800 font-bold text-xl">
+            <span class="text-error-400 font-bold text-xl">
               {selectedScore()}
             </span>
             . Are you sure you want to start the session with these settings?
@@ -100,18 +116,18 @@ export default function ConfirmStartDialog() {
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <DialogActions class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300">
+        <DialogActions style={dialogTextStyle}>
           <Button
             onClick={() => setOpen(false)}
             disabled={loading()}
-            sx={{ color: "black" }}
+            sx={{ color: "#f4f4f5" }}
           >
             Cancel
           </Button>
           <Button
             onClick={startSession}
             disabled={loading()}
-            sx={{ color: "black" }}
+            sx={{ color: "#f4f4f5" }}
           >
             Confirm
           </Button>

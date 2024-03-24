@@ -19,15 +19,19 @@ export default function NumberOfTeams({ setTeams }: NumberOfTeamsProps) {
     <Box
       sx={{
         minWidth: 120,
-        marginTop: "20px",
         paddingRight: "5px",
         paddingTop: "5px",
         paddingLeft: "5px",
-        color: "white",
+        color: "#f9fafb",
       }}
     >
-      <FormControl fullWidth>
-        <InputLabel id="number-of-teams-label" sx={{ color: "black" }}>
+      <FormControl
+        fullWidth
+        sx={{
+          "& .MuiOutlinedInput-notchedOutline": { borderColor: "#f9fafb" },
+        }}
+      >
+        <InputLabel id="number-of-teams-label" sx={{ color: "#f9fafb" }}>
           Number of Teams
         </InputLabel>
         <Select
@@ -36,14 +40,16 @@ export default function NumberOfTeams({ setTeams }: NumberOfTeamsProps) {
           value={selectedTeams()}
           label="Number of Teams"
           onChange={handleChange}
-          class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
-          sx={{ color: "black" }}
+          class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900"
+          sx={{
+            color: "#f9fafb",
+          }}
         >
           {Array.from({ length: 10 }, (_, i) => (
             <MenuItem
-              class="bg-gradient-to-r from-purple-300 via-blue-300 to-cyan-300"
+              class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900"
               value={i + 1}
-              sx={{ color: "black" }}
+              sx={{ color: "#f9fafb" }}
             >
               {i + 1}
             </MenuItem>
