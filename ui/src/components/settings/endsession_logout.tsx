@@ -54,7 +54,7 @@ export default function EndSessionLogout() {
       console.error("Failed to end session:", error);
       setDialogContent(
         <>
-          <span class="text-error-500">Error</span>ending session. Please try
+          <span class="text-error-700">Error</span>ending session. Please try
           again.
         </>
       );
@@ -99,7 +99,7 @@ export default function EndSessionLogout() {
           <DialogContentText style={dialogTextStyle}>
             Before you end the game session and logout, notify all players that
             the game will be ending soon. Click on{" "}
-            <span class="text-error-500"> confirm</span> to end the game session
+            <span class="text-error-700"> confirm</span> to end the game session
             and logout.
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">

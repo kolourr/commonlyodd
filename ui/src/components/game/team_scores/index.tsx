@@ -52,7 +52,7 @@ export default function TeamScores(props: TeamScoresProps) {
       >
         <For each={Array(numberOfTeams())}>
           {(team, index) => (
-            <div class="team-container">
+            <div class="team-container  ">
               <div
                 class={`team-number ${teamColors[index() % teamColors.length]}`}
               >

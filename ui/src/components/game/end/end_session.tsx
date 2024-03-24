@@ -35,7 +35,7 @@ export default function EndSessionMessage() {
 
       setDialogContent(
         <>
-          Session has ended <span class="text-success-400">successfully</span>.
+          Session has ended <span class="text-success-700">successfully</span>.
         </>
       );
       setDialogOpen(true);
@@ -50,7 +50,7 @@ export default function EndSessionMessage() {
     } catch (error) {
       setDialogContent(
         <>
-          <span class="text-error-500">Error</span> ending session. Please try
+          <span class="text-error-700">Error</span> ending session. Please try
           again.
         </>
       );
@@ -93,7 +93,7 @@ export default function EndSessionMessage() {
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
             Are you sure you want to{" "}
-            <span class="text-error-400"> end the session</span>?
+            <span class="text-error-700"> end the session</span>?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

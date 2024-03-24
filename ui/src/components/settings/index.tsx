@@ -314,7 +314,7 @@ export default function AccountMenu() {
                     style={dialogTextStyle}
                   >
                     Are you sure you want to{" "}
-                    <span class="text-error-500"> end</span> the session and
+                    <span class="text-error-700"> end</span> the session and
                     logout? All game data will be deleted.
                   </DialogContentText>
                 </DialogContent>

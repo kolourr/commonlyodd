@@ -55,8 +55,9 @@ export default function ConfirmScoreDialog(props: ConfirmScoreDialogProps) {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            Are you sure you want to submit a score of {props.score} for{" "}
-            {props.teamName}?
+            Are you sure you want to submit a score of{" "}
+            <span class="text-error-700 font-bold  ">{props.score}</span> for{" "}
+            <span class="text-error-700 font-bold  ">{props.teamName}</span>?
           </DialogContentText>
         </DialogContent>
         <DialogActions style={dialogTextStyle}>

@@ -55,7 +55,7 @@ export default function EndSession() {
       setSessionLink(`${BASE_UI}/click-to-start`);
       setDialogContent(
         <>
-          Session ended <span class="text-success-400">successfully</span>.
+          Session ended <span class="text-success-700">successfully</span>.
         </>
       );
 
@@ -72,7 +72,7 @@ export default function EndSession() {
       console.error("Failed to end session:", error);
       setDialogContent(
         <>
-          <span class="text-error-400">Error</span>ending session. Please try
+          <span class="text-error-700">Error</span>ending session. Please try
           again.
         </>
       );
@@ -115,7 +115,7 @@ export default function EndSession() {
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
             Are you sure you want to{" "}
-            <span class="text-error-400 font-bold"> end the session</span>? All
+            <span class="text-error-700 font-bold"> end the session</span>? All
             game data will be deleted.
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">

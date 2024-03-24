@@ -90,7 +90,7 @@ export default function GameImages(props: GameImagesProps) {
                 : shouldApplyBlur(obj.name)
                 ? "blur-effect"
                 : ""
-            }`}
+            } text-gray-50`}
           >
             <p class="text-center">{obj.name}</p>
             <img

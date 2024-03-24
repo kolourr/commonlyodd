@@ -220,7 +220,7 @@ export default function Game() {
 
       <div class="flex flex-col ">
         <div
-          class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-50   h-[100%]  p-4 break-words "
+          class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-50 h-28    p-4 break-words "
           id="gameInfo"
         >
           {gameInfo()}

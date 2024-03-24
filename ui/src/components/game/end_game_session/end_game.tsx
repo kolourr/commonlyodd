@@ -38,7 +38,7 @@ export default function EndGame() {
       setSessionLink(`${BASE_API}/click-to-start`);
       setDialogContent(
         <>
-          Game ended <span class="text-success-800">successfully</span>.
+          Game ended <span class="text-success-700">successfully</span>.
         </>
       );
 
@@ -54,7 +54,7 @@ export default function EndGame() {
     } catch (error) {
       setDialogContent(
         <>
-          <span class="text-error-800">Error</span>ending game. Please try
+          <span class="text-error-700">Error</span>ending game. Please try
           again.
         </>
       );
@@ -97,7 +97,7 @@ export default function EndGame() {
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
             Are you sure you want to{" "}
-            <span class="text-error-500"> end this game</span>?
+            <span class="text-error-700"> end this game</span>?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}
