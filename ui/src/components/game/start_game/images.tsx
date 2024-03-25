@@ -46,23 +46,24 @@ export default function GameImages(props: GameImagesProps) {
     } else {
       setImagesToShow([
         {
-          name: "Obj1",
-          url: "https://via.placeholder.com/180",
+          name: "Create Session",
+          //placeholder image 180 x 180
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5d5d328b-dbc4-4036-d76d-16280f74e200/public",
           animationClass: "image-slide-in-top",
         },
         {
-          name: "Obj2",
-          url: "https://via.placeholder.com/180",
+          name: "Share Link",
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5d5d328b-dbc4-4036-d76d-16280f74e200/public",
           animationClass: "image-slide-in-side",
         },
         {
-          name: "Obj3",
-          url: "https://via.placeholder.com/180",
+          name: "Join Call",
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/131609d6-89e6-4635-c084-e8d6cb47fb00/public",
           animationClass: "image-slide-in-bottom",
         },
         {
-          name: "Obj4",
-          url: "https://via.placeholder.com/180",
+          name: "Start Game",
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e8993b46-2fec-43e3-fa59-318fd3891400/public",
           animationClass: "image-slide-in-other-side",
         },
       ]);
@@ -79,7 +80,7 @@ export default function GameImages(props: GameImagesProps) {
   };
 
   return (
-    <div class="grid grid-cols-2 gap-1 justify-center items-center">
+    <div class="grid grid-cols-2 gap-2 justify-center items-center">
       <For each={imagesToShow()}>
         {(obj, index) => (
           <div

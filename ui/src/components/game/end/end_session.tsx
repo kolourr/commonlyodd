@@ -33,11 +33,7 @@ export default function EndSessionMessage() {
       localStorage.removeItem("session_uuid");
       localStorage.removeItem("starter_token");
 
-      setDialogContent(
-        <>
-          Session has ended <span class="text-success-700">successfully</span>.
-        </>
-      );
+      setDialogContent(<>Session has ended successfully .</>);
       setDialogOpen(true);
 
       // Navigate to the base URL
@@ -48,12 +44,7 @@ export default function EndSessionMessage() {
         location.reload();
       }, 1000); // Adjust the delay as needed
     } catch (error) {
-      setDialogContent(
-        <>
-          <span class="text-error-700">Error</span> ending session. Please try
-          again.
-        </>
-      );
+      setDialogContent(<>Error ending session. Please try again.</>);
       setDialogOpen(true);
     } finally {
       setLoading(false);

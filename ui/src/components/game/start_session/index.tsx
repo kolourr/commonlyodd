@@ -100,7 +100,7 @@ export default function StartSession() {
         {isSessionActive() ? (
           <span class="italic  ">Active</span>
         ) : (
-          <span class="text-center font-bold ">Create Session</span>
+          <span class="text-center font-bold ">Session</span>
         )}
       </div>
       <Dialog

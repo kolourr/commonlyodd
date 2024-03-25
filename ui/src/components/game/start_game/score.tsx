@@ -22,7 +22,8 @@ const dialogTextStyle = {
 };
 
 const [open, setOpen] = createSignal(false);
-const [value, setValue] = createSignal<number>(0);
+const [value, setValue] = createSignal<number | undefined>(undefined);
+const [scoreNotNumber, setScoreNotNumber] = createSignal(false);
 const [confirmOpen, setConfirmOpen] = createSignal(false);
 export const [scoreSubmittedDialogOpen, setScoreSubmittedDialogOpen] =
   createSignal(false);
@@ -36,16 +37,25 @@ const handleChange = (event: ST.ChangeEvent<HTMLInputElement>) => {
 };
 
 const handleSubmitScore = () => {
-  setConfirmOpen(true);
-  setOpen(false); // Close the score dialog
+  if (value() === undefined) {
+    setScoreNotNumber(true);
+  } else {
+    setConfirmOpen(true);
+    setOpen(false);
+  }
 };
 
 const handleScoreSubmitted = () => {
   setScoreSubmittedDialogOpen(true);
+  setValue(undefined);
 };
 
 const closeScoreSubmittedDialog = () => {
   setScoreSubmittedDialogOpen(false);
+};
+
+const closeScoreNotNumberDialog = () => {
+  setScoreNotNumber(false);
 };
 
 export const openScoreDialog = () => {
@@ -146,6 +156,16 @@ export default function Score() {
           score={value()}
         />
       </Show>
+      <Show when={scoreNotNumber()}>
+        <CommonDialog
+          open={scoreNotNumber()}
+          title="Select a Score"
+          content="Please pick a score before submitting."
+          onClose={closeScoreNotNumberDialog}
+          showCancelButton={false}
+        />
+      </Show>
+
       <Show when={scoreSubmittedDialogOpen()}>
         <CommonDialog
           open={scoreSubmittedDialogOpen()}

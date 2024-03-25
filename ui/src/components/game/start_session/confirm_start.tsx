@@ -59,21 +59,15 @@ async function startSession() {
     setSessionLink(data.join_link);
     setDialogContent(
       <>
-        Session created <span class="text-success-700">successfully</span>.
-        Please copy the session link and send it to all players before starting
-        the game.
+        Session created successfully. Please copy the session link and send it
+        to all players before starting the game.
       </>
     );
 
     setDialogOpen(true);
   } catch (error) {
     console.error("Failed to start session:", error);
-    setDialogContent(
-      <>
-        <span class="text-error-700">Error</span> starting session. Please try
-        again.
-      </>
-    );
+    setDialogContent(<>Error starting session. Please try again.</>);
     setDialogOpen(true);
   } finally {
     setLoading(false);
@@ -102,11 +96,8 @@ export default function ConfirmStartDialog() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            You have selected{" "}
-            <span class="text-error-700 font-bold  ">{selectedTeams()}</span>{" "}
-            team(s) with a target score of{" "}
-            <span class="text-error-700 font-bold  ">{selectedScore()}</span>.
-            Want to proceed with these settings?
+            You have selected {selectedTeams()} team(s) with a target score of{" "}
+            {selectedScore()}. Want to proceed with these settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

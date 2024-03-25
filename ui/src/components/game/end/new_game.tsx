@@ -56,13 +56,12 @@ export default function NewGame() {
   return (
     <div>
       <Button
-        class="flex justify-center items-center "
         sx={{
-          bgcolor: "#881337",
-          color: "#fecdd3",
+          color: "#f9fafb",
           width: 150,
           height: 50,
         }}
+        class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800"
         onClick={() => setOpen(true)}
       >
         Start New Game

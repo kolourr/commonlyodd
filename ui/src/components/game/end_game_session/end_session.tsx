@@ -114,9 +114,8 @@ export default function EndSession() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            Are you sure you want to{" "}
-            <span class="text-error-700 font-bold"> end the session</span>? All
-            game data will be deleted.
+            Are you sure you want to end the session? All game data will be
+            deleted.
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

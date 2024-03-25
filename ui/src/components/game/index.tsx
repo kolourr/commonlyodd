@@ -1,4 +1,12 @@
-import { Show, createEffect, createSignal, onCleanup, onMount } from "solid-js";
+import {
+  Match,
+  Show,
+  Switch,
+  createEffect,
+  createSignal,
+  onCleanup,
+  onMount,
+} from "solid-js";
 import { Button } from "@suid/material";
 import {
   SportsScoreOutlined,
@@ -29,8 +37,9 @@ import {
 import AccountMenu from "../settings";
 import { isSessionStarted } from "./start_session";
 import { JSX } from "solid-js";
-import { gameTime } from "./start_game";
 import "./styles.css";
+import { gameWinner } from "./start_game";
+import confetti from "canvas-confetti";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -39,6 +48,7 @@ export const [sessionLink, setSessionLink] = createSignal(
 );
 export const [messageSent, setMessageSent] = createSignal<scoreMessageSent>();
 export const [gameInfo, setGameInfo] = createSignal<JSX.Element>();
+export const [scoreColor, setScoreColor] = createSignal<number>(-1);
 
 export default function Game() {
   const [showTeamScores, setShowTeamScores] = createSignal(false);
@@ -125,7 +135,7 @@ export default function Game() {
   });
 
   createEffect(() => {
-    if (isTargetScoreReached()) {
+    if (isTargetScoreReached() && !gameWinner()) {
       setGameInfo(
         <div class="flex flex-col  justify-center items-center">
           <div class="text-base">
@@ -134,6 +144,32 @@ export default function Game() {
           </div>
         </div>
       );
+    }
+  });
+
+  // Trigger confetti when the game winner is determined
+  createEffect(() => {
+    if (gameWinner()) {
+      const confettiDuration = 10 * 1000;
+      const end = Date.now() + confettiDuration;
+
+      const interval = setInterval(() => {
+        if (Date.now() > end) {
+          clearInterval(interval);
+        } else {
+          confetti({
+            particleCount: 100,
+            startVelocity: 30,
+            spread: 360,
+            origin: {
+              x: Math.random(),
+              y: Math.random() - 0.2,
+            },
+          });
+        }
+      }, 100);
+
+      onCleanup(() => clearInterval(interval));
     }
   });
 
@@ -150,10 +186,7 @@ export default function Game() {
   });
 
   return (
-    <div
-      class="flex flex-col    max-w-5xl  mx-auto min-h-screen    bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900
-"
-    >
+    <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen    bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
       <div class="flex">
         <div class="flex flex-row w-1/12 justify-center items-center">
           <Router>
@@ -164,16 +197,76 @@ export default function Game() {
           <div class="flex flex-row items-center justify-center">
             <span class="pr-2">C</span>
             <div class="flex flex-col items-center justify-center   ">
-              <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50   ">
-                oo
-              </span>
+              <Switch
+                fallback={
+                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50   ">
+                    oo
+                  </span>
+                }
+              >
+                <Match when={scoreColor() < 0}>
+                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50   ">
+                    oo
+                  </span>
+                </Match>
+                <Match when={scoreColor() == 0}>
+                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-error-800  ">
+                    oo
+                  </span>
+                </Match>
+                <Match when={scoreColor() == 1}>
+                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-warning-800  ">
+                    oo
+                  </span>
+                </Match>
+                <Match when={scoreColor() == 1.5}>
+                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-gray-500  ">
+                    oo
+                  </span>
+                </Match>
+                <Match when={scoreColor() == 2}>
+                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-warning-500  ">
+                    oo
+                  </span>
+                </Match>
+              </Switch>
               <span class=" text-xl  hover:scale-105 rounded     ">mm</span>
             </div>
             <span class="p-2">nly</span>
           </div>
-          <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50    text-3xl  hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-            Odd
-          </span>
+          <Switch
+            fallback={
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                Odd
+              </span>
+            }
+          >
+            <Match when={scoreColor() < 0}>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                Odd
+              </span>
+            </Match>
+            <Match when={scoreColor() == 0}>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-error-800 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                Odd
+              </span>
+            </Match>
+            <Match when={scoreColor() == 1}>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-warning-800 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                Odd
+              </span>
+            </Match>
+            <Match when={scoreColor() == 1.5}>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-gray-500 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                Odd
+              </span>
+            </Match>
+            <Match when={scoreColor() == 2}>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-warning-500 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                Odd
+              </span>
+            </Match>
+          </Switch>
         </div>
       </div>
 
@@ -195,11 +288,11 @@ export default function Game() {
               <div class="text-center font-bold  ">
                 {nonSessionNotStarter() ? (
                   <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
-                    Session Inactive
+                    Inactive
                   </span>
                 ) : (
                   <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
-                    Session Active
+                    Active
                   </span>
                 )}
               </div>
@@ -229,7 +322,7 @@ export default function Game() {
         </div>
       </div>
 
-      <div class="flex flex-col h-28 ">
+      <div class="flex flex-col h-20 ">
         <div
           class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-50 h-28    p-4 break-words "
           id="gameInfo"

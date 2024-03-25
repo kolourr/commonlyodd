@@ -11,7 +11,7 @@ export interface WebSocketMessage {
   number_of_teams?: number;
   target_score?: number;
   team_name_received?: string | undefined;
-  individual_team_score_received?: number | undefined;
+  individual_team_score_received: number;
   time_stamp?: number;
   time_stamp_received?: number;
   starter_in_call: boolean;

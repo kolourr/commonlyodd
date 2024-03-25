@@ -5,10 +5,8 @@ import FormData from "form-data";
 import csvWriter from "csv-write-stream";
 import dotenv from "dotenv";
 
-// Load environment variables from .env file
 dotenv.config();
 
-// Replace with your actual Cloudflare API key
 const CLOUDFLARE_API_KEY = process.env.CLOUDFLARE_API_KEY;
 const CLOUDFLARE_ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 
@@ -31,10 +29,12 @@ async function uploadImages() {
   // Read all files in the directory
   const files = await fs.promises.readdir(imagesDir);
 
-  // Filter image files (assuming PNG files)
-  const imageFiles = files.filter((file) => file.endsWith(".png"));
+  // Filter image files (assuming PNG files or WEBP files)
+  // const imageFiles = files.filter(
+  //   (file) => file.endsWith(".png") || file.endsWith(".WEBP")
+  // );
 
-  for (const image of imageFiles) {
+  for (const image of files) {
     try {
       const imagePath = path.join(imagesDir, image);
       const form = new FormData();

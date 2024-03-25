@@ -57,5 +57,6 @@ async function generateAndSaveImage(prompt) {
 }
 
 // Example usage:
-const prompt = "Adrenal gland";
+const prompt =
+  "An outside game field with 10 teams with men and women huddled close to each other and in the back right side of the field a giant score board with the background bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900";
 generateAndSaveImage(prompt).catch(console.error);

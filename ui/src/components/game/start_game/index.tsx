@@ -25,6 +25,7 @@ import { useNavigate } from "solid-app-router";
 import { PlayCircleOutlined } from "@suid/icons-material";
 import { setCanJoinVoiceCall } from "../voice";
 import { startNewTurn } from "./images";
+import { setScoreColor } from "..";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -45,6 +46,7 @@ export const [targetScore, setTargetScore] = createSignal<number | undefined>(
 export const [isSessionStarter, setIsSessionStarter] = createSignal(false);
 export const [isSessionEndedEndpoint, setIsSessionEndedEndpoint] =
   createSignal(false);
+export const [gameWinner, setGameWinner] = createSignal(false);
 
 const [isSessionActive, setIsSessionActive] = createSignal(false);
 const [isGameInProgress, setIsGameInProgress] = createSignal(false);
@@ -55,7 +57,6 @@ const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 const [dialogTitle, setDialogTitle] = createSignal<string | JSX.Element>();
 const [enterScore, setEnterScore] = createSignal(false);
 const [readyToContinue, setReadyToContinue] = createSignal(false);
-const [gameWinner, setGameWinner] = createSignal(false);
 const [teamGameWinner, setTeamGameWinner] = createSignal<string | undefined>();
 const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
@@ -118,10 +119,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="text-base">
-            {teamName()}, what's{" "}
-            <span class="text-error-700 font-bold italic">odd</span> and what's
-            the <span class="text-error-700 font-bold italic">commonality</span>
-            ?
+            {teamName()}, what's odd and what's the commonality?
           </div>
         </div>
       );
@@ -143,10 +141,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setCanJoinVoiceCall(msg.starter_in_call);
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div class="text-base">
-            {teamName()}, what's your{" "}
-            <span class="text-error-700 font-bold italic">answer</span>?
-          </div>
+          <div class="text-base">{teamName()}, what's your answer?</div>
         </div>
       );
       break;
@@ -171,6 +166,7 @@ function handleWebSocketMessage(event: MessageEvent) {
     case "continue":
       console.info(msg);
       //update Team Score
+      setScoreColor(msg.individual_team_score_received);
       setMessageSent(msg);
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
@@ -201,6 +197,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setMessageSent(msg);
+      setScoreColor(-1);
       // Update game state with new objects and images
       setGameWinner(false);
       setObjectsImages(msg);
@@ -212,10 +209,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="text-base">
-            {teamName()}, what's{" "}
-            <span class="text-error-700 font-bold italic">odd</span> and what's
-            the <span class="text-error-700 font-bold italic">commonality</span>
-            ?
+            {teamName()}, what's odd and what's the commonality?
           </div>
         </div>
       );
@@ -256,6 +250,13 @@ function handleWebSocketMessage(event: MessageEvent) {
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <div class="flex flex-col justify-center items-center">
+          <div class="text-base">
+            {teamName()}, what's odd and what's the commonality?
+          </div>
+        </div>
+      );
       startNewTurn();
       break;
     case "complete":
@@ -265,6 +266,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setTargetScore(msg.target_score);
       setMessageSent(msg);
       setComplete(true);
+      setScoreColor(2);
       setIsGameInProgress(false);
       setGameComplete(true);
       setCanJoinVoiceCall(msg.starter_in_call);
