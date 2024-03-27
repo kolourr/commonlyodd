@@ -1,0 +1,815 @@
+"obj_1","obj_2","obj_3","obj_4","odd","reason_for_similarity"
+"Henry IV","Henry V","Twelfth Night","Romeo and Juliet","Romeo and Juliet","The others are history plays by Shakespeare"
+"Red-tailed Hawk","Sharp-shinned Hawk","Northern Goshawk","Red-winged Blackbird","Red-winged Blackbird","The others are hawks."
+"The Epic of Gilgamesh","The Aeneid","Paradise Lost","Moby Dick","Moby Dick","The others are ancient epic poems"
+"Panamanian Golden Frog","Strawberry Poison Dart Frog","African Clawed Frog","Gila Monster","Gila Monster","The others are frogs."
+"Death Adder","Inland Taipan","Green Tree Python","Blue Krait","Green Tree Python","The others are venomous snakes native to Australia"
+"The Wheel of Time","Lord of the Rings","Dune","Harry Potter","Harry Potter","The others are not written by British authors."
+"The Mahabharata","The Ramayana","The Divine Comedy","War and Peace","War and Peace","The others are religious texts."
+"Diogenes","Democritus","Socrates","Aristotle","Aristotle","The others are Cynics"
+"Twelfth Night","As You Like It","The Winter's Tale","Hamlet","Hamlet","The others are comedies by Shakespeare"
+"Paradise Lost","The Kalevala","The Song of Roland","To Kill a Mockingbird","To Kill a Mockingbird","The others are epic poems."
+"Lion Pride","Lion Pack","Lion Statue","Lion King","Lion King","The others are physical manifestations of lions."
+"Serena Williams","Venus Williams","Mia Hamm","Lionel Messi","Lionel Messi","The others are female athletes."
+"Sarah Millican","John Bishop","Jim Jefferies","Jerry Seinfeld","Jerry Seinfeld","The others are British comedians."
+"Jimmy Carr","Frankie Boyle","Daniel Tosh","Joe Rogan","Joe Rogan","The others are British comedians."
+"Saturday Night Live","The Tonight Show","The Bachelor","Jimmy Kimmel Live!","The Bachelor","The others are late-night talk shows"
+"Bald Eagle","Golden Eagle","Philippine Eagle","Harpy Eagle","Harpy Eagle","The others are national symbols"
+"Kemp's Ridley Turtle","Olive Ridley Turtle","Red-Eared Slider","Green Sea Turtle","Red-Eared Slider","The others are sea turtles"
+"Frozen","Tangled","The Dark Knight","Toy Story","The Dark Knight","The others are Disney movies"
+"Venus","Earth","Jupiter","Sun","Sun","The others are planets"
+"Red-tailed Hawk","Gray Hawk","Zone-tailed Hawk","Peregrine Falcon","Peregrine Falcon","The others are Buteo Hawks."
+"Cygnus, Lyra, Andromeda, Orion, Andromeda, The others are constellations in the Northern Hemisphere.",,,,,
+"Monty Python's Flying Circus","Fawlty Towers","Downton Abbey","The Office (UK)","Downton Abbey","The others are British sitcoms."
+"Spotted Turtle","Diamondback Terrapin","Aldabra Giant Tortoise","Komodo Dragon","Komodo Dragon","The others are Testudines (turtles and tortoises)"
+"obj_3: Crystal Vase",,,,,
+"obj_4: Wooden Sculpture",,,,,
+"odd: Wooden Sculpture",,,,,
+"reason_for_similarity: The others are made of glass or ceramic.",,,,,
+"Marc Maron","Adam Sandler","George Lopez","Steve Martin","Steve Martin","The others are Jewish"
+"obj_3: Panda Bear",,,,,
+"obj_4: Koala",,,,,
+"odd: Koala",,,,,
+"reason_for_similarity: The others are true bears.",,,,,
+"Mike Tyson","Muhammad Ali","David Beckham","Tom Brady","Tom Brady","The others are professional boxers"
+"Bushmaster","Fer-de-lance","Python","Mamba","Mamba","The others are non-venomous snakes."
+"Gyrfalcon","Peregrine Falcon","Bald Eagle","Red Kite","Red Kite","The others are Falcons."
+"Northern Harrier","White-tailed Hawk","Ferruginous Hawk","Red-shouldered Hawk","Red-shouldered Hawk","The others are birds of the open country"
+"Dolphin Skin","Dolphin Blubber","Dolphin Fin","Shark Fin","Shark Fin","The others are from Dolphin"
+"Saw-scaled Viper","Russell's Viper","Boa Constrictor","Eastern Coral Snake","Eastern Coral Snake","The others are Vipers"
+"1968 Ford Mustang GT","1968 Dodge Charger R/T","1968 Chevrolet Camaro SS","1968 Volkswagen Beetle","1968 Volkswagen Beetle","The others are American muscle cars."
+"Peregrine Falcon","Kestrel","Osprey","Bald Eagle","Bald Eagle","The others are not the national bird of any country"
+"Harpy Eagle","Philippine Eagle","White-tailed Eagle","Peregrine Falcon","Peregrine Falcon","The others are eagles."
+"Maradona","Pelé","Michael Jordan","Michael Schumacher","Michael Schumacher","The others are former football players."
+"Autographed Baseball, Signed Jersey, Autographed Football, Handwritten Letter, Handwritten Letter, The others are signed sports memorabilia.",,,,,
+"African Dwarf Frog","African Clawed Frog","American Green Tree Frog","European Tree Frog","European Tree Frog","The others are from Africa"
+"Dolphin Play","Dolphin Hunt","Dolphin Fly","Dolphin Jump","Dolphin Fly","The others are physical actions dolphins perform."
+"Rufous Owl","Masked Owl","Barn Owl","Snowy Owl","Snowy Owl","The others are nocturnal"
+"Silvertip Shark, Lemon Shark, Cookiecutter Shark, Great White Shark, Great White Shark, The others are bioluminescent.",,,,,
+"Firefly","Star Trek","The Wheel of Time","The Hobbit","The Hobbit","The others are television series"
+"Goji Berries","Blueberries","Quinoa","Almonds","Quinoa","The others are berries"
+"Othello","King Lear","The Tempest","A Midsummer Night's Dream","A Midsummer Night's Dream","The others are tragedies."
+"Cooper's Hawk","Sharp-shinned Hawk","Swainson's Hawk","Red-tailed Hawk","Red-tailed Hawk","The others are Accipiter Hawks"
+"Cetirizine","Loratadine","Vitamin B2","Ibuprofen","Ibuprofen","The others are antihistamines"
+"Philly Shell","Peek-a-Boo","Brawler","Out-Boxer","Out-Boxer","The others are defensive boxing styles."
+"Dorian Mode","Phrygian Mode","Harmonic Major Scale","Mixolydian Mode","Harmonic Major Scale","The others are modes of the diatonic scale"
+"Passover","Shavuot","Hanukkah","Sabbath","Sabbath","The others are Jewish holidays commemorating historical events."
+"Brownie","Cupcake","Donut","Bagel","Bagel","The others are desserts"
+"Blueberry","Huckleberry","Raspberry","Tomato","Tomato","The others are berries"
+"Satellite Cell","Myoblast","Adipocyte","Neuron","Neuron","The others are types of cells involved in muscle formation and maintenance."
+"Bacchus","Ceres","Neptune","Jupiter","Jupiter","The others are names of asteroids."
+"Columbia University","Brown University","University of California","Harvard College","Harvard College","The others are Ivy League schools."
+"Machu Picchu","Pompeii Ruins","Venus of Willendorf","Pyramids of Giza","Venus of Willendorf","The others are archaeological sites of ancient civilizations."
+"Manatee","Dugong","Fin Whale","Dolphin","Dolphin","The others are herbivores."
+"Perseus","Andromeda","Taurus","Orion","Orion","The others are not hunters."
+"Horus","Ra","Anubis","Thor","Thor","The others are Egyptian gods"
+"Durga","Kali","Hanuman","Ganesha","Ganesha","The others are not sons of Shiva."
+"Wax","Resin","Amber","Wood","Wood","The others are natural polymers"
+"Jade Plant","Echeveria","String of Dolphins","Aloe Vera","Aloe Vera","The others are types of succulents that are not medicinal"
+"Bedbug","Tick","Moth","Butterfly","Butterfly","The others are parasites"
+"Sonnet","Villanelle","Limerick","Haiku","Haiku","The others are European"
+"Madeleine","Palmier","Beignet","Croissant","Croissant","The others are fried pastries"
+"Escarole","Frisee","Spinach","Basil","Basil","The others are types of lettuce."
+"Ushanka","Trapper Hat","Boater","Fedora","Boater","The others are winter hats"
+"Max Planck","Werner Heisenberg","Rachel Carson","Isaac Newton","Rachel Carson","The others are German."
+"Croissant","Brioche","Baguette","Lentils","Lentils","The others are types of French bread"
+"Buddhism","Jainism","Christianity","Atheism","Atheism","The others are religions with deities"
+"Cleopatra","Nefertiti","Joan of Arc","William Shakespeare","William Shakespeare","The others are female historical figures"
+"Icelandic","Faroese","Spanish","Swahili","Swahili","The others are Indo-European languages"
+"Arabic","Hebrew","Hindi","Spanish","Spanish","The others are non-Latin scripts."
+"Nietzsche","Schopenhauer","Locke","Descartes","Descartes","The others are Empiricists."
+"Margarine","Lard","Coconut Oil","Butter","Butter","The others are non-dairy."
+"Word Ladder","Anagram","Rubik's Cube","Sudoku","Sudoku","The others are word-based games"
+"Hydrangea, Forsythia, Juniper, Lavender, Lavender, The others are flowering in spring.",,,,,
+"Dionysus","Bacchus","Freya","Mars","Freya","The others are Roman Gods."
+"Sweet Potato, Yam, Daikon, Beetroot, Daikon, The others are tuberous roots.",,,,,
+"Pinto Beans","Navy Beans","Hazelnuts","Almonds","Almonds","The others are types of beans"
+"Black Widow, Hawkeye, Aquaman, Superman, Aquaman, The others are members of the Avengers.",,,,,
+"Mollie","Guppy","Angelfish","Eagle","Eagle","The others are fishes"
+"Flag of Austria, Flag of Latvia, Flag of Poland, Flag of Monaco, Flag of Monaco, The others are flags of landlocked countries.",,,,,
+"Daffodil","Tulip","Orchid","Sunflower","Sunflower","The others are spring-blooming flowers"
+"Termite","Ant","Bee","Spider","Spider","The others are social insects."
+"Lemon Balm","Peppermint","Basil","Rosemary","Rosemary","The others are members of the mint family"
+"Poaching","Sous-vide","Baking","Grilling","Grilling","The others are cooking methods using liquid"
+"Rabbi","Cantor","Priest","Doctor","Doctor","The others are religious leaders"
+"Walrus","Seal","Rhino","Dolphin","Rhino","The others are marine mammals"
+"Doctor Doom","Kingpin","Sinestro","Tony Stark","Tony Stark","The others are supervillains"
+"Soybean","Peanut","Wheat","Almond","Almond","The others are not tree nuts"
+"Varuna","Indra","Parvati","Apollo","Apollo","The others are Hindu deities."
+"Alfred Stieglitz","Edward Steichen","Helmut Newton","Ansel Adams","Ansel Adams","The others are European photographers."
+"obj_3: Foghorn Leghorn",,,,,
+"obj_4: Bugs Bunny",,,,,
+"odd: Bugs Bunny",,,,,
+"reason_for_similarity: The others are characters who do not speak.",,,,,
+"Kitchen Island","Bar Cart","Armoire","Bookshelf","Bookshelf","The others are for storage"
+"Green Goblin","Doctor Octopus","Bane","Iron Man","Iron Man","The others are Spider-Man's foes"
+"Turkish","Finnish","Korean","Swahili","Swahili","The others are agglutinative languages"
+"Johann Strauss II","Johann Sebastian Bach","Ludwig van Beethoven","Wolfgang Amadeus Mozart","Wolfgang Amadeus Mozart","The others are German composers"
+"Pac-Man","Space Invaders","Grand Theft Auto","Super Mario","Grand Theft Auto","The others are arcade games."
+"Whittling","Carving","Painting","Sculpting","Painting","The others are subtractive art techniques"
+"Robert Frank","William Klein","Helmut Newton","Albert Einstein","Albert Einstein","The others are famous photographers."
+"Goji Berries","Acai Berries","Chia Seeds","Flax Seeds","Flax Seeds","The others are Superfruits"
+"Morphine","Codeine","Folic Acid","Aspirin","Folic Acid","The others are Opioids"
+"Sumo","Judo","Kickboxing","Chess","Chess","The others are martial arts."
+"Lithuanian","Latvian","English","Japanese","English","The others are Baltic languages."
+"Venus","Cupid","Mercury","Apollo","Apollo","The others are Roman gods of love"
+"Vault","Pommel Horse","Uneven Bars","Javelin","Javelin","The others are gymnastic apparatus"
+"Wisdom","Insight","Honesty","Strength","Strength","The others are mental attributes."
+"Amber","Obsidian","Jasper","Diamond","Diamond","The others are organic minerals"
+"Jasmine Tea","Hibiscus Tea","Chai Tea","Ice Tea","Ice Tea","The others are hot teas."
+"Goku","Vegeta","Scooby Doo","Spiderman","Scooby Doo","The others are superheroes."
+"Better Call Saul","Breaking Bad","Friends","The Simpsons","The Simpsons","The others are live-action series."
+"Johannes Brahms","Richard Wagner","Johann Sebastian Bach","Claude Debussy","Claude Debussy","The others are German composers"
+"Jean-Baptiste Greuze","Jean-Honoré Fragonard","Pablo Picasso","Leonardo da Vinci","Pablo Picasso","The others are French Painters."
+"Cotton","Flax","Kiwi","Silk","Kiwi","The others are types of fibers"
+"Black Russian","White Russian","Daiquiri","Martini","Martini","The others are rum-based cocktails"
+"Oxeye Daisy","English Daisy","Gerbera Daisy","Daisy Duck","Daisy Duck","The others are types of Daisy flowers."
+"Solo Concert","Group Concert","Art Exhibition","Book Reading","Book Reading","The others are types of performances."
+"obj_3: Tomato",,,,,
+"obj_4: Apple",,,,,
+"odd: Apple",,,,,
+"reason_for_similarity: The others are root vegetables.",,,,,
+"Trustworthiness","Honesty","Integrity","Gratitude","Gratitude","The others are virtues related to truthfulness."
+"Puffin","Penguin","Sparrow","Kangaroo","Kangaroo","The others are birds"
+"Nikola Tesla, Michael Faraday, Eli Whitney, Isaac Newton, Eli Whitney, The others are physicists.",,,,,
+"Pictionary","Charades","Monopoly","Chess","Monopoly","The others are non-board games"
+"Triggerfish","Filefish","Mackerel","Seahorse","Seahorse","The others are types of fish that have flat bodies."
+"Athena","Hestia","Hermes","Poseidon","Hermes","The others are Olympians."
+"Oder","Vistula","Zambezi","Amazon","Zambezi","The others are in Europe"
+"Nickel","Cobalt","Silver","Helium","Helium","The others are Transition Metals"
+"Barley","Rye","Wheat","Cherry","Cherry","The others are types of grains"
+"Redwood","Cedar","Apple","Pineapple","Pineapple","The others are types of trees."
+"Hawk","Eagle","Ostrich","Penguin","Penguin","The others are capable of flight"
+"obj_3: Grapefruit",,,,,
+"obj_4: Tomato",,,,,
+"odd: Tomato",,,,,
+"reason_for_similarity: The others are drupes.",,,,,
+"Green Anole, Gecko, Chameleon, Crocodile, Crocodile, The others are types of lizards.",,,,,
+"The Witcher","Game of Thrones","The Bachelor","Breaking Bad","The Bachelor","The others are based on books."
+"obj_3: Buddhism",,,,,
+"obj_4: Christianity",,,,,
+"odd: Christianity",,,,,
+"reason_for_similarity: The others are non-Abrahamic religions.",,,,,
+"Cypress","Sequoia","Peach","Maple","Peach","The others are types of conifers"
+"Mixolydian","Ionian","Aeolian","Dorian","Dorian","The others are major scale modes"
+"Romeo and Juliet","Cinderella","The Sleeping Beauty","Macbeth","Macbeth","The others are love stories"
+"Green Lantern","Flash","Spiderman","Wonder Woman","Wonder Woman","The others are male heroes."
+"Holi","Diwali","Christmas","Thanksgiving","Thanksgiving","The others are religious festivals"
+"Mosquito, Flea, Fruit fly, Butterfly, Butterfly, The others are blood-sucking insects.",,,,,
+"Satire","Parody","Romance","Tragedy","Tragedy","The others are forms of humor"
+"Harmonica","Piccolo","Tambourine","Violin","Tambourine","The others are wind instruments"
+"Magnolia tree","Dogwood tree","Juniper tree","Rubber tree","Rubber tree","The others are native to North America"
+"Sangiovese","Nebbiolo","Cabernet Franc","Chardonnay","Chardonnay","The others are red wine grapes."
+"Auguste Rodin","Pablo Picasso","Alberto Giacometti","Salvador Dali","Salvador Dali","The others are sculptors."
+"Ostrich","Emu","Seagull","Penguin","Seagull","The others are flightless birds"
+"Halloween","Easter","Labor Day","Christmas","Labor Day","The others are associated with candy"
+"Juniper","Privet","Hydrangea","Oak","Oak","The others are shrubs."
+"Tomato","Bell Pepper","Potato","Carrot","Carrot","The others are nightshades."
+"Actin","Myosin","Albumin","Hemoglobin","Albumin","The others are contractile proteins"
+"Zucchini","Yellow Squash","Eggplant","Cucumber","Cucumber","The others are nightshades"
+"Hyacinth","Tulip","Dandelion","Maple Leaf","Maple Leaf","The others are flowers"
+"Canary","Parrot","Hawk","Shark","Shark","The others are birds."
+"White Pepper","Black Pepper","Saffron","Cinnamon","Cinnamon","The others are peppers."
+"obj_3: Baguette",,,,,
+"obj_4: Pizza Dough",,,,,
+"odd: Pizza Dough",,,,,
+"reason_for_similarity: The others are types of bread.",,,,,
+"Mount Vinson","Mount Tyree","Mount Etna","Mount Fuji","Mount Etna","The others are in Antarctica"
+"Judaism, Christianity, Taoism, Scientology, Taoism, The others are Abrahamic religions.",,,,,
+"Tin","Lead","Nickel","Iron","Iron","The others are post-transition metals"
+"Saraswati","Lakshmi","Hanuman","Apollo","Apollo","The others are Hindu deities."
+"Sriracha","Tabasco","Salsa","Mustard","Mustard","The others are hot sauces"
+"Boxwood","Privet","Hydrangea","Rosemary","Rosemary","The others are flowering plants"
+"Pique","Jete","Glissade","Pirouette","Jete","The others are ballet moves involving a turn."
+"obj_3: Pumpkin Pie",,,,,
+"obj_4: Chicken Pot Pie",,,,,
+"odd: Chicken Pot Pie",,,,,
+"reason_for_similarity: The others are sweet pies.",,,,,
+"Marwari","Kathiawari","Haflinger","Mustang","Mustang","The others are Asian horse breeds."
+"Black Widow","Hawkeye","Batman","Iron Man","Batman","The others are Marvel characters"
+"Grass Snake","King Cobra","Adder","Sea Krait","Sea Krait","The others are terrestrial snakes."
+"Anubis","Cerberus","Apollo","Hercules","Hercules","The others are not demigods"
+"Hat","Gloves","Cane","Shoes","Shoes","The others are typically held in hand."
+"Shiraz","Beaujolais","Burgundy","Rioja","Rioja","The others are French wine regions."
+"Cherry","Peach","Lime","Walnut","Walnut","The others are fruits"
+"Loki","Ultron","Poison Ivy","Tony Stark","Tony Stark","The others are supervillains."
+"Saint Luke","Saint Matthew","Saint Christopher","Saint Nicholas","Saint Nicholas","The others are Evangelists."
+"Aikido","Judo","Fencing","Swimming","Fencing","The others are Japanese-origin martial arts."
+"Sweetgum","Liquidambar","Cedar elm","Japanese Maple","Japanese Maple","The others are native to North America"
+"Islam, Christianity, Taoism, Buddhism, Buddhism, The others are Abrahamic religions.",,,,,
+"American Alligator","Chinese Alligator","Freshwater Crocodile","Komodo Dragon","Komodo Dragon","The others are part of the Alligatoridae family"
+"King Midas","Narcissus","Orpheus","Perseus","Perseus","The others are characters who had tragic ends due to their own actions or desires."
+"Princeton University","Columbia University","NYU","University of Oxford","University of Oxford","The others are in the United States."
+"Pretzel","Bagel","Tart","Pizza","Tart","The others are types of bread"
+"Plaster","Bronze","Wax","Leather","Leather","The others are materials commonly used in sculpture."
+"Reggaeton","Dancehall","Tango","Jazz","Jazz","The others are Latin dance styles."
+"Betta","Gourami","Plecostomus","Clownfish","Clownfish","The others are freshwater fish."
+"March","May","December","Monday","Monday","The others are months"
+"Peacefulness","Calmness","Determination","Excitement","Excitement","The others are states of tranquility"
+"Tortoise","Box Turtle","Loggerhead Sea Turtle","Leatherback Sea Turtle","Tortoise","The others are sea turtles."
+"Thor","Poseidon","Isis","Hercules","Hercules","The others are gods of a pantheon"
+"Mercury","Mars","Jupiter","Moon","Moon","The others are planets"
+"Multi-tool","Knife","Headlamp","Screwdriver","Headlamp","The others are hand tools."
+"Aphrodite","Ares","Hades","Hermes","Hermes","The others are Olympian Gods of War"
+"PTSD","Panic Disorder","Bipolar Disorder","Hypertension","Hypertension","The others are mental disorders"
+"1984","2001","2010","1492","1492","The others are titles of Sci-Fi novels or films"
+"Dionysus","Demeter","Hestia","Hercules","Hercules","The others are Olympian Deities"
+"Chimichurri","Pesto","Alfredo Sauce","Soy Sauce","Soy Sauce","The others are Italian sauces."
+"Architecture","Design","Economics","Psychology","Economics","The others are related to visual aesthetics."
+"Tetra","Neon Tetra","Swordfish","Guppy","Swordfish","The others are Tetras"
+"Flash","Quicksilver","Green Lantern","Batman","Batman","The others have superhuman speed."
+"Birch","Cedar","Spruce","Maple","Maple","The others are conifers"
+"Limoncello","Curaçao","Amaretto","Tequila","Tequila","The others are liqueurs originating from Italy"
+"Whale","Bat","Falcon","Shark","Shark","The others are mammals"
+"Diamond","Graphite","Sapphire","Sunflower","Sunflower","The others are forms of carbon"
+"Wheat","Barley","Rice","Potato","Potato","The others are cereals"
+"Crocodile","Alligator","Lizard","Turtle","Turtle","The others are part of the Crocodilia order"
+"Quartz","Feldspar","Granite","Marble","Marble","The others are minerals"
+"Jupiter","Saturn","Mercury","Mars","Mars","The others are gas giants."
+"Frog","Toad","Turtle","Sparrow","Sparrow","The others are amphibians."
+"Maple","Oak","Pine","Rose","Rose","The others are types of trees"
+"Cheetah","Jaguar","Lion","Bison","Bison","The others are big cats"
+"Gold","Copper","Aluminum","Iron","Iron","The others are noble metals"
+"Ruby","Garnet","Emerald","Diamond","Diamond","The others are birthstones of the summer months"
+"Penguin","Ostrich","Hawk","Salmon","Salmon","The others are birds"
+"Python","Anaconda","Cobra","Java","Java","The others are types of snakes"
+"Silk","Wool","Cotton","Denim","Denim","The others are natural fibers"
+"Iron","Cobalt","Nickel","Silver","Silver","The others are ferromagnetic."
+"Birch","Spruce","Cedar","Bamboo","Bamboo","The others are Coniferous trees"
+"Mule","Hinny","Horse","Zebra","Zebra","The others are domesticated"
+"Marble","Limestone","Basalt","Oak","Oak","The others are types of rocks."
+"Teak","Mahogany","Birch","Rubber","Rubber","The others are types of wood used in furniture making"
+"Barracuda, Pike, Salmon, Puma, Puma, The others are types of fish.",,,,,
+"Rye","Wheat","Oats","Apple","Apple","The others are types of grains"
+"Elk","Moose","Deer","Whale","Whale","The others are land-dwelling animals"
+"Platinum","Palladium","Silver","Iron","Iron","The others are precious metals"
+"Birch","Aspen","Cedar","Maple","Maple","The others are not deciduous trees"
+"Angelfish, Goldfish, Guppy, Penguin, Penguin, The others are freshwater fish.",,,,,
+"Lavender","Rosemary","Basil","Mint","Mint","The others are flowers."
+"Porcupine","Hedgehog","Beaver","Platypus","Beaver","The others are spiny mammals."
+"Moth","Butterfly","Bee","Dragonfly","Dragonfly","The others are pollinators"
+"Iguana","Chameleon","Snake","Penguin","Penguin","The others are reptiles."
+"Tarantula","Black Widow","Scorpion","Honey Bee","Honey Bee","The others are venomous arachnids"
+"Albatross","Seagull","Penguin","Sparrow","Penguin","The others can fly"
+"Squid","Octopus","Lobster","Crab","Lobster","The others are Decapods"
+"Amethyst","Citrine","Ruby","Pearl","Pearl","The others are minerals."
+"Chimpanzee","Gorilla","Orangutan","Human","Human","The others are not Homo Sapiens."
+"Mango","Peach","Apple","Carrot","Carrot","The others are fruits."
+"Tarantula","Scorpion","Ant","Sparrow","Sparrow","The others are arachnids."
+"Cheetah","Leopard","Tiger","Lion","Lion","The others are spotted"
+"Oak","Maple","Pine","Bamboo","Bamboo","The others are types of deciduous trees"
+"Salmon","Trout","Catfish","Eagle","Eagle","The others are types of fish"
+"Rattlesnake","Cobra","Python","Salamander","Salamander","The others are venomous snakes"
+"Eagle","Hawk","Penguin","Ostrich","Eagle","The others are flightless birds."
+"Butterfly","Moth","Bee","Penguin","Penguin","The others are insects"
+"Pine, Spruce, Oak, Maple, Maple, The others are types of conifers.",,,,,
+"Tulip","Daffodil","Orchid","Oak","Oak","The others are flowering plants"
+"Shark","Dolphin","Whale","Penguin","Penguin","The others are mammals"
+"obj_3: Cheetah",,,,,
+"obj_4: Whale Shark",,,,,
+"odd: Whale Shark",,,,,
+"reason_for_similarity: The others are big cats.",,,,,
+"Potato","Tomato","Carrot","Mushroom","Mushroom","The others are root vegetables"
+"Almond","Peanut","Walnut","Coconut","Coconut","The others are tree nuts"
+"Rabbit, Hare, Squirrel, Kangaroo, Kangaroo, The others are rodents.",,,,,
+"Pineapple","Cactus","Rose","Apple","Apple","The others have thorns"
+"Lime","Lemon","Orange","Apple","Apple","The others are citrus fruits"
+"Coyote","Wolf","Fox","Hyena","Hyena","The others are native to North America."
+"Knitting","Crocheting","Painting","Sculpting","Painting","The others are yarn-based crafts."
+"Marjoram","Oregano","Cilantro","Basil","Cilantro","The others are native to the Mediterranean region."
+"Catwoman","Poison Ivy","Galactus","Hulk","Hulk","The others are primarily Batman villains."
+"Peacock","Turkey","Owl","Sparrow","Sparrow","The others are galliformes"
+"Taekwondo","Hapkido","Boxing","Chess","Chess","The others are martial arts."
+"Mount Fuji","Mount Vesuvius","Mount McKinley","River Thames","River Thames","The others are mountains."
+"To Kill a Mockingbird, Go Set a Watchman, The Great Gatsby, Pride and Prejudice, The Great Gatsby, The others are novels by Harper Lee.",,,,,
+"Altruism, Egoism, Utilitarianism, Nihilism, Nihilism, The others are philosophical theories related to ethics.",,,,,
+"Mangosteen","Passionfruit","Banana","Pineapple","Pineapple","The others are berries"
+"Spinach","Lettuce","Asparagus","Watermelon","Watermelon","The others are leafy greens"
+"Emerald","Sapphire","Topaz","Pearl","Pearl","The others are minerals."
+"Artemis","Diana","Osiris","Hercules","Osiris","The others are gods/goddesses of the moon"
+"obj_3: Kumquat",,,,,
+"obj_4: Kiwi",,,,,
+"odd: Kiwi",,,,,
+"reason_for_similarity: The others are citrus fruits.",,,,,
+"The Sims","Minecraft","Call of Duty","Candy Crush","Candy Crush","The others are not mobile games"
+"Merlin","Gandalf","Dracula","Sherlock Holmes","Dracula","The others are characters who are not known for their supernatural abilities."
+"Carboniferous","Permian","Triassic","Jurassic","Jurassic","The others are Paleozoic epochs"
+"The Shawshank Redemption","Forrest Gump","The Green Mile","Saving Private Ryan","Saving Private Ryan","The others are based on Stephen King novels."
+"Loneliness","Isolation","Solitude","Joy","Joy","The others are states of being alone"
+"Schindler's List","Jaws","Saving Private Ryan","The Godfather","The Godfather","The others are directed by Steven Spielberg"
+"Bronchi","Alveoli","Heart","Kidney","Kidney","The others are part of the respiratory system."
+"Dnieper","Dniester","Yukon","Amazon","Amazon","The others are in the Northern Hemisphere"
+"""I miss you""","""I love you""","""I hate you""","""You are awesome""","""You are awesome""","The others are expressing personal feelings"
+"Bluegrass","Country","Electronica","Jazz","Electronica","The others are forms of American music"
+"Earth","Neptune","Mars","Moon","Moon","The others are planets"
+"Viognier","Marsanne","Cabernet Sauvignon","Chardonnay","Cabernet Sauvignon","The others are white wine grape varieties."
+"Parrot","Parakeet","Falcon","Kiwi","Kiwi","The others can fly"
+"Forgiveness","Mercy","Determination","Resilience","Resilience","The others are virtues of the heart"
+"obj_3: Pepper",,,,,
+"obj_4: Cinnamon",,,,,
+"odd: Cinnamon",,,,,
+"reason_for_similarity: The others are crystalline in form.",,,,,
+"Pigeon, Dove, Hawk, Penguin, Penguin, The others can fly.",,,,,
+"Plato","Aristotle","Derrida","Shakespeare","Shakespeare","The others are philosophers"
+"French Green Lentils","Spanish Pardina Lentils","Soybeans","Red Kidney Beans","Soybeans","The others are types of lentils"
+"Mount Elbrus","Mont Blanc","Mauna Kea","Mount Everest","Mauna Kea","The others are in Eurasia."
+"Descartes","Pascal","Heraclitus","Newton","Heraclitus","The others are mathematicians."
+"KenKen","Killer Sudoku","3D Puzzle","Crossword","3D Puzzle","The others are number-based puzzles"
+"Saint Benedict","Saint Scholastica","Saint Jerome","Saint Nicholas","Saint Nicholas","The others are Doctors of the Church"
+"Arthur Conan Doyle","Agatha Christie","J.K. Rowling","Dan Brown","Arthur Conan Doyle","The others are still alive"
+"St. Basil's Cathedral","St. Mark's Basilica","Notre-Dame Cathedral","Westminster Abbey","Notre-Dame Cathedral","The others are in the UK."
+"Byzantine Period","Roman Period","Eocene Epoch","Industrial Revolution","Eocene Epoch","The others are periods in human history."
+"Sylph","Pixie","Gnome","Dwarf","Dwarf","The others are mythological creatures associated with air elements."
+"Eocene","Oligocene","Devonian","Jurassic","Jurassic","The others are Paleogene periods"
+"Pediophobia","Coulrophobia","Arachnophobia","Acrophobia","Acrophobia","The others are phobias related to specific creatures"
+"Jasmine","Lilac","Cherry Blossom","Maple Leaf","Maple Leaf","The others are flowers"
+"Chives","Garlic","Cumin","Rosemary","Cumin","The others are herbs"
+"Mimir","Hodr","Magni","Thor","Mimir","The others are sons of Odin"
+"Forgiveness","Mercy","Compassion","Success","Success","The others are virtues."
+"Rose","Tulip","Oak Tree","Sunflower","Oak Tree","The others are flowering plants"
+"Poodle","Bulldog","Bichon Frise","Siamese","Siamese","The others are dog breeds."
+"Benjamin Franklin","John Jay","Henry Laurens","George Washington","George Washington","The others are signatories of the Treaty of Paris 1783"
+"Gorilla","Human","Whale","Parrot","Parrot","The others are Mammals."
+"Lapsang Souchong Tea","Pu-erh Tea","Lemon Verbena Tea","Coffee","Coffee","The others are types of tea"
+"Yellow-Bellied Sea Snake","Beaked Sea Snake","Green Sea Turtle","Blue Whale","Blue Whale","The others are reptiles"
+"Cheetah","Gazelle","Lion","Elephant","Elephant","The others are carnivores"
+"Spadefoot Toad","American Toad","Mud Puppy","Tree Frog","Tree Frog","The others are non-arboreal"
+"Rocky Balboa","Rudy Ruettiger","Michael Jordan","Bill Gates","Bill Gates","The others are athletes."
+"Leukemia","Lymphoma","Osteoporosis","Hypertension","Hypertension","The others are types of cancer"
+"Bread Maker, Pasta Maker, Hair Dryer, Coffee Maker, Hair Dryer, The others are used for food preparation.",,,,,
+"Boat Hook","Anchor","Life Ring","Compass","Compass","The others are used for mooring or safety in water"
+"Idaho","Wyoming","Maryland","Hawaii","Hawaii","The others are landlocked states."
+"The Dunbar Armored Robbery","The Brink's Garage Heist","The Great Train Robbery","The Mona Lisa Theft","The Mona Lisa Theft","The others are robberies of cash."
+"Battle of Gaugamela","Battle of Issus","Battle of Waterloo","Battle of Hastings","Battle of Hastings","The others are battles involving Napoleon Bonaparte."
+"Dubai, Singapore, Cairo, Sydney, Sydney, The others are in Asia.",,,,,
+"Leek","Onion","Corn","Apple","Corn","The others are alliums"
+"Dove","Lamb","Lion","Shark","Shark","The others are mammals"
+"Aristotle's Politics","Aristotle's Ethics","Socratic Irony","Plato's Republic","Socratic Irony","The others are works by Greek philosophers"
+"Orca's Social Behavior","Dolphin's Social Behavior","Orca's Solitary Behavior","Lion's Social Behavior","Orca's Solitary Behavior","The others are social behaviors"
+"Marie Curie","Linus Pauling","Richard Feynman","Albert Einstein","Albert Einstein","The others have won the Nobel Prize in more than one category."
+"Onion, Garlic, Ginger, Potato, Potato, The others are spices.",,,,,
+"Polio","Measles","Malaria","Hemophilia","Hemophilia","The others are infectious diseases"
+"Biscotti, Shortbread, Bagel, Pretzel, Pretzel, The others are sweet.",,,,,
+"Cardamom","Coriander","Bay Leaves","Cinnamon","Cinnamon","The others are green."
+"Marathon","Olympics","Gladiators","Chess","Chess","The others are physical competitive events"
+"Steppe","Prairie","Tundra","Rainforest","Rainforest","The others are types of grasslands"
+"Homo Sapiens","Homo Neanderthalensis","Homo Floresiensis","Australopithecus","Australopithecus","The others are Homo."
+"Oleander","Rhododendron","English Yew","Rosemary","Rosemary","The others are poisonous plants"
+"Swordtail","Mollie","Gourami","Clownfish","Clownfish","The others are freshwater fish"
+"The Boston Museum Heist","The Isabella Stewart Gardner Museum Heist","The Banco Central Heist","The Antwerp Diamond Heist","The Antwerp Diamond Heist","The others are related to art thefts."
+"Triathlon","Decathlon","100m Sprint","1500m Swim","100m Sprint","The others are multi-discipline events"
+"Cheese Quesadilla","Chicken Quesadilla","Cheese Pizza","Cheese Burger","Cheese Pizza","The others are served in a bun"
+"Brian Griffin","Meg Griffin","Chris Griffin","Peter Griffin","Brian Griffin","The others are human characters."
+"King of Pop","MJ","The Gloved One","Queen of Pop","Queen of Pop","The others are aliases for Michael Jackson"
+"Mars Rover Spirit, Mars Rover Opportunity, Luna 1, Voyager 1, Voyager 1, The others are unmanned spacecrafts that landed on Mars or the Moon.",,,,,
+"Mayor Quimby","Chief Wiggum","Homer","Moe Szyslak","Moe Szyslak","The others are portrayed as incompetent at their jobs."
+"Right to vote, Right to public participation, Right to freedom of movement, Right to bear arms, Right to bear arms, The others are civil liberties related to democratic participation.",,,,,
+"Woolsthorpe Manor","Trinity College","Harvard University","University of Oxford","Woolsthorpe Manor","The others are universities."
+"Electric Can Opener","Electric Knife","Washing Machine","Electric Car","Electric Car","The others are used indoors."
+"African Clawed Frog, African Dwarf Frog, Japanese Giant Salamander, African Elephant, African Elephant, The others are amphibians.",,,,,
+"Bryce Canyon National Park, Capitol Reef National Park, Yellowstone National Park, Yosemite National Park, Yosemite National Park, The others are in Utah.",,,,,
+"Manchego","Pecorino Romano","Mascarpone","Gorgonzola","Gorgonzola","The others are made from sheep's milk"
+"obj_3: Right to freedom of movement",,,,,
+"obj_4: Right to bear arms",,,,,
+"odd: Right to bear arms",,,,,
+"reason_for_similarity: The others are Human Rights according to the United Nations' Universal Declaration of Human Rights.",,,,,
+"Forgiveness","Mercy","Vengeance","Justice","Vengeance","The others are virtues."
+"Mars 3","Mars 6","Pioneer 11","Voyager 2","Voyager 2","The others are missions that did not successfully complete their mission"
+"24th Amendment","26th Amendment","18th Amendment","19th Amendment","18th Amendment","The others are Amendments that expanded voting rights"
+"Singapore","Vatican City","Manila","Amsterdam","Amsterdam","The others are in Asia"
+"Battle of Bosworth Field","Battle of Agincourt","Battle of Lepanto","Battle of Gettysburg","Battle of Gettysburg","The others are battles from the 15th century."
+"Claustrophobia","Nyctophobia","Hydrophobia","Xenophobia","Xenophobia","The others are specific phobias related to fear of certain physical conditions or situations."
+"Free Healthcare","Welfare","Life Insurance","Stock Market","Stock Market","The others are forms of social security"
+"Parsley","Cilantro","Basil","Mint","Mint","The others are not in the mint family."
+"obj_2: Mount Elbert",,,,,
+"obj_3: Mount Cook",,,,,
+"obj_4: Mount Kilimanjaro",,,,,
+"odd: Mount Kilimanjaro",,,,,
+"reason_for_similarity: The others are in countries that are part of the Seven Summits.",,,,,
+"obj_3: Pinot Grigio",,,,,
+"obj_4: Chardonnay",,,,,
+"odd: Chardonnay",,,,,
+"reason_for_similarity: The others are red wines.",,,,,
+"Assembly Line, Factory System, Telegraph, Steam Engine, Telegraph, The others are related to manufacturing process.",,,,,
+"Marlin","Swordfish","Trout","Penguin","Penguin","The others are fish"
+"Rhone River","Loire River","Volga River","Amazon River","Amazon River","The others are in Europe"
+"Bell's wife","Bell's mother","Bell's assistant","Bell's dog","Bell's assistant","The others are Bell's family members."
+"Zygomatic","Maxilla","Femur","Ribs","Femur","The others are bones in the skull"
+"Black-capped Chickadee, Mountain Chickadee, Black-capped Vireo, Black-capped Flycatcher, Black-capped Flycatcher, The others are North American species.",,,,,
+"Freedom of speech","Freedom of assembly","Right to bear arms","Right to vote","Right to vote","The others are freedoms explicitly protected by the First Amendment of the U.S. Constitution"
+"Orca's Apex Predator Status","Lion's Apex Predator Status","Orca's Prey Status","Human's Apex Predator Status","Orca's Prey Status","The others are apex predators."
+"Silk Blouse","Cotton T-shirt","Silk Scarf","Cotton Pants","Cotton T-shirt","The others are Silk material"
+"Leather Gloves","Denim Gloves","Leather Jacket","Denim Jacket","Denim Gloves","The others are made of leather"
+"Otto","Bart","Marge","Lisa","Otto","The others are members of the Simpson family"
+"Mount Ararat","Mount Damavand","Mount Logan","Mount Vesuvius","Mount Vesuvius","The others are in North America"
+"Red-spotted Newt","Eastern Newt","Jefferson Newt","African Bullfrog","African Bullfrog","The others are Newts."
+"Root Beer","Ginger Beer","Chamomile Tea","Ginger Ale","Chamomile Tea","The others are carbonated"
+"Newton's Reflecting Telescope","Newtonian Telescope","Galilean Telescope","Hubble Space Telescope","Hubble Space Telescope","The others are ground-based telescopes"
+"Marie Curie, Michael Faraday, James Clerk Maxwell, Albert Einstein, Albert Einstein, The others are not Nobel laureates in Physics.",,,,,
+"Homo Erectus, Homo Heidelbergensis, Homo Neanderthalensis, Homo Sapiens, Homo Sapiens, The others are extinct human species.",,,,,
+"George Washington","John Adams","Thomas Paine","Benjamin Franklin","Thomas Paine","The others are Presidents of the United States."
+"Cockatoo","Parrot","Penguin","Sparrow","Penguin","The others are songbirds."
+"Olm","Hellbender","European Tree Frog","Gila Monster","Gila Monster","The others are amphibians."
+"Common Frog","Marsh Frog","Chinese Giant Salamander","Axolotl","Axolotl","The others are true frogs."
+"Compass, GPS, Binoculars, Telescope, Telescope, The others are used for navigation.",,,,,
+"Julius Caesar","Mark Antony","Ptolemy XIII","Attila the Hun","Attila the Hun","The others are figures from the Roman era."
+"Cymric","Manx","Birman","Siamese","Siamese","The others are tailless breeds of cats"
+"Caesar's Reforms","Antony's Reforms","Cicero's Reforms","Augustus' Reforms","Cicero's Reforms","The others are Triumvirs."
+"Pyrophobia","Hylophobia","Aerophobia","Claustrophobia","Claustrophobia","The others are phobias related to the natural elements"
+"Metatarsals","Tarsals","Carpals","Femur","Femur","The others are types of short bones."
+"Zucchini","Cucumber","Eggplant","Apple","Apple","The others are members of the squash family"
+"Southern Alps","Remarkables","Andes","Sahara","Sahara","The others are mountain ranges"
+"Hollywood Sign","Walk of Fame","Broadway","Eiffel Tower","Eiffel Tower","The others are iconic locations in the United States."
+"Sodom","Gomorrah","Xanadu","Atlantis","Xanadu","The others are cities that were destroyed according to myth/religion"
+"Stephen Hawking's Universe","The Universe in a Nutshell","The Grand Design","A Brief History of Time","A Brief History of Time","The others are written by Stephen Hawking and Leonard Mlodinow"
+"Kiwi, Lime, Peach, Tomato, Tomato, The others are fruits that are not typically used in savory dishes.",,,,,
+"Homo Neanderthalensis","Homo Denisova","Homo Sapiens","Homo Floresiensis","Homo Floresiensis","The others are archaic humans"
+"Cannoli","Tiramisu","Churros","Bagel","Bagel","The others are desserts."
+"Buzz Lightyear","Woody","Jessie","Bo Peep","Buzz Lightyear","The others are made of cloth"
+"Beat It","Billie Jean","The Girl Is Mine","Thriller","The Girl Is Mine","The others are singles from Michael Jackson's Thriller album."
+"Chicken Biscuit","Sausage Biscuit","Chicken Tenders","Chicken Noodle Soup","Chicken Noodle Soup","The others are fast food items"
+"Brazilian Wandering Spider, Gooty Tarantula, Javan Rhinoceros, Emperor Scorpion, Javan Rhinoceros, The others are arachnids.",,,,,
+"Lemon","Orange","Banana","Carrot","Carrot","The others are fruits"
+"Pina Colada","Bloody Mary","Orange Soda","Espresso","Espresso","The others are cocktails"
+"obj_3: The Treaty of Amiens",,,,,
+"obj_4: The Treaty of Versailles",,,,,
+"odd: The Treaty of Versailles",,,,,
+"reason_for_similarity: The others are treaties signed during the Napoleonic Wars.",,,,,
+"Ford Piquette Avenue Plant","Highland Park Ford Plant","Ford Rouge Plant","Ford Mustang","Ford Mustang","The others are Ford production facilities"
+"Groundskeeper Willie","Janitor Scratchy","Homer","Moe","Homer","The others are characters with jobs related to cleaning"
+"Motor Neurone Disease","Quantum Physics","General Relativity","Photosynthesis","Photosynthesis","The others are studied in the field of Physics"
+"Dionysus","Apollo","Mars","Neptune","Neptune","The others are gods of Olympus"
+"Emmental, Gruyere, Cream Cheese, Apple, Apple, The others are types of cheese.",,,,,
+"Moth","Butterfly","Dragonfly","Bee","Bee","The others are types of Lepidoptera"
+"Lincoln's Emancipation Proclamation, Lincoln's Gettysburg Address, Lincoln's Cooper Union Address, Lincoln's Second Inaugural Address, Lincoln's Second Inaugural Address, The others are speeches given before Lincoln's second term.",,,,,
+"Meg Griffin","Chris Griffin","Lois Griffin","Peter Griffin","Meg Griffin","The others are adults."
+"Green Frog","Pickerel Frog","Tiger Salamander","Red-eyed Tree Frog","Tiger Salamander","The others are true frogs."
+"Water","Soda Water","Ale","Coffee","Coffee","The others are transparent."
+"Martin Luther King Jr.","Rosa Parks","Elvis Presley","Malcolm X","Elvis Presley","The others are civil rights activists"
+"Russell's Viper","Saw-Scaled Viper","Green Tree Python","Emerald Tree Boa","Emerald Tree Boa","The others are Vipers"
+"Mars Pathfinder","Mars Global Surveyor","Pioneer Venus Multiprobe","Voyager 1","Pioneer Venus Multiprobe","The others are unmanned spacecrafts that have explored the outer planets."
+"Panna Cotta","Gelato","Risotto","Tiramisu","Risotto","The others are desserts"
+"Archipelago","Island","Peninsula","Mountain","Mountain","The others are surrounded by water"
+"Beetle","Ladybug","Cricket","Hummingbird","Hummingbird","The others are insects"
+"Pankration","Boxing","Chariot racing","Chess","Chess","The others are physical sports"
+"Glossophobia","Social Phobia","Acousticophobia","Agoraphobia","Agoraphobia","The others are related to communication."
+"Cumin","Coriander","Bay Leaves","Nutmeg","Nutmeg","The others are leaf spices"
+"obj_3: Hot Dog",,,,,
+"obj_4: Chicken Salad",,,,,
+"odd: Hot Dog",,,,,
+"reason_for_similarity: The others are made from chicken.",,,,,
+"Radish","Beetroot","Onion","Potato","Potato","The others are roots."
+"Senate","Populares","Optimates","Consul","Consul","The others are political factions in ancient Rome"
+"Pyrenees","Carpathians","Atlas Mountains","Andes","Andes","The others are in Europe."
+"Patella","Femur","Hyoid","Radius","Hyoid","The others are long bones"
+"Elephant, Kangaroo, Rhino, Shark, Kangaroo, The others are mammals that do not lay eggs.",,,,,
+"Peru","Chile","India","Japan","Japan","The others are in the Southern Hemisphere"
+"Sun Tzu","Machiavelli","Nietzsche","Picasso","Picasso","The others are philosophers."
+"Boni Giant Sengi","Elephant Shrew","Gooty Tarantula","African Lion","Gooty Tarantula","The others are African mammals"
+"Chai Tea","Earl Grey Tea","Green Tea","Pepsi","Pepsi","The others are types of tea"
+"Foot Washing Basin","Prayer Mat","Throne","Chalice","Chalice","The others are used for sitting or kneeling."
+"The Jacksons","Jackson 5","The Beatles","The Osmonds","The Beatles","The others are family bands."
+"Plum","Apricot","Watermelon","Banana","Banana","The others have a pit."
+"Treaty of Paris","Treaty of Alliance","Olive Branch Petition","Monroe Doctrine","Monroe Doctrine","The others are related to the American Revolutionary War"
+"Dubai","Hong Kong","Jakarta","Sydney","Sydney","The others are in Asia"
+"Scream","You Are Not Alone","Randy Jackson","Thriller","Scream","The others are Michael Jackson's songs."
+"Doberman","Rottweiler","Border Collie","Siamese Cat","Siamese Cat","The others are dog breeds"
+"House Finch","Purple Finch","House Sparrow","Peregrine Falcon","Peregrine Falcon","The others are Passerine birds"
+"Sweet Corn","Sweet Peas","Sweet Potato","Sweet Lime","Sweet Lime","The others are vegetables"
+"Guatemalan Antigua","Costa Rican Tarrazu","Sulawesi Toraja","Darjeeling Tea","Darjeeling Tea","The others are types of coffee"
+"Bolognese Sauce","Alfredo Sauce","Cannoli","French Baguette","French Baguette","The others are Italian foods."
+"Israel","Saudi Arabia","China","Brazil","Brazil","The others are in Asia"
+"Gnocchi","Ravioli","Salami","Baguette","Salami","The others are types of pasta"
+"Koala","Kangaroo","Wombat","Bear","Bear","The others are marsupials"
+"SpongeBob SquarePants","Patrick Star","Dora","Mickey Mouse","Dora","The others are characters from Nickelodeon shows."
+"Genuphobia","Gonasiophobia","Pogonophobia","Arachnophobia","Gonasiophobia","The others are fears related to specific physical objects or beings."
+"Eastern Box Turtle","Red Eared Slider","Veiled Chameleon","Russian Tortoise","Veiled Chameleon","The others are types of Turtles."
+"Black Hole Paradox","Event Horizon","Singularity","Wormhole","Wormhole","The others are related to black holes"
+"Limoncello","Grappa","Minestrone","Margherita Pizza","Margherita Pizza","The others are Italian drinks."
+"Mount Damavand","Mount Ararat","Mount Etna","Lake Baikal","Lake Baikal","The others are mountains."
+"Marie Curie","Richard Feynman","Robert Oppenheimer","Nikola Tesla","Nikola Tesla","The others are Nobel laureates in Physics."
+"Batman","Superman","Naruto","Sherlock Holmes","Sherlock Holmes","The others are superheroes"
+"Homo Sapiens","Homo Denisova","Homo Erectus","Homo Antecessor","Homo Antecessor","The others are not direct ancestors of modern humans."
+"Indiana","Ohio","Washington","Paris","Paris","The others are U.S. States"
+"Right to vote","Right to public participation","Right to own property","Right to bear arms","Right to bear arms","The others are civil rights."
+"Marie Curie","James Watson","Rosalind Franklin","Albert Einstein","Albert Einstein","The others are Nobel laureates in Physiology or Medicine."
+"Boxer","Pit Bull","German Shepherd","Chihuahua","Chihuahua","The others are large breed dogs."
+"Gourami","Betta","Koi","Goldfish","Goldfish","The others are labyrinth fish"
+"Newt","Toad","Frog","Salamander","Toad","The others are Amphibians that undergo metamorphosis"
+"Orca Echolocation","Dolphin Echolocation","Orca Vocalization","Bat Echolocation","Orca Vocalization","The others are forms of Echolocation"
+"Homo Sapiens","Homo Denisova","Homo Floresiensis","Homo Neanderthalensis","Homo Neanderthalensis","The others are discovered in Asia"
+"Montana","Washington","New Jersey","California","California","The others are not coastal states"
+"Declaration of Independence","Articles of Confederation","Constitution","Magna Carta","Magna Carta","The others are American documents."
+"Al-Farabi","Ibn Sina","Ibn Rushd","Aristotle","Aristotle","The others are Islamic philosophers."
+"Sabre","Cutlass","Katana","Crossbow","Crossbow","The others are types of swords."
+"Herodotus","Thucydides","Livy","Homer","Homer","The others are historians"
+"Tasmanian Devil","Tasmanian Tiger","Dhole","Bengal Tiger","Bengal Tiger","The others are not from Asia"
+"Yukon River","Mackenzie River","Thames River","Amazon River","Thames River","The others are in North America"
+"Limburger","Taleggio","Boursin","Cheddar","Cheddar","The others are French cheeses"
+"Turnip","Radish","Carrot","Potato","Potato","The others are root crops"
+"Donuts","Croissant","Scones","Baguette","Baguette","The others are sweet pastries."
+"Mount Baldy","Mount Hood","Mount Everest","Mount Vesuvius","Mount Vesuvius","The others are in the United States."
+"Riesling","Sauvignon Blanc","Zinfandel","Chardonnay","Zinfandel","The others are white wines"
+"Mexican Altura","Colombian Supremo","Ethiopian Yirgacheffe","Darjeeling Tea","Darjeeling Tea","The others are coffee types"
+"Earning a Master's degree","Building a successful startup","Going to a party","Completing a marathon","Going to a party","The others are long-term commitments"
+"Sweet Potato, Yam, Pumpkin, Butternut Squash, Pumpkin, The others are tubers.",,,,,
+"Turkish Van","Balinese","Ocicat","Bengal","Bengal","The others are all breeds of cats that originated from the United States."
+"Lincoln's Presidential Campaign","Lincoln's Reelection","Lincoln's Vice President","Lincoln's Assassination","Lincoln's Vice President","The others are directly related to Lincoln's life events"
+"Kangaroo","Wallaby","Koala","Elephant","Elephant","The others are marsupials"
+"Philippine Tarsier","Tarsier Spectral","Harpy Eagle","Lemur","Harpy Eagle","The others are primates"
+"American Sparrow","European Sparrow","American Goldfinch","European Starling","European Starling","The others are American birds."
+"Magnolia","Orchid","Fern","Pine","Pine","The others are flowering plants"
+"Tian Shan","Kunlun Mountains","Southern Alps","Mount Fuji","Mount Fuji","The others are mountain ranges."
+"Stephen Hawking","Albert Einstein","Isaac Newton","Charles Darwin","Charles Darwin","The others are physicists"
+"Phalanges (hand)","Metacarpals","Phalanges (foot)","Carpals","Carpals","The others are bones directly connected to the phalanges."
+"Lincoln's Writings","Lincoln's Letters","Lincoln's Assassination Letter","Lincoln's Speech","Lincoln's Assassination Letter","The others are Lincoln's own words"
+"Sit-ins","Freedom Rides","Women's Suffrage March","Boston Tea Party","Boston Tea Party","The others are Civil Rights movements."
+"Pocahontas","Mulan","Ariel","Elsa","Elsa","The others are not royalty by birth."
+"Tiana","Prince Naveen","Ariel","Moana","Prince Naveen","The others are Disney Princesses."
+"Latte","Americano","Espresso","Sprite","Sprite","The others are types of coffee."
+"Telegraph","Telephone","Steam Engine","Light Bulb","Light Bulb","The others are communication devices"
+"Pliers","Scissors","Wire cutters","Hammer","Hammer","The others are used for cutting."
+"Brownie","Blondie","Cannoli","Baguette","Baguette","The others are desserts"
+"Brazil","Peru","Argentina","Egypt","Egypt","The others are in South America"
+"Hooded Pitohui, Northern Quoll, Kiwi Bird, Blue Whale, Blue Whale, The others are poisonous.",,,,,
+"Ichthyophobia","Selachophobia","Pediophobia","Claustrophobia","Claustrophobia","The others are phobias related to living beings."
+"Chimpanzee","Gorilla","Lemur","Kangaroo","Kangaroo","The others are primates."
+"Mr. Burns","Smithers","Apu","Marge","Marge","The others are employees of the Kwik-E-Mart or the Nuclear Power Plant"
+"Golden Eagle","Bald Eagle","Golden Pheasant","Peregrine Falcon","Golden Pheasant","The others are Eagles."
+"Building a business","Writing a book","Taking a nap","Climbing a mountain","Taking a nap","The others are activities that produce a tangible result"
+"The Alamo","Gettysburg","Dunkirk","Pearl Harbor","Dunkirk","The others are in the United States"
+"Pancreatic Cancer","Liver Cancer","Colon Cancer","Asthma","Asthma","The others are types of Cancer"
+"Singapore","Monaco","Tokyo","Sydney","Sydney","The others are city-states"
+"Right to health","Right to education","Freedom from slavery","Right to bear arms","Right to bear arms","The others are human rights outlined in the Universal Declaration of Human Rights."
+"obj_3: Carrot",,,,,
+"obj_4: Potato",,,,,
+"odd: Carrot",,,,,
+"reason_for_similarity: The others are tuberous vegetables.",,,,,
+"Everglades National Park","Biscayne National Park","Joshua Tree National Park","Central Park","Central Park","The others are National Parks"
+"Dhole","African Wild Dog","Boni Giant Sengi","Bengal Tiger","Boni Giant Sengi","The others are Canids"
+"obj_3: Brazilian Santos",,,,,
+"obj_4: Darjeeling Tea",,,,,
+"odd: Darjeeling Tea",,,,,
+"reason_for_similarity: The others are types of coffee beans.",,,,,
+"Pennines","Scottish Highlands","Eastern Ghats","Mount Everest","Mount Everest","The others are not the highest peaks on their respective continents."
+"Asparagus","Green Beans","Celery","Broccoli","Broccoli","The others are stalk vegetables"
+"The Last Supper","The Baptism of Christ","Codex Leicester","The Birth of Venus","Codex Leicester","The others are paintings by Leonardo da Vinci."
+"Thomas Edison","J.K. Rowling","Albert Einstein","Vincent van Gogh","Vincent van Gogh","The others are not primarily known for visual arts"
+"Cleopatra's Barge","Cleopatra's Needle","Rome","Cleopatra's Pearl","Rome","The others are associated with Cleopatra."
+"Brussels Sprout","Cabbage","Spinach","Potato","Potato","The others are leafy green vegetables"
+"Mount Rainier","Mount Fuji","Mount Eiger","Mount Vesuvius","Mount Vesuvius","The others are not volcanically active."
+"obj_3: The Great Train Robbery",,,,,
+"obj_4: The Mona Lisa Theft",,,,,
+"odd: The Great Train Robbery",,,,,
+"reason_for_similarity: The others are jewelry heists.",,,,,
+"Charlie Brown","Snoopy","Simba","Peter Parker","Peter Parker","The others are not human characters"
+"Principal Skinner","Superintendent Chalmers","Maggie","Moe Szyslak","Maggie","The others are adults in The Simpsons."
+"Homo Sapiens","Homo Denisova","Homo Floresiensis","Homo Neanderthalensis","Homo Sapiens","The others are extinct Homo species."
+"Ant, Termite, Bee, Spider, Spider, The others are Hymenoptera.",,,,,
+"Ethiopian Sidamo","Tanzanian Peaberry","Jamaican Blue Mountain","Colombian Supremo","Colombian Supremo","The others are African Coffees"
+"Churros","Beignets","Trifle","Sushi","Sushi","The others are desserts."
+"Washing Hands","Washing Feet","Brushing Teeth","Washing Dishes","Brushing Teeth","The others are washing tasks."
+"Homo Neanderthalensis","Homo Heidelbergensis","Homo Denisova","Homo Sapiens","Homo Sapiens","The others are extinct hominids"
+"Pocahontas","Mulan","Belle","Ariel","Pocahontas","The others are from European fairy tales"
+"Oasis, Wetland, Desert, Forest, Desert, The others are ecosystems with abundant water.",,,,,
+"Atoll","Reef","Island","Delta","Delta","The others are surrounded by water on all sides"
+"The Theory of Everything","The Imitation Game","A Beautiful Mind","Interstellar","Interstellar","The others are based on real-life characters."
+"Tiger","Lion","Dolphin","Cheetah","Dolphin","The others are big cats."
+"obj_3: Ford Model A",,,,,
+"obj_4: Chevrolet Model C",,,,,
+"odd: Chevrolet Model C",,,,,
+"reason_for_similarity: The others are Ford models.",,,,,
+"Troy","Carthage","Shangri-La","Atlantis","Shangri-La","The others are lost cities"
+"HIV","Hepatitis C","Hemophilia","Influenza","Hemophilia","The others are Viruses"
+"Multiple Sclerosis","ALS","Diabetes","Migraine","Migraine","The others are chronic diseases without a known cure"
+"Cinderella","Aurora","Elsa","Mulan","Mulan","The others are not warriors"
+"Cannoli","Eclair","Macaron","Baguette","Baguette","The others are pastries filled with cream"
+"Aristotle's Logic","Aristotelian Ethics","Aristotelian Metaphysics","Platonic Epistemology","Platonic Epistemology","The others are Aristotelian."
+"This Is It","Bad 25","Marlon Jackson","Thriller 25","Marlon Jackson","The others are Michael Jackson's albums"
+"Persepolis","Babylon","Athens","Jerusalem","Jerusalem","The others are ancient capitals of empires."
+"Gray Tree Frog","Red-eyed Tree Frog","Red-spotted Newt","Yellow-bellied Toad","Yellow-bellied Toad","The others are arboreal (tree-dwelling) species."
+"Battle of Ypres","Battle of the Somme","Battle of Leipzig","Battle of Waterloo","Battle of Leipzig","The others are battles of World War I."
+"Black or White","Remember the Time","Jermaine Jackson","Thriller","Jermaine Jackson","The others are songs by Michael Jackson"
+"Lisa Marie Presley","Debbie Rowe","Diana Ross","Priscilla Presley","Diana Ross","The others are ex-wives of Elvis Presley"
+"Mount Elbrus","Mount Fuji","Mount McKinley","Kilimanjaro","Kilimanjaro","The others are in the Seven Summits list."
+"Darjeeling Tea","Assam Tea","Rooibos Tea","Green Tea","Rooibos Tea","The others are from Camellia sinensis plant"
+"obj_3: Bell's work in the United States",,,,,
+"obj_4: Bell's invention of the telephone",,,,,
+"odd: Bell's invention of the telephone",,,,,
+"reason_for_similarity: The others are related to Bell's personal life events",,,,,
+"Golden Mean","Virtue Ethics","Platonic Dualism","Quantum Physics","Quantum Physics","The others are concepts from ancient Greek philosophy."
+"Stewie Griffin","Brian Griffin","Peter Griffin","Homer Simpson","Homer Simpson","The others are Griffins."
+"Selkirk Rex","LaPerm","Egyptian Mau","Alaskan Malamute","Alaskan Malamute","The others are breeds of cats."
+"Pompey","Crassus","Cicero","Augustus","Cicero","The others are Roman Generals."
+"Ivy","Bamboo","Tulip","Oak","Bamboo","The others are types of plants with flowers"
+"Congo River","Niger River","Rhine River","Amazon River","Rhine River","The others are in Africa"
+"Angelfish","Discus","Guppy","Seahorse","Seahorse","The others are freshwater fish"
+"Cloves","Allspice","Ginger","Pepper","Pepper","The others are baking spices"
+"Lacrimal","Nasal","Mandible","Humerus","Humerus","The others are facial bones."
+"Chausie","Bengal","Persian","Siamese","Siamese","The others are hybrid breeds"
+"Chisel, Saw, Axe, Hammer, Hammer, The others are sharp.",,,,,
+"Manx","Cymric","Siamese","Bengal","Bengal","The others are tailless cat breeds."
+"Yacht","Catamaran","Canoe","Airplane","Airplane","The others are water vessels"
+"Mollie","Swordtail","Pufferfish","Clownfish","Clownfish","The others are freshwater fish"
+"Ice Cream Maker, Yogurt Maker, Iron, Bread Maker, Iron, The others are used for making food.",,,,,
+"obj_3: Orca's Stationary Life",,,,,
+"obj_4: Dolphin's Stationary Life",,,,,
+"odd: Orca's Stationary Life",,,,,
+"reason_for_similarity: The others are migratory behaviors.",,,,,
+"obj_3: Orca's Silent Nature",,,,,
+"obj_4: Bat's Echolocation",,,,,
+"odd: Orca's Silent Nature",,,,,
+"reason_for_similarity: The others use sound for communication.",,,,,
+"Selma to Montgomery marches","March on Washington","Boston Tea Party","Women's Suffrage Parade of 1913","Boston Tea Party","The others are civil rights movements in the 20th century"
+"Homo Erectus","Homo Heidelbergensis","Homo Sapiens","Homo Habilis","Homo Habilis","The others are not the first known tool makers"
+"Nelson Mandela","Mahatma Gandhi","Adolf Hitler","Winston Churchill","Adolf Hitler","The others are Nobel Peace Prize laureates."
+"Peas","Green Beans","Corn","Carrot","Carrot","The others are green."
+"Trout","Salmon","Marlin","Eagle","Eagle","The others are types of fish"
+"Route 66","Pacific Coast Highway","Wall Street","Appalachian Trail","Wall Street","The others are famous routes for road trips in the United States."
+"Caesar's Will","Triumvirate","Dictatorship","Republic","Republic","The others are forms of autocracy"
+"Spiny-tailed Lizard","Green Iguana","Gaboon Viper","Blue Whale","Blue Whale","The others are reptiles"
+"The Peninsular War, The War of the Third Coalition, The Hundred Days, The Spanish Armada, The Spanish Armada, The others are Napoleonic Wars.",,,,,
+"Yogi Bear, Boo-Boo Bear, Taz, Winnie the Pooh, Taz, The others are anthropomorphic bears.",,,,,
+"Mushroom","Eggplant","Tomato","Potato","Potato","The others are non-root vegetables"
+"The Banco Central Heist","The Antwerp Diamond Heist","The Isabella Stewart Gardner Museum Heist","The Great Train Robbery","The Great Train Robbery","The others are art heists"
+"Crossbow","Longbow","Spear","Sword","Sword","The others are ranged weapons"
+"Clownfish","Goldfish","Yellow Perch","Hummingbird","Hummingbird","The others are types of fish"
+"Lincoln's Second Inaugural Address","Lincoln's First Inaugural Address","Lincoln-Douglas debates","Gettysburg Address","Lincoln-Douglas debates","The others are speeches delivered by Lincoln as President."
+"Pumpkin","Squash","Melon","Cabbage","Cabbage","The others are gourds"
+"Brazilian Wandering Spider","Sydney Funnel-web Spider","Wolf Spider","Tarantula","Tarantula","The others are not tarantulas"
+"Battle of the Granicus","Battle of Chaeronea","Battle of Salamis","Battle of Thermopylae","Battle of Thermopylae","The others are battles won by Alexander the Great."
+"Olympic National Park","North Cascades National Park","Dry Tortugas National Park","Central Park","Central Park","The others are National Parks."
+"Siege of Halicarnassus","Siege of Gaza","Siege of Troy","Battle of Waterloo","Battle of Waterloo","The others are sieges."
+"Great Dividing","Tasmanian Highlands","Sierra Nevada","Amazon Rainforest","Amazon Rainforest","The others are mountain ranges"
+"Malbec","Pinot Noir","Riesling","Champagne","Champagne","The others are still wines"
+"Mayor West","Lois Griffin","Peter Griffin","Brian Griffin","Mayor West","The others are Griffins"
+"Shih Tzu","Lhasa Apso","Dalmatian","Saint Bernard","Dalmatian","The others are small dog breeds"
+"Corsica","France","Russia","New Zealand","New Zealand","The others are in Europe"
+"Ocicat","Bengal","Persian","Siamese","Siamese","The others are breeds of cats that originated from the United States."
+"Macedonia","Persia","Egypt","Australia","Australia","The others are ancient civilizations."
+"Mars Observer","Mars Climate Orbiter","Pioneer Venus Orbiter","Voyager 2","Voyager 2","The others are Mars orbiters"
+"Mango","Peach","Lime","Tomato","Tomato","The others are fruits with a pit."
+"Bamboo","Grass","Tulip","Cactus","Cactus","The others are vascular plants"
+"obj_3: Asthma",,,,,
+"obj_4: Hay Fever",,,,,
+"odd: Hay Fever",,,,,
+"reason_for_similarity: The others are neurodegenerative diseases",,,,,
+"Roman Republic","Roman Empire","Ptolemaic Egypt","Ming Dynasty","Ming Dynasty","The others are Roman."
+"obj_3: Battle of Marathon",,,,,
+"obj_4: Battle of Waterloo",,,,,
+"odd: Battle of Waterloo",,,,,
+"reason_for_similarity: The others are battles fought by Persians.",,,,,
+"Marie Curie","Johannes Kepler","Galileo Galilei","Albert Einstein","Marie Curie","The others are Astronomers."
+"Beetroot","Carrot","Radish","Apple","Apple","The others are root vegetables"
+"Ford Model A","Ford Model B","Ford Model C","Tesla Model S","Tesla Model S","The others are Ford models."
+"Elmer Fudd","Yosemite Sam","Foghorn Leghorn","Bugs Bunny","Bugs Bunny","The others are human characters."
+"Cystic Fibrosis","Sickle Cell Anemia","Heart Disease","Color Blindness","Heart Disease","The others are genetic disorders."
+"Cheesecake","Pavlova","Brownie","Sandwich","Sandwich","The others are desserts"
+"European Fire-bellied Toad, Oriental Fire-bellied Toad, Red Salamander, Red-eyed Tree Frog, Red-eyed Tree Frog, The others are not tree-dwelling species.",,,,,
+"Buddha","Confucius","Laozi","Gandhi","Gandhi","The others are founders of major Eastern philosophies."
+"Blue Jeans","Cowboy Boots","Baseball Cap","Leather Jacket","Leather Jacket","The others are made of denim"
+"Rigatoni","Penne","Linguini","Baguette","Baguette","The others are types of pasta"
+"Cliff","Waterfall","Hill","River","River","The others are landforms"
+"Nineveh","Nimrud","Atlantis","Machu Picchu","Atlantis","The others are real historical cities."
+"Amazon Horned Frog","African Bullfrog","Alpine Newt","Emperor Penguin","Emperor Penguin","The others are amphibians."
+"Chimpanzee","Bonobo","Gorilla","Orangutan","Orangutan","The others are native to Africa"
+"Nail gun","Staple gun","Drill","Screwdriver","Screwdriver","The others are guns"
+"Harbor","Bay","Ocean","Lake","Lake","The others are saltwater bodies"
+"Propeller","Rudder","Oars","Wheel","Wheel","The others are used for steering and propelling boats."
+"Balinese","Siamese","Ragdoll","Maine Coon","Maine Coon","The others are breeds of cats that originated in Asia"
+"Chimpanzee","Bonobo","Human","Gorilla","Gorilla","The others are in the Hominini tribe"
+"Krusty","Sideshow Bob","Bart","Lisa","Lisa","The others are male characters in The Simpsons"
+"Right to life","Freedom from torture","Right to freedom of assembly","Right to bear arms","Right to bear arms","The others are inalienable human rights as per the Universal Declaration of Human Rights."
+"Rottweiler","Doberman","Golden Retriever","Maine Coon","Maine Coon","The others are dog breeds."
+"Ethiopian Harrar","Yemen Mocha Mattari","Sulawesi Toraja","Darjeeling","Darjeeling","The others are types of coffee beans"
+"Power Loom, Spinning Mule, Open Hearth Furnace, Cotton Gin, Open Hearth Furnace, The others are textile machinery",,,,,
+"White Pepper","Black Pepper","Cinnamon","Nutmeg","Nutmeg","The others are Peppers"
+"Marie Curie","Ernest Rutherford","J.J. Thomson","Albert Einstein","Albert Einstein","The others are Nobel laureates in Physics."
+"Munchkin","Persian","Napoleon","Labrador","Labrador","The others are cat breeds."
+"American Alligator","Saltwater Crocodile","Bearded Dragon","Komodo Dragon","Bearded Dragon","The others are crocodilians"
+"American Curl","Scottish Fold","Siberian","Bengal","Bengal","The others are natural breeds of cats"
+"Hong Kong","Vatican City","Shanghai","Sydney","Sydney","The others are not in Asia."
+"Chimpanzee","Bonobo","Human","Orangutan","Orangutan","The others are part of the Homininae subfamily"
+"Rooibos Vanilla Tea","Rooibos Chai Tea","White Peach Tea","Green Apple Tea","White Peach Tea","The others are Rooibos teas."
+"Democracy","Oligarchy","Republic","Monarchy","Monarchy","The others are forms of government where the people have a say in the government."
+"Newton's Method","Binomial Theorem","Pythagorean Theorem","Euclidean Algorithm","Euclidean Algorithm","The others are mathematical theorems."
+"Newton-Raphson method","Newton's identities","Euler's identity","Euler's method","Euler's identity","The others are named after Newton."
+"Poison Oak","Poison Ivy","Poison Sumac","Oak Tree","Oak Tree","The others are poisonous plants."
+"Siamese Fighter","Betta","Clownfish","Goldfish","Goldfish","The others are saltwater fish"
+"Angel's Trumpet","Jimson Weed","Poison Ivy","Aloe Vera","Aloe Vera","The others are poisonous plants."
+"Homo Sapiens","Homo Neanderthalensis","Homo Heidelbergensis","Pan Troglodytes","Pan Troglodytes","The others are part of the Homo genus"
+"Northern Hairy-Nosed Wombat","Southern Hairy-Nosed Wombat","Tasmanian Devil","Koala","Koala","The others are marsupials known for their aggressive behavior"
+"Rocky Mountains","Appalachian","Ural Mountains","Sahara Desert","Sahara Desert","The others are mountain ranges"
+"Philip II of Macedon","Olympias","Darius III","Alexander the Great","Darius III","The others are members of the Argead dynasty."
+"Poison Dart Frog, Blue Poison Dart Frog, Tree Frog, Golden Poison Dart Frog, Tree Frog, The others are Poison Dart Frogs.",,,,,
+"Baklava","Turkish Delight","Eton Mess","Tiramisu","Eton Mess","The others are traditional desserts from Mediterranean countries."
+"obj_3: Tequila",,,,,
+"obj_4: Maple Syrup",,,,,
+"odd: Maple Syrup",,,,,
+"reason_for_similarity: The others are beverages",,,,,
+"Chimpanzee","Bonobo","Baboon","Kangaroo","Kangaroo","The others are primates"
+"Ireland","UK","France","Brazil","Brazil","The others are in Europe"
+"Selachophobia","Galeophobia","Ornithophobia","Ailurophobia","Ailurophobia","The others are phobias related to animals that can fly."
+"Marie Curie","Stephen Hawking","Carl Sagan","Neil Armstrong","Neil Armstrong","The others are theoretical physicists."
+"Ergophobia","Ponophobia","Arithmophobia","Hydrophobia","Ponophobia","The others are fear of actions."
+"Common European Adder","Gaboon Viper","Corn Snake","Gila Monster","Gila Monster","The others are true snakes"
+"The Little Engine","Tortoise","Hare","Phoenix","Phoenix","The others are characters from fables or children's stories"
+"Manicotti","Tortellini","Pappardelle","Baguette","Baguette","The others are types of Italian pasta"
+"obj_3: Lemon Soda",,,,,
+"obj_4: Strawberry Ice Cream",,,,,
+"odd: Lemon Soda",,,,,
+"reason_for_similarity: The others are made with strawberries.",,,,,
+"Technophobia","Cyberphobia","Ailurophobia","Acrophobia","Ailurophobia","The others are related to technology."
+"Roxana, Stateira II, Cleopatra, Napoleon, Napoleon, The others are female historical figures.",,,,,
+"Persian","Himalayan","Bengal","Siamese","Siamese","The others are breeds of cats that originated in the Middle East."
+"Donating Time","Donating Money","Earning Money","Spending Money","Spending Money","The others are forms of giving."
+"Singapura","Korat","Exotic Shorthair","Maine Coon","Maine Coon","The others are Asian cat breeds"
+"Macaron","Meringue","Biscotti","Croissant","Croissant","The others are cookies"
+"Smooth Newt, Palmate Newt, Yellow-bellied Toad, Great Crested Newt, Yellow-bellied Toad, The others are newts.",,,,,
+"Social Work","Community Service","Non-Profit Organization","Corporate Job","Corporate Job","The others are non-profit."
+"Cleopatra's Barge","Cleopatra's Mask","Cleopatra's Emerald","Cleopatra's Palace","Cleopatra's Mask","The others are places associated with Cleopatra"
+"Roquefort","Blue Stilton","Feta","Cheddar","Cheddar","The others are blue cheeses"
+"Marcus Aurelius","Seneca","Epictetus","William Shakespeare","William Shakespeare","The others are Stoic philosophers."
+"obj_3: Denim Jeans",,,,,
+"obj_4: Silk Tie",,,,,
+"odd: Silk Tie",,,,,
+"reason_for_similarity: The others are made from natural, non-synthetic materials.",,,,,
+"Oracle of Delphi","Oracle of Dodona","Oracle of Apollo","Oracle of Java","Oracle of Java","The others are ancient Greek oracles"
+"Farfalle","Ravioli","Tortellini","Baguette","Baguette","The others are types of pasta."
+"Creme Brulee","Flan","Fudge","Sorbet","Sorbet","The others are custard-based desserts"
+"Harriet Tubman","Frederick Douglass","Susan B. Anthony","Thomas Edison","Thomas Edison","The others are abolitionists"
+"obj_3: Marigold",,,,,
+"obj_4: Rosemary",,,,,
+"odd: Rosemary",,,,,
+"reason_for_similarity: The others are non-herbaceous plants.",,,,,
+"John F. Kennedy","Barack Obama","George Washington","Nelson Mandela","Nelson Mandela","The others are US Presidents."
+"Fusilli, Penne, Farfalle, Baguette, Baguette, The others are types of pasta.",,,,,
+"obj_3: Edison's Phonograph",,,,,
+"obj_4: The Wright Brothers' Airplane",,,,,
+"odd: The Wright Brothers' Airplane",,,,,
+"reason_for_similarity: The others are inventions by Thomas Edison.",,,,,
+"Pikes Peak","Mount Rushmore","Mount Kailash","Eiffel Tower","Eiffel Tower","The others are mountains"
+"Mars 1","Mars 2","Pioneer Venus Orbiter","Voyager 1","Voyager 1","The others are missions to Mars."
+"Lincoln's Birthplace","Lincoln's Boyhood Home","Lincoln Bedroom","Lincoln Memorial","Lincoln Bedroom","The others are physical locations where Lincoln lived."
+"Plateau","Plain","Canyon","Mountain","Plain","The others are landforms with significant elevation."
+"Yellow Perch","Bluegill","Tuna","Lobster","Lobster","The others are freshwater fish"
+"Eudemus of Rhodes","Nicomachus","Philip II of Macedon","Archimedes","Philip II of Macedon","The others are ancient Greek mathematicians."
+"Porpoise, Dolphin, Bat, Pigeon, Bat, The others are aquatic mammals.",,,,,
+"Newton's Rings","Newton's Cannonball","Einstein's Theory of Relativity","Newton's Laws of Motion","Einstein's Theory of Relativity","The others are Newton's theories"
+"Bacon Cheeseburger","Veggie Burger","Fish Tacos","Chicken Caesar Salad","Chicken Caesar Salad","The others are served in a bun."
+"Transantarctic","Ellsworth","Brooks Range","Appalachian","Appalachian","The others are located in Antarctica."
+"Olympias","Cleopatra","Eurydice","Nefertiti","Eurydice","The others are Queens of Egypt"
+"Vitruvian Man","The Baptism of Christ","The Adoration of the Magi","The Last Supper","Vitruvian Man","The others are religious paintings by Leonardo da Vinci"
+"Artichoke","Broccoli","Cauliflower","Banana","Banana","The others are vegetables"
+"The Battle of Wagram","The Battle of Friedland","The Battle of Leipzig","The Battle of Trafalgar","The Battle of Trafalgar","The others are land battles."
+"Himalayan","Burmese","Tonkinese","Siamese","Siamese","The others are breeds of cats that originated from the same geographical region (Southeast Asia)."
+"Termite","Cockroach","Grasshopper","Spider","Spider","The others are insects."
+"Joker","Penguin","Doctor Strange","Sherlock Holmes","Sherlock Holmes","The others are comic book villains."
+"Lincoln's Proclamation of Amnesty and Reconstruction","Lincoln's Ten percent plan","Lincoln's Thanksgiving Proclamation","Lincoln's Gettysburg Address","Lincoln's Thanksgiving Proclamation","The others are Lincoln's policies during the Civil War"
+"Guinness","Budweiser","Gatorade","Coca-Cola","Gatorade","The others are alcoholic beverages"
+"Humble Pie, Crown, Loaf of Bread, Golden Apple, Crown, The others are edible.",,,,,
+"Uncle Sam","Liberty Bell","Times Square","Golden Gate","Golden Gate","The others are symbols of the east coast."
+"Apple, Moon, Orange, Mars, Mars, The others are edible.",,,,,
+"Wolf","Fox","Dolphin","Sparrow","Sparrow","The others are mammals"
+"Corn Snake","Milk Snake","King Cobra","Tokay Gecko","Tokay Gecko","The others are venomous snakes."
+"Parrot","Pigeon","Falcon","Penguin","Penguin","The others are capable of flight"
+"Marshal Ney","Marshal Davout","Tsar Alexander I","Napoleon Bonaparte","Tsar Alexander I","The others are French Marshals."
+"Tanzanian Peaberry","Kenyan AA","Sulawesi Toraja","Darjeeling Tea","Darjeeling Tea","The others are types of coffee beans"
+"Nevada","Utah","Illinois","Florida","Florida","The others are landlocked states."
+"Sacrum","Coccyx","Clavicle","Femur","Clavicle","The others are part of the pelvic girdle"
+"Indian Monsooned Malabar","Sumatra Lintong","Kenyan AA","Jamaican Blue Mountain","Jamaican Blue Mountain","The others are Asian coffees"
+"Swiss Chard, Spinach, Potato, Tomato, Tomato, The others are leafy greens.",,,,,
+"Nebbiolo","Malbec","Pinot Gris","Chardonnay","Chardonnay","The others are red wines."
+"Battle of Guadalcanal","Battle of Coral Sea","Battle of Midway","Battle of Austerlitz","Battle of Austerlitz","The others are battles in the Pacific during World War II."
+"NFL","NBA","MLB","FIFA","FIFA","The others are American sports leagues."
+"Feta","Halloumi","Camembert","Tofu","Tofu","The others are cheeses."
+"Nearchus","Craterus","Ptolemy I","Julius Caesar","Julius Caesar","The others are generals of Alexander the Great"
+"Fern","Moss","Rose","Oak","Oak","The others are non-woody plants"
+"Ulna","Radius","Femur","Pelvis","Pelvis","The others are long bones"
+"Mars 2","Mars 5","Voyager 2","Apollo 11","Apollo 11","The others are unmanned"
+"Georgia","South Dakota","North Dakota","Nevada","Georgia","The others are in the Midwest."
+"NAACP","SNCC","ACLU","NRA","NRA","The others are civil rights organizations"
+"Tempranillo","Grenache","Chardonnay","Pinot Noir","Pinot Noir","The others are Spanish grape varieties"
+"Humanitarian Aid","Disaster Relief","Vacation","Medical Research","Vacation","The others are forms of assistance."
+"Cleopatra's Pearl","Cleopatra's Emerald","Cleopatra's Needle","Battle of Actium","Battle of Actium","The others are Cleopatra's possessions."
+"The Continental System, The Concordat of 1801, The Confederation of the Rhine, The Battle of Waterloo, The Battle of Waterloo, The others are political agreements established by Napoleon.",,,,,
+"Newton's First Law of Motion","Newton's Second Law of Motion","Newton's Third Law of Motion","Joule's Law","Joule's Law","The others are Newton's Laws of Motion"
+"Badland","Plateau","Butte","Oasis","Oasis","The others are types of barren land formations."
+"Trout","Salmon","Swordfish","Penguin","Penguin","The others are fish"
+"English Yew","Pacific Yew","Taxus Baccata","Oleander","Oleander","The others are types of Yews."
+"Pinot Noir","Zinfandel","Sauvignon Blanc","Chardonnay","Zinfandel","The others are white wines"
+"Telephone","Telegraph","Internal Combustion Engine","Radio","Internal Combustion Engine","The others are communication devices"
+"Chicken Salad","Caesar Salad","Chicken Wrap","Caesar Burger","Caesar Burger","The others contain chicken"
+"Harley Davidson","Chevrolet","Ford","Tesla","Tesla","The others are gasoline-powered."
+"Homo Sapiens","Homo Denisova","Homo Erectus","Pan Troglodytes","Pan Troglodytes","The others are Homo genus."
+"Zion National Park","Bryce Canyon National Park","Great Smoky Mountains National Park","Central Park","Central Park","The others are National Parks."
+"Havarti","Monterey Jack","Gorgonzola","Apple","Apple","The others are types of cheese"
+"Sauvignon Blanc","Chardonnay","Syrah","Merlot","Merlot","The others are made from white grapes"
+"Machu Picchu","Angkor Wat","The Lost City of Z","The Great Wall","The Lost City of Z","The others are UNESCO World Heritage Sites."
+"Mallian Campaign","Indian Campaign","Sicilian Campaign","Martian Campaign","Martian Campaign","The others are historical campaigns."
+"Affirmative Action","Equal Pay Act","Patriot Act","Civil Rights Act","Patriot Act","The others are related to civil rights and equality"
+"Right to education","Right to health","Freedom of religion","Right to vote","Freedom of religion","The others are socio-economic rights"
+"Brazilian Santos","Hawaiian Kona","Yemen Mocha Mattari","Colombian Supremo","Colombian Supremo","The others are named after their region and a specific variety of coffee."
+"Okra","Green Beans","Asparagus","Broccoli","Broccoli","The others are pods"
+"Lettuce","Cabbage","Cucumber","Tomato","Tomato","The others are leafy vegetables"
+"The Isabella Stewart Gardner Museum Heist","The Boston Museum Heist","The Banco Central Heist","The Great Train Robbery","The Great Train Robbery","The others are museum heists"
