@@ -195,44 +195,7 @@ export default function Game() {
         </div>
         <div class="flex flex-row w-11/12 justify-center items-center text-3xl font-bold text-gray-50     ">
           <div class="flex flex-row items-center justify-center">
-            <span class="pr-2">C</span>
-            <div class="flex flex-col items-center justify-center   ">
-              <Switch
-                fallback={
-                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50   ">
-                    oo
-                  </span>
-                }
-              >
-                <Match when={scoreColor() < 0}>
-                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50   ">
-                    oo
-                  </span>
-                </Match>
-                <Match when={scoreColor() == 0}>
-                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-error-800  ">
-                    oo
-                  </span>
-                </Match>
-                <Match when={scoreColor() == 1}>
-                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-warning-800  ">
-                    oo
-                  </span>
-                </Match>
-                <Match when={scoreColor() == 1.5}>
-                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-gray-500  ">
-                    oo
-                  </span>
-                </Match>
-                <Match when={scoreColor() == 2}>
-                  <span class=" text-xl hover:scale-105 rounded border-2 shadow-sm shadow-gray-50 bg-warning-500  ">
-                    oo
-                  </span>
-                </Match>
-              </Switch>
-              <span class=" text-xl  hover:scale-105 rounded     ">mm</span>
-            </div>
-            <span class="p-2">nly</span>
+            <span class="pr-2">Commonly</span>
           </div>
           <Switch
             fallback={
@@ -299,21 +262,26 @@ export default function Game() {
             </div>
           </Show>
         </div>
-        <div class="flex flex-row h-24  w-[60%] justify-center items-center  ">
-          <div class="flex flex-row justify-start items-start">
-            <CopyLink />
-            <div class="fle flex-col  ">
-              <input
-                type="text"
-                class="  p-2 rounded w-full  shadow-sm shadow-gray-50 "
-                readOnly
-                value={sessionLink()}
-              />
-              <div class="flex items-center h-8 justify-center font-bold text-xs text-gray-50 p-2">
-                <Show when={isSessionStarted()}>Game Session Link</Show>
+        <div class="flex flex-row   w-[60%] justify-center items-center  ">
+          <Show when={isSessionStarted()}>
+            <div>
+              <div>
+                <CopyLink />
+                <div>
+                  <input
+                    type="text"
+                    class=" rounded w-full  shadow-sm shadow-gray-50 "
+                    readOnly
+                    value={sessionLink()}
+                    hidden
+                  />
+                </div>
+                <div class="flex items-center justify-center font-bold text-xs lg:text-sm text-gray-50  ">
+                  Session Link
+                </div>
               </div>
             </div>
-          </div>
+          </Show>
         </div>
         <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
           <Router>

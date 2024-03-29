@@ -23,19 +23,25 @@ function stringifyJSON(data) {
 
 // Main function to read CSV, check validity, and update CSV
 async function updateCSV() {
-  const filename = "math_automated.csv";
+  const filename = "initial.csv";
   const content = fs.readFileSync(filename, "utf8");
   const data = await parseCSV(content);
 
-  for (let row of data) {
+  console.log(`Total rows to process: ${data.length}`); // Display total number of rows
+
+  for (let i = 0; i < data.length; i++) {
+    const row = data[i];
     const { obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity } = row;
-    console.log("Checking validity for:", row);
+
+    // Display current row being processed
+    console.log(`Processing row ${i + 1} of ${data.length}`);
+
     const response = await openai.chat.completions.create({
       model: "gpt-4",
       messages: [
         {
           role: "user",
-          content: `I have developed a game called Commonly Odd. The user is presented with 4 objects. They need to figure out which one of the four is odd and what the other three have in common. I want you to let me know if this is valid or not. I have the following objects: ${obj_1}, ${obj_2}, ${obj_3}, ${obj_4}. The odd one out is ${odd}. The reason for similarity between the other three is: ${reason_for_similarity}. If this is valid, reply yes, otherwise, reply no.`,
+          content: `I have developed a game called Commonly Odd. The user is presented with 4 objects. They need to figure out which one of the four is odd and what the other three have in common.  I have the following objects: ${obj_1}, ${obj_2}, ${obj_3}, ${obj_4}. The odd one out is ${odd}. The reason for similarity between the other three is: ${reason_for_similarity}. I want you to let me know if this is valid or not. I need you to take your time and assess the logic of each statement and if it passes all the tests, let me know if it is valid. Reply yes when valid, otherwise, reply no. But do take you time to perform each logical assessment.`,
         },
       ],
       temperature: 0.5,

@@ -28,7 +28,7 @@ export default function CopyLink() {
   return (
     <div>
       <Button onClick={handleClickOpen} style="border: none;      ">
-        <ContentCopy />
+        <ContentCopy fontSize="large" />
       </Button>
       <Dialog
         open={open()}
