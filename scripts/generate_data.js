@@ -32,34 +32,8 @@ function parseTable(tableString) {
 }
 
 const category_words = [
-  "math",
-  "world history",
-  "paintings",
-  "14th century",
-  "15th century",
-  "16th century",
-  "17th century",
-  "18th century",
-  "19th century",
-  "1940's",
-  "1960's",
-  "1970's",
-  "1980's",
-  "1990's",
-  "vikings",
-  "space",
-  "airports",
-  "medieval history",
-  "ancient civilizations",
-  "crime",
-  "true crime",
-  "serial killers",
-  "elements",
-  "pop culture",
-  "solar system",
-  "olympics history",
-  "disney",
-  "cartoons",
+  "fun math problems. You need to mix in all different kind of arithmetic, Algebra, Geometry, Trigonometry and Statistics. Also, that best can be represented with pictures",
+  "fun math problems. You need to mix in all different kind of arithmetic, Algebra, Geometry, Trigonometry and Statistics. Also, that best can be represented with pictures",
 ];
 
 // Main function to generate data and save to CSV
@@ -76,7 +50,7 @@ async function generateDataAndSaveCSV() {
       messages: [
         {
           role: "user",
-          content: `I need to develop a game that presents a user with 4 objects. Three of those objects needs to have something in common and the fourth needs to be the odd one out. Focus on the topic of ${category}. \\n\\n My goal is to make the game very hard and challenging. The odd one out shouldn't be too obvious. It has to be difficult to tell. This is very important, the game has to be very challenging otherwise I will be wasting people's time, so take your time to make it difficult. Everything has to be very closely related, it cannot be something like The Beatles, The Rolling Stones, The Who, Pablo Picasso where Pablo Picasso is the odd one out for being a painter. Here's an example of the input provided, Anakin Skywalker,	Luke Skywalker and	Han Solo. The output returned was Anakin Skywalker, Luke Skywalker, Leia Organa and Han Solo. Han Solo was the odd one out and the reason for similarity for the others was: The others are Skywalkers. As you can see, one of the objects was replaced to make it more challenging and fun. No object must be said twice. I need something similar. \\n\\n  Just output the result in a table with the following columns:   obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity. For the reason for similarity, all you need to say is "The others are blank" where blank is the reason for similarity. Nothing too long. You dont need to provide any written explanation of your thought process.\\n\\n   I need you to generate 100 rows of items for this.`,
+          content: `I need to develop a game that presents a user with 4 objects. Three of those objects needs to have something in common and the fourth needs to be the odd one out. Focus on the topic of ${category}.     \\n\\n My goal is to make the game very hard and challenging. The odd one out shouldn't be too obvious. It has to be difficult to tell. This is very important, the game has to be very challenging otherwise I will be wasting people's time, so take your time to make it difficult. Everything has to be very closely related, it cannot be something like The Beatles, The Rolling Stones, The Who, Pablo Picasso where Pablo Picasso is the odd one out for being a painter. Here's an example of the input provided, Anakin Skywalker,	Luke Skywalker and	Han Solo. The output returned was Anakin Skywalker, Luke Skywalker, Leia Organa and Han Solo. Han Solo was the odd one out and the reason for similarity for the others was: The others are Skywalkers. As you can see, one of the objects was replaced to make it more challenging and fun. No object must be said twice. I need something similar. \\n\\n  Just output the result in a table with the following columns:   obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity. For the reason for similarity, all you need to say is "The others are blank" where blank is the reason for similarity. Nothing too long. You dont need to provide any written explanation of your thought process.\\n\\n   I need you to generate 30 rows of items for this.`,
         },
       ],
 

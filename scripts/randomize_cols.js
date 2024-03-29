@@ -4,11 +4,8 @@ import csv from "csv-parser";
 import { createObjectCsvWriter as createCsvWriter } from "csv-writer";
 
 async function shuffleRowItems() {
-  const inputFilePath = path.join(process.cwd(), "main_final_output.csv");
-  const outputFilePath = path.join(
-    process.cwd(),
-    "final_output_randomized.csv"
-  );
+  const inputFilePath = path.join(process.cwd(), "combined_output.csv");
+  const outputFilePath = path.join(process.cwd(), "combined_output_final.csv");
 
   // Check if the input file exists
   if (!fs.existsSync(inputFilePath)) {
@@ -37,13 +34,14 @@ async function shuffleRowItems() {
 
     // Process and shuffle items in each row
     const processedData = data.map((row) => {
-      const items = [row.obj_1, row.obj_2, row.obj_3];
+      const items = [row.obj_1, row.obj_2, row.obj_3, row.obj_4];
       shuffleArray(items);
       return {
         ...row,
         obj_1: items[0],
         obj_2: items[1],
         obj_3: items[2],
+        obj_4: items[3],
       };
     });
 
@@ -54,6 +52,7 @@ async function shuffleRowItems() {
         { id: "obj_1", title: "obj_1" },
         { id: "obj_2", title: "obj_2" },
         { id: "obj_3", title: "obj_3" },
+        { id: "obj_4", title: "obj_4" },
         { id: "odd", title: "odd" },
         { id: "reason_for_similarity", title: "reason_for_similarity" },
       ],
