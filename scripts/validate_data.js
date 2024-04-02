@@ -23,7 +23,7 @@ function stringifyJSON(data) {
 
 // Main function to read CSV, check validity, and update CSV
 async function updateCSV() {
-  const filename = "initial.csv";
+  const filename = "filtered_output.csv";
   const content = fs.readFileSync(filename, "utf8");
   const data = await parseCSV(content);
 
@@ -62,8 +62,8 @@ async function updateCSV() {
 
   try {
     const updatedCSV = stringifyJSON(data);
-    fs.writeFileSync(`updated_${filename}`, updatedCSV);
-    console.log(`CSV file updated and saved as updated_${filename}.`);
+    fs.writeFileSync(`final_${filename}`, updatedCSV);
+    console.log(`CSV file updated and saved as final_${filename}.`);
   } catch (err) {
     console.error("Error writing the updated CSV:", err);
   }

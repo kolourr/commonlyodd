@@ -32,10 +32,31 @@ function parseTable(tableString) {
 }
 
 const category_words = [
-  "fun math problems. You need to mix in all different kind of arithmetic, Algebra, Geometry, Trigonometry and Statistics. Also, that best can be represented with pictures",
-  "fun math problems. You need to mix in all different kind of arithmetic, Algebra, Geometry, Trigonometry and Statistics. Also, that best can be represented with pictures",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "flowers",
+  "herbs",
+  "herbs",
+  "herbs",
+  "herbs",
+  "herbs",
+  "herbs",
+  "herbs",
+  "herbs",
+  "herbs",
+  "herbs",
 ];
-
 // Main function to generate data and save to CSV
 async function generateDataAndSaveCSV() {
   let allData = []; // Accumulate all iteration data here
@@ -88,3 +109,4 @@ async function generateDataAndSaveCSV() {
 
 // Run the function
 generateDataAndSaveCSV().catch(console.error);
+// const category_words = ["airports", "animals", "books", "cars", "cities", "colors", "countries", "foods", "movies", "music", "sports", "superheroes", "tv shows", "video games", "weather", "writers", "actors", "actresses", "artists", "athletes", "authors", "bands", "basketball players", "baseball players", "boxers", "chess players", "comedians", "composers", "cricketers", "cyclists", "dancers", "directors", "football players", "golfers", "hockey players", "judges", "martial artists", "musicians", "painters", "philosophers", "photographers", "pianists", "poets", "politicians", "singers", "soccer players", "swimmers", "tennis players", "wrestlers", "youtubers", "scientists", "inventors", "astronauts", "engineers", "designers", "architects", "chefs", "doctors", "nurses", "teachers", "professors", "lawyers", "judges", "pilots", "soldiers", "police officers", "firefighters", "paramedics", "veterinarians", "dentists", "psychologists", "therapists", "social workers", "artists", "writers", "poets", "musicians", "singers", "dancers", "actors", "directors", "painters", "sculptors", "photographers", "designers", "architects", "chefs", "bakers", "bartenders", "waiters", "waitresses", "cooks", "sommeliers", "baristas", "brewers", "winemakers", "distillers", "farmers", "butchers", "bakers", "fishermen", "chefs", "cooks", "bartenders", "waiters", "waitresses", "sommeliers", "baristas", "brewers", "winemakers", "distillers", "farmers", "butchers", "bakers", "fishermen", "chefs", "cooks", "bartenders", "waiters", "waitresses", "sommeliers", "baristas"];

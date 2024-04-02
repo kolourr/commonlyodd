@@ -12,7 +12,7 @@ const openai = new OpenAI({
 });
 
 async function generateAndSaveImage(prompt) {
-  const imagesDir = path.join(process.cwd(), "images_to_upload");
+  const imagesDir = path.join(process.cwd(), "object_images");
 
   // Check if the directory exists
   if (!fs.existsSync(imagesDir)) {

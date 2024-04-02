@@ -13,7 +13,7 @@ const replicate = new Replicate({
 });
 
 async function generateAndSaveImages() {
-  const imagesDir = path.join(process.cwd(), "images_to_create");
+  const imagesDir = path.join(process.cwd(), "object_images.csv");
   const csvFile = path.join(imagesDir, "image_create.csv");
 
   // Check if the directory exists
