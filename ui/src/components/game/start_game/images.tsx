@@ -38,8 +38,8 @@ export default function GameImages(props: GameImagesProps) {
           animationClass: "image-slide-in-bottom",
         },
         {
-          name: gameData.objs_image_links.obj3 || "Obj3",
-          url: gameData.objs_image_links.img_link3,
+          name: gameData.objs_image_links.obj4 || "Obj4",
+          url: gameData.objs_image_links.img_link4,
           animationClass: "image-slide-in-other-side",
         },
       ]);

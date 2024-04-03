@@ -48,9 +48,11 @@ export interface objs_images {
   img_link1: string;
   img_link2: string;
   img_link3: string;
+  img_link4: string;
   obj1: string;
   obj2: string;
   obj3: string;
+  obj4: string;
 }
 
 export interface messageData {
