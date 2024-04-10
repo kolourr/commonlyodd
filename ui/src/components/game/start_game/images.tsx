@@ -47,22 +47,22 @@ export default function GameImages(props: GameImagesProps) {
       setImagesToShow([
         {
           name: "Create Session",
-          url: "https://via.placeholder.com/180",
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8209e650-8b9c-44a2-544e-36bf9eb9e800/public",
           animationClass: "image-slide-in-top",
         },
         {
           name: "Share Link",
-          url: "https://via.placeholder.com/180",
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/31465145-654c-48fc-2849-1da652707200/public",
           animationClass: "image-slide-in-side",
         },
         {
           name: "Join Call",
-          url: "https://via.placeholder.com/180",
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/946e2998-786c-4fab-25ed-7863412bf700/public",
           animationClass: "image-slide-in-bottom",
         },
         {
           name: "Start Game",
-          url: "https://via.placeholder.com/180",
+          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3b86ed8a-e91d-4880-b414-377316989b00/public",
           animationClass: "image-slide-in-other-side",
         },
       ]);

@@ -115,5 +115,5 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
 	broadcastToSession(sessionUUID, newMsg)
 
 	// Start a new 20-second timer for the new game
-	go startCountdown(conn, sessionUUID, 5)
+	go startCountdown(conn, sessionUUID, 0)
 }

@@ -46,47 +46,67 @@ async function generateImage(name) {
     .replace(/[^a-z0-9]/gi, "_")
     .toLowerCase()}.png`;
   const outputPath = path.join(imagesDir, sanitizedFilename);
-  const prompt = `A blemish free image of ${name}`;
+  const prompt = `An image of ${name}`;
   let imageUrl;
 
-  // Try generating with OpenAI
-  try {
-    const response = await openai.images.generate({
-      model: "dall-e-3",
-      n: 1,
-      prompt: prompt,
-      size: "1024x1024",
-    });
+  // // Try generating with OpenAI
+  // try {
+  //   const response = await openai.images.generate({
+  //     model: "dall-e-3",
+  //     n: 1,
+  //     prompt: prompt,
+  //     size: "1024x1024",
+  //   });
 
-    if (response.data && response.data.length > 0) {
-      imageUrl = response.data[0].url; // Set imageUrl from OpenAI's response
+  //   if (response.data && response.data.length > 0) {
+  //     imageUrl = response.data[0].url; // Set imageUrl from OpenAI's response
+  //     await downloadAndSaveImage(imageUrl, outputPath);
+  //     return { outputPath, sanitizedFilename }; // Return both path and filename
+  //   }
+  // } catch (error) {
+  //   console.error(`Failed with OpenAI for ${name}: ${error.message}`);
+  // }
+
+  // // If OpenAI did not generate an image, try with Replicate
+  // if (!imageUrl) {
+  //   try {
+  //     const output = await replicate.run(
+  //       "stability-ai/sdxl:c221b2b8ef527988fb59bf24a8b97c4561f1c671f73bd389f866bfb27c061316",
+  //       {
+  //         input: {
+  //           prompt,
+  //         },
+  //       }
+  //     );
+
+  //     if (output && output.length > 0) {
+  //       imageUrl = output[0]; // Assume this returns the direct URL to the image
+  //       await downloadAndSaveImage(imageUrl, outputPath);
+  //       return { outputPath, sanitizedFilename }; // Return both path and filename
+  //     }
+  //   } catch (error) {
+  //     console.error(`Failed with Replicate for ${name}: ${error.message}`);
+  //   }
+  // }
+
+  // If OpenAI did not generate an image, try with Replicate
+  try {
+    const output = await replicate.run(
+      "stability-ai/sdxl:c221b2b8ef527988fb59bf24a8b97c4561f1c671f73bd389f866bfb27c061316",
+      {
+        input: {
+          prompt,
+        },
+      }
+    );
+
+    if (output && output.length > 0) {
+      imageUrl = output[0]; // Assume this returns the direct URL to the image
       await downloadAndSaveImage(imageUrl, outputPath);
       return { outputPath, sanitizedFilename }; // Return both path and filename
     }
   } catch (error) {
-    console.error(`Failed with OpenAI for ${name}: ${error.message}`);
-  }
-
-  // If OpenAI did not generate an image, try with Replicate
-  if (!imageUrl) {
-    try {
-      const output = await replicate.run(
-        "stability-ai/sdxl:c221b2b8ef527988fb59bf24a8b97c4561f1c671f73bd389f866bfb27c061316",
-        {
-          input: {
-            prompt,
-          },
-        }
-      );
-
-      if (output && output.length > 0) {
-        imageUrl = output[0]; // Assume this returns the direct URL to the image
-        await downloadAndSaveImage(imageUrl, outputPath);
-        return { outputPath, sanitizedFilename }; // Return both path and filename
-      }
-    } catch (error) {
-      console.error(`Failed with Replicate for ${name}: ${error.message}`);
-    }
+    console.error(`Failed with Replicate for ${name}: ${error.message}`);
   }
 
   // If an image URL was successfully retrieved, download and save the image
@@ -124,7 +144,7 @@ async function uploadToCloudflare(filePath) {
 
 // Process the CSV, generate and upload images, then update the CSV
 async function processCsvAndImages() {
-  const csvFilePath = path.join(imagesDir, "object_images.csv");
+  const csvFilePath = path.join(imagesDir, "output.csv");
   const rows = [];
 
   createReadStream(csvFilePath)

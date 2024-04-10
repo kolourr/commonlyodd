@@ -102,8 +102,7 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="text-base">
-            <EditOutlined fontSize="medium" /> to create session prior to
-            starting the game.
+            <EditOutlined fontSize="medium" /> to create session for the game.
           </div>
         </div>
       );

@@ -1,0 +1,1950 @@
+id,obj_1,obj_2,obj_3,odd,reason_for_similarity,obj_4
+2223,Han Solo,Yoda,Luke Skywalker,Han Solo,The others are Jedi Knights,Anakin Skywalker
+2224,The Statue of Zeus at Olympia,The Terracotta Army,The Great Pyramid of Giza,The Terracotta Army,The others are Ancient Wonders of the World.,The Colossus of Rhodes
+2225,Killer Frost,Batman,The Atom,Batman,The others have superhuman abilities.,Superwoman
+2226,Beryllium,Lithium,Helium,Helium,The others are Alkali and Alkaline Earth Metals,Sodium
+2227,Hannibal,Julius Caesar,Marc Antony,Hannibal,The others are Roman politicians.,Lepidus
+2228,Insect,Bird,Lizard,Insect,The others are vertebrates.,Fish
+2229,Beef Bourguignon,Souvlaki,Coq au Vin,Tiramisu,The others are savory dishes,Tiramisu
+2230,Fred Flintstone,Elmer Fudd,Donald Duck,Donald Duck,The others are from Hanna-Barbera cartoons.,Barney Rubble
+2231,Claude Monet,Piet Mondrian,Kazimir Malevich,Claude Monet,The others are associated with abstract art.,Henri Matisse
+2232,Comet,Hail,Snow,Comet,The others are forms of precipitation,Rain
+2233,Hermione Granger,Ron Weasley,Harry Potter,Draco Malfoy,The others are Gryffindor students in Harry Potter.,Draco Malfoy
+2234,Paris,Dublin,Tokyo,Tokyo,The others are in Europe,Madrid
+2235,Wonder Woman,Hawkgirl,Martian Manhunter,The Penguin,The others are from Justice League.,The Penguin
+2236,Barometer,Altimeter,Anemometer,Altimeter,The others measure atmospheric conditions.,Thermometer
+2237,John Constable,JMW Turner,Pablo Picasso,Pablo Picasso,The others are British artists,Thomas Gainsborough
+2238,Pico della Mirandola,Marsilio Ficino,Desiderius Erasmus,John Locke,The others are Renaissance philosophers.,John Locke
+2239,Basalt,Granite,Shale,Basalt,The others are sedimentary rocks.,Mudstone
+2240,Rose,Elm,Spruce,Rose,The others are types of trees.,Ash
+2241,Forum,Agora,Symposium,Market,The others are places for discussion and debate in ancient societies.,Market
+2242,The Statue of Liberty,The Venus de Milo,The Thinker,The Statue of Liberty,The others are ancient sculptures,The Venus of Willendorf
+2243,Neon,Sulfur,Oxygen,Neon,The others are Chalcogens,Selenium
+2244,The Flash,Two-Face,The Riddler,Green Arrow,The others are Batman villains,Green Arrow
+2245,Blacksmith,Carpenter,Baker,Baker,The others work with metal in some form.,Farrier
+2246,Thomas Edison,Nikola Tesla,Albert Einstein,Albert Einstein,The others are inventors of electrical devices,Alexander Graham Bell
+2247,Salvador Dali,Titian,Michelangelo,Salvador Dali,The others are Italian Renaissance artists.,Raphael
+2248,Oak,Pecan,Maple,Oak,The others are types of wood used to smoke food,Hickory
+2249,Fennel,Cayenne,Rosemary,Cayenne,The others are herbs used in European cuisine,Dill
+2250,Joseph Haydn,Robert Schumann,George Frideric Handel,Robert Schumann,The others are classical composers,Mozart
+2251,Blini,Pancakes,Enchiladas,Blini,The others are Mexican dishes,Tacos
+2252,Green Lantern,Iron Fist,Thor,Iron Fist,The others are from space,Silver Surfer
+2253,Wilbur Wright,Orville Wright,George Eastman,George Eastman,The others are pioneers in aviation,Amelia Earhart
+2254,Dwight D. Eisenhower,Martin Van Buren,Benjamin Franklin,Benjamin Franklin,The others are U.S. Presidents,Andrew Jackson
+2255,Thanos,Gamora,Star-Lord,Star-Lord,The others are related.,Nebula (character)
+2256,Marjoram,Basil,Nutmeg,Nutmeg,The others are herbs,Oregano
+2257,Spiderman,Wonder Woman,Batman,Spiderman,The others are DC Comics characters,Robin
+2258,Ant,Mosquito,Butterfly,Mosquito,The others are pollinators,Bee
+2259,Quicksilver,Flash,Black Canary,Quicksilver,The others are DC Comics characters.,Batman
+2260,Parsley,Turmeric,Salt,Salt,The others are spices.,Ginger
+2261,Ulna,Femur,Tibia,Tibia,The others are bones in the arm.,Radius
+2262,Silver (metal),Copper,Zinc,Magnesium,The others are transition metals,Magnesium
+2263,Thunderstorm,Blizzard,Tornado,Earthquake,The others are atmospheric phenomena,Earthquake
+2264,Iron,Aluminum,Indium,Iron,The others are post-transition metals.,Gallium
+2265,Chalk,Basalt,Gabbro,Chalk,The others are igneous rocks,Andesite
+2266,Hanbok,Kimono,Toga,Toga,The others are Asian traditional dresses,Sari
+2267,Sodium,Rubidium,Potassium,Gallium,The others are alkali metals,Gallium
+2268,Gulf Stream,Jet Stream,Trade Winds,Gulf Stream,The others are atmospheric winds,Monsoon
+2269,Light Bulb,The Musket,Gutenberg's Printing Press,Light Bulb,The others are inventions of early to late Renaissance period.,Telescope
+2270,Orchid,Maple,Lily,Pine,The others are flowering plants.,Pine
+2271,Cactus,Fern,Maple,Cactus,The others are non-desert plants,Moss
+2272,Rhyolite,Chert,Granite,Chert,The others are types of igneous rocks,Dacite
+2273,Rose,Oak Tree,Algae,Algae,The others are primarily pollinated,Sunflower
+2274,Coconut,Banana,Rose,Rose,The others are types of trees,Oak
+2275,Brachiosaurus,Stegosaurus,Triceratops,Spinosaurus,The others are herbivorous dinosaurs,Spinosaurus
+2276,Charles Darwin,Gregor Mendel,James Watson,Nikola Tesla,The others are known for their contributions to biology.,Nikola Tesla
+2277,Scallions,Garlic,Chives,Cloves,The others are Allium genus (onion family) plants,Cloves
+2278,Zorbing,Bowling,Bouldering,Bouldering,The others are activities involving a spherical object,Soccer
+2279,Transcription,Mitosis,Meiosis,Photosynthesis,The others are types of cell division.,Photosynthesis
+2280,Malta,Crete,Iceland,Iceland,The others are Mediterranean islands.,Cyprus
+2281,Lipid,Protein,DNA,Glucose,The others are macromolecules,Glucose
+2282,Black Pudding,Morcilla,Chorizo,Pancetta,The others are types of blood sausage,Pancetta
+2283,Marigold,Maple,Sunflower,Maple,The others are flowers,Daisy
+2284,Basalt,Granite,Pumice,Granite,The others are volcanic rocks.,Obsidian
+2285,Tiger,Owl,Snake,Tiger,The others are nocturnal,Bat
+2286,Alain Ducasse,Emeril Lagasse,Julia Child,Julia Child,The others are French chefs,Pierre Gagnaire
+2287,Pigeon,Dove,Falcon,Penguin,The others are able to fly,Penguin
+2288,Boiling,Steaming,Roasting,Roasting,The others are cooking methods using liquid.,Braising
+2289,Phosphorus,Oxygen,Sulfur,Oxygen,The others are nonmetals in group 15 of the periodic table,Nitrogen
+2290,Combat Fatigue (Battle Fatigue),Shell Shock (PTSD),Appendicitis,Appendicitis,The others are related to war trauma.,Traumatic Brain Injury (TBI)
+2291,Mars,Neptune,Saturn,Mars,The others are gas giants.,Jupiter
+2292,Sibylline Oracle,Oracle of Delphi,Vestal Virgin,Vestal Virgin,The others are associated with prophecy in ancient Greece,Pythia
+2293,Palm,Sequoia,Douglas-fir,Palm,The others are coniferous trees,Redwood
+2294,Osiris,Cleopatra,Horus,Cleopatra,The others are deities in ancient Egyptian mythology.,Anubis
+2295,Champagne,Rum,Tequila,Champagne,The others are spirits,Gin
+2296,Bach,Antonio Vivaldi,Handel,Mozart,The others are Baroque composers.,Mozart
+2297,Pulsar,Quasar,Radio Galaxy,Star Cluster,The others are sources of strong radio waves.,Star Cluster
+2298,John Nash,Friedrich Hayek,Paul Samuelson,Rainer Weiss,The others are Nobel laureates in Economics,Rainer Weiss
+2299,Ahmed Zewail,Dorothy Crowfoot Hodgkin,Marie Curie,Richard P. Feynman,The others are Nobel Laureates in the field of Chemistry.,Richard P. Feynman
+2300,Birch,Pine,Oak,Pine,The others are deciduous trees,Maple
+2301,Storm,Wolverine,Jean Grey,Robin,The others are members of X-Men.,Robin
+2302,Dante,Cervantes,Petrarch,Shakespeare,The others wrote in Romance languages.,Shakespeare
+2303,Avenue Montaigne,River Thames,Michigan Avenue,River Thames,The others are famous shopping streets.,Passeig de Gràcia
+2304,Cicero,Aristotle,Plato,Cicero,The others are Greek philosophers.,Socrates
+2305,Pteranodon,Rhamphorhynchus,Quetzalcoatlus,Archaeopteryx,The others are pterosaurs.,Archaeopteryx
+2306,Sparrow,Eagle,American Robin,Eagle,The others are passerine birds,European Starling
+2307,Tyrannosaurus Rex,Carnotaurus,Allosaurus,Triceratops,The others are carnivorous dinosaurs.,Triceratops
+2308,Tehran,Abu Dhabi,Riyadh,Haifa,The others are capital cities in the Middle East,Haifa
+2309,AT-AT (All Terrain Armored Transport),Star Destroyer,Millennium Falcon,Millennium Falcon,The others are Imperial vehicles.,TIE Fighter
+2310,Daredevil,Black Bolt,Banshee,Wolverine,The others have sonic-based abilities,Wolverine
+2311,Cotton Gin,Water Frame,Flying Shuttle,Cotton Gin,The others are directly involved in the process of weaving cloth,Spinning Jenny
+2312,Sputnik Launch,Cuban Missile Crisis,Bay of Pigs Invasion,Apollo 11 Landing,The others are related to the Cold War,Apollo 11 Landing
+2313,Fyodor Dostoevsky,Leo Tolstoy,Charles Dickens,Charles Dickens,The others are Russian authors.,Anton Chekhov
+2314,Starry Night,The Kiss,Girl with a Pearl Earring,The Kiss,The others are oil paintings,The Birth of Venus
+2315,Kepler-22b,Neptune,Jupiter,Kepler-22b,The others are planets in the solar system.,Mars
+2316,Gandalf,Shelob,Smaug,Gandalf,The others are villains in Tolkien's universe,Balrog
+2317,Owl,Gull,Tern,Bat,The others are birds,Bat
+2318,Probus,Caligula,Cato,Cato,The others are Roman Emperors.,Aurelian
+2319,Nirvana,Soundgarden,Alice In Chains,The Kinks,The others are grunge bands,The Kinks
+2320,Mickey Mouse,Snoopy,Charlie Brown,Mickey Mouse,The others are comic strip characters,Garfield
+2321,Mona Lisa,Guernica,The Starry Night,The Starry Night,The others are portraits of people.,The Girl with a Pearl Earring
+2322,Handel,Debussy,Haydn,Debussy,The others are Classical era composers.,Mozart
+2323,Knight,King,Queen,Rook,The others are human titles,Rook
+2324,Balance Beam,Balance of Payments,Fiscal Balance,Balance Beam,The others are economic indicators,Balance of Trade
+2325,Fort McHenry,Fort Collins,Fort Knox,Fort Collins,The others are U.S. military forts.,Fort Sumter
+2326,Bessemer Process,Morse Code,Spinning Jenny,Morse Code,The others are inventions related to the Industrial Revolution.,Power Loom
+2327,Bach,Chopin,Beethoven,Chopin,The others are German composers,Wagner
+2328,Churros,Arancini,Baklava,Arancini,The others are pastries,Empanadas
+2329,Gothic Column,Ionic Column,Doric Column,Gothic Column,The others are ancient Greek architectural orders,Corinthian Column
+2330,Jupiter (Rome),Hercules,Remus,Jupiter (Rome),The others are demigods from Roman mythology.,Aeneas
+2331,Madagascar,Greenland,Sri Lanka,Greenland,The others are tropical islands.,Borneo
+2332,Achilles,King Arthur,Beowulf,King Arthur,The others are demigods.,Hercules
+2333,Black Sabbath,Deep Purple,Oasis (band),Oasis,The others are formed in 60s.,The Beatles
+2334,The Behistun Inscription,The Rosetta Stone,Antikythera Mechanism,Antikythera Mechanism,The others are inscriptions,The Code of Hammurabi
+2335,Turmeric,Pine Bark,Cassia,Turmeric,The others are bark spices,Cinnamon
+2336,Baking Powder,Soy Sauce,Flour,Soy Sauce,The others are used in baking.,Butter
+2337,Bird,Rabbit,Squirrel,Kangaroo,The others are small mammals,Kangaroo
+2338,Souvlaki,Moussaka,Beef Stroganoff,Beef Stroganoff,The others are traditional Mediterranean dishes.,Paella
+2339,Proxima Centauri,Andromeda Galaxy,Sirius,Andromeda Galaxy,The others are stars,Betelgeuse
+2340,Anemometer,Wind Vane,Sundial,Sundial,The others are weather tools.,Barometer
+2341,Eiffel Tower,Versailles,Tuileries Palace,Eiffel Tower,The others are royal residences,Bastille
+2342,Aloe Vera,Echeveria,Spider Plant,Spider Plant,The others are succulents,Jade Plant
+2343,50%,100%,10%,10%,The others are fractions of 100% that are powers of 2,25%
+2344,12.50%,1/8,0.125,0.15,The others are different representations of the same number,0.15
+2345,10%,30%,20%,25%,The others are multiples of 10,25%
+2346,0.5,0.125,0.375,0.5,The others are eighths,0.25
+2347,3.14,3.14159,3.33333,3.33333,The others are approximations of Pi,22/7
+2348,6,8,4,6,The others are powers of 2,16
+2349,3,7,5,8,The others are prime numbers,8
+2350,4,25,64,25,The others are squares of even numbers,16
+2351,81,49,9,49,The others are powers of 3,3
+2352,48,64,24,64,The others are multiples of 12,36
+2353,9,64,25,64,The others are squares of prime numbers,4
+2354,121,880,160,160,The others are multiples of 11,132
+2355,143,91,121,121,The others are multiples of 13,104
+2356,61,49,2401,61,The others are powers of 7,343
+2357,2/3,1/3,1/2,2/3,The others are reciprocals of natural numbers,1/4
+2358,2/4,3/6,1/2,1/3,The others are equivalent to 0.5,1/3
+2359,1/3,2/5,1/2,2/5,The others are unit fractions,1/4
+2360,1/2,1/4,1/8,1/3,The others are fractions that can be expressed as powers of 2,1/3
+2361,2*2,2+2,2/2,2/2,The others result in 4,2^2
+2362,8/4,2/3,3/4,8/4,The others are less than 1,1/2
+2363,1/2,2/4,3/6,4/7,The others are operations resulting in 0.5,4/7
+2364,8/10,2/3,4/6,8/10,The others are equivalent to 2/3,6/9
+2365,7/2,10/5,8/4,7/2,The others are operations resulting in 2,20/10
+2366,√9,√16,√4,√5,The others result in an integer,√5
+2367,√2,√3,√4,√4,The others are irrational numbers,√5
+2368,1/5*50,50% of 30,0.2*50,50% of 30,The others equal 10,20% of 50
+2369,π/4 radians,45 degrees,1/6 of a full turn,1/6 of a full turn,The others are equivalent to 45 degrees,1/8 of a full turn
+2370,1^2,2^1,1+1,1^2,The others equal 2,2*1
+2371,30% of 100,20% of 100,10% of 100,50% of 50,The others equal 20,50% of 50
+2372,3-4-5 triangle,7-24-25 triangle,5-12-13 triangle,3-4-7 triangle,The others are Pythagorean triples,3-4-7 triangle
+2373,Oval,Circle,Ellipse,Square,The others have curved lines,Square
+2374,Hexagon,Hyperbola,Ellipse,Hexagon,The others are conic sections,Parabola
+2375,3^2,√81,3^log3(9),9!,The others equal 9,9!
+2376,386,193,772,965,The others are multiples of 193,965
+2377,390,195,978,978,The others are multiples of 195,780
+2378,985,394,197,985,The others are multiples of 197,788
+2379,201,1608,404,404,The others are multiples of 201,402
+2380,Tan(45),Cos(0),Sin(90),Sin(0),The others equal 1,Sin(0)
+2381,Friction,Light,Gravity,Light,The others are forces.,Magnetism
+2382,Drawbridge,Throne,Crown,Crown,The others are architectural features.,Moat
+2383,Himalayas,Mount Olympus,Sierra Nevada,Mount Olympus,The others are mountain ranges,Andes
+2384,William Shakespeare,Arthur Conan Doyle,J.D. Salinger,J.D. Salinger,The others are British authors.,Agatha Christie
+2385,Woodrow Wilson,Theodore Roosevelt,George Washington,Woodrow Wilson,The others are on Mount Rushmore,Abraham Lincoln
+2386,Ankh,Sphinx,Scarab,Sphinx,The others are handheld Egyptian artifacts,Book of the Dead
+2387,Falconry,Farming,Hunting,Carpentry,The others are related to food procurement,Carpentry
+2388,Alexander the Great,Gaius Marius,Scipio Africanus,Alexander the Great,The others are Romans,Julius Caesar
+2389,Harley Quinn,Wonder Woman,Iron Man,Iron Man,The others are DC characters,Aquaman
+2390,Metatarsals,Femur,Metacarpals,Femur,The others are bones in the hands or feet,Carpals
+2391,Guild,Orchestra,Market,Market,The others are types of associations,Confraternity
+2392,Dorothea Dix,Clara Barton,Elizabeth Blackwell,Elizabeth Blackwell,The others are known for their work in nursing during war times.,Florence Nightingale
+2393,Phaser,Klingon Bat'leth,Romulan Disruptor,Tricorder,The others are weapons.,Tricorder
+2394,The Merovingian,Neo,The Trainman,Neo,The others are programs in Matrix,Seraph
+2395,John Logie Baird,Alexander Bell,Philo Farnsworth,Eli Whitney,The others are television inventors.,Eli Whitney
+2396,Kangaroo,Rabbit,Spider,Spider,The others are mammals,Mouse
+2397,Granite,Phyllite,Limestone,Limestone,The others are metamorphic rocks,Slate
+2398,The Venus of Milo,The Terracotta Army,The Statue of David,The Terracotta Army,The others are single piece sculptures,The Mona Lisa
+2399,The World Bank,The Bank of England,The Fugger Bank,The World Bank,The others are historical family-owned banks.,The Medici Bank
+2400,Atlantis,Pompeii,Herculaneum,Atlantis,The others are real and confirmed archaeological sites,Machu Picchu
+2401,Kiwi,Hornbill,Osprey,Kiwi,The others are tropical birds,Toucan
+2402,Tone Deafness,Relative Pitch,Perfect Pitch,Color Blind,The others are related to auditory perception.,Color Blind
+2403,Maple,Magnolia,Cedar,Cedar,The others are flowering trees.,Tulip Tree
+2404,Rose,Fern,Moss,Rose,The others are types of non-flowering plants,Pine
+2405,Escargot,Foie Gras,Caviar,Truffle,The others are animal-based foods.,Truffle
+2406,Migos,Drake,Future (rapper),Drake,The others are from Atlanta.,OutKast
+2407,Teal (not color),Mallard,Penguin,Hawk,The others are waterfowl,Hawk
+2408,Mars,Venus,Jupiter,Jupiter,The others are terrestrial planets,Earth
+2409,Camille Desmoulins,Georges Danton,Jean-Paul Marat,Charlotte Corday,The others are leaders of the French Revolution,Charlotte Corday
+2410,Flash,Black Panther,Captain America,Flash,The others are from Marvel Comics.,Thor
+2411,Semiconductor,Insulator,Conductor,Transformer,The others are material types.,Transformer
+2412,Airbus,Boeing,Lockheed Martin,Tesla,The others are Aerospace manufacturers.,Tesla
+2413,Hare,Lion,Rabbit,Lion,The others are herbivores,Kangaroo
+2414,Hazzan,Imam,Mohel,Imam,The others are Jewish religious roles.,Pastor
+2415,Flea,Tick,Mosquito,Spider,The others are blood-sucking parasites.,Spider
+2416,Cava,Prosecco,Lambrusco,Chianti,The others are sparkling wines,Chianti
+2417,Privet,Forsythia,Juniper,Juniper,The others are flowering shrubs,Lilac
+2418,Buddhism,Taoism,Sikhism,Taoism,The others are monotheistic religions,Judaism
+2419,Insulin,Lactoferrin,Hemoglobin,Insulin,The others are non-hormonal,Lysozyme
+2420,Bastet,Horus,Anubis,Horus,The others are associated with death.,Sobek
+2421,Barley,Amaranth,Millet,Sunflower,The others are cereal grains,Sunflower
+2422,Freya,Artemis,Thor,Thor,The others are Greek gods.,Dionysus
+2423,Carniolan Bee,Mason Bee,Italian Bee,Bumblebee,The others are honey producing bees.,Bumblebee
+2424,Chrysocolla,Azurite,Opal,Opal,The others are copper minerals.,Calcite
+2425,Poseidon,Dionysus,Hermes,Hestia,The others are Olympian gods of travel or movement,Hestia
+2426,Negroni,Old Fashioned,Mimosa,Mimosa,The others are stirred cocktails,Martini
+2427,Asparagus,Carrot,Celery,Olives,The others are vegetables,Olives
+2428,Parsnip,Potato,Garlic,Garlic,The others are root vegetables.,Carrot
+2429,Epicurus,Socrates,Marcus Aurelius,Socrates,The others are Roman Stoics.,Seneca
+2430,The Kalevala,The Mahabharata,The Great Gatsby,The Great Gatsby,The others are ancient epic poems.,The Odyssey
+2431,Blue Whale,Pilot Whale,Bowhead Whale,Killer Whale,The others are from the whale family. Killer Whales are dolphins.,Killer Whale
+2432,Draco,Orion,Andromeda,Orion,The others are sea creatures in mythology,Cetus
+2433,Adder,Sea Snake,Anaconda,Anaconda,The others are venomous,Viper
+2434,Curb Your Enthusiasm,Seinfeld,Friends,The Sopranos,The others are sitcoms,The Sopranos
+2435,Panda Bear,Grizzly Bear,Kodiak Bear,Polar Bear,The others are brown bears,Polar Bear
+2436,Manuka Honey,Royal Jelly,Spirulina,Spirulina,The others are bee products.,Bee Propolis
+2437,Mexican Beaded Lizard,Green Iguana,Komodo Dragon,Green Iguana,The others are venomous lizards.,Gila Monster
+2438,Empedocles,Epictetus,Parmenides,Epictetus,The others are Pre-Socratic philosophers.,Heraclitus
+2439,Marcus Aurelius,Seneca,Aristotle,Aristotle,The others are Stoic philosophers.,Epicurus
+2440,Blacktip Shark,Nurse Shark,Blue Shark,Nurse Shark,The others are requiem sharks,Leopard Shark
+2441,Fin Whale,Dugong,Dolphin,Dolphin,The others are herbivores.,Manatee
+2442,Wax,Resin,Amber,Wood,The others are natural polymers,Wood
+2443,Croissant,Brioche,Shokupan,Shokupan,The others are types of French bread,Baguette
+2444,Dionysus God,Mars God,Freya God,Freya God,The others are Roman Gods.,Bacchus God
+2445,Black Widow,Aquaman,Hawkeye,Aquaman,The others are members of the Avengers.,Captain America
+2446,Daffodil,Hyacinth,Chrysanthemum,Chrysanthemum,The others are spring-blooming flowers,Tulip
+2447,Bee,Termite,Ant,Spider,The others are social insects.,Spider
+2448,Peppermint,Lavender,Lemon Balm,Lavender,The others are members of the mint family,Basil
+2449,Bane,Green Goblin,Iron Man,Iron Man,The others are Spider-Man's foes,Doctor Octopus
+2450,Carving,Painting,Sculpting,Painting,The others are subtractive art techniques,Whittling
+2451,Actin,Hemoglobin,Myosin,Albumin,The others are contractile proteins,Albumin
+2452,Eggplant,Zucchini,Yellow Squash,Cucumber,The others belong to the nightshade family,Cucumber
+2453,Polio,Hemophilia,Measles,Hemophilia,The others are infectious diseases,Malaria
+2454,Clownfish,Gourami,Swordtail,Clownfish,The others are freshwater fish,Mollie
+2455,Atlantis,Xanadu,Gomorrah,Xanadu,The others are cities that were destroyed according to myth/religion,Sodom
+2456,Gruyere,Cream Cheese,Lard,Lard,The others are types of cheese.,Emmental
+2457,Beetroot,Onion,Radish,Potato,The others are roots.,Potato
+2458,Senate,Optimates,Populares,Consul,The others are political factions in ancient Rome,Consul
+2459,Picasso,Sun Tzu,Machiavelli,Picasso,The others are philosophers.,Nietzsche
+2460,Boxer Dog,Pit Bull,German Shepherd,Chihuahua,The others are large breed dogs.,Chihuahua
+2461,Claustrophobia,Entomophobia,Selachophobia,Claustrophobia,The others are phobias related to living beings.,Ichthyophobia
+2462,Crassus,Augustus,Cicero,Cicero,The others are Roman Generals.,Pompey
+2463,Humerus,Lacrimal,Mandible,Humerus,The others are facial bones.,Nasal
+2464,Croissant,Biscotti,Macaron,Croissant,The others are cookies,Meringue
+2465,Fudge,Flan,Creme Brulee,Sorbet,The others are dairy based desserts,Sorbet
+2466,Stonefish,Pufferfish,Clownfish,Clownfish,The others are venomous.,Stingray
+2467,Chimpanzee,Orangutan,Bonobo,Orangutan,The others are African primates,Gorilla
+2469,Dubai,Monaco,Sydney,Sydney,The others are in the Northern Hemisphere,Berlin
+2470,Calcaneus,Ulna,Talus,Ulna,The others are bones in the foot,Femur
+2471,Crossbow,Atlatl,Scythe,Scythe,The others are projectile weapons,Sling
+2472,Hammer,Screwdriver,Drill,Sander,The others are hand tools that have a pointed end.,Sander
+2473,Pesto,Saltimbocca,Osso Buco,Gelato,The others are meat-based Italian dishes.,Gelato
+2474,Osteoarthritis,Gout,Rheumatoid Arthritis,Gastritis,The others are types of arthritis,Gastritis
+2475,Lemon,Strawberry,Avocado,Strawberry,The others have a tough outer peel,Banana
+2476,Apple,Avocado,Banana,Lemon,The others are sweet when ripe,Lemon
+2477,Angelfish,Discus,Monkfish,Monkfish,The others are types of tropical fish,Butterfly Fish
+2478,Horse,Kangaroo,Elephant,Kangaroo,The others are ungulates,Zebra
+2479,Ballista,Lance,Trebuchet,Lance,The others are siege weapons.,Catapult
+2480,Thonis-Heracleion,Canopus,Atlantis,Eldorado,The others are sunken cities.,Eldorado
+2481,Death Cap,Henbane,Belladonna,Dandelion,The others are poisonous,Dandelion
+2482,Edam,Cheddar,Ricotta,Ricotta,The others are hard cheeses,Gouda
+2483,Aeneas,Antigone,Oedipus,Hamlet,The others are from Greek myths.,Hamlet
+2484,Pneumonia,Psoriasis,Asthma,Pneumonia,The others are skin conditions.,Eczema
+2485,Tiramisu,Cheesecake,Baklava,Baklava,The others are Italian desserts.,Panna Cotta
+2486,Violin,Aulos,Lyre,Violin,The others are ancient Greek musical instruments,Harp
+2487,Scimitar,Javelin,Katana,Javelin,The others are curved swords.,Wakizashi
+2488,Trojan War,Caesar's Civil War,Punic Wars,Trojan War,The others are wars led by Romans.,Gallic Wars
+2489,Bo Staff,Sling,Quarterstaff,Sling,The others are types of staffs.,Longbow
+2490,Red-Eared Slider,Green Sea Turtle,Leopard Gecko,Leopard Gecko,The others are semi-aquatic reptiles.,Crested Gecko
+2491,Humerus,Ribs,Femur,Femur,The others are bones in the upper body,Sternum
+2492,Persian cat,Bengal cat,Abyssinian cat,Bengal cat,The others are cat breeds originated from Africa,Somali cat
+2493,Hummingbird,Galapagos Tortoise,Dandelion,Dandelion,The others are long-lived species,Sequoia Tree
+2494,Mandible,Temporal,Femur,Femur,The others are bones in the skull.,Parietal
+2495,Siamese Cat,Maine Coon Cat,Turkish Van Cat,Siamese Cat,The others are Turkish breeds,Turkish Angora Cat
+2496,Battle of Zama,Battle of Cannae,Battle of Alesia,Battle of Waterloo,The others are battles involving Romans,Battle of Waterloo
+2497,Mount Logan,Mount Kenya,Mount Kilimanjaro,Mount Olympus,The others are in the Seven Summits list,Mount Olympus
+2498,Nasal,Femur,Radius,Radius,The others are facial bones,Vomer
+2499,Oarlock,Hatch,Wheel,Wheel,The others are found on boats,Porthole
+2500,Carrot Cake,Lemon Tart,Apple Pie,Carrot Cake,The others are made with fruit,Key Lime Pie
+2501,Bridge,Lighthouse,Dock,Bridge,The others are directly associated with water bodies,Marina
+2502,Carrot,Cauliflower,Broccoli,Carrot,The others are part of the Brassica genus.,Potato
+2503,Myopia,Cataracts,Lupus,Lupus,The others are eye diseases,Glaucoma
+2504,Plateau,Butte,Mesa,Delta,The others are types of flat-topped landforms.,Delta
+2505,Blowgun,War Hammer,Longbow,Blowgun,The others are melee weapons,Morning Star
+2506,Eclair,Macaron,Madeleine,Baguette,The others are pastries.,Baguette
+2507,Humerus,Lumbar vertebrae,Cervical vertebrae,Humerus,The others are types of vertebrae,Thoracic vertebrae
+2508,Darius III,Hephaestion,Demosthenes,Darius III,The others are Alexander's allies,Cassander
+2509,Flea,Ladybug,Tick,Ladybug,The others are blood-sucking pests.,Mosquito
+2510,Minerva,Athena,Sphinx,Sphinx,The others are gods in ancient mythology.,Apollo
+2511,Sunflower,Rice,Potato,Sunflower,The others are staple foods.,Wheat
+2512,Dragonfly,Hummingbird,Hawkmoth,Dragonfly,The others are pollinators.,Butterfly
+2513,Gloves,Hoodie,Boots,Boots,The others are worn on the upper body.,Coat
+2514,Helium,Hydrogen,Iron (element),Iron,The others are elements in the first period of the periodic table.,Lithium
+2515,Casino (movie),The Godfather (movie),Goodfellas (movie),The Shawshank Redemption (movie),The others are movies about the mafia.,The Shawshank Redemption (movie)
+2516,Hydrogen,Oxygen,Carbon,Carbon,The others are diatomic elements.,Nitrogen
+2517,Shrek,The Lion King,Aladdin,Shrek,The others are Disney animated movies,Mulan
+2518,Genghis Khan,Napoleon Bonaparte,Thomas Jefferson,Thomas Jefferson,The others are conquerors,Julius Caesar
+2519,Ferdinand Magellan,Marco Polo,Christopher Columbus,Marco Polo,The others are sea explorers,Vasco da Gama
+2520,Guernica,Girl with a Pearl Earring,Mona Lisa,Guernica,The others are from the Renaissance period,The Last Supper
+2521,Battle of Agincourt,Battle of Poitiers,Battle of Crécy,Battle of Hastings,The others are battles of the Hundred Years' War,Battle of Hastings
+2522,The Sistine Chapel,The Creation of Adam,The Last Judgment,The School of Athens,The others are parts of the Sistine Chapel,The School of Athens
+2523,The Battle of Bosworth Field,The Battle of Castillon,The Battle of Stoke Field,The Battle of Castillon,The others are battles in the Wars of the Roses,The Battle of Tewkesbury
+2524,The Battle of Bicocca,The Battle of Agincourt,The Battle of Marignano,The Battle of Agincourt,The others are battles in the Italian Wars,The Battle of Pavia
+2525,The Siege of Harfleur,The Siege of Florence,The Siege of Rouen,The Siege of Florence,The others are sieges in the Hundred Years' War,The Siege of Orleans
+2526,The Council of Trent,The Council of Basel,The Council of Constance,The Council of Trent,The others are 15th century Church councils,The Council of Florence
+2527,The Fall of Tenochtitlan,The Fall of Granada,The Fall of Rhodes,The Fall of Tenochtitlan,The others are falls of cities in the 15th century,The Fall of Constantinople
+2528,The House of Medici,The House of Valois,The House of York,The House of Medici,The others are royal houses in the Wars of the Roses,The House of Lancaster
+2529,The Treaty of Alcáçovas,The Treaty of Windsor,The Treaty of Versailles,The Treaty of Versailles,The others are treaties from the 15th century,The Treaty of Tordesillas
+2530,The Declaration of Independence,The Edict of Worms,The Diet of Worms,The Declaration of Independence,The others are events in the Reformation,The Confession of Augsburg
+2531,The Armada,The Mary Rose,The Santa Maria,The Santa Maria,The others are English ships of the 16th century,The Golden Hind
+2532,Anne Boleyn,Catherine Howard,Jane Seymour,Anne of Cleves,The others were beheaded by Henry VIII,Anne of Cleves
+2533,Columbus,Galileo,Kepler,Columbus,The others are astronomers,Copernicus
+2534,Marco Polo,Hernan Cortes,Ponce de Leon,Marco Polo,The others are 16th-century Spanish explorers,Vasco Nunez de Balboa
+2535,The Battle of Pavia,The Battle of Lepanto,The Battle of Hastings,The Battle of Hastings,The others are 16th-century battles,The Siege of Malta
+2536,Plymouth Colony,Sydney,Jamestown,Sydney,The others are 17th century colonial settlements in America.,New Amsterdam
+2537,Thomas Jefferson,Benjamin Franklin,John Adams,George Washington,The others signed the Declaration of Independence,George Washington
+2538,Rembrandt,Mozart,Haydn,Rembrandt,The others are composers,Beethoven
+2539,Voltaire,Diderot,Rousseau,Kant,The others are French Enlightenment philosophers,Kant
+2540,Emily Dickinson,Edgar Allan Poe,William Wordsworth,William Wordsworth,The others are 19th century American poets.,Walt Whitman
+2541,The Spanish-American War,The War of 1812,The Napoleonic Wars,The Napoleonic Wars,The others are 19th century wars involving the United States.,The American Civil War
+2542,The Grand Canal,The Panama Canal,The Erie Canal,The Grand Canal,The others are 19th plus century canals.,The Suez Canal
+2543,The Brooklyn Bridge,The Eiffel Tower,The Great Wall of China,The Great Wall of China,The others are 19th century structures.,The Statue of Liberty
+2544,The Internet,The Steam Engine,The Telegraph,The Internet,The others are 19th century communication inventions.,The Telephone
+2545,The War of 1812,World War I,The American Civil War,World War I,The others are 19th century wars.,The Spanish-American War
+2546,Edgar Allan Poe,John Milton,Walt Whitman,John Milton,The others are 19th century American authors,Emily Dickinson
+2547,JFK,Robert Kennedy,Martin Luther King Jr.,Richard Nixon,The others were assassinated in the 1960s.,Richard Nixon
+2548,Mini Skirt,Tie-dye shirts,Zoot Suit,Zoot Suit,The others are 1960s fashion trends.,Bell-bottoms
+2549,Sixteen Candles,The Breakfast Club,Ferris Bueller's Day Off,The Goonies,The others are John Hughes films,The Goonies
+2550,O.J. Simpson,Tonya Harding,Monica Lewinsky,Princess Diana,The others were involved in major American scandals,Princess Diana
+2551,Alanis Morissette,Celine Dion,Mariah Carey,Mariah Carey,The others are Canadian singers,Shania Twain
+2552,Google Chrome,Netscape Navigator,Mosaic,Google Chrome,The others are 90s web browsers,Internet Explorer
+2553,Fatboy Slim,Daft Punk,The Chemical Brothers,Daft Punk,The others are British electronic music acts,The Prodigy
+2554,Freyja,Zeus,Thor,Zeus,The others are Norse gods,Odin
+2555,Asgard,Midgard,Valhalla,Olympus,The others are realms in Norse mythology,Olympus
+2556,Berserker,Shield-Maiden,Gladiator,Gladiator,The others are Viking warrior classes,Skald
+2557,Jorvik,Hedeby,Rome,Rome,The others are Viking settlements,Birka
+2558,Neil Armstrong,Michael Collins,Buzz Aldrin,Yuri Gagarin,The others are Apollo 11 astronauts,Yuri Gagarin
+2559,Europa,Io,Moon,Moon,The others are Jupiter's moons,Titan
+2560,Departures,Baggage Claim,Arrivals,Runway,The others are sections inside the terminal building,Runway
+2561,Flight Attendant,Air Traffic Control,Co-Pilot,Flight Attendant,The others are in control of the aircraft,Pilot
+2562,Visa,Luggage,Boarding Pass,Luggage,The others are documents needed to travel,Passport
+2563,Security Check,Duty-Free Shop,Gate,Duty-Free Shop,The others are steps in the departure process,Check-in Desk
+2564,The Silk Road,The Route 66,The Incense Route,The Route 66,The others are Medieval trade routes,The Amber Road
+2565,Stethoscope,Handcuffs,Pepper spray,Stethoscope,The others are used by law enforcement,Baton
+2566,Ted Bundy,Hannibal Lecter,Zodiac Killer,Hannibal Lecter,The others are real-life serial killers,Jack the Ripper
+2567,Pablo Escobar,Robin Hood,John Gotti,Robin Hood,The others are notorious real-life criminals,Al Capone
+2568,David Koresh,Ted Kaczynski,Jim Jones,Ted Kaczynski,The others are cult leaders,Charles Manson
+2569,Al Capone,Lucky Luciano,John Dillinger,Pablo Escobar,The others are Prohibition-era gangsters,Pablo Escobar
+2570,Iron (element),Copper,Neon,Neon,The others are metals,Gold
+2571,Silicon,Germanium,Helium,Helium,The others are in the same group in the periodic table,Carbon
+2572,Argon,Bromine,Fluorine,Argon,The others are halogens,Chlorine
+2573,Neon,Krypton,Nitrogen,Nitrogen,The others are noble gases,Argon
+2574,Phosphorus,Aluminum,Copper,Copper,The others are in the same period in the periodic table,Silicon
+2575,Beryllium,Magnesium,Calcium,Iron (element),The others are alkaline earth metals,Iron (element)
+2576,Nitrogen,Carbon,Neon,Neon,The others are life-essential elements,Oxygen
+2577,Nitrogen,Neon,Helium,Nitrogen,The others are inert gases,Argon
+2578,Magnesium,Calcium,Argon,Argon,The others are group 2 elements,Beryllium
+2579,Fluorine,Argon,Chlorine,Argon,The others are reactive nonmetals,Bromine
+2580,Lithium,Sodium,Chlorine,Chlorine,The others are soft metals,Potassium
+2581,Calcium,Beryllium,Magnesium,Iron (element),The others are reactive with water,Iron (element)
+2582,Neon,Oxygen,Nitrogen,Neon,The others are essential for life,Carbon
+2583,Europa,Io,Venus,Venus,The others are moons.,Titan
+2584,Venus,Sirius,Sun,Venus,The others are stars.,Alpha Centauri
+2585,Mike Wazowski,Buzz Lightyear,Jessie,Mike Wazowski,The others are from Toy Story,Woody
+2586,Snow White,Mad Hatter,Alice,Snow White,The others are from Alice in Wonderland,Queen of Hearts
+2587,Bambi,Dumbo,Mrs. Jumbo,Bambi,The others are from Dumbo,Timothy Q. Mouse
+2588,Simba,Tramp,Jock,Simba,The others are from Lady and the Tramp,Lady
+2589,Baloo,Shere Khan,Mowgli,Pongo,The others are from The Jungle Book,Pongo
+2590,Geppetto,Dopey,Jiminy Cricket,Dopey,The others are from Pinocchio,Pinocchio
+2591,Cinderella,Evil Queen,Snow White,Cinderella,The others are from Snow White and the Seven Dwarfs,Grumpy
+2592,Dumbo,Bambi,Thumper,Dumbo,The others are from Bambi,Flower
+2593,Mickey Mouse,Tigger,Winnie the Pooh,Mickey Mouse,The others are from Winnie the Pooh,Piglet
+2594,The Little Mermaid,Beauty and the Beast,The Rescuers,The Rescuers,The others are part of the Disney Renaissance,Aladdin
+2595,Elmer Fudd,Bugs Bunny,Mickey Mouse,Mickey Mouse,The others are Looney Tunes characters,Daffy Duck
+2596,Jerry,Scooby Doo,Spike,Scooby Doo,The others are Tom and Jerry characters,Tom
+2597,Fiona,Donkey,Woody,Woody,The others are Shrek characters,Shrek
+2598,Charmander,Pikachu,Bulbasaur,Totoro,The others are Pokemon characters,Totoro
+2599,Velma,Scooby Doo,Tom,Tom,The others are Scooby Doo characters,Shaggy
+2600,Stewie Griffin,Bob Belcher,Peter Griffin,Bob Belcher,The others are Family Guy characters,Lois Griffin
+2601,Squidward Tentacles,Patrick Star,Dora,Dora,The others are Spongebob Squarepants characters,Spongebob Squarepants
+2602,Batman,Lois Lane,Superman,Batman,The others are Superman characters,Lex Luthor
+2603,Batwoman,Ares,Steve Trevor,Batwoman,The others are Wonder Woman characters,Wonder Woman
+2604,War Machine,Batman,Pepper Potts,Batman,The others are Iron Man characters,Iron Man
+2605,Hulk,Odin,Thor,Hulk,The others are Thor characters,Loki
+2606,Spiderman,Green Goblin,Mary Jane,Batman,The others are Spiderman characters,Batman
+2607,Spiderman,Cyclops,Jean Grey,Spiderman,The others are X-Men characters,Wolverine
+2608,Cable,Deadpool,Vanessa,Wolverine,The others are Deadpool characters,Wolverine
+2609,Hawkeye,Nick Fury,Black Widow,Thor,The others are S.H.I.E.L.D. agents,Thor
+2610,Yellowjacket,Ant-Man,Spiderman,Spiderman,The others are Ant-Man characters,Wasp
+2611,Dormammu,Iron Man,Wong,Iron Man,The others are Doctor Strange characters,Doctor Strange
+2612,Shuri,Black Panther,Killmonger,Spiderman,The others are Black Panther characters,Spiderman
+2613,Star-Lord,Gamora,Drax,Iron Man,The others are Guardians of the Galaxy characters,Iron Man
+2614,Blue,Green,Red,Black,The others are primary colors,Black
+2615,Paris,New York,Rome,New York,The others are European cities,London
+2616,Basketball,Football,Hockey,Hockey,The others are played with a ball,Baseball
+2617,Potato,Wheat,Barley,Potato,The others are grains,Rice
+2618,Scissors,Marker,Pen,Scissors,The others are writing instruments,Pencil
+2619,Silver (metal),Gold,Bronze,Iron (element),The others are Olympic medal materials,Iron (element)
+2620,Lion,Dog,Wolf,Lion,The others are canines,Fox
+2621,Knife,Plate,Spoon,Plate,The others are cutlery,Fork
+2622,Newton,Socrates,Aristotle,Newton,The others are ancient Greek philosophers.,Plato
+2623,Beethoven,Bach,Mozart,Van Gogh,The others are classical composers.,Van Gogh
+2624,Purple,Red,Green,Purple,The others are primary colors.,Blue
+2625,Mercedes,Tesla Motors,Audi,Tesla Motors,The others are German car manufacturers.,BMW
+2626,Galaxy,Comet,Star,Comet,The others are vast collections of stars.,Nebula
+2628,Circle,Triangle,Cylinder,Cylinder,The others are 2D shapes.,Square
+2629,Sphere,Triangle,Rectangle,Sphere,The others are flat shapes,Square
+2630,Magic Johnson,Kareem Abdul-Jabbar,Shaquille O'Neal,Hakeem Olajuwon,The others have won NBA championships with the Los Angeles Lakers,Hakeem Olajuwon
+2631,Manu Ginobili,Kawhi Leonard,Tony Parker,Kawhi Leonard,The others have retired their jersey numbers with the San Antonio Spurs,Tim Duncan
+2632,Dwyane Wade,LeBron James,Kyrie Irving,Kyrie Irving,The others have won an NBA championship with the Miami Heat,Chris Bosh
+2633,Larry Bird,Michael Jordan,Charles Barkley,Charles Barkley,The others have been NBA Finals MVP,Magic Johnson
+2634,Steve Kerr,Michael Jordan,Scottie Pippen,Steve Kerr,The others have been inducted into the Basketball Hall of Fame as players,Dennis Rodman
+2635,Tristan Thompson,Kevin Love,Kyrie Irving,Tristan Thompson,The others have been NBA All-Star Game MVP,LeBron James
+2636,J.J. Redick,Chris Paul,DeAndre Jordan,J.J. Redick,The others have been NBA All-Stars,Blake Griffin
+2637,Klay Thompson,Draymond Green,Stephen Curry,Klay Thompson,The others have won NBA MVP awards,Kevin Durant
+2639,LeBron James,Ray Allen,Chris Bosh,Ray Allen,"The others were part of the original Miami Heat ""Big Three""",Dwyane Wade
+2640,Robert Parish,Larry Bird,Kevin McHale,Bill Walton,The others have had their jersey numbers retired by the Boston Celtics,Bill Walton
+2641,Steve Kerr,Michael Jordan,Scottie Pippen,Steve Kerr,The others have been NBA All-Defensive First Team,Horace Grant
+2642,Tim Duncan,Avery Johnson,Sean Elliott,Avery Johnson,The others have had their jersey numbers retired by the San Antonio Spurs,David Robinson
+2643,Gene Kelly,Fred Astaire,Bill Robinson,James Brown,The others are tap dancers,James Brown
+2644,Ruth St. Denis,Ariana Grande,Loie Fuller,Ariana Grande,The others are pioneers of modern dance,Isadora Duncan
+2645,Sergio Ramos,Diego Costa,David Villa,Sergio Ramos,The others are forwards.,Fernando Torres
+2646,Mesut Ozil,Thomas Muller,Marco Reus,Robert Lewandowski,The others are German players.,Robert Lewandowski
+2647,Paul Pogba,N'Golo Kante,Kylian Mbappe,N'Golo Kante,The others have scored in a World Cup final.,Antoine Griezmann
+2648,Ivan Rakitic,Cristiano Ronaldo,Mario Mandzukic,Cristiano Ronaldo,The others are Croatian players.,Luka Modric
+2649,Carles Puyol,Iker Casillas,Xabi Alonso,Xavi Hernandez,The others have played for Real Madrid.,Xavi Hernandez
+2650,Jadon Sancho,Erling Haaland,Marco Reus,Robert Lewandowski,The others play for Borussia Dortmund.,Robert Lewandowski
+2651,Arnold Palmer,Gary Player,Ben Hogan,Ben Hogan,"The others are part of the ""Big Three"" in golf",Jack Nicklaus
+2652,Nikita Kucherov,Alex Ovechkin,Evgeni Malkin,Sidney Crosby,The others are Russian,Sidney Crosby
+2653,Patrick Roy,Peter Forsberg,Daniel Alfredsson,Daniel Alfredsson,The others won a Stanley Cup with the Colorado Avalanche,Joe Sakic
+2654,Wayne Gretzky,Scott Niedermayer,Chris Pronger,Wayne Gretzky,The others are defencemen,Bobby Orr
+2655,Jean Beliveau,Guy Lafleur,Bobby Hull,Bobby Hull,The others played for the Montreal Canadiens,Maurice Richard
+2656,Mats Sundin,Esa Tikkanen,Teemu Selanne,Mats Sundin,The others are Finnish,Jari Kurri
+2657,Markus Naslund,Mats Sundin,Henrik Sedin,Mats Sundin,The others played for the Vancouver Canucks,Daniel Sedin
+2658,Bobby Clarke,Mike Bossy,Bill Barber,Mike Bossy,The others played for the Philadelphia Flyers,Bernie Parent
+2659,Marcel Dionne,Mario Lemieux,Wayne Gretzky,Mario Lemieux,The others played for the Los Angeles Kings,Luc Robitaille
+2660,Roger Waters,Brian May,John Deacon,Roger Waters,The others are members of Queen,Freddie Mercury
+2661,B.B. King,Eric Clapton,Elton John,Elton John,The others are renowned blues guitarists,Jimi Hendrix
+2662,Dave Grohl,Krist Novoselic,Eddie Vedder,Eddie Vedder,The others are members of Nirvana,Kurt Cobain
+2663,Michelle Williams,Rihanna,Kelly Rowland,Rihanna,The others are members of Destiny's Child,Beyonce
+2664,Charlie Watts,Paul McCartney,Keith Richards,Paul McCartney,The others are members of The Rolling Stones,Mick Jagger
+2665,Jerry Lee Lewis,Johnny Cash,Elvis Presley,Elvis Presley,The others are members of the Million Dollar Quartet,Carl Perkins
+2666,Robert Plant,Jimmy Page,John Paul Jones,Roger Daltrey,The others are members of Led Zeppelin,Roger Daltrey
+2667,Izzy Stradlin,Axl Rose,Lars Ulrich,Lars Ulrich,The others are members of Guns N' Roses,Slash
+2668,David Bryan,Jon Bon Jovi,Steven Tyler,Steven Tyler,The others are members of Bon Jovi,Richie Sambora
+2669,Brad Whitford,Joe Elliott,Joe Perry,Joe Elliott,The others are members of Aerosmith,Steven Tyler
+2670,Mike McCready,Chris Cornell,Stone Gossard,Chris Cornell,The others are members of Pearl Jam,Eddie Vedder
+2671,Max Weinberg,Clarence Clemons,Bruce Springsteen,Billy Joel,The others are members of E Street Band,Billy Joel
+2672,Lars Ulrich,Dave Mustaine,James Hetfield,Dave Mustaine,The others are current members of Metallica,Kirk Hammett
+2673,Roger Waters,Nick Mason,David Gilmour,Pete Townshend,The others are members of Pink Floyd,Pete Townshend
+2674,Sting,Andy Summers,Stewart Copeland,Paul Weller,The others are members of The Police,Paul Weller
+2675,Jonny Greenwood,Matt Bellamy,Thom Yorke,Matt Bellamy,The others are members of Radiohead,Colin Greenwood
+2676,Mike Rutherford,Phil Collins,Tony Banks,Peter Gabriel,The others are current members of Genesis,Peter Gabriel
+2677,Andy Rourke,Morrissey,Robert Smith,Robert Smith,The others are members of The Smiths,Johnny Marr
+2678,Liam Gallagher,Noel Gallagher,Paul Arthurs,Ian Brown,The others are members of Oasis,Ian Brown
+2679,The Fighting Temeraire,"Rain, Steam and Speed",The Hay Wain,The Persistence of Memory,The others are paintings by J.M.W. Turner,The Persistence of Memory
+2680,The Tree of Life,The Kiss,The Old Guitarist,The Old Guitarist,The others are paintings by Gustav Klimt,Portrait of Adele Bloch-Bauer I
+2681,The Weeping Woman,The Dance of Life,The Madonna,The Weeping Woman,The others are paintings by Edvard Munch,The Scream
+2682,Mont Sainte-Victoire,Woman in Hat and Fur Collar,The Bathers,Woman in Hat and Fur Collar,The others are paintings by Paul Cézanne,The Card Players
+2683,Primavera,The Annunciation,Three Musicians,Three Musicians,The others are paintings by Sandro Botticelli,The Birth of Venus
+2684,The Goldfinch,The Girl with a Pearl Earring,The Milkmaid,The Dance of Youth,The others are paintings by Dutch Golden Age painters,The Dance of Youth
+2685,"Impression, Sunrise",Woman with a Parasol,The Water-Lily Pond,Les Demoiselles d'Avignon,The others are paintings by Claude Monet,Les Demoiselles d'Avignon
+2686,The Swing,The Persistence of Memory,The Progress of Love,The Persistence of Memory,The others are paintings by Jean-Honoré Fragonard,The Meeting
+2687,The Elephants,The Disintegration of the Persistence of Memory,The Starry Night,The Starry Night,The others are paintings by Salvador Dali,The Persistence of Memory
+2688,The Joy of Life,La Vie,Red Room,La Vie,The others are paintings by Henri Matisse,The Dance
+2689,The Dream of the Fisherman's Wife,The Great Wave off Kanagawa,Portrait of Gertrude Stein,Portrait of Gertrude Stein,The others are artworks by Katsushika Hokusai,Thirty-Six Views of Mount Fuji
+2690,Descartes,Socrates,Plato,Descartes,The others are ancient Greek philosophers,Aristotle
+2691,Nietzsche,Kant,Schopenhauer,Nietzsche,The others are Idealist philosophers,Hegel
+2692,Locke,Lenin,Engels,Locke,The others are Marxist philosophers,Marx
+2693,Augustine,Anselm,Spinoza,Spinoza,The others are Christian philosophers,Aquinas
+2694,Descartes,Hume,Locke,Sartre,The others are early modern philosophers,Sartre
+2695,Wittgenstein,Kierkegaard,Sartre,Wittgenstein,The others are existentialist philosophers,Nietzsche
+2696,Frege,Russell,Wittgenstein,Kant,The others are philosophers of language,Kant
+2697,Descartes,Spinoza,Leibniz,Hegel,The others are Rationalist philosophers,Hegel
+2698,Heidegger,Merleau-Ponty,Foucault,Foucault,The others are phenomenologists,Husserl
+2699,Foucault,Habermas,Derrida,Habermas,The others are Post-Structuralist philosophers,Deleuze
+2700,Marx,Nozick,Rawls,Marx,The others are political philosophers of justice,Dworkin
+2701,Locke,Hume,Berkeley,Kant,The others are British Empiricists,Kant
+2702,Confucius,Plato,Aristotle,Confucius,The others are Western philosophers,Socrates
+2703,Parmenides,Heraclitus,Zeno,Socrates,The others are Pre-Socratic philosophers,Socrates
+2704,Zhuangzi,Aristotle,Confucius,Aristotle,The others are Chinese philosophers,Laozi
+2705,Hobbes,Machiavelli,Locke,Machiavelli,The others are social contract theorists,Rousseau
+2706,Hume,Smith,Mill,Mill,The others are Scottish Enlightenment philosophers,Reid
+2707,Plato,Kant,Socrates,Kant,The others are philosophers from Classical Greece,Aristotle
+2708,Spinoza,Descartes,Leibniz,Hume,The others are Continental Rationalists,Hume
+2709,Mill,Bentham,Kant,Kant,The others are Utilitarian philosophers,Sidgwick
+2710,Socrates,Plato,Confucius,Confucius,The others are philosophers from Ancient Greece,Aristotle
+2711,Augustine,Descartes,Anselm,Descartes,The others are Scholastic philosophers,Aquinas
+2712,Hume,Kant,Hobbes,Kant,The others are Empiricist philosophers,Locke
+2713,Robert Burns,William Wordsworth,Samuel Taylor Coleridge,Robert Burns,The others are part of the Romantic movement.,William Blake
+2714,T.S. Eliot,Ezra Pound,W.B. Yeats,Langston Hughes,The others are part of the Imagist movement.,Langston Hughes
+2715,Allen Ginsberg,Charles Bukowski,Jack Kerouac,Charles Bukowski,The others are part of the Beat Generation.,William S. Burroughs
+2716,Derek Walcott,Wole Soyinka,Seamus Heaney,Ted Hughes,The others are Nobel laureates.,Ted Hughes
+2717,Robert Browning,William Blake,Percy Bysshe Shelley,William Blake,The others wrote sonnets.,Elizabeth Barrett Browning
+2718,John Keats,Samuel Taylor Coleridge,William Wordsworth,John Keats,The others are known as the Lake Poets.,Robert Southey
+2719,William Butler Yeats,Patrick Kavanagh,T. S. Eliot,T. S. Eliot,The others are Irish poets.,Seamus Heaney
+2720,John Donne,Ben Jonson,Christopher Marlowe,John Donne,The others are Elizabethan playwrights.,William Shakespeare
+2721,Pablo Neruda,Gabriel Garcia Marquez,Cesar Vallejo,Gabriel Garcia Marquez,The others are Latin American poets.,Octavio Paz
+2722,Alexander Pushkin,Leo Tolstoy,Mikhail Lermontov,Leo Tolstoy,The others are Russian Romantic poets.,Fyodor Tyutchev
+2723,Langston Hughes,William Carlos Williams,Robert Frost,Langston Hughes,The others are associated with the Imagist movement.,Wallace Stevens
+2724,Victor Hugo,Paul Verlaine,Charles Baudelaire,Victor Hugo,The others are associated with the Symbolist movement.,Arthur Rimbaud
+2725,Stone Cold,Hulk Hogan,The Rock,Hulk Hogan,"The others are part of the ""Attitude Era"".",John Cena
+2726,Sin Cara,Rey Mysterio,Big Show,Big Show,The others are Lucha Libre wrestlers.,Kalisto
+2727,Brock Lesnar,Randy Orton,Shelton Benjamin,Randy Orton,The others are amateur wrestling champions.,Kurt Angle
+2728,Kurt Angle,X-Pac,Shawn Michaels,Kurt Angle,The others were part of D-Generation X.,Triple H
+2729,Rolling Pin,Mixer,Oven,Oven,The others are handheld tools,Spatula
+2730,Pizza,Pastry,Cake,Pizza,The others are sweet baked goods,Bread
+2731,Oven Mitts,Baker's Hat,Apron,Bread Machine,The others are worn by bakers,Bread Machine
+2732,Yeast,Sugar,Flour,Butter,The others are dry ingredients,Butter
+2733,Croissant,Doughnut,Bagel,Cookie,The others are breakfast pastries,Cookie
+2734,Baker,Pastry Chef,Cake Decorator,Butcher,The others work with baked goods,Butcher
+2735,Tart,Cupcake,Pie,Pie,The others are individual servings,Muffin
+2736,Pizza Cutter,Bread Knife,Baking Sheet,Pizza Cutter,The others are used in baking bread,Rolling Pin
+2737,Baguette,Pretzel,Brioche,Pretzel,The others are French pastries,Croissant
+2738,Frying Pan,Baking Pan,Muffin Tin,Frying Pan,The others are used in baking,Cookie Sheet
+2739,Sugar,Yeast,Milk,Milk,The others are powdery substances,Flour
+2740,Dough,Batter,Cream,Cream,The others are mixtures used in baking,Paste
+2741,Doughnut,Pretzel,Croissant,Croissant,The others are boiled before baking,Bagel
+2742,Pretzel,Chocolate Chip,Raisin,Pretzel,The others are common cookie add-ins,Nut
+2743,Cake,Tart,Pie,Ice Cream,The others are baked desserts,Ice Cream
+2744,Gingerbread,Bagel,Biscotti,Bagel,The others are types of cookies,Shortbread
+2745,Oven,Toaster,Mixer,Toaster,The others are used to make bread,Bread Machine
+2746,Scone,Biscuit,Bagel,Bagel,The others are quick breads,Muffin
+2747,Filo Dough,Puff Pastry,Pizza Dough,Pizza Dough,The others are types of pastry dough,Shortcrust
+2748,Fondant,Buttercream,Royal Icing,Chocolate Ganache,The others are used to decorate cakes,Chocolate Ganache
+2749,Cream of Tartar,Baking Soda,Salt,Salt,The others are leavening agents,Baking Powder
+2750,Brioche,Pretzel,Croissant,Pretzel,The others are French breads,Baguette
+2751,Pastry,Pasta,Cake,Pasta,The others are baked goods,Bread
+2752,Blender,Shaker,Jigger,Blender,The others are hand tools used by bartenders,Stirrer
+2753,Tequila,Vodka,Gin,Grape Juice,The others are distilled spirits,Grape Juice
+2754,Mojito,Sangria,Pina Colada,Sangria,The others are rum-based cocktails,Daiquiri
+2755,Beamish,Heineken,Murphy's,Heineken,The others are Irish stouts,Guinness
+2756,Leffe,Duvel,Budweiser,Budweiser,The others are Belgian beers,Hoegaarden
+2757,Sapporo,Kirin,Tsingtao,Tsingtao,The others are Japanese beers,Asahi
+2758,Coors,Miller,Jim Beam,Jim Beam,The others are American beers,Budweiser
+2759,Becks,Corona,Warsteiner,Corona,The others are German beers,St. Pauli Girl
+2760,Heineken,Staropramen,Pilsner Urquell,Heineken,The others are Czech beers,Budvar
+2761,Guinness,Corona,Smithwick's,Corona,The others are Irish beers,Kilkenny
+2762,Menabrea,Guinness,Moretti,Guinness,The others are Italian beers,Peroni
+2763,San Miguel,Estrella,Budweiser,Budweiser,The others are Spanish beers,Mahou
+2764,Singha,Heineken,Leo,Heineken,The others are Thai beers,Chang
+2765,Miller,Smirnoff,Budweiser,Smirnoff,The others are beers,Coors
+2766,Grolsch,Amstel,Heineken,Guinness,The others are Dutch beers,Guinness
+2767,Fullers,Newcastle,Corona,Corona,The others are English beers,Boddingtons
+2768,Tuborg,Faxe,Guinness,Guinness,The others are Danish beers,Carlsberg
+2769,Alexander Keith's,Labatt,Molson,Budweiser,The others are Canadian beers,Budweiser
+2770,Corona,Dos Equis,Guinness,Guinness,The others are Mexican beers,Pacifico
+2771,Carlton Draught,Victoria Bitter,Foster's,Budweiser,The others are Australian beers,Budweiser
+2772,Balvenie,Glenlivet,Glenfiddich,Chivas Regal,The others are single malt whiskies,Chivas Regal
+2773,Beefeater,Grey Goose,Bombay Sapphire,Grey Goose,The others are Gin brands,Tanqueray
+2774,Glenfiddich,Glenmorangie,Glenlivet,Glenmorangie,The others are Speyside whiskies,Macallan
+2775,Jim Beam,Jack Daniels,Glenfiddich,Glenfiddich,The others are American whiskies,Maker's Mark
+2777,Kareem Abdul-Jabbar,Michael Jordan,Magic Johnson,Magic Johnson,The others have won more than 5 MVP awards,Bill Russell
+2778,Tim Duncan,Kawhi Leonard,Tony Parker,Karl Malone,The others have played for the San Antonio Spurs,Karl Malone
+2779,Larry Bird,Magic Johnson,Kareem Abdul-Jabbar,Allen Iverson,The others have played in the 1980s,Allen Iverson
+2780,Dwyane Wade,Vince Carter,Chris Bosh,Vince Carter,The others have won a championship with Miami Heat,Shaquille O'Neal
+2781,Jeff Hornacek,John Stockton,Karl Malone,Scottie Pippen,The others have played for the Utah Jazz,Scottie Pippen
+2782,Dirk Nowitzki,Elgin Baylor,Karl Malone,Dirk Nowitzki,The others have never won an NBA championship,Charles Barkley
+2783,Dirk Nowitzki,Manu Ginobili,Pau Gasol,Dwight Howard,The others are European players,Dwight Howard
+2784,Stephen Curry,Draymond Green,Kyrie Irving,Kyrie Irving,"The others are part of the Golden State Warriors' ""Splash Brothers""",Klay Thompson
+2785,Carmelo Anthony,Kobe Bryant,Tim Duncan,Carmelo Anthony,The others were drafted in the 1990s,Kevin Garnett
+2786,Dennis Rodman,Michael Jordan,Scottie Pippen,Larry Bird,"The others were part of the Chicago Bulls' ""The Last Dance""",Larry Bird
+2787,Kevin Love,Kyrie Irving,Chris Paul,Chris Paul,The others have played for the Cleveland Cavaliers,LeBron James
+2788,Ray Allen,Kevin Garnett,Paul Pierce,Dwyane Wade,"The others were part of the Boston Celtics' ""Big Three""",Dwyane Wade
+2789,Clyde Drexler,Magic Johnson,Hakeem Olajuwon,Magic Johnson,The others have played for the Houston Rockets,Charles Barkley
+2790,Kobe Bryant,Tim Duncan,Tony Parker,Kobe Bryant,The others have played their entire career with the San Antonio Spurs,David Robinson
+2791,Stephen Curry,Kevin Durant,Klay Thompson,Russell Westbrook,"The others are part of the Golden State Warriors' ""Super Team""",Russell Westbrook
+2792,James Harden,Chris Paul,Blake Griffin,James Harden,"The others were part of the LA Clippers' ""Lob City""",DeAndre Jordan
+2793,Manu Ginobili,Shaquille O'Neal,Dirk Nowitzki,Shaquille O'Neal,The others are international players who are in the Hall of Fame,Yao Ming
+2794,Tim Duncan,LeBron James,Allen Iverson,LeBron James,The others were drafted in the first round of the 1996 NBA Draft,Kobe Bryant
+2795,Larry Bird,Bill Laimbeer,Joe Dumars,Larry Bird,"The others were part of the Detroit Pistons' ""Bad Boys""",Isiah Thomas
+2796,Dennis Rodman,Scottie Pippen,Michael Jordan,Charles Barkley,The others were part of the Chicago Bulls' 72-10 season,Charles Barkley
+2797,James Worthy,Larry Bird,Kareem Abdul-Jabbar,Larry Bird,"The others were part of the Los Angeles Lakers' ""Showtime""",Magic Johnson
+2798,Shaquille O'Neal,Derek Fisher,Kobe Bryant,Tracy McGrady,The others were part of the Los Angeles Lakers' three-peat,Tracy McGrady
+2799,Dwyane Wade,Chris Bosh,LeBron James,Carmelo Anthony,"The others were part of the Miami Heat's ""Big Three""",Carmelo Anthony
+2800,Tom Heinsohn,Wilt Chamberlain,Bill Russell,Wilt Chamberlain,The others were part of the Boston Celtics' 1960s dynasty,Sam Jones
+2801,Magic Johnson,Larry Bird,Robert Parish,Magic Johnson,"The others were part of the Boston Celtics' 1980s ""Big Three""",Kevin McHale
+2802,Bob Dandridge,Magic Johnson,Kareem Abdul-Jabbar,Magic Johnson,The others were part of the Milwaukee Bucks' 1971 Championship Team,Oscar Robertson
+2977,Chair,Stove,Table,Stove,The others are in the dining area,Booth
+2803,Michael Jordan,Dennis Rodman,Patrick Ewing,Patrick Ewing,The others were part of the Chicago Bulls' second three-peat,Scottie Pippen
+2804,Willie Stargell,Mike Schmidt,Bill Mazeroski,Mike Schmidt,The others played for the Pittsburgh Pirates,Roberto Clemente
+2805,Stan Musial,Bob Gibson,Lou Brock,Tony Gwynn,The others played for the St. Louis Cardinals,Tony Gwynn
+2806,Darryl Strawberry,Tom Seaver,Chipper Jones,Chipper Jones,The others played for the New York Mets,Mike Piazza
+2807,Carl Yastrzemski,Jim Rice,Ted Williams,Reggie Jackson,The others played for the Boston Red Sox,Reggie Jackson
+2808,Reggie Jackson,George Brett,Catfish Hunter,George Brett,The others played for the Oakland Athletics,Rollie Fingers
+2809,Harmon Killebrew,Kirby Puckett,Robin Yount,Robin Yount,The others played for the Minnesota Twins,Rod Carew
+2810,Joe Morgan,Pete Rose,Johnny Bench,Ernie Banks,The others played for the Cincinnati Reds,Ernie Banks
+2811,Hank Aaron,Willie Mays,Juan Marichal,Hank Aaron,The others played for the San Francisco Giants,Willie McCovey
+2812,Roberto Clemente,Jim Palmer,Brooks Robinson,Roberto Clemente,The others played for the Baltimore Orioles,Frank Robinson
+2813,Bob Feller,Norm Cash,Al Kaline,Bob Feller,The others played for the Detroit Tigers,Mickey Lolich
+2814,Mike Schmidt,Paul Molitor,Rollie Fingers,Mike Schmidt,The others played for the Milwaukee Brewers,Robin Yount
+2815,Mike Schmidt,Nolan Ryan,Steve Carlton,Nolan Ryan,The others played for the Philadelphia Phillies,Pete Rose
+2816,Nolan Ryan,Rod Carew,Reggie Jackson,Willie Mays,The others played for the California Angels,Willie Mays
+2817,Joe Morgan,Ryne Sandberg,Ron Santo,Joe Morgan,The others played for the Chicago Cubs,Ernie Banks
+2818,Cal Ripken Jr.,Hal McRae,Frank White,Cal Ripken Jr.,The others played for the Kansas City Royals,George Brett
+2819,Ozzie Smith,Tony Gwynn,Steve Garvey,Ozzie Smith,The others played for the San Diego Padres,Dave Winfield
+2820,Edgar Martinez,Tony Gwynn,Randy Johnson,Tony Gwynn,The others played for the Seattle Mariners,Ken Griffey Jr.
+2821,Hank Aaron,Eddie Mathews,Warren Spahn,Ernie Banks,The others played for the Milwaukee Braves,Ernie Banks
+2822,Bob Feller,Larry Doby,Willie Mays,Willie Mays,The others played for the Cleveland Indians,Early Wynn
+2823,Thomas Hearns,Joe Louis,Marvin Hagler,Joe Louis,The others are middleweight boxers.,Sugar Ray Leonard
+2824,Muhammad Ali,Mike Tyson,Evander Holyfield,Muhammad Ali,The others have won the heavyweight title in the 90s.,Larry Holmes
+2825,Sugar Ray Leonard,Floyd Mayweather,Manny Pacquiao,Sugar Ray Leonard,The others have won the welterweight title in the 21st century.,Oscar De La Hoya
+2826,George Foreman,Wladimir Klitschko,Evander Holyfield,Wladimir Klitschko,The others are American boxers.,Mike Tyson
+2827,Henry Armstrong,Willie Pep,Sugar Ray Robinson,Rocky Marciano,The others are featherweight boxers.,Rocky Marciano
+2828,Floyd Mayweather,Marvin Hagler,Manny Pacquiao,Marvin Hagler,The others are welterweight boxers.,Oscar De La Hoya
+2829,Roberto Duran,Pernell Whitaker,Joe Louis,Joe Louis,The others are lightweight boxers.,Julio Cesar Chavez
+2830,Popping Dancing,Breakdancing,Tango,Tango,The others are street dance styles,Locking Dancing
+2831,Belly,Tap,Jazz,Belly,The others are styles of dance originating in the West,Ballet
+2832,Cha Cha,Swing,Samba,Swing,The others are Latin ballroom dances,Paso Doble
+2833,Pointe Shoes,Tights,Tutu,Tap Shoes,The others are ballet attire,Tap Shoes
+2834,Capoeira,Samba,Flamenco,Flamenco,The others are Brazilian dances,Bossa Nova
+2835,Flamenco,Ballet,Hip Hop,Flamenco,The others originated in the United States,Jazz
+2836,Jazz,Salsa,Ballet,Salsa,The others are taught in traditional dance schools,Tap
+2837,Locking,Krumping,Breakdancing,Breakdancing,The others originated in Los Angeles,Popping
+2838,Rian Johnson,George Lucas,J.J. Abrams,David Lynch,The others have directed Star Wars films,David Lynch
+2839,Doug Gilmour,Guy Lafleur,Jean Beliveau,Doug Gilmour,The others played for the Montreal Canadiens.,Maurice Richard
+2840,Daniel Sedin,Scott Niedermayer,Rob Niedermayer,Rob Niedermayer,The others are twins.,Henrik Sedin
+2841,Joe Sakic,Steve Yzerman,Peter Forsberg,Steve Yzerman,The others played for the Colorado Avalanche.,Patrick Roy
+2842,Guy Lapointe,Serge Savard,Bobby Clarke,Bobby Clarke,The others are part of the Montreal Canadiens' Big Three.,Larry Robinson
+2843,Nicklas Lidstrom,Mario Lemieux,Steve Yzerman,Mario Lemieux,The others played for the Detroit Red Wings.,Pavel Datsyuk
+2844,Guy Lafleur,Bobby Orr,Johnny Bucyk,Guy Lafleur,The others played for the Boston Bruins.,Phil Esposito
+2845,Gordie Howe,Ted Lindsay,Bobby Hull,Bobby Hull,The others are part of the Detroit Red Wings' Production Line.,Alex Delvecchio
+2846,Rod Gilbert,Brad Park,Jean Ratelle,Brad Park,The others are part of the New York Rangers' GAG Line.,Vic Hadfield
+2847,Reggie Leach,Bill Barber,Bernie Parent,Bernie Parent,The others are part of the Philadelphia Flyers' LCB Line.,Bobby Clarke
+2848,Bryan Trottier,Clark Gillies,Mike Bossy,Denis Potvin,The others are part of the New York Islanders' Trio Grande.,Denis Potvin
+2849,Maurice Richard,Gordie Howe,Bobby Hull,Mario Lemieux,The others played in the Original Six era.,Mario Lemieux
+2850,Pavel Datsyuk,Henrik Zetterberg,Niklas Lidstrom,Niklas Lidstrom,The others are part of the Detroit Red Wings' Euro Twins.,Tomas Holmstrom
+2851,Milan Hejduk,Patrick Roy,Peter Forsberg,Patrick Roy,The others are part of the Colorado Avalanche's AMP Line.,Joe Sakic
+2852,Johnny Bucyk,Ken Hodge,Phil Esposito,Johnny Bucyk,The others are part of the Boston Bruins' Big Bad Bruins.,Bobby Orr
+2853,Elvis Presley,Jimi Hendrix,Michael Jackson,Jimi Hendrix,The others are known for their unique dance moves,Prince
+2854,George Harrison,Paul McCartney,Ringo Starr,Ringo Starr,The others were songwriters for The Beatles,John Lennon
+2855,Roger Waters,David Gilmour,Syd Barrett,Syd Barrett,The others are still members of Pink Floyd,Nick Mason
+2856,Richie Sambora,Tico Torres,Jon Bon Jovi,Richie Sambora,The others are still members of Bon Jovi,David Bryan
+2857,Phil Collins,John Deacon,Roger Taylor,Phil Collins,The others were members of Queen,Brian May
+2858,David Lee Roth,Alex Van Halen,Sammy Hagar,Sammy Hagar,The others are original members of Van Halen,Eddie Van Halen
+2978,Brunch,Dinner,Breakfast,Brunch,The others are traditional meal times,Lunch
+2859,Guy Berryman,Jonny Buckland,Chris Martin,Will Champion,The others are known for their guitar playing in Coldplay,Will Champion
+2860,Brian Johnson,Malcolm Young,Angus Young,Brian Johnson,The others are original members of AC/DC,Bon Scott
+2861,Bob Marley,B.B. King,Eric Clapton,Bob Marley,The others are primarily blues guitarists,Jimi Hendrix
+2862,Damon Albarn,Thom Yorke,Adele,Adele,The others are known for their experimental music,Björk
+2863,Bunny Wailer,Ziggy Marley,Peter Tosh,Ziggy Marley,The others were original members of The Wailers,Bob Marley
+2864,Ronnie Wood,Mick Jagger,Charlie Watts,Ronnie Wood,The others are original members of The Rolling Stones,Keith Richards
+2865,Claude Monet,Andy Warhol,Vincent Van Gogh,Andy Warhol,The others are Impressionist painters,Pablo Picasso
+2866,Rene Magritte,Salvador Dali,Leonardo da Vinci,Leonardo da Vinci,The others are Surrealist painters,Joan Miro
+2867,J.M.W. Turner,Edward Hopper,Georgia O'Keeffe,J.M.W. Turner,The others are American painters,Grant Wood
+2868,Rembrandt van Rijn,Johannes Vermeer,Vincent Van Gogh,Marc Chagall,The others are Dutch painters,Marc Chagall
+2869,Wassily Kandinsky,Édouard Manet,Paul Cézanne,Wassily Kandinsky,The others are French Impressionists,Pierre-Auguste Renoir
+2870,Kazimir Malevich,Wassily Kandinsky,Michelangelo,Michelangelo,The others are Abstract painters,Piet Mondrian
+2871,Francis Bacon,David Hockney,Lucian Freud,Raphael,The others are British painters,Raphael
+2872,Edgar Degas,Pablo Picasso,Pierre-Auguste Renoir,Pablo Picasso,The others are associated with Impressionism,Mary Cassatt
+2873,Salvador Dali,Kazimir Malevich,Marc Chagall,Salvador Dali,The others are Russian painters,Wassily Kandinsky
+2874,Vincent Van Gogh,Édouard Manet,Paul Gauguin,Andy Warhol,The others are Post-Impressionist painters,Andy Warhol
+2875,Claude Monet,Gustav Klimt,Oskar Kokoschka,Claude Monet,The others are Austrian painters,Egon Schiele
+2876,Andy Warhol,Jean-Michel Basquiat,Rembrandt,Rembrandt,The others are Pop Art painters,Keith Haring
+2877,Edward Hopper,Maurice de Vlaminck,André Derain,Edward Hopper,The others are Fauvist painters,Henri Matisse
+2878,Caravaggio,Piet Mondrian,Bart van der Leck,Caravaggio,The others are De Stijl movement painters,Theo van Doesburg
+2879,Marc Chagall,Johannes Vermeer,Chaim Soutine,Johannes Vermeer,The others are School of Paris painters,Amedeo Modigliani
+2880,Wassily Kandinsky,Paul Klee,August Macke,Frida Kahlo,The others are associated with the Blue Rider movement,Frida Kahlo
+2881,Pablo Picasso,Hans Holbein the Younger,Lucas Cranach the Elder,Pablo Picasso,The others are German Renaissance painters,Albrecht Dürer
+2882,Filippo de Pisis,Giorgio de Chirico,Carlo Carrà,Vincent Van Gogh,The others are Metaphysical painters,Vincent Van Gogh
+2883,Jean-Baptiste Greuze,Salvador Dali,Jean-Auguste-Dominique Ingres,Salvador Dali,The others are Neoclassical painters,Jacques-Louis David
+2884,El Greco,Francisco Goya,Diego Velázquez,Leonardo Da Vinci,The others are Spanish painters,Leonardo Da Vinci
+2885,Giotto,Mark Rothko,Duccio,Mark Rothko,The others are Italian painters from the Middle Ages,Cimabue
+2886,Jean-Auguste-Dominique Ingres,Jacques-Louis David,Jackson Pollock,Jackson Pollock,The others are French Neoclassical painters,Nicolas Poussin
+2887,Marc Chagall,Artemisia Gentileschi,Michelangelo Merisi,Marc Chagall,The others are Italian Baroque painters,Caravaggio
+2888,Sartre,de Beauvoir,Descartes,Descartes,The others are existentialist French philosophers,Camus
+2889,Epicurus,Locke,Kant,Epicurus,The others are modern philosophers,Hume
+2890,Sartre,Hegel,Marx,Sartre,The others are German philosophers,Feuerbach
+2891,Moore,Descartes,Russell,Descartes,The others are analytic philosophers,Wittgenstein
+2892,Descartes,Hume,Spinoza,Hume,The others are rationalist philosophers,Leibniz
+2893,Johann Sebastian Bach,Ludwig van Beethoven,Frédéric Chopin,Duke Ellington,The others composed primarily for the piano,Duke Ellington
+2894,Franz Liszt,Sergei Rachmaninoff,Scott Joplin,Scott Joplin,The others are known for their virtuosic playing,Frédéric Chopin
+2895,Sergei Prokofiev,Igor Stravinsky,Johann Sebastian Bach,Johann Sebastian Bach,The others are 20th-century Russian composers,Dmitri Shostakovich
+2896,Duke Ellington,Alfred Brendel,Glenn Gould,Duke Ellington,The others are known for their interpretations of Bach,Maurizio Pollini
+2897,Sergei Rachmaninoff,Felix Mendelssohn,Johannes Brahms,Sergei Rachmaninoff,The others are from the Romantic period,Robert Schumann
+2898,Franz Liszt,Johannes Brahms,Frédéric Chopin,Duke Ellington,The others were also music teachers,Duke Ellington
+2899,Franz Schubert,Vladimir Horowitz,Sergei Rachmaninoff,Franz Schubert,The others are known for their large hands,Franz Liszt
+2900,Franz Liszt,Thelonious Monk,Frédéric Chopin,Thelonious Monk,The others are from the 19th century,Johannes Brahms
+2901,Art Tatum,Sergei Rachmaninoff,Bill Evans,Sergei Rachmaninoff,The others are American pianists,Thelonious Monk
+2902,Glenn Gould,Alfred Brendel,Franz Liszt,Franz Liszt,The others are known for their interpretations of Beethoven,Maurizio Pollini
+2903,Thelonious Monk,Bill Evans,Duke Ellington,Sergei Rachmaninoff,The others are known for their improvisation skills,Sergei Rachmaninoff
+2904,Alfred Brendel,Maurizio Pollini,Franz Liszt,Franz Liszt,The others are known for their interpretations of Mozart,Glenn Gould
+2905,Elizabeth Barrett Browning,Robert Browning,John Keats,Pablo Neruda,The others are Victorian poets,Pablo Neruda
+2906,Emily Dickinson,Goethe,Friedrich Schiller,Emily Dickinson,The others are German poets,Rainer Maria Rilke
+2907,Anna Akhmatova,Alexander Pushkin,Boris Pasternak,Robert Frost,The others are Russian poets,Robert Frost
+2908,Giovanni Boccaccio,Dante Alighieri,Walt Whitman,Walt Whitman,The others are Italian poets,Petrarch
+2909,George Eliot,Lewis Carroll,Thomas Hardy,Lewis Carroll,The others wrote novels as well as poetry,Charles Dickens
+2910,William Shakespeare,Ben Jonson,Emily Dickinson,Emily Dickinson,The others are Renaissance poets,John Donne
+2911,Walt Whitman,Allen Ginsberg,William S. Burroughs,Walt Whitman,The others are Beat poets,Jack Kerouac
+2912,Samuel Johnson,John Dryden,Robert Frost,Robert Frost,The others are 18th century English poets,Alexander Pope
+2913,Richard Crashaw,John Donne,George Herbert,Emily Dickinson,The others are Metaphysical poets,Emily Dickinson
+2914,A.E. Housman,Robert Bridges,Emily Dickinson,Emily Dickinson,The others are English poets of the late 19th and early 20th century,Thomas Hardy
+2915,William Carlos Williams,Wallace Stevens,Robert Frost,John Keats,The others are Modernist poets,John Keats
+2916,Angela Merkel,Barack Obama,George W. Bush,Angela Merkel,The others are former US Presidents,Bill Clinton
+2917,Joe Biden,Kamala Harris,Mike Pence,Boris Johnson,The others are current or former US Vice Presidents,Boris Johnson
+2918,Scott Morrison,Tony Abbott,Jacinda Ardern,Jacinda Ardern,The others are Australian Prime Ministers,Malcolm Turnbull
+2919,Ahmet Davutoglu,Emmanuel Macron,Recep Tayyip Erdogan,Emmanuel Macron,The others are Turkish Presidents,Abdullah Gul
+2920,Jair Bolsonaro,Dilma Rousseff,Michel Temer,Angela Merkel,The others are Brazilian Presidents,Angela Merkel
+2921,Moon Jae-in,Lee Myung-bak,Park Geun-hye,Shinzo Abe,The others are South Korean Presidents,Shinzo Abe
+2922,Benigno Aquino III,Gloria Macapagal Arroyo,Rodrigo Duterte,Xi Jinping,The others are Philippine Presidents,Xi Jinping
+2923,Mahmoud Ahmadinejad,Emmanuel Macron,Mohammad Khatami,Emmanuel Macron,The others are Iranian Presidents,Hassan Rouhani
+2924,Andrés Manuel López Obrador,Joe Biden,Felipe Calderón,Joe Biden,The others are Mexican Presidents,Enrique Peña Nieto
+2925,Mario Monti,Matteo Renzi,Giuseppe Conte,Angela Merkel,The others are Italian Prime Ministers,Angela Merkel
+2926,Viktor Orbán,Emmanuel Macron,Gordon Bajnai,Emmanuel Macron,The others are Hungarian Prime Ministers,Ferenc Gyurcsány
+2927,Johnny Cash,Bob Dylan,Willie Nelson,Bob Dylan,The others are country artists.,Dolly Parton
+2928,Christina Aguilera,Britney Spears,Justin Timberlake,Justin Timberlake,The others are female solo artists.,Mariah Carey
+2929,Ariana Grande,Lady Gaga,Katy Perry,Lorde,The others have performed at the Super Bowl halftime show.,Lorde
+2930,Coldplay,One Republic,Maroon 5,The Chainsmokers,The others are bands with a lead vocalist.,The Chainsmokers
+2931,Halsey,Lorde,Taylor Swift,Taylor Swift,The others won their first Grammy before turning 20.,Billie Eilish
+2932,John Lennon,George Harrison,Ringo Starr,Ringo Starr,The others are songwriters of The Beatles.,Paul McCartney
+2933,Kendrick Lamar,Frank Ocean,Earl Sweatshirt,Kendrick Lamar,The others are members of Odd Future.,"Tyler, The Creator"
+2934,Rita Ora,Dua Lipa,Ellie Goulding,Sam Smith,The others are British female artists.,Sam Smith
+2935,Mo Salah,Lionel Messi,Cristiano Ronaldo,Mo Salah,The others have won UEFA Champions League with multiple clubs,Neymar Jr
+2936,Carlos Moyá,Rafael Nadal,Gustavo Kuerten,Rafael Nadal,The others have won French Open only once,Juan Carlos Ferrero
+2937,Hulk Hogan,Triple H,The Rock,Hulk Hogan,The others are part of the Attitude Era.,Stone Cold
+2938,Dean Malenko,Brock Lesnar,Eddie Guerrero,Brock Lesnar,The others are part of the Radicalz.,Chris Benoit
+2939,John Roberts,Judge Rinder,Clarence Thomas,Judge Rinder,The others are U.S. Supreme Court Justices,Thurgood Marshall
+2940,Apron,Baker's Hat,Oven Mitts,Whisk,The others are worn by bakers.,Whisk
+2941,Flour,Sugar,Salt,Sugar,The others are used in making bread dough.,Yeast
+2942,Croissant,Donut,Baguette,Donut,The others are types of bread.,Muffin
+2943,Salt,Yeast,Baking Soda,Salt,The others are leavening agents.,Baking Powder
+2944,Rye,Whole Wheat,Sourdough,Biscuit,The others are types of bread loaves.,Biscuit
+2946,Pastry,Cake,Bread,Pasta,The others are typically sweet.,Pasta
+2947,Pretzel,Croissant,Bagel,Bagel,The others are types of French bread.,Brioche
+2948,Puff Pastry,Cookie Dough,Filo Pastry,Cookie Dough,The others are types of pastry dough.,Shortcrust Pastry
+2949,Flour,Water,Milk,Milk,The others are ingredients in basic bread recipe.,Yeast
+2950,Scone,Muffin,Brownie,Scone,The others are typically eaten as dessert.,Cupcake
+2951,Eggs,Sugar,Raisins,Raisins,The others are essential ingredients in most baked goods.,Butter
+2952,Oven,Spatula,Baking Tray,Oven,The others are handheld baking tools.,Mixer
+2953,Baker's Yeast,Active Dry Yeast,Instant Yeast,Baking Soda,The others are types of yeast.,Baking Soda
+2954,Rolling Pin,Dough Scraper,Bread Knife,Pie Server,The others are used in handling dough.,Pie Server
+2955,Ice Cream,Pie,Bread,Ice Cream,The others are baked.,Cake
+2956,Pie,Tart,Quiche,Cake,The others have a crust.,Cake
+2957,Sugar,Butter,Flour,Oil,The others are used in making a basic cake.,Oil
+2958,Cookie,Donut,Cupcake,Donut,The others are baked in a mold or pan.,Muffin
+2959,Baking Soda,Baking Powder,Cream of Tartar,Cream of Tartar,The others are used to make dough rise.,Yeast
+2960,Pancake,Biscuit,Bread,Pancake,The others are baked in an oven.,Cake
+2961,Sugar,Pepper,Salt,Pepper,The others are basic ingredients in a cake recipe.,Flour
+2962,Chocolate Cake,Cheesecake,Red Velvet Cake,Cheesecake,The others are types of sponge cake.,Carrot Cake
+2963,Pasta,Bagel,Bread,Pasta,The others are made from a yeast dough.,Croissant
+2964,Brownie,Cake,Tart,Brownie,The others are typically made with a crust.,Pie
+2965,Wine Opener,Muddler,Jigger,Wine Opener,The others are used in making cocktails,Cocktail Shaker
+2966,Martini,Negroni,Bloody Mary,Bloody Mary,"The others are stirred, not shaken",Manhattan
+2967,Vodka,Rum,Tequila,Tequila,The others are used in a Long Island Iced Tea,Gin
+2968,Simple Syrup,Olive Brine,Lime Juice,Olive Brine,The others are common cocktail sweeteners,Bitters
+2969,Irish Whisky,Bourbon,Vodka,Vodka,The others are types of Whisky,Scotch
+2970,Bar Stool,Cocktail Glass,Wine Cellar,Wine Cellar,The others are found in the main bar area,Bar Counter
+2971,Muddler,Blender,Strainer,Blender,The others are manual bartending tools,Shaker
+2972,Cosmopolitan,Vodka Martini,Negroni,Negroni,The others are vodka-based cocktails,Moscow Mule
+2973,Cocktail Menu,Tip Jar,Kitchen,Kitchen,The others are found on the bar top,Bar Mat
+2974,Whiskey,Brandy,Vodka,Vodka,The others are aged in barrels,Rum
+2975,Mimosa,Screwdriver,Martini,Martini,The others are brunch cocktails,Bloody Mary
+2976,Cocktail Shaker,Blender,Bottle Opener,Blender,The others are used for opening drinks,Waiter's Corkscrew
+2979,Drink,Bread,Salad,Bread,The others are served in a bowl,Soup
+2980,Gordon Ramsay,Anthony Bourdain,Julia Child,Anthony Bourdain,The others are chefs who have hosted cooking competitions,Bobby Flay
+2981,Salt,Sugar,Paprika,Sugar,The others are spices,Pepper
+2982,Chopping Board,Whisk,Measuring Cup,Blender,The others are manual kitchen tools,Blender
+2983,Truffle,Caviar,Beef,Beef,The others are luxury food ingredients,Saffron
+2985,Gewürztraminer,Chardonnay,Semillon,Gewürztraminer,The others are white wine varietals often aged in oak,Viognier
+2986,Gamay,Pinot Noir,Nebbiolo,Carmenere,The others are red wine varietals often made in a light-bodied style,Carmenere
+2987,Charles Barkley,Dwyane Wade,John Stockton,Dwyane Wade,The others never won an NBA championship,Karl Malone
+2988,Anthony Davis,Pau Gasol,Dirk Nowitzki,Anthony Davis,The others are European,Giannis Antetokounmpo
+2989,Hakeem Olajuwon,Kevin Garnett,Shaquille O'Neal,Kevin Garnett,The others are centers,David Robinson
+2990,Chris Paul,Steve Nash,Jason Kidd,Dwight Howard,The others are point guards,Dwight Howard
+2991,Russell Westbrook,LeBron James,Kevin Durant,Russell Westbrook,The others have won Finals MVP,Kawhi Leonard
+2992,Chris Webber,Klay Thompson,Draymond Green,Chris Webber,"The others are part of the Golden State Warriors' ""Splash Brothers"" era",Stephen Curry
+2993,Manu Ginobili,Tim Duncan,Yao Ming,Yao Ming,The others played for the San Antonio Spurs,Tony Parker
+2994,Paul Pierce,Carmelo Anthony,Kevin Garnett,Carmelo Anthony,The others won a championship with the Boston Celtics,Ray Allen
+2995,John Starks,Patrick Ewing,Reggie Miller,Reggie Miller,The others played for the New York Knicks,Charles Oakley
+2996,Hakeem Olajuwon,Charles Barkley,Clyde Drexler,Allen Iverson,The others played for the Houston Rockets,Allen Iverson
+2997,Steve Nash,Michael Finley,Tracy McGrady,Tracy McGrady,The others played for the Dallas Mavericks,Dirk Nowitzki
+2998,Scottie Pippen,Gary Payton,Detlef Schrempf,Scottie Pippen,The others played for the Seattle Supersonics,Shawn Kemp
+2999,Kevin McHale,Robert Parish,Magic Johnson,Magic Johnson,The others played for the Boston Celtics,Larry Bird
+3000,Peja Stojakovic,Mike Bibby,Chris Webber,Ray Allen,The others played for the Sacramento Kings,Ray Allen
+3001,Isiah Thomas,Dennis Rodman,Joe Dumars,Michael Jordan,The others played for the Detroit Pistons,Michael Jordan
+3002,Charles Barkley,Jeff Hornacek,Karl Malone,Charles Barkley,The others played for the Utah Jazz,John Stockton
+3003,Chris Bosh,LeBron James,Carmelo Anthony,Carmelo Anthony,The others won a championship with the Miami Heat,Dwyane Wade
+3004,Tim Duncan,Shaquille O'Neal,Pau Gasol,Tim Duncan,The others won a championship with the Los Angeles Lakers,Kobe Bryant
+3005,Shaquille O'Neal,Chris Webber,Dikembe Mutombo,Shaquille O'Neal,The others played for the Philadelphia 76ers,Allen Iverson
+3006,Magic Johnson,James Worthy,Larry Bird,Larry Bird,"The others were part of the Los Angeles Lakers' ""Showtime"" era",Kareem Abdul-Jabbar
+3007,Tony Parker,Manu Ginobili,Tim Duncan,Kobe Bryant,"The others were part of the San Antonio Spurs' ""Big Three"" era",Kobe Bryant
+3008,Mickey Mantle,Derek Jeter,Mike Trout,Mike Trout,The others played for the Yankees,Babe Ruth
+3009,Ted Williams,Joe DiMaggio,David Ortiz,Joe DiMaggio,The others played for the Red Sox,Carl Yastrzemski
+3010,Cal Ripken Jr.,Jim Palmer,Brooks Robinson,Jim Palmer,The others are position players,Frank Robinson
+3011,Barry Bonds,Hank Aaron,Willie Mays,Ty Cobb,The others are members of the 500 Home Run Club,Ty Cobb
+3012,Rollie Fingers,Yogi Berra,Reggie Jackson,Yogi Berra,The others played for the A's,Catfish Hunter
+3013,Randy Johnson,Nolan Ryan,Derek Jeter,Derek Jeter,The others are pitchers,Sandy Koufax
+3014,Roberto Clemente,Willie Stargell,Cal Ripken Jr.,Cal Ripken Jr.,The others played for the Pirates,Honus Wagner
+3015,Alex Rodriguez,Edgar Martinez,Ichiro Suzuki,Alex Rodriguez,The others played for the Mariners,Ken Griffey Jr.
+3016,Steve Carlton,Pete Rose,Joe Morgan,Joe Morgan,The others played for the Phillies,Mike Schmidt
+3017,Tony Perez,Johnny Bench,Pete Rose,Ken Griffey Sr.,The others are members of the Big Red Machine,Ken Griffey Sr.
+3018,Hank Greenberg,Ty Cobb,Al Kaline,Mickey Mantle,The others played for the Tigers,Mickey Mantle
+3019,Barry Bonds,Hank Aaron,Willie Mays,Hank Aaron,The others played for the Giants,Willie McCovey
+3020,Harmon Killebrew,Kirby Puckett,Rod Carew,Joe Mauer,The others are Hall of Famers,Joe Mauer
+3021,Evander Holyfield,Joe Frazier,Sonny Liston,Evander Holyfield,The others lost to Muhammad Ali,George Foreman
+3022,Bernard Hopkins,Joe Calzaghe,Roy Jones Jr.,Gennady Golovkin,The others have been undisputed champions,Gennady Golovkin
+3023,Wladimir Klitschko,Anthony Joshua,Vitali Klitschko,Tyson Fury,The others are Olympic medalists,Tyson Fury
+3024,Oscar De La Hoya,Manny Pacquiao,Floyd Mayweather,Vasiliy Lomachenko,The others have won titles in six different weight classes,Vasiliy Lomachenko
+3025,Joe Frazier,George Foreman,Larry Holmes,Larry Holmes,The others have won an Olympic gold medal,Muhammad Ali
+3026,Christopher Nolan,Ingmar Bergman,Danny Boyle,Ingmar Bergman,The others are British directors.,Sam Mendes
+3027,Peter Weir,Guillermo del Toro,Alejandro González Iñárritu,Peter Weir,The others are Mexican directors.,Alfonso Cuarón
+3028,Sergio Leone,Stanley Kubrick,Buster Keaton,Sergio Leone,The others have directed and acted in their own films.,Charlie Chaplin
+3029,Brian De Palma,Hayao Miyazaki,John Carpenter,Hayao Miyazaki,The others are known for their horror films.,George A. Romero
+3030,Yasujirō Ozu,Sam Raimi,Tim Burton,Yasujirō Ozu,The others have directed fantasy films.,Peter Jackson
+3031,Ron Howard,Federico Fellini,Oliver Stone,Federico Fellini,The others are directors who have also produced TV shows.,Michael Mann
+3032,David Lynch,Lars von Trier,Akira Kurosawa,Akira Kurosawa,The others are directors who have made surreal films.,Terry Gilliam
+3033,Christopher Nolan,David Fincher,Darren Aronofsky,Jean-Luc Godard,The others are directors known for their psychological thrillers.,Jean-Luc Godard
+3034,Gus Van Sant,Sofia Coppola,Richard Linklater,Pedro Almodóvar,The others are directors who have made films about adolescence.,Pedro Almodóvar
+3092,Descartes,Pascal,Voltaire,Nietzsche,The others are French philosophers,Nietzsche
+3035,Hayao Miyazaki,Martin Scorsese,Francis Ford Coppola,Hayao Miyazaki,The others are directors associated with New Hollywood.,Brian De Palma
+3036,Guy Ritchie,Quentin Tarantino,Yasujirō Ozu,Yasujirō Ozu,The others are directors known for their use of non-linear storytelling.,Martin McDonagh
+3037,James Cameron,Steven Spielberg,George Lucas,Jean Renoir,The others are directors who have created successful film franchises.,Jean Renoir
+3038,Harry Kane,Dani Alves,Mohamed Salah,Dani Alves,The others play in the Premier League,Pierre-Emerick Aubameyang
+3039,Andres Iniesta,Karim Benzema,Xavi,Karim Benzema,The others played for Barcelona,Sergio Busquets
+3040,Arjen Robben,Thomas Muller,Eden Hazard,Eden Hazard,The others played for Bayern Munich,Franck Ribery
+3041,Angel Di Maria,N'Golo Kante,Neymar,N'Golo Kante,The others play for Paris Saint-Germain,Kylian Mbappe
+3042,Sergio Aguero,Raheem Sterling,Gabriel Jesus,Trent Alexander-Arnold,The others play for Manchester City,Trent Alexander-Arnold
+3043,Luis Suarez,Neymar,Lionel Messi,Antoine Griezmann,The others are South American,Antoine Griezmann
+3044,Sadio Mane,Virgil van Dijk,Paul Pogba,Paul Pogba,The others play for Liverpool,Mohamed Salah
+3045,Mason Mount,Harry Kane,Son Heung-min,Mason Mount,The others play for Tottenham Hotspur,Dele Alli
+3046,Alphonso Davies,Kingsley Coman,Jadon Sancho,Jadon Sancho,The others play for Bayern Munich,Robert Lewandowski
+3047,Christian Pulisic,Mason Mount,N'Golo Kante,Pierre-Emerick Aubameyang,The others play for Chelsea,Pierre-Emerick Aubameyang
+3048,Marcus Rashford,Paul Pogba,Phil Foden,Phil Foden,The others play for Manchester United,Bruno Fernandes
+3049,Marco Reus,Erling Haaland,Jadon Sancho,Kai Havertz,The others play for Borussia Dortmund,Kai Havertz
+3050,Cristiano Ronaldo,Paulo Dybala,Alvaro Morata,Romelu Lukaku,The others play for Juventus,Romelu Lukaku
+3051,Sonia Sotomayor,Sandra Day O'Connor,Elena Kagan,Amy Coney Barrett,The others are Supreme Court Justices appointed by a Democratic president,Amy Coney Barrett
+3052,Amy Coney Barrett,Neil Gorsuch,Ruth Bader Ginsburg,Ruth Bader Ginsburg,The others were appointed by President Trump,Brett Kavanaugh
+3053,Black Belt,Green Lantern,Red Belt,Green Lantern,The others are martial arts belt colors,Yellow Belt
+3054,Enter the Dragon,Rocky,Kung Fu Panda,Rocky,The others are movies about martial arts,Karate Kid
+3055,Sting,Bono,Adam Clayton,Sting,The others are members of U2,The Edge
+3056,Steven Van Zandt,Bruce Springsteen,Tom Petty,Tom Petty,The others are members of The E Street Band,Clarence Clemons
+3057,Jim Morrison,Art Garfunkel,Bob Dylan,Jim Morrison,The others are folk musicians,Paul Simon
+3058,Stevie Wonder,Mick Jagger,Billy Joel,Mick Jagger,The others are pianists,Elton John
+3059,Jerry Garcia,Neil Young,Bob Weir,Neil Young,The others are members of The Grateful Dead,Phil Lesh
+3060,Ray Manzarek,Jimi Hendrix,Robby Krieger,Jimi Hendrix,The others are members of The Doors,John Densmore
+3061,Sid Vicious,Johnny Ramone,Dee Dee Ramone,Sid Vicious,The others are members of The Ramones,Joey Ramone
+3062,Brian Johnson,Malcolm Young,Angus Young,Eddie Van Halen,The others are members of AC/DC,Eddie Van Halen
+3063,Alex Lifeson,Neil Peart,John Bonham,John Bonham,The others are members of Rush,Geddy Lee
+3064,Geezer Butler,Robert Plant,Tony Iommi,Robert Plant,The others are members of Black Sabbath,Ozzy Osbourne
+3065,Jackson Pollock,Egon Schiele,Gustav Klimt,Jackson Pollock,The others are Austrian Expressionists,Oskar Kokoschka
+3066,Domenico Ghirlandaio,Andrea del Verrocchio,Georgia O'Keeffe,Georgia O'Keeffe,The others are Italian Early Renaissance artists,Sandro Botticelli
+3067,Grant Wood,Piet Mondrian,Edward Hopper,Piet Mondrian,The others are American Realists,Thomas Hart Benton
+3068,Jean-Michel Basquiat,Keith Haring,James Whistler,James Whistler,The others are American Neo-Expressionists,Kenny Scharf
+3069,Francis Bacon,Lucian Freud,David Hockney,Mary Cassatt,The others are British Post-War painters,Mary Cassatt
+3070,Chris Ofili,Tracey Emin,Damien Hirst,Norman Rockwell,The others are British Young British Artists,Norman Rockwell
+3072,Georgia O'Keeffe,Salvador Dali,Frida Kahlo,Salvador Dali,The others are Female painters,Mary Cassatt
+3073,Edgar Degas,Rogier van der Weyden,Hans Memling,Edgar Degas,The others are Flemish Primitives,Jan van Eyck
+3074,Joan Miró,Anselm Kiefer,Gerhard Richter,Joan Miró,The others are German Neo-Expressionists,Sigmar Polke
+3075,Jasper Johns,Diego Rivera,Robert Rauschenberg,Diego Rivera,The others are American Abstract Expressionists,Frank Stella
+3076,Theo van Doesburg,Piet Mondrian,Kasimir Malevich,Edouard Manet,The others are Founders of abstract movements,Edouard Manet
+3077,Umberto Boccioni,Amedeo Modigliani,Giorgio de Chirico,Claude Monet,The others are Italian Modernists,Claude Monet
+3078,François Boucher,Jean-Baptiste Greuze,Jean-Honoré Fragonard,Pablo Picasso,The others are French Rococo painters,Pablo Picasso
+3079,Thomas Gainsborough,Marc Chagall,John Constable,Marc Chagall,The others are English Romantic painters,J.M.W. Turner
+3080,Cimabue,Giotto,Duccio,Gustav Klimt,The others are Italian Gothic painters,Gustav Klimt
+3081,Jean-Auguste-Dominique Ingres,Piet Mondrian,Jacques-Louis David,Piet Mondrian,The others are French Neoclassicists,Nicolas Poussin
+3082,Marx,Hegel,Kant,Marx,The others are German Idealists,Nietzsche
+3083,Confucius,Mozi,Laozi,Sartre,The others are Ancient Chinese philosophers,Sartre
+3084,Rousseau,Spinoza,Hobbes,Spinoza,The others are Social Contract theorists,Locke
+3085,Diderot,Rousseau,Berkeley,Berkeley,The others are philosophers of the French Enlightenment,Voltaire
+3086,Wittgenstein,Nietzsche,Heidegger,Wittgenstein,The others are philosophers who influenced Existentialism,Schopenhauer
+3087,Derrida,Russell,Foucault,Russell,The others are Post-structuralist philosophers,Deleuze
+3088,Hume,Descartes,Kant,Sartre,The others are philosophers who made significant contributions to Epistemology,Sartre
+3089,Aristotle,Kant,Maimonides,Kant,The others are philosophers who integrated philosophy and theology,Aquinas
+3091,Kierkegaard,Hegel,Marx,Kierkegaard,The others are philosophers of Dialectics,Engels
+3090,Mao,Marx,Nietzsche,Nietzsche,The others are associated with Communism,Lenin
+3093,Dworkin,Foucault,Nozick,Foucault,The others are philosophers of Justice,Rawls
+3094,Zeno,Epicurus,Kant,Kant,The others are philosophers of Stoicism,Seneca
+3095,Schelling,Hegel,Kant,Nietzsche,The others are philosophers of German Idealism,Nietzsche
+3096,De Beauvoir,Sartre,Russell (philosopher),Russell (philosopher),The others are philosophers of Existentialism,Camus
+3097,Nietzsche,Wittgenstein,Russell,Nietzsche,The others are philosophers of Analytic philosophy,Moore
+3098,Socrates,Plato,Kant,Kant,The others are philosophers from the Ancient period,Aristotle
+3099,Hume,Leibniz,Descartes,Hume,The others are philosophers of Rationalism,Spinoza
+3100,Golden Ratio,Flash (camera),Rule of Thirds,Flash (camera),The others are composition rules in photography,Leading Lines
+3101,Robert Frost,J.R.R. Tolkien,Walt Whitman,J.R.R. Tolkien,The others are poets who wrote about nature,Emily Dickinson
+3102,Emily Dickinson,Robert Frost,J.D. Salinger,J.D. Salinger,The others are poets who wrote about death,Walt Whitman
+3103,Emily Dickinson,Robert Frost,Walt Whitman,George Orwell,The others are poets who wrote about life,George Orwell
+3104,Agatha Christie,Emily Dickinson,Robert Frost,Agatha Christie,The others are poets who wrote about love,Walt Whitman
+3105,Walt Whitman,Robert Frost,Emily Dickinson,Ernest Hemingway,The others are poets who wrote about time,Ernest Hemingway
+3106,Mark Twain,Robert Frost,Walt Whitman,Mark Twain,The others are poets who wrote about war,Emily Dickinson
+3107,Robert Frost,Emily Dickinson,Walt Whitman,F. Scott Fitzgerald,The others are poets who wrote about peace,F. Scott Fitzgerald
+3108,Walt Whitman,Emily Dickinson,Robert Frost,Virginia Woolf,The others are poets who wrote about humanity,Virginia Woolf
+3109,Emily Dickinson,Robert Frost,Arthur Conan Doyle,Arthur Conan Doyle,The others are poets who wrote about society,Walt Whitman
+3110,Walt Whitman,Robert Frost,Jules Verne,Jules Verne,The others are poets who wrote about individuality,Emily Dickinson
+3111,H.G. Wells,Emily Dickinson,Walt Whitman,H.G. Wells,The others are poets who wrote about spirituality,Robert Frost
+3112,Emily Dickinson,Robert Frost,Walt Whitman,James Joyce,The others are poets who wrote about philosophy,James Joyce
+3113,Aldous Huxley,Emily Dickinson,Robert Frost,Aldous Huxley,The others are poets who wrote about identity,Walt Whitman
+3114,Walt Whitman,Herman Melville,Robert Frost,Herman Melville,The others are poets who wrote about existence,Emily Dickinson
+3115,Jack London,Robert Frost,Emily Dickinson,Jack London,The others are poets who wrote about reality,Walt Whitman
+3116,Sammy Davis Jr.,Dean Martin,Frank Sinatra,Elvis Presley,The others are members of the Rat Pack,Elvis Presley
+3117,Peter Tosh,Bunny Wailer,Stevie Wonder,Stevie Wonder,The others are members of The Wailers,Bob Marley
+3118,Ricky Martin,Shakira,Enrique Iglesias,Enrique Iglesias,The others are Latin pop artists who have acted in films,Jennifer Lopez
+3119,Aretha Franklin,Patti LaBelle,Diana Ross,Tina Turner,The others are Motown artists,Tina Turner
+3120,JC Chasez,Harry Styles,Lance Bass,Harry Styles,The others are members of N'Sync,Justin Timberlake
+3121,Gwen Stefani,Tony Kanal,Pink,Pink,The others are members of No Doubt,Adrian Young
+3122,Peter Gabriel,Tony Banks,Mike Rutherford,Peter Gabriel,The others are members of Genesis after Peter Gabriel's departure,Phil Collins
+3123,Luka Modric,Gareth Bale,Karim Benzema,Luis Suarez,The others played for Real Madrid,Luis Suarez
+3124,David Beckham,Ryan Giggs,Thierry Henry,Thierry Henry,The others played for Manchester United,Paul Scholes
+3125,Edge,Kurt Angle,Christian,Kurt Angle,The others are Canadian wrestlers,Chris Jericho
+3126,Chavo Guerrero,Batista,Eddie Guerrero,Batista,The others are Mexican-American wrestlers,Rey Mysterio
+3127,The Rock,Triple H,Shawn Michaels,The Rock,The others were part of D-Generation X,X-Pac
+3128,Stone Cold,Kurt Angle,Brock Lesnar,Stone Cold,The others have backgrounds in amateur wrestling,Ronda Rousey
+3129,Shawn Michaels,Diesel,Razor Ramon,Razor Ramon,The others have won the Royal Rumble match,Bret Hart
+3130,Anna Freud,Donald Winnicott,Ivan Pavlov,Ivan Pavlov,The others are child psychoanalysts,Melanie Klein
+3131,Mary Ainsworth,John Bowlby,Carl Jung,Carl Jung,The others are attachment theorists,Harry Harlow
+3132,Solomon Asch,Carl Rogers,Stanley Milgram,Carl Rogers,The others are social psychologists,Philip Zimbardo
+3133,Alfred Adler,Karen Horney,B. F. Skinner,B. F. Skinner,The others are neo-Freudians,Carl Jung
+3134,Oven Mitt,Whisk,Bread Slicer,Whisk,The others are used to handle hot items.,Bakers Peel
+3135,Water,Sugar,Yeast,Sugar,The others are necessary for making bread.,Flour
+3136,Donut,Bagel,Muffin,Muffin,The others are made with a yeast dough.,Croissant
+3137,Baking Sheet,Mixer,Measuring Cup,Baking Sheet,The others are used to mix ingredients.,Rolling Pin
+3138,Baker,Butcher,Pastry Chef,Butcher,The others are involved in baking.,Sous Chef
+3139,Baking,Slicing,Kneading,Slicing,The others are steps before baking.,Proofing
+3140,Bread Knife,Dough Scraper,Rolling Pin,Oven,The others are tools used to handle dough.,Oven
+3141,Patisserie,Bakery,Cafe,Cafe,The others specifically sell baked goods.,Boulangerie
+3142,Baking Stone,Baking Steel,Baking Sheet,Pizza Peel,The others are used for baking in an oven.,Pizza Peel
+3143,Paste,Dough,Frosting,Frosting,The others are stages of baking.,Batter
+3144,Flour,Butter,Chocolate,Chocolate,The others are basic baking ingredients.,Eggs
+3145,Muffin,Scone,Bagel,Bagel,The others are typically served with jam and cream.,Biscuit
+3146,Brioche,Donut,Bagel,Donut,The others are usually not fried.,Croissant
+3147,Glazing,Frying,Frosting,Frying,The others are methods used in baking.,Baking
+3149,Rolling Pin,Pastry Brush,Dough Cutter,Spatula,The others are used to shape dough.,Spatula
+3150,Puff Pastry,Choux Pastry,Shortcrust Pastry,Filo Pastry,The others use butter.,Filo Pastry
+3151,Vodka,Vermouth,Gin,Vodka,The others are ingredients in a Negroni,Campari
+3152,Flair Bartending,Cocktail Creation,Wine Tasting,Wine Tasting,The others are skills related to bartending,Mixology
+3966,Apple,Pear,Peach,Tomato,The others are pome fruits.,Tomato
+3153,Martini,Whiskey Sour,Old Fashioned,Martini,The others are whiskey-based cocktails,Mint Julep
+3154,Captain Morgan,Bacardi,Jack Daniels,Jack Daniels,The others are rum brands,Malibu
+3155,Pouring,Grinding,Stirring,Stirring,The others are steps in espresso making,Tamping
+3156,Fermentation,Boiling,Mashing,Distillation,The others are stages in brewing.,Distillation
+3157,Reinheitsgebot,Beer Tax Act,Three-Tier System,Prohibition,The others are beer laws.,Prohibition
+3158,Mashing,Lagering,Roasting,Roasting,The others are beer brewing processes.,Fermenting
+3159,Ale yeast,Wild yeast,Lager yeast,Baker's yeast,The others are yeasts used in brewing.,Baker's yeast
+3160,Amarone della Valpolicella,Prosecco,Valpolicella,Prosecco,The others are wines from the Valpolicella region,Recioto della Valpolicella
+3161,Kareem Abdul-Jabbar,Reggie Miller,LeBron James,Reggie Miller,The others are in the top 3 for all-time scoring.,Karl Malone
+3162,Magic Johnson,Hakeem Olajuwon,Larry Bird,Hakeem Olajuwon,The others have won 3 MVP awards.,Michael Jordan
+3163,Stephen Curry,Klay Thompson,Draymond Green,Kevin Durant,The others were drafted by the Golden State Warriors.,Kevin Durant
+3164,Karl Malone,Magic Johnson,Michael Jordan,Karl Malone,The others have won an NCAA Championship.,Larry Bird
+3165,LeBron James,Dwyane Wade,Kevin Love,Kevin Love,The others were part of the Miami Heat's 'Big Three'.,Chris Bosh
+3166,Dwight Howard,Pau Gasol,Shaquille O'Neal,Dwight Howard,The others have won a championship with the Lakers.,Kobe Bryant
+3167,Dennis Rodman,Scottie Pippen,Michael Jordan,Charles Barkley,The others were part of the Chicago Bulls' second 'Three-Peat'.,Charles Barkley
+3168,Kyrie Irving,LeBron James,Dwyane Wade,Dwyane Wade,The others were part of the Cleveland Cavaliers' 2016 Championship team.,Kevin Love
+3169,Karl Malone,Kareem Abdul-Jabbar,Magic Johnson,Karl Malone,The others were part of the Lakers' 'Showtime' era.,James Worthy
+3170,Larry Bird,Robert Parish,Kevin McHale,Bill Russell,The others were part of the 1980s Boston Celtics.,Bill Russell
+3171,Kobe Bryant,Tim Duncan,Allen Iverson,Allen Iverson,"The others are over 6'6"" tall.",Shaquille O'Neal
+3172,Magic Johnson,Larry Bird,Michael Jordan,Isaiah Thomas,The others have not played for the Detroit Pistons.,Isaiah Thomas
+3173,Kevin Durant,Stephen Curry,James Harden,James Harden,The others have won an NBA Championship.,LeBron James
+3174,Dirk Nowitzki,Kobe Bryant,Vince Carter,Vince Carter,The others have won an NBA MVP award.,Tim Duncan
+3175,LeBron James,Bill Russell,Magic Johnson,Bill Russell,The others have won an Olympic gold medal.,Michael Jordan
+3176,Karl Malone,Kareem Abdul-Jabbar,Dirk Nowitzki,Dirk Nowitzki,The others have not played for the Dallas Mavericks.,Wilt Chamberlain
+3177,Tim Duncan,Tracy McGrady,Shaquille O'Neal,Tracy McGrady,The others have won an NBA Finals MVP.,Kobe Bryant
+3178,Klay Thompson,Stephen Curry,Draymond Green,Draymond Green,The others have won an NBA scoring title.,Kevin Durant
+3179,Dwyane Wade,LeBron James,Dirk Nowitzki,Dirk Nowitzki,The others have played for the Miami Heat.,Chris Bosh
+3180,Dwight Howard,Kobe Bryant,Pau Gasol,Pau Gasol,The others were number 1 draft picks.,Shaquille O'Neal
+3181,Charles Barkley,Michael Jordan,Scottie Pippen,Charles Barkley,The others have won Defensive Player of the Year.,Dennis Rodman
+3182,Albert Pujols,Mickey Mantle,Babe Ruth,Albert Pujols,The others are New York Yankees players,Derek Jeter
+3183,Ichiro Suzuki,Jackie Robinson,Hank Aaron,Ichiro Suzuki,The others are African American players,Willie Mays
+3184,Ty Cobb,Yogi Berra,Lou Gehrig,Ty Cobb,The others are Yankees players,Joe DiMaggio
+3185,Nolan Ryan,Manny Machado,Bryce Harper,Nolan Ryan,The others are current MLB players,Mike Trout
+3186,Willie Mays,Barry Bonds,Bobby Bonds,Hank Aaron,The others are San Francisco Giants players,Hank Aaron
+3187,Sandy Koufax,Clayton Kershaw,Bob Gibson,Bob Gibson,The others are Los Angeles Dodgers players,Don Drysdale
+3188,Cal Ripken Jr.,Mike Schmidt,Eddie Murray,Mike Schmidt,The others are Baltimore Orioles players,Brooks Robinson
+3189,Hank Aaron,Warren Spahn,Willie Mays,Willie Mays,The others are Milwaukee/Atlanta Braves players,Eddie Mathews
+3190,Tom Seaver,Jerry Koosman,George Brett,George Brett,The others are New York Mets players,Nolan Ryan
+3191,Curt Schilling,Randy Johnson,Luis Gonzalez,Tony Gwynn,The others are Arizona Diamondbacks players,Tony Gwynn
+3192,Tom Glavine,Pedro Martinez,Greg Maddux,Pedro Martinez,The others are Atlanta Braves players,John Smoltz
+3193,Ken Griffey Jr.,Cal Ripken Jr.,Edgar Martinez,Cal Ripken Jr.,The others are Seattle Mariners players,Randy Johnson
+3194,Barry Bonds,Ichiro Suzuki,Sammy Sosa,Ichiro Suzuki,The others are linked to the steroid era,Mark McGwire
+3195,Roberto Clemente,Ernie Banks,Bill Mazeroski,Ernie Banks,The others are Pittsburgh Pirates players,Willie Stargell
+3196,Derek Jeter,Adam Wainwright,Yadier Molina,Derek Jeter,The others are St. Louis Cardinals players,Albert Pujols
+3197,Johnny Bench,Mickey Mantle,Pete Rose,Mickey Mantle,The others are Cincinnati Reds players,Joe Morgan
+3198,Pete Rose,Steve Carlton,Mike Schmidt,Nolan Ryan,The others are Philadelphia Phillies players,Nolan Ryan
+3199,Ryne Sandberg,Hal McRae,Frank White,Ryne Sandberg,The others are Kansas City Royals players,George Brett
+3200,Catfish Hunter,Willie Mays,Reggie Jackson,Willie Mays,The others are Oakland Athletics players,Rollie Fingers
+3201,Rocky Marciano,Jack Johnson,Joe Louis,Roberto Duran,The others are heavyweight champions.,Roberto Duran
+3202,Joe Louis,Mike Tyson,Larry Holmes,Joe Louis,The others have defended their heavyweight title more than 10 times.,Evander Holyfield
+3204,George Foreman,Sugar Ray Robinson,Joe Frazier,Sugar Ray Robinson,The others have won an Olympic medal.,Muhammad Ali
+3205,Jack Dempsey,Mike Tyson,Joe Louis,Mike Tyson,The others fought in black and white era.,Rocky Marciano
+3206,George Foreman,Lennox Lewis,Joe Frazier,Lennox Lewis,The others have been defeated by Muhammad Ali.,Mike Tyson
+3207,Jake LaMotta,Manny Pacquiao,Oscar De La Hoya,Jake LaMotta,The others have won titles in multiple weight classes.,Floyd Mayweather
+3208,Joe Louis,Mike Tyson,Lennox Lewis,Joe Louis,The others have won the heavyweight title multiple times.,Evander Holyfield
+3209,Sergio Busquets,Gerard Pique,Xavi Hernandez,Gerard Pique,The others are midfielders,Andres Iniesta
+3210,Cristiano Ronaldo,Robert Lewandowski,Mohamed Salah,Robert Lewandowski,The others have played in the English Premier League,Lionel Messi
+3211,Eden Hazard,Thibaut Courtois,Kevin De Bruyne,Thibaut Courtois,The others are outfield players,Romelu Lukaku
+3212,Daniel James,Aaron Ramsey,Joe Allen,Daniel James,The others have played in a UEFA Champions League final,Gareth Bale
+3213,Didier Drogba,Michael Essien,Samuel Eto'o,Michael Essien,The others have won the African Footballer of the Year award,Yaya Toure
+3214,Wesley Sneijder,Arjen Robben,Robin van Persie,Dirk Kuyt,The others have played in a World Cup final,Dirk Kuyt
+3215,Roberto Carlos,Rivaldo,Kaka,Roberto Carlos,The others have won the FIFA World Player of the Year award,Ronaldinho
+3216,Jaromir Jagr,Mario Lemieux,Alex Ovechkin,Alex Ovechkin,The others have played for the Pittsburgh Penguins.,Sidney Crosby
+3217,Patrick Kane,Duncan Keith,Connor McDavid,Connor McDavid,The others are Chicago Blackhawks players.,Jonathan Toews
+3218,Evgeny Kuznetsov,Steven Stamkos,Alex Ovechkin,Steven Stamkos,The others are Washington Capitals players.,Nicklas Backstrom
+3219,Phil Esposito,Tony Esposito,Stan Mikita,Phil Esposito,The others have played for the Chicago Blackhawks.,Bobby Hull
+3220,Martin Brodeur,Joe Sakic,Patrick Roy,Martin Brodeur,The others have played for the Colorado Avalanche.,Peter Forsberg
+3221,Bobby Orr,Guy Lafleur,Jean Beliveau,Bobby Orr,The others have played for the Montreal Canadiens.,Maurice Richard
+3222,Henrik Zetterberg,Pavel Datsyuk,Daniel Alfredsson,Daniel Alfredsson,The others are Detroit Red Wings draftees.,Nicklas Lidstrom
+3223,Mario Lemieux,Jari Kurri,Wayne Gretzky,Mario Lemieux,The others have played for the Edmonton Oilers.,Mark Messier
+3224,Bernie Parent,Bobby Clarke,Bill Barber,Mike Bossy,The others have played for the Philadelphia Flyers.,Mike Bossy
+3225,Teemu Selanne,Paul Kariya,Ryan Getzlaf,Jarome Iginla,The others have played for the Anaheim Ducks.,Jarome Iginla
+3226,Sidney Crosby,Zdeno Chara,Patrice Bergeron,Sidney Crosby,The others have played for the Boston Bruins.,Brad Marchand
+3227,Patrick Roy,Brett Hull,Ed Belfour,Patrick Roy,The others have played for the Dallas Stars.,Mike Modano
+3228,Wendel Clark,Mats Sundin,Steve Yzerman,Steve Yzerman,The others have played for the Toronto Maple Leafs.,Doug Gilmour
+3229,Trevor Linden,Henrik Sedin,Joe Sakic,Joe Sakic,The others have played for the Vancouver Canucks.,Pavel Bure
+3230,Pavel Datsyuk,Adam Oates,Brett Hull,Pavel Datsyuk,The others have played for the St. Louis Blues.,Chris Pronger
+3231,Daniel Alfredsson,Henrik Lundqvist,Erik Karlsson,Henrik Lundqvist,The others have played for the Ottawa Senators.,Jason Spezza
+3232,Mark Messier,Scott Stevens,Martin Brodeur,Mark Messier,The others have played for the New Jersey Devils.,Patrik Elias
+3233,Brian Leetch,Mario Lemieux,Mike Richter,Mario Lemieux,The others have won the Conn Smythe Trophy as a New York Ranger.,Mark Messier
+3234,Marc-Andre Fleury,Sidney Crosby,Evgeni Malkin,Alex Ovechkin,The others have won the Stanley Cup with the Pittsburgh Penguins.,Alex Ovechkin
+3235,Jonathan Toews,Patrick Kane,Duncan Keith,Auston Matthews,The others have won the Conn Smythe Trophy as a Chicago Blackhawk.,Auston Matthews
+3236,Joe Thornton,Evgeni Nabokov,Jarome Iginla,Jarome Iginla,The others have played for the San Jose Sharks.,Patrick Marleau
+3237,Nicklas Lidstrom,Henrik Zetterberg,Steve Yzerman,Steve Yzerman,The others have won the Conn Smythe Trophy as a Detroit Red Wing.,Pavel Datsyuk
+3238,Theo Fleury,Jarome Iginla,Miikka Kiprusoff,Joe Sakic,The others have played for the Calgary Flames.,Joe Sakic
+3239,Joe Sakic,Martin Brodeur,Peter Stastny,Martin Brodeur,The others have played for the Quebec Nordiques/Colorado Avalanche.,Patrick Roy
+3240,Denis Potvin,Mario Lemieux,Bryan Trottier,Mario Lemieux,The others have won the Stanley Cup with the New York Islanders.,Mike Bossy
+3241,Jean-Claude Van Damme,Sylvester Stallone,Steven Seagal,Sylvester Stallone,The others are martial artists and actors,Chuck Norris
+3242,Keith Haring,Kenny Scharf,Jean-Michel Basquiat,Grant Wood,The others are artists of the New York street art movement,Grant Wood
+3243,Rene Magritte,Oskar Kokoschka,Egon Schiele,Rene Magritte,The others are artists of the Vienna Secession,Gustav Klimt
+3244,Arthur Dove,Charles Demuth,Georgia O'Keeffe,Andrew Wyeth,The others are Precisionists,Andrew Wyeth
+3245,Salvador Dali,Diego Velázquez,El Greco,Salvador Dali,The others are Spanish painters of the Old Masters,Francisco Goya
+3246,Marc Chagall,Salvador Dali,Wassily Kandinsky,Salvador Dali,The others are artists of the Russian avant-garde,Kazimir Malevich
+3247,Theo van Doesburg,Henri Matisse,Piet Mondrian,Henri Matisse,The others are artists of the De Stijl movement,Bart van der Leck
+3248,Sandro Botticelli,Michelangelo,Caravaggio,Caravaggio,The others are artists of the Early Renaissance,Leonardo da Vinci
+3249,Tintoretto,Giorgione,Titian,Raphael,The others are Venetian Renaissance painters,Raphael
+3250,Jean-Auguste-Dominique Ingres,Honoré Daumier,Jean-François Millet,Jean-Auguste-Dominique Ingres,The others are artists of the Realism movement,Gustave Courbet
+3251,Sandro Botticelli,Domenico Ghirlandaio,Pietro Perugino,Caravaggio,The others are artists of the Early Italian Renaissance,Caravaggio
+3252,Nicolas Poussin,Claude Lorrain,Simon Vouet,Pierre-Auguste Renoir,The others are French Baroque painters,Pierre-Auguste Renoir
+3253,Jean-Auguste-Dominique Ingres,Jacques-Louis David,Eugène Delacroix,Paul Cézanne,The others are artists of the Neoclassicism movement,Paul Cézanne
+3254,Pierre Puvis de Chavannes,Odilon Redon,Vincent van Gogh,Vincent van Gogh,The others are Symbolists,Gustave Moreau
+3255,Wittgenstein,Voltaire,Rousseau,Wittgenstein,The others were philosophers of the Enlightenment,Diderot
+3256,Epicurus,Marx,Epictetus,Marx,The others are ancient Greek philosophers associated with Hellenistic schools,Zeno
+3257,James,Russell,Dewey,Russell,The others are pragmatists,Peirce
+3258,Russell,Whitehead,Frege,Thoreau,The others are logicians,Thoreau
+3259,Berkeley,Locke,Hume,Kierkegaard,The others are empiricists,Kierkegaard
+3260,Popper,Kuhn,Feyerabend,Plato,The others are philosophers of science,Plato
+3261,Kierkegaard,Mill,Nietzsche,Mill,The others are associated with nihilism,Schopenhauer
+3262,Engels,Descartes,Hegel,Descartes,The others are dialectical materialists,Marx
+3263,Locke,Kant,Heidegger,Heidegger,The others are philosophers of the Enlightenment,Hume
+3264,Socrates,Aristotle,Plato,Kierkegaard,The others are philosophers of ancient Greece,Kierkegaard
+3265,Foucault,Derrida,Socrates,Socrates,The others are postmodernists,Barthes
+3266,Beauvoir,Kant,Camus,Kant,The others are French existentialists,Sartre
+3267,Rule of thirds,Depth of field,Leading lines,Color wheel,The others are photography composition techniques,Color wheel
+3268,Color grading,Retouching,Cropping,Sketching,The others are photo editing techniques,Sketching
+3269,Sergei Prokofiev,Franz Schubert,Dmitri Shostakovich,Franz Schubert,The others are Russian composers.,Sergei Rachmaninoff
+3270,Franz Liszt,Ludwig van Beethoven,Frederic Chopin,Ludwig van Beethoven,The others were known for their virtuosic piano playing.,Sergei Rachmaninoff
+3271,Robert Frost,E. E. Cummings,William Wordsworth,William Wordsworth,The others are 20th century poets.,T. S. Eliot
+3272,Percy Bysshe Shelley,Robert Frost,Lord Byron,Robert Frost,The others are Romantic poets.,John Keats
+3273,Emily Dickinson,Jack Kerouac,William S. Burroughs,Emily Dickinson,The others are Beat Generation poets.,Allen Ginsberg
+3274,William Blake,Samuel Taylor Coleridge,Robert Southey,William Blake,The others are Lake Poets.,William Wordsworth
+3275,Arthur Rimbaud,Emily Dickinson,Charles Baudelaire,Emily Dickinson,The others are French poets.,Paul Verlaine
+3276,Robert Frost,Ben Jonson,William Shakespeare,Robert Frost,The others are poets of the English Renaissance.,John Donne
+3277,H. D.,T. S. Eliot,Ezra Pound,Robert Frost,The others are Imagist poets.,Robert Frost
+3278,Langston Hughes,William Wordsworth,Claude McKay,William Wordsworth,The others are Harlem Renaissance poets.,Zora Neale Hurston
+3279,Geoffrey Chaucer,Robert Frost,Thomas Hoccleve,Robert Frost,The others are Middle English poets.,John Gower
+3280,John Dryden,Alexander Pope,William Shakespeare,William Shakespeare,The others are Augustan poets.,Samuel Johnson
+3281,William Blake,Emily Dickinson,Samuel Taylor Coleridge,Emily Dickinson,The others are poets of the English Romantic movement.,William Wordsworth
+3282,Ben Jonson,Robert Frost,William Shakespeare,Robert Frost,The others are Elizabethan poets.,Christopher Marlowe
+3283,Walter Scott,Robert Burns,Emily Dickinson,Emily Dickinson,The others are Scottish poets.,James Hogg
+3284,Robert Frost,William Shakespeare,John Milton,Robert Frost,The others are 17th century English poets.,John Dryden
+3285,Anne Sexton,Robert Lowell,Sylvia Plath,Emily Dickinson,The others are Confessional poets.,Emily Dickinson
+3286,Percy Bysshe Shelley,Lord Byron,John Keats,William Shakespeare,The others are poets of the Romantic movement.,William Shakespeare
+3287,Franklin D. Roosevelt,Bill Clinton,Jimmy Carter,Boris Johnson,The others are former U.S. Presidents,Boris Johnson
+3288,Bill Clinton,Richard Nixon,Barack Obama,Barack Obama,The others have faced impeachment,Andrew Johnson
+3289,Jacob Zuma,Olusegun Obasanjo,Muhammadu Buhari,Jacob Zuma,The others are Nigerian Presidents,Goodluck Jonathan
+3290,Endel Tulving,Carl Jung,Elizabeth Loftus,Carl Jung,The others are memory researchers,Daniel Schacter
+3291,Carl Jung,Lewis Terman,Charles Spearman,Carl Jung,The others are intelligence researchers,Francis Galton
+3292,Biscuits,Ice Cream,Bread,Ice Cream,The others are baked,Cake
+3293,Biscotti,Madeleine,Macaron,Gelato,The others are baked Italian/French desserts,Gelato
+3294,Shortbread,Crumpet,Scone,Pancake,The others are baked British treats,Pancake
+3295,Whiskey Sour,Old Fashioned,Mint Julep,Bloody Mary,The others are whiskey cocktails,Bloody Mary
+3296,Martini Glass,Old Fashioned Glass,Beer Mug,Beer Mug,The others are cocktail glasses,Highball Glass
+3297,Ice Scoop,Cutting Board,Strainer,Cutting Board,The others are used directly in drink preparation,Muddler
+3298,Mojito,Tequila Sunrise,Pina Colada,Tequila Sunrise,The others are rum cocktails,Daiquiri
+3299,Lime,Sugar,Tonic Water,Tonic Water,The others are ingredients in a daiquiri,Bitters
+3300,Aperol Spritz,Margarita,Americano,Margarita,The others are apéritif cocktails,Negroni
+3301,Mezcal,Rum,Sotol,Rum,The others are Mexican spirits,Tequila
+3302,Bloody Mary,Mojito,Black Russian,Mojito,The others are vodka cocktails,Screwdriver
+3303,French 75,Gin Fizz,Old Fashioned,Old Fashioned,The others are gin cocktails,Tom Collins
+3304,Vermouth,Triple Sec,Cointreau,Vermouth,The others are orange liqueurs,Grand Marnier
+3305,Pimm's Cup,Dark 'n' Stormy,Moscow Mule,Margarita,The others are served in copper mugs,Margarita
+3306,Rye,Bourbon,Brandy,Brandy,The others are whiskies,Scotch
+3307,Pina Colada,Cuba Libre,Mojito,Pina Colada,The others are served with lime,Daiquiri
+3308,Baileys,Campari,Fernet-Branca,Baileys,The others are bitter liqueurs,Jägermeister
+3309,Lemon Twist,Lime Wedge,Olive,Lime Wedge,The others are garnishes for a martini,Cherry
+3310,Ouzo,Sambuca,Tequila,Tequila,The others are anise-flavored,Arak
+3311,Heineken,Corona,Pilsner Urquell,Corona,The others are European beers,Guinness
+3312,Stone Brewing,Dogfish Head,Bell's Brewery,Anheuser-Busch,The others are microbreweries,Anheuser-Busch
+3313,Magic Rock,Beavertown,Stella Artois,Stella Artois,The others are UK craft beers,BrewDog
+3314,Pliny the Elder,Heady Topper,Budweiser,Budweiser,The others are IPA beers,Zombie Dust
+3315,Duvel,Miller Lite,Orval,Miller Lite,The others are Trappist beers,Westmalle
+3316,Budweiser,Pelforth,Kronenbourg 1664,Budweiser,The others are French beers,Fischer
+3317,Bud Light,Zhiguli,Baltika,Bud Light,The others are Russian beers,Nevskoye
+3318,Bomonti,Tuborg,Efes,Heineken,The others are Turkish beers,Heineken
+3320,Cabernet Sauvignon,Château Latour,Château Lafite Rothschild,Cabernet Sauvignon,The others are French wineries,Château Margaux
+3321,Keg,Barrique,Demijohn,Keg,The others are wine storage vessels,Amphora
+3322,Château Latour,Château Lafite Rothschild,Château Margaux,Dom Pérignon,The others are Bordeaux wineries,Dom Pérignon
+3323,Napa Valley,Hunter Valley,Yarra Valley,Napa Valley,The others are Australian wine regions,Barossa Valley
+3324,Malolactic fermentation,Saignée,Carbonic maceration,Decanting,The others are winemaking techniques,Decanting
+3325,Maturation,Bottling,Distillation,Distillation,The others are stages of winemaking,Vinification
+3326,Chardonnay,Merlot,Cabernet Sauvignon,Chardonnay,The others are Bordeaux grape varietals,Cabernet Franc
+3328,Chablis,Barolo,Sancerre,Barolo,The others are French wines,Pouilly-Fumé
+3329,Pot Still,Column Still,Fermentation Vat,Fermentation Vat,The others are types of distillers,Alembic Still
+3330,Single Malt,Single Grain,Blended Malt,Rum,The others are types of Scotch whisky,Rum
+3331,Mash,Hearts,Angel's Share,Mash,The others are distillation cuts,Foreshots
+3332,Yeast,Barrel,Water,Barrel,The others are ingredients in distillation,Grain
+3333,Aging,Distillation,Bottling,Fermentation,The others are post-distillation processes,Fermentation
+3334,Cask Strength,Single Barrel,Small Batch,Vodka,The others are whiskey classifications,Vodka
+3335,Cognac,Armagnac,Scotch,Scotch,The others are types of brandy,Brandy
+3336,Rum,Absinthe,Gin,Absinthe,The others are distilled from grain,Vodka
+3337,Glass,Stainless Steel,Copper,Wood,The others are materials used to make distillers,Wood
+3338,Malt,Grain,Pot Still,Column Still,The others are used in the mashing process,Column Still
+3339,Jameson,Chivas Regal,Johnnie Walker,Jameson,The others are Scotch whisky brands,Ballantine's
+3340,Grey Goose,Absolut,Bacardi,Bacardi,The others are vodka brands,Smirnoff
+3341,Bombay Sapphire,Beefeater,Jack Daniels,Jack Daniels,The others are gin brands,Tanqueray
+3342,Lagavulin,Macallan,Ardbeg,Macallan,The others are Islay Scotch whiskies,Laphroaig
+3343,Laphroaig,Glenmorangie,Macallan,Laphroaig,The others are Highland Scotch whiskies,Dalmore
+3344,Glen Deveron,Auchentoshan,Glenkinchie,Talisker,The others are Lowland Scotch whiskies,Talisker
+3345,Glenfiddich,Balvenie,Glenlivet,Talisker,The others are Speyside Scotch whiskies,Talisker
+3346,Kareem Abdul-Jabbar,Shaquille O'Neal,Scottie Pippen,Scottie Pippen,The others are Los Angeles Lakers' MVPs.,Magic Johnson
+3347,Scottie Pippen,Michael Jordan,Dennis Rodman,Karl Malone,The others played for the Chicago Bulls.,Karl Malone
+3348,Kevin Garnett,Bill Russell,Paul Pierce,Bill Russell,The others are NBA Finals MVPs.,Larry Bird
+3349,Anthony Davis,Dwyane Wade,Chris Bosh,Anthony Davis,The others won an NBA championship with the Miami Heat.,LeBron James
+3350,Jason Terry,Steve Nash,J.J. Barea,Steve Nash,The others won an NBA championship with the Dallas Mavericks.,Dirk Nowitzki
+3351,Kareem Abdul-Jabbar,Magic Johnson,James Worthy,Larry Bird,The others won an NBA championship with the Los Angeles Lakers.,Larry Bird
+3352,Dennis Rodman,Michael Jordan,Shaquille O'Neal,Shaquille O'Neal,The others are part of the 1996 Chicago Bulls.,Scottie Pippen
+3353,Tim Duncan,Tony Parker,Kawhi Leonard,Kawhi Leonard,The others are part of the 2007 San Antonio Spurs.,Manu Ginobili
+3354,Shaquille O'Neal,Tracy McGrady,Kobe Bryant,Tracy McGrady,The others are part of the 2002 Los Angeles Lakers.,Derek Fisher
+3355,Tony Parker,Manu Ginobili,David Robinson,David Robinson,The others are part of the 2005 San Antonio Spurs.,Tim Duncan
+3356,Magic Johnson,Larry Bird,Kevin McHale,Magic Johnson,The others are part of the 1986 Boston Celtics.,Robert Parish
+3357,Charles Barkley,Michael Jordan,Scottie Pippen,Charles Barkley,The others are part of the 1998 Chicago Bulls.,Dennis Rodman
+3358,LeBron James,Chris Bosh,Dwyane Wade,Kevin Durant,The others are part of the 2012 Miami Heat.,Kevin Durant
+3359,Magic Johnson,Larry Bird,James Worthy,Larry Bird,The others are part of the 1985 Los Angeles Lakers.,Kareem Abdul-Jabbar
+3360,Manu Ginobili,Shaquille O'Neal,Tim Duncan,Shaquille O'Neal,The others are part of the 2003 San Antonio Spurs.,Tony Parker
+3361,Karl Malone,Scottie Pippen,Dennis Rodman,Karl Malone,The others are part of the 1997 Chicago Bulls.,Michael Jordan
+3362,Dirk Nowitzki,LeBron James,Dwyane Wade,Dirk Nowitzki,The others are part of the 2013 Miami Heat.,Chris Bosh
+3363,Larry Bird,Magic Johnson,James Worthy,Larry Bird,The others are part of the 1987 Los Angeles Lakers.,Kareem Abdul-Jabbar
+3364,Shaquille O'Neal,Tracy McGrady,Derek Fisher,Tracy McGrady,The others are part of the 2000 Los Angeles Lakers.,Kobe Bryant
+3365,Robert Parish,Magic Johnson,Kevin McHale,Magic Johnson,The others are part of the 1984 Boston Celtics.,Larry Bird
+3366,Willie Mays,Hank Aaron,Mike Trout,Mike Trout,The others played before 1980,Roberto Clemente
+3367,Yogi Berra,Johnny Bench,Cal Ripken Jr.,Cal Ripken Jr.,The others are catchers,Mike Piazza
+3368,Ty Cobb,Lou Brock,Rickey Henderson,Babe Ruth,The others are base stealers,Babe Ruth
+3369,Hank Aaron,Ty Cobb,Cy Young,Cy Young,The others are hitters,Pete Rose
+3370,Barry Bonds,Mark McGwire,Sammy Sosa,Derek Jeter,The others have hit 60+ home runs in a season,Derek Jeter
+3371,Sandy Koufax,Rickey Henderson,Nolan Ryan,Rickey Henderson,The others are strikeout leaders,Randy Johnson
+3372,Greg Maddux,Miguel Tejada,Cal Ripken Jr.,Greg Maddux,The others are consecutive game streak holders,Lou Gehrig
+3373,Pete Rose,Honus Wagner,Joe DiMaggio,Honus Wagner,The others have hit streaks of 40+ games,Willie Keeler
+3374,Jackie Robinson,Ernie Banks,Ted Williams,Ted Williams,The others were pioneers in breaking the color barrier,Larry Doby
+3375,Tony Gwynn,Roberto Clemente,Rod Carew,Babe Ruth,The others are known for their high batting averages,Babe Ruth
+3376,Mike Piazza,Cal Ripken Jr.,Ozzie Smith,Mike Piazza,The others are shortstops,Derek Jeter
+3377,Babe Ruth,Ty Cobb,Pete Rose,Babe Ruth,The others have 4000+ professional hits,Ichiro Suzuki
+3378,Hank Aaron,Babe Ruth,Barry Bonds,Rickey Henderson,The others are home run leaders,Rickey Henderson
+3379,Sandy Koufax,Mickey Mantle,Willie Mays,Sandy Koufax,The others are outfielders,Hank Aaron
+3380,Brooks Robinson,Mike Schmidt,Lou Gehrig,Lou Gehrig,The others are third basemen,George Brett
+3381,Roger Clemens,Randy Johnson,Babe Ruth,Babe Ruth,The others have 300+ career wins,Nolan Ryan
+3382,Ted Williams,Willie Mays,Mickey Mantle,Willie Mays,The others have a career on-base percentage over .400,Babe Ruth
+3383,Cal Ripken Jr.,Joe DiMaggio,Miguel Tejada,Joe DiMaggio,The others have played in 2000+ consecutive games,Lou Gehrig
+3384,Floyd Mayweather,Manny Pacquiao,Oscar De La Hoya,Sugar Ray Robinson,The others are boxers of the modern era,Sugar Ray Robinson
+3385,Rocky Marciano,Lennox Lewis,Evander Holyfield,Rocky Marciano,The others are heavyweight champions of the 90s,Mike Tyson
+3386,Marvin Hagler,Roberto Duran,Sugar Ray Leonard,George Foreman,The others are middleweight champions,George Foreman
+3387,Fred Astaire,Mikhail Baryshnikov,Rudolf Nureyev,Fred Astaire,The others are ballet dancers.,Vaslav Nijinsky
+3388,Fred Astaire,Ginger Rogers,Margot Fonteyn,Margot Fonteyn,The others are tap dancers.,Gene Kelly
+3389,Mary Wigman,Martha Graham,Isadora Duncan,Bob Fosse,The others are modern dancers.,Bob Fosse
+3390,Anna Pavlova,Michael Flatley,Jean Butler,Anna Pavlova,The others are Irish dancers.,Colin Dunne
+3391,Marius Petipa,George Balanchine,Jerome Robbins,Jerome Robbins,The others are ballet choreographers.,Lev Ivanov
+3392,Bryan Watson,Merce Cunningham,Yulia Zagoruychenko,Merce Cunningham,The others are ballroom dancers.,Pierre Dulaine
+3393,Mikhail Baryshnikov,Gower Champion,Jerome Robbins,Mikhail Baryshnikov,The others are Broadway choreographers.,Bob Fosse
+3394,Vaslav Nijinsky,Fred Astaire,Rudolf Nureyev,Fred Astaire,The others are Russian dancers.,Mikhail Baryshnikov
+3395,Twyla Tharp,Gene Kelly,Martha Graham,Gene Kelly,The others are modern choreographers.,Merce Cunningham
+3396,Galina Ulanova,Janet Jackson,Michael Jackson,Galina Ulanova,The others are pop dancers.,Paula Abdul
+3397,Pierre Dulaine,Isadora Duncan,Mary Wigman,Pierre Dulaine,The others are pioneers of modern dance.,Martha Graham
+3398,Fred Astaire,Bill Robinson,Vaslav Nijinsky,Vaslav Nijinsky,The others are film dancers.,Gene Kelly
+3399,George Balanchine,Pierre Dulaine,Bryan Watson,George Balanchine,The others are Latin dancers.,Yulia Zagoruychenko
+3400,Lombardi Trophy,Green Jacket,Wanamaker Trophy,Lombardi Trophy,The others are golf tournament prizes,Claret Jug
+3401,Flop Shot,Free Kick,Stinger,Free Kick,The others are golf shots,Punch Shot
+3402,Babe Didrikson Zaharias,Tommy Armour,Horton Smith,Babe Didrikson Zaharias,The others are male professional golfers,Johnny Farrell
+3403,Brett Hull,Mark Howe,Bobby Hull,Gordie Howe,The others are father-son duos,Gordie Howe
+3404,Wayne Gretzky,Ray Bourque,Chris Pronger,Wayne Gretzky,The others are defensemen,Scott Stevens
+3405,Denis Potvin,Mario Lemieux,Paul Coffey,Mario Lemieux,The others won the Norris Trophy,Bobby Orr
+3406,Brett Hull,Dominik Hasek,Patrick Roy,Brett Hull,The others won the Vezina Trophy,Martin Brodeur
+3407,Evgeni Malkin,Jaromir Jagr,Sidney Crosby,Jaromir Jagr,The others are Penguins' captains,Mario Lemieux
+3408,Jari Kurri,Paul Coffey,Wayne Gretzky,Paul Coffey,The others won the Hart Trophy,Mark Messier
+3409,Evgeni Nabokov,Pavel Datsyuk,Alex Ovechkin,Evgeni Nabokov,The others are Russian forwards,Sergei Fedorov
+3410,Bernie Parent,Bobby Clarke,Bill Barber,Mike Bossy,The others played for the Flyers,Mike Bossy
+3411,Patrick Roy,Mats Sundin,Peter Forsberg,Mats Sundin,The others played for the Avalanche,Joe Sakic
+3412,Miikka Kiprusoff,Jarome Iginla,Dion Phaneuf,Joe Thornton,The others played for the Flames,Joe Thornton
+3413,Adam Foote,Teemu Selanne,Peter Forsberg,Teemu Selanne,The others won a Stanley Cup with the Avalanche,Joe Sakic
+3414,Peter Tosh,David Bowie,Bob Marley,David Bowie,The others are reggae musicians,Bunny Wailer
+3415,Eddie Vedder,Kurt Cobain,Chris Cornell,Axl Rose,The others are grunge musicians,Axl Rose
+3416,The Beatles,The Cure,The Smiths,The Beatles,The others are 80s alternative bands,Depeche Mode
+3417,Metallica,Megadeth,Slayer,Nirvana,The others are thrash metal bands,Nirvana
+3418,The Doors,The Kinks,The Yardbirds,The Doors,The others are British Invasion bands,The Who
+3419,Mick Jagger,Janis Joplin,Jimi Hendrix,Mick Jagger,The others died at age 27,Jim Morrison
+3420,The Ramones,The Clash,The Sex Pistols,The Ramones,The others are British punk bands,The Damned
+3421,Socrates,Hobbes,Aristotle,Hobbes,The others are philosophers of the Classical period,Plato
+3422,Locke,Hegel,Schopenhauer,Locke,The others are philosophers of the German Idealism,Kant
+3423,Confucius,Xunzi,Mencius,Rousseau,The others are Confucian philosophers,Rousseau
+3424,Nietzsche,Kierkegaard,Sartre,Locke,The others are Existentialists,Locke
+3425,Moore,Nietzsche,Wittgenstein,Nietzsche,The others are philosophers of the Analytic tradition,Russell
+3426,Plato,Hobbes,Locke,Plato,The others are philosophers of the Social Contract,Rousseau
+3427,Augustine,Anselm,Spinoza,Spinoza,The others are philosophers of the Scholasticism,Aquinas
+3428,Marx,Sartre,Engels,Sartre,The others are philosophers of the Dialectical materialism,Hegel
+3429,Jelly Roll Morton,Sergei Prokofiev,Fats Waller,Sergei Prokofiev,The others are ragtime pianists,Scott Joplin
+3430,Stevie Wonder,Alicia Keys,Johannes Brahms,Johannes Brahms,The others are R&B pianists,Ray Charles
+3431,Yundi Li,Yuja Wang,John Legend,John Legend,The others are Chinese pianists,Lang Lang
+3432,Hiromi Uehara,Robert Glasper,Johann Sebastian Bach,Johann Sebastian Bach,The others are jazz fusion pianists,Chick Corea
+3433,Liberace,Sergei Rachmaninoff,Billy Joel,Sergei Rachmaninoff,The others are pop pianists,Elton John
+3434,Fats Domino,Ludwig van Beethoven,Jerry Lee Lewis,Ludwig van Beethoven,The others are rock and roll pianists,Little Richard
+3435,Franz Liszt,Richard Wright,Tony Banks,Franz Liszt,The others are rock keyboardists,Ray Manzarek
+3436,Regina Spektor,Johann Sebastian Bach,Fiona Apple,Johann Sebastian Bach,The others are alternative pop pianists,Tori Amos
+3437,Wolfgang Amadeus Mozart,Booker T. Jones,Steve Winwood,Wolfgang Amadeus Mozart,The others are soul pianists,Billy Preston
+3438,Allen Ginsberg,William Blake,Jack Kerouac,William Blake,The others are Beat Generation poets,Sylvia Plath
+3439,Pablo Neruda,Hafez,Rumi,Pablo Neruda,The others are Persian poets,Omar Khayyam
+3440,e.e. cummings,W.B. Yeats,Robert Frost,e.e. cummings,The others are winners of the Nobel Prize in Literature,T.S. Eliot
+3441,Langston Hughes,Emily Dickinson,Zora Neale Hurston,Emily Dickinson,The others are part of the Harlem Renaissance,Toni Morrison
+3442,Percy Bysshe Shelley,John Keats,Robert Burns,Robert Burns,The others are part of the second generation of Romantic poets,Lord Byron
+3443,Walt Whitman,Emily Dickinson,Edgar Allan Poe,Charles Dickens,The others are poets of the 19th century,Charles Dickens
+3444,Mark Twain,E.E. Cummings,Robert Frost,Mark Twain,The others are part of the Modernist movement,Carl Sandburg
+3445,Geoffrey Chaucer,William Shakespeare,Ben Jonson,Geoffrey Chaucer,The others are poets of the Elizabethan era,John Donne
+3446,Dante Alighieri,Giovanni Boccaccio,Victor Hugo,Victor Hugo,The others are poets of the Italian Renaissance,Petrarch
+3447,William Wordsworth,Samuel Taylor Coleridge,William Blake,Thomas Hardy,The others are poets of the Romantic era,Thomas Hardy
+3448,Walt Whitman,Edgar Allan Poe,Ralph Waldo Emerson,Edgar Allan Poe,The others are Transcendentalist poets,Henry David Thoreau
+3450,Martin Luther King Jr.,Maya Angelou,Langston Hughes,Martin Luther King Jr.,The others are poets of the Civil Rights Movement,Toni Morrison
+3451,William Shakespeare,Christopher Marlowe,Ben Jonson,Geoffrey Chaucer,The others are poets of the English Renaissance,Geoffrey Chaucer
+3452,J.D. Salinger,Jack Kerouac,Allen Ginsberg,J.D. Salinger,The others are poets of the Beat Generation,William S. Burroughs
+3453,Jimmy Carter,Barack Obama,Bill Clinton,Jimmy Carter,The others served two full terms as President,George W. Bush
+3454,Angela Merkel,Margaret Thatcher,Hillary Clinton,Hillary Clinton,The others have served as a Prime Minister,Theresa May
+3455,Benjamin Franklin,George Washington,Thomas Jefferson,Benjamin Franklin,The others have been Presidents of the United States,Franklin D. Roosevelt
+3456,Pierre Trudeau,Stephen Harper,Justin Trudeau,Stephen Harper,The others are Liberal Party politicians,Kim Campbell
+3457,Ted Kennedy,Robert Kennedy,Richard Nixon,Richard Nixon,The others are members of the Kennedy family,John F. Kennedy
+3458,Nelson Mandela,Desmond Tutu,F. W. de Klerk,Desmond Tutu,The others were Presidents of South Africa,P. W. Botha
+3459,Dmitry Medvedev,Boris Yeltsin,Mikhail Gorbachev,Mikhail Gorbachev,The others have served as President of Russia,Vladimir Putin
+3460,Raul Castro,Hugo Chavez,Fidel Castro,Hugo Chavez,The others are Cuban leaders,Che Guevara
+3461,Lee Kuan Yew,Lee Hsien Loong,Goh Chok Tong,Mahathir Mohamad,The others are Singaporean Prime Ministers,Mahathir Mohamad
+3462,Snoop Dogg,Dr. Dre,Ice Cube,Jay Z,The others are associated with West Coast hip hop,Jay Z
+3463,Dr. Dre,Nas,Jay Z,Dr. Dre,The others are associated with East Coast hip hop,Biggie Smalls
+3464,Chris Cornell,Kurt Cobain,Layne Staley,Bono,The others are associated with the grunge movement,Bono
+3465,Justin Timberlake,Christina Aguilera,Madonna,Madonna,The others are associated with the Mickey Mouse Club,Britney Spears
+3466,Rafael Nadal,Roger Federer,Andy Murray,Andy Murray,The others have won more than 10 Grand Slam singles titles,Novak Djokovic
+3467,Monica Seles,Martina Navratilova,Billie Jean King,Monica Seles,The others won their first Grand Slam singles title before the age of 20,Chris Evert
+3468,Novak Djokovic,Andre Agassi,Pete Sampras,Andre Agassi,The others have held the world No. 1 spot for more than 200 weeks,Rafael Nadal
+3469,Novak Djokovic,Rafael Nadal,Pete Sampras,Andre Agassi,The others have won more than 10 ATP Masters 1000 titles,Andre Agassi
+3470,Serena Williams,Venus Williams,Maria Sharapova,Andy Murray,The others have won an Olympic gold medal in singles,Andy Murray
+3471,Andre Agassi,Pete Sampras,Boris Becker,John McEnroe,The others have won Wimbledon and the US Open in the same year,John McEnroe
+3472,Harvey Specter,Miles Edgeworth,Phoenix Wright,Harvey Specter,The others are from Ace Attorney,Maya Fey
+3473,Alicia Florrick,Vinny Gambini,Diane Lockhart,Vinny Gambini,The others are from The Good Wife,Will Gardner
+3474,Louis Litt,Paul Biegler,Harvey Specter,Paul Biegler,The others are from Suits,Mike Ross
+3475,John Milton,Abbie Carmichael,Arthur Branch,John Milton,The others are from Law & Order,Jack McCoy
+3476,Harvey Specter,Lily Aldrin,Marshall Eriksen,Harvey Specter,The others are from How I Met Your Mother,Ted Mosby
+3477,Vinny Gambini,Abby McDeere,Wayne Tarrance,Vinny Gambini,The others are from The Firm,Mitch McDeere
+3478,Phoenix Wright,Scout Finch,Jem Finch,Phoenix Wright,The others are from To Kill a Mockingbird,Atticus Finch
+3479,Fire Station,Emergency Room,Ambulance Bay,Fire Station,The others are parts of a hospital,Intensive Care Unit
+3480,Paramedic,EMT,Emergency Medical Dispatcher,Police Dispatcher,The others are in the EMS field,Police Dispatcher
+3481,Police Car,Medical Helicopter,Rescue Boat,Police Car,The others are used for medical emergencies,Ambulance
+3482,Physician,Paramedic,Nurse,Pharmacist,The others provide direct patient care,Pharmacist
+3483,Otoscope,Microscope,Surgical Scissors,Microscope,The others are used directly on the patient,Stethoscope
+3484,MRI Machine,Ultrasound Machine,EKG Machine,EKG Machine,The others are used for imaging,X-Ray Machine
+3485,Thermometer,Suture,Splint,Thermometer,The others are used for wound treatment,Bandage
+3486,Pet Carrier,Pet Crate,Pet Brush,Pet Brush,The others are pet containment items,Pet Bed
+3487,Jean Piaget,Lawrence Kohlberg,John Bowlby,John Bowlby,The others proposed stages of development,Erik Erikson
+3488,David Wechsler,Alfred Binet,Carl Jung,Carl Jung,The others developed intelligence tests,Francis Galton
+3489,B.F. Skinner,Carl Rogers,Viktor Frankl,B.F. Skinner,The others are associated with humanistic psychology,Abraham Maslow
+3490,B.F. Skinner,John Watson,Carl Rogers,Carl Rogers,The others are associated with behaviorism,Albert Bandura
+3491,Fridge,Mixer,Oven,Fridge,The others are commonly used in baking,Rolling pin
+3492,Croissant,Baguette,Bratwurst,Bratwurst,The others are French baked goods,Pain au chocolat
+3493,Chef's knife,Apron,Baker's hat,Chef's knife,The others are baker's attire,Oven mitts
+3494,Eggs,Milk,Salt,Salt,The others are ingredients in cake,Flour
+3495,Ciabatta,Brioche,Naan,Naan,The others are European breads,Challah
+3496,Pizza,Focaccia,Calzone,Pasta,The others are baked Italian dishes,Pasta
+3497,Danish,Cinnamon roll,Bagel,Bagel,The others are sweet pastries,Sticky bun
+3498,Hakeem Olajuwon,Charles Barkley,Scottie Pippen,Charles Barkley,The others have won the MVP award,Karl Malone
+3967,Banana,Strawberry,Avocado,Strawberry,The others are berries.,Melon
+3499,Kareem Abdul-Jabbar,Magic Johnson,Bill Russell,Magic Johnson,The others have won more than 5 NBA championships,Shaquille O'Neal
+3500,Dirk Nowitzki,Stephen Curry,Kevin Durant,Dirk Nowitzki,The others have won multiple NBA MVP awards,LeBron James
+3501,Russell Westbrook,Chris Paul,Kevin Durant,Chris Paul,The others have won the NBA scoring title,James Harden
+3502,Allen Iverson,Tim Duncan,Kevin Garnett,Allen Iverson,"The others are over 6'10""",Shaquille O'Neal
+3503,Magic Johnson,LeBron James,Michael Jordan,Larry Bird,The others have won NBA Finals MVP more than once,Larry Bird
+3504,Michael Jordan,LeBron James,Allen Iverson,Allen Iverson,The others have won more than 2 NBA championships,Kobe Bryant
+3505,Justin Thomas,Dustin Johnson,Jordan Spieth,Jack Nicklaus,The others are winners of the PGA Tour Player of the Year in the 2010s,Jack Nicklaus
+3506,Gary Player,Arnold Palmer,Tom Watson,Arnold Palmer,The others have won the Senior Open Championship,Jack Nicklaus
+3507,Byron Nelson,Sam Snead,Tiger Woods,Tiger Woods,The others are golfers from the 1940s,Ben Hogan
+3508,Lee Trevino,Gary Player,Jordan Spieth,Jordan Spieth,The others won the U.S. Open in the 1960s,Billy Casper
+3509,Paul Azinger,Fred Couples,Davis Love III,Tommy Armour,The others are Presidents Cup captains,Tommy Armour
+3510,Lee Westwood,Bobby Jones,Nick Faldo,Bobby Jones,The others are world number one golfers in the 1990s,Greg Norman
+3511,Ben Crenshaw,Hale Irwin,Johnny Miller,Ben Crenshaw,The others won the U.S. Open in the 1970s,Tom Watson
+3512,Walter Hagen,Henrik Stenson,Sergio Garcia,Walter Hagen,The others are European Tour Race to Dubai winners,Justin Rose
+3513,Evgeni Malkin,Sidney Crosby,Phil Kessel,Marc-Andre Fleury,The others are Penguins forwards,Marc-Andre Fleury
+3514,Zdeno Chara,Bobby Orr,Patrice Bergeron,Patrice Bergeron,The others are Bruins defensemen,Ray Bourque
+3515,Alex Ovechkin,Nicklas Backstrom,T.J. Oshie,Braden Holtby,The others are Capitals forwards,Braden Holtby
+3516,Mark Messier,Brian Leetch,Mike Richter,Mike Richter,The others are Rangers forwards,Adam Graves
+3517,Connor McDavid,Darnell Nurse,Leon Draisaitl,Darnell Nurse,The others are Oilers forwards,Ryan Nugent-Hopkins
+3518,Maurice Richard,Jean Beliveau,Patrick Roy,Patrick Roy,The others are Canadiens forwards,Guy Lafleur
+3519,Peter Forsberg,Joe Sakic,Milan Hejduk,Patrick Roy,The others are Avalanche forwards,Patrick Roy
+3520,Chris Osgood,Sergei Fedorov,Nicklas Lidstrom,Chris Osgood,The others are Red Wings skaters,Steve Yzerman
+3521,Brett Hull,Adam Oates,Curtis Joseph,Curtis Joseph,The others are Blues forwards,Al MacInnis
+3522,Paul Kariya,Jean-Sebastien Giguere,Ryan Getzlaf,Jean-Sebastien Giguere,The others are Ducks forwards,Teemu Selanne
+3523,Mike Bossy,Billy Smith,Denis Potvin,Billy Smith,The others are Islanders skaters,Bryan Trottier
+3524,Jonathan Toews,Corey Crawford,Patrick Kane,Corey Crawford,The others are Blackhawks skaters,Duncan Keith
+3525,Gerry Cheevers,Phil Esposito,Ray Bourque,Gerry Cheevers,The others are Bruins skaters,Bobby Orr
+3526,Lanny McDonald,Jarome Iginla,Miikka Kiprusoff,Miikka Kiprusoff,The others are Flames forwards,Theo Fleury
+3527,Martin Brodeur,Scott Stevens,Scott Niedermayer,Martin Brodeur,The others are Devils skaters,Patrik Elias
+3528,Marcel Dionne,Dave Taylor,Rogie Vachon,Rogie Vachon,The others are Kings forwards,Luc Robitaille
+3529,Ron Hextall,Eric Lindros,Mikael Renberg,Ron Hextall,The others are Flyers forwards,John LeClair
+3530,Patrick Roy,Joe Sakic,Peter Stastny,Patrick Roy,The others are Nordiques/Avalanche forwards,Milan Hejduk
+3531,Markus Naslund,Trevor Linden,Kirk Mclean,Kirk Mclean,The others are Canucks forwards,Pavel Bure
+3532,Ryu,Sonic,Guile,Sonic,The others are characters from Street Fighter,Ken
+3533,John Coltrane,Neil Young,Bob Dylan,John Coltrane,The others are folk rock musicians,Bruce Springsteen
+3534,Phil Lesh,Bob Weir,Neil Young,Neil Young,The others are members of Grateful Dead,Jerry Garcia
+3535,Liam Gallagher,Alex James,Graham Coxon,Liam Gallagher,The others are members of Blur,Damon Albarn
+3536,Michael Stipe,Mike Mills,Bono,Bono,The others are members of R.E.M.,Peter Buck
+3537,Mick Jagger,John Entwistle,Roger Daltrey,Mick Jagger,The others are members of The Who,Pete Townshend
+3538,Lol Tolhurst,Morrissey,Robert Smith,Morrissey,The others are members of The Cure,Simon Gallup
+3539,Diego Rivera,Claude Monet,Frida Kahlo,Claude Monet,The others are Mexican Muralists.,David Alfaro Siqueiros
+3540,Vincent van Gogh,Frans Hals,Johannes Vermeer,Vincent van Gogh,The others are Dutch Golden Age artists.,Rembrandt
+3541,Piet Mondrian,Kazimir Malevich,Wassily Kandinsky,Leonardo da Vinci,The others are Abstract artists.,Leonardo da Vinci
+3542,Vincent van Gogh,Salvador Dali,Paul Gauguin,Salvador Dali,The others are Post-Impressionists.,Édouard Manet
+3543,Kitagawa Utamaro,Katsushika Hokusai,Van Gogh,Van Gogh,The others are Ukiyo-e artists.,Utagawa Hiroshige
+3544,Frida Kahlo,Paul Signac,Georges Seurat,Frida Kahlo,The others are Neo-Impressionists.,Camille Pissarro
+3545,Leonardo da Vinci,Kazimir Malevich,Marc Chagall,Leonardo da Vinci,The others are Russian Avant-garde artists.,Wassily Kandinsky
+3546,Jackson Pollock,Pablo Picasso,Mark Rothko,Pablo Picasso,The others are Abstract Expressionists.,Willem de Kooning
+3547,Claude Monet,Edward Hopper,Thomas Hart Benton,Claude Monet,The others are American Regionalists.,Grant Wood
+3548,René Magritte,Vincent van Gogh,Frida Kahlo,Vincent van Gogh,The others are Surrealists.,Salvador Dali
+3549,Kenny Scharf,Claude Monet,Keith Haring,Claude Monet,The others are Pop artists.,Jean-Michel Basquiat
+3550,Hieronymus Bosch,Jan van Eyck,Vincent van Gogh,Vincent van Gogh,The others are Early Netherlandish painters.,Rogier van der Weyden
+3551,Titian,Veronese,Tintoretto,Claude Monet,The others are Venetian Renaissance artists.,Claude Monet
+3552,Nietzsche,Marx,Kant,Kant,The others are critics of religion,Freud
+3553,Mill,Bentham,Kant,Kant,The others are Utilitarians,Sidgwick
+3554,Socrates,Euclid,Archimedes,Socrates,The others are ancient Greek mathematicians,Pythagoras
+3555,Foucault,Derrida,Deleuze,Heidegger,The others are Post-structuralists,Heidegger
+3556,Claude Debussy,George Frideric Handel,Johann Sebastian Bach,Claude Debussy,The others are from the Baroque period,Antonio Vivaldi
+3557,Maurice Ravel,Johann Strauss II,Claude Debussy,Johann Strauss II,The others are from France,Erik Satie
+3558,Sergei Rachmaninoff,Johannes Brahms,Robert Schumann,Sergei Rachmaninoff,The others are from Germany,Richard Wagner
+3559,Franz Schubert,Frédéric Chopin,Wolfgang Amadeus Mozart,Frédéric Chopin,The others composed symphonies,Ludwig van Beethoven
+3560,Johann Sebastian Bach,Franz Liszt,George Frideric Handel,Franz Liszt,The others composed oratorios,Antonio Vivaldi
+3561,Johann Strauss II,Claude Debussy,Maurice Ravel,Johann Strauss II,The others composed ballets,Erik Satie
+3562,Johann Strauss II,Sergei Prokofiev,Franz Schubert,Sergei Prokofiev,The others composed polkas,Ludwig van Beethoven
+3563,Frédéric Chopin,Franz Liszt,Johann Sebastian Bach,Johann Sebastian Bach,The others composed ballades,Robert Schumann
+3564,Claude Debussy,Antonio Vivaldi,George Frideric Handel,Claude Debussy,The others composed cantatas,Johann Sebastian Bach
+3565,Sergei Rachmaninoff,Johannes Brahms,Robert Schumann,Sergei Rachmaninoff,The others composed requiems,Richard Wagner
+3566,Johann Sebastian Bach,Frédéric Chopin,Robert Schumann,Johann Sebastian Bach,The others composed nocturnes,Franz Liszt
+3567,Omar Khayyam,Hafez,Saadi,Omar Khayyam,The others are Persian poets from the 13th century,Rumi
+3568,Emily Dickinson,Walt Whitman,Lewis Carroll,Lewis Carroll,The others are poets who never married,Robert Frost
+3569,Jibanananda Das,Pablo Neruda,Rabindranath Tagore,Pablo Neruda,The others are Bengali poets,Kazi Nazrul Islam
+3570,William Wordsworth,John Keats,Percy Bysshe Shelley,William Wordsworth,The others died young,Lord Byron
+3571,Alexander Pope,John Dryden,Samuel Johnson,William Blake,The others are Augustan poets,William Blake
+3572,Geoffrey Chaucer,William Langland,John Gower,Thomas Malory,The others are Middle English poets,Thomas Malory
+3573,Henrik Wergeland,Henrik Ibsen,Edvard Munch,Edvard Munch,The others are Norwegian poets,August Strindberg
+3575,Boccaccio,Petrarch,Machiavelli,Machiavelli,The others are Italian poets of the 14th century,Dante Alighieri
+3576,Alexander Pushkin,Mikhail Lermontov,Fyodor Tyutchev,Leo Tolstoy,The others are Russian Romantic poets,Leo Tolstoy
+3577,Arthur Rimbaud,Charles Baudelaire,Paul Verlaine,Victor Hugo,The others are French Symbolist poets,Victor Hugo
+3578,John Keats,Lord Byron,William Wordsworth,William Wordsworth,The others are poets who lived in Italy,Percy Bysshe Shelley
+3579,Rabindranath Tagore,R.K. Narayan,Kazi Nazrul Islam,R.K. Narayan,The others are poets who wrote in Bengali,Jibanananda Das
+3580,Charles Dickens,Samuel Taylor Coleridge,William Wordsworth,Charles Dickens,The others are poets who were not novelists,William Blake
+3581,Robert Browning,Charles Darwin,Elizabeth Barrett Browning,Charles Darwin,The others are poets who lived in the Victorian era,Christina Rossetti
+3582,X-Ray Machine,Stethoscope,Ultrasound Machine,Scalpel,The others are used for diagnostic purposes,Scalpel
+3583,Rabies,Lyme Disease,Heartworm,Diabetes,The others are transmitted by parasites,Diabetes
+3584,Feline Leukemia Virus,Rabies Virus,Canine Parvovirus,Influenza Virus,The others are common in pets,Influenza Virus
+3585,Sigmund Freud,Carl Jung,Anna Freud,Erik Erikson,The others are directly associated with psychoanalysis,Erik Erikson
+3586,Carl Rogers,Philip Zimbardo,Stanley Milgram,Carl Rogers,The others conducted famous social psychology experiments,Solomon Asch
+3587,Carl Rogers,Solomon Asch,Stanley Milgram,Carl Rogers,The others are known for their work in social psychology,Philip Zimbardo
+3588,Jean Piaget,Erik Erikson,Lev Vygotsky,Carl Jung,The others are associated with developmental psychology,Carl Jung
+3589,Alfred Adler,Sigmund Freud,Wilhelm Wundt,Wilhelm Wundt,The others are associated with the psychoanalytic school of thought,Carl Jung
+3590,Albert Bandura,Sigmund Freud,Carl Rogers,Sigmund Freud,The others are Behaviorists,B.F. Skinner
+3591,Francine Shapiro,John Gottman,Marsha Linehan,Carl Rogers,The others are founders of Therapies,Carl Rogers
+3592,Virginia Satir,Carl Rogers,B.F. Skinner,B.F. Skinner,The others are Humanistic therapists,Fritz Perls
+3593,Sigmund Freud,Aaron Beck,Donald Meichenbaum,Sigmund Freud,The others are Cognitive therapists,Albert Ellis
+3594,Ardbeg,Glenmorangie,Lagavulin,Glenmorangie,The others are Islay Scotch whisky distilleries,Laphroaig
+3595,Macallan,Laphroaig,Glenlivet,Laphroaig,The others are Speyside Scotch whisky distilleries,Glenfiddich
+3596,Jameson,Glenkinchie,Tullamore D.E.W.,Glenkinchie,The others are Irish whiskey distilleries,Bushmills
+3597,Jim Beam,Don Julio,Jose Cuervo,Jim Beam,The others are Tequila distilleries,Patron
+3598,Wolfburn,Scapa,Highland Park,Glenlivet,The others are Island Scotch whisky distilleries,Glenlivet
+3599,Auchentoshan,Bladnoch,Glenfiddich,Glenfiddich,The others are Lowland Scotch whisky distilleries,Glenkinchie
+3600,Dalmore,Glenkinchie,Glenmorangie,Glenkinchie,The others are Highland Scotch whisky distilleries,Old Pulteney
+3601,J&B,Glenkinchie,Johnnie Walker,Glenkinchie,The others are blended Scotch whisky brands,Buchanan's
+3602,Yellow,Cyan,Magenta,Green,The others are subtractive primary colors,Green
+3603,Purple,Brown,Orange,Brown,The others are secondary colors,Green
+3604,Black,Gray,Red,Red,The others are shades of gray,White
+3605,Violet,Indigo,Blue,Orange,The others are cool colors,Orange
+3606,Yellow,Orange,Red,Green,The others are warm colors,Green
+3607,Gold,Silver,Platinum,Platinum,The others are Olympic medal colors,Bronze
+3608,Pink,Lime,Fuchsia,Lime,The others are shades of pink,Rose
+3609,Sky Blue,Navy,Royal Blue,Forest Green,The others are shades of blue,Forest Green
+3610,Crimson,Emerald,Maroon,Emerald,The others are shades of red,Scarlet
+3611,Lavender,Forest Green,Olive Green,Lavender,The others are shades of green,Lime Green
+3612,Gold,Yellow,Lemon,Ruby,The others are shades of yellow,Ruby
+3613,Violet,Lavender,Lilac,Peach,The others are shades of purple,Peach
+3615,Charcoal,Ivory,Beige,Charcoal,The others are shades of white,Cream
+3616,White,Green,Gray,Green,The others are grayscale colors,Black
+3614,Tan (color),Beige,Brown,Burgundy,The others are shades of brown,Burgundy (color)
+3617,Sapphire,Tangerine,Peach,Sapphire,The others are shades of orange,Apricot
+3618,Bronze,Brass,Copper,Pearl,The others are metallic colors,Pearl
+3619,Gray,Purple,Black,Purple,The others are shades of black and white,White
+3620,Blue,Pink,Indigo,Pink,The others are colors of the rainbow,Violet
+3621,Turquoise,Maroon,Teal,Maroon,The others are shades of blue-green,Aqua
+3622,Lemon,Peach,Coral,Lemon,The others are shades of red-orange,Salmon
+3624,Daisy,Violet,Lavender,Daisy,The others are named after purple flowers,Lilac
+3625,Strawberry,Banana,Raspberry,Banana,The others are named after red fruits,Cherry
+3626,Cinnamon,Jade,Fern,Cinnamon,The others are named after green plants,Mint
+3627,Caramel,Amber,Chocolate,Chocolate,The others are named after yellow-brown substances,Honey
+3628,Brass,Bronze,Copper,Platinum,The others are named after brown metals,Platinum
+3629,Teal,Maroon,Wine,Teal,The others are shades of dark red,Cardinal
+3631,Grape,Currant,Lemon,Lemon,The others are named after purple fruits,Plum
+3632,Cinnamon,Mint,Jade,Cinnamon,The others are named after green gemstones,Emerald
+3633,Pink,Grey,White,Pink,The others are neutral colors,Black
+3634,Onyx,Charcoal,Ebony,Pearl,The others are shades of black,Pearl
+3635,Coco Chanel,Karl Lagerfeld,Marc Jacobs,Ralph Lauren,The others are European designers.,Ralph Lauren
+3636,Brutalism,Art Deco,Cubism,Cubism,The others are architectural styles.,Bauhaus
+3637,Chanel,Nike,Gucci,Nike,The others are high-end luxury fashion brands.,Louis Vuitton
+3638,Adidas,Prada,Gucci,Adidas,The others are Italian fashion brands.,Versace
+3639,Postmodernism,Art Nouveau,Brutalism,Art Nouveau,The others are 20th century architectural styles,Modernism
+3640,De Stijl,Cubism,Art Deco,Cubism,The others are design movements,Bauhaus
+3641,Futura,Garamond,Papyrus,Papyrus,The others are fonts named after places,Georgia
+3642,Walter Gropius,Charles Eames,Mies van der Rohe,Charles Eames,The others are associated with the Bauhaus,Le Corbusier
+3643,Frank Lloyd Wright,Saul Bass,Milton Glaser,Frank Lloyd Wright,The others are graphic designers,Paul Rand
+3644,Dolce & Gabbana,Versace,Jeff Bezos,Jeff Bezos,The others are Italian fashion designers,Giorgio Armani
+3645,Florence Knoll,Donatella Versace,Eero Saarinen,Donatella Versace,The others are furniture designers,Charles Eames
+3646,Philippe Starck,Karim Rashid,Marcel Wanders,Calvin Klein,The others are product designers,Calvin Klein
+3647,Gianni Versace,Christian Dior,Louis Vuitton,Gianni Versace,The others are French designers,Coco Chanel
+3648,Prada,Burberry,Versace,Burberry,The others are Italian designers,Gucci
+3649,Vera Wang,Jean Paul Gaultier,Jason Wu,Jean Paul Gaultier,The others are American designers of Chinese descent,Anna Sui
+3650,Paul Smith,Alexander McQueen,Versace,Versace,The others are British designers,Burberry
+3651,Hugo Boss,Ralph Lauren,Karl Lagerfeld,Ralph Lauren,The others are German designers,Jil Sander
+3652,Versace,Gucci,Chanel,Chanel,The others are Italian brands,Prada
+3653,Calvin Klein,Louis Vuitton,Christian Dior,Calvin Klein,The others are French brands,Givenchy
+3654,St. Peter's Basilica,Notre-Dame Cathedral,The White House,The White House,The others are religious buildings,Westminster Abbey
+3655,The Pantheon,The Parthenon,The Temple of Artemis,The Statue of Liberty,The others are ancient temples,The Statue of Liberty
+3656,The Gherkin,The Shard,The Louvre Pyramid,The Louvre Pyramid,The others are skyscrapers,The Burj Khalifa
+3657,The Empire State Building,The Flatiron Building,The Leaning Tower of Pisa,The Leaning Tower of Pisa,The others are in New York,The Chrysler Building
+3658,The Guggenheim Bilbao,The Sydney Opera House,The Taj Mahal,The Taj Mahal,The others are modern architecture,The Walt Disney Concert Hall
+3659,The Acropolis,The Roman Forum,Machu Picchu,The Eiffel Tower,The others are ruins,The Eiffel Tower
+3660,The Colosseum,The Great Wall of China,The Pantheon,The Great Wall of China,The others are in Rome,The Forum
+3661,The Burj Khalifa,One World Trade Center,The Petronas Towers,The Leaning Tower of Pisa,The others are tallest buildings,The Leaning Tower of Pisa
+3662,The Walkie Talkie,The Gherkin,The Shard,The White House,The others are in London,The White House
+3663,The Burj Al Arab,The Taipei 101,The Colosseum,The Colosseum,The others are modern skyscrapers,The Petronas Towers
+3664,The Eiffel Tower,The Parthenon,The Erechtheion,The Eiffel Tower,The others are in Athens,The Temple of Hephaestus
+3665,The Buckingham Palace,The White House,The Windsor Castle,The White House,The others are in England,The Tower of London
+3666,The Eiffel Tower,Topkapi Palace,The Hagia Sophia,The Eiffel Tower,The others are in Istanbul,The Blue Mosque
+3667,The Willis Tower,The CN Tower,The Empire State Building,The Colosseum,The others are towers,The Colosseum
+3668,Gothic Architecture,Renaissance Architecture,Baroque Architecture,Brutalist Architecture,The others are pre-20th century architectural styles,Brutalist Architecture
+3669,The White House,The Empire State Building,The Capitol Building,The Empire State Building,The others are in Washington D.C,The Washington Monument
+3670,The Parthenon,The Louvre,The Pantheon,The Louvre,The others are ancient Roman structures,The Colosseum
+3671,The Flatiron Building,The Golden Gate Bridge,The Chrysler Building,The Golden Gate Bridge,The others are in New York City,The Empire State Building
+3672,The Louvre Pyramid,The Luxor Hotel,The Pyramids of Giza,The Pyramids of Giza,The others are modern glass structures,The Glass Pyramid of The Moody Gardens
+3673,Casa Mila,Park Guell,The White House,The White House,The others are designed by Antoni Gaudi,The Sagrada Familia
+3674,The Leaning Tower of Pisa,The Eiffel Tower,The Great Wall of China,The Great Wall of China,The others are freestanding structures,The Statue of Liberty
+3675,The Guggenheim Museum Venice,The Guggenheim Museum Bilbao,The Guggenheim Museum New York,The Louvre,The others are Guggenheim museums,The Louvre
+3676,The Western Wall,The Great Wall of China,The CN Tower,The CN Tower,The others are walls,The Berlin Wall
+3677,The Flatiron Building,The Empire State Building,The Golden Gate Bridge,The Golden Gate Bridge,The others are famous New York buildings,The Chrysler Building
+3678,The Louvre,The Harbour Bridge,The Sydney Opera House,The Louvre,The others are located in Sydney,The Queen Victoria Building
+3679,The Topkapi Palace,The Blue Mosque,The Buckingham Palace,The Buckingham Palace,The others are located in Istanbul,The Hagia Sophia
+3680,The Palm Jumeirah,The Burj Khalifa,The Burj Al Arab,The Eiffel Tower,The others are located in Dubai,The Eiffel Tower
+3681,The Forbidden City,The Great Wall of China,The Summer Palace,The Sydney Opera House,The others are located in Beijing,The Sydney Opera House
+3682,The Taj Mahal,The Lotus Temple,The Qutb Minar,The White House,The others are located in India,The White House
+3683,Golden Gate Bridge,Alcatraz Island,The Shard,The Shard,The others are in San Francisco,Fisherman's Wharf
+3684,Rosemary,Paprika,Saffron,Rosemary,The others are used in curry,Turmeric
+3685,Fennel,Coriander,Cumin,Coriander,The others are licorice-flavored spices,Anise
+3686,Cayenne,Thyme,Bay leaves,Cayenne,The others are used in French cuisine,Tarragon
+3687,Cumin,Cinnamon,Turmeric,Cinnamon,The others are used in Turmeric Latte,Coriander
+3688,Nutmeg,Black Pepper,Cayenne Pepper,Nutmeg,The others are hot spices,Chili Powder
+3689,Parsley,Dill,Rosemary,Paprika,The others are used in Ranch seasoning,Paprika
+3690,Cinnamon,Parsley,Cilantro,Cinnamon,The others are leafy herbs,Dill
+3691,Cinnamon,Vanilla,Paprika,Paprika,The others are used in desserts,Saffron
+3692,Cayenne Pepper,Garlic Powder,Ginger Powder,Cayenne Pepper,The others are powdered form of root spices,Onion Powder
+3693,Rosemary,Thyme,Cardamom,Cardamom,The others are used in Poultry Seasoning,Sage
+3694,Ginger,Saffron,Paprika,Ginger,The others are red spices,Turmeric
+3695,Parsley,Black Pepper,Basil,Black Pepper,The others are used in Italian Seasoning,Oregano
+3696,Cumin,Vanilla,Fenugreek,Vanilla,The others are used in Ethiopian Berbere Spice,Coriander
+3697,Cardamom,Nutmeg,Basil,Basil,The others are used in Gingersnap Cookies,Cinnamon
+3698,Allspice,Clove,Cinnamon,Turmeric,The others are used in Jamaican Jerk Seasoning,Turmeric
+3699,Basil,Turmeric,Saffron,Basil,The others are used in Indian cuisine,Cumin
+3700,Thyme,Star Anise,Anise,Thyme,The others have a licorice flavor,Fennel
+3701,Cilantro,Paprika,Cayenne,Cilantro,The others are types of peppers,Chili Powder
+3702,Cumin,Coriander,Turmeric,Cinnamon,The others are used in curry powder,Cinnamon
+3703,Sage,Mace,Nutmeg,Sage,The others come from the Myristica genus,Clove
+3704,Clove,Bay Leaf,Cinnamon,Bay Leaf,The others are used in pumpkin spice,Allspice
+3705,Galangal,Turmeric,Saffron,Saffron,The others are rhizomes,Ginger
+3706,Onion Powder,Garlic Powder,Ginger Powder,Curry Powder,The others are single-ingredient powders,Curry Powder
+3707,Oregano,Rosemary,Basil,Saffron,The others are Italian herbs,Saffron
+3708,Ginger,Clove,Cinnamon,Ginger,The others are tree spices,Nutmeg
+3709,Red Pepper Flakes,Black Pepper,Chili Powder,Black Pepper,The others are made from capsicum peppers,Cayenne Pepper
+3710,Parsley,Basil,Dill,Rosemary,The others are soft herbs,Rosemary
+3711,Cinnamon,Mace,Allspice,Allspice,The others are from the Myristica genus,Nutmeg
+3712,Turmeric,Cumin,Curry Powder,Cumin,The others are spice blends,Garam Masala
+3713,Onion,Ginger,Garlic,Turmeric,The others are allium spices,Turmeric
+3714,Cumin,Fennel,Star Anise,Cumin,The others are anise-flavored spices,Anise
+3715,Basil,Dill,Parsley,Basil,The others are used in salsa,Cilantro
+3716,Cardamom,Cumin,Coriander,Cardamom,The others are used in pickling spices,Fennel
+3717,Allspice,Cinnamon,Saffron,Saffron,The others are used in mulled wine,Clove
+3718,Cumin,Coriander,Cardamom,Cardamom,The others are used in harissa,Caraway
+3719,Onion,Ginger,Garlic,Saffron,The others are used in stir-fry,Saffron
+3720,Rosemary,Thyme,Cumin,Cumin,The others are used in herbes de Provence,Oregano
+3721,Fennel,Star Anise,Anise,Cumin,The others are used in Chinese five-spice,Cumin
+3722,Black Pepper,Rosemary,Cinnamon,Cinnamon,The others are savory spices,Cumin
+3723,Cumin,Star Anise,Cloves,Saffron,The others are used in Chinese cooking,Saffron
+3724,Nutmeg,Cinnamon,Cloves,Oregano,The others are used in sweet dishes,Oregano
+3725,Coriander,Turmeric,Cumin,Thyme,The others are used in Indian cooking,Thyme
+3726,Saffron,Basil,Oregano,Saffron,The others are used in Italian cooking,Thyme
+3727,Rosemary,Cardamom,Thyme,Cardamom,The others are used in Western cooking,Parsley
+3728,Saffron,Turmeric,Paprika,Mint,The others are used in paella,Mint
+3729,Mustard,Cinnamon,Ginger,Cinnamon,The others are used in pickling,Turmeric
+3730,Nutmeg,Basil,Ginger,Basil,The others are used in gingerbread,Cinnamon
+3731,Cumin,Coriander,Oregano,Oregano,The others are used in Middle Eastern cooking,Fenugreek
+3732,Cinnamon,Nutmeg,Allspice,Saffron,The others are used in pumpkin pie,Saffron
+3733,Nutmeg,Mace,Cinnamon,Paprika,The others are used in apple pie,Paprika
+3734,Paprika,Mint,Cayenne Pepper,Mint,The others are used in chili,Chili Powder
+3735,Thyme,Bay Leaf,Rosemary,Ginger,The others are used in roasts,Ginger
+3736,Cumin,Turmeric,Coriander,Cinnamon,The others are used in Tandoori Masala,Cinnamon
+3737,Star Anise,Cinnamon,Cloves,Dill,The others are used in Pho,Dill
+3738,Rosemary,Thyme,Bay Leaf,Cinnamon,The others are used in Bouquet Garni,Cinnamon
+3739,Cumin,Coriander,Cardamom,Thyme,The others are used in Chai tea,Thyme
+3740,Saffron,Chili Powder,Paprika,Saffron,The others are used in hot sauce,Cayenne Pepper
+3741,Cinnamon,Basil,Turmeric,Basil,The others are ground spices,Paprika
+3742,Cinnamon,Nutmeg,Ginger,Ginger,The others are used in pumpkin pie spice,Allspice
+3743,Cinnamon,Ginger,Cardamom,Parsley,The others are used in chai tea,Parsley
+3744,Cumin,Cayenne,Paprika,Turmeric,The others are red,Turmeric
+3745,Saffron,Chili,Cayenne,Saffron,The others are spicy,Paprika
+3746,Cumin,Saffron,Cayenne,Cayenne,The others are yellow,Turmeric
+3747,Rosemary,Thyme,Basil,Paprika,The others are used in poultry seasoning,Paprika
+3748,Coriander,Paprika,Cardamom,Paprika,The others are used in Biryani,Cumin
+3749,Cayenne,Cinnamon,Nutmeg,Cayenne,The others are used in eggnog,Clove
+3750,Cayenne,Saffron,Turmeric,Cayenne,The others are used in Ayurveda,Ginger
+3751,Nutmeg,Coriander,Clove,Coriander,The others are used in Christmas cookies,Cinnamon
+3752,Turmeric,Salt,Cumin,Salt,The others are ground from seeds,Paprika
+3753,Basil,Coriander,Cilantro,Basil,The others are from the Apiaceae family,Parsley
+3754,Flax Seeds,Mustard Seeds,Sesame Seeds,Flax Seeds,The others are used in spice blends,Cumin Seeds
+3755,Basil,Chives,Parsley,Basil,The others are French cuisine herbs,Tarragon
+3756,Cumin,Chili Powder,Paprika,Cumin,The others are types of chili,Cayenne
+3757,Clove,Mace,Cinnamon,Cinnamon,The others are from the Myristica fragrans tree,Nutmeg
+3758,Cinnamon,Nutmeg,Bay Leaves,Nutmeg,The others are types of Cinnamomum,Cassia
+3759,Thyme,Oregano,Basil,Cumin,The others are used in Italian seasoning,Cumin
+3760,Clove,Cumin,Coriander,Clove,The others are used in Madras curry powder,Fenugreek
+3761,Nutmeg,Allspice,Cumin,Cumin,The others are used in gingerbread spice,Cinnamon
+3762,Cumin,Galangal,Ginger,Cumin,The others are from the Zingiberaceae family,Turmeric
+3763,Mustard,Turmeric,Clove,Clove,The others are used in American yellow mustard,Coriander
+3764,Turmeric,Saffron,Cumin,Cumin,The others are used to color dishes,Paprika
+3765,Cumin,Coriander,Turmeric,Pepper,The others are ingredients in Garam Masala,Pepper
+3766,Cardamom,Nutmeg,Mace,Cardamom,The others are derived from the Myristica genus,Cloves
+3767,Fenugreek,Mustard,Caraway,Anise,The others are ingredients in Indian Pickles,Anise
+3768,Cardamom,Saffron,Vanilla,Cumin,The others are the world's most expensive spices,Cumin
+3769,Garlic,Pepper,Onion,Pepper,The others are also used as vegetables,Ginger
+3770,Paprika,Saffron,Cumin,Cumin,The others can dye fabric,Turmeric
+3771,Mace,Nutmeg,Cloves,Fennel,The others are used in making Bechamel Sauce,Fennel
+3772,Coriander,Cumin,Saffron,Saffron,The others are used in making Rye Bread,Fennel
+3773,Nutmeg,Cinnamon,Mace,Pepper,The others are used in Egg Nog,Pepper
+3774,Coriander,Ginger,Cumin,Ginger,The others are used in making Curry Powder,Cloves
+3775,Turmeric,Paprika,Saffron,Cinnamon,The others are used in Paella,Cinnamon
+3776,Pepper,Coriander,Caraway,Pepper,The others are used in making Harissa,Cumin
+3777,Cumin,Onion,Ginger,Cumin,The others can be eaten raw,Garlic
+3778,Salt,Pepper,Paprika,Cumin,The others are table condiments,Cumin
+3779,Cumin,Coriander,Ginger,Ginger,The others are used in making Pickles,Fennel
+3780,Ginger,Nutmeg,Mace,Ginger,The others are used in making Mulled Wine,Cloves
+3781,Cumin,Coriander,Caraway,Pepper,The others are used in making Moroccan Spice Blend,Pepper
+3782,Nutmeg,Mace,Cinnamon,Pepper,The others are used in making Apple Pie,Pepper
+3783,Cilantro,Parsley,Ginger,Ginger,The others are used in making Chimichurri,Coriander
+3784,Fennel,Star Anise,Oregano,Oregano,The others are licorice-flavored,Anise
+3785,Cilantro,Dill,Parsley,Clove,The others are fresh herbs,Clove
+3786,Caraway,Thyme,Rosemary,Caraway,The others are poultry seasoning,Sage
+3787,Basil,Cilantro,Saffron,Saffron,The others are green herbs,Parsley
+3788,Anise Seed,Rosemary,Star Anise,Rosemary,The others have anise flavor,Fennel
+3789,Pink Pepper,Chili Powder,Black Pepper,Chili Powder,The others are peppercorns,White Pepper
+3790,Clove,Allspice,Basil,Basil,The others are in apple pie spice,Nutmeg
+3791,Rosemary,Thyme,Sage,Ginger,The others are used in stuffing,Ginger
+3792,Paprika,Saffron,Cardamom,Cardamom,The others are used for coloring,Turmeric
+3793,White Pepper,Black Pepper,Red Pepper,Red Pepper,The others are from the Piper nigrum plant,Green Pepper
+3794,Saffron,Cardamom,Vanilla,Cumin,The others are the most expensive spices,Cumin
+3795,Paprika,Curry Powder,Chili Powder,Curry Powder,The others are made from dried peppers,Cayenne Pepper
+3796,Nutmeg,Ginger,Cinnamon,Turmeric,The others are used in pumpkin spice blend,Turmeric
+3797,Sesame Seeds,Sunflower Seeds,Poppy Seeds,Sunflower Seeds,The others are used in bagel seasoning,Mustard Seeds
+3798,Thyme,Sumac,Za'atar,Za'atar,The others are individual spices,Oregano
+3799,Pink Pepper,Black Pepper,White Pepper,Pink Pepper,The others are different stages of the same plant,Green Pepper
+3800,Mint,Parsley,Basil,Mint,The others are used in salsa verde,Cilantro
+3801,Cardamom,Allspice,Nutmeg,Cardamom,The others are used in apple pie spice blend,Cinnamon
+3802,White Pepper,Chili Pepper,Cayenne Pepper,Cayenne Pepper,The others are used in pepper mill,Black Pepper
+3803,Cardamom,Turmeric,Ginger,Cumin,The others are used in Golden Milk,Cumin
+3804,Cumin,Chili Powder,Cayenne,Cumin,The others are used in Taco seasoning,Paprika
+3805,Star Anise,Cinnamon,Cloves,Cloves,The others are used in Chinese Five Spice,Fennel
+3806,Paprika,Cumin,Coriander,Paprika,The others are common in Indian cuisine,Turmeric
+3807,Thyme,Basil,Oregano,Chili Powder,The others are from the Lamiaceae family,Chili Powder
+3808,Salt,Red Pepper Flakes,Cayenne Pepper,Salt,The others are types of Capsicum spices,Paprika
+3809,Fennel,Star Anise,Anise,Clove,The others have aniseed flavor,Clove
+3810,Vanilla,Oregano,Saffron,Oregano,The others are often used in sweet dishes,Cardamom
+3811,Oregano,Thyme,Rosemary,Tarragon,The others are in the mint family,Tarragon
+3812,Mustard,Caraway,Coriander,Mustard,The others are used in rye bread,Cumin
+3813,Basil,Rosemary,Dill,Dill,The others are used in pesto,Mint
+3814,Paprika,Chili Powder,Ginger,Ginger,The others are types of chili peppers,Cayenne
+3815,Garlic,Cumin,Ginger,Cumin,The others are alliums,Onion
+3816,Clove,Saffron,Turmeric,Saffron,The others are tree-derived spices,Cinnamon
+3817,Nutmeg,Pepper,Cinnamon,Pepper,The others are from Myristica genus,Mace
+3818,Mustard,Cardamom,Cumin,Cardamom,The others are used in mustard sauce,Pepper
+3819,Chili,Paprika,Cayenne,Turmeric,The others are types of Capsicum,Turmeric
+3820,Nutmeg,Mace,Clove,Ginger,The others are from Myristicaceae family,Ginger
+3821,Mustard,Salt,Paprika,Paprika,The others are used in hot dogs,Pepper
+3822,Cumin,Saffron,Turmeric,Cumin,The others are red when ground,Paprika
+3823,Fennel,Dill,Anise,Pepper,The others are used in absinthe,Pepper
+3824,Garlic,Onion,Saffron,Saffron,The others are used in stir fry,Ginger
+3825,Ginger,Cumin,Fennel,Ginger,The others are used in pickles,Coriander
+3826,Salt,Pepper,Cardamom,Cardamom,The others are used in barbecue sauce,Mustard
+3827,Onion,Pepper,Garlic,Saffron,The others are used in guacamole,Saffron
+3828,Rosemary,Fenugreek,Oregano,Fenugreek,The others are from Lamiaceae family,Thyme
+3829,Clove,Star Anise,Cinnamon,Paprika,The others are from Lauraceae family,Paprika
+3830,Ginger,Fennel,Tarragon,Ginger,The others are from Asteraceae family,Anise
+3831,Saffron,Cardamom,Ginger,Saffron,The others are from Zingiberaceae family,Turmeric
+3832,Cumin,Turmeric,Cardamom,Basil,The others are Indian spices.,Basil
+3833,Paprika,Cayenne Pepper,Black Pepper,Oregano,The others are peppers.,Oregano
+3834,Nutmeg,Parsley,Dill,Nutmeg,The others are herbs.,Cilantro
+3835,Ginger,Cinnamon,Clove,Ginger,The others are baking spices.,Nutmeg
+3836,Turmeric,Cinnamon,Paprika,Cinnamon,The others are colorants.,Saffron
+3837,Thyme,Basil,Rosemary,Allspice,The others are Mediterranean herbs.,Allspice
+3838,Ginger,Saffron,Onion,Saffron,The others are root spices.,Garlic
+3839,Thyme,Sage,Rosemary,Cumin,The others are poultry spices.,Cumin
+3840,Fennel,Nutmeg,Star Anise,Nutmeg,The others are licorice-flavored.,Aniseed
+3841,Allspice,Clove,Nutmeg,Ginger,The others are sweet spices.,Ginger
+3842,Cumin,Basil,Coriander,Basil,The others are in the parsley family.,Caraway
+3843,Star Anise,Shallot,Garlic,Star Anise,The others are alliums.,Onion
+3844,Cayenne Pepper,Saffron,Chili Powder,Saffron,The others are made from chilies.,Paprika
+3845,Allspice,Clove,Cinnamon,Turmeric,The others are used in mulled wine.,Turmeric
+3846,Ginger,Cilantro,Parsley,Ginger,The others are in the Apiaceae family.,Coriander
+3847,Mace,Rosemary,Nutmeg,Rosemary,The others are from the Myristicaceae family.,Allspice
+3848,Thyme,Basil,Paprika,Paprika,The others are in the mint family.,Oregano
+3849,Cumin,Fenugreek,Mustard,Garlic,The others are in the mustard family.,Garlic
+3850,Cumin,Thyme,Rosemary,Cumin,The others are in the Lamiaceae family.,Oregano
+3851,Ginger,Cardamom,Turmeric,Saffron,The others are in the Zingiberaceae family.,Saffron
+3852,Cinnamon,Garlic,Leek,Cinnamon,The others are in the Allium family.,Onion
+3853,Cinnamon,Cassia,Paprika,Paprika,The others are in the Lauraceae family.,Sassafras
+3854,Clove,Nutmeg,Mace,Ginger,The others are in the Myristicaceae family.,Ginger
+3855,Cardamom,Eucalyptus,Tea Tree,Cardamom,The others are in the Myrtaceae family.,Clove
+3856,Potato,Radish,Carrot,Potato,The others are root vegetables,Beetroot
+3857,Cauliflower,Broccoli,Spinach,Spinach,The others are cruciferous vegetables,Cabbage
+3858,Onion,Garlic,Leek,Cucumber,The others are allium vegetables,Cucumber
+3859,Carrot,Tomato,Cucumber,Carrot,The others are fruits,Bell Pepper
+3860,Potato,Pumpkin,Cucumber,Potato,The others are from the gourd family,Zucchini
+3861,Spinach,Kale,Lettuce,Corn,The others are leafy greens,Corn
+3862,Asparagus,Brussels Sprouts,Cabbage,Asparagus,The others are from the Brassica genus,Kale
+3863,Zucchini,Pumpkin,Radish,Radish,The others are from the Cucurbitaceae family,Cucumber
+3864,Broccoli,Beetroot,Spinach,Broccoli,The others are from the Amaranthaceae family,Swiss Chard
+3865,Bell Pepper,Tomato,Eggplant,Carrot,The others are from the Solanaceae family,Carrot
+3866,Onion,Lettuce,Kale,Onion,The others are leaf vegetables,Cabbage
+3867,Chili Pepper,Cucumber,Bell Pepper,Cucumber,The others are peppers,Jalapeno
+3868,Tomato,Asparagus,Cauliflower,Tomato,The others are perennial vegetables,Broccoli
+3869,Onion,Leek,Garlic,Spinach,The others are from the Allium genus,Spinach
+3870,Spinach,Kale,Swiss Chard,Broccoli,The others are rich in Iron,Broccoli
+3871,Tomato,Eggplant,Bell Pepper,Corn,The others are from the Nightshade family,Corn
+3872,Squash,Pumpkin,Zucchini,Potato,The others are from the Cucurbita genus,Potato
+3873,Carrot,Onion,Garlic,Carrot,The others are from the Allium family,Leek
+3874,Cucumber,Sweet Potato,Yam,Cucumber,The others are tubers,Potato
+3875,Corn,Barley,Wheat,Carrot,The others are types of grains,Carrot
+3876,Asparagus,Potato,Celery,Potato,The others are stem vegetables,Fennel
+3877,Cucumber,Eggplant,Tomato,Radish,The others are nightshades,Radish
+3878,Green beans,Asparagus,Broccoli,Potato,The others are green vegetables,Potato
+3879,Pumpkin,Zucchini,Acorn squash,Zucchini,The others are winter squashes,Butternut squash
+3880,Parsley,Onion,Carrot,Onion,The others are apiaceae family,Celery
+3881,Habanero,Jalapeno,Bell pepper,Tomato,The others are chili peppers,Tomato
+3882,Radish,Beetroot,Carrot,Asparagus,The others are taproots,Asparagus
+3883,Cauliflower,Tomato,Broccoli,Tomato,The others are brassica family,Cabbage
+3884,Garlic,Onion,Potato,Potato,The others are allium family,Shallot
+3885,Lettuce,Carrot,Spinach,Carrot,The others are leafy vegetables,Cabbage
+3886,Cucumber,Eggplant,Tomato,Cucumber,The others are solanaceae family,Bell pepper
+3887,Eggplant,Butternut squash,Zucchini,Eggplant,The others are squash family,Pumpkin
+3888,Zucchini,Pepper,Cucumber,Pepper,The others are part of the Cucurbitaceae family.,Eggplant
+3889,Squash,Kale,Spinach,Squash,The others are leafy greens.,Lettuce
+3890,Onion,Leek,Radish,Radish,The others are part of the Allium genus.,Garlic
+3891,Squash,Zucchini,Pumpkin,Potato,The others are part of the Cucurbita genus.,Potato
+3892,Green pepper,Yellow pepper,Red tomato,Red tomato,The others are bell peppers.,Red pepper
+3893,Green beans,Lentils,Peas,Artichoke,The others are legumes.,Artichoke
+3894,White onion,Red onion,Yellow onion,White cabbage,The others are types of onions.,White cabbage
+3895,Red lettuce,Red cabbage,Green cabbage,Red lettuce,The others are types of cabbage.,Savoy cabbage
+3896,White onion,White eggplant,White radish,White eggplant,The others are commonly found in white color.,White garlic
+3897,Red garlic,Red pepper,Red radish,Red garlic,The others are commonly found in red color.,Red tomato
+3898,Green spinach,Green kale,Green lettuce,Green carrot,The others are commonly found in green color.,Green carrot
+3900,Celery,Beetroot,Parsley,Beetroot,The others are in the Apiaceae family,Carrot
+3901,Asparagus,Celery,Carrot,Carrot,The others are stalk vegetables,Broccoli
+3902,Cabbage,Tomato,Bell pepper,Cabbage,The others are nightshade vegetables,Eggplant
+3903,Yam,Asparagus,Sweet potato,Asparagus,The others are types of tubers,Potato
+3904,Zucchini,Broccoli,Cucumber,Broccoli,The others are botanically fruits.,Bell pepper
+3905,Spinach,Lettuce,Cabbage,Onion,The others are leafy vegetables.,Onion
+3906,Pumpkin,Cucumber,Watermelon,Potato,The others are members of the Cucurbitaceae family.,Potato
+3907,Garlic,Onion,Leek,Carrot,The others are from the Allium genus.,Carrot
+3908,Tomato,Cabbage,Eggplant,Cabbage,The others are from the Solanaceae family.,Potato
+3909,Broccoli,Potato,Cauliflower,Potato,The others are from the Brassica genus.,Brussels sprouts
+3910,Carrot,Asparagus,Broccoli,Carrot,The others are green vegetables.,Lettuce
+3911,Cucumber,Sweet potato,Carrot,Cucumber,The others are orange when ripe.,Pumpkin
+3912,Chard,Spinach,Kale,Tomato,The others are types of leafy greens.,Tomato
+3913,Bell Pepper,Tomato,Carrot,Carrot,The others are used in Greek salad.,Cucumber
+3914,Onion,Garlic,Cabbage,Cabbage,The others have layers.,Leek
+3915,Eggplant,Cauliflower,Bell pepper,Cauliflower,The others are nightshades.,Tomato
+3916,Potato,Zucchini,Pumpkin,Potato,The others are summer crops.,Cucumber
+3917,Cauliflower,Carrot,Broccoli,Carrot,The others are cruciferous vegetables.,Brussels sprouts
+3918,Shallot,Onion,Garlic,Potato,The others are from the Allium family.,Potato
+3919,Cucumber,Pumpkin,Potato,Potato,The others are members of the gourd family.,Zucchini
+3920,Cabbage,Pepper,Broccoli,Pepper,The others are from the Brassica family.,Brussels sprouts
+3921,Peas,Wheat,Corn,Peas,The others are grains.,Rice
+3922,Tomato,Spinach,Kale,Tomato,The others are types of dark leafy greens,Swiss Chard
+3923,Peas,Lentils,Broccoli,Broccoli,The others are podded vegetables,Green Beans
+3924,Carrot,Broccoli,Artichoke,Carrot,The others are flower vegetables,Cauliflower
+3925,Cabbage,Barley,Wheat,Cabbage,The others are cereals,Corn
+3926,Chicory,Spinach,Radicchio,Spinach,The others are bitter leafy greens,Endive
+3927,Popcorn,Sweet Corn,Sweet Pea,Sweet Pea,The others are types of corn,Indian Corn
+3928,Swiss Chard,Spinach,Carrot,Carrot,The others are dark leafy greens,Kale
+3929,Zucchini,Cucumber,Carrot,Carrot,The others are squashes,Pumpkin
+3930,Asparagus,Sweet Potato,Broccoli,Sweet Potato,The others are green.,Cabbage
+3931,Garlic,Celery,Onion,Celery,The others are Alliums.,Leek
+3932,Radish,Broccoli,Brussels Sprout,Radish,The others are from Brassica family.,Cabbage
+3933,Artichoke,Rhubarb,Celery,Celery,The others are stems.,Asparagus
+3934,Bell Pepper,Zucchini,Pumpkin,Bell Pepper,The others are gourds.,Squash
+3935,Garlic,Turmeric,Onion,Onion,The others are rhizomes.,Ginger
+3936,Beetroot,Potato,Carrot,Carrot,The others are tubers.,Sweet Potato
+3937,Leek,Celery,Asparagus,Broccoli,The others are stalks.,Broccoli
+3938,Banana,Tomato,Cherry,Tomato,The others are sweet fruits,Apple
+3939,Lemon,Lime,Orange,Strawberry,The others are citrus fruits,Strawberry
+3940,Pineapple,Pear,Plum,Pineapple,The others are pome fruits,Peach
+3941,Apple,Mango,Kiwi,Apple,The others are tropical fruits,Papaya
+3942,Lime,Kiwi,Mango,Lime,The others have large seeds,Avocado
+3943,Apple,Peach,Banana,Coconut,The others do not have a hard shell,Coconut
+3946,Passionfruit,Pear,Pomegranate,Pear,The others have a hard outer shell,Lychee
+3947,Breadfruit,Jackfruit,Durian,Orange,The others are large tropical fruits,Orange
+3948,Kumquat,Limequat,Apricot,Apricot,The others are hybrid citrus fruits,Calamondin
+3949,Plantain,Raspberry,Guava,Raspberry,The others are fruits eaten in the Caribbean,Banana
+3950,Raisin,Currant,Mango,Mango,The others are fruits that can be dried,Grape
+3951,Pear,Raspberry,Mulberry,Pear,The others are aggregate fruits,Blackberry
+3952,Cherry,Plum,Kiwi,Kiwi,The others are fruits with a single pit,Peach
+3953,Orange,Raspberry,Strawberry,Orange,The others are fruits that grow on bushes,Blueberry
+3954,Kiwi,Papaya,Pineapple,Apple,The others are fruits with a high vitamin C content,Apple
+3955,Avocado,Pear,Banana,Pear,The others are fruits with a high potassium content,Peach
+3956,Papaya,Pineapple,Mango,Apple,The others are fruits that grow in tropical climates,Apple
+3957,Orange,Prune,Fig,Orange,The others are fruits that are often dried,Date
+3958,Raspberry,Banana,Blackberry,Banana,The others are fruits with seeds on the outside,Strawberry
+3959,Whitecurrant,Lemon,Blackcurrant,Lemon,The others are currants,Redcurrant
+3960,Mandarin,Papaya,Lemon,Papaya,The others are fruits used for marmalade,Lime
+3961,Strawberry,Blackberry,Raspberry,Pear,The others are fruits used for jam,Pear
+3962,Apple,Peach,Kiwi,Kiwi,The others are fruits used for pies,Cherry
+3963,Raspberry,Papaya,Blueberry,Papaya,The others are fruits used for tarts,Strawberry
+3964,Banana,Peach,Plum,Banana,The others are fruits used for cobblers,Apricot
+3965,Banana,Kiwi,Grape,Banana,The others are vine fruits,Melon
+3968,Lime,Pineapple,Lemon,Pineapple,The others are citrus fruits.,Orange
+3969,Raspberry,Blackberry,Cherry,Cherry,The others are aggregate fruits.,Blueberry
+3970,Cantaloupe,Honeydew,Grapefruit,Grapefruit,The others are melons.,Watermelon
+3971,Apricot,Fig,Prune,Apricot,The others are dried fruits.,Date
+3972,Pomegranate,Lychee,Guava,Pear,The others are tropical fruits.,Pear
+3973,Almond,Coconut,Banana,Banana,The others are nuts.,Walnut
+3974,Plum,Apricot,Apple,Apple,The others are stone fruits.,Peach
+3975,Raspberry,Blackberry,Strawberry,Strawberry,The others are fruits in the rose family.,Blueberry
+3976,Pear,Plum,Apricot,Pear,The others are drupes.,Peach
+3977,Blueberry,Raspberry,Banana,Banana,The others are fruits with seeds on the outside.,Strawberry
+3978,Grape,Peach,Plum,Grape,The others are fruits with a single large seed.,Nectarine
+3979,Honeydew,Apple,Cantaloupe,Apple,The others are fruits with high water content.,Watermelon
+3980,Quince,Lemon,Apple,Lemon,The others are fruits with a core.,Pear
+3981,Watermelon,Honeydew,Cantaloupe,Orange,The others are fruits with high vitamin A.,Orange
+3982,Pear,Apple,Lemon,Lemon,The others have pips on the inside,Peach
+3983,Grape,Banana,Zucchini,Grape,The others are classified as berries,Cucumber
+3984,Strawberry,Blueberry,Blackberry,Strawberry,The others are true berries,Raspberry
+3985,Grapefruit,Orange,Lime,Grapefruit,The others are small citrus fruits,Lemon
+3986,Strawberry,Cherry,Raspberry,Grape,The others are red when ripe,Grape
+3987,Apricot,Peach,Plum,Raspberry,The others are drupes,Raspberry
+3988,Plum,Peach,Cherry,Kiwi,The others have a single hard seed,Kiwi
+3989,Grape,Strawberry,Raspberry,Strawberry,The others are small and round,Blueberry
+3990,Blueberry,Raspberry,Grape,Grape,The others have seeds on the outside,Strawberry
+3991,Banana,Cucumber,Apple,Apple,The others are technically berries,Zucchini
+3992,Kiwi,Pear,Apple,Banana,The others are fruits with a core,Banana
+3993,Blueberry,Apple,Cherry,Apple,The others are small and round fruits,Grape
+3994,Banana,Orange,Pear,Orange,The others are fruits that ripen after being picked,Apple
+3995,Apple,Grapefruit,Peach,Grapefruit,The others are fruits with a sweet taste,Pear
+3996,Lemon,Orange,Lime,Banana,The others are fruits that are commonly used in drinks,Banana
+3997,Pineapple,Blueberry,Strawberry,Pineapple,The others are fruits that are commonly used in pies,Raspberry
+3998,Apple,Banana,Orange,Tomato,The others are fruits that are commonly eaten raw,Tomato
+3999,Lemon,Peach,Lime,Peach,The others are fruits that are commonly used for juice,Grapefruit
+4000,Lemon,Orange,Kiwi,Kiwi,The others are fruits that are commonly used for zest,Lime
+4001,Kiwi,Lemon,Orange,Kiwi,The others are fruits that are commonly used in marmalades,Grapefruit
+4002,Daisy,Rose,Daffodil,Daisy,The others are bulb flowers,Tulip
+4003,Daisy,Poinsettia,Geranium,Poinsettia,The others are sun-loving flowers,Sunflower
+4004,Lily,Orchid,Tulip,Orchid,The others are spring blooming flowers,Iris
+4005,Lilac,Rose,Jasmine,Daisy,The others are fragrant flowers,Daisy
+4006,Dahlia,Violet,Aster,Violet,The others are autumn blooming flowers,Marigold
+4007,Lily,Orchid,Hyacinth,Orchid,The others are Easter flowers,Tulip
+4008,Geranium,Azalea,Camellia,Geranium,The others are acid-loving flowers,Rhododendron
+4009,Pansy,Marigold,Begonia,Rose,The others are bedding flowers,Rose
+4010,Daffodil,Lilac,Lavender,Daffodil,The others are purple flowers,Rose
+4011,Daisy,Sunflower,Lily,Lily,The others have ray florets,Marigold
+4012,Orchid,Pansy,Violet,Geranium,The others are edible flowers,Geranium
+4013,Rose,Lily,Tulip,Rose,The others have a cup-like shape,Daisy
+4014,Rose,Sunflower,Lavender,Sunflower,The others are used in perfumery,Jasmine
+4015,Tulip,Daisy,Marigold,Tulip,The others have composite heads,Sunflower
+4016,Tulip,Peony,Sunflower,Sunflower,The others are perennial flowers,Iris
+4017,Daisy,Lily,Lavender,Lavender,The others are used in weddings,Rose
+4018,Sunflower,Pansy,Marigold,Pansy,The others are summer flowers,Daisy
+4019,Tulip,Orchid,Rose,Dandelion,The others are ornamental flowers,Dandelion
+4020,Pansy,Geranium,Orchid,Orchid,The others are container flowers,Marigold
+4021,Marigold,Daisy,Rose,Rose,The others are heliotropic flowers,Sunflower
+4022,Carnation,Pansy,Iris,Carnation,The others are winter flowers,Violet
+4023,Rose,Tulip,Lily Pad,Lily Pad,The others are flowering plants,Daisy
+4024,Hibiscus,Peony,Rose of Sharon,Peony,The others are types of Hibiscus,Mallow
+4025,Carnation,Pansy,Peony,Pansy,The others have a clove-like fragrance,Geranium
+4026,Rose,Coneflower,Sunflower,Rose,The others have a disk-like center,Daisy
+4027,Orchid,Daffodil,Lily,Daffodil,The others are bilaterally symmetrical flowers,Snapdragon
+4028,Calibrachoa,Marigold,Petunia,Marigold,The others are in the Solanaceae family,Verbena
+4029,Begonia,Geranium,Impatiens,Azalea,The others are shade-loving flowers,Azalea
+4030,Dahlia,Aster,Rose,Rose,The others have a composite flower head,Zinnia
+4031,Camellia,Rhododendron,Azalea,Lilac,The others belong to the Ericaceae family,Lilac
+4032,Monkshood,Oleander,Daffodil,Daffodil,The others are highly toxic flowers,Foxglove
+4033,Calendula,Marigold,Rose,Rose,The others are used in Dia de los Muertos celebrations,Chrysanthemum
+4034,Hyacinth,Rose,Tulip,Rose,The others are spring-blooming bulbs,Crocus
+4035,Asiatic Lily,Tiger Lily,Daylily,Orchid,The others are types of Lilies,Orchid
+4036,Pansy,Daisy,Violet,Daisy,The others have heart-shaped leaves,Petunia
+4037,Iris,Gladiolus,Amaryllis,Rose,The others are sword-shaped leaves,Rose
+4038,Chrysanthemum,Dahlia,Zinnia,Orchid,The others are native to the Americas,Orchid
+4039,Daisy,Poppy,Rose,Rose,The others have a central disk with radiating petals,Sunflower
+4040,Sage,Rose,Lavender,Rose,The others are aromatic herbs,Rosemary
+4041,Jonquil,Daffodil,Lily,Lily,The others are types of Narcissus,Narcissus
+4042,Tulip,Daisy,Sunflower,Tulip,The others belong to the Asteraceae family,Aster
+4043,Wisteria,Lilac,Rose,Rose,The others are spring-blooming shrubs,Forsythia
+4044,Tulip,Rose,Orchid,Orchid,The others are traditionally given on Valentine's Day,Carnation
+4045,Holly,Mistletoe,Rose,Rose,The others are associated with Christmas,Poinsettia
+4046,Tuberose,Lily,Jasmine,Lily,The others are night-blooming flowers,Gardenia
+4047,Narcissus,Hyacinth,Lily of the Valley,Rose,The others are poisonous if ingested,Rose
+4048,Rose,Rhododendron,Azalea,Rose,The others can change color based on soil pH,Hydrangea
+4049,Marigold,Aster,Orchid,Orchid,The others are composite flowers,Zinnia
+4050,Lily,Daffodil,Narcissus,Lily,The others are types of Narcissi,Jonquil
+4051,Dahlia,Pansy,Geranium,Dahlia,The others have five-petal flowers,Petunia
+4052,Daisy,Sunflower,Lotus,Lotus,The others are Asteraceae family,Aster
+4053,Camellia,Magnolia,Azalea,Magnolia,The others are Ericaceae family,Rhododendron
+4054,Foxglove,Snapdragon,Begonia,Begonia,The others are poisonous plants,Digitalis
+4055,Dahlia,Lily,Zinnia,Lily,The others are autumn bloomers,Chrysanthemum
+4056,Jasmine,Gardenia,Tuberose,Honeysuckle,The others are night bloomers,Honeysuckle
+4057,Hibiscus,Poppy,Orchid,Orchid,The others have edible parts,Rose
+4058,Sunflower,Marigold,Rose,Rose,The others are heliotropic,Daisy
+4059,Orchid,Daisy,Bromeliad,Daisy,The others are epiphytes,Anthurium
+4060,Rose,Yarrow,Chamomile,Rose,The others are medicinal plants,Dandelion
+4061,Thyme,Rose,Lavender,Rose,The others are culinary herbs,Rosemary
+4062,Iris,Hyacinth,Lily,Carnation,The others are bulbous flowers,Carnation
+4063,Dahlia,Chrysanthemum,Aster,Hibiscus,The others have more than one flower head,Hibiscus
+4064,Peony,Snapdragon,Bellflower,Peony,The others have bell-shaped flowers,Foxglove
+4065,Lilac,Passion Flower,Poppy,Lilac,The others are known for their distinct seed pods,Morning Glory
+4066,Cornflower,Bluebell,Camellia,Camellia,The others are blue flowers,Forget-me-not
+4067,Zinnia,Cosmos,Rhododendron,Rhododendron,The others are annuals,Marigold
+4068,Dogwood,Cherry Blossom,Magnolia,Dandelion,The others are tree flowers,Dandelion
+4069,Black-eyed Susan,Iris,Daisy,Iris,The others have a yellow center,Sunflower
+4070,Hydrangea,Rhododendron,Azalea,Lily,The others are acid soil loving flowers,Lily
+4071,Gerbera,Calendula,Gazania,Rose,The others are daisy-like flowers,Rose
+4072,Camellia,Lavender,Ranunculus,Lavender,The others have many petals,Peony
+4073,Dandelion,Hibiscus,Oleander,Dandelion,The others are shrubs,Bougainvillea
+4074,Lily of the Valley,Snowdrop,Hyacinth,Iris,The others bloom in spring,Iris
+4075,Tulip,Sunflower,Crocus,Sunflower,The others are early bloomers,Snowdrop
+4076,Iris,Gladiolus,Tulip,Tulip,The others have corms,Crocus
+4077,Pansy,Petunia,Geranium,Orchid,The others are bedding plants,Orchid
+4078,Sunflower,Iris,Tulip,Sunflower,The others have bulbs,Lily
+4079,Bamboo,Iris,Hyacinth,Bamboo,The others are bulb plants,Tulip
+4080,Tulip,Orchid,Daffodil,Orchid,The others have bulbous roots,Lily of the Valley
+4081,Sunflower,Dandelion,Rose,Rose,The others are Heliantheae tribe,Aster
+4082,Narcissus,Daffodil,Marigold,Marigold,The others are Amaryllidaceae family,Jonquil
+4083,Gladiolus,Iris,Daisy,Daisy,The others are Iridaceae family,Crocus
+4084,Hibiscus,Geranium,Poppy,Lily,The others have 5 petals,Lily
+4085,Daisy,Tulip,Sunflower,Tulip,The others have ray and disc florets,Aster
+4086,Daffodil,Rose,Narcissus,Rose,The others are Narcissus genus,Jonquil
+4087,Daffodil,Tulip,Iris,Iris,The others have tepals not petals,Crocus
+4088,Iris,Peony,Rose,Iris,The others have multiple layers of petals,Carnation
+4089,Lotus,Sunflower,Marigold,Lotus,The others are common wildflowers,Daisy
+4090,Lavender,Rose,Rosemary,Rose,The others are also herbs,Sage
+4091,Daisy,Pansy,Poppy,Daisy,The others have five petals,Petunia
+4092,Sunflower,Orchid,Rose,Sunflower,The others are often given as gifts,Tulip
+4093,Azalea,Hibiscus,Marigold,Marigold,The others are used in tea,Camellia
+4094,Daisy,Jasmine,Rose,Jasmine,The others are used to symbolize love,Sunflower
+4095,Dahlia,Iris,Chrysanthemum,Iris,The others are autumn-blooming flowers,Zinnia
+4096,Daffodil,Jonquil,Narcissus,Tulip,The others are from the Amaryllidaceae family,Tulip
+4097,Orchid,Sunflower,Dandelion,Orchid,The others have composite flower heads,Daisy
+4098,Rose,Hibiscus,Jasmine,Tulip,The others are used to make tea,Tulip
+4099,Sunflower,Daisy,Marigold,Lotus,The others are Asteraceae,Lotus
+4100,Sunflower,Dandelion,Daisy,Orchid,The others are native to North America,Orchid
+4101,Carnation,Lily,Iris,Carnation,The others have sword-shaped leaves,Gladiolus
+4102,Rhododendron,Azalea,Orchid,Orchid,The others are acid-loving plants,Hydrangea
+4103,Rose,Orchid,Tulip,Orchid,The others are non-tropical flowers,Daisy
+4104,Water Lily,Lotus,Iris,Rose,The others are water-loving flowers,Rose
+4105,Peony,Daffodil,Rose,Daffodil,The others are often used in wedding bouquets,Carnation
+4106,Dahlia,Orchid,Daisy,Orchid,The others have disc-shaped flowers,Sunflower
+4107,Daisy,Hibiscus,Marigold,Hibiscus,The others have ray-like petals,Sunflower
+4108,Daffodil,Tulip,Rose,Daffodil,The others are often used in Valentine's bouquets,Carnation
+4109,Lily,Dandelion,Orchid,Dandelion,The others are often used in funeral arrangements,Iris
+4110,Sunflower,Marigold,Daisy,Rose,The others have composite flowers,Rose
+4111,Daisy,Orchid,Bird of Paradise,Daisy,The others are exotic flowers,Lily
+4112,Daffodil,Orchid,Carnation,Daffodil,The others are often used in perfume making,Rose
+4113,Hibiscus,Daisy,Sunflower,Hibiscus,The others have disc florets,Marigold
+4114,Daisy,Hibiscus,Orchid,Daisy,The others have complex flower structures,Lily
+4115,Orchid,Lily,Tulip,Poinsettia,The others are spring flowers,Poinsettia
+4116,Rose,Orchid,Lily,Lotus,The others are often grown in gardens,Lotus
+4117,Sunflower,Daisy,Rose,Sunflower,The others have medicinal uses,Poppy
+4118,Peony,Rose,Dahlia,Rose,The others have double flowers,Hydrangea
+4119,Rose,Fern,Daisy,Fern,The others are used in Valentine's Day,Tulip
+4120,Lily,Sunflower,Tulip,Sunflower,The others are used in corsages,Orchid
+4121,Daffodil,Tulip,Lotus,Lotus,The others are used in spring festivals,Iris
+4122,Lily,Rose,Dandelion,Dandelion,The others are used in beauty products,Orchid
+4123,Carnation,Rose,Lavender,Lavender,The others are used in teas,Daisy
+4124,Rosemary,Basil,Mint,Mint,The others are Mediterranean herbs,Oregano
+4125,Peppermint,Spearmint,Catmint,Lavender,The others are types of mint,Lavender
+4126,Cilantro,Thyme,Lavender,Cilantro,The others are part of the mint family,Rosemary
+4127,Ginger,Dill,Cilantro,Ginger,The others are herbs also known by another name,Coriander
+4128,Oregano,Chamomile,Thyme,Chamomile,The others are used in Italian cuisine,Marjoram
+4129,Onion,Garlic,Chives,Parsley,The others are part of the Allium family,Parsley
+4130,Dill,Parsley,Mint,Mint,The others are used in tabbouleh,Cilantro
+4131,Rosemary,Oregano,Mint,Rosemary,The others are used in Greek cuisine,Basil
+4132,Tarragon,Parsley,Basil,Basil,The others are used in béarnaise sauce,Chervil
+4133,Basil,Cilantro,Oregano,Cilantro,The others are used in ratatouille,Thyme
+4134,Dill,Cilantro,Rosemary,Rosemary,The others are used in tzatziki,Parsley
+4135,Caraway,Cilantro,Fennel,Cilantro,The others are used in liquorice,Anise
+4136,Sage,Cilantro,Thyme,Cilantro,The others are used in roasting,Rosemary
+4137,Oregano,Ginger,Basil,Ginger,The others are used in mojitos,Mint
+4138,Rosemary,Dill,Cilantro,Rosemary,The others are used in chimichurri,Parsley
+4139,Aloe Vera,Cilantro,Dill,Aloe Vera,The others are used in cooking,Parsley
+4140,Aloe Vera,Basil,Mint,Aloe Vera,The others are used in Asian cuisine,Coriander
+4141,Dill,Parsley,Basil,Chamomile,The others are used in European cuisine,Chamomile
+4142,Basil,Sage,Lemongrass,Lemongrass,The others are used in Mediterranean cuisine,Mint
+4143,Parsley,Hawthorn,Dill,Hawthorn,The others are used in sauces,Cilantro
+4144,Rosemary,Thyme,Sage,Milk Thistle,The others are used in poultry dishes,Milk Thistle
+4145,Cilantro,Dill,Parsley,Peppermint,The others are used in soups,Peppermint
+4146,Oregano,Rosemary,Thyme,Lavender,The others are used in pasta dishes,Lavender
+4147,Thyme,Oregano,Licorice,Licorice,The others are used in tomato sauces,Marjoram
+4148,Thyme,Sage,Rosemary,Turmeric,The others are used in Thanksgiving dishes,Turmeric
+4149,Mint,Cilantro,Dill,Rosemary,The others are used in Asian cuisines,Rosemary
+4150,Rosemary,Cumin,Thyme,Cumin,The others are used in potpourri,Lavender
+4151,Parsley,Mint,Echinacea,Echinacea,The others are used in dips,Dill
+4152,Thyme,Rosemary,Echinacea,Echinacea,The others are used in lamb dishes,Mint
+4153,Oregano,Echinacea,Thyme,Echinacea,The others are used in stews,Rosemary
+4154,Oregano,Thyme,Cilantro,Chamomile,The others are used in tacos,Chamomile
+4155,Rosemary,Lavender,Basil,Basil,The others are woody herbs,Thyme
+4156,Chervil,Cilantro,Parsley,Cilantro,The others are French herbs,Tarragon
+4158,Thyme,Basil,Lavender,Basil,The others are native to the Mediterranean,Rosemary
+4159,Thyme,Rosemary,Cilantro,Cilantro,The others are evergreen herbs,Sage
+4160,Lavender,Mint,Chamomile,Cilantro,The others are used in aromatherapy,Cilantro
+4161,Tarragon,Sage,Chervil,Sage,The others are used in Béarnaise sauce,Parsley
+4162,Echinacea,Peppermint,Cilantro,Cilantro,The others are used to aid sleep,Chamomile
+4163,Mint,Basil,Oregano,Mint,The others are used in pasta sauce,Dill
+4164,Oregano,Ginger,Sage,Ginger,The others are from the mint family,Marjoram
+4165,Basil,Ginger,Marjoram,Ginger,The others are used in pizza seasoning,Oregano
+4166,Dill,Parsley,Cilantro,Lavender,The others are used in salsa recipes,Lavender
+4167,Basil,Rosemary,Parsley,Rosemary,The others are used in pesto recipes,Coriander
+4168,Rosemary,Thyme,Cilantro,Cilantro,The others are used in stuffing recipes,Sage
+4169,Parsley,Cilantro,Lavender,Lavender,The others are used in salad recipes,Dill
+4170,Coriander,Thyme,Sage,Coriander,The others are used in Thanksgiving recipes,Rosemary
+4171,Oregano,Cilantro,Basil,Cilantro,The others are used in spaghetti sauce,Marjoram
+4172,Dill,Sage,Thyme,Dill,The others are used in lamb recipes,Rosemary
+4173,Marjoram,Ginger,Oregano,Ginger,The others are used in marinara sauce,Basil
+4174,Basil,Parsley,Dill,Basil,The others are used in ceviche recipes,Cilantro
+4175,Parsley,Oregano,Basil,Parsley,The others are used in lasagna recipes,Marjoram
+4176,Sage,Thyme,Mint,Mint,The others are used in marinades,Rosemary
+4177,Lavender,Cilantro,Chamomile,Cilantro,The others are used in tea blends,Lemon Balm
+4178,Lavender,Basil,Lemon Balm,Basil,The others have a minty flavor,Mint
+4179,Oregano,Cilantro,Basil,Cilantro,The others are used in lasagna,Thyme
+4180,Dill,Rosemary,Sage,Dill,The others are used in pot roast,Thyme
+4181,Cilantro,Parsley,Dill,Thyme,The others are used in hummus,Thyme
+4182,Rosemary,Chives,Bay leaves,Bay leaves,The others are used in sour cream dips,Dill
+4183,Oregano,Thyme,Basil,Ginger,The others are used in pasta sauces,Ginger
+4184,Sage,Anise,Dill,Sage,The others have a sweet flavor,Fennel
+4185,Dill,Parsley,Basil,Basil,The others are umbelliferous herbs,Fennel
+4186,Sage,Tarragon,Chives,Chives,The others are Lamiaceae family herbs,Rosemary
+4187,Chervil,Lavender,Parsley,Lavender,The others are Apiaceae family herbs,Cilantro
+4188,Garlic,Onion,Chives,Basil,The others are Allium family herbs,Basil
+2984,Bordeaux,Champagne,Whiskey,Whiskey,The others are French wine regions,Burgundy (color)
+3449,Walt Whitman,Edgar Allan Poe,Emily Dickinson,F. Scott Fitzgerald,The others are poets/authors who never left the United States,F. Scott Fitzgerald

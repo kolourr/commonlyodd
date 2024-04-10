@@ -25,11 +25,6 @@ const Failure = () => {
         </Button>
       </div>
       <div class="p-4">
-        <Button variant="contained" color="secondary" href="/game">
-          Play Game
-        </Button>
-      </div>
-      <div class="p-4">
         <Button
           variant="contained"
           color="secondary"
