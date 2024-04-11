@@ -29,7 +29,7 @@ func CheckSubStatus(c *gin.Context) {
 	}
 
 	// Check if the subscription status is 'active'
-	if subscriptionStatus == "active" {
+	if subscriptionStatus == "active" || subscriptionStatus == "trialing" {
 		c.JSON(http.StatusOK, gin.H{"status": true})
 	} else {
 		c.JSON(http.StatusOK, gin.H{"status": false})

@@ -87,13 +87,11 @@ const User = () => {
           </Button>
         </div>
       </Show>
-      <Show when={subscriptionStatus()}>
-        <div class="p-4">
-          <Button variant="contained" color="secondary" onClick={stripePortal}>
-            Stripe Portal
-          </Button>
-        </div>
-      </Show>
+      <div class="p-4">
+        <Button variant="contained" color="secondary" onClick={stripePortal}>
+          Stripe Portal
+        </Button>
+      </div>
     </div>
   );
 };

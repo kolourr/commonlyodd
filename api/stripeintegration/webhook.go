@@ -44,9 +44,9 @@ func WebhookHandler(c *gin.Context) {
 	case "customer.subscription.created":
 		handleSubscriptionCreated(c, event)
 	case "customer.subscription.updated":
-		handleSubscriptionUpdatedDeleted(c, event)
+		handleSubscriptionUpdated(c, event)
 	case "customer.subscription.deleted":
-		handleSubscriptionUpdatedDeleted(c, event)
+		handleSubscriptionDeleted(c, event)
 	case "invoice.paid":
 		handleInvoicePaid(c, event)
 	case "invoice.payment_failed":
@@ -75,17 +75,25 @@ func handleSubscriptionCreated(c *gin.Context, event stripe.Event) {
 	err = database.DB.QueryRow("SELECT auth0_id FROM Users WHERE customer_id = $1", subscription.Customer.ID).Scan(&auth0ID)
 	if err != nil {
 		log.Printf("Could not find user with customer ID %s: %v", subscription.Customer.ID, err)
-		// If you cannot find a user, you may need to decide how to handle this. For now, we return an error.
 		c.JSON(http.StatusInternalServerError, gin.H{"error": fmt.Sprintf("Failed to find user for Stripe customer ID %s", subscription.Customer.ID)})
 		return
 	}
 
-	//  Extract subscription type from subscription
-	subscriptionType := subscription.Items.Data[0].Plan.Interval
+	subscriptionType := "active" // Default to active
+	var trialStart, trialEnd *time.Time
 
-	// Now, update or create subscription in the database with auth0_id
-	executeSQL("INSERT INTO Users (auth0_id, subscription_id, subscription_status, subscription_type, customer_id) VALUES ($1, $2, $3, $4, $5) ON CONFLICT (customer_id) DO UPDATE SET auth0_id = EXCLUDED.auth0_id, subscription_id = EXCLUDED.subscription_id, subscription_status = EXCLUDED.subscription_status, subscription_type = EXCLUDED.subscription_type",
-		auth0ID, subscription.ID, subscription.Status, subscriptionType, subscription.Customer.ID)
+	// Check if trialEnd is set by comparing against 0
+	if subscription.TrialEnd > 0 {
+		subscriptionType = "trial"
+		tsStart := time.Unix(subscription.TrialStart, 0) // Assuming TrialStart also exists and follows similar pattern
+		tsEnd := time.Unix(subscription.TrialEnd, 0)
+		trialStart = &tsStart
+		trialEnd = &tsEnd
+	}
+
+	// Insert or update the user's subscription information, including trial start and end
+	executeSQL(`INSERT INTO Users (auth0_id, subscription_id, subscription_status, subscription_type, customer_id, trial_start, trial_end) VALUES ($1, $2, $3, $4, $5, $6, $7) ON CONFLICT (customer_id) DO UPDATE SET auth0_id = EXCLUDED.auth0_id, subscription_id = EXCLUDED.subscription_id, subscription_status = EXCLUDED.subscription_status, subscription_type = EXCLUDED.subscription_type, trial_start = EXCLUDED.trial_start, trial_end = EXCLUDED.trial_end`,
+		auth0ID, subscription.ID, subscription.Status, subscriptionType, subscription.Customer.ID, trialStart, trialEnd)
 
 	fmt.Println("Subscription for user updated with new subscription details.")
 	c.JSON(http.StatusOK, gin.H{"received": true})
@@ -104,7 +112,7 @@ func handleCheckoutSessionCompleted(c *gin.Context, event stripe.Event) {
 	subscriptionID := checkoutSession.Subscription.ID
 
 	// Update user's subscription status to 'active'
-	executeSQL("UPDATE Users SET subscription_status = $1, subscription_id = $2 WHERE customer_id = $3", "active", subscriptionID, checkoutSession.Customer.ID)
+	executeSQL("UPDATE Users SET subscription_status = $1, subscription_id = $2 WHERE customer_id = $3", "trial", subscriptionID, checkoutSession.Customer.ID)
 
 	fmt.Println("Checkout session completed")
 }
@@ -119,7 +127,7 @@ func handleInvoicePaid(c *gin.Context, event stripe.Event) {
 	}
 
 	// Log payment success
-	executeSQL("UPDATE Users SET last_payment_attempt = $1 WHERE customer_id = $2", time.Now(), invoice.Customer.ID)
+	executeSQL("UPDATE Users SET last_payment_attempt = $1, subscription_status = $2 WHERE customer_id = $3", time.Now(), "active", invoice.Customer.ID)
 
 	updateNewsletterSubs(invoice.Customer.ID)
 	fmt.Println("Invoice paid")
@@ -142,7 +150,7 @@ func handleInvoicePaymentFailed(c *gin.Context, event stripe.Event) {
 	fmt.Println("Invoice payment failed")
 }
 
-func handleSubscriptionUpdatedDeleted(c *gin.Context, event stripe.Event) {
+func handleSubscriptionUpdated(c *gin.Context, event stripe.Event) {
 	var subscription stripe.Subscription
 	err := json.Unmarshal(event.Data.Raw, &subscription)
 	if err != nil {
@@ -164,4 +172,27 @@ func handleSubscriptionUpdatedDeleted(c *gin.Context, event stripe.Event) {
 	updateNewsletterSubs(subscription.ID)
 
 	fmt.Println("Subscription updated with new plan details.")
+}
+
+func handleSubscriptionDeleted(c *gin.Context, event stripe.Event) {
+	var subscription stripe.Subscription
+	err := json.Unmarshal(event.Data.Raw, &subscription)
+	if err != nil {
+		log.Printf("Error unmarshalling subscription: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Error processing event"})
+		return
+	}
+
+	// Assuming that the customer ID is stored in subscription.Customer.ID
+	customerID := subscription.Customer.ID
+
+	// Delete the customer from the Users table using the customerID
+	if customerID != "" {
+		executeSQL("DELETE FROM Users WHERE customer_id = $1", customerID)
+		log.Printf("User with customer ID %s deleted successfully", customerID)
+		c.JSON(http.StatusOK, gin.H{"message": fmt.Sprintf("User with customer ID %s deleted successfully", customerID)})
+	} else {
+		log.Println("Customer ID is empty, unable to delete user")
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Customer ID is empty, unable to delete user"})
+	}
 }
