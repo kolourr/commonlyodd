@@ -207,7 +207,7 @@ export default function AccountMenu() {
           </MenuItem>
         </Menu>
       </Show>
-      <Show when={!isAuthenticated() && !userSubstatus()}>
+      <Show when={!userSubstatus()}>
         <Menu
           anchorEl={anchorEl()}
           id="account-menu"
@@ -304,7 +304,7 @@ export default function AccountMenu() {
           },
         }}
       >
-        <Show when={isAuthenticated() && userSubstatus()}>
+        <Show when={userSubstatus()}>
           <div class="bg-slate-50">
             <div class="flex flex-col justify-center items-center">
               <div>

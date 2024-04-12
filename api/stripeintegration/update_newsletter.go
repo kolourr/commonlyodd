@@ -13,13 +13,13 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func updateNewsletterSubs(subscription_id string) error {
-	query := `SELECT email, subscription_status, subscription_type, subscription_ends_at, last_payment_attempt, cancel_at_period_end FROM users WHERE subscription_id=$1`
+func UpdateNewsletterSubs(subscription_id string) error {
+	query := `SELECT email, subscription_status, subscription_type, subscription_ends_at, last_payment_attempt, cancel_at_period_end, trial_start, trial_end FROM users WHERE subscription_id=$1`
 
 	var email, subscription_status, subscription_type, cancel_at_period_end string
-	var subscription_ends_at, last_payment_attempt sql.NullTime
+	var subscription_ends_at, last_payment_attempt, trial_start, trial_end sql.NullTime
 
-	err := database.DB.QueryRow(query, subscription_id).Scan(&email, &subscription_status, &subscription_type, &subscription_ends_at, &last_payment_attempt, &cancel_at_period_end)
+	err := database.DB.QueryRow(query, subscription_id).Scan(&email, &subscription_status, &subscription_type, &subscription_ends_at, &last_payment_attempt, &cancel_at_period_end, &trial_start, &trial_end)
 	if err != nil {
 		return fmt.Errorf("failed to query user information: %v", err)
 	}
@@ -32,6 +32,16 @@ func updateNewsletterSubs(subscription_id string) error {
 	lastPaymentAttemptStr := ""
 	if last_payment_attempt.Valid {
 		lastPaymentAttemptStr = last_payment_attempt.Time.Format(time.RFC3339)
+	}
+
+	trialStartsStr := ""
+	if trial_start.Valid {
+		trialStartsStr = trial_start.Time.Format(time.RFC3339)
+	}
+
+	trialEndsStr := ""
+	if trial_end.Valid {
+		trialEndsStr = trial_end.Time.Format(time.RFC3339)
 	}
 
 	// Setup for sending data to Sendy
@@ -49,6 +59,8 @@ func updateNewsletterSubs(subscription_id string) error {
 		"subscription_ends_at": {subscriptionEndsAtStr},
 		"last_payment_attempt": {lastPaymentAttemptStr},
 		"cancel_at_period_end": {cancel_at_period_end},
+		"trial_start":          {trialStartsStr},
+		"trial_end":            {trialEndsStr},
 		"boolean":              {"true"},
 	}
 

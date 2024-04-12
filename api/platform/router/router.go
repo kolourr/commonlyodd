@@ -71,6 +71,9 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.POST("/portal", middleware.IsAuthenticated, stripeintegration.PortalSessionHandler)
 	router.GET("/check-status", middleware.IsAuthenticated, stripeintegration.CheckSubStatus)
 
+	//contact us email
+	router.POST("/contact-us", stripeintegration.ContactUsEmail)
+
 	// Catch-all route to serve index.html for SPA routes
 	router.NoRoute(func(c *gin.Context) {
 

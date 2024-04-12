@@ -6,10 +6,12 @@ import (
 	"io"
 	"log"
 	"net/http"
+	"net/url"
 	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
+
 	"github.com/kolourr/commonlyodd/database"
 	"github.com/stripe/stripe-go/v76"
 	"github.com/stripe/stripe-go/v76/webhook"
@@ -62,6 +64,7 @@ func WebhookHandler(c *gin.Context) {
 }
 
 func handleSubscriptionCreated(c *gin.Context, event stripe.Event) {
+
 	var subscription stripe.Subscription
 	err := json.Unmarshal(event.Data.Raw, &subscription)
 	if err != nil {
@@ -96,10 +99,14 @@ func handleSubscriptionCreated(c *gin.Context, event stripe.Event) {
 		auth0ID, subscription.ID, subscription.Status, subscriptionType, subscription.Customer.ID, trialStart, trialEnd)
 
 	fmt.Println("Subscription for user updated with new subscription details.")
+	UpdateNewsletterSubs(subscription.ID)
+
 	c.JSON(http.StatusOK, gin.H{"received": true})
+
 }
 
 func handleCheckoutSessionCompleted(c *gin.Context, event stripe.Event) {
+
 	var checkoutSession stripe.CheckoutSession
 	err := json.Unmarshal(event.Data.Raw, &checkoutSession)
 	if err != nil {
@@ -118,6 +125,7 @@ func handleCheckoutSessionCompleted(c *gin.Context, event stripe.Event) {
 }
 
 func handleInvoicePaid(c *gin.Context, event stripe.Event) {
+
 	var invoice stripe.Invoice
 	err := json.Unmarshal(event.Data.Raw, &invoice)
 	if err != nil {
@@ -129,7 +137,7 @@ func handleInvoicePaid(c *gin.Context, event stripe.Event) {
 	// Log payment success
 	executeSQL("UPDATE Users SET last_payment_attempt = $1, subscription_status = $2 WHERE customer_id = $3", time.Now(), "active", invoice.Customer.ID)
 
-	updateNewsletterSubs(invoice.Customer.ID)
+	UpdateNewsletterSubs(invoice.Subscription.ID)
 	fmt.Println("Invoice paid")
 }
 
@@ -145,7 +153,7 @@ func handleInvoicePaymentFailed(c *gin.Context, event stripe.Event) {
 	// Update subscription status to 'past_due'
 	executeSQL("UPDATE Users SET subscription_status = $1, last_payment_attempt = $2 WHERE customer_id = $3", "past_due", time.Now(), invoice.Customer.ID)
 
-	updateNewsletterSubs(invoice.Customer.ID)
+	UpdateNewsletterSubs(invoice.Subscription.ID)
 
 	fmt.Println("Invoice payment failed")
 }
@@ -169,7 +177,7 @@ func handleSubscriptionUpdated(c *gin.Context, event stripe.Event) {
 	executeSQL("UPDATE Users SET subscription_status = $1, subscription_ends_at = $2, cancel_at_period_end = $3, subscription_type = $4, last_payment_attempt = $5 WHERE subscription_id = $6",
 		subscription.Status, periodEnd, subscription.CancelAtPeriodEnd, subscriptionType, time.Now(), subscription.ID)
 
-	updateNewsletterSubs(subscription.ID)
+	UpdateNewsletterSubs(subscription.ID)
 
 	fmt.Println("Subscription updated with new plan details.")
 }
@@ -185,6 +193,7 @@ func handleSubscriptionDeleted(c *gin.Context, event stripe.Event) {
 
 	// Assuming that the customer ID is stored in subscription.Customer.ID
 	customerID := subscription.Customer.ID
+	deleteNewsletterSub(customerID)
 
 	// Delete the customer from the Users table using the customerID
 	if customerID != "" {
@@ -195,4 +204,44 @@ func handleSubscriptionDeleted(c *gin.Context, event stripe.Event) {
 		log.Println("Customer ID is empty, unable to delete user")
 		c.JSON(http.StatusBadRequest, gin.H{"error": "Customer ID is empty, unable to delete user"})
 	}
+}
+
+func deleteNewsletterSub(customerID string) error {
+	// Setup for sending data to Sendy
+	apiKey := os.Getenv("SENDY_API_KEY")
+	listID := os.Getenv("SENDY_LIST_ID")
+	apiURL := os.Getenv("SENDY_URL_DELETE")
+
+	// SQL query to check subscription status from the database
+	var email string
+	err := database.DB.QueryRow("SELECT email FROM Users WHERE customer_id = $1", customerID).Scan(&email)
+	if err != nil {
+		log.Printf("Error querying email for customer_id %s: %v", customerID, err)
+		return fmt.Errorf("failed to query email for customer_id %s: %v", customerID, err)
+	}
+
+	data := url.Values{
+		"api_key": {apiKey},
+		"list_id": {listID},
+		"email":   {email},
+		"boolean": {"true"},
+	}
+
+	response, err := http.PostForm(apiURL, data)
+	if err != nil {
+		return fmt.Errorf("failed to send delete request: %v", err)
+	}
+	defer response.Body.Close()
+
+	body, err := io.ReadAll(response.Body)
+	if err != nil {
+		return fmt.Errorf("failed to read delete response: %v", err)
+	}
+
+	respStr := string(body)
+	if respStr != "1" {
+		return fmt.Errorf("delete failed with response: %s", respStr)
+	}
+
+	return nil
 }
