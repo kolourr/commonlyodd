@@ -53,7 +53,7 @@ func ContactUsEmail(c *gin.Context) {
 			Body: &ses.Body{
 				Html: &ses.Content{
 					Charset: aws.String("UTF-8"),
-					Data:    aws.String(fmt.Sprintf("<p>From: %s (%s)</p><p>Message: %s</p>", requestData.Name, requestData.Email, requestData.Message)), // Include the sender's info in the message body
+					Data:    aws.String(fmt.Sprintf("<p>From: %s (%s)</p><p>Message: %s</p>", requestData.Name, requestData.Email, requestData.Message)),
 				},
 			},
 			Subject: &ses.Content{

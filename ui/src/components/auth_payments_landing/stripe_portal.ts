@@ -16,7 +16,7 @@ export const stripePortal = async () => {
 
     const { url } = await response.json();
     if (url) {
-      window.location.href = url;
+      window.open(url, "_blank");
     } else {
       throw new Error("No URL received for Stripe portal");
     }

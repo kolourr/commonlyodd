@@ -66,18 +66,17 @@ export default function EndSessionLogout() {
   }
 
   return (
-    <div class="bg-slate-200">
+    <>
       <Button
-        class="flex justify-center items-center "
         sx={{
-          bgColor: "rgb(226 232 240 / var(--tw-bg-opacity))",
+          color: "#f9fafb",
           width: 150,
           height: 50,
         }}
+        class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800"
         onClick={() => setOpen(true)}
-        color="error"
       >
-        End Game
+        Logout
       </Button>
       <Dialog
         open={open()}
@@ -132,6 +131,6 @@ export default function EndSessionLogout() {
           showCancelButton={false}
         />
       </Show>
-    </div>
+    </>
   );
 }

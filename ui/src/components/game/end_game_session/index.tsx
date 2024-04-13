@@ -9,7 +9,13 @@ import {
   Slide,
 } from "@suid/material";
 import { TransitionProps } from "@suid/material/transitions";
-import { createSignal, JSXElement, onCleanup, Show } from "solid-js";
+import {
+  createEffect,
+  createSignal,
+  JSXElement,
+  onCleanup,
+  Show,
+} from "solid-js";
 import EndSession from "./end_session";
 import EndGame from "./end_game";
 import { Router } from "solid-app-router";

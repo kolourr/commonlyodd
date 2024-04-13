@@ -34,6 +34,9 @@ import {
   LogoutOutlined,
   CancelOutlined,
   HomeOutlined,
+  CardMembershipOutlined,
+  PeopleAltOutlined,
+  EmailOutlined,
 } from "@suid/icons-material";
 import useTheme from "@suid/material/styles/useTheme";
 import { userSubstatus } from "../auth_payments_landing/subscription_status";
@@ -41,6 +44,7 @@ import { checkAuth } from "../auth_payments_landing/use_auth";
 import { TransitionProps } from "@suid/material/transitions";
 import EndSessionLogout from "./endsession_logout";
 import { handleClickOpenEndGameSession } from "../game/end_game_session";
+import { stripePortal } from "../auth_payments_landing/stripe_portal";
 
 const Transition = function Transition(
   props: TransitionProps & {
@@ -59,6 +63,7 @@ export default function AccountMenu() {
   const [modalOpen, setModalOpen] = createSignal(false);
   const [isAuthenticated, setIsAuthenticated] = createSignal(false);
   const [openLogout, setOpenLogout] = createSignal(false);
+  const [onGamePage, setOnGamePage] = createSignal(false);
 
   const theme = useTheme();
 
@@ -77,16 +82,40 @@ export default function AccountMenu() {
   };
 
   const handleDashboardNavigate = () => {
-    if (isAuthenticated() && userSubstatus()) {
+    if (isAuthenticated()) {
       window.open("/user", "_blank");
     } else {
       window.open("/", "_blank");
     }
   };
 
+  const handleCommunitySupport = () => {
+    window.open("https://www.reddit.com/r/commonlyodd/", "_blank");
+  };
+
+  const handleContactUs = () => {
+    window.open("/contact-us", "_blank");
+  };
+
+  const handlePrivacyPolicy = () => {
+    window.open("/privacy-policy", "_blank");
+  };
+
+  const handleTermsOfUse = () => {
+    window.open("/terms-of-use", "_blank");
+  };
+
   createEffect(async () => {
     const auth = await checkAuth();
     setIsAuthenticated(auth);
+  });
+
+  onMount(() => {
+    const path = window.location.pathname;
+    const urlParams = new URLSearchParams(window.location.search);
+    if (path === "/game" || urlParams.has("session")) {
+      setOnGamePage(true);
+    }
   });
 
   return (
@@ -159,21 +188,27 @@ export default function AccountMenu() {
         >
           <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
-              <PersonPinOutlined />
+              <HomeOutlined />
             </ListItemIcon>
-            <Typography variant="body1"> Dashboard</Typography>
+            <Typography variant="body1">Dashboard</Typography>
           </MenuItem>
           <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <NotesRounded />
             </ListItemIcon>
             <Typography variant="body1">Rules</Typography>
-          </MenuItem>
+          </MenuItem>{" "}
           <MenuItem style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <PlayCircleOutlineOutlined />
             </ListItemIcon>
             <Typography variant="body1">Rules (video)</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleCommunitySupport} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <PeopleAltOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Community Support</Typography>
           </MenuItem>
           <MenuItem style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
@@ -187,17 +222,29 @@ export default function AccountMenu() {
             </ListItemIcon>
             <Typography variant="body1"> Privacy Policy</Typography>
           </MenuItem>
-
-          <MenuItem
-            onClick={handleClickOpenEndGameSession}
-            style={dialogTextStyle}
-          >
+          <MenuItem onClick={handleContactUs} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
-              <CancelOutlined />
+              <EmailOutlined />
             </ListItemIcon>
-            <Typography variant="body1"> End Session</Typography>
+            <Typography variant="body1">Contact Us</Typography>
           </MenuItem>
-
+          <MenuItem onClick={stripePortal} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <CardMembershipOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Manage Subscription</Typography>
+          </MenuItem>
+          <Show when={onGamePage()}>
+            <MenuItem
+              onClick={handleClickOpenEndGameSession}
+              style={dialogTextStyle}
+            >
+              <ListItemIcon style={dialogTextStyle}>
+                <CancelOutlined />
+              </ListItemIcon>
+              <Typography variant="body1"> End Session</Typography>
+            </MenuItem>
+          </Show>
           <Divider sx={{ borderColor: "#f9fafb" }} />
           <MenuItem onClick={handleClickOpenLogout} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
@@ -207,7 +254,7 @@ export default function AccountMenu() {
           </MenuItem>
         </Menu>
       </Show>
-      <Show when={!userSubstatus()}>
+      <Show when={!userSubstatus() && !isAuthenticated()}>
         <Menu
           anchorEl={anchorEl()}
           id="account-menu"
@@ -253,7 +300,7 @@ export default function AccountMenu() {
             <ListItemIcon style={dialogTextStyle}>
               <HomeOutlined />
             </ListItemIcon>
-            <Typography variant="body1"> Home</Typography>
+            <Typography variant="body1">Dashboard</Typography>
           </MenuItem>
           <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
@@ -267,6 +314,12 @@ export default function AccountMenu() {
             </ListItemIcon>
             <Typography variant="body1">Rules (video)</Typography>
           </MenuItem>
+          <MenuItem onClick={handleCommunitySupport} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <PeopleAltOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Community Support</Typography>
+          </MenuItem>
           <MenuItem style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <PolicyOutlined />
@@ -279,16 +332,136 @@ export default function AccountMenu() {
             </ListItemIcon>
             <Typography variant="body1"> Privacy Policy</Typography>
           </MenuItem>
+          <MenuItem onClick={handleContactUs} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <EmailOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Contact Us</Typography>
+          </MenuItem>
 
           <Divider sx={{ borderColor: "#f9fafb" }} />
-          <MenuItem
-            onClick={handleClickOpenEndGameSession}
-            style={dialogTextStyle}
-          >
+          <Show when={onGamePage()}>
+            <MenuItem
+              onClick={handleClickOpenEndGameSession}
+              style={dialogTextStyle}
+            >
+              <ListItemIcon style={dialogTextStyle}>
+                <CancelOutlined />
+              </ListItemIcon>
+              <Typography variant="body1"> End Game</Typography>
+            </MenuItem>
+          </Show>
+        </Menu>
+      </Show>
+      {/* Authorized but not subbed */}
+
+      <Show when={isAuthenticated() && !userSubstatus()}>
+        <Menu
+          anchorEl={anchorEl()}
+          id="account-menu"
+          open={open()}
+          onClose={handleClose}
+          onClick={handleClose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              backgroundImage:
+                "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+
+              overflow: "visible",
+              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+
+              mt: 1.5,
+              ["& .MuiAvatar-root"]: {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              "&:before": {
+                content: '""',
+                display: "block",
+                position: "absolute",
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                zIndex: 0,
+              },
+              "& .MuiMenuItem-root": {
+                minHeight: "24px",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                },
+              },
+            },
+          }}
+        >
+          <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
-              <CancelOutlined />
+              <HomeOutlined />
             </ListItemIcon>
-            <Typography variant="body1"> End Game</Typography>
+            <Typography variant="body1">Dashboard</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <NotesRounded />
+            </ListItemIcon>
+            <Typography variant="body1">Rules</Typography>
+          </MenuItem>{" "}
+          <MenuItem style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <PlayCircleOutlineOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Rules (video)</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleCommunitySupport} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <PeopleAltOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Community Support</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleTermsOfUse} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <PolicyOutlined />
+            </ListItemIcon>
+            <Typography variant="body1"> Terms of Use</Typography>
+          </MenuItem>
+          <MenuItem onClick={handlePrivacyPolicy} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <SecurityRounded />
+            </ListItemIcon>
+            <Typography variant="body1"> Privacy Policy</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleContactUs} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <EmailOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Contact Us</Typography>
+          </MenuItem>
+          <MenuItem onClick={stripePortal} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <CardMembershipOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Manage Subscription</Typography>
+          </MenuItem>
+          <Show when={onGamePage()}>
+            <MenuItem
+              onClick={handleClickOpenEndGameSession}
+              style={dialogTextStyle}
+            >
+              <ListItemIcon style={dialogTextStyle}>
+                <CancelOutlined />
+              </ListItemIcon>
+              <Typography variant="body1"> End Game</Typography>
+            </MenuItem>
+          </Show>
+          <Divider sx={{ borderColor: "#f9fafb" }} />
+          <MenuItem onClick={handleClickOpenLogout} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <LogoutOutlined fontSize="small" />
+            </ListItemIcon>
+            <Typography variant="body1">Logout</Typography>
           </MenuItem>
         </Menu>
       </Show>
@@ -304,35 +477,35 @@ export default function AccountMenu() {
           },
         }}
       >
-        <Show when={userSubstatus()}>
-          <div class="bg-slate-50">
-            <div class="flex flex-col justify-center items-center">
-              <div>
-                <DialogContent style={dialogTextStyle}>
-                  <DialogTitle
-                    class="flex justify-center items-center"
-                    style={dialogTextStyle}
-                  >
-                    End Session and Logout
-                  </DialogTitle>
-                  <DialogContentText
-                    id="alert-dialog-slide-description"
-                    style={dialogTextStyle}
-                  >
-                    Are you sure you want to{" "}
-                    <span class="text-error-700"> end</span> the session and
-                    logout? All game data will be deleted.
-                  </DialogContentText>
-                </DialogContent>
-              </div>
-              <div>
-                <EndSessionLogout />
-              </div>
+        <Show when={userSubstatus() || isAuthenticated}>
+          <div class="flex flex-col justify-center items-center">
+            <div>
+              <DialogContent style={dialogTextStyle}>
+                <DialogTitle
+                  class="flex justify-center items-center"
+                  style={dialogTextStyle}
+                >
+                  End Session and Logout
+                </DialogTitle>
+                <DialogContentText
+                  id="alert-dialog-slide-description"
+                  style={dialogTextStyle}
+                >
+                  Are you sure you want to{" "}
+                  <span class="text-error-700"> end</span> the session and
+                  logout? All game data will be deleted.
+                </DialogContentText>
+              </DialogContent>
             </div>
-            <DialogActions style={dialogTextStyle}>
-              <Button onClick={handleCloseLogout}>Cancel</Button>
-            </DialogActions>
+            <div>
+              <EndSessionLogout />
+            </div>
           </div>
+          <DialogActions style={dialogTextStyle}>
+            <Button onClick={handleCloseLogout} style={dialogTextStyle}>
+              Cancel
+            </Button>
+          </DialogActions>
         </Show>
       </Dialog>
       <Modal
