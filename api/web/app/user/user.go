@@ -129,7 +129,8 @@ func Handler(ctx *gin.Context) {
 	session.Set("email", email)
 	session.Set("customerID", customerID)
 	session.Set("firstName", firstName)
-	session.Set("auth0ID", auth0ID)
+	session.Set("auth0ID", userID)
+	session.Set("auth0Full", auth0ID)
 	session.Save()
 
 	// Now include the Stripe customer ID when inserting the user

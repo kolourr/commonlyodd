@@ -12,6 +12,7 @@ import { Router } from "solid-app-router";
 import AccountMenu from "../settings";
 import PricingPlans from "./pricing_plans";
 import Footer from "./footer";
+import Header from "./header";
 
 const BASE_API = import.meta.env.CO_API_URL;
 
@@ -71,21 +72,8 @@ const User = () => {
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
       <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
-        <div class="flex pb-4">
-          <div class="flex flex-row w-1/12 justify-center items-center">
-            <Router>
-              <AccountMenu />
-            </Router>
-          </div>
-          <div class="flex flex-row w-11/12 justify-center items-center text-3xl font-bold text-gray-50 ">
-            <div class="flex flex-row items-center justify-center">
-              <span class="pr-2">Commonly</span>
-            </div>
-            <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-              Odd
-            </span>
-          </div>
-        </div>
+        <Header />
+
         <Show when={!subscriptionStatus() && paymentFailed()}>
           <div class="text-xl lg:text-2xl text-gray-50 flex justify-center px-4 ">
             {userProfile()?.firstName}, something went wrong 😔 Please try

@@ -27,7 +27,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.GET("/debug/pprof/*any", gin.WrapH(http.DefaultServeMux))
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{"http://localhost:3000"},
-		AllowMethods: []string{"POST", "GET", "PUT", "OPTIONS"},
+		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
 			"Content-Type",
 			"Access-Control-Allow-Origin",
@@ -70,6 +70,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.POST("/webhook", stripeintegration.WebhookHandler)
 	router.POST("/portal", middleware.IsAuthenticated, stripeintegration.PortalSessionHandler)
 	router.GET("/check-status", middleware.IsAuthenticated, stripeintegration.CheckSubStatus)
+	router.DELETE("/delete-account", middleware.IsAuthenticated, stripeintegration.DeleteAccountHandler)
 
 	//contact us email
 	router.POST("/contact-us", stripeintegration.ContactUsEmail)

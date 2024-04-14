@@ -37,6 +37,7 @@ import {
   CardMembershipOutlined,
   PeopleAltOutlined,
   EmailOutlined,
+  DeleteForeverOutlined,
 } from "@suid/icons-material";
 import useTheme from "@suid/material/styles/useTheme";
 import { userSubstatus } from "../auth_payments_landing/subscription_status";
@@ -57,6 +58,8 @@ const Transition = function Transition(
 const dialogTextStyle = {
   color: "#f9fafb",
 };
+
+const BASE_API = import.meta.env.CO_API_URL;
 
 export default function AccountMenu() {
   const [anchorEl, setAnchorEl] = createSignal<null | HTMLElement>(null);
@@ -89,6 +92,31 @@ export default function AccountMenu() {
     }
   };
 
+  const handleDeleteAccount = () => {
+    const deleteUrl = `${BASE_API}/delete-account`;
+    fetch(deleteUrl, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+    })
+      .then((response) => {
+        if (response.ok) {
+          window.location.href = "/";
+        } else {
+          response.json().then((data) => {
+            console.error("Failed to delete account:", data.message);
+            alert("Failed to delete account: " + data.message);
+          });
+        }
+      })
+      .catch((error) => {
+        console.error("Error deleting account:", error);
+        alert("An error occurred while deleting the account.");
+      });
+  };
+
   createEffect(async () => {
     const auth = await checkAuth();
     setIsAuthenticated(auth);
@@ -99,6 +127,14 @@ export default function AccountMenu() {
     const urlParams = new URLSearchParams(window.location.search);
     if (path === "/game" || urlParams.has("session")) {
       setOnGamePage(true);
+    }
+  });
+
+  createEffect(async () => {
+    const auth = await checkAuth();
+    setIsAuthenticated(auth);
+    if (!auth) {
+      window.location.href = "/"; // Redirect if not authenticated
     }
   });
 
@@ -194,6 +230,12 @@ export default function AccountMenu() {
             </ListItemIcon>
             <Typography variant="body1">Manage Subscription</Typography>
           </MenuItem>
+          <MenuItem onClick={handleDeleteAccount} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <DeleteForeverOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Delete Account</Typography>
+          </MenuItem>
           <Show when={onGamePage()}>
             <MenuItem
               onClick={handleClickOpenEndGameSession}
@@ -274,8 +316,8 @@ export default function AccountMenu() {
             </ListItemIcon>
             <Typography variant="body1">Tutorial (video)</Typography>
           </MenuItem>
-          <Divider sx={{ borderColor: "#f9fafb" }} />
           <Show when={onGamePage()}>
+            <Divider sx={{ borderColor: "#f9fafb" }} />
             <MenuItem
               onClick={handleClickOpenEndGameSession}
               style={dialogTextStyle}
@@ -355,6 +397,12 @@ export default function AccountMenu() {
               <CardMembershipOutlined />
             </ListItemIcon>
             <Typography variant="body1">Manage Subscription</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleDeleteAccount} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <DeleteForeverOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Delete Account</Typography>
           </MenuItem>
           <Show when={onGamePage()}>
             <MenuItem

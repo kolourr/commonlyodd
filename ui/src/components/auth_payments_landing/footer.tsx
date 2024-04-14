@@ -17,21 +17,29 @@ const Footer: Component = () => {
     window.open("/terms-of-use", "_blank");
   };
 
+  const handleFAQ = () => {
+    window.open("/faq", "_blank");
+  };
+
   return (
     <footer class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-50 p-4 text-center">
-      <a href="#" onClick={handlePrivacyPolicy} class="hover:underline">
+      <a onClick={handlePrivacyPolicy} class="hover:underline">
         Privacy Policy{" "}
       </a>
       |{" "}
-      <a href="#" onClick={handleTermsOfUse} class="hover:underline">
+      <a onClick={handleTermsOfUse} class="hover:underline">
         Terms of Use{" "}
       </a>
       |{" "}
-      <a href="#" onClick={handleCommunitySupport} class="hover:underline">
+      <a onClick={handleFAQ} class="hover:underline">
+        FAQ{" "}
+      </a>
+      |{" "}
+      <a onClick={handleCommunitySupport} class="hover:underline">
         Community Support{" "}
       </a>
       |{" "}
-      <a href="#" onClick={handleContactUs} class="hover:underline">
+      <a onClick={handleContactUs} class="hover:underline">
         Contact Us{" "}
       </a>
       <p class="mt-4">

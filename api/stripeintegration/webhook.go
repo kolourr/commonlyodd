@@ -10,10 +10,13 @@ import (
 	"os"
 	"time"
 
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 
 	"github.com/kolourr/commonlyodd/database"
+	"github.com/kolourr/commonlyodd/platform/authenticator"
 	"github.com/stripe/stripe-go/v76"
+	"github.com/stripe/stripe-go/v76/customer"
 	"github.com/stripe/stripe-go/v76/webhook"
 )
 
@@ -244,4 +247,54 @@ func deleteNewsletterSub(customerID string) error {
 	}
 
 	return nil
+}
+
+// Endpoint for deleting a user account
+func DeleteAccountHandler(c *gin.Context) {
+	session := sessions.Default(c)
+	userID := session.Get("auth0ID").(string)
+	auth0Full := session.Get("auth0Full").(string)
+
+	// First, find the Stripe customer ID linked to the user
+	var customerID string
+	err := database.DB.QueryRow("SELECT customer_id FROM Users WHERE auth0_id = $1", userID).Scan(&customerID)
+	if err != nil {
+		log.Printf("Failed to find customer ID for user %s: %v", userID, err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to find Stripe customer ID"})
+		return
+	}
+
+	// Delete the Stripe customer
+	_, err = customer.Del(customerID, nil)
+	if err != nil {
+		log.Printf("Failed to delete Stripe customer: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to delete Stripe customer"})
+		return
+	}
+
+	// Delete the user from the newsletter
+	if err := deleteNewsletterSub(customerID); err != nil {
+		log.Printf("Failed to delete from newsletter: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to delete from newsletter"})
+		return
+	}
+	// Delete the user from the database
+	executeSQL("DELETE FROM Users WHERE auth0_id = $1", userID)
+	// Delete the user from Auth0
+	if err := authenticator.DeleteAuth0User(auth0Full); err != nil {
+		log.Printf("Failed to delete Auth0 user: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to delete Auth0 user"})
+		return
+	}
+
+	// Clear session data
+	session.Clear()
+	if err := session.Save(); err != nil {
+		log.Printf("Failed to clear session: %v", err)
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to clear session"})
+		return
+	}
+
+	// Redirect to logout route to handle Auth0 logout
+	c.Redirect(http.StatusTemporaryRedirect, "/logout")
 }
