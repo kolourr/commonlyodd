@@ -40,6 +40,7 @@ import { JSX } from "solid-js";
 import "./styles.css";
 import { gameWinner } from "./start_game";
 import confetti from "canvas-confetti";
+import Footer from "../auth_payments_landing/footer";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -185,142 +186,145 @@ export default function Game() {
   });
 
   return (
-    <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen    bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
-      <div class="flex">
-        <div class="flex flex-row w-1/12 justify-center items-center">
-          <Router>
-            <AccountMenu />
-          </Router>
-        </div>
-        <div class="flex flex-row w-11/12 justify-center items-center text-3xl font-bold text-gray-50     ">
-          <div class="flex flex-row items-center justify-center">
-            <span class="pr-2">Commonly</span>
+    <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
+      <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen    bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
+        <div class="flex">
+          <div class="flex flex-row w-1/12 justify-center items-center">
+            <Router>
+              <AccountMenu />
+            </Router>
           </div>
-          <Switch
-            fallback={
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-                Odd
-              </span>
-            }
-          >
-            <Match when={scoreColor() < 0}>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-                Odd
-              </span>
-            </Match>
-            <Match when={scoreColor() == 0}>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-error-800 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-                Odd
-              </span>
-            </Match>
-            <Match when={scoreColor() == 1}>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-warning-800 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-                Odd
-              </span>
-            </Match>
-            <Match when={scoreColor() == 1.5}>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-gray-500 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-                Odd
-              </span>
-            </Match>
-            <Match when={scoreColor() == 2}>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-warning-500 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
-                Odd
-              </span>
-            </Match>
-          </Switch>
-        </div>
-      </div>
-
-      <div class="flex h-24 ">
-        <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
-          <Show when={isAuthenticated() && userSubstatus()}>
-            <StartSession />
-          </Show>
-          <Show when={!isAuthenticated() && !userSubstatus()}>
-            <div class="flex flex-col">
-              <Button
-                disabled={true}
-                fullWidth={false}
-                style="font-weight: bold; text-align: center;"
-                color="success"
-              >
-                <EditOutlined fontSize="large" />
-              </Button>
-              <div class="text-center font-bold  ">
-                {nonSessionNotStarter() ? (
-                  <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
-                    Inactive
-                  </span>
-                ) : (
-                  <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
-                    Active
-                  </span>
-                )}
-              </div>
+          <div class="flex flex-row w-11/12 justify-center items-center text-3xl font-bold text-gray-50     ">
+            <div class="flex flex-row items-center justify-center">
+              <span class="pr-2">Commonly</span>
             </div>
-          </Show>
+            <Switch
+              fallback={
+                <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                  Odd
+                </span>
+              }
+            >
+              <Match when={scoreColor() < 0}>
+                <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                  Odd
+                </span>
+              </Match>
+              <Match when={scoreColor() == 0}>
+                <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-error-800 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                  Odd
+                </span>
+              </Match>
+              <Match when={scoreColor() == 1}>
+                <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-warning-800 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                  Odd
+                </span>
+              </Match>
+              <Match when={scoreColor() == 1.5}>
+                <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-gray-500 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                  Odd
+                </span>
+              </Match>
+              <Match when={scoreColor() == 2}>
+                <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 bg-warning-500 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em]">
+                  Odd
+                </span>
+              </Match>
+            </Switch>
+          </div>
         </div>
-        <div class="flex flex-row   w-[60%] justify-center items-center  ">
-          <Show when={isSessionStarted()}>
-            <div>
+
+        <div class="flex h-24 ">
+          <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
+            <Show when={isAuthenticated() && userSubstatus()}>
+              <StartSession />
+            </Show>
+            <Show when={!isAuthenticated() && !userSubstatus()}>
+              <div class="flex flex-col">
+                <Button
+                  disabled={true}
+                  fullWidth={false}
+                  style="font-weight: bold; text-align: center;"
+                  color="success"
+                >
+                  <EditOutlined fontSize="large" />
+                </Button>
+                <div class="text-center font-bold  ">
+                  {nonSessionNotStarter() ? (
+                    <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
+                      Inactive
+                    </span>
+                  ) : (
+                    <span class="italic text-center font-bold text-xs lg:text-sm text-gray-50 ">
+                      Active
+                    </span>
+                  )}
+                </div>
+              </div>
+            </Show>
+          </div>
+          <div class="flex flex-row   w-[60%] justify-center items-center  ">
+            <Show when={isSessionStarted()}>
               <div>
-                <CopyLink />
                 <div>
-                  <input
-                    type="text"
-                    class=" rounded w-full  shadow-sm shadow-gray-50 "
-                    readOnly
-                    value={sessionLink()}
-                    hidden
-                  />
-                </div>
-                <div class="flex items-center justify-center font-bold text-xs lg:text-sm text-gray-50  ">
-                  Session Link
+                  <CopyLink />
+                  <div>
+                    <input
+                      type="text"
+                      class=" rounded w-full  shadow-sm shadow-gray-50 "
+                      readOnly
+                      value={sessionLink()}
+                      hidden
+                    />
+                  </div>
+                  <div class="flex items-center justify-center font-bold text-xs lg:text-sm text-gray-50  ">
+                    Session Link
+                  </div>
                 </div>
               </div>
-            </div>
+            </Show>
+          </div>
+          <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
+            <Router>
+              <StartGame />
+            </Router>
+          </div>
+        </div>
+
+        <div class="flex flex-col h-20 ">
+          <div
+            class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-50 h-28    p-4 break-words "
+            id="gameInfo"
+          >
+            {gameInfo()}
+          </div>
+        </div>
+
+        <div class="flex   justify-center items-center    ">
+          <GameImages gameData={objectsImages()} />
+        </div>
+        <div class="flex   py-4     ">
+          <Voice />
+          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-50    ">
+            <Button onClick={handleOpenTeamScores}>
+              <SportsScoreOutlined fontSize="large" />
+            </Button>
+            <span class="text-xs lg:text-sm text-center font-bold ">Score</span>
+          </div>
+        </div>
+        <div class="flex   flex-col justify-center items-center text-gray-50 ">
+          <Show when={showTeamScores()}>
+            <TeamScores
+              teamScores={teamScores}
+              sessionStarted={sessionStarted()}
+            />
           </Show>
         </div>
-        <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
-          <Router>
-            <StartGame />
-          </Router>
-        </div>
-      </div>
 
-      <div class="flex flex-col h-20 ">
-        <div
-          class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-50 h-28    p-4 break-words "
-          id="gameInfo"
-        >
-          {gameInfo()}
-        </div>
+        <EndGameSession />
+        <Timer />
       </div>
-
-      <div class="flex   justify-center items-center    ">
-        <GameImages gameData={objectsImages()} />
-      </div>
-      <div class="flex   py-4     ">
-        <Voice />
-        <div class="flex flex-col   w-[16%] justify-center items-center text-gray-50    ">
-          <Button onClick={handleOpenTeamScores}>
-            <SportsScoreOutlined fontSize="large" />
-          </Button>
-          <span class="text-xs lg:text-sm text-center font-bold ">Score</span>
-        </div>
-      </div>
-      <div class="flex   flex-col justify-center items-center text-gray-50 ">
-        <Show when={showTeamScores()}>
-          <TeamScores
-            teamScores={teamScores}
-            sessionStarted={sessionStarted()}
-          />
-        </Show>
-      </div>
-
-      <EndGameSession />
-      <Timer />
+      <Footer />
     </div>
   );
 }

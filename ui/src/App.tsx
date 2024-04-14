@@ -14,15 +14,13 @@ const ConfirmStartNewGameDialog = lazy(
 
 const App: Component = () => {
   return (
-    <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
-      <Router>
-        <ThemeProvider theme={theme}>
-          <Game />
-          <ConfirmStartDialog />
-          <ConfirmStartNewGameDialog />
-        </ThemeProvider>
-      </Router>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <Game />
+        <ConfirmStartDialog />
+        <ConfirmStartNewGameDialog />
+      </ThemeProvider>
+    </Router>
   );
 };
 

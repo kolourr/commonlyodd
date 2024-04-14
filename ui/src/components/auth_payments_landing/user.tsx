@@ -1,13 +1,17 @@
-import { createEffect, createResource, Show } from "solid-js";
-import { Button } from "@suid/material";
-import { stripePortal } from "./stripe_portal";
-import { fetchUserProfile } from "./user_profile";
 import {
-  createCheckoutSessionMonthly,
-  createCheckoutSessionYearly,
-} from "./pricing";
+  createEffect,
+  createResource,
+  createSignal,
+  onMount,
+  Show,
+} from "solid-js";
+import { Button } from "@suid/material";
+import { fetchUserProfile } from "./user_profile";
+
 import { Router } from "solid-app-router";
 import AccountMenu from "../settings";
+import PricingPlans from "./pricing_plans";
+import Footer from "./footer";
 
 const BASE_API = import.meta.env.CO_API_URL;
 
@@ -37,6 +41,9 @@ const User = () => {
   const [userProfile] = createResource(fetchUserProfile);
   const [subscriptionStatus, { refetch: refetchSubStatus }] =
     createResource(fetchSubStatus);
+  const [paymentFailed, setPaymentFailed] = createSignal(false);
+  const [paymentSuccess, setPaymentSuccess] = createSignal(false);
+  const [userPage, setUserPage] = createSignal(false);
 
   // Check if userProfile is loaded to decide whether to refetch subscription status
   createEffect(() => {
@@ -46,9 +53,24 @@ const User = () => {
     }
   });
 
+  const handlePlayGame = () => {
+    window.location.href = "/game";
+  };
+
+  onMount(() => {
+    const urlParams = new URLSearchParams(window.location.pathname);
+    if (urlParams.has("/cancel")) {
+      setPaymentFailed(true);
+    } else if (urlParams.has("/user")) {
+      setUserPage(true);
+    } else if (urlParams.has("/success")) {
+      setPaymentSuccess(true);
+    }
+  });
+
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
-      <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen    bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
+      <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
         <div class="flex pb-4">
           <div class="flex flex-row w-1/12 justify-center items-center">
             <Router>
@@ -64,57 +86,73 @@ const User = () => {
             </span>
           </div>
         </div>
-        <p class="text-xl lg:text-2xl text-gray-50 flex justify-center ">
-          {userProfile()?.firstName}, start your
-          <span class="font-bold px-2 ">FREE</span>
-          <span class="underline decoration-double  pr-2">7-day</span> trial now
-        </p>
-        <div class="p-4">
-          <Button
-            variant="contained"
-            color="primary"
-            href={`${BASE_API}/logout`}
-          >
-            Logout
-          </Button>
-        </div>
-        <Show when={subscriptionStatus()}>
-          <div class="p-4">
-            <Button variant="contained" color="secondary" href="/game">
+        <Show when={!subscriptionStatus() && paymentFailed()}>
+          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center px-4 ">
+            {userProfile()?.firstName}, something went wrong 😔 Please try
+            again.
+          </div>
+
+          <div class="flex flex-row justify-center">
+            <PricingPlans />
+          </div>
+        </Show>
+
+        <Show when={subscriptionStatus() && paymentSuccess()}>
+          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center p-4 ">
+            {userProfile()?.firstName}, you are all clear 😊 You are all set to
+            play.
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <video controls class="w-[360px] lg:w-[710px]  h-auto">
+              <source src="path_to_your_video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-4 flex   justify-center items-center">
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handlePlayGame}
+            >
               Play Game
             </Button>
           </div>
         </Show>
 
-        <Show when={!subscriptionStatus()}>
-          <div class="p-4">
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={createCheckoutSessionMonthly}
-            >
-              Start Checkout Monthly
-            </Button>
+        <Show when={!subscriptionStatus() && userPage()}>
+          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center px-4 ">
+            {userProfile()?.firstName}, start your
+            <span class="font-bold px-2  ">FREE 7-day</span>
+            trial now
+          </div>
+
+          <div class="flex flex-row justify-center">
+            <PricingPlans />
           </div>
         </Show>
 
-        <Show when={!subscriptionStatus()}>
-          <div class="p-4">
+        <Show when={subscriptionStatus() && userPage()}>
+          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center p-4 ">
+            {userProfile()?.firstName}, welcome back! You're all set 😊
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <video controls class="w-[360px] lg:w-[710px]  h-auto">
+              <source src="path_to_your_video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div class="p-4 flex   justify-center items-center">
             <Button
               variant="contained"
               color="secondary"
-              onClick={createCheckoutSessionYearly}
+              onClick={handlePlayGame}
             >
-              Start Checkout Yearly
+              Play Game
             </Button>
           </div>
         </Show>
-        <div class="p-4">
-          <Button variant="contained" color="secondary" onClick={stripePortal}>
-            Stripe Portal
-          </Button>
-        </div>
       </div>
+      <Footer />
     </div>
   );
 };

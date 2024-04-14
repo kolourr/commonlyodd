@@ -89,22 +89,6 @@ export default function AccountMenu() {
     }
   };
 
-  const handleCommunitySupport = () => {
-    window.open("https://www.reddit.com/r/commonlyodd/", "_blank");
-  };
-
-  const handleContactUs = () => {
-    window.open("/contact-us", "_blank");
-  };
-
-  const handlePrivacyPolicy = () => {
-    window.open("/privacy-policy", "_blank");
-  };
-
-  const handleTermsOfUse = () => {
-    window.open("/terms-of-use", "_blank");
-  };
-
   createEffect(async () => {
     const auth = await checkAuth();
     setIsAuthenticated(auth);
@@ -196,37 +180,13 @@ export default function AccountMenu() {
             <ListItemIcon style={dialogTextStyle}>
               <NotesRounded />
             </ListItemIcon>
-            <Typography variant="body1">Rules</Typography>
+            <Typography variant="body1">Tutorial</Typography>
           </MenuItem>{" "}
           <MenuItem style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <PlayCircleOutlineOutlined />
             </ListItemIcon>
-            <Typography variant="body1">Rules (video)</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleCommunitySupport} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PeopleAltOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Community Support</Typography>
-          </MenuItem>
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PolicyOutlined />
-            </ListItemIcon>
-            <Typography variant="body1"> Terms of Use</Typography>
-          </MenuItem>
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <SecurityRounded />
-            </ListItemIcon>
-            <Typography variant="body1"> Privacy Policy</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleContactUs} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <EmailOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Contact Us</Typography>
+            <Typography variant="body1">Tutorial (video)</Typography>
           </MenuItem>
           <MenuItem onClick={stripePortal} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
@@ -306,39 +266,14 @@ export default function AccountMenu() {
             <ListItemIcon style={dialogTextStyle}>
               <NotesRounded />
             </ListItemIcon>
-            <Typography variant="body1">Rules</Typography>
+            <Typography variant="body1">Tutorial</Typography>
           </MenuItem>
           <MenuItem style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <PlayCircleOutlineOutlined />
             </ListItemIcon>
-            <Typography variant="body1">Rules (video)</Typography>
+            <Typography variant="body1">Tutorial (video)</Typography>
           </MenuItem>
-          <MenuItem onClick={handleCommunitySupport} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PeopleAltOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Community Support</Typography>
-          </MenuItem>
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PolicyOutlined />
-            </ListItemIcon>
-            <Typography variant="body1"> Terms of Use</Typography>
-          </MenuItem>
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <SecurityRounded />
-            </ListItemIcon>
-            <Typography variant="body1"> Privacy Policy</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleContactUs} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <EmailOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Contact Us</Typography>
-          </MenuItem>
-
           <Divider sx={{ borderColor: "#f9fafb" }} />
           <Show when={onGamePage()}>
             <MenuItem
@@ -407,37 +342,13 @@ export default function AccountMenu() {
             <ListItemIcon style={dialogTextStyle}>
               <NotesRounded />
             </ListItemIcon>
-            <Typography variant="body1">Rules</Typography>
+            <Typography variant="body1">Tutorial</Typography>
           </MenuItem>{" "}
           <MenuItem style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <PlayCircleOutlineOutlined />
             </ListItemIcon>
-            <Typography variant="body1">Rules (video)</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleCommunitySupport} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PeopleAltOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Community Support</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleTermsOfUse} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PolicyOutlined />
-            </ListItemIcon>
-            <Typography variant="body1"> Terms of Use</Typography>
-          </MenuItem>
-          <MenuItem onClick={handlePrivacyPolicy} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <SecurityRounded />
-            </ListItemIcon>
-            <Typography variant="body1"> Privacy Policy</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleContactUs} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <EmailOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Contact Us</Typography>
+            <Typography variant="body1">Tutorial (video)</Typography>
           </MenuItem>
           <MenuItem onClick={stripePortal} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
