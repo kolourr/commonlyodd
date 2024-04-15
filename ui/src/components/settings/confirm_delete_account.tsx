@@ -107,7 +107,7 @@ export default function ConfirmDeleteAccount() {
               width: 150,
               height: 50,
             }}
-            class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800 shadow-md shadow-gray-50"
+            class="flex justify-center items-center bg-gradient-to-bl from-warning-300 to-error-400 shadow-md shadow-gray-50"
           >
             Delete Account
           </Button>

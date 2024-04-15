@@ -59,13 +59,15 @@ const User = () => {
   };
 
   onMount(() => {
-    const urlParams = new URLSearchParams(window.location.pathname);
-    if (urlParams.has("/cancel")) {
-      setPaymentFailed(true);
-    } else if (urlParams.has("/user")) {
-      setUserPage(true);
-    } else if (urlParams.has("/success")) {
+    const path = window.location.pathname;
+
+    // Set payment success if the URL path contains '/success'
+    if (path.includes("/success")) {
       setPaymentSuccess(true);
+    } else if (path.includes("/cancel")) {
+      setPaymentFailed(true);
+    } else if (path.includes("/user")) {
+      setUserPage(true);
     }
   });
 
@@ -121,7 +123,7 @@ const User = () => {
 
         <Show when={subscriptionStatus() && userPage()}>
           <div class="text-xl lg:text-2xl text-gray-50 flex justify-center p-4 ">
-            {userProfile()?.firstName}, welcome back! You're all set 😊
+            Welcome back {userProfile()?.firstName}! You're all set 😊
           </div>
           <div class="flex flex-col justify-center items-center">
             <video controls class="w-[360px] lg:w-[710px]  h-auto">

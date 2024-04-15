@@ -51,11 +51,11 @@ const Footer: Component = () => {
         Contact Us{" "}
       </a>
       <p class="mt-4">
-        Made with love ❤️ by{" "}
+        Made with ❤️ by{" "}
         <a
           href="https://twitter.com/kolourrmusic"
           target="_blank"
-          class="underline hover:text-gray-100 "
+          class="  hover:text-gray-100 "
         >
           Bruce
         </a>
