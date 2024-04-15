@@ -46,6 +46,7 @@ import { TransitionProps } from "@suid/material/transitions";
 import EndSessionLogout from "./endsession_logout";
 import { handleClickOpenEndGameSession } from "../game/end_game_session";
 import { stripePortal } from "../auth_payments_landing/stripe_portal";
+import DeleteAccount from "./delete_account";
 
 const Transition = function Transition(
   props: TransitionProps & {
@@ -67,6 +68,7 @@ export default function AccountMenu() {
   const [isAuthenticated, setIsAuthenticated] = createSignal(false);
   const [openLogout, setOpenLogout] = createSignal(false);
   const [onGamePage, setOnGamePage] = createSignal(false);
+  const [openDeleteAccount, setOpenDeleteAccount] = createSignal(false);
 
   const theme = useTheme();
 
@@ -84,37 +86,20 @@ export default function AccountMenu() {
     setOpenLogout(false);
   };
 
+  //Delete Account
+  const handleOpenDeleteAccount = () => {
+    setOpenDeleteAccount(true);
+  };
+  const handleCloseDeleteAccount = () => {
+    setOpenDeleteAccount(false);
+  };
+
   const handleDashboardNavigate = () => {
     if (isAuthenticated()) {
       window.open("/user", "_blank");
     } else {
       window.open("/", "_blank");
     }
-  };
-
-  const handleDeleteAccount = () => {
-    const deleteUrl = `${BASE_API}/delete-account`;
-    fetch(deleteUrl, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      credentials: "include",
-    })
-      .then((response) => {
-        if (response.ok) {
-          window.location.href = "/";
-        } else {
-          response.json().then((data) => {
-            console.error("Failed to delete account:", data.message);
-            alert("Failed to delete account: " + data.message);
-          });
-        }
-      })
-      .catch((error) => {
-        console.error("Error deleting account:", error);
-        alert("An error occurred while deleting the account.");
-      });
   };
 
   createEffect(async () => {
@@ -230,7 +215,7 @@ export default function AccountMenu() {
             </ListItemIcon>
             <Typography variant="body1">Manage Subscription</Typography>
           </MenuItem>
-          <MenuItem onClick={handleDeleteAccount} style={dialogTextStyle}>
+          <MenuItem onClick={handleOpenDeleteAccount} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <DeleteForeverOutlined />
             </ListItemIcon>
@@ -398,7 +383,7 @@ export default function AccountMenu() {
             </ListItemIcon>
             <Typography variant="body1">Manage Subscription</Typography>
           </MenuItem>
-          <MenuItem onClick={handleDeleteAccount} style={dialogTextStyle}>
+          <MenuItem onClick={handleOpenDeleteAccount} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <DeleteForeverOutlined />
             </ListItemIcon>
@@ -467,6 +452,50 @@ export default function AccountMenu() {
           </DialogActions>
         </Show>
       </Dialog>
+      {/* Delete Account Dialog */}
+      <Dialog
+        open={openDeleteAccount()}
+        TransitionComponent={Transition}
+        onClose={handleCloseDeleteAccount}
+        aria-describedby="alert-dialog-slide-description"
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <Show when={isAuthenticated}>
+          <div class="flex flex-col justify-center items-center">
+            <div>
+              <DialogContent style={dialogTextStyle}>
+                <DialogTitle
+                  class="flex justify-center items-center"
+                  style={dialogTextStyle}
+                >
+                  ⚠️⚠️ Delete Account Forever ⚠️⚠️
+                </DialogTitle>
+                <DialogContentText
+                  id="alert-dialog-slide-description"
+                  style={dialogTextStyle}
+                >
+                  You will no longer have access to your account and all data
+                  will be permanently deleted.
+                </DialogContentText>
+              </DialogContent>
+            </div>
+            <div class="flex justify-center items-center">
+              <DeleteAccount />
+            </div>
+          </div>
+          <DialogActions style={dialogTextStyle}>
+            <Button onClick={handleCloseDeleteAccount} style={dialogTextStyle}>
+              Cancel
+            </Button>
+          </DialogActions>
+        </Show>
+      </Dialog>
+
       <Modal
         open={modalOpen()}
         onClose={handleModalClose}

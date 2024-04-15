@@ -1,8 +1,10 @@
 package stripeintegration
 
 import (
+	"encoding/json"
 	"fmt"
 	"net/http"
+	"net/url"
 	"os"
 
 	"github.com/aws/aws-sdk-go/aws"
@@ -13,10 +15,35 @@ import (
 )
 
 type ContactUsRequest struct {
-	Name    string `json:"name" binding:"required"`
-	Email   string `json:"email" binding:"required"`
-	Subject string `json:"subject" binding:"required"`
-	Message string `json:"message" binding:"required"`
+	Name              string `json:"name" binding:"required"`
+	Email             string `json:"email" binding:"required"`
+	Subject           string `json:"subject" binding:"required"`
+	Message           string `json:"message" binding:"required"`
+	RecaptchaResponse string `json:"g-recaptcha-response" binding:"required"`
+}
+
+func verifyRecaptcha(response string) bool {
+	secret := os.Getenv("GOOGLE_RECAPTCHA_SECRET_KEY")
+	postData := url.Values{
+		"secret":   {secret},
+		"response": {response},
+	}
+	verifyURL := "https://www.google.com/recaptcha/api/siteverify"
+	res, err := http.PostForm(verifyURL, postData)
+	if err != nil {
+		fmt.Println("Failed to verify reCAPTCHA:", err)
+		return false
+	}
+	defer res.Body.Close()
+	var result struct {
+		Success bool `json:"success"`
+	}
+	err = json.NewDecoder(res.Body).Decode(&result)
+	if err != nil {
+		fmt.Println("Failed to decode reCAPTCHA response:", err)
+		return false
+	}
+	return result.Success
 }
 
 func ContactUsEmail(c *gin.Context) {
@@ -26,6 +53,12 @@ func ContactUsEmail(c *gin.Context) {
 	if err := c.ShouldBindJSON(&requestData); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return // Ensure no further execution on error
+	}
+
+	// Verify reCAPTCHA
+	if !verifyRecaptcha(requestData.RecaptchaResponse) {
+		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid CAPTCHA."})
+		return
 	}
 
 	// Set up AWS SES configuration

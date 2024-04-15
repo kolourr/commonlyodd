@@ -29,6 +29,10 @@ const ContactUs = lazy(
   () => import("./components/auth_payments_landing/contact_us")
 );
 
+const CookiePolicy = lazy(
+  () => import("./components/auth_payments_landing/cookie_policy")
+);
+
 const Faq = lazy(() => import("./components/auth_payments_landing/faq"));
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
@@ -51,6 +55,8 @@ render(
           <Route path="/terms-of-use" component={TermsOfUse} />
           <Route path="/privacy-policy" component={PrivacyPolicy} />
           <Route path="/contact-us" component={ContactUs} />
+          <Route path="/cookie-policy" component={CookiePolicy} />
+
           <Route path="/faq" component={Faq} />
         </Routes>
       </Router>

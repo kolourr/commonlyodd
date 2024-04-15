@@ -295,6 +295,5 @@ func DeleteAccountHandler(c *gin.Context) {
 		return
 	}
 
-	// Redirect to logout route to handle Auth0 logout
-	c.Redirect(http.StatusTemporaryRedirect, "/logout")
+	c.JSON(http.StatusOK, "User account deleted successfully")
 }

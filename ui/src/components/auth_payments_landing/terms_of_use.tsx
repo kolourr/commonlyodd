@@ -1,11 +1,11 @@
 import { Component } from "solid-js";
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./header";
+import Footer from "./footer";
 
 const TermsOfUse: Component = () => {
   return (
-    <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-200">
-      <div class="flex flex-col max-w-5xl mx-auto min-h-screen p-6 text-white">
+    <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
+      <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-200 px-6">
         <Header />
         <main class="flex flex-col gap-4">
           <h1 class="text-3xl font-bold flex justify-center items-center">

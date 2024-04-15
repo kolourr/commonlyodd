@@ -21,6 +21,10 @@ const Footer: Component = () => {
     window.open("/faq", "_blank");
   };
 
+  const handleCookiePolicy = () => {
+    window.open("/cookie-policy", "_blank");
+  };
+
   return (
     <footer class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-50 p-4 text-center">
       <a onClick={handlePrivacyPolicy} class="hover:underline">
@@ -29,6 +33,10 @@ const Footer: Component = () => {
       |{" "}
       <a onClick={handleTermsOfUse} class="hover:underline">
         Terms of Use{" "}
+      </a>
+      |{" "}
+      <a onClick={handleCookiePolicy} class="hover:underline">
+        Cookie Policy{" "}
       </a>
       |{" "}
       <a onClick={handleFAQ} class="hover:underline">

@@ -3,6 +3,7 @@ import { lazy, type Component } from "solid-js";
 const Game = lazy(() => import("./components/game"));
 import { ThemeProvider } from "@suid/material/styles";
 import theme from "./theme";
+import CookieConsent from "./components/auth_payments_landing/cookie_consent";
 
 const ConfirmStartDialog = lazy(
   () => import("./components/game/start_session/confirm_start")
@@ -20,6 +21,7 @@ const App: Component = () => {
         <ConfirmStartDialog />
         <ConfirmStartNewGameDialog />
       </ThemeProvider>
+      <CookieConsent />
     </Router>
   );
 };
