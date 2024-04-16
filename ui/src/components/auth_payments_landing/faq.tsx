@@ -1,6 +1,7 @@
-import { Component, createSignal, For } from "solid-js";
+import { Component, createEffect, createSignal, For, Show } from "solid-js";
 import Header from "./header";
 import Footer from "./footer";
+import { checkAuth } from "./use_auth";
 
 type FaqItem = {
   question: string;
@@ -170,6 +171,11 @@ const faqData: FaqItem[] = [
 
 const FAQ: Component = () => {
   const [selected, setSelected] = createSignal<number | null>(null);
+  const [isAuthenticated, setIsAuthenticated] = createSignal(false);
+  createEffect(async () => {
+    const auth = await checkAuth();
+    setIsAuthenticated(auth);
+  });
 
   const toggle = (index: number) => {
     if (selected() === index) {
@@ -183,7 +189,9 @@ const FAQ: Component = () => {
     <>
       <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900">
         <div class="flex flex-col max-w-5xl mx-auto min-h-screen bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-200 px-6">
-          <Header />
+          <Show when={isAuthenticated()}>
+            <Header />
+          </Show>{" "}
           <div class="flex flex-col gap-4 py-10">
             <div class="text-4xl font-bold text-center mb-5">FAQ</div>
             <For each={faqData}>

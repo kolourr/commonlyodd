@@ -71,7 +71,7 @@ const PricingPlans = () => {
   });
 
   return (
-    <div class="flex flex-col lg:flex-row justify-center items-stretch gap-4 p-4 bg-transparent">
+    <div class="flex flex-col lg:flex-row justify-center items-stretch gap-4 p-4 bg-transparent text-slate-950">
       {plans.map((plan) => (
         <div
           class={`p-6 rounded-lg text-center shadow-lg ${
@@ -102,7 +102,7 @@ const PricingPlans = () => {
               <li key={index} class="flex items-center gap-2">
                 <span class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
                   <svg
-                    class="w-4 h-4 text-white"
+                    class="w-4 h-4  "
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

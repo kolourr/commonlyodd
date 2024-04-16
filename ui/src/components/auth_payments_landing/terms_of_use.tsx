@@ -1,12 +1,22 @@
-import { Component } from "solid-js";
+import { Component, Show, createEffect, createSignal } from "solid-js";
 import Header from "./header";
 import Footer from "./footer";
+import { checkAuth } from "./use_auth";
 
 const TermsOfUse: Component = () => {
+  const [isAuthenticated, setIsAuthenticated] = createSignal(false);
+
+  createEffect(async () => {
+    const auth = await checkAuth();
+    setIsAuthenticated(auth);
+  });
+
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
       <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-200 px-6">
-        <Header />
+        <Show when={isAuthenticated()}>
+          <Header />
+        </Show>{" "}
         <main class="flex flex-col gap-4">
           <h1 class="text-3xl font-bold flex justify-center items-center">
             Terms of Use

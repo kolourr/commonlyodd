@@ -98,23 +98,16 @@ export default function ConfirmDeleteAccount() {
             {loading() && <CircularProgress color="success" />}{" "}
           </div>
         </DialogContent>
-        <div class="flex justify-center items-center">
-          <Button
-            onClick={handleDeleteAccount}
-            disabled={loading()}
-            sx={{
-              color: "#f9fafb",
-              width: 150,
-              height: 50,
-            }}
-            class="flex justify-center items-center bg-gradient-to-bl from-warning-300 to-error-400 shadow-md shadow-gray-50"
-          >
-            Delete Account
-          </Button>
-        </div>
         <DialogActions style={dialogTextStyle}>
           <Button onClick={handleCloseDeleteAccount} style={dialogTextStyle}>
             Cancel
+          </Button>
+          <Button
+            onClick={handleDeleteAccount}
+            disabled={loading()}
+            sx={{ color: "#f4f4f5" }}
+          >
+            Yes, Delete My Account
           </Button>
         </DialogActions>
       </Dialog>
