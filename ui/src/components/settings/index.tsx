@@ -115,13 +115,13 @@ export default function AccountMenu() {
     }
   });
 
-  createEffect(async () => {
-    const auth = await checkAuth();
-    setIsAuthenticated(auth);
-    if (!auth) {
-      window.location.href = "/"; // Redirect if not authenticated
-    }
-  });
+  // createEffect(async () => {
+  //   const auth = await checkAuth();
+  //   setIsAuthenticated(auth);
+  //   if (!auth) {
+  //     window.location.href = "/"; // Redirect if not authenticated
+  //   }
+  // });
 
   return (
     <>

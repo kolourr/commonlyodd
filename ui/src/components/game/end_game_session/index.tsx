@@ -133,8 +133,8 @@ export default function EndGameSession() {
                     id="alert-dialog-slide-description"
                     style={dialogTextStyle}
                   >
-                    If you would like to leave this current game session and
-                    start your own, click the button below.
+                    If you would like to leave this current game, click the
+                    button below.
                   </DialogContentText>
                 </DialogContent>
               </div>
