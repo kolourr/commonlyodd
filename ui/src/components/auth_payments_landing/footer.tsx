@@ -64,7 +64,7 @@ const Footer: Component = () => {
           target="_blank"
           class="  hover:text-gray-100 "
         >
-          Bruce
+          Bruce in Toronto
         </a>
       </p>
     </footer>
