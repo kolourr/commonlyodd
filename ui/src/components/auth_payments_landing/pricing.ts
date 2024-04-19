@@ -3,7 +3,7 @@ const BASE_API = import.meta.env.CO_API_URL;
 export const createCheckoutSessionMonthly = async () => {
   try {
     const response = await fetch(
-      `${BASE_API}/create-checkout-session?price_id=price_1OqOBPCXpxRc8OyGd2BQGkSV`,
+      `${BASE_API}/create-checkout-session?price_id=price_1OqODWCXpxRc8OyGXlbW3QTo`,
       {
         method: "POST",
         headers: {
@@ -33,7 +33,7 @@ export const createCheckoutSessionMonthly = async () => {
 export const createCheckoutSessionYearly = async () => {
   try {
     const response = await fetch(
-      `${BASE_API}/create-checkout-session?price_id=price_1OqOCFCXpxRc8OyGbE8I453j`,
+      `${BASE_API}/create-checkout-session?price_id=price_1OqJbgCXpxRc8OyGulKLkcVy`,
       {
         method: "POST",
         headers: {
