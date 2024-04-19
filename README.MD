@@ -8,6 +8,8 @@ CompileDaemon -command="./main" -build="go build cmd/server/main.go"
 CompileDaemon -command="./main" -build="go build cmd/server/main.go"
 `
 
+`go build -o ./main cmd/server/main.go`
+
 ## UI Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.

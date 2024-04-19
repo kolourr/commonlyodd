@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"net/http"
 	"os"
 	"path/filepath"
 
@@ -14,16 +15,19 @@ import (
 
 func main() {
 	// Set environment variables
-	//Before running your application locally, set the APP_ENV variable to local or development: export APP_ENV=local
 	env := os.Getenv("APP_ENV")
 	if env == "" {
 		env = "local"
 	}
-	envFilePath := filepath.Join("config", ".env."+env)
-	err := godotenv.Load(envFilePath)
-	if err != nil {
-		log.Fatalf("Error loading %s file", envFilePath)
+
+	// Load environment variables from file only if local
+	if env == "local" {
+		envFilePath := filepath.Join("config", ".env.local")
+		if err := godotenv.Load(envFilePath); err != nil {
+			log.Fatalf("Error loading %s file", envFilePath)
+		}
 	}
+
 	databaseURL := os.Getenv("DATABASE_URL")
 	database.InitDB(databaseURL)
 
@@ -36,9 +40,17 @@ func main() {
 		log.Fatalf("Failed to initialize the authenticator: %v", err)
 	}
 
+	//Setup router and server
 	rtr := router.New(auth)
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
 
-	//Start server
-	rtr.Run(":8080")
+	// Start server
+	log.Printf("Starting server on port %s", port)
+	if err := http.ListenAndServe(":"+port, rtr); err != nil {
+		log.Fatalf("Failed to start server: %v", err)
+	}
 
 }
