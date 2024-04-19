@@ -35,7 +35,7 @@ func WebhookHandler(c *gin.Context) {
 		return
 	}
 
-	webhookSecret := os.Getenv("STRIPE_TEST_WEBHOOK_SECRET")
+	webhookSecret := os.Getenv("STRIPE_WEBHOOK_SECRET")
 
 	event, err := webhook.ConstructEvent(payload, c.Request.Header.Get("Stripe-Signature"), webhookSecret)
 	if err != nil {

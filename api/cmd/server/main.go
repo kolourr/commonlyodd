@@ -17,7 +17,7 @@ func main() {
 	//Before running your application locally, set the APP_ENV variable to local or development: export APP_ENV=local
 	env := os.Getenv("APP_ENV")
 	if env == "" {
-		env = "local" // default to local
+		env = "local"
 	}
 	envFilePath := filepath.Join("config", ".env."+env)
 	err := godotenv.Load(envFilePath)
@@ -28,7 +28,7 @@ func main() {
 	database.InitDB(databaseURL)
 
 	// This is your test secret API key.
-	stripe.Key = os.Getenv("STRIPE_TEST_KEY")
+	stripe.Key = os.Getenv("STRIPE_KEY")
 
 	//initiate auth0 authenticator
 	auth, err := authenticator.New()
