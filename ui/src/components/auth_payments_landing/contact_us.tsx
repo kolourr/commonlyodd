@@ -83,10 +83,6 @@ const ContactUsForm: Component = () => {
     }
   };
 
-  createEffect(() => {
-    console.log("Current Captcha Response:", captchaResponse());
-  });
-
   createEffect(async () => {
     const auth = await checkAuth();
     setIsAuthenticated(auth);
@@ -97,9 +93,8 @@ const ContactUsForm: Component = () => {
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
       <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-200">
-        <Show when={isAuthenticated()}>
-          <Header />
-        </Show>{" "}
+        <Header />
+
         <div class="flex flex-col gap-4">
           <div class="text-3xl font-bold text-center">Contact Us</div>
           <div class="text-xl   text-center">

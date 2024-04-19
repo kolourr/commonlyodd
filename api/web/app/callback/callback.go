@@ -14,8 +14,16 @@ import (
 func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		session := sessions.Default(ctx)
+		appURL := os.Getenv("APP_URL_DEV")
+
 		if ctx.Query("state") != session.Get("state") {
 			ctx.String(http.StatusBadRequest, "Invalid state parameter.")
+			return
+		}
+
+		// Check if there is an error parameter which indicates the user denied the request
+		if errorDesc := ctx.Query("error_description"); errorDesc != "" {
+			ctx.Redirect(http.StatusFound, appURL)
 			return
 		}
 
@@ -45,7 +53,6 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 			return
 		}
 
-		appURL := os.Getenv("APP_URL_DEV")
 		joinLink := fmt.Sprintf("%s/user", appURL)
 
 		// Redirect to logged in page.

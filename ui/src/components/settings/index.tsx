@@ -38,6 +38,7 @@ import {
   PeopleAltOutlined,
   EmailOutlined,
   DeleteForeverOutlined,
+  LoginOutlined,
 } from "@suid/icons-material";
 import useTheme from "@suid/material/styles/useTheme";
 import { userSubstatus } from "../auth_payments_landing/subscription_status";
@@ -102,6 +103,10 @@ export default function AccountMenu() {
     }
   };
 
+  const handleLogin = () => {
+    window.location.href = `${BASE_API}/login`;
+  };
+
   createEffect(async () => {
     const auth = await checkAuth();
     setIsAuthenticated(auth);
@@ -115,13 +120,13 @@ export default function AccountMenu() {
     }
   });
 
-  // createEffect(async () => {
-  //   const auth = await checkAuth();
-  //   setIsAuthenticated(auth);
-  //   if (!auth) {
-  //     window.location.href = "/"; // Redirect if not authenticated
-  //   }
-  // });
+  createEffect(async () => {
+    const auth = await checkAuth();
+    setIsAuthenticated(auth);
+    // if (!auth) {
+    //   window.location.href = "/"; // Redirect if not authenticated
+    // }
+  });
 
   return (
     <>
@@ -283,6 +288,12 @@ export default function AccountMenu() {
             },
           }}
         >
+          <MenuItem onClick={handleLogin} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <LoginOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Login</Typography>
+          </MenuItem>
           <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
             <ListItemIcon style={dialogTextStyle}>
               <HomeOutlined />

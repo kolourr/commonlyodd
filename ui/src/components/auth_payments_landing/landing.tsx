@@ -10,6 +10,9 @@ import { Button } from "@suid/material";
 import Footer from "./footer";
 import PricingPlans from "./pricing_plans";
 import "../game/start_game/styles.css";
+import Header from "./header";
+import { Router } from "solid-app-router";
+import AccountMenu from "../settings";
 
 const BASE_API = import.meta.env.CO_API_URL;
 const [highlightName, setHighlightName] = createSignal("Garlic");
@@ -123,11 +126,14 @@ const topSection: SectionProps[] = [
           <div class="text-2xl flex flex-row items-center justify-center p-4 ">
             <div>
               Then, given{" "}
-              <span class="timerFlashingTextLanding" style={{ color: "white" }}>
+              <span
+                class="timerFlashingTextLanding text-3xl"
+                style={{ color: "white" }}
+              >
                 {" "}
                 {timer()}{" "}
               </span>
-              seconds to spot the odd one out
+              seconds to spot the odd one out and...
             </div>
           </div>
           <div class="flex justify-center"> {renderImages(true)}</div>
@@ -147,12 +153,11 @@ const topSection: SectionProps[] = [
           That's it.
         </div>
         <div class="text-3xl text-gray-50   flex justify-center items-center p-6 uppercase ">
-          ⚠️ Fair warning ⚠️
+          ⚠️ warning ⚠️
         </div>
 
         <div class="text-xl text-gray-50  flex justify-center items-center p-4  ">
-          The game is intense when the clock's ticking and your competing with
-          others.
+          The game intensifies as the clock ticks and you compete with others.
         </div>
         <div class="text-3xl text-gray-50  flex justify-center items-center p-4  font-bold   ">
           <span>Up for the </span> <span class="italic pl-2"> challenge?</span>
@@ -202,15 +207,32 @@ const features: Feature[] = [
     title: <>Play Anywhere, Anytime</>,
     description: (
       <>
-        Jump into the fun from any browser—no need for fancy gear. If it
-        connects to the internet, you're game!
+        No download required. Jump right into your browser. If it connects to
+        the internet, you're ready to play!
       </>
     ),
     image: (
       <img
-        src="https://via.placeholder.com/400"
-        alt="Anywhere"
+        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3b62f466-4663-438e-99a2-d53f0cffa600/landing"
+        alt="Play Anywhere, Anytime"
         class="rounded-lg shadow-lg  w-full object-cover"
+      />
+    ),
+  },
+
+  {
+    title: <>Built-In Group Voice Chat</>,
+    description: (
+      <>
+        Skip Zoom and ditch Discord! Our browser-based voice chat lets everyone
+        talk right from the game.
+      </>
+    ),
+    image: (
+      <img
+        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/27b16819-341b-47f5-bd0a-a86d4f62e000/landing"
+        alt="Built-In Group Voice Chat"
+        class="rounded-lg shadow-lg   w-full object-cover"
       />
     ),
   },
@@ -218,46 +240,31 @@ const features: Feature[] = [
     title: <>Your People Play for FREE</>,
     description: (
       <>
-        Toss a game link to friends and family and get the party started—perfect
-        for game nights, reunions, or those “just because” hangouts.
+        No screen sharing needed—just send over the game link! Your crew can
+        join instantly, for free, no login required.
       </>
     ),
     image: (
       <img
-        src="https://via.placeholder.com/400"
-        alt="Party"
+        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6b226275-4f4d-47da-4cd1-93fc257b1e00/landing"
+        alt="Your People Play for FREE"
         class="rounded-lg shadow-lg  w-full object-cover"
       />
     ),
   },
-  {
-    title: <>Built-In Group Voice Chat</>,
-    description: (
-      <>
-        Got pals in far-flung places? No sweat! Our browser-based voice chat
-        means everyone’s in the room, no extra apps needed.
-      </>
-    ),
-    image: (
-      <img
-        src="https://via.placeholder.com/400"
-        alt="Worldwide"
-        class="rounded-lg shadow-lg   w-full object-cover"
-      />
-    ),
-  },
+
   {
     title: <>Frequent Updates</>,
     description: (
       <>
-        Get your brain buzzing! Our questions keep getting quirkier and the
-        categories crazier. Learn, laugh, and level up!
+        We frequently update our catalog, bringing quirkier questions and
+        crazier categories. Learn, laugh, and level up!
       </>
     ),
     image: (
       <img
-        src="https://via.placeholder.com/400"
-        alt="Smarty Pants"
+        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/487c8358-a5ce-4a24-e8c2-4695cce69300/landing"
+        alt="Frequent Updates"
         class="rounded-lg shadow-lg   w-full object-cover"
       />
     ),
@@ -268,10 +275,16 @@ const LandingPage: Component = () => {
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4">
       <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-200  ">
-        <header class="text-center font-bold mb-6">
-          <div class="flex flex-row items-center justify-center">
+        <header class="text-center font-bold mb-6 flex flex-row  justify-center  ">
+          <div class="flex justify-end items-center w-1/12  ">
+            <Router>
+              <AccountMenu />
+            </Router>
+          </div>
+
+          <div class="flex flex-row items-center justify-center w-11/12">
             <span class="pr-2 text-4xl">Commonly</span>
-            <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] ">
+            <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900">
               Odd
             </span>
           </div>
