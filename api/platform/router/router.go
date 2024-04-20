@@ -48,23 +48,23 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	gob.Register(map[string]interface{}{})
 	store := cookie.NewStore([]byte("secret"))
 
-	var domain string
-	var isSecure bool
+	// var domain string
+	// var isSecure bool
 
-	if os.Getenv("GIN_MODE") == "release" {
-		domain = ".commonlyodd.onrender.com"
-		isSecure = true
-	} else {
-		domain = "localhost"
-		isSecure = false
-	}
-	store.Options(sessions.Options{
-		Path:     "/",
-		Domain:   domain,
-		MaxAge:   86400 * 7,
-		Secure:   isSecure,
-		HttpOnly: true,
-	})
+	// if os.Getenv("GIN_MODE") == "release" {
+	// 	domain = ".commonlyodd.com"
+	// 	isSecure = true
+	// } else {
+	// 	domain = "localhost"
+	// 	isSecure = false
+	// }
+	// store.Options(sessions.Options{
+	// 	Path:     "/",
+	// 	Domain:   domain,
+	// 	MaxAge:   86400 * 7,
+	// 	Secure:   isSecure,
+	// 	HttpOnly: true,
+	// })
 
 	router.Use(sessions.Sessions("auth-session", store))
 
