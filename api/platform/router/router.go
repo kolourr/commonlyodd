@@ -33,29 +33,18 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
-			"Authorization",
 			"Content-Type",
 			"Access-Control-Allow-Origin",
 			"Access-Control-Allow-Headers",
-			"Access-Control-Allow-Credentials",
+			"Authorization",
 		},
 		AllowCredentials: true,
-		ExposeHeaders:    []string{"Content-Length"},
 	}))
 
 	// To store custom types in our cookies,
 	// we must first register them using gob.Register
 	gob.Register(map[string]interface{}{})
 	store := cookie.NewStore([]byte("secret"))
-	//  Set the cookie options
-	store.Options(sessions.Options{
-		Path:     "/",
-		Domain:   ".commonlyodd.com",
-		MaxAge:   3600 * 24,
-		Secure:   true,
-		HttpOnly: true,
-	})
-
 	router.Use(sessions.Sessions("auth-session", store))
 
 	staticFilesPath := "../../../ui/dist"

@@ -3,7 +3,6 @@ package login
 import (
 	"crypto/rand"
 	"encoding/base64"
-	"log"
 	"net/http"
 
 	"github.com/gin-contrib/sessions"
@@ -16,7 +15,6 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		state, err := generateRandomState()
 		if err != nil {
-			log.Printf("Error generating state: %v", err)
 			ctx.String(http.StatusInternalServerError, err.Error())
 			return
 		}
@@ -25,12 +23,10 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 		session := sessions.Default(ctx)
 		session.Set("state", state)
 		if err := session.Save(); err != nil {
-			log.Printf("Error saving session: %v", err)
 			ctx.String(http.StatusInternalServerError, err.Error())
 			return
 		}
 
-		log.Println("Redirecting to Auth0 with state:", state)
 		ctx.Redirect(http.StatusTemporaryRedirect, auth.AuthCodeURL(state))
 	}
 }
