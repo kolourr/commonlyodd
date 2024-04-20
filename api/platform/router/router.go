@@ -40,6 +40,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			"Authorization",
 		},
 		AllowCredentials: true,
+		ExposeHeaders:    []string{"Content-Length"},
 	}))
 
 	// To store custom types in our cookies,
