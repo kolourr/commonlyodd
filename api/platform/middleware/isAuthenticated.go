@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/gin-contrib/sessions"
@@ -11,8 +12,10 @@ import (
 // the user has already been authenticated previously.
 func IsAuthenticated(ctx *gin.Context) {
 	if sessions.Default(ctx).Get("profile") == nil {
+		log.Println("Unauthorized access")
 		ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
 	} else {
+		log.Println("User is authenticated")
 		ctx.Next()
 	}
 }
