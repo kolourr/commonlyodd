@@ -45,25 +45,6 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	// we must first register them using gob.Register
 	gob.Register(map[string]interface{}{})
 	store := cookie.NewStore([]byte("secret"))
-	// if os.Getenv("GIN_MODE") == "release" {
-	// 	// Production settings
-	// 	store.Options(sessions.Options{
-	// 		Domain:   ".commonlyodd.com",
-	// 		MaxAge:   86400 * 7, // 7 days
-	// 		Path:     "/",
-	// 		Secure:   true,
-	// 		HttpOnly: true,
-	// 		SameSite: http.SameSiteNoneMode,
-	// 	})
-	// } else {
-	// 	// Development settings
-	// 	store.Options(sessions.Options{
-	// 		Path:     "/",
-	// 		Secure:   false, // For localhost testing without HTTPS
-	// 		HttpOnly: true,
-	// 		SameSite: http.SameSiteLaxMode,
-	// 	})
-	// }
 
 	router.Use(sessions.Sessions("auth-session", store))
 
