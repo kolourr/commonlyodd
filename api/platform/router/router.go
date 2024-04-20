@@ -27,6 +27,8 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.GET("/debug/pprof/*any", gin.WrapH(http.DefaultServeMux))
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{
+			"http://localhost:3000",
+			"https://www.commonlyodd.com",
 			"https://commonlyodd.com",
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
