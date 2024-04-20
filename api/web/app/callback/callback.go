@@ -15,6 +15,15 @@ import (
 func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 	return func(ctx *gin.Context) {
 		session := sessions.Default(ctx)
+		receivedState := ctx.Query("state")
+		expectedState := session.Get("state")
+		log.Printf("Callback received with state: %s, expected state in session: %v", receivedState, expectedState)
+
+		if receivedState != expectedState {
+			ctx.String(http.StatusBadRequest, "Invalid state parameter. Received: %s, Expected: %s", receivedState, expectedState)
+			return
+		}
+
 		appURL := os.Getenv("APP_URL_DEV")
 
 		if ctx.Query("state") != session.Get("state") {
