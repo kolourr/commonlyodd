@@ -17,6 +17,9 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 		session := sessions.Default(ctx)
 		appURL := os.Getenv("APP_URL_DEV")
 
+		log.Println("ctx.Query state: ", ctx.Query("state"))
+		log.Println("session.Get state: ", session.Get("state"))
+
 		if ctx.Query("state") != session.Get("state") {
 			log.Println("Invalid state parameter.")
 			ctx.String(http.StatusBadRequest, "Invalid state parameter.")
