@@ -1,11 +1,11 @@
 ## API Usage
 
 `export APP_ENV=local
-CompileDaemon -command="./main" -build="go build cmd/server/main.go"
+CompileDaemon -command="./main" -build="go build -o ./main cmd/server/main.go"
 `
 
 `export APP_ENV=production
-CompileDaemon -command="./main" -build="go build cmd/server/main.go"
+CompileDaemon -command="./main" -build="go build -o ./main cmd/server/main.go"
 `
 
 `go build -o ./main cmd/server/main.go`

@@ -30,6 +30,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			"http://localhost:3000",
 			"https://www.commonlyodd.com",
 			"https://commonlyodd.com",
+			"https://*.commonlyodd.com",
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
@@ -48,7 +49,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	if os.Getenv("GIN_MODE") == "release" {
 		// Production settings
 		store.Options(sessions.Options{
-			Domain:   "commonlyodd.com",
+			Domain:   ".commonlyodd.com",
 			MaxAge:   86400 * 7, // 7 days
 			Path:     "/",
 			Secure:   true,
