@@ -147,6 +147,8 @@ func Handler(ctx *gin.Context) {
 		// Handle the error as needed.
 	}
 
+	log.Println("User inserted successfully:", auth0ID)
+
 	// This is the user page.
 	ctx.JSON(http.StatusOK, gin.H{
 		"firstName":  firstName,
