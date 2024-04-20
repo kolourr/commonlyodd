@@ -17,7 +17,7 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 		session := sessions.Default(ctx)
 		appURL := os.Getenv("APP_URL_DEV")
 
-		log.Panicln("appURL: ", appURL)
+		log.Println("appURL: ", appURL)
 		log.Println("ctx.Query state: ", ctx.Query("state"))
 		log.Println("session.Get state: ", session.Get("state"))
 
