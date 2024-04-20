@@ -66,6 +66,10 @@ func subscribeToNewsletter(firstName, email, userID, customerID string, dateJoin
 func Handler(ctx *gin.Context) {
 	session := sessions.Default(ctx)
 
+	log.Println("User is authenticated")
+	log.Println("Session ", session)
+	log.Println("Profile: ", session.Get("profile"))
+
 	profile, ok := session.Get("profile").(map[string]interface{})
 	if !ok {
 		log.Println("Failed to assert profile type")
