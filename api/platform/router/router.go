@@ -48,7 +48,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	//  Set the cookie options
 	store.Options(sessions.Options{
 		Path:     "/",
-		Domain:   "commonlyodd.com",
+		Domain:   ".commonlyodd.com",
 		MaxAge:   3600 * 24,
 		Secure:   true,
 		HttpOnly: true,
