@@ -27,24 +27,33 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.GET("/debug/pprof/*any", gin.WrapH(http.DefaultServeMux))
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{
-			"http://localhost:3000",
-			"https://www.commonlyodd.com",
 			"https://commonlyodd.com",
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
+			"Authorization",
 			"Content-Type",
 			"Access-Control-Allow-Origin",
 			"Access-Control-Allow-Headers",
-			"Authorization",
+			"Access-Control-Allow-Credentials",
 		},
 		AllowCredentials: true,
+		ExposeHeaders:    []string{"Content-Length"},
 	}))
 
 	// To store custom types in our cookies,
 	// we must first register them using gob.Register
 	gob.Register(map[string]interface{}{})
 	store := cookie.NewStore([]byte("secret"))
+	//  Set the cookie options
+	store.Options(sessions.Options{
+		Path:     "/",
+		Domain:   "commonlyodd.com",
+		MaxAge:   3600 * 24,
+		Secure:   true,
+		HttpOnly: true,
+	})
+
 	router.Use(sessions.Sessions("auth-session", store))
 
 	staticFilesPath := "../../../ui/dist"

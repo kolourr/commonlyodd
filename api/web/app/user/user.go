@@ -134,11 +134,12 @@ func Handler(ctx *gin.Context) {
 	session.Save()
 
 	// Now include the Stripe customer ID when inserting the user
-	err = insertUser(userID, email, connection, firstName, pictureURL, customerID, dateJoined)
-	if err != nil {
-		log.Printf("Error inserting user with Stripe customer ID: %v", err)
+	if err := insertUser(userID, email, connection, firstName, pictureURL, customerID, dateJoined); err != nil {
+		log.Printf("Error inserting user into the database: %v", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to insert user"})
 		return
+	} else {
+		log.Println("User successfully inserted into the database:", userID)
 	}
 
 	err = subscribeToNewsletter(firstName, email, userID, customerID, dateJoined)
