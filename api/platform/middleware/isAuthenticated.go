@@ -12,11 +12,15 @@ import (
 // the user has already been authenticated previously.
 func IsAuthenticated(ctx *gin.Context) {
 	session := sessions.Default(ctx)
-	if session.Get("profile") == nil {
-		log.Println("Unauthorized access")
+	profile := session.Get("profile")
+	log.Printf("Current session data: %+v", session)
+
+	if profile == nil {
+		log.Println("Unauthorized access - No profile found in session")
 		ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "unauthorized"})
 	} else {
-		log.Println("User is authenticated")
+		log.Printf("User is authenticated - Profile: %+v", profile)
 		ctx.Next()
 	}
+
 }
