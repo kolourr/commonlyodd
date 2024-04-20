@@ -52,7 +52,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	var isSecure bool
 
 	if os.Getenv("GIN_MODE") == "release" {
-		domain = ".commonlyodd.com"
+		domain = ".commonlyodd.onrender.com"
 		isSecure = true
 	} else {
 		domain = "localhost"
