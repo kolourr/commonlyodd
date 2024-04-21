@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /success
+Disallow: /cancel
+Disallow: /user
+Sitemap: https://www.commonlyodd.com/sitemap.xml
