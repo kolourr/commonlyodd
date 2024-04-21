@@ -45,7 +45,6 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	// we must first register them using gob.Register
 	gob.Register(map[string]interface{}{})
 	store := cookie.NewStore([]byte("secret"))
-
 	router.Use(sessions.Sessions("auth-session", store))
 
 	staticFilesPath := "../../../ui/dist"
