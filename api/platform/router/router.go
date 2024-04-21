@@ -28,7 +28,6 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{
 			"http://localhost:3000",
-			"https://commonlyodd.onrender.com",
 			"https://www.commonlyodd.com",
 			"https://commonlyodd.com",
 		},
@@ -40,31 +39,12 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			"Authorization",
 		},
 		AllowCredentials: true,
-		ExposeHeaders:    []string{"Content-Length"},
 	}))
 
 	// To store custom types in our cookies,
 	// we must first register them using gob.Register
 	gob.Register(map[string]interface{}{})
 	store := cookie.NewStore([]byte("secret"))
-
-	// var domain string
-	// var isSecure bool
-
-	// if os.Getenv("GIN_MODE") == "release" {
-	// 	domain = ".commonlyodd.com"
-	// 	isSecure = true
-	// } else {
-	// 	domain = "localhost"
-	// 	isSecure = false
-	// }
-	// store.Options(sessions.Options{
-	// 	Path:     "/",
-	// 	Domain:   domain,
-	// 	MaxAge:   86400 * 7,
-	// 	Secure:   isSecure,
-	// 	HttpOnly: true,
-	// })
 
 	router.Use(sessions.Sessions("auth-session", store))
 
