@@ -21,6 +21,8 @@ export default defineConfig({
   build: {
     target: "esnext",
   },
+  publicDir: "public",
+
   envDir: "environment/",
   envPrefix: "CO_",
   resolve: {
