@@ -52,8 +52,6 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 			return
 		}
 
-		log.Printf("Profile: %+v", profile)
-
 		session.Set("access_token", token.AccessToken)
 		session.Set("profile", profile)
 		if err := session.Save(); err != nil {
@@ -64,9 +62,7 @@ func Handler(auth *authenticator.Authenticator) gin.HandlerFunc {
 
 		joinLink := fmt.Sprintf("%s/user", appURL)
 
-		// Redirect to logged in page.
-		// ctx.Redirect(http.Redirect(), "http://localhost:3000/user")
-		//Redirect user to http://localhost:3000/user
+		//Redirect user to logged in page http://localhost:3000/user
 		ctx.Redirect(http.StatusFound, joinLink)
 	}
 }

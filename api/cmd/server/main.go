@@ -30,8 +30,6 @@ func main() {
 
 	databaseURL := os.Getenv("DATABASE_URL")
 	database.InitDB(databaseURL)
-
-	// This is your test secret API key.
 	stripe.Key = os.Getenv("STRIPE_KEY")
 
 	//initiate auth0 authenticator
