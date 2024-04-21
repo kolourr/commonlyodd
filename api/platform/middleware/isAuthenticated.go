@@ -13,10 +13,10 @@ import (
 func IsAuthenticated(ctx *gin.Context) {
 	session := sessions.Default(ctx)
 	profile := session.Get("profile")
-	log.Printf("Current session data: %+v", session)
 	log.Println("Profile: ", profile)
 	log.Println("Access Token: ", session.Get("access_token"))
 	log.Println("Session State: ", session.Get("state"))
+	log.Println("session: ", session)
 
 	if profile == nil {
 		log.Println("Unauthorized access - No profile found in session")
