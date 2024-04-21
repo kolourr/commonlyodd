@@ -67,6 +67,7 @@ const Footer: Component = () => {
           Bruce in Toronto
         </a>
       </p>
+      <p>&copy; I Lov Guitars Inc.</p>
     </footer>
   );
 };
