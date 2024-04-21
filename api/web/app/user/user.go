@@ -72,10 +72,19 @@ func Handler(ctx *gin.Context) {
 		return
 	}
 
-	firstName, exists := profile["given_name"].(string)
-	if !exists {
-		log.Println("Auth0 ID not found in profile")
-		return
+	log.Println("Profile: ", profile)
+
+	// Attempt to extract given_name or nickname
+	var firstName string
+	var exists bool
+
+	firstName, exists = profile["given_name"].(string)
+	if !exists { // if given_name doesn't exist, try nickname
+		firstName, exists = profile["nickname"].(string)
+		if !exists {
+			log.Println("given_name and nickname not found in profile")
+			return
+		}
 	}
 
 	pictureURL, exists := profile["picture"].(string)
