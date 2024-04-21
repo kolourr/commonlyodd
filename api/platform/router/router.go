@@ -28,9 +28,9 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	router.Use(cors.New(cors.Config{
 		AllowOrigins: []string{
 			"http://localhost:3000",
+			"https://commonlyodd.onrender.com",
 			"https://www.commonlyodd.com",
 			"https://commonlyodd.com",
-			"https://*.commonlyodd.com",
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
