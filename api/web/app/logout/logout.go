@@ -29,9 +29,10 @@ func Handler(ctx *gin.Context) {
 	}
 	// Determine the correct scheme for the startGameURL
 	scheme := "http"
-	if ctx.Request.TLS != nil {
+	if os.Getenv("GIN_MODE") == "release" {
 		scheme = "https"
 	}
+
 	startGameURL := scheme + "://" + ctx.Request.Host + "/logout-auth"
 
 	parameters := url.Values{}
