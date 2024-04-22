@@ -34,10 +34,13 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
+			// "Content-Type",
+			// "Access-Control-Allow-Origin",
+			// "Access-Control-Allow-Headers",
+			// "Authorization",
 			"Content-Type",
-			"Access-Control-Allow-Origin",
-			"Access-Control-Allow-Headers",
 			"Authorization",
+			"X-Requested-With",
 		},
 		AllowCredentials: true,
 	}))
