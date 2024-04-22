@@ -66,13 +66,15 @@ func subscribeToNewsletter(firstName, email, userID, customerID string, dateJoin
 func Handler(ctx *gin.Context) {
 	session := sessions.Default(ctx)
 
+	//Print the profile
+
+	log.Println("Profile in User Handler: ", session.Get("profile"))
+
 	profile, ok := session.Get("profile").(map[string]interface{})
 	if !ok {
 		log.Println("Failed to assert profile type")
 		return
 	}
-
-	log.Println("Profile: ", profile)
 
 	// Attempt to extract given_name or nickname
 	var firstName string
