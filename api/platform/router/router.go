@@ -31,6 +31,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			"https://www.commonlyodd.com",
 			"https://commonlyodd.com",
 			"https://commonlyodd.onrender.com",
+			"https://login.commonlyodd.com",
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
@@ -38,6 +39,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			// "Access-Control-Allow-Origin",
 			// "Access-Control-Allow-Headers",
 			// "Authorization",
+
 			"Content-Type",
 			"Authorization",
 			"X-Requested-With",
