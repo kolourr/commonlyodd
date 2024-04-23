@@ -53,7 +53,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		// Production settings
 		store.Options(sessions.Options{
 			MaxAge:   86400 * 7,
-			Domain:   "login.commonlyodd.com",
+			Domain:   ".commonlyodd.com",
 			Path:     "/",
 			Secure:   true,
 			HttpOnly: true,
