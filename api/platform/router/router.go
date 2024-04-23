@@ -52,8 +52,8 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	if os.Getenv("GIN_MODE") == "release" {
 		// Production settings
 		store.Options(sessions.Options{
-			MaxAge: 86400 * 7,
-			// Domain:   ".commonlyodd.com",
+			MaxAge:   86400 * 7,
+			Domain:   ".commonlyodd.com",
 			Path:     "/",
 			Secure:   true,
 			HttpOnly: true,
@@ -62,8 +62,8 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 	} else {
 		// Development settings
 		store.Options(sessions.Options{
-			Path: "/",
-			// Domain:   "localhost",
+			Path:     "/",
+			Domain:   "localhost",
 			Secure:   false,
 			HttpOnly: true,
 			SameSite: http.SameSiteLaxMode,
