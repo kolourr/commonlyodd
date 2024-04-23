@@ -39,9 +39,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			"Access-Control-Allow-Origin",
 			"Access-Control-Allow-Headers",
 			"Authorization",
-
 			// "Content-Type",
-			// "Authorization",
 			// "X-Requested-With",
 		},
 		AllowCredentials: true,
@@ -55,7 +53,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		// Production settings
 		store.Options(sessions.Options{
 			MaxAge:   86400 * 7,
-			Domain:   ".commonlyodd.com",
+			Domain:   "login.commonlyodd.com",
 			Path:     "/",
 			Secure:   true,
 			HttpOnly: true,
