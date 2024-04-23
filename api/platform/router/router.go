@@ -41,8 +41,6 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			"Access-Control-Allow-Origin",
 			"Access-Control-Allow-Headers",
 			"Authorization",
-			// "Content-Type",
-			// "X-Requested-With",
 		},
 		AllowCredentials: true,
 	}))

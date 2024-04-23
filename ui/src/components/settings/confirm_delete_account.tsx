@@ -84,7 +84,7 @@ export default function ConfirmDeleteAccount() {
           class="flex justify-center items-center underline decoration-double "
           style={dialogTextStyle}
         >
-          🚨⚠️ Confirm Account Deletion Again⚠️🚨
+          Confirm Account Deletion!!
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText

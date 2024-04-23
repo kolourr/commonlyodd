@@ -56,7 +56,7 @@ export default function DeleteAccount() {
           class="flex justify-center items-center"
           style={dialogTextStyle}
         >
-          🚨🚨 Confirm Account Deletion 🚨🚨
+          Confirm Account Deletion
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText
