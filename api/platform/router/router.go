@@ -57,7 +57,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			Path:     "/",
 			Secure:   true,
 			HttpOnly: true,
-			SameSite: http.SameSiteNoneMode,
+			SameSite: http.SameSiteLaxMode,
 		})
 	} else {
 		// Development settings
