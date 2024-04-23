@@ -64,12 +64,12 @@ func (a *Authenticator) VerifyIDToken(ctx context.Context, token *oauth2.Token) 
 
 // getAuth0ManagementToken retrieves a management API token
 func getAuth0ManagementToken() (string, error) {
-	url := fmt.Sprintf("https://%s/oauth/token", os.Getenv("AUTH0_DOMAIN"))
+	url := fmt.Sprintf("https://%s/oauth/token", os.Getenv("AUTH0_OG_DOMAIN"))
 	values := map[string]string{
 		"grant_type":    "client_credentials",
 		"client_id":     os.Getenv("AUTH0_CLIENT_ID"),
 		"client_secret": os.Getenv("AUTH0_CLIENT_SECRET"),
-		"audience":      fmt.Sprintf("https://%s/api/v2/", os.Getenv("AUTH0_DOMAIN")),
+		"audience":      fmt.Sprintf("https://%s/api/v2/", os.Getenv("AUTH0_OG_DOMAIN")),
 	}
 
 	jsonValue, _ := json.Marshal(values)
