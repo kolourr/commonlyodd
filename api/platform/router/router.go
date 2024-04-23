@@ -32,6 +32,8 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 			"https://commonlyodd.com",
 			"https://commonlyodd.onrender.com",
 			"https://login.commonlyodd.com",
+			"https://api.commonlyodd.com",
+			"https://www.api.commonlyodd.com",
 		},
 		AllowMethods: []string{"POST", "GET", "PUT", "DELETE", "OPTIONS"},
 		AllowHeaders: []string{
