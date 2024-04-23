@@ -95,7 +95,7 @@ func DeleteAuth0User(auth0UserID string) error {
 	}
 
 	client := &http.Client{}
-	req, err := http.NewRequest("DELETE", fmt.Sprintf("https://%s/api/v2/users/%s", os.Getenv("AUTH0_DOMAIN"), auth0UserID), nil)
+	req, err := http.NewRequest("DELETE", fmt.Sprintf("https://%s/api/v2/users/%s", os.Getenv("AUTH0_OG_DOMAIN"), auth0UserID), nil)
 	if err != nil {
 		return fmt.Errorf("could not create request: %v", err)
 	}
