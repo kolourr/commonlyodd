@@ -2,6 +2,7 @@ package router
 
 import (
 	"encoding/gob"
+	"log"
 	"net/http"
 	"os"
 	"path/filepath"
@@ -10,6 +11,8 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
+	"github.com/newrelic/go-agent/v3/integrations/nrgin"
+	"github.com/newrelic/go-agent/v3/newrelic"
 
 	"github.com/kolourr/commonlyodd/gameplay"
 	"github.com/kolourr/commonlyodd/platform/authenticator"
@@ -44,6 +47,21 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		},
 		AllowCredentials: true,
 	}))
+
+	//setup NewRelic
+	app, err := newrelic.NewApplication(
+		newrelic.ConfigAppName("Commonly Odd API"),
+		newrelic.ConfigLicense(os.Getenv("NEW_RELIC_LICENSE_KEY")),
+		newrelic.ConfigAppLogEnabled(true),
+		newrelic.ConfigAppLogForwardingEnabled(true),
+		newrelic.ConfigCodeLevelMetricsEnabled(true),
+	)
+	if err != nil {
+		log.Println("Error initializing NewRelic: ", err)
+
+	}
+
+	router.Use(nrgin.Middleware(app))
 
 	// To store custom types in our cookies,
 	// we must first register them using gob.Register

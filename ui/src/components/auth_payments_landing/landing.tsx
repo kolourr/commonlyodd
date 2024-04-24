@@ -141,7 +141,7 @@ const topSection: SectionProps[] = [
 
         <div class=" text-gray-50">
           <div class="text-2xl   flex items-center justify-center  p-4">
-            Identify the commonlity among the other three
+            Identify the commonality among the other three
           </div>
           <div class="text-xl font-bold text-success-300 mb-3 flex justify-center">
             The others are root vegetables.

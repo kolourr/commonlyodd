@@ -99,7 +99,7 @@ func DeleteAuth0User(auth0UserID string) error {
 	if err != nil {
 		return fmt.Errorf("could not create request: %v", err)
 	}
-	req.Header.Set("Authorization", "Bearer "+token) // Ensure the space between 'Bearer' and the token
+	req.Header.Set("Authorization", "Bearer "+token)
 
 	resp, err := client.Do(req)
 	if err != nil {
