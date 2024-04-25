@@ -6,30 +6,30 @@ const Footer: Component = () => {
   };
 
   const handleHome = () => {
-    window.open("/", "_blank");
+    window.location.href = "/";
   };
   const handleContactUs = () => {
-    window.open("/contact-us", "_blank");
+    window.location.href = "/contact-us";
   };
 
   const handlePrivacyPolicy = () => {
-    window.open("/privacy-policy", "_blank");
+    window.location.href = "/privacy-policy";
   };
 
   const handleTermsOfUse = () => {
-    window.open("/terms-of-use", "_blank");
+    window.location.href = "/terms-of-use";
   };
 
   const handleFAQ = () => {
-    window.open("/faq", "_blank");
+    window.location.href = "/faq";
   };
 
   const handleCookiePolicy = () => {
-    window.open("/cookie-policy", "_blank");
+    window.location.href = "/cookie-policy";
   };
 
   return (
-    <footer class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-50 p-4 text-center">
+    <footer class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-300 p-4 text-center">
       <a onClick={handleHome} class="hover:underline">
         Home{" "}
       </a>

@@ -14,7 +14,7 @@ const Header: Component = () => {
           <AccountMenu />
         </Router>
       </div>
-      <div class="flex flex-row w-11/12 justify-center items-center text-3xl font-bold text-gray-50 ">
+      <div class="flex flex-row w-11/12 justify-center items-center text-3xl font-bold text-gray-300 ">
         <div class="flex flex-row items-center justify-center">
           <span class="pr-2" onClick={handleUserPage}>
             Commonly

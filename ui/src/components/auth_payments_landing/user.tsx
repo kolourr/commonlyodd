@@ -77,7 +77,7 @@ const User = () => {
         <Header />
 
         <Show when={!subscriptionStatus() && paymentFailed()}>
-          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center px-4 ">
+          <div class="text-xl lg:text-2xl text-gray-300 flex justify-center px-4 ">
             {userProfile()?.firstName}, something went wrong 😔 Please try
             again.
           </div>
@@ -88,7 +88,7 @@ const User = () => {
         </Show>
 
         <Show when={subscriptionStatus() && paymentSuccess()}>
-          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center p-4 ">
+          <div class="text-xl lg:text-2xl text-gray-300 flex justify-center p-4 ">
             {userProfile()?.firstName}, you are all clear 😊 You are all set to
             play.
           </div>
@@ -110,7 +110,7 @@ const User = () => {
         </Show>
 
         <Show when={!subscriptionStatus() && userPage()}>
-          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center px-4 ">
+          <div class="text-xl lg:text-2xl text-gray-300 flex justify-center px-4 ">
             {userProfile()?.firstName}, start your
             <span class="font-bold px-2  ">FREE 7-day</span>
             trial now
@@ -122,7 +122,7 @@ const User = () => {
         </Show>
 
         <Show when={subscriptionStatus() && userPage()}>
-          <div class="text-xl lg:text-2xl text-gray-50 flex justify-center p-4 ">
+          <div class="text-xl lg:text-2xl text-gray-300 flex justify-center p-4 ">
             Welcome back {userProfile()?.firstName}! You're all set 😊
           </div>
           <div class="flex flex-col justify-center items-center">

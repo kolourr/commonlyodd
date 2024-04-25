@@ -13,6 +13,7 @@ import "../game/start_game/styles.css";
 import Header from "./header";
 import { Router } from "solid-app-router";
 import AccountMenu from "../settings";
+import FAQitems from "./faq_items";
 
 const BASE_API = import.meta.env.CO_API_URL;
 const [highlightName, setHighlightName] = createSignal("Garlic");
@@ -40,12 +41,12 @@ const images = [
   {
     name: "Garlic",
     url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aeecf0c5-f94d-4839-b306-75b30d093800/public",
-    animationClass: "image-slide-in-bottom",
+    animationClass: "image-slide-in-side",
   },
   {
     name: "Carrot",
     url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ede3a18b-cfea-492c-9bfc-f312bc683800/public",
-    animationClass: "image-slide-in-other-side",
+    animationClass: "image-slide-in-top",
   },
 ];
 
@@ -56,147 +57,169 @@ interface SectionProps {
 interface Feature {
   title: JSX.Element;
   description: JSX.Element;
-  image: JSX.Element;
 }
 
-const simpleImages = () => (
-  <div class="grid grid-cols-2 gap-2 justify-center items-center">
-    {images.map((image) => (
-      <div>
-        <p class="text-center text-md text-gray-50">{image.name}</p>
-        <img src={image.url} alt={image.name} />
-      </div>
-    ))}
-  </div>
-);
+function renderTopImagesGrid() {
+  // This will render the top two images
+  return (
+    <div class="grid grid-cols-2 gap-2 justify-center items-center">
+      {images.slice(0, 2).map((image) => (
+        <div key={image.name} class={`px-1 relative ${image.animationClass}`}>
+          <p class="text-center text-md text-gray-300">{image.name}</p>
+          <img src={image.url} alt={image.name} />
+        </div>
+      ))}
+    </div>
+  );
+}
 
-const renderImages = (blurOthers) => (
-  <div class="grid grid-cols-2 gap-2 justify-center items-center">
-    {images.map((image) => (
-      <div
-        class={`px-1 relative ${image.animationClass} ${
-          image.name === highlightName()
-            ? "border-6 border-bright-green glowing-border"
-            : blurOthers
-            ? "blur-effect"
-            : ""
-        }`}
-      >
-        <p class="text-center text-md text-gray-50">{image.name}</p>
-        <img
-          src={image.url}
-          alt={image.name}
-          class={
+function renderBottomImagesGrid() {
+  // This will render the bottom two images
+  return (
+    <div class="grid grid-cols-2 gap-2 justify-center items-center">
+      {images.slice(2).map((image) => (
+        <div key={image.name} class={`px-1 relative ${image.animationClass}`}>
+          <p class="text-center text-md text-gray-300">{image.name}</p>
+          <img src={image.url} alt={image.name} />
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function renderBlurTopImagesGrid(blurOthers) {
+  // This will render the top two images with conditional effects
+  return (
+    <div class="grid grid-cols-2 gap-2 justify-center items-center">
+      {images.slice(0, 2).map((image) => (
+        <div
+          key={image.name}
+          class={`px-1 relative ${image.animationClass} ${
             image.name === highlightName()
-              ? "glowing-border"
+              ? "border-6 border-bright-green glowing-border"
               : blurOthers
               ? "blur-effect"
               : ""
-          }
-        />
-        {image.name === highlightName() && (
-          <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse">
-            <p class="odd-overlay">ODD</p>
-          </div>
-        )}
-      </div>
-    ))}
+          }`}
+        >
+          <p class="text-center text-md text-gray-300">{image.name}</p>
+          <img
+            src={image.url}
+            alt={image.name}
+            class={
+              image.name === highlightName()
+                ? "glowing-border"
+                : blurOthers
+                ? "blur-effect"
+                : ""
+            }
+          />
+          {image.name === highlightName() && (
+            <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse">
+              <p class="odd-overlay">ODD</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function renderBlurBottomImagesGrid(blurOthers) {
+  // This will render the bottom two images with conditional effects
+  return (
+    <div class="grid grid-cols-2 gap-2 justify-center items-center">
+      {images.slice(2).map((image) => (
+        <div
+          key={image.name}
+          class={`px-1 relative ${image.animationClass} ${
+            image.name === highlightName()
+              ? "border-6 border-bright-green glowing-border"
+              : blurOthers
+              ? "blur-effect"
+              : ""
+          }`}
+        >
+          <p class="text-center text-md text-gray-300">{image.name}</p>
+          <img
+            src={image.url}
+            alt={image.name}
+            class={
+              image.name === highlightName()
+                ? "glowing-border"
+                : blurOthers
+                ? "blur-effect"
+                : ""
+            }
+          />
+          {image.name === highlightName() && (
+            <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse">
+              <p class="odd-overlay">ODD</p>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+const SectionOne = () => (
+  <div>
+    <div class="flex justify-center">{renderTopImagesGrid()}</div>
+    <div class="text-2xl text-slate-400 flex items-center justify-center my-2 p-6 h-20">
+      You're shown 4 items
+    </div>
+    <div class="flex justify-center">{renderBottomImagesGrid()}</div>
   </div>
 );
 
-// Use within the component
-const topSection: SectionProps[] = [
-  {
-    section: (
-      <div class="section-container  flex flex-col justify-center items-center ">
-        <div class="text-4xl font-bold text-gray-50   flex justify-center items-center p-4">
-          Love Trivia?
-        </div>
-        <div class="text-lg mb-3 flex justify-center italic">
-          Here's how Commonly Odd works...
-        </div>
-        <div class=" text-gray-50">
-          <div class="text-2xl   flex items-center justify-center  p-4">
-            You're shown 4 items
-          </div>
-          <div class="flex justify-center">{simpleImages()}</div>
-        </div>
-
-        <div class=" text-gray-50">
-          <div class="text-2xl flex flex-row items-center justify-center p-4 ">
-            <div>
-              Then, given{" "}
-              <span
-                class="timerFlashingTextLanding text-3xl"
-                style={{ color: "white" }}
-              >
-                {" "}
-                {timer()}{" "}
-              </span>
-              seconds to spot the odd one out and...
-            </div>
-          </div>
-          <div class="flex justify-center"> {renderImages(true)}</div>
-        </div>
-
-        <div class=" text-gray-50">
-          <div class="text-2xl   flex items-center justify-center  p-4">
-            Identify the commonality among the other three
-          </div>
-          <div class="text-xl font-bold text-success-300 mb-3 flex justify-center">
-            The others are root vegetables.
-          </div>
-          <div class="flex justify-center"> {renderImages(false)}</div>
-        </div>
-
-        <div class="text-3xl text-gray-50  flex justify-center pt-10 underline decoration-double">
-          That's it.
-        </div>
-        <div class="text-3xl text-gray-50   flex justify-center items-center p-6 uppercase ">
-          ⚠️ warning ⚠️
-        </div>
-
-        <div class="text-xl text-gray-50  flex justify-center items-center p-4  ">
-          The game intensifies as the clock ticks and you compete with others.
-        </div>
-        <div class="text-3xl text-gray-50  flex justify-center items-center p-4  font-bold   ">
-          <span>Up for the </span> <span class="italic pl-2"> challenge?</span>
-        </div>
-        <div class="flex justify-center items-center p-4">
-          <Button
-            variant="contained"
-            color="secondary"
-            href={`${BASE_API}/login`}
-            sx={{
-              width: "300px",
-              height: "60px",
-              fontSize: "16px",
-              fontWeight: "bold",
-            }}
-            class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800"
-          >
-            Start Your Free 7-day Trial
-          </Button>
-        </div>
+const SectionTwo = () => (
+  <div>
+    <div class="flex justify-center">{renderBlurTopImagesGrid(true)}</div>
+    <div class="text-2xl flex text-slate-400 flex-row items-center justify-center my-2 p-6 h-20">
+      <div>
+        Then, given{" "}
+        <span
+          class="timerFlashingTextLanding text-3xl"
+          style={{ color: "white" }}
+        >
+          {timer()}{" "}
+        </span>
+        seconds to spot the odd one out and...
       </div>
-    ),
-  },
-];
+    </div>
+    <div class="flex justify-center">{renderBlurBottomImagesGrid(true)}</div>
+  </div>
+);
+
+const SectionThree = () => (
+  <div>
+    <div class="flex  justify-center">{renderBlurTopImagesGrid(false)}</div>
+    <div class="text-2xl text-center text-slate-400 flex flex-col items-center justify-center p-6 my-2 h-20">
+      <div>Identify the commonality among the other 3 items.</div>
+      <span class="text-sm font-bold text-success-300">
+        The others are root vegetables.
+      </span>
+    </div>
+    <div class="flex justify-center">{renderBlurBottomImagesGrid(false)}</div>
+  </div>
+);
 
 const bottomSection: SectionProps[] = [
   {
     section: (
       <div class="section-container">
-        <div class="  text-gray-50 mb-3 flex justify-center text-4xl font-bold uppercase">
-          Play Risk Free
+        <div
+          id="pricing"
+          class="  text-gray-300 mb-3 flex justify-center text-4xl font-bold  "
+        >
+          Pricing
         </div>
-        <div class="text-lg mb-3 flex justify-center">
-          Enjoy a full week on us, no strings attached.
+        <div class="text-lg mb-3 text-slate-400 flex justify-center">
+          Play risk free, enjoy a full week on us.
         </div>
-
-        <div class="flex justify-center mt-10">
-          <PricingPlans />
-        </div>
+        <PricingPlans />
+        <FAQitems />
       </div>
     ),
   },
@@ -208,15 +231,8 @@ const features: Feature[] = [
     description: (
       <>
         No download required. Jump right into your browser. If it connects to
-        the internet, you're ready to play!
+        the internet, you're good!
       </>
-    ),
-    image: (
-      <img
-        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3b62f466-4663-438e-99a2-d53f0cffa600/landing"
-        alt="Play Anywhere, Anytime"
-        class="rounded-lg shadow-lg  w-full object-cover"
-      />
     ),
   },
 
@@ -228,13 +244,6 @@ const features: Feature[] = [
         talk right from the game.
       </>
     ),
-    image: (
-      <img
-        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/27b16819-341b-47f5-bd0a-a86d4f62e000/landing"
-        alt="Built-In Group Voice Chat"
-        class="rounded-lg shadow-lg   w-full object-cover"
-      />
-    ),
   },
   {
     title: <>Your People Play for FREE</>,
@@ -243,13 +252,6 @@ const features: Feature[] = [
         No screen sharing needed—just send over the game link! Your crew can
         join instantly, for free, no login required.
       </>
-    ),
-    image: (
-      <img
-        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6b226275-4f4d-47da-4cd1-93fc257b1e00/landing"
-        alt="Your People Play for FREE"
-        class="rounded-lg shadow-lg  w-full object-cover"
-      />
     ),
   },
 
@@ -261,42 +263,207 @@ const features: Feature[] = [
         crazier categories. Learn, laugh, and level up!
       </>
     ),
-    image: (
-      <img
-        src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/487c8358-a5ce-4a24-e8c2-4695cce69300/landing"
-        alt="Frequent Updates"
-        class="rounded-lg shadow-lg   w-full object-cover"
-      />
-    ),
   },
 ];
 
 const LandingPage: Component = () => {
-  return (
-    <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4">
-      <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-200  ">
-        <header class="text-center font-bold mb-6 flex flex-row  justify-center  ">
-          <div class="flex justify-end items-center w-1/12  ">
-            <Router>
-              <AccountMenu />
-            </Router>
+  const [activeSection, setActiveSection] = createSignal(1);
+  const cycleSections = () => {
+    setActiveSection((prev) => (prev % 3) + 1);
+  };
+
+  createEffect(() => {
+    const interval = setInterval(cycleSections, 4000);
+    return () => clearInterval(interval);
+  });
+
+  const desktopView = () => {
+    return (
+      <>
+        <div class="text-center font-bold   flex flex-row    mt-12 mb-36 ">
+          <a href="/">
+            <div class="flex flex-row w-1/6 justify-start items-center  ">
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-3xl text-gray-100">Commonly</span>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
+                Odd
+              </span>
+            </div>
+          </a>
+          <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+            <div class="flex flex-row items-center justify-center  text-xl">
+              <a href="#howitworks">
+                <div class="px-4">How it Works</div>
+              </a>
+              <a href="#features">
+                <div class="px-4">Features</div>
+              </a>
+              <a href="#pricing">
+                <div class="px-4">Pricing</div>
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-row w-1/6 justify-end items-center">
+            <div class="flex flex-row items-center justify-center ">
+              <div class="text-lg mr-4 ">
+                <a href={`${BASE_API}/login`}>
+                  <div class="w-[60px] ">Log in</div>
+                </a>
+              </div>
+              <div>
+                <Button
+                  variant="contained"
+                  href={`${BASE_API}/login`}
+                  sx={{
+                    width: "150px",
+                    height: "45px",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                >
+                  Get Started
+                </Button>{" "}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row my-4">
+          <div class="w-6/12 flex flex-col justify-end items-center mb-10">
+            <div>
+              <div class="text-7xl  text-center text-gray-300   flex justify-center items-center pt-2  px-2 pb-2">
+                Trivia nights, anywhere, anytime
+              </div>
+            </div>
+            <div>
+              <div class="text-2xl  text-center  text-gray-400  flex justify-center items-center pt-6 px-8">
+                A multiplayer browser trivia game designed for fun with the
+                crew.
+              </div>
+              <div class="flex flex-col justify-center items-center p-4">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  href={`${BASE_API}/login`}
+                  sx={{
+                    width: "300px",
+                    height: "60px",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                  }}
+                  class="flex justify-center items-center text-gray-300 bg-slate-900"
+                >
+                  Start Your Free 7-day Trial
+                </Button>
+              </div>
+            </div>
+          </div>
+          <div class="w-6/12 ">
+            <div class="flex flex-col space-y-6   pb-10  ">
+              {activeSection() === 1 && <SectionOne />}
+              {activeSection() === 2 && <SectionTwo />}
+              {activeSection() === 3 && <SectionThree />}
+            </div>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const mobileView = () => {
+    return (
+      <>
+        <div class="mt-4 mb-4">
+          <a href="/">
+            <div class="flex flex-row justify-center  text-center font-bold items-center">
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/40x40"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
+                Odd
+              </span>
+            </div>
+          </a>
+        </div>
+        <div class="flex flex-col my-4">
+          <div>
+            <div class="text-5xl  text-center text-gray-300   flex justify-center items-center p-4">
+              Trivia nights, anywhere, anytime
+            </div>
           </div>
 
-          <div class="flex flex-row items-center justify-center w-11/12">
-            <span class="pr-2 text-4xl">Commonly</span>
-            <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900">
-              Odd
-            </span>
+          <div class="flex flex-col space-y-6   mb-6  ">
+            {activeSection() === 1 && <SectionOne />}
+            {activeSection() === 2 && <SectionTwo />}
+            {activeSection() === 3 && <SectionThree />}
           </div>
-        </header>
-        <div class="flex flex-col space-y-6   pb-10  ">
-          {topSection.map((section) => (
-            <div>{section.section}</div>
-          ))}
+          <div class="text-2xl  text-center  text-gray-300   flex justify-center items-center  ">
+            A multiplayer browser trivia game designed for fun with the crew.
+          </div>
+          <div class="flex flex-col justify-center items-center p-4">
+            <div>
+              <Button
+                variant="contained"
+                color="secondary"
+                href={`${BASE_API}/login`}
+                sx={{
+                  width: "300px",
+                  height: "60px",
+                  fontSize: "16px",
+                  fontWeight: "bold",
+                }}
+                class="flex justify-center items-center text-gray-300 bg-slate-900"
+              >
+                Start Your Free 7-day Trial
+              </Button>
+            </div>
+            <div class="pt-6">
+              <Button
+                variant="outlined"
+                color="primary"
+                href={`${BASE_API}/login`}
+                sx={{
+                  width: "140px",
+                  height: "50px",
+                  fontSize: "13px",
+                  fontWeight: "bold",
+                  color: "#9ca3af",
+                }}
+                class="flex justify-center items-center text-gray-300 bg-slate-900"
+              >
+                Start Playing
+              </Button>
+            </div>
+          </div>
         </div>
-        <div class="mb-10 text-center text-4xl font-bold uppercase ">
+      </>
+    );
+  };
+
+  return (
+    <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
+      <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
+        <div class="hidden md:block">{desktopView()}</div>
+        <div class="block md:hidden">{mobileView()}</div>
+
+        <div
+          id="howitworks"
+          class="mb-10 text-center text-4xl font-bold  text-gray-200 "
+        >
+          How it Works
+        </div>
+        <div
+          id="features"
+          class="mb-10 text-center text-4xl font-bold  text-gray-200 "
+        >
           Features
         </div>
+
         <div class="w-full flex justify-center">
           <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-2 p-2   w-full justify-center   items-center">
             <For each={features}>
@@ -305,13 +472,11 @@ const LandingPage: Component = () => {
                   key={index()}
                   class="flex flex-col items-center   w-full  "
                 >
-                  <h2 class="  text-2xl font-bold text-gray-50 flex justify-center p-4">
+                  <h2 class="  text-2xl font-bold text-gray-300 flex justify-center p-4">
                     {feature.title}
                   </h2>
-                  <div class="overflow-hidden rounded-lg shadow-lg flex justify-center p-4 ">
-                    {feature.image}
-                  </div>
-                  <p class="text-xl   flex justify-center items-center p-6  ">
+
+                  <p class="text-xl text-slate-400  flex justify-center items-center p-6  ">
                     {feature.description}
                   </p>
                 </div>
@@ -319,6 +484,7 @@ const LandingPage: Component = () => {
             </For>
           </div>
         </div>
+
         <div class="flex flex-col space-y-6 divide-y pt-8 ">
           {bottomSection.map((section) => (
             <div>{section.section}</div>

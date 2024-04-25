@@ -552,7 +552,7 @@ export default function Voice() {
                 </Button>
               </div>
             </Show>
-            <span class="text-xs lg:text-sm text-center font-bold text-gray-50">
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
               <Show when={!isInChat()}>Join Call</Show>
               <Show when={isInChat()}>Leave Call</Show>
             </span>
@@ -567,19 +567,19 @@ export default function Voice() {
                 )}
               </Button>
             </div>
-            <span class="text-xs lg:text-sm text-center font-bold text-gray-50">
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
               {micMuted() ? "Mic On" : "Mic Off"}
             </span>
           </div>
         </div>
       </div>
-      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-50  ">
-        <div class="text-xs lg:text-sm  h-4 text-gray-50  font-bold flex justify-center mb-2   ">
+      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-300  ">
+        <div class="text-xs lg:text-sm  h-4 text-gray-300  font-bold flex justify-center mb-2   ">
           Group Voice Call
         </div>
 
         <div
-          class="users grid grid-cols-5 h-40 gap-1 items-center justify-start text-gray-50 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
+          class="users grid grid-cols-5 h-40 gap-1 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
           id="users"
         >
           <For each={users}>

@@ -385,7 +385,7 @@ export default function StartGame() {
             <PlayCircleOutlined fontSize="large" />
           </Button>
         </div>
-        <div class="text-center font-bold text-xs lg:text-sm text-gray-50  ">
+        <div class="text-center font-bold text-xs lg:text-sm text-gray-300  ">
           {getButtonLabel()}
         </div>
       </div>
