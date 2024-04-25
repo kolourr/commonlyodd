@@ -280,15 +280,15 @@ const LandingPage: Component = () => {
   const desktopView = () => {
     return (
       <>
-        <div class="text-center font-bold   flex flex-row    mt-12 mb-36 ">
+        <div class="text-center    flex flex-row    mt-12 mb-36 ">
           <a href="/">
-            <div class="flex flex-row w-1/6 justify-start items-center  ">
+            <div class="flex flex-row w-1/6 justify-start items-center font-bold  ">
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
                 alt="logo"
               />
-              <span class="pr-2 text-3xl text-gray-100">Commonly</span>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-3xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
                 Odd
               </span>
             </div>
@@ -380,7 +380,7 @@ const LandingPage: Component = () => {
           <a href="/">
             <div class="flex flex-row justify-center  text-center font-bold items-center">
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/40x40"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
                 alt="logo"
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
