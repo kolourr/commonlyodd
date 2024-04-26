@@ -280,7 +280,9 @@ const LandingPage: Component = () => {
   const desktopView = () => {
     return (
       <>
-        <div class="text-center    flex flex-row    mt-12 mb-36 ">
+        <Header />
+
+        {/* <div class="text-center    flex flex-row    mt-12 mb-28 ">
           <a href="/">
             <div class="flex flex-row w-1/6 justify-start items-center font-bold  ">
               <img
@@ -330,7 +332,7 @@ const LandingPage: Component = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div class="flex flex-row my-4">
           <div class="w-6/12 flex flex-col justify-end items-center mb-10">
             <div>

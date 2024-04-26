@@ -137,7 +137,7 @@ export default function AccountMenu() {
           textAlign: "center",
         }}
       >
-        <IconButton
+        {/* <IconButton
           title="Account settings"
           onClick={(event) => setAnchorEl(event.currentTarget)}
           size="small"
@@ -152,8 +152,141 @@ export default function AccountMenu() {
           }}
         >
           <Settings fontSize="medium" />
-        </IconButton>
+        </IconButton> */}
       </Box>
+      <Show when={!userSubstatus() && !isAuthenticated()}>
+        <div class="text-center    flex flex-row    mt-12 mb-28 ">
+          <a href="/">
+            <div class="flex flex-row w-1/6 justify-start items-center font-bold  ">
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
+                Odd
+              </span>
+            </div>
+          </a>
+          <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+            <div class="flex flex-row items-center justify-center  text-xl">
+              <a href="#howitworks">
+                <div class="px-4">How it Works</div>
+              </a>
+              <a href="#features">
+                <div class="px-4">Features</div>
+              </a>
+              <a href="#pricing">
+                <div class="px-4">Pricing</div>
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-row w-1/6 justify-end items-center">
+            <div class="flex flex-row items-center justify-center ">
+              <div class="text-lg mr-4 ">
+                <a href={`${BASE_API}/login`}>
+                  <div class="w-[60px] ">Log in</div>
+                </a>
+              </div>
+              <div>
+                <Button
+                  variant="contained"
+                  href={`${BASE_API}/login`}
+                  sx={{
+                    width: "150px",
+                    height: "45px",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                >
+                  Get Started
+                </Button>{" "}
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* <Menu
+          anchorEl={anchorEl()}
+          id="account-menu"
+          open={open()}
+          onClose={handleClose}
+          onClick={handleClose}
+          PaperProps={{
+            elevation: 0,
+            sx: {
+              backgroundImage:
+                "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+
+              overflow: "visible",
+              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
+
+              mt: 1.5,
+              ["& .MuiAvatar-root"]: {
+                width: 32,
+                height: 32,
+                ml: -0.5,
+                mr: 1,
+              },
+              "&:before": {
+                content: '""',
+                display: "block",
+                position: "absolute",
+                top: 0,
+                right: 14,
+                width: 10,
+                height: 10,
+                zIndex: 0,
+              },
+              "& .MuiMenuItem-root": {
+                minHeight: "24px",
+                "&:hover": {
+                  backgroundColor: "rgba(255, 255, 255, 0.08)",
+                },
+              },
+            },
+          }}
+        >
+          <MenuItem onClick={handleLogin} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <LoginOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Login</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <HomeOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Dashboard</Typography>
+          </MenuItem>
+          <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <NotesRounded />
+            </ListItemIcon>
+            <Typography variant="body1">Tutorial</Typography>
+          </MenuItem>
+          <MenuItem style={dialogTextStyle}>
+            <ListItemIcon style={dialogTextStyle}>
+              <PlayCircleOutlineOutlined />
+            </ListItemIcon>
+            <Typography variant="body1">Tutorial (video)</Typography>
+          </MenuItem>
+          <Show when={onGamePage()}>
+            <Divider sx={{ borderColor: "#f9fafb" }} />
+            <MenuItem
+              onClick={handleClickOpenEndGameSession}
+              style={dialogTextStyle}
+            >
+              <ListItemIcon style={dialogTextStyle}>
+                <CancelOutlined />
+              </ListItemIcon>
+              <Typography variant="body1"> End Game</Typography>
+            </MenuItem>
+          </Show>
+        </Menu> */}
+      </Show>
+
+      {/* Authorized and subbed */}
       <Show when={isAuthenticated() && userSubstatus()}>
         <Menu
           anchorEl={anchorEl()}
@@ -246,86 +379,7 @@ export default function AccountMenu() {
           </MenuItem>
         </Menu>
       </Show>
-      <Show when={!userSubstatus() && !isAuthenticated()}>
-        <Menu
-          anchorEl={anchorEl()}
-          id="account-menu"
-          open={open()}
-          onClose={handleClose}
-          onClick={handleClose}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              backgroundImage:
-                "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
 
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-
-              mt: 1.5,
-              ["& .MuiAvatar-root"]: {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1,
-              },
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                zIndex: 0,
-              },
-              "& .MuiMenuItem-root": {
-                minHeight: "24px",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                },
-              },
-            },
-          }}
-        >
-          <MenuItem onClick={handleLogin} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <LoginOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Login</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <HomeOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Dashboard</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <NotesRounded />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial</Typography>
-          </MenuItem>
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PlayCircleOutlineOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial (video)</Typography>
-          </MenuItem>
-          <Show when={onGamePage()}>
-            <Divider sx={{ borderColor: "#f9fafb" }} />
-            <MenuItem
-              onClick={handleClickOpenEndGameSession}
-              style={dialogTextStyle}
-            >
-              <ListItemIcon style={dialogTextStyle}>
-                <CancelOutlined />
-              </ListItemIcon>
-              <Typography variant="body1"> End Game</Typography>
-            </MenuItem>
-          </Show>
-        </Menu>
-      </Show>
       {/* Authorized but not subbed */}
 
       <Show when={isAuthenticated() && !userSubstatus()}>
