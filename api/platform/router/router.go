@@ -11,6 +11,7 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
+	"github.com/newrelic/go-agent/v3/integrations/logcontext-v2/logWriter"
 	"github.com/newrelic/go-agent/v3/integrations/nrgin"
 	"github.com/newrelic/go-agent/v3/newrelic"
 
@@ -50,14 +51,20 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 
 	//setup NewRelic
 	app, err := newrelic.NewApplication(
-		newrelic.ConfigAppName("API - Commonly Odd"),
+		newrelic.ConfigAppName("Commonly Odd API"),
 		newrelic.ConfigLicense(os.Getenv("NEW_RELIC_LICENSE_KEY")),
 		newrelic.ConfigAppLogEnabled(true),
 		newrelic.ConfigAppLogForwardingEnabled(true),
 		newrelic.ConfigCodeLevelMetricsEnabled(true),
 	)
+
+	var logger *log.Logger
 	if err != nil {
 		log.Println("Error initializing NewRelic: ", err)
+	} else {
+		lw := logWriter.New(os.Stdout, app)
+		logger = log.New(lw, "", log.LstdFlags)
+		logger.Println("NewRelic initialized successfully")
 
 	}
 
@@ -96,6 +103,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 
 	// Setup routes
 	router.GET("/health", func(ctx *gin.Context) {
+		logger.Println("Health check accessed")
 		ctx.JSON(200, gin.H{
 			"status": "UP",
 		})
