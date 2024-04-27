@@ -1,12 +1,19 @@
 import { Component } from "solid-js";
 import Header from "./header";
 import Footer from "./footer";
+import HeaderMobile from "./header_mobile";
 
 const CookiePolicy: Component = () => {
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
       <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
-        <Header />
+        <div class="hidden md:block">
+          {" "}
+          <Header />
+        </div>
+        <div class="block md:hidden">
+          <HeaderMobile />
+        </div>
         <main class="flex flex-col gap-4">
           <div class="text-3xl font-bold text-center">Cookie Policy</div>
           <div class="text-center">Effective Date: April 13, 2024</div>

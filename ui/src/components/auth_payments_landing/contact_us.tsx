@@ -3,6 +3,7 @@ import { Box, Button } from "@suid/material";
 import Header from "./header";
 import Footer from "./footer";
 import { checkAuth } from "./use_auth";
+import HeaderMobile from "./header_mobile";
 
 interface SubmitResult {
   error?: string;
@@ -93,7 +94,13 @@ const ContactUsForm: Component = () => {
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
       <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
-        <Header />
+        <div class="hidden md:block">
+          {" "}
+          <Header />
+        </div>
+        <div class="block md:hidden">
+          <HeaderMobile />
+        </div>
 
         <div class="flex flex-col gap-4">
           <div class="text-3xl font-bold text-center">Contact Us</div>
