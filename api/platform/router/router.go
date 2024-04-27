@@ -50,7 +50,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 
 	//setup NewRelic
 	app, err := newrelic.NewApplication(
-		newrelic.ConfigAppName("Commonly Odd API"),
+		newrelic.ConfigAppName("API - Commonly Odd"),
 		newrelic.ConfigLicense(os.Getenv("NEW_RELIC_LICENSE_KEY")),
 		newrelic.ConfigAppLogEnabled(true),
 		newrelic.ConfigAppLogForwardingEnabled(true),
