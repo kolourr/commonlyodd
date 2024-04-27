@@ -97,16 +97,18 @@ export default function Score() {
                 onChange={handleChange}
                 style={dialogTextStyle}
                 sx={{
-                  color: "#f9fafb",
-                  "&.Mui-checked": {
+                  "& .MuiRadio-root": {
                     color: "#f9fafb",
+                    "&:hover": {
+                      bgcolor: "transparent",
+                    },
                   },
-                  "&:hover": {
-                    bgcolor: "transparent",
+                  "& .MuiRadio-colorPrimary.Mui-checked": {
+                    color: "#f9fafb",
                   },
                 }}
               >
-                <div class="flex flex-row justify-center px-6 py-4">
+                <div class="flex flex-row   justify-center px-6 py-4">
                   <FormControlLabel
                     value="0"
                     control={<Radio />}

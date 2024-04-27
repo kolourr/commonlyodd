@@ -83,8 +83,7 @@ export default function EndSessionMessage() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            Are you sure you want to{" "}
-            <span class="text-error-700"> end the session</span>?
+            Are you sure you want to end the session?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

@@ -1,28 +1,22 @@
 import { Router } from "solid-app-router";
-import { lazy, type Component } from "solid-js";
-const Game = lazy(() => import("./components/game"));
+import { Component } from "solid-js";
+import Game from "./components/game";
 import { ThemeProvider } from "@suid/material/styles";
 import theme from "./theme";
 import CookieConsent from "./components/auth_payments_landing/cookie_consent";
-
-const ConfirmStartDialog = lazy(
-  () => import("./components/game/start_session/confirm_start")
-);
-
-const ConfirmStartNewGameDialog = lazy(
-  () => import("./components/game/end/confirm_new_game_start")
-);
+import ConfirmStartDialog from "./components/game/start_session/confirm_start";
+import ConfirmStartNewGameDialog from "./components/game/end/confirm_new_game_start";
 
 const App: Component = () => {
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Router>
         <Game />
         <ConfirmStartDialog />
         <ConfirmStartNewGameDialog />
-      </ThemeProvider>
-      <CookieConsent />
-    </Router>
+        <CookieConsent />
+      </Router>
+    </ThemeProvider>
   );
 };
 

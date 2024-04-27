@@ -8,6 +8,11 @@ const theme = createTheme({
     secondary: {
       main: "#d1d5db",
     },
+
+    warning: {
+      main: "#1976D2",
+    },
+
     action: {
       disabled: "#3f3f46",
     },

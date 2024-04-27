@@ -14,6 +14,7 @@ import Header from "./header";
 import { Router } from "solid-app-router";
 import AccountMenu from "../settings";
 import FAQitems from "./faq_items";
+import HeaderMobile from "./header_mobile";
 
 const BASE_API = import.meta.env.CO_API_URL;
 const [highlightName, setHighlightName] = createSignal("Garlic");
@@ -210,7 +211,7 @@ const bottomSection: SectionProps[] = [
     section: (
       <div class="section-container">
         <div
-          id="pricing"
+          id="pricing-plans"
           class="  text-gray-300 mb-3 flex justify-center text-4xl font-bold  "
         >
           Pricing
@@ -281,58 +282,6 @@ const LandingPage: Component = () => {
     return (
       <>
         <Header />
-
-        {/* <div class="text-center    flex flex-row    mt-12 mb-28 ">
-          <a href="/">
-            <div class="flex flex-row w-1/6 justify-start items-center font-bold  ">
-              <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
-                alt="logo"
-              />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
-                Odd
-              </span>
-            </div>
-          </a>
-          <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
-            <div class="flex flex-row items-center justify-center  text-xl">
-              <a href="#howitworks">
-                <div class="px-4">How it Works</div>
-              </a>
-              <a href="#features">
-                <div class="px-4">Features</div>
-              </a>
-              <a href="#pricing">
-                <div class="px-4">Pricing</div>
-              </a>
-            </div>
-          </div>
-          <div class="flex flex-row w-1/6 justify-end items-center">
-            <div class="flex flex-row items-center justify-center ">
-              <div class="text-lg mr-4 ">
-                <a href={`${BASE_API}/login`}>
-                  <div class="w-[60px] ">Log in</div>
-                </a>
-              </div>
-              <div>
-                <Button
-                  variant="contained"
-                  href={`${BASE_API}/login`}
-                  sx={{
-                    width: "150px",
-                    height: "45px",
-                    fontSize: "16px",
-                    fontWeight: "bold",
-                    color: "white",
-                  }}
-                >
-                  Get Started
-                </Button>{" "}
-              </div>
-            </div>
-          </div>
-        </div> */}
         <div class="flex flex-row my-4">
           <div class="w-6/12 flex flex-col justify-end items-center mb-10">
             <div>
@@ -378,20 +327,7 @@ const LandingPage: Component = () => {
   const mobileView = () => {
     return (
       <>
-        <div class="mt-4 mb-4">
-          <a href="/">
-            <div class="flex flex-row justify-center  text-center font-bold items-center">
-              <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
-                alt="logo"
-              />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
-                Odd
-              </span>
-            </div>
-          </a>
-        </div>
+        <HeaderMobile />
         <div class="flex flex-col my-4">
           <div>
             <div class="text-5xl  text-center text-gray-300   flex justify-center items-center p-4">
@@ -422,23 +358,6 @@ const LandingPage: Component = () => {
                 class="flex justify-center items-center text-gray-300 bg-slate-900"
               >
                 Start Your Free 7-day Trial
-              </Button>
-            </div>
-            <div class="pt-6">
-              <Button
-                variant="outlined"
-                color="primary"
-                href={`${BASE_API}/login`}
-                sx={{
-                  width: "140px",
-                  height: "50px",
-                  fontSize: "13px",
-                  fontWeight: "bold",
-                  color: "#9ca3af",
-                }}
-                class="flex justify-center items-center text-gray-300 bg-slate-900"
-              >
-                Start Playing
               </Button>
             </div>
           </div>

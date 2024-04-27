@@ -70,12 +70,7 @@ export default function EndSession() {
       }, 1000); // Adjust the delay as needed
     } catch (error) {
       console.error("Failed to end session:", error);
-      setDialogContent(
-        <>
-          <span class="text-error-700">Error</span>ending session. Please try
-          again.
-        </>
-      );
+      setDialogContent(<>Error ending session. Please try again.</>);
       setDialogOpen(true);
     } finally {
       setLoading(false);

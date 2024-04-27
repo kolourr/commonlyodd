@@ -43,21 +43,12 @@ async function startNewGame() {
     sendMessage(message);
 
     //   Notify user
-    setDialogContent(
-      <>
-        New game created <span class="text-success-700">successfully</span>.
-      </>
-    );
+    setDialogContent(<>New game created successfully.</>);
 
     setDialogOpen(true);
   } catch (error) {
     console.error("Failed to start new game:", error);
-    setDialogContent(
-      <>
-        <span class="text-error-700">Error</span> starting new game. Please try
-        again.
-      </>
-    );
+    setDialogContent(<>Error starting new game. Please try again.</>);
     setDialogOpen(true);
   } finally {
     setLoading(false);
@@ -81,11 +72,9 @@ export default function ConfirmStartNewGameDialog() {
         <DialogTitle style={dialogTextStyle}>Confirm Game Settings</DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            You have selected{" "}
-            <span class="text-error-700">{selectedTeams()}</span> team(s) with a
-            target score of{" "}
-            <span class="text-error-700">{selectedScore()}</span>. Are you sure
-            you want to start the session with these settings?
+            You have selected {selectedTeams()} team(s) with a target score of{" "}
+            {selectedScore()}. Are you sure you want to start the session with
+            these settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

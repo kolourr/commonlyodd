@@ -52,12 +52,7 @@ export default function EndGame() {
         location.reload();
       }, 1000); // Adjust the delay as needed
     } catch (error) {
-      setDialogContent(
-        <>
-          <span class="text-error-700">Error</span>ending game. Please try
-          again.
-        </>
-      );
+      setDialogContent(<>Error ending game. Please try again.</>);
       setDialogOpen(true);
     } finally {
       setLoading(false);
@@ -96,8 +91,7 @@ export default function EndGame() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            Are you sure you want to{" "}
-            <span class="text-error-700"> end this game</span>?
+            Are you sure you want to end this game?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

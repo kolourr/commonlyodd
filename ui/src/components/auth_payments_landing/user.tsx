@@ -13,6 +13,7 @@ import AccountMenu from "../settings";
 import PricingPlans from "./pricing_plans";
 import Footer from "./footer";
 import Header from "./header";
+import HeaderMobile from "./header_mobile";
 
 const BASE_API = import.meta.env.CO_API_URL;
 
@@ -72,9 +73,15 @@ const User = () => {
   });
 
   return (
-    <div class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
-      <div class="flex flex-col    max-w-5xl  mx-auto min-h-screen     bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900">
-        <Header />
+    <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
+      <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
+        <div class="hidden md:block">
+          {" "}
+          <Header />
+        </div>
+        <div class="block md:hidden">
+          <HeaderMobile />
+        </div>
 
         <Show when={!subscriptionStatus() && paymentFailed()}>
           <div class="text-xl lg:text-2xl text-gray-300 flex justify-center px-4 ">
@@ -116,6 +123,12 @@ const User = () => {
             trial now
           </div>
 
+          <div
+            id="pricingplans"
+            class="  text-gray-300 mb-3 flex justify-center text-4xl font-bold  "
+          >
+            Pricing
+          </div>
           <div class="flex flex-row justify-center">
             <PricingPlans />
           </div>

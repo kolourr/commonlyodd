@@ -1,39 +1,21 @@
 /* @refresh reload */
 import "./index.css";
 import { render } from "solid-js/web";
+import { Router, Routes, Route } from "@solidjs/router";
 import App from "./App";
-import { Router, Route, Routes } from "@solidjs/router";
-import { lazy } from "solid-js";
+
+import User from "./components/auth_payments_landing/user";
+import LandingPage from "./components/auth_payments_landing/landing";
+import Success from "./components/auth_payments_landing/success";
+import Failure from "./components/auth_payments_landing/failure";
+import TermsOfUse from "./components/auth_payments_landing/terms_of_use";
+import PrivacyPolicy from "./components/auth_payments_landing/privacy_policy";
+import ContactUs from "./components/auth_payments_landing/contact_us";
+import CookiePolicy from "./components/auth_payments_landing/cookie_policy";
+import Faq from "./components/auth_payments_landing/faq";
+import Rules from "./components/auth_payments_landing/rules";
 
 const root = document.getElementById("root");
-const User = lazy(() => import("./components/auth_payments_landing/user"));
-const LandingPage = lazy(
-  () => import("./components/auth_payments_landing/landing")
-);
-const Success = lazy(
-  () => import("./components/auth_payments_landing/success")
-);
-const Failure = lazy(
-  () => import("./components/auth_payments_landing/failure")
-);
-
-const TermsOfUse = lazy(
-  () => import("./components/auth_payments_landing/terms_of_use")
-);
-
-const PrivacyPolicy = lazy(
-  () => import("./components/auth_payments_landing/privacy_policy")
-);
-
-const ContactUs = lazy(
-  () => import("./components/auth_payments_landing/contact_us")
-);
-
-const CookiePolicy = lazy(
-  () => import("./components/auth_payments_landing/cookie_policy")
-);
-
-const Faq = lazy(() => import("./components/auth_payments_landing/faq"));
 
 if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
   throw new Error(
@@ -43,24 +25,22 @@ if (import.meta.env.DEV && !(root instanceof HTMLElement)) {
 
 render(
   () => (
-    <>
-      <Router>
-        <Routes>
-          <Route path="/user" component={User} />
-          <Route path="/" component={LandingPage} />
-          <Route path="/game" component={App} />
-          <Route path="/game/join" component={App} />
-          <Route path="/success" component={Success} />
-          <Route path="/cancel" component={Failure} />
-          <Route path="/terms-of-use" component={TermsOfUse} />
-          <Route path="/privacy-policy" component={PrivacyPolicy} />
-          <Route path="/contact-us" component={ContactUs} />
-          <Route path="/cookie-policy" component={CookiePolicy} />
-
-          <Route path="/faq" component={Faq} />
-        </Routes>
-      </Router>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/user" element={<User />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/game" element={<App />} />
+        <Route path="/game/join" element={<App />} />
+        <Route path="/success" element={<Success />} />
+        <Route path="/cancel" element={<Failure />} />
+        <Route path="/terms-of-use" element={<TermsOfUse />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/rules" element={<Rules />} />
+      </Routes>
+    </Router>
   ),
-  root!
+  root
 );

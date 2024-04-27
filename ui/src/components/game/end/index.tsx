@@ -47,7 +47,7 @@ export default function NewGameEndSession(props: GameWinner) {
       >
         <DialogTitle id="alert-dialog-title" style={dialogTextStyle}>
           Congrats{" "}
-          <span class="font-bold text-success-700">{props.game_winner}</span> on
+          <span class="font-bold text-success-800">{props.game_winner}</span> on
           winning the game!
         </DialogTitle>
         <Show when={isSessionStarter()}>

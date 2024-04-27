@@ -41,6 +41,8 @@ import "./styles.css";
 import { gameWinner } from "./start_game";
 import confetti from "canvas-confetti";
 import Footer from "../auth_payments_landing/footer";
+import Header from "../auth_payments_landing/header";
+import HeaderMobile from "../auth_payments_landing/header_mobile";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -188,16 +190,25 @@ export default function Game() {
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
       <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
-        <Router>
-          <AccountMenu />
-        </Router>
+        <div class="hidden md:block">
+          {" "}
+          <Header />
+        </div>
+        <div class="block md:hidden">
+          <HeaderMobile />
+        </div>
 
         <div class="flex h-24 ">
           <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
             <Show when={isAuthenticated() && userSubstatus()}>
               <StartSession />
             </Show>
-            <Show when={!isAuthenticated() && !userSubstatus()}>
+            <Show
+              when={
+                (!isAuthenticated() && !userSubstatus()) ||
+                (isAuthenticated() && !userSubstatus())
+              }
+            >
               <div class="flex flex-col">
                 <Button
                   disabled={true}
@@ -249,9 +260,9 @@ export default function Game() {
           </div>
         </div>
 
-        <div class="flex flex-col h-20 ">
+        <div class="flex flex-col h-20 mb-6">
           <div
-            class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-300 h-28    p-4 break-words "
+            class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-300 h-28    p-4 break-words mb-4"
             id="gameInfo"
           >
             {gameInfo()}

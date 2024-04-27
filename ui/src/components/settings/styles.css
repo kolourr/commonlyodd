@@ -1,0 +1,75 @@
+/* Base styles for the entire layout and transitions */
+.menu {
+  position: fixed;
+  width: 250px; /* Width of the sliding menu */
+  top: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%); /* Start hidden off-screen */
+  transition: transform 0.3s ease-in-out; /* Smooth transition for sliding effect */
+  background-color: #333; /* Background color of the menu */
+  z-index: 1000; /* Ensure it's above other content */
+  overflow-y: auto; /* Allows scrolling within the menu */
+  padding: 20px; /* Padding for internal spacing */
+}
+
+.menu-open {
+  transform: translateX(0); /* Slide in */
+}
+
+.content {
+  transition: transform 0.3s ease-in-out; /* Smooth transition for content shift */
+}
+
+.content-shift {
+  transform: translateX(250px); /* Shift content to the right */
+}
+
+/* Styling for menu items */
+.menu-item {
+  color: #fff; /* Text color for menu items */
+  text-decoration: none; /* No underline for links */
+  display: block; /* Block display to stack vertically */
+  margin: 10px 0; /* Margin for spacing */
+  padding: 10px; /* Padding for touch targets */
+}
+
+.menu-item:hover {
+  background-color: #444; /* Hover effect for menu items */
+}
+
+/* Icon styling within menu items */
+.menu-icon {
+  margin-right: 10px; /* Space between icon and text */
+  vertical-align: middle; /* Align icons with text */
+}
+
+/* Styles for the toggle button and menu button */
+.menu-button {
+  background-color: #f9fafb; /* Button background */
+  border: none; /* No border */
+  padding: 10px 20px; /* Padding inside the button */
+  font-size: 16px; /* Text size inside the button */
+  cursor: pointer; /* Cursor indicates clickable */
+}
+
+.menu-button:hover {
+  background-color: #e2e2e2; /* Hover effect for button */
+}
+
+/* SVG icon styling */
+svg {
+  fill: #fff; /* Color of SVG icons */
+  cursor: pointer; /* Indicates clickable */
+}
+
+/* Adjustments for mobile viewports */
+@media (max-width: 768px) {
+  .content-shift {
+    transform: translateX(200px); /* Smaller shift for smaller screens */
+  }
+
+  .menu {
+    width: 200px; /* Narrower menu on small screens */
+  }
+}

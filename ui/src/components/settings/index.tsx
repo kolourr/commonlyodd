@@ -1,14 +1,4 @@
 import {
-  Box,
-  Menu,
-  MenuItem,
-  ListItemIcon,
-  Divider,
-  IconButton,
-  Typography,
-  Modal,
-  ListItem,
-  List,
   Slide,
   Dialog,
   DialogContent,
@@ -21,33 +11,26 @@ import {
   JSXElement,
   Show,
   createEffect,
+  createResource,
   createSignal,
   onMount,
 } from "solid-js";
 import {
-  PlayCircleOutlineOutlined,
-  PolicyOutlined,
-  Settings,
-  SecurityRounded,
   NotesRounded,
-  PersonPinOutlined,
   LogoutOutlined,
-  CancelOutlined,
   HomeOutlined,
   CardMembershipOutlined,
-  PeopleAltOutlined,
-  EmailOutlined,
   DeleteForeverOutlined,
-  LoginOutlined,
 } from "@suid/icons-material";
-import useTheme from "@suid/material/styles/useTheme";
-import { userSubstatus } from "../auth_payments_landing/subscription_status";
 import { checkAuth } from "../auth_payments_landing/use_auth";
 import { TransitionProps } from "@suid/material/transitions";
 import EndSessionLogout from "./endsession_logout";
 import { handleClickOpenEndGameSession } from "../game/end_game_session";
 import { stripePortal } from "../auth_payments_landing/stripe_portal";
 import DeleteAccount from "./delete_account";
+import { useLocation, useNavigate } from "solid-app-router";
+import { fetchSubStatus } from "../auth_payments_landing/user";
+import LightsUp from "./lights_up";
 
 const Transition = function Transition(
   props: TransitionProps & {
@@ -64,20 +47,13 @@ const dialogTextStyle = {
 const BASE_API = import.meta.env.CO_API_URL;
 
 export default function AccountMenu() {
-  const [anchorEl, setAnchorEl] = createSignal<null | HTMLElement>(null);
-  const [modalOpen, setModalOpen] = createSignal(false);
   const [isAuthenticated, setIsAuthenticated] = createSignal(false);
   const [openLogout, setOpenLogout] = createSignal(false);
-  const [onGamePage, setOnGamePage] = createSignal(false);
   const [openDeleteAccount, setOpenDeleteAccount] = createSignal(false);
-
-  const theme = useTheme();
-
-  //Menu
-  const open = () => Boolean(anchorEl());
-  const handleClose = () => setAnchorEl(null);
-  const handleModalOpen = () => setModalOpen(true);
-  const handleModalClose = () => setModalOpen(false);
+  const location = useLocation();
+  const [subscriptionStatus, { refetch: refetchSubStatus }] =
+    createResource(fetchSubStatus);
+  const navigate = useNavigate();
 
   //Logout
   const handleClickOpenLogout = () => {
@@ -96,15 +72,23 @@ export default function AccountMenu() {
   };
 
   const handleDashboardNavigate = () => {
-    if (isAuthenticated()) {
-      window.open("/user", "_blank");
-    } else {
-      window.open("/", "_blank");
-    }
+    window.location.href = `/user`;
   };
 
-  const handleLogin = () => {
-    window.location.href = `${BASE_API}/login`;
+  const handleNavigateRules = () => {
+    window.location.href = `/rules`;
+  };
+
+  const handlePricingPlans = () => {
+    window.location.href = `/user#pricingplans`;
+  };
+
+  const handlePlayGame = () => {
+    window.location.href = `/game`;
+  };
+
+  const handleHome = () => {
+    window.location.href = `/`;
   };
 
   createEffect(async () => {
@@ -113,51 +97,22 @@ export default function AccountMenu() {
   });
 
   onMount(() => {
-    const path = window.location.pathname;
-    const urlParams = new URLSearchParams(window.location.search);
-    if (path === "/game" || urlParams.has("session")) {
-      setOnGamePage(true);
-    }
-  });
-
-  createEffect(async () => {
-    const auth = await checkAuth();
-    setIsAuthenticated(auth);
-    // if (!auth) {
-    //   window.location.href = "/"; // Redirect if not authenticated
-    // }
+    //refresh subscription status after 0.3 seconds
+    setTimeout(() => {
+      refetchSubStatus();
+    }, 300);
   });
 
   return (
     <>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        {/* <IconButton
-          title="Account settings"
-          onClick={(event) => setAnchorEl(event.currentTarget)}
-          size="small"
-          sx={{ ml: 2 }}
-          aria-controls={open() ? "account-menu" : undefined}
-          aria-haspopup="true"
-          aria-expanded={open() ? "true" : undefined}
-          style={{
-            color: "#f4f4f5",
-            "font-weight": "bold",
-            "text-align": "center",
-          }}
-        >
-          <Settings fontSize="medium" />
-        </IconButton> */}
-      </Box>
-      <Show when={!userSubstatus() && !isAuthenticated()}>
-        <div class="text-center    flex flex-row    mt-12 mb-28 ">
-          <a href="/">
-            <div class="flex flex-row w-1/6 justify-start items-center font-bold  ">
+      <Show when={!subscriptionStatus() && !isAuthenticated()}>
+        <Show when={location.pathname === "/"}>
+          <div class="text-center    flex flex-row    mt-6 mb-24 ">
+            <div
+              onClick={handleHome}
+              style={{ cursor: "pointer" }}
+              class="flex flex-row w-1/6 justify-start items-center font-bold  "
+            >
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
                 alt="logo"
@@ -167,31 +122,198 @@ export default function AccountMenu() {
                 Odd
               </span>
             </div>
-          </a>
-          <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
-            <div class="flex flex-row items-center justify-center  text-xl">
-              <a href="#howitworks">
-                <div class="px-4">How it Works</div>
-              </a>
-              <a href="#features">
-                <div class="px-4">Features</div>
-              </a>
-              <a href="#pricing">
-                <div class="px-4">Pricing</div>
-              </a>
-            </div>
-          </div>
-          <div class="flex flex-row w-1/6 justify-end items-center">
-            <div class="flex flex-row items-center justify-center ">
-              <div class="text-lg mr-4 ">
-                <a href={`${BASE_API}/login`}>
-                  <div class="w-[60px] ">Log in</div>
+
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+              <div class="flex flex-row items-center justify-center  text-xl">
+                <a href="#howitworks">
+                  <div class="px-4">How it Works</div>
+                </a>
+                <a href="#features">
+                  <div class="px-4">Features</div>
+                </a>
+                <a href="#pricing-plans">
+                  <div class="px-4">Pricing</div>
                 </a>
               </div>
-              <div>
+            </div>
+            <div class="flex flex-row w-1/6 justify-end items-center">
+              <div class="flex flex-row items-center justify-center ">
+                <div class="text-lg mr-4 ">
+                  <a href={`${BASE_API}/login`}>
+                    <div class="w-[60px] ">Log in</div>
+                  </a>
+                </div>
+                <div>
+                  <Button
+                    variant="contained"
+                    href={`${BASE_API}/login`}
+                    sx={{
+                      width: "150px",
+                      height: "45px",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >
+                    Get Started
+                  </Button>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Show>
+        <Show when={location.pathname !== "/" && location.pathname !== "/game"}>
+          <div class="text-center    flex flex-row     mt-6   ">
+            <div
+              onClick={handleHome}
+              style={{ cursor: "pointer" }}
+              class="flex flex-row w-1/6 justify-start items-center font-bold  "
+            >
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
+                Odd
+              </span>
+            </div>
+
+            <div class="w-4/6 "></div>
+            <div class="flex flex-row w-1/6 justify-end items-center">
+              <div class="flex flex-row items-center justify-center ">
+                <div class="text-lg mr-4 ">
+                  <a href={`${BASE_API}/login`} style={{ cursor: "pointer" }}>
+                    <div class="w-[60px] ">Log in</div>
+                  </a>
+                </div>
+                <div>
+                  <Button
+                    variant="contained"
+                    href={`${BASE_API}/login`}
+                    sx={{
+                      width: "150px",
+                      height: "45px",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >
+                    Get Started
+                  </Button>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Show>
+        <Show when={location.pathname === "/game"}>
+          <div class="text-center    flex flex-row     mt-6   ">
+            <div
+              onClick={handleHome}
+              style={{ cursor: "pointer" }}
+              class="flex flex-row w-1/6 justify-start items-center font-bold  "
+            >
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <LightsUp />
+            </div>
+
+            <div class="w-4/6 "></div>
+            <div class="flex flex-row w-1/6 justify-end items-center">
+              <div class="flex flex-row items-center justify-center ">
+                <div class="text-lg mr-4 ">
+                  <div
+                    onClick={handleClickOpenEndGameSession}
+                    style={{ cursor: "pointer" }}
+                    class="w-[100px] "
+                  >
+                    End Game
+                  </div>
+                </div>
+                <div>
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    href={`${BASE_API}/login`}
+                    sx={{
+                      width: "150px",
+                      height: "45px",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >
+                    sign Up
+                  </Button>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Show>
+      </Show>
+
+      {/* Authentication but not subbed */}
+      <Show when={isAuthenticated() && !subscriptionStatus()}>
+        <Show when={location.pathname !== "/game"}>
+          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+            <div
+              onClick={handleHome}
+              style={{ cursor: "pointer" }}
+              class="flex flex-row w-1/6 justify-start items-center font-bold  "
+            >
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
+                Odd
+              </span>
+            </div>
+
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+              <div class="   cursor-pointer relative group w-44">
+                <div
+                  onClick={handleDashboardNavigate}
+                  class="text-xl   text-white hover:bg-slate-700 p-2 flex items-center"
+                >
+                  <HomeOutlined class="mr-2" />
+                  Dashboard
+                </div>
+                <div class="absolute w-44 left-0 top-full hidden group-hover:block bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md z-10">
+                  <div
+                    onClick={handleNavigateRules}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <NotesRounded class="mr-2" />
+                    Rules
+                  </div>
+                  <div
+                    onClick={handleOpenDeleteAccount}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <DeleteForeverOutlined class="mr-2" />
+                    Delete Account
+                  </div>
+                  <div
+                    onClick={handleClickOpenLogout}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <LogoutOutlined class="mr-2" />
+                    Logout
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-row w-1/6 justify-end items-center">
+              <div class="flex flex-row items-center justify-center ">
                 <Button
                   variant="contained"
-                  href={`${BASE_API}/login`}
+                  onClick={handlePricingPlans}
                   sx={{
                     width: "150px",
                     height: "45px",
@@ -200,280 +322,254 @@ export default function AccountMenu() {
                     color: "white",
                   }}
                 >
-                  Get Started
+                  Start Trial
                 </Button>{" "}
               </div>
             </div>
           </div>
-        </div>
-        {/* <Menu
-          anchorEl={anchorEl()}
-          id="account-menu"
-          open={open()}
-          onClose={handleClose}
-          onClick={handleClose}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              backgroundImage:
-                "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
-
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-
-              mt: 1.5,
-              ["& .MuiAvatar-root"]: {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1,
-              },
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                zIndex: 0,
-              },
-              "& .MuiMenuItem-root": {
-                minHeight: "24px",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                },
-              },
-            },
-          }}
-        >
-          <MenuItem onClick={handleLogin} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <LoginOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Login</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <HomeOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Dashboard</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <NotesRounded />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial</Typography>
-          </MenuItem>
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PlayCircleOutlineOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial (video)</Typography>
-          </MenuItem>
-          <Show when={onGamePage()}>
-            <Divider sx={{ borderColor: "#f9fafb" }} />
-            <MenuItem
-              onClick={handleClickOpenEndGameSession}
-              style={dialogTextStyle}
+        </Show>
+        <Show when={location.pathname === "/game"}>
+          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+            <div
+              onClick={handleHome}
+              style={{ cursor: "pointer" }}
+              class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
-              <ListItemIcon style={dialogTextStyle}>
-                <CancelOutlined />
-              </ListItemIcon>
-              <Typography variant="body1"> End Game</Typography>
-            </MenuItem>
-          </Show>
-        </Menu> */}
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <LightsUp />
+            </div>
+
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+              <div class="   cursor-pointer relative group w-44">
+                <div
+                  onClick={handleDashboardNavigate}
+                  class="text-xl   text-white hover:bg-slate-700 p-2 flex items-center"
+                >
+                  <HomeOutlined class="mr-2" />
+                  Dashboard
+                </div>
+                <div class="absolute w-44 left-0 top-full hidden group-hover:block bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md z-10">
+                  <div
+                    onClick={handleNavigateRules}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <NotesRounded class="mr-2" />
+                    Rules
+                  </div>
+                  <div
+                    onClick={handleOpenDeleteAccount}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <DeleteForeverOutlined class="mr-2" />
+                    Delete Account
+                  </div>
+                  <div
+                    onClick={handleClickOpenLogout}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <LogoutOutlined class="mr-2" />
+                    Logout
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-row w-1/6 justify-end items-center">
+              <div class="flex flex-row items-center justify-center ">
+                <div class="text-lg mr-4 ">
+                  <a
+                    onClick={handleClickOpenEndGameSession}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <div class="w-[100px] ">End Game</div>
+                  </a>
+                </div>
+                <div>
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    href={`${BASE_API}/login`}
+                    sx={{
+                      width: "150px",
+                      height: "45px",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >
+                    Start Trial
+                  </Button>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Show>
       </Show>
 
-      {/* Authorized and subbed */}
-      <Show when={isAuthenticated() && userSubstatus()}>
-        <Menu
-          anchorEl={anchorEl()}
-          id="account-menu"
-          open={open()}
-          onClose={handleClose}
-          onClick={handleClose}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              backgroundImage:
-                "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
-
-              overflow: "visible",
-
-              mt: 1.5,
-              ["& .MuiAvatar-root"]: {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1,
-              },
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                zIndex: 0,
-              },
-              "& .MuiMenuItem-root": {
-                minHeight: "24px",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                },
-              },
-            },
-          }}
-          style={dialogTextStyle}
-        >
-          <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <HomeOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Dashboard</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <NotesRounded />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial</Typography>
-          </MenuItem>{" "}
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PlayCircleOutlineOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial (video)</Typography>
-          </MenuItem>
-          <MenuItem onClick={stripePortal} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <CardMembershipOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Manage Subscription</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleOpenDeleteAccount} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <DeleteForeverOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Delete Account</Typography>
-          </MenuItem>
-          <Show when={onGamePage()}>
-            <MenuItem
-              onClick={handleClickOpenEndGameSession}
-              style={dialogTextStyle}
+      {/* Authentication but not subbed */}
+      <Show when={isAuthenticated() && subscriptionStatus()}>
+        <Show when={location.pathname !== "/game"}>
+          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+            <div
+              onClick={handleHome}
+              style={{ cursor: "pointer" }}
+              class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
-              <ListItemIcon style={dialogTextStyle}>
-                <CancelOutlined />
-              </ListItemIcon>
-              <Typography variant="body1"> End Session</Typography>
-            </MenuItem>
-          </Show>
-          <Divider sx={{ borderColor: "#f9fafb" }} />
-          <MenuItem onClick={handleClickOpenLogout} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <LogoutOutlined fontSize="small" />
-            </ListItemIcon>
-            <Typography variant="body1">Logout</Typography>
-          </MenuItem>
-        </Menu>
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
+                Odd
+              </span>
+            </div>
+
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+              <div class="   cursor-pointer relative group w-44">
+                <div
+                  onClick={handleDashboardNavigate}
+                  class="text-xl   text-white hover:bg-slate-700 p-2 flex items-center"
+                >
+                  <HomeOutlined class="mr-2" />
+                  Dashboard
+                </div>
+                <div class="absolute w-44 left-0 top-full hidden group-hover:block bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md z-10">
+                  <div
+                    onClick={handleNavigateRules}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <NotesRounded class="mr-2" />
+                    Rules
+                  </div>
+                  <div
+                    onClick={stripePortal}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <CardMembershipOutlined class="mr-2" />
+                    Subscription
+                  </div>
+                  <div
+                    onClick={handleOpenDeleteAccount}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <DeleteForeverOutlined class="mr-2" />
+                    Delete Account
+                  </div>
+                  <div
+                    onClick={handleClickOpenLogout}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <LogoutOutlined class="mr-2" />
+                    Logout
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-row w-1/6 justify-end items-center">
+              <div class="flex flex-row items-center justify-center ">
+                <Button
+                  variant="contained"
+                  onClick={handlePlayGame}
+                  sx={{
+                    width: "150px",
+                    height: "45px",
+                    fontSize: "16px",
+                    fontWeight: "bold",
+                    color: "white",
+                  }}
+                >
+                  Play Game
+                </Button>{" "}
+              </div>
+            </div>
+          </div>
+        </Show>
+        <Show when={location.pathname === "/game"}>
+          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+            <div
+              onClick={handleHome}
+              style={{ cursor: "pointer" }}
+              class="flex flex-row w-1/6 justify-start items-center font-bold  "
+            >
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <LightsUp />
+            </div>
+
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+              <div class="   cursor-pointer relative group w-44">
+                <div
+                  onClick={handleDashboardNavigate}
+                  class="text-xl   text-white hover:bg-slate-700 p-2 flex items-center"
+                >
+                  <HomeOutlined class="mr-2" />
+                  Dashboard
+                </div>
+                <div class="absolute w-44 left-0 top-full hidden group-hover:block bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md z-10">
+                  <div
+                    onClick={handleNavigateRules}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <NotesRounded class="mr-2" />
+                    Rules
+                  </div>
+                  <div
+                    onClick={stripePortal}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <CardMembershipOutlined class="mr-2" />
+                    Subscription
+                  </div>
+                  <div
+                    onClick={handleOpenDeleteAccount}
+                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
+                  >
+                    <DeleteForeverOutlined class="mr-2" />
+                    Delete Account
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-row w-1/6 justify-end items-center">
+              <div class="flex flex-row items-center justify-center ">
+                <div class="text-lg mr-4 ">
+                  <a
+                    onClick={handleClickOpenEndGameSession}
+                    style={{ cursor: "pointer" }}
+                  >
+                    <div class="w-[150px] ">End Session</div>
+                  </a>
+                </div>
+                <div>
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    onClick={handleClickOpenLogout}
+                    sx={{
+                      width: "150px",
+                      height: "45px",
+                      fontSize: "16px",
+                      fontWeight: "bold",
+                      color: "white",
+                    }}
+                  >
+                    Logout
+                  </Button>{" "}
+                </div>
+              </div>
+            </div>
+          </div>
+        </Show>
       </Show>
 
-      {/* Authorized but not subbed */}
-
-      <Show when={isAuthenticated() && !userSubstatus()}>
-        <Menu
-          anchorEl={anchorEl()}
-          id="account-menu"
-          open={open()}
-          onClose={handleClose}
-          onClick={handleClose}
-          PaperProps={{
-            elevation: 0,
-            sx: {
-              backgroundImage:
-                "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
-
-              overflow: "visible",
-              filter: "drop-shadow(0px 2px 8px rgba(0,0,0,0.32))",
-
-              mt: 1.5,
-              ["& .MuiAvatar-root"]: {
-                width: 32,
-                height: 32,
-                ml: -0.5,
-                mr: 1,
-              },
-              "&:before": {
-                content: '""',
-                display: "block",
-                position: "absolute",
-                top: 0,
-                right: 14,
-                width: 10,
-                height: 10,
-                zIndex: 0,
-              },
-              "& .MuiMenuItem-root": {
-                minHeight: "24px",
-                "&:hover": {
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                },
-              },
-            },
-          }}
-        >
-          <MenuItem onClick={handleDashboardNavigate} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <HomeOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Dashboard</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleModalOpen} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <NotesRounded />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial</Typography>
-          </MenuItem>{" "}
-          <MenuItem style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <PlayCircleOutlineOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Tutorial (video)</Typography>
-          </MenuItem>
-          <MenuItem onClick={stripePortal} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <CardMembershipOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Manage Subscription</Typography>
-          </MenuItem>
-          <MenuItem onClick={handleOpenDeleteAccount} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <DeleteForeverOutlined />
-            </ListItemIcon>
-            <Typography variant="body1">Delete Account</Typography>
-          </MenuItem>
-          <Show when={onGamePage()}>
-            <MenuItem
-              onClick={handleClickOpenEndGameSession}
-              style={dialogTextStyle}
-            >
-              <ListItemIcon style={dialogTextStyle}>
-                <CancelOutlined />
-              </ListItemIcon>
-              <Typography variant="body1"> End Game</Typography>
-            </MenuItem>
-          </Show>
-          <Divider sx={{ borderColor: "#f9fafb" }} />
-          <MenuItem onClick={handleClickOpenLogout} style={dialogTextStyle}>
-            <ListItemIcon style={dialogTextStyle}>
-              <LogoutOutlined fontSize="small" />
-            </ListItemIcon>
-            <Typography variant="body1">Logout</Typography>
-          </MenuItem>
-        </Menu>
-      </Show>
       <Dialog
         open={openLogout()}
         TransitionComponent={Transition}
@@ -486,7 +582,7 @@ export default function AccountMenu() {
           },
         }}
       >
-        <Show when={userSubstatus() || isAuthenticated}>
+        <Show when={subscriptionStatus() || isAuthenticated}>
           <div class="flex flex-col justify-center items-center">
             <div>
               <DialogContent style={dialogTextStyle}>
@@ -500,9 +596,8 @@ export default function AccountMenu() {
                   id="alert-dialog-slide-description"
                   style={dialogTextStyle}
                 >
-                  Are you sure you want to{" "}
-                  <span class="text-error-700"> end</span> the session and
-                  logout? All game data will be deleted.
+                  Are you sure you want to end the session and logout? All game
+                  data will be deleted.
                 </DialogContentText>
               </DialogContent>
             </div>
@@ -560,305 +655,6 @@ export default function AccountMenu() {
           </DialogActions>
         </Show>
       </Dialog>
-
-      <Modal
-        open={modalOpen()}
-        onClose={handleModalClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-        style={dialogTextStyle}
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            backgroundImage:
-              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
-            top: "35%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            overflow: "scroll",
-            display: "block",
-            boxShadow: 24,
-            marginTop: "5px",
-            paddingRight: "5px",
-            paddingTop: "5px",
-            paddingLeft: "5px",
-            border: "1px solid #cbd5e1",
-            "&::-webkit-scrollbar": {
-              width: 5,
-            },
-            "&::-webkit-scrollbar-thumb": {
-              borderRadius: 3,
-            },
-          }}
-          class="w-10/12 h-1/2 lg:w-1/2 lg:h-1/2"
-        >
-          <Typography
-            sx={{
-              fontWeight: "bold",
-            }}
-            variant="h5"
-            component="h2"
-            class="text-center"
-            style={dialogTextStyle}
-          >
-            Game Rules
-          </Typography>
-          <Typography
-            id="modal-modal-description"
-            sx={{ mt: 2 }}
-            style={dialogTextStyle}
-          >
-            Commonly Odd is trivia game that can be played by a single player or
-            a group (up to 10 teams)
-          </Typography>
-          <Typography
-            id="modal-modal-description"
-            sx={{ mt: 2 }}
-            style={dialogTextStyle}
-          >
-            Each team goes one by one in a round robin style.
-          </Typography>
-
-          <Typography
-            id="modal-modal-description"
-            sx={{ mt: 2 }}
-            style={dialogTextStyle}
-          >
-            Players are presented with three items per round. The team must
-            correctly determine which of three items is the outlier and the
-            commonality shared by the other two. Each round is time-limited to
-            15 seconds.
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              mt: 2,
-            }}
-            class="text-center"
-            style={dialogTextStyle}
-          >
-            Setting Up the Game
-          </Typography>
-
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Session Creation: </span>A designated
-              individual, the session starter, sets up the game session. They
-              select the number of participating teams (up to 10) and the total
-              score goal (up to 30).
-            </ListItem>
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Link Distribution: </span>A unique session
-              link is generated for sharing with other players.
-            </ListItem>
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Game Commencement: </span>The session
-              starter initiates the game once all players are on the same game
-              session link.
-            </ListItem>
-          </List>
-
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              mt: 2,
-            }}
-            class="text-center"
-            style={dialogTextStyle}
-          >
-            Scoring Points
-          </Typography>
-
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">2: </span>Awarded for correctly
-              identifying the outlier and its exact reasoning.
-            </ListItem>
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">1.5: </span>Given for correctly
-              identifying the outlier and partially correct reasoning.
-            </ListItem>
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">1: </span>For partial correctness, either
-              in identifying the outlier or reasoning.
-            </ListItem>
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">0: </span>For incorrect guesses or no
-              response.
-            </ListItem>
-          </List>
-
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              mt: 2,
-            }}
-            class="text-center"
-            style={dialogTextStyle}
-          >
-            Winning the Game
-          </Typography>
-
-          <Typography
-            variant="subtitle1"
-            sx={{
-              mt: 2,
-            }}
-            style={dialogTextStyle}
-          >
-            The game is won by the first team to meet or exceed the target
-            score. Post-game, the session starter can launch a new game or end
-            the session.{" "}
-          </Typography>
-
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              mt: 2,
-            }}
-            class="text-center"
-            style={dialogTextStyle}
-          >
-            Gameplay
-          </Typography>
-
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Session Starter's Role: </span>Controls
-              game flow, including question selection, answer reveals, and
-              scorekeeping.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Time Constraint: </span>Teams have a
-              15-second window per round for decision-making.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }}>
-              <span class="font-bold">Answer Revelation: </span>The session
-              starter reveals the correct answers after each round.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Scoring System: </span>Points are awarded
-              based on accuracy.
-            </ListItem>
-          </List>
-
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: "bold",
-              mt: 2,
-            }}
-            class="text-center"
-            style={dialogTextStyle}
-          >
-            Terminology
-          </Typography>
-
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Session Starter: </span>The individual
-              responsible for initiating and managing the game session.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Session Link: </span>A unique URL used by
-              players to join the game session.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Outlier Object: </span>The object that
-              differs from the other two in the presented trio.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Commonality: </span>The shared attribute
-              or connection between two of the objects.
-            </ListItem>
-          </List>
-
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Game Session: </span>The period from the
-              start of the game until it ends or a new game begins.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Time Limit: </span>Each decision-making
-              round is restricted to 15 seconds.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Sportsmanship: </span>Players are
-              encouraged to maintain a friendly and respectful environment
-              during gameplay.
-            </ListItem>
-          </List>
-          <List
-            sx={{ listStyleType: "disc", marginLeft: "20px" }}
-            style={dialogTextStyle}
-          >
-            <ListItem sx={{ display: "list-item" }} style={dialogTextStyle}>
-              <span class="font-bold">Game Commencement: </span>The start of the
-              game, initiated by the session starter.
-            </ListItem>
-          </List>
-        </Box>
-      </Modal>
     </>
   );
 }
