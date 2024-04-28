@@ -41,6 +41,8 @@ import { useLocation, useNavigate } from "solid-app-router";
 import { fetchSubStatus } from "../auth_payments_landing/user";
 import LightsUp from "./lights_up";
 import "./styles.css";
+import { create } from "domain";
+import { sendMessage } from "../game/start_game";
 
 const Transition = function Transition(
   props: TransitionProps & {
@@ -66,6 +68,12 @@ export default function AccountMenuMobile() {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = createSignal(false);
   const toggleMenu = () => setIsOpen(!isOpen());
+  const [gameInSession, setGameInSession] = createSignal(false);
+  const [openLeaveGame, setOpenLeaveGame] = createSignal(false);
+  const [goToDashboard, setGoToDashboard] = createSignal(false);
+  const [goToRules, setGoToRules] = createSignal(false);
+  const [goToHome, setGoToHome] = createSignal(false);
+  const [goToStripePortal, setGoToStripePortal] = createSignal(false);
 
   const openCloseMenu = () => {
     return (
@@ -106,10 +114,16 @@ export default function AccountMenuMobile() {
     );
   };
 
-  // const urlParams = new URLSearchParams(window.location.search);
-  // const sessionUuid =
-  //   urlParams.get("session") || localStorage.getItem("session_uuid");
-  // const starterToken = localStorage.getItem("starter_token");
+  const checkingGameSession = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuid =
+      urlParams.get("session") || localStorage.getItem("session_uuid");
+
+    if (sessionUuid !== null) {
+      console.log("Game in session");
+      setGameInSession(true);
+    }
+  };
 
   const closeMenu = () => setIsOpen(false);
   const handleDocumentClick = (event) => {
@@ -280,7 +294,7 @@ export default function AccountMenuMobile() {
                   Dashboard
                 </a>
                 <a
-                  onClick={stripePortal}
+                  onClick={handleStripePortal}
                   class="flex    items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <CardMembershipOutlined fontSize="medium" class="mr-2" />{" "}
@@ -321,7 +335,7 @@ export default function AccountMenuMobile() {
                   Dashboard
                 </a>
                 <a
-                  onClick={stripePortal}
+                  onClick={handleStripePortal}
                   class="flex    items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <CardMembershipOutlined fontSize="medium" class="mr-2" />{" "}
@@ -334,13 +348,7 @@ export default function AccountMenuMobile() {
                   <NotesRounded fontSize="medium" class="mr-2  " />
                   Rules
                 </a>
-                <a
-                  onClick={handleOpenDeleteAccount}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
-                >
-                  <DeleteForeverOutlined fontSize="medium" class="mr-2  " />
-                  Delete Account
-                </a>
+
                 <div
                   onClick={handleClickOpenEndGameSession}
                   class="  flex  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
@@ -379,14 +387,6 @@ export default function AccountMenuMobile() {
     setOpenDeleteAccount(false);
   };
 
-  const handleDashboardNavigate = () => {
-    window.location.href = `/user`;
-  };
-
-  const handleNavigateRules = () => {
-    window.location.href = `/rules`;
-  };
-
   const handlePricingPlans = () => {
     window.location.href = `/user#pricingplans`;
   };
@@ -395,8 +395,72 @@ export default function AccountMenuMobile() {
     window.location.href = `/game`;
   };
 
+  const handleOpenLeaveGame = () => {
+    setOpenLeaveGame(true);
+  };
+  const handleCloseLeaveGame = () => {
+    setOpenLeaveGame(false);
+  };
+
+  // Here
+  const handleDashboardNavigate = () => {
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToDashboard(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `/user`;
+    }
+  };
+
+  // Here
+  const handleNavigateRules = () => {
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToRules(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `/rules`;
+    }
+  };
+
+  // Here
   const handleHome = () => {
-    window.location.href = `/`;
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToHome(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `/`;
+    }
+  };
+
+  // Here
+  const handleStripePortal = () => {
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToStripePortal(true);
+      setOpenLeaveGame(true);
+    } else {
+      stripePortal();
+    }
+  };
+
+  const handleLeaveGame = () => {
+    setOpenLeaveGame(false);
+    sendMessage({ game_state: "end" });
+    localStorage.removeItem("session_uuid");
+    localStorage.removeItem("starter_token");
+
+    if (goToDashboard()) {
+      window.location.href = "/user";
+      setGoToDashboard(false);
+    } else if (goToRules()) {
+      window.location.href = "/rules";
+      setGoToRules(false);
+    } else if (goToHome()) {
+      window.location.href = "/";
+      setGoToHome(false);
+    } else if (goToStripePortal()) {
+      stripePortal();
+      setGoToStripePortal(false);
+    }
   };
 
   createEffect(async () => {
@@ -404,7 +468,14 @@ export default function AccountMenuMobile() {
     setIsAuthenticated(auth);
   });
 
+  createEffect(() => {
+    setTimeout(() => {
+      checkingGameSession();
+    }, 500);
+  });
+
   onMount(() => {
+    checkingGameSession();
     //refresh subscription status after 0.3 seconds
     setTimeout(() => {
       refetchSubStatus();
@@ -540,6 +611,54 @@ export default function AccountMenuMobile() {
             </Button>
           </DialogActions>
         </Show>
+      </Dialog>
+
+      {/* Leave game Confirmation */}
+      <Dialog
+        open={openLeaveGame()}
+        TransitionComponent={Transition}
+        onClose={handleCloseLeaveGame}
+        disableBackdropClick={false}
+        aria-describedby="alert-dialog-slide-description"
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <div class="flex flex-col justify-center items-center">
+          <div>
+            <DialogContent style={dialogTextStyle}>
+              <DialogTitle
+                class="flex justify-center items-center"
+                style={dialogTextStyle}
+              >
+                Sure you want to leave the game?
+              </DialogTitle>
+              <DialogContentText
+                id="alert-dialog-slide-description"
+                style={dialogTextStyle}
+              >
+                <div class="flex flex-col justify-center items-center">
+                  <div class="mb-2">Game data will be lost. </div>
+                  <div> You will have to start a new game. </div>
+                </div>
+              </DialogContentText>
+            </DialogContent>
+          </div>
+        </div>
+        <DialogActions style={dialogTextStyle}>
+          <Button onClick={handleCloseLeaveGame} style={dialogTextStyle}>
+            Cancel
+          </Button>
+          <Button
+            onClick={handleLeaveGame}
+            sx={{ color: "#f87171", fontWeight: "bold" }}
+          >
+            Yes, I completely understand
+          </Button>
+        </DialogActions>
       </Dialog>
     </>
   );

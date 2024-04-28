@@ -67,7 +67,7 @@ export default function EndSession() {
       // Refresh the page after a short delay to ensure navigation is complete
       setTimeout(() => {
         location.reload();
-      }, 1000); // Adjust the delay as needed
+      }, 500); // Adjust the delay as needed
     } catch (error) {
       console.error("Failed to end session:", error);
       setDialogContent(<>Error ending session. Please try again.</>);

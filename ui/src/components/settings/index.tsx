@@ -31,6 +31,7 @@ import DeleteAccount from "./delete_account";
 import { useLocation, useNavigate } from "solid-app-router";
 import { fetchSubStatus } from "../auth_payments_landing/user";
 import LightsUp from "./lights_up";
+import { sendMessage } from "../game/start_game";
 
 const Transition = function Transition(
   props: TransitionProps & {
@@ -54,6 +55,12 @@ export default function AccountMenu() {
   const [subscriptionStatus, { refetch: refetchSubStatus }] =
     createResource(fetchSubStatus);
   const navigate = useNavigate();
+  const [gameInSession, setGameInSession] = createSignal(false);
+  const [openLeaveGame, setOpenLeaveGame] = createSignal(false);
+  const [goToDashboard, setGoToDashboard] = createSignal(false);
+  const [goToRules, setGoToRules] = createSignal(false);
+  const [goToHome, setGoToHome] = createSignal(false);
+  const [goToStripePortal, setGoToStripePortal] = createSignal(false);
 
   //Logout
   const handleClickOpenLogout = () => {
@@ -71,12 +78,84 @@ export default function AccountMenu() {
     setOpenDeleteAccount(false);
   };
 
-  const handleDashboardNavigate = () => {
-    window.location.href = `/user`;
+  const handleOpenLeaveGame = () => {
+    setOpenLeaveGame(true);
+  };
+  const handleCloseLeaveGame = () => {
+    setOpenLeaveGame(false);
   };
 
+  // Here
+  const handleDashboardNavigate = () => {
+    console.log("Dashboard navigate: gameInSession", gameInSession());
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToDashboard(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `/user`;
+    }
+  };
+
+  // Here
   const handleNavigateRules = () => {
-    window.location.href = `/rules`;
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToRules(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `/rules`;
+    }
+  };
+
+  // Here
+  const handleHome = () => {
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToHome(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `/`;
+    }
+  };
+
+  // Here
+  const handleStripePortal = () => {
+    if (location.pathname === "/game" && gameInSession()) {
+      setGoToStripePortal(true);
+      setOpenLeaveGame(true);
+    } else {
+      stripePortal();
+    }
+  };
+
+  const checkingGameSession = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuid =
+      urlParams.get("session") || localStorage.getItem("session_uuid");
+
+    if (sessionUuid !== null) {
+      console.log("Game in session");
+      setGameInSession(true);
+    }
+  };
+
+  const handleLeaveGame = () => {
+    setOpenLeaveGame(false);
+    sendMessage({ game_state: "end" });
+    localStorage.removeItem("session_uuid");
+    localStorage.removeItem("starter_token");
+
+    if (goToDashboard()) {
+      window.location.href = "/user";
+      setGoToDashboard(false);
+    } else if (goToRules()) {
+      window.location.href = "/rules";
+      setGoToRules(false);
+    } else if (goToHome()) {
+      window.location.href = "/";
+      setGoToHome(false);
+    } else if (goToStripePortal()) {
+      stripePortal();
+      setGoToStripePortal(false);
+    }
   };
 
   const handlePricingPlans = () => {
@@ -87,19 +166,23 @@ export default function AccountMenu() {
     window.location.href = `/game`;
   };
 
-  const handleHome = () => {
-    window.location.href = `/`;
-  };
-
   createEffect(async () => {
     const auth = await checkAuth();
     setIsAuthenticated(auth);
   });
 
+  createEffect(() => {
+    setTimeout(() => {
+      checkingGameSession();
+    }, 500);
+  });
+
   onMount(() => {
+    checkingGameSession();
     //refresh subscription status after 0.3 seconds
     setTimeout(() => {
       refetchSubStatus();
+      checkingGameSession();
     }, 300);
   });
 
@@ -446,7 +529,7 @@ export default function AccountMenu() {
                     Rules
                   </div>
                   <div
-                    onClick={stripePortal}
+                    onClick={handleStripePortal}
                     class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
                   >
                     <CardMembershipOutlined class="mr-2" />
@@ -522,7 +605,7 @@ export default function AccountMenu() {
                     Rules
                   </div>
                   <div
-                    onClick={stripePortal}
+                    onClick={handleStripePortal}
                     class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
                   >
                     <CardMembershipOutlined class="mr-2" />
@@ -654,6 +737,54 @@ export default function AccountMenu() {
             </Button>
           </DialogActions>
         </Show>
+      </Dialog>
+
+      {/* Leave game Confirmation */}
+      <Dialog
+        open={openLeaveGame()}
+        TransitionComponent={Transition}
+        onClose={handleCloseLeaveGame}
+        disableBackdropClick={false}
+        aria-describedby="alert-dialog-slide-description"
+        PaperProps={{
+          sx: {
+            backgroundImage:
+              "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
+          },
+        }}
+      >
+        <div class="flex flex-col justify-center items-center">
+          <div>
+            <DialogContent style={dialogTextStyle}>
+              <DialogTitle
+                class="flex justify-center items-center"
+                style={dialogTextStyle}
+              >
+                Sure you want to leave the game?
+              </DialogTitle>
+              <DialogContentText
+                id="alert-dialog-slide-description"
+                style={dialogTextStyle}
+              >
+                <div class="flex flex-col justify-center items-center">
+                  <div class="mb-2">Game data will be lost. </div>
+                  <div> You will have to start a new game. </div>
+                </div>
+              </DialogContentText>
+            </DialogContent>
+          </div>
+        </div>
+        <DialogActions style={dialogTextStyle}>
+          <Button onClick={handleCloseLeaveGame} style={dialogTextStyle}>
+            Cancel
+          </Button>
+          <Button
+            onClick={handleLeaveGame}
+            sx={{ color: "#f87171", fontWeight: "bold" }}
+          >
+            Yes, I completely understand
+          </Button>
+        </DialogActions>
       </Dialog>
     </>
   );
