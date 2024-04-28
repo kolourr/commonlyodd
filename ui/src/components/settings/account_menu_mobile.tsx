@@ -106,6 +106,11 @@ export default function AccountMenuMobile() {
     );
   };
 
+  // const urlParams = new URLSearchParams(window.location.search);
+  // const sessionUuid =
+  //   urlParams.get("session") || localStorage.getItem("session_uuid");
+  // const starterToken = localStorage.getItem("starter_token");
+
   const closeMenu = () => setIsOpen(false);
   const handleDocumentClick = (event) => {
     const menuElement = document.getElementById("hamburger-menu");
@@ -409,16 +414,34 @@ export default function AccountMenuMobile() {
   const titleLogo = () => {
     return (
       <>
-        <a onClick={handleHome}>
-          <div class="flex flex-row justify-center  text-center  items-center">
-            <img
-              src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/40x40"
-              alt="logo"
-            />
-            <span class="pr-2 text-4xl text-gray-100 font-bold">Commonly</span>
-            <LightsUp />
-          </div>
-        </a>
+        <Show when={location.pathname === "/game"}>
+          <a onClick={handleHome}>
+            <div class="flex flex-row justify-center  text-center  items-center">
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/40x40"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100 font-bold">
+                Commonly
+              </span>
+              <LightsUp />
+            </div>
+          </a>
+        </Show>
+        <Show when={location.pathname !== "/game"}>
+          <a onClick={handleHome}>
+            <div class="flex flex-row justify-center  text-center  items-center">
+              <img
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/40x40"
+                alt="logo"
+              />
+              <span class="pr-2 text-4xl text-gray-100 font-bold">
+                Commonly
+              </span>
+              <LightsUp />
+            </div>
+          </a>
+        </Show>
       </>
     );
   };
