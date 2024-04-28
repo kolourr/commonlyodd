@@ -32,5 +32,6 @@ func InitAPM(mainCtx context.Context) {
 func initLogger() {
 	writer := logWriter.New(os.Stdout, App)
 	writer.DebugLogging(true)
-	logger = log.New(writer, "", log.LstdFlags)
+	logger = log.New(writer, "", log.Default().Flags())
+
 }
