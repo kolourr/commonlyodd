@@ -58,13 +58,13 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		newrelic.ConfigCodeLevelMetricsEnabled(true),
 	)
 
+	var logger *log.Logger
 	if err != nil {
 		log.Println("Error initializing NewRelic: ", err)
 	} else {
-		writer := logWriter.New(os.Stdout, app)
-		logger := log.New(&writer, "", log.Default().Flags())
+		lw := logWriter.New(os.Stdout, app)
+		logger = log.New(lw, "", log.Default().Flags())
 		logger.Println("NewRelic initialized successfully")
-
 	}
 
 	router.Use(nrgin.Middleware(app))
