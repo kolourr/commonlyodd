@@ -25,6 +25,8 @@ func InitAPM(mainCtx context.Context) {
 	App, err = newrelic.NewApplication(cfg...)
 	if err != nil {
 		log.Println("Failed to initialize New Relic APM: ", err)
+	} else {
+		log.Println("New Relic APM initialized")
 	}
 	initLogger()
 }
