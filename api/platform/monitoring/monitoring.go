@@ -16,7 +16,8 @@ var cfg = []newrelic.ConfigOption{
 	newrelic.ConfigAppName("API - Commonly Odd"),
 	newrelic.ConfigLicense(os.Getenv("NEW_RELIC_LICENSE_KEY")),
 	newrelic.ConfigAppLogEnabled(true),
-	newrelic.ConfigAppLogForwardingEnabled(true),
+	newrelic.ConfigAppLogForwardingEnabled(false),
+	newrelic.ConfigAppLogDecoratingEnabled(true),
 	newrelic.ConfigCodeLevelMetricsEnabled(true),
 }
 
