@@ -1,6 +1,7 @@
 package router
 
 import (
+	"context"
 	"encoding/gob"
 	"log"
 	"net/http"
@@ -11,13 +12,12 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-contrib/sessions/cookie"
 	"github.com/gin-gonic/gin"
-	"github.com/newrelic/go-agent/v3/integrations/logcontext-v2/logWriter"
 	"github.com/newrelic/go-agent/v3/integrations/nrgin"
-	"github.com/newrelic/go-agent/v3/newrelic"
 
 	"github.com/kolourr/commonlyodd/gameplay"
 	"github.com/kolourr/commonlyodd/platform/authenticator"
 	"github.com/kolourr/commonlyodd/platform/middleware"
+	"github.com/kolourr/commonlyodd/platform/monitoring"
 	"github.com/kolourr/commonlyodd/stripeintegration"
 	"github.com/kolourr/commonlyodd/web/app/callback"
 	"github.com/kolourr/commonlyodd/web/app/login"
@@ -27,6 +27,12 @@ import (
 
 // New registers the routes and returns the router.
 func New(auth *authenticator.Authenticator) *gin.Engine {
+
+	// Initialize New Relic APM
+	ctx := context.Background()
+	monitoring.InitAPM(ctx)
+
+	// Create a new Gin router
 	router := gin.Default()
 	router.GET("/debug/pprof/*any", gin.WrapH(http.DefaultServeMux))
 	router.Use(cors.New(cors.Config{
@@ -48,26 +54,6 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		},
 		AllowCredentials: true,
 	}))
-
-	//setup NewRelic
-	app, err := newrelic.NewApplication(
-		newrelic.ConfigAppName("Commonly Odd API"),
-		newrelic.ConfigLicense(os.Getenv("NEW_RELIC_LICENSE_KEY")),
-		newrelic.ConfigAppLogEnabled(true),
-		newrelic.ConfigAppLogForwardingEnabled(true),
-		newrelic.ConfigCodeLevelMetricsEnabled(true),
-	)
-
-	var logger *log.Logger
-	if err != nil {
-		log.Println("Error initializing NewRelic: ", err)
-	} else {
-		lw := logWriter.New(os.Stdout, app)
-		logger = log.New(lw, "", log.Default().Flags())
-		logger.Println("NewRelic initialized successfully")
-	}
-
-	router.Use(nrgin.Middleware(app))
 
 	// To store custom types in our cookies,
 	// we must first register them using gob.Register
@@ -94,6 +80,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 		})
 	}
 
+	router.Use(nrgin.Middleware(monitoring.App))
 	router.Use(sessions.Sessions("auth-session", store))
 
 	staticFilesPath := "../../../ui/dist"
@@ -102,7 +89,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 
 	// Setup routes
 	router.GET("/health", func(ctx *gin.Context) {
-		logger.Println("Health check accessed")
+		log.Println("Health check accessed")
 		ctx.JSON(200, gin.H{
 			"status": "UP",
 		})
