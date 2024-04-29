@@ -28,10 +28,18 @@ const Footer: Component = () => {
     window.location.href = "/cookie-policy";
   };
 
+  const handleRules = () => {
+    window.location.href = "/rules";
+  };
+
   return (
     <footer class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-300 p-4 text-center">
       <a onClick={handleHome} class="hover:underline">
         Home{" "}
+      </a>
+      |{" "}
+      <a onClick={handleRules} class="hover:underline">
+        Rules{" "}
       </a>
       |{" "}
       <a onClick={handlePrivacyPolicy} class="hover:underline">

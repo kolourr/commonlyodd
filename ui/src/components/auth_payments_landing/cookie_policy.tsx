@@ -8,7 +8,6 @@ const CookiePolicy: Component = () => {
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
       <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
         <div class="hidden md:block">
-          {" "}
           <Header />
         </div>
         <div class="block md:hidden">

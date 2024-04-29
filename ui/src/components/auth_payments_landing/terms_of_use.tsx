@@ -1,6 +1,7 @@
 import { Component } from "solid-js";
 import Header from "./header";
 import Footer from "./footer";
+import HeaderMobile from "./header_mobile";
 
 const TermsOfUse: Component = () => {
   return (

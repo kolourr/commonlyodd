@@ -215,8 +215,8 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -273,8 +273,8 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -319,8 +319,8 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <LightsUp />
@@ -372,8 +372,8 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -445,8 +445,8 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <LightsUp />
@@ -530,8 +530,8 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -610,8 +610,8 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={30}
-                height={30}
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <LightsUp />
