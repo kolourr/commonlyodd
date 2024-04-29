@@ -59,6 +59,10 @@ const User = () => {
     window.location.href = "/game";
   };
 
+  const handleNavigateRules = () => {
+    window.location.href = `/rules`;
+  };
+
   onMount(() => {
     const path = window.location.pathname;
 
@@ -139,24 +143,72 @@ const User = () => {
         </Show>
 
         <Show when={subscriptionStatus() && paymentSuccess()}>
-          <div class="text-xl lg:text-2xl text-gray-300 flex justify-center p-4 ">
-            {userProfile()?.firstName}, you are all clear 😊 You are all set to
-            play.
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <video controls class="w-[360px] lg:w-[710px]  h-auto">
-              <source src="path_to_your_video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="p-4 flex   justify-center items-center">
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handlePlayGame}
-            >
-              Play Game
-            </Button>
+          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+            <div class="text-center text-base md:text-lg">
+              <p class="mb-4 text-2xl md:text-3xl  ">
+                Hi <span class="font-bold">{userProfile()?.firstName}</span>,
+                you're all set!
+              </p>
+            </div>
+            <div class="text-left text-base md:text-lg">
+              <p class="mb-4 ml-8 ">
+                Here's a quick tutorial on how to get started
+              </p>
+            </div>
+            <div class="w-full mb-4 text-base md:text-lg">
+              <video controls class="w-full h-auto shadow-lg">
+                <source src="path_to_your_video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="p-4 flex   justify-center items-center">
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handlePlayGame}
+                sx={{
+                  width: "150px",
+                  height: "45px",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}
+                class="flex justify-center items-center text-gray-300 bg-slate-900"
+              >
+                Play Game
+              </Button>
+            </div>
+            <p class="mb-4 ml-8 text-base md:text-lg ">
+              If you prefer reading, here's the{" "}
+              <a
+                onClick={handleNavigateRules}
+                class="text-blue-500 hover:text-blue-700"
+              >
+                link to the rules
+              </a>{" "}
+              pages.
+            </p>{" "}
+            <p class="mb-4 ml-8 text-base md:text-lg">
+              If you have any questions or need further assistance, don't If you
+              have any questions or need further assistance, don't hesitate to
+              reach out.
+            </p>
+            <p class="ml-8 text-base md:text-lg">
+              Feel free to drop me an email at{" "}
+              <a
+                href="mailto:commonlyoddtrivia@gmail.com"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                commonlyoddtrivia@gmail.com
+              </a>{" "}
+              or send me a message on Twitter at{" "}
+              <a
+                href="https://twitter.com/kolourrmusic"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                @kolourrmusic
+              </a>
+              .
+            </p>
           </div>
         </Show>
 
@@ -164,7 +216,7 @@ const User = () => {
           <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
             <div class="text-center text-base md:text-lg">
               <p class="mb-4 text-2xl md:text-3xl  ">
-                Hi <span class="font-bold">{userProfile()?.firstName}</span>,
+                <span class="font-bold">{userProfile()?.firstName}</span>,
                 welcome to{" "}
                 <span class="font-bold text-white">Commonly Odd</span>
               </p>
@@ -250,30 +302,77 @@ const User = () => {
         </Show>
 
         <Show when={subscriptionStatus() && userPage()}>
-          <div class="text-xl lg:text-2xl text-gray-300 flex justify-center p-4 ">
-            Welcome back {userProfile()?.firstName}! You're all set 😊
-          </div>
-          <div class="flex flex-col justify-center items-center">
-            <video controls class="w-[360px] lg:w-[710px]  h-auto">
-              <source src="path_to_your_video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="p-4 flex   justify-center items-center">
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handlePlayGame}
-              sx={{
-                width: "300px",
-                height: "60px",
-                fontSize: "16px",
-                fontWeight: "bold",
-              }}
-              class="flex justify-center items-center text-gray-300 bg-slate-900"
-            >
-              Start Playing
-            </Button>
+          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+            <div class="text-center text-base md:text-lg">
+              <p class="mb-4 text-2xl md:text-3xl  ">
+                Hi <span class="font-bold">{userProfile()?.firstName}</span>,
+                welcome back 😊 You're all set!
+              </p>
+            </div>
+
+            <div class="text-left text-base md:text-lg">
+              <p class="mb-4 ml-8 ">
+                Here's a quick tutorial on how to get started
+              </p>
+            </div>
+
+            <div class="w-full mb-4 text-base md:text-lg">
+              <video controls class="w-full h-auto shadow-lg">
+                <source src="path_to_your_video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
+            <div class="p-4 flex   justify-center items-center">
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handlePlayGame}
+                sx={{
+                  width: "150px",
+                  height: "45px",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}
+                class="flex justify-center items-center text-gray-300 bg-slate-900"
+              >
+                Play Game
+              </Button>
+            </div>
+
+            <p class="mb-4 ml-8 text-base md:text-lg">
+              If you prefer reading, here's the{" "}
+              <a
+                onClick={handleNavigateRules}
+                class="text-blue-500 hover:text-blue-700"
+              >
+                link to the rules
+              </a>{" "}
+              pages.
+            </p>
+
+            <p class="mb-4 ml-8 text-base md:text-lg">
+              If you have any questions or need further assistance, don't If you
+              have any questions or need further assistance, don't hesitate to
+              reach out.
+            </p>
+            <p class="ml-8 text-base md:text-lg">
+              Feel free to drop me an email at{" "}
+              <a
+                href="mailto:commonlyoddtrivia@gmail.com"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                commonlyoddtrivia@gmail.com
+              </a>{" "}
+              or send me a message on Twitter at{" "}
+              <a
+                href="https://twitter.com/kolourrmusic"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                @kolourrmusic
+              </a>
+              .
+            </p>
           </div>
         </Show>
       </div>
