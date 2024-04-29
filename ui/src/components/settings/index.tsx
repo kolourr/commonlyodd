@@ -224,7 +224,7 @@ export default function AccountMenu() {
               </span>
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
               <div class="flex flex-row items-center justify-center  text-xl">
                 <a href="#howitworks">
                   <div class="px-4">How it Works</div>
@@ -240,7 +240,7 @@ export default function AccountMenu() {
             <div class="flex flex-row w-1/6 justify-end items-center">
               <div class="flex flex-row items-center justify-center ">
                 <div class="text-lg mr-4 ">
-                  <div onClick={handleLogin}>
+                  <div onClick={handleLogin} style={{ cursor: "pointer" }}>
                     <div class="w-[60px] ">Log in</div>
                   </div>
                 </div>
@@ -381,7 +381,7 @@ export default function AccountMenu() {
               </span>
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}
@@ -452,7 +452,7 @@ export default function AccountMenu() {
               <LightsUp />
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}
@@ -539,7 +539,7 @@ export default function AccountMenu() {
               </span>
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-12">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}
@@ -617,7 +617,7 @@ export default function AccountMenu() {
               <LightsUp />
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-12">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}
