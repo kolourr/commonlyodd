@@ -214,13 +214,13 @@ const bottomSection: SectionProps[] = [
           id="pricing-plans"
           class="  text-gray-300 mb-3 flex justify-center text-4xl font-bold  "
         >
-          Pricing
+          Explore Plans
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="text-lg mb-3 text-slate-400 ">
             Play risk free, enjoy a full week on us.
           </div>
-          <div class="flex jsutify-center items-center">
+          <div class="flex justify-center items-center">
             {" "}
             <PricingPlans />
           </div>

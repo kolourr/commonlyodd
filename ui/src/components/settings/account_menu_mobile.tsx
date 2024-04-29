@@ -141,16 +141,16 @@ export default function AccountMenuMobile() {
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
                 <div
                   onClick={handleLogin}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
-                  <LoginOutlined fontSize="medium" class="mr-2  " />
+                  <LoginOutlined fontSize="small" class="mr-2  " />
                   Log in
                 </div>
                 <div
                   onClick={handleLogin}
-                  class="flex bg-[#1976D2]  items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
+                  class="flex   items-center justify-start py-2 px-2 text-lg text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
-                  <StartOutlined fontSize="medium" class="mr-2" /> Get Started
+                  <StartOutlined fontSize="small" class="mr-2" /> Get Started
                 </div>
               </div>
             </Show>
@@ -160,14 +160,14 @@ export default function AccountMenuMobile() {
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
                 <div
                   onClick={handleClickOpenEndGameSession}
-                  class="  flex  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <HighlightOffOutlined fontSize="medium" class="mr-2  " />
                   End Game
                 </div>
                 <div
                   onClick={handleLogin}
-                  class="flex bg-[#1976D2]   items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
+                  class="flex   items-center justify-start py-2 px-2 text-lg text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <StartOutlined fontSize="medium" class="mr-2" /> Get Started
                 </div>
@@ -182,34 +182,34 @@ export default function AccountMenuMobile() {
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
                 <a
                   onClick={handlePricingPlans}
-                  class="flex    items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
+                  class="flex    items-center justify-start py-2 px-2 text-lg text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <StartOutlined fontSize="medium" class="mr-2" /> Start Trial
                 </a>
                 <a
                   onClick={handleDashboardNavigate}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <HomeOutlined fontSize="medium" class="mr-2  " />
                   Dashboard
                 </a>
                 <a
                   onClick={handleNavigateRules}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <NotesRounded fontSize="medium" class="mr-2  " />
                   Rules
                 </a>
                 <a
                   onClick={handleOpenDeleteAccount}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <DeleteForeverOutlined fontSize="medium" class="mr-2  " />
                   Delete Account
                 </a>
                 <div
                   onClick={handleClickOpenLogout}
-                  class="  flex bg-[#991b1b]  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex   items-center justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <LogoutOutlined fontSize="medium" class="mr-2  " />
                   Logout
@@ -222,41 +222,41 @@ export default function AccountMenuMobile() {
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
                 <a
                   onClick={handlePricingPlans}
-                  class="flex  items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
+                  class="flex  items-center justify-start py-2 px-2 text-lg text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <StartOutlined fontSize="medium" class="mr-2" /> Start Trial
                 </a>
                 <a
                   onClick={handleDashboardNavigate}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <HomeOutlined fontSize="medium" class="mr-2  " />
                   Dashboard
                 </a>
                 <a
                   onClick={handleNavigateRules}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <NotesRounded fontSize="medium" class="mr-2  " />
                   Rules
                 </a>
                 <a
                   onClick={handleOpenDeleteAccount}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <DeleteForeverOutlined fontSize="medium" class="mr-2  " />
                   Delete Account
                 </a>
                 <div
                   onClick={handleClickOpenEndGameSession}
-                  class="  flex  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <HighlightOffOutlined fontSize="medium" class="mr-2  " />
                   End Game
                 </div>
                 <div
                   onClick={handleClickOpenLogout}
-                  class="  flex bg-[#991b1b]  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <LogoutOutlined fontSize="medium" class="mr-2  " />
                   Logout
@@ -271,42 +271,42 @@ export default function AccountMenuMobile() {
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
                 <a
                   onClick={handlePlayGame}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <VideogameAssetOutlined fontSize="medium" class="mr-2  " />
                   Play Game
                 </a>
                 <a
                   onClick={handleDashboardNavigate}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <HomeOutlined fontSize="medium" class="mr-2  " />
                   Dashboard
                 </a>
                 <a
                   onClick={handleStripePortal}
-                  class="flex    items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
+                  class="flex    items-center justify-start py-2 px-2 text-lg text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <CardMembershipOutlined fontSize="medium" class="mr-2" />{" "}
                   Subscription
                 </a>
                 <a
                   onClick={handleNavigateRules}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <NotesRounded fontSize="medium" class="mr-2  " />
                   Rules
                 </a>
                 <a
                   onClick={handleOpenDeleteAccount}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <DeleteForeverOutlined fontSize="medium" class="mr-2  " />
                   Delete Account
                 </a>
                 <div
                   onClick={handleClickOpenLogout}
-                  class="  flex bg-[#991b1b]  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex   items-center justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <LogoutOutlined fontSize="medium" class="mr-2  " />
                   Logout
@@ -319,21 +319,21 @@ export default function AccountMenuMobile() {
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
                 <a
                   onClick={handleDashboardNavigate}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <HomeOutlined fontSize="medium" class="mr-2  " />
                   Dashboard
                 </a>
                 <a
                   onClick={handleStripePortal}
-                  class="flex    items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
+                  class="flex    items-center justify-start py-2 px-2 text-lg text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <CardMembershipOutlined fontSize="medium" class="mr-2" />{" "}
                   Subscription
                 </a>
                 <a
                   onClick={handleNavigateRules}
-                  class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <NotesRounded fontSize="medium" class="mr-2  " />
                   Rules
@@ -341,14 +341,14 @@ export default function AccountMenuMobile() {
 
                 <div
                   onClick={handleClickOpenEndGameSession}
-                  class="  flex  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex  items-center justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <HighlightOffOutlined fontSize="medium" class="mr-2  " />
                   End Session
                 </div>
                 <div
                   onClick={handleClickOpenLogout}
-                  class="  flex bg-[#991b1b]  items-center justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
+                  class="  flex   items-center justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <LogoutOutlined fontSize="medium" class="mr-2  " />
                   Logout

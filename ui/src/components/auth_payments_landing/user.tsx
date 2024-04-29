@@ -84,13 +84,57 @@ const User = () => {
         </div>
 
         <Show when={!subscriptionStatus() && paymentFailed()}>
-          <div class="text-xl lg:text-2xl text-gray-300 flex justify-center px-4 ">
-            {userProfile()?.firstName}, something went wrong 😔 Please try
-            again.
-          </div>
+          <div class=" max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+            <div class="text-center">
+              <p class="mb-4 text-2xl md:text-3xl font-bold">
+                Oops, there seems to be a hiccup,{" "}
+                <span class="font-bold">{userProfile()?.firstName}</span>.
+              </p>
+            </div>
 
-          <div class="flex flex-row justify-center">
-            <PricingPlans />
+            <p class="mb-4 ml-8 text-left text-base md:text-lg">
+              We noticed a snag while setting up your access, but no
+              worries—we've got you covered!
+            </p>
+            <p class="mb-4 ml-8 text-left text-base md:text-lg">
+              Remember, you can still enjoy a{" "}
+              <span class="font-bold">7-day free trial</span> of Commonly Odd
+              with all its features. Feel free to continue exploring and if you
+              decide it's not for you, cancelling is easy at any time.
+            </p>
+
+            <div
+              id="pricingplans"
+              class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
+            >
+              Explore Plans
+            </div>
+            <div class="flex justify-center items-center">
+              <PricingPlans />
+            </div>
+
+            <p class="mb-4 ml-8 text-base md:text-lg">
+              If you have any questions or need further assistance, don't If you
+              have any questions or need further assistance, don't hesitate to
+              reach out.
+            </p>
+            <p class="ml-8 text-base md:text-lg">
+              Feel free to drop me an email at{" "}
+              <a
+                href="mailto:commonlyoddtrivia@gmail.com"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                commonlyoddtrivia@gmail.com
+              </a>{" "}
+              or send me a message on Twitter at{" "}
+              <a
+                href="https://twitter.com/kolourrmusic"
+                class="text-blue-500 hover:text-blue-700"
+              >
+                @kolourrmusic
+              </a>
+              .
+            </p>
           </div>
         </Show>
 
@@ -117,8 +161,8 @@ const User = () => {
         </Show>
 
         <Show when={!subscriptionStatus() && userPage()}>
-          <div class=" text-base md:text-lg max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
-            <div class="text-center">
+          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+            <div class="text-center text-base md:text-lg">
               <p class="mb-4 text-2xl md:text-3xl  ">
                 Hi <span class="font-bold">{userProfile()?.firstName}</span>,
                 welcome to{" "}
@@ -126,7 +170,7 @@ const User = () => {
               </p>
             </div>
 
-            <div class="text-left">
+            <div class="text-left text-base md:text-lg">
               <p class="mb-4 ml-8 ">
                 As our newest member, you're granted an exclusive{" "}
                 <span class="font-bold">7-day free trial</span> to dive into the
@@ -134,10 +178,10 @@ const User = () => {
               </p>
             </div>
 
-            <p class="mb-4 text-2xl md:text-3xl font-bold text-center">
+            <p class="mb-4 text-2xl md:text-3xl font-bold text-center ">
               Get ready to
             </p>
-            <ul class="list-disc pl-8 mb-4 text-left">
+            <ul class="list-disc pl-8 mb-4 text-left text-base md:text-lg">
               <li class="mb-2">
                 Test your wits with our wide-ranging trivia questions across
                 various categories.
@@ -152,18 +196,18 @@ const User = () => {
                 categories, to keep the gameplay exciting and engaging.
               </li>
             </ul>
-            <p class="mb-4  text-center">
+            <p class="mb-4  text-center text-base md:text-lg">
               Here's a quick word from Bruce (founder of Commonly Odd):
             </p>
 
-            <div class="w-full mb-4">
+            <div class="w-full mb-4 text-base md:text-lg">
               <video controls class="w-full h-auto shadow-lg">
                 <source src="path_to_your_video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
 
-            <p class="mb-4 ml-8 text-left">
+            <p class="mb-4 ml-8 text-left text-base md:text-lg">
               Ready to start playing? Choose a plan below to begin your free
               trial and play to your heart's content!
             </p>
@@ -173,19 +217,19 @@ const User = () => {
                 id="pricingplans"
                 class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
               >
-                Pricing
+                Explore Plans
               </div>
               <div class="flex flex-row justify-center mb-4">
                 <PricingPlans />
               </div>
             </div>
 
-            <p class="mb-4 ml-8">
+            <p class="mb-4 ml-8 text-base md:text-lg">
               If you have any questions or need further assistance, don't If you
               have any questions or need further assistance, don't hesitate to
               reach out.
             </p>
-            <p class="ml-8">
+            <p class="ml-8 text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
                 href="mailto:commonlyoddtrivia@gmail.com"
@@ -228,7 +272,7 @@ const User = () => {
               }}
               class="flex justify-center items-center text-gray-300 bg-slate-900"
             >
-              Start Playing Commonly Odd
+              Start Playing
             </Button>
           </div>
         </Show>

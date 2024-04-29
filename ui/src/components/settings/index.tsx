@@ -233,7 +233,7 @@ export default function AccountMenu() {
                   <div class="px-4">Features</div>
                 </a>
                 <a href="#pricing-plans">
-                  <div class="px-4">Pricing</div>
+                  <div class="px-4">Explore Plans</div>
                 </a>
               </div>
             </div>
