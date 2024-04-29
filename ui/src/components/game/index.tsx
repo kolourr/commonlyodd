@@ -104,7 +104,7 @@ export default function Game() {
     if (!isSessionStarted() && isAuthenticated() && userSubstatus()) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             <EditOutlined fontSize="medium" /> to create session for the game.
           </div>
         </div>
@@ -116,7 +116,7 @@ export default function Game() {
     if (isSessionStarted()) {
       setGameInfo(
         <div class="flex flex-col  justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             Share the game link prior to starting the game.
           </div>
         </div>
@@ -130,7 +130,9 @@ export default function Game() {
     if (!isAuthenticated() && !userSubstatus() && !starterToken) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div>Once the game starts, this message will disappear.</div>
+          <div class="md:text-base lg:text-xl">
+            Once the game starts, this message will disappear.
+          </div>
         </div>
       );
     }
@@ -140,7 +142,7 @@ export default function Game() {
     if (isTargetScoreReached() && !gameWinner()) {
       setGameInfo(
         <div class="flex flex-col  justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             The target score has been reached! The game will continue until a
             clear winner emerges.
           </div>
@@ -262,7 +264,7 @@ export default function Game() {
 
         <div class="flex flex-col h-20 mb-6">
           <div
-            class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-300 h-28    p-4 break-words mb-4"
+            class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-300 h-28     p-4 break-words mb-4"
             id="gameInfo"
           >
             {gameInfo()}

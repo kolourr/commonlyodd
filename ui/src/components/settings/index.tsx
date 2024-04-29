@@ -13,6 +13,7 @@ import {
   createEffect,
   createResource,
   createSignal,
+  onCleanup,
   onMount,
 } from "solid-js";
 import {
@@ -61,6 +62,7 @@ export default function AccountMenu() {
   const [goToRules, setGoToRules] = createSignal(false);
   const [goToHome, setGoToHome] = createSignal(false);
   const [goToStripePortal, setGoToStripePortal] = createSignal(false);
+  const [goToLogin, setGoToLogin] = createSignal(false);
 
   //Logout
   const handleClickOpenLogout = () => {
@@ -87,8 +89,7 @@ export default function AccountMenu() {
 
   // Here
   const handleDashboardNavigate = () => {
-    console.log("Dashboard navigate: gameInSession", gameInSession());
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToDashboard(true);
       setOpenLeaveGame(true);
     } else {
@@ -98,7 +99,7 @@ export default function AccountMenu() {
 
   // Here
   const handleNavigateRules = () => {
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToRules(true);
       setOpenLeaveGame(true);
     } else {
@@ -108,7 +109,7 @@ export default function AccountMenu() {
 
   // Here
   const handleHome = () => {
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToHome(true);
       setOpenLeaveGame(true);
     } else {
@@ -118,7 +119,7 @@ export default function AccountMenu() {
 
   // Here
   const handleStripePortal = () => {
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToStripePortal(true);
       setOpenLeaveGame(true);
     } else {
@@ -126,22 +127,24 @@ export default function AccountMenu() {
     }
   };
 
-  const checkingGameSession = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionUuid =
-      urlParams.get("session") || localStorage.getItem("session_uuid");
-
-    if (sessionUuid !== null) {
-      console.log("Game in session");
-      setGameInSession(true);
+  const handleLogin = () => {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
+      setGoToLogin(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `${BASE_API}/login`;
     }
   };
 
   const handleLeaveGame = () => {
     setOpenLeaveGame(false);
-    sendMessage({ game_state: "end" });
-    localStorage.removeItem("session_uuid");
-    localStorage.removeItem("starter_token");
+    const sessionUuidFromStorage = localStorage.getItem("session_uuid");
+
+    if (sessionUuidFromStorage) {
+      sendMessage({ game_state: "end" });
+      localStorage.removeItem("session_uuid");
+      localStorage.removeItem("starter_token");
+    }
 
     if (goToDashboard()) {
       window.location.href = "/user";
@@ -155,6 +158,9 @@ export default function AccountMenu() {
     } else if (goToStripePortal()) {
       stripePortal();
       setGoToStripePortal(false);
+    } else if (goToLogin()) {
+      window.location.href = `${BASE_API}/login`;
+      setGoToLogin(false);
     }
   };
 
@@ -171,18 +177,28 @@ export default function AccountMenu() {
     setIsAuthenticated(auth);
   });
 
+  // Polling function to check session_uuid from local storage and URL parameters
+  const pollSessionUuid = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuidFromUrl = urlParams.get("session");
+    const sessionUuidFromStorage = localStorage.getItem("session_uuid");
+    const sessionUuid = sessionUuidFromUrl || sessionUuidFromStorage;
+
+    setGameInSession(sessionUuid !== null);
+  };
+
   createEffect(() => {
-    setTimeout(() => {
-      checkingGameSession();
-    }, 500);
+    pollSessionUuid();
+    const intervalId = setInterval(pollSessionUuid, 1000);
+    onCleanup(() => {
+      clearInterval(intervalId);
+    });
   });
 
   onMount(() => {
-    checkingGameSession();
-    //refresh subscription status after 0.3 seconds
+    pollSessionUuid();
     setTimeout(() => {
       refetchSubStatus();
-      checkingGameSession();
     }, 300);
   });
 
@@ -197,8 +213,10 @@ export default function AccountMenu() {
               class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={30}
+                height={30}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -222,14 +240,14 @@ export default function AccountMenu() {
             <div class="flex flex-row w-1/6 justify-end items-center">
               <div class="flex flex-row items-center justify-center ">
                 <div class="text-lg mr-4 ">
-                  <a href={`${BASE_API}/login`}>
+                  <div onClick={handleLogin}>
                     <div class="w-[60px] ">Log in</div>
-                  </a>
+                  </div>
                 </div>
                 <div>
                   <Button
                     variant="contained"
-                    href={`${BASE_API}/login`}
+                    onClick={handleLogin}
                     sx={{
                       width: "150px",
                       height: "45px",
@@ -253,8 +271,10 @@ export default function AccountMenu() {
               class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={30}
+                height={30}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -266,14 +286,14 @@ export default function AccountMenu() {
             <div class="flex flex-row w-1/6 justify-end items-center">
               <div class="flex flex-row items-center justify-center ">
                 <div class="text-lg mr-4 ">
-                  <a href={`${BASE_API}/login`} style={{ cursor: "pointer" }}>
+                  <div onClick={handleLogin} style={{ cursor: "pointer" }}>
                     <div class="w-[60px] ">Log in</div>
-                  </a>
+                  </div>
                 </div>
                 <div>
                   <Button
                     variant="contained"
-                    href={`${BASE_API}/login`}
+                    onClick={handleLogin}
                     sx={{
                       width: "150px",
                       height: "45px",
@@ -297,8 +317,10 @@ export default function AccountMenu() {
               class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={30}
+                height={30}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <LightsUp />
@@ -320,7 +342,7 @@ export default function AccountMenu() {
                   <Button
                     variant="contained"
                     color="warning"
-                    href={`${BASE_API}/login`}
+                    onClick={handleLogin}
                     sx={{
                       width: "150px",
                       height: "45px",
@@ -348,8 +370,10 @@ export default function AccountMenu() {
               class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={30}
+                height={30}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -419,8 +443,10 @@ export default function AccountMenu() {
               class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={30}
+                height={30}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <LightsUp />
@@ -474,7 +500,7 @@ export default function AccountMenu() {
                   <Button
                     variant="contained"
                     color="warning"
-                    href={`${BASE_API}/login`}
+                    onClick={handleLogin}
                     sx={{
                       width: "150px",
                       height: "45px",
@@ -502,8 +528,10 @@ export default function AccountMenu() {
               class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={30}
+                height={30}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
@@ -580,8 +608,10 @@ export default function AccountMenu() {
               class="flex flex-row w-1/6 justify-start items-center font-bold  "
             >
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/30x30"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={30}
+                height={30}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
               <LightsUp />
@@ -610,13 +640,6 @@ export default function AccountMenu() {
                   >
                     <CardMembershipOutlined class="mr-2" />
                     Subscription
-                  </div>
-                  <div
-                    onClick={handleOpenDeleteAccount}
-                    class="  py-2 px-2 text-lg text-white hover:bg-slate-800 cursor-pointer flex items-center"
-                  >
-                    <DeleteForeverOutlined class="mr-2" />
-                    Delete Account
                   </div>
                 </div>
               </div>

@@ -118,7 +118,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setTargetScore(msg.target_score);
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             {teamName()}, what's odd and what's the commonality?
           </div>
         </div>
@@ -141,7 +141,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setCanJoinVoiceCall(msg.starter_in_call);
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             {teamName()}, what's odd and what's the commonality among the other
             three?
           </div>
@@ -158,10 +158,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       setCanJoinVoiceCall(msg.starter_in_call);
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div>
-            <span class="text-base">
-              {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
-            </span>
+          <div class="md:text-base lg:text-xl">
+            {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
           </div>
         </div>
       );
@@ -186,7 +184,7 @@ function handleWebSocketMessage(event: MessageEvent) {
 
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             Session starter, continue to {teamName()}
             's round.
           </div>
@@ -211,7 +209,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setCanJoinVoiceCall(msg.starter_in_call);
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             {teamName()}, what's odd and what's the commonality?
           </div>
         </div>
@@ -255,7 +253,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setCanJoinVoiceCall(msg.starter_in_call);
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
-          <div class="text-base">
+          <div class="md:text-base lg:text-xl">
             {teamName()}, what's odd and what's the commonality?
           </div>
         </div>

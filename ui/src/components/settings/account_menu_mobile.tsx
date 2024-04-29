@@ -73,6 +73,7 @@ export default function AccountMenuMobile() {
   const [goToDashboard, setGoToDashboard] = createSignal(false);
   const [goToRules, setGoToRules] = createSignal(false);
   const [goToHome, setGoToHome] = createSignal(false);
+  const [goToLogin, setGoToLogin] = createSignal(false);
   const [goToStripePortal, setGoToStripePortal] = createSignal(false);
 
   const openCloseMenu = () => {
@@ -114,17 +115,6 @@ export default function AccountMenuMobile() {
     );
   };
 
-  const checkingGameSession = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const sessionUuid =
-      urlParams.get("session") || localStorage.getItem("session_uuid");
-
-    if (sessionUuid !== null) {
-      console.log("Game in session");
-      setGameInSession(true);
-    }
-  };
-
   const closeMenu = () => setIsOpen(false);
   const handleDocumentClick = (event) => {
     const menuElement = document.getElementById("hamburger-menu");
@@ -149,19 +139,19 @@ export default function AccountMenuMobile() {
           <Show when={location.pathname !== "/game"}>
             <Show when={isOpen()}>
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
-                <a
-                  href={`${BASE_API}/login`}
+                <div
+                  onClick={handleLogin}
                   class="  flex  items-center  justify-start text-xl  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <LoginOutlined fontSize="medium" class="mr-2  " />
                   Log in
-                </a>
-                <a
-                  href={`${BASE_API}/login`}
+                </div>
+                <div
+                  onClick={handleLogin}
                   class="flex bg-[#1976D2]  items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <StartOutlined fontSize="medium" class="mr-2" /> Get Started
-                </a>
+                </div>
               </div>
             </Show>
           </Show>
@@ -175,12 +165,12 @@ export default function AccountMenuMobile() {
                   <HighlightOffOutlined fontSize="medium" class="mr-2  " />
                   End Game
                 </div>
-                <a
-                  href={`${BASE_API}/login`}
+                <div
+                  onClick={handleLogin}
                   class="flex bg-[#1976D2]   items-center justify-start py-2 px-2 text-xl text-white hover:bg-slate-800 shadow-sm shadow-gray-50  "
                 >
                   <StartOutlined fontSize="medium" class="mr-2" /> Get Started
-                </a>
+                </div>
               </div>
             </Show>
           </Show>
@@ -404,7 +394,7 @@ export default function AccountMenuMobile() {
 
   // Here
   const handleDashboardNavigate = () => {
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToDashboard(true);
       setOpenLeaveGame(true);
     } else {
@@ -414,7 +404,7 @@ export default function AccountMenuMobile() {
 
   // Here
   const handleNavigateRules = () => {
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToRules(true);
       setOpenLeaveGame(true);
     } else {
@@ -424,7 +414,7 @@ export default function AccountMenuMobile() {
 
   // Here
   const handleHome = () => {
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToHome(true);
       setOpenLeaveGame(true);
     } else {
@@ -434,7 +424,7 @@ export default function AccountMenuMobile() {
 
   // Here
   const handleStripePortal = () => {
-    if (location.pathname === "/game" && gameInSession()) {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
       setGoToStripePortal(true);
       setOpenLeaveGame(true);
     } else {
@@ -442,11 +432,24 @@ export default function AccountMenuMobile() {
     }
   };
 
+  const handleLogin = () => {
+    if (location.pathname.startsWith("/game") && gameInSession()) {
+      setGoToLogin(true);
+      setOpenLeaveGame(true);
+    } else {
+      window.location.href = `${BASE_API}/login`;
+    }
+  };
+
   const handleLeaveGame = () => {
     setOpenLeaveGame(false);
-    sendMessage({ game_state: "end" });
-    localStorage.removeItem("session_uuid");
-    localStorage.removeItem("starter_token");
+    const sessionUuidFromStorage = localStorage.getItem("session_uuid");
+
+    if (sessionUuidFromStorage) {
+      sendMessage({ game_state: "end" });
+      localStorage.removeItem("session_uuid");
+      localStorage.removeItem("starter_token");
+    }
 
     if (goToDashboard()) {
       window.location.href = "/user";
@@ -460,6 +463,9 @@ export default function AccountMenuMobile() {
     } else if (goToStripePortal()) {
       stripePortal();
       setGoToStripePortal(false);
+    } else if (goToLogin()) {
+      window.location.href = `${BASE_API}/login`;
+      setGoToLogin(false);
     }
   };
 
@@ -468,15 +474,26 @@ export default function AccountMenuMobile() {
     setIsAuthenticated(auth);
   });
 
+  // Polling function to check session_uuid from local storage and URL parameters
+  const pollSessionUuid = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const sessionUuidFromUrl = urlParams.get("session");
+    const sessionUuidFromStorage = localStorage.getItem("session_uuid");
+    const sessionUuid = sessionUuidFromUrl || sessionUuidFromStorage;
+
+    setGameInSession(sessionUuid !== null);
+  };
+
   createEffect(() => {
-    setTimeout(() => {
-      checkingGameSession();
-    }, 500);
+    pollSessionUuid();
+    const intervalId = setInterval(pollSessionUuid, 1000);
+    onCleanup(() => {
+      clearInterval(intervalId);
+    });
   });
 
   onMount(() => {
-    checkingGameSession();
-    //refresh subscription status after 0.3 seconds
+    pollSessionUuid();
     setTimeout(() => {
       refetchSubStatus();
     }, 300);
@@ -489,8 +506,10 @@ export default function AccountMenuMobile() {
           <a onClick={handleHome}>
             <div class="flex flex-row justify-center  text-center  items-center">
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/40x40"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100 font-bold">
                 Commonly
@@ -503,8 +522,10 @@ export default function AccountMenuMobile() {
           <a onClick={handleHome}>
             <div class="flex flex-row justify-center  text-center  items-center">
               <img
-                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/40x40"
+                src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
+                width={40}
+                height={40}
               />
               <span class="pr-2 text-4xl text-gray-100 font-bold">
                 Commonly

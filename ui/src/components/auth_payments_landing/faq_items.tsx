@@ -188,13 +188,13 @@ const FAQitems: Component = () => {
             {(item, index) => (
               <div class="border-b border-gray-600">
                 <button
-                  class="w-full text-left p-4 text-slate-400  text-lg"
+                  class="w-full text-left p-4 text-slate-300  text-lg"
                   onClick={() => toggle(index())}
                 >
                   {item.question}
                 </button>
                 <div
-                  class={`transition-max-height text-slate-500 duration-300 ease-in-out ${
+                  class={`transition-max-height text-slate-400 duration-300 ease-in-out ${
                     selected() === index() ? "max-h-screen" : "max-h-0"
                   } overflow-hidden`}
                 >
