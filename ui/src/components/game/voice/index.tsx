@@ -579,7 +579,7 @@ export default function Voice() {
         </div>
 
         <div
-          class="users grid grid-cols-5 h-40 gap-1 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
+          class="users grid grid-cols-5 h-40 gap-0 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
           id="users"
         >
           <For each={users}>
