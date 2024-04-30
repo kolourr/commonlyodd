@@ -219,9 +219,7 @@ export default function AccountMenu() {
                 height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
-                Odd
-              </span>
+              <LightsUp />
             </div>
 
             <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
@@ -278,9 +276,7 @@ export default function AccountMenu() {
                 height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
-                Odd
-              </span>
+              <LightsUp />
             </div>
 
             <div class="w-4/6 "></div>
@@ -378,9 +374,7 @@ export default function AccountMenu() {
                 height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
-                Odd
-              </span>
+              <LightsUp />
             </div>
 
             <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
@@ -536,9 +530,7 @@ export default function AccountMenu() {
                 height={40}
               />
               <span class="pr-2 text-4xl text-gray-100">Commonly</span>
-              <span class="transform -rotate-12 border-2 shadow-md shadow-gray-50 text-4xl hover:scale-105 transition-transform duration-300 uppercase tracking-[0.1em] bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 text-gray-100">
-                Odd
-              </span>
+              <LightsUp />
             </div>
 
             <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-12">
