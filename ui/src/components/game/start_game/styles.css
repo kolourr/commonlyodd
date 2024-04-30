@@ -17,8 +17,9 @@
   position: fixed;
   top: 15%;
   left: 50%;
+  right: 50%;
   transform: translate(-50%, -50%);
-  font-size: 9em;
+  font-size: 5em;
   color: #fff;
 }
 
@@ -29,8 +30,9 @@
   position: fixed;
   top: 15%;
   left: 50%;
+  right: 50%;
   transform: translate(-50%, -50%);
-  font-size: 6em;
+  font-size: 5em;
   color: #fff;
 }
 
