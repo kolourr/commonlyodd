@@ -84,5 +84,5 @@ func handleStart(conn *websocket.Conn, sessionUUID string, gameData map[string]s
 	broadcastToSession(sessionUUID, startMsg)
 
 	// Start a 20-second timer in a separate goroutine
-	go startCountdown(conn, sessionUUID, 0)
+	go startCountdown(conn, sessionUUID, 10)
 }
