@@ -254,6 +254,7 @@ export default function AccountMenu() {
                       fontSize: "16px",
                       fontWeight: "bold",
                       color: "white",
+                      backgroundColor: "#1976D2",
                     }}
                   >
                     Get Started
@@ -300,6 +301,7 @@ export default function AccountMenu() {
                       fontSize: "16px",
                       fontWeight: "bold",
                       color: "white",
+                      backgroundColor: "#1976D2",
                     }}
                   >
                     Get Started

@@ -84,19 +84,61 @@ const checkSessionStatus = () => {
   }
 };
 
+// function initializeWebSocket(sessionUuid: string, starterToken?: string) {
+//   if (starterToken) {
+//     gameWebSocket = createReconnectingWS(
+//       BASE_API.replace("http", "ws") +
+//         `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
+//     );
+//     gameWebSocket.addEventListener("message", handleWebSocketMessage);
+//   } else {
+//     gameWebSocket = createReconnectingWS(
+//       BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
+//     );
+//     gameWebSocket.addEventListener("message", handleWebSocketMessage);
+//   }
+// }
+
 function initializeWebSocket(sessionUuid: string, starterToken?: string) {
+  let inactivityTimeout: NodeJS.Timeout;
+
+  // Helper function to close the WebSocket after a period of inactivity
+  function startInactivityTimer() {
+    // Clear previous timer
+    clearTimeout(inactivityTimeout);
+    inactivityTimeout = setTimeout(() => {
+      if (gameWebSocket) {
+        gameWebSocket.close();
+        console.log("WebSocket closed due to inactivity.");
+      }
+    }, 600000);
+  }
+
   if (starterToken) {
     gameWebSocket = createReconnectingWS(
       BASE_API.replace("http", "ws") +
         `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
     );
-    gameWebSocket.addEventListener("message", handleWebSocketMessage);
   } else {
     gameWebSocket = createReconnectingWS(
       BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
     );
-    gameWebSocket.addEventListener("message", handleWebSocketMessage);
   }
+
+  gameWebSocket.addEventListener("message", (event) => {
+    handleWebSocketMessage(event);
+    // Reset the inactivity timer on each message received
+    startInactivityTimer();
+  });
+
+  // Start the inactivity timer on connection open and clear it on close
+  gameWebSocket.addEventListener("open", startInactivityTimer);
+  gameWebSocket.addEventListener("close", () =>
+    clearTimeout(inactivityTimeout)
+  );
+
+  // Start the timer initially when the WebSocket is opened
+  startInactivityTimer();
 }
 
 function handleWebSocketMessage(event: MessageEvent) {
@@ -366,9 +408,9 @@ export default function StartGame() {
     checkSessionStatus();
   });
 
-  // onCleanup(() => {
-  //   gameWebSocket?.close();
-  // });
+  onCleanup(() => {
+    gameWebSocket?.close();
+  });
 
   return (
     <div>

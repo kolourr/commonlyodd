@@ -28,7 +28,7 @@ export default function Timer() {
         <div class="text-center">
           {timer() > 0 ? (
             <p
-              class={`flex flex-col justify-center items-center text-8xl font-bold h-32 bg-gradient-to-r from-rose-600 via-pink-300 to-error-400 text-transparent bg-clip-text timerFlashing`}
+              class={`flex flex-col justify-center items-center text-8xl font-bold h-28 bg-gradient-to-r from-rose-600 via-pink-300 to-error-400 text-transparent bg-clip-text timerFlashing`}
             >
               {timer()}
             </p>
