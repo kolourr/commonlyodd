@@ -243,7 +243,7 @@ const features: Feature[] = [
         muted
         playsInline
         class="w-full h-auto"
-        src="https://media.commonlyodd.com/browser_final.mp4"
+        src="https://media.commonlyodd.com/co_browser.mp4"
       ></video>
     ),
     description: (
@@ -263,7 +263,7 @@ const features: Feature[] = [
         muted
         playsInline
         class="w-full h-auto"
-        src="https://media.commonlyodd.com/group_call_final.mp4"
+        src="https://media.commonlyodd.com/co_group_call.mp4"
       ></video>
     ),
     description: (
@@ -282,7 +282,7 @@ const features: Feature[] = [
         muted
         playsInline
         class="w-full h-auto"
-        src="https://media.commonlyodd.com/session_link_final.mp4"
+        src="https://media.commonlyodd.com/co_session_link.mp4"
       ></video>
     ),
     description: (
@@ -302,7 +302,7 @@ const features: Feature[] = [
         muted
         playsInline
         class="w-full h-auto"
-        src="https://media.commonlyodd.com/frequent_updates_final.mp4"
+        src="https://media.commonlyodd.com/co_frequent_updates.mp4"
       ></video>
     ),
     description: (
