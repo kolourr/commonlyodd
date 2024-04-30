@@ -42,7 +42,7 @@ const ContactUsForm: Component = () => {
         },
       });
     } else {
-      console.log("grecaptcha not loaded");
+      console.error("grecaptcha not loaded");
     }
   });
 
