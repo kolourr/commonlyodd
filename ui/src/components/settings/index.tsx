@@ -585,13 +585,13 @@ export default function AccountMenu() {
               <div class="flex flex-row items-center justify-center ">
                 <Button
                   variant="contained"
+                  color="warning"
                   onClick={handlePlayGame}
                   sx={{
                     width: "150px",
                     height: "45px",
                     fontSize: "16px",
                     fontWeight: "bold",
-                    color: "white",
                   }}
                 >
                   Play Game

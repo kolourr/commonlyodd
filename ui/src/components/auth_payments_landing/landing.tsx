@@ -391,7 +391,7 @@ const LandingPage: Component = () => {
           Features
         </div>
 
-        <div class="w-full flex justify-center">
+        <div class="w-full flex justify-center   text-center">
           <div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-2 p-2   w-full justify-center   items-center">
             <For each={features}>
               {(feature, index) => (
