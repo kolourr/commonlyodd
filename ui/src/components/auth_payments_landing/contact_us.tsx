@@ -113,6 +113,10 @@ const ContactUsForm: Component = () => {
             onSubmit={handleSubmit}
             class="text-center mx-auto my-2 flex flex-col gap-6 w-8/12"
           >
+            <div
+              id="recaptcha-container"
+              class="flex justify-center items-center"
+            ></div>
             <input
               type="text"
               class="text-gray-200 bg-transparent border-2 shadow-md shadow-gray-50 h-14"
@@ -147,10 +151,6 @@ const ContactUsForm: Component = () => {
               value={message()}
               onInput={(e) => setMessage(e.currentTarget.value)}
             ></textarea>
-            <div
-              id="recaptcha-container"
-              class="flex justify-center items-center"
-            ></div>
 
             <div class="flex justify-center items-center">
               {" "}
