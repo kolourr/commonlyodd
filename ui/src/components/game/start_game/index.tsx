@@ -99,61 +99,6 @@ function initializeWebSocket(sessionUuid: string, starterToken?: string) {
   }
 }
 
-// function initializeWebSocket(sessionUuid: string, starterToken?: string) {
-//   // Define how often to send heartbeat messages (e.g., every 30 seconds)
-//   const heartbeatInterval = 5000;
-//   let heartbeatTimer: NodeJS.Timeout;
-
-//   const startHeartbeat = () => {
-//     heartbeatTimer = setInterval(() => {
-//       if (gameWebSocket && gameWebSocket.readyState === WebSocket.OPEN) {
-//         gameWebSocket.send(JSON.stringify({ type: "ping" }));
-//       }
-//     }, heartbeatInterval);
-//   };
-
-//   const stopHeartbeat = () => {
-//     clearInterval(heartbeatTimer);
-//   };
-
-//   if (starterToken) {
-//     gameWebSocket = createReconnectingWS(
-//       BASE_API.replace("http", "ws") +
-//         `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
-//     );
-//   } else {
-//     gameWebSocket = createReconnectingWS(
-//       BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
-//     );
-//   }
-
-//   // Start sending heartbeat messages upon connection
-//   gameWebSocket.addEventListener("open", () => {
-//     console.log("WebSocket connection established");
-//     startHeartbeat();
-//   });
-
-//   // Stop sending heartbeat messages when the connection is closed
-//   gameWebSocket.addEventListener("close", () => {
-//     console.log("WebSocket connection closed");
-//     stopHeartbeat();
-//   });
-
-//   gameWebSocket.addEventListener("message", (event) => {
-//     handleWebSocketMessage(event);
-//   });
-
-//   // Add cleanup to stop heartbeat on component unmount
-//   onCleanup(() => {
-//     if (gameWebSocket) {
-//       gameWebSocket.close();
-//       stopHeartbeat();
-//     }
-//   });
-
-//   return gameWebSocket;
-// }
-
 function handleWebSocketMessage(event: MessageEvent) {
   const msg: WebSocketMessage = JSON.parse(event.data);
   switch (msg.game_state) {
@@ -409,35 +354,21 @@ export default function StartGame() {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionUuid =
       urlParams.get("session") || localStorage.getItem("session_uuid");
+    const starterToken = localStorage.getItem("starter_token");
 
     setIsSessionActive(!!sessionUuid);
+    setIsSessionStarter(!!starterToken);
 
-    if (sessionUuid) {
+    if (sessionUuid && !gameWebSocket) {
       initializeWebSocket(sessionUuid);
       setSessionLink(window.location.href);
     }
+    checkSessionStatus();
   });
 
-  // //Start game for non-starter
-  // onMount(() => {
-  //   const urlParams = new URLSearchParams(window.location.search);
-  //   const sessionUuid =
-  //     urlParams.get("session") || localStorage.getItem("session_uuid");
-  //   const starterToken = localStorage.getItem("starter_token");
-
-  //   setIsSessionActive(!!sessionUuid);
-  //   setIsSessionStarter(!!starterToken);
-
-  //   if (sessionUuid && !gameWebSocket) {
-  //     initializeWebSocket(sessionUuid);
-  //     setSessionLink(window.location.href);
-  //   }
-  //   checkSessionStatus();
-  // });
-
-  // onCleanup(() => {
-  //   gameWebSocket?.close();
-  // });
+  onCleanup(() => {
+    gameWebSocket?.close();
+  });
 
   return (
     <div>
