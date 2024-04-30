@@ -409,17 +409,31 @@ export default function StartGame() {
     const urlParams = new URLSearchParams(window.location.search);
     const sessionUuid =
       urlParams.get("session") || localStorage.getItem("session_uuid");
-    const starterToken = localStorage.getItem("starter_token");
 
     setIsSessionActive(!!sessionUuid);
-    setIsSessionStarter(!!starterToken);
 
-    if (sessionUuid && !gameWebSocket) {
+    if (sessionUuid) {
       initializeWebSocket(sessionUuid);
       setSessionLink(window.location.href);
     }
-    checkSessionStatus();
   });
+
+  // //Start game for non-starter
+  // onMount(() => {
+  //   const urlParams = new URLSearchParams(window.location.search);
+  //   const sessionUuid =
+  //     urlParams.get("session") || localStorage.getItem("session_uuid");
+  //   const starterToken = localStorage.getItem("starter_token");
+
+  //   setIsSessionActive(!!sessionUuid);
+  //   setIsSessionStarter(!!starterToken);
+
+  //   if (sessionUuid && !gameWebSocket) {
+  //     initializeWebSocket(sessionUuid);
+  //     setSessionLink(window.location.href);
+  //   }
+  //   checkSessionStatus();
+  // });
 
   // onCleanup(() => {
   //   gameWebSocket?.close();
