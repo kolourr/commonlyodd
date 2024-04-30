@@ -57,6 +57,7 @@ interface SectionProps {
 
 interface Feature {
   title: JSX.Element;
+  video: JSX.Element;
   description: JSX.Element;
 }
 
@@ -235,6 +236,16 @@ const bottomSection: SectionProps[] = [
 const features: Feature[] = [
   {
     title: <>Play Anywhere, Anytime</>,
+    video: (
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        class="w-full h-auto"
+        src="https://media.commonlyodd.com/browser_final.mp4"
+      ></video>
+    ),
     description: (
       <>
         No download required. Jump right into your browser. If it connects to
@@ -245,6 +256,16 @@ const features: Feature[] = [
 
   {
     title: <>Built-In Group Voice Chat</>,
+    video: (
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        class="w-full h-auto"
+        src="https://media.commonlyodd.com/group_call_final.mp4"
+      ></video>
+    ),
     description: (
       <>
         Skip Zoom and ditch Discord! Our browser-based voice chat lets everyone
@@ -254,6 +275,16 @@ const features: Feature[] = [
   },
   {
     title: <>Your People Play for FREE</>,
+    video: (
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        class="w-full h-auto"
+        src="https://media.commonlyodd.com/session_link_final.mp4"
+      ></video>
+    ),
     description: (
       <>
         No screen sharing needed—just send over the game link! Your crew can
@@ -264,6 +295,16 @@ const features: Feature[] = [
 
   {
     title: <>Frequent Updates</>,
+    video: (
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        class="w-full h-auto"
+        src="https://media.commonlyodd.com/frequent_updates_final.mp4"
+      ></video>
+    ),
     description: (
       <>
         We frequently update our catalog, bringing quirkier questions and
@@ -402,6 +443,9 @@ const LandingPage: Component = () => {
                   <h2 class="  text-2xl font-bold text-gray-300 flex justify-center p-4">
                     {feature.title}
                   </h2>
+                  <div class="flex justify-center items-center">
+                    {feature.video}
+                  </div>
 
                   <p class="text-xl text-slate-400  flex justify-center items-center p-6  ">
                     {feature.description}
