@@ -366,9 +366,9 @@ export default function StartGame() {
     checkSessionStatus();
   });
 
-  onCleanup(() => {
-    gameWebSocket?.close();
-  });
+  // onCleanup(() => {
+  //   gameWebSocket?.close();
+  // });
 
   return (
     <div>
