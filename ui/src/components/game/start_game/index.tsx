@@ -84,62 +84,75 @@ const checkSessionStatus = () => {
   }
 };
 
-function initializeWebSocket(sessionUuid: string, starterToken?: string) {
-  if (starterToken) {
-    gameWebSocket = createReconnectingWS(
-      BASE_API.replace("http", "ws") +
-        `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
-    );
-    gameWebSocket.addEventListener("message", handleWebSocketMessage);
-  } else {
-    gameWebSocket = createReconnectingWS(
-      BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
-    );
-    gameWebSocket.addEventListener("message", handleWebSocketMessage);
-  }
-}
-
 // function initializeWebSocket(sessionUuid: string, starterToken?: string) {
-//   let inactivityTimeout: NodeJS.Timeout;
-
-//   // Helper function to close the WebSocket after a period of inactivity
-//   function startInactivityTimer() {
-//     // Clear previous timer
-//     clearTimeout(inactivityTimeout);
-//     inactivityTimeout = setTimeout(() => {
-//       if (gameWebSocket) {
-//         gameWebSocket.close();
-//         console.log("WebSocket closed due to inactivity.");
-//       }
-//     }, 600000);
-//   }
-
 //   if (starterToken) {
 //     gameWebSocket = createReconnectingWS(
 //       BASE_API.replace("http", "ws") +
 //         `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
 //     );
+//     gameWebSocket.addEventListener("message", handleWebSocketMessage);
 //   } else {
 //     gameWebSocket = createReconnectingWS(
 //       BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
 //     );
+//     gameWebSocket.addEventListener("message", handleWebSocketMessage);
 //   }
-
-//   gameWebSocket.addEventListener("message", (event) => {
-//     handleWebSocketMessage(event);
-//     // Reset the inactivity timer on each message received
-//     startInactivityTimer();
-//   });
-
-//   // Start the inactivity timer on connection open and clear it on close
-//   gameWebSocket.addEventListener("open", startInactivityTimer);
-//   gameWebSocket.addEventListener("close", () =>
-//     clearTimeout(inactivityTimeout)
-//   );
-
-//   // Start the timer initially when the WebSocket is opened
-//   startInactivityTimer();
 // }
+
+function initializeWebSocket(sessionUuid: string, starterToken?: string) {
+  // Define how often to send heartbeat messages (e.g., every 30 seconds)
+  const heartbeatInterval = 5000;
+  let heartbeatTimer: NodeJS.Timeout;
+
+  const startHeartbeat = () => {
+    heartbeatTimer = setInterval(() => {
+      if (gameWebSocket && gameWebSocket.readyState === WebSocket.OPEN) {
+        gameWebSocket.send(JSON.stringify({ type: "ping" }));
+      }
+    }, heartbeatInterval);
+  };
+
+  const stopHeartbeat = () => {
+    clearInterval(heartbeatTimer);
+  };
+
+  if (starterToken) {
+    gameWebSocket = createReconnectingWS(
+      BASE_API.replace("http", "ws") +
+        `/ws?sessionUUID=${sessionUuid}&starterToken=${starterToken}`
+    );
+  } else {
+    gameWebSocket = createReconnectingWS(
+      BASE_API.replace("http", "ws") + `/ws?sessionUUID=${sessionUuid}`
+    );
+  }
+
+  // Start sending heartbeat messages upon connection
+  gameWebSocket.addEventListener("open", () => {
+    console.log("WebSocket connection established");
+    startHeartbeat();
+  });
+
+  // Stop sending heartbeat messages when the connection is closed
+  gameWebSocket.addEventListener("close", () => {
+    console.log("WebSocket connection closed");
+    stopHeartbeat();
+  });
+
+  gameWebSocket.addEventListener("message", (event) => {
+    handleWebSocketMessage(event);
+  });
+
+  // Add cleanup to stop heartbeat on component unmount
+  onCleanup(() => {
+    if (gameWebSocket) {
+      gameWebSocket.close();
+      stopHeartbeat();
+    }
+  });
+
+  return gameWebSocket;
+}
 
 function handleWebSocketMessage(event: MessageEvent) {
   const msg: WebSocketMessage = JSON.parse(event.data);
