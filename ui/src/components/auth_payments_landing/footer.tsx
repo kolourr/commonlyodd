@@ -34,36 +34,68 @@ const Footer: Component = () => {
 
   return (
     <footer class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900 text-gray-300 p-4 text-center">
-      <a onClick={handleHome} class="hover:underline">
+      <a
+        onClick={handleHome}
+        class="hover:underline"
+        style={{ cursor: "pointer" }}
+      >
         Home{" "}
       </a>
       |{" "}
-      <a onClick={handleRules} class="hover:underline">
+      <a
+        onClick={handleRules}
+        class="hover:underline"
+        style={{ cursor: "pointer" }}
+      >
         Rules{" "}
       </a>
       |{" "}
-      <a onClick={handlePrivacyPolicy} class="hover:underline">
+      <a
+        onClick={handlePrivacyPolicy}
+        class="hover:underline"
+        style={{ cursor: "pointer" }}
+      >
         Privacy Policy{" "}
       </a>
       |{" "}
-      <a onClick={handleTermsOfUse} class="hover:underline">
+      <a
+        onClick={handleTermsOfUse}
+        class="hover:underline"
+        style={{ cursor: "pointer" }}
+      >
         Terms of Use{" "}
       </a>
       |{" "}
-      <a onClick={handleCookiePolicy} class="hover:underline">
+      <a
+        onClick={handleCookiePolicy}
+        class="hover:underline"
+        style={{ cursor: "pointer" }}
+      >
         Cookie Policy{" "}
       </a>
       |{" "}
-      <a onClick={handleFAQ} class="hover:underline">
+      <a
+        onClick={handleFAQ}
+        class="hover:underline"
+        style={{ cursor: "pointer" }}
+      >
         FAQ{" "}
       </a>
       |{" "}
-      <a onClick={handleCommunitySupport} class="hover:underline">
+      <a
+        onClick={handleCommunitySupport}
+        class="hover:underline"
+        style={{ cursor: "pointer" }}
+      >
         Community Support{" "}
       </a>
       |{" "}
       <div class="hidden md:block">
-        <a onClick={handleContactUs} class="hover:underline">
+        <a
+          onClick={handleContactUs}
+          class="hover:underline"
+          style={{ cursor: "pointer" }}
+        >
           Contact Us{" "}
         </a>
       </div>
@@ -73,6 +105,7 @@ const Footer: Component = () => {
           href="https://twitter.com/kolourrmusic"
           target="_blank"
           class="  hover:text-gray-100 "
+          style={{ cursor: "pointer" }}
         >
           Bruce in Toronto
         </a>
