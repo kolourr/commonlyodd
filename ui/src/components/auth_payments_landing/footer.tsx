@@ -62,9 +62,11 @@ const Footer: Component = () => {
         Community Support{" "}
       </a>
       |{" "}
-      <a onClick={handleContactUs} class="hover:underline">
-        Contact Us{" "}
-      </a>
+      <div class="hidden md:block">
+        <a onClick={handleContactUs} class="hover:underline">
+          Contact Us{" "}
+        </a>
+      </div>
       <p class="mt-4">
         Made with ❤️ by{" "}
         <a
