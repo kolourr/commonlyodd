@@ -71,14 +71,14 @@ const PricingPlans = () => {
   });
 
   return (
-    <div class="flex flex-col lg:flex-row justify-center items-stretch gap-4 p-4 bg-transparent text-slate-950">
+    <div class="flex flex-col lg:flex-row justify-center items-stretch gap-4 p-4 bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
       {plans.map((plan) => (
         <div
           class={`p-6 rounded-lg text-center shadow-lg ${
             plan.isBestValue
-              ? " border-4 border-success-500"
-              : "bg-slate-100 border-2"
-          } flex flex-col justify-between w-[355px] bg-slate-100`}
+              ? " border-4 border-success-300"
+              : "  border-2"
+          } flex flex-col justify-between w-[355px]  `}
           key={plan.id}
         >
           <div>
@@ -88,7 +88,7 @@ const PricingPlans = () => {
               <p class="text-2xl italic font-bold pl-2">{plan.period}</p>
             </div>
             {plan.savings ? (
-              <p class="text-2xl font-bold text-success-700 mt-1">
+              <p class="text-2xl font-bold text-success-400 mt-1">
                 {plan.savings}
               </p>
             ) : (
