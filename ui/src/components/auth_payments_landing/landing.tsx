@@ -425,6 +425,13 @@ const LandingPage: Component = () => {
         >
           How it Works
         </div>
+        <div class="w-full mb-4 text-base md:text-lg">
+              <video controls class="w-full h-auto shadow-lg">
+                <source src="https://media.commonlyodd.com/how_it_works.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
         <div
           id="features"
           class="mb-10 text-center text-4xl font-bold  text-gray-200 "

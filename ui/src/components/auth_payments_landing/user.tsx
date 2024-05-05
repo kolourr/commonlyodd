@@ -157,7 +157,7 @@ const User = () => {
             </div>
             <div class="w-full mb-4 text-base md:text-lg">
               <video controls class="w-full h-auto shadow-lg">
-                <source src="path_to_your_video.mp4" type="video/mp4" />
+                <source src="https://media.commonlyodd.com/payment_succes_video.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
