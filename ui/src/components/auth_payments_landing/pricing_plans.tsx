@@ -84,7 +84,7 @@ const PricingPlans = () => {
           <div>
             <h3 class="text-4xl font-bold mb-2">{plan.title}</h3>
             <div class="flex flex-row justify-center items-baseline">
-              <p class="text-4xl font-bold">{plan.price}</p>
+              <p class="text-4xl font-bold text-gray-200">{plan.price}</p>
               <p class="text-2xl italic font-bold pl-2">{plan.period}</p>
             </div>
             {plan.savings ? (
@@ -97,7 +97,7 @@ const PricingPlans = () => {
               </p>
             )}
           </div>
-          <ul class="list-none text-left mt-2 mb-4 flex-grow">
+          <ul class="list-none text-left mt-2 mb-4 flex-grow text-gray-300">
             {plan.description.map((feature, index) => (
               <li key={index} class="flex items-center gap-2">
                 <span class="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center">
