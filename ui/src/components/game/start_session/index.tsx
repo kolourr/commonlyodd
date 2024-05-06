@@ -13,7 +13,7 @@ import TargetScore from "./target_score";
 import { openConfirmDialog } from "./confirm_start";
 import CommonDialog from "../common_dialog";
 import { sessionLink } from "../index";
-import { EditOutlined } from "@suid/icons-material";
+import { EditOutlined, PlayCircleOutlined } from "@suid/icons-material";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -92,13 +92,16 @@ export default function StartSession() {
           "text-align": "center",
         }}
       >
-        <EditOutlined fontSize="large" />
+        <PlayCircleOutlined
+          fontSize="large"
+          sx={{ width: "100px", height: "100px" }}
+        />
       </Button>
       <div class="text-center font-bold text-xs lg:text-sm text-zinc-200">
         {isSessionActive() ? (
           <span class="italic  ">Active</span>
         ) : (
-          <span class="text-center font-bold ">Session</span>
+          <span class="text-center font-bold ">Start Session</span>
         )}
       </div>
       <Dialog

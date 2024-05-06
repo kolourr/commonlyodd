@@ -59,8 +59,8 @@ async function startSession() {
     setSessionLink(data.join_link);
     setDialogContent(
       <>
-        Session created successfully. Please copy the session link and send it
-        to all players before starting the game.
+        Session created successfully. If you are inviting others to join, send
+        all players the session link prior to starting the game.
       </>
     );
 

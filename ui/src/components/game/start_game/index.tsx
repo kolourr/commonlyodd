@@ -119,7 +119,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's the odd one out and what's the commonality among the other three?
+            {teamName()}, what's the odd one out and what's the commonality
+            among the other three?
           </div>
         </div>
       );
@@ -142,7 +143,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's the odd one out and what's the commonality among the other three?
+            {teamName()}, what's the odd one out and what's the commonality
+            among the other three?
           </div>
         </div>
       );
@@ -209,7 +211,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's the odd one out and what's the commonality among the other three?
+            {teamName()}, what's the odd one out and what's the commonality
+            among the other three?
           </div>
         </div>
       );
@@ -253,7 +256,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's the odd one out and what's the commonality among the other three?
+            {teamName()}, what's the odd one out and what's the commonality
+            among the other three?
           </div>
         </div>
       );
@@ -379,7 +383,10 @@ export default function StartGame() {
             disabled={isButtonDisabled()}
             style="border: none;  "
           >
-            <PlayCircleOutlined fontSize="large" />
+            <PlayCircleOutlined
+              fontSize="large"
+              sx={{ width: "100px", height: "100px" }}
+            />
           </Button>
         </div>
         <div class="text-center font-bold text-xs lg:text-sm text-gray-300  ">

@@ -105,7 +105,7 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            <EditOutlined fontSize="medium" /> to create session for the game.
+            Click on <PlayCircleOutlined fontSize="large" /> to get started
           </div>
         </div>
       );
@@ -117,7 +117,8 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col  justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            Share the game link prior to starting the game.
+            You can play the game solo, but if you want others to join, click to
+            get the session link and share it.
           </div>
         </div>
       );
@@ -200,66 +201,8 @@ export default function Game() {
           <HeaderMobile />
         </div>
 
-        <div class="flex h-24 ">
-          <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
-            <Show when={isAuthenticated() && userSubstatus()}>
-              <StartSession />
-            </Show>
-            <Show
-              when={
-                (!isAuthenticated() && !userSubstatus()) ||
-                (isAuthenticated() && !userSubstatus())
-              }
-            >
-              <div class="flex flex-col">
-                <Button
-                  disabled={true}
-                  fullWidth={false}
-                  style="font-weight: bold; text-align: center;"
-                  color="success"
-                >
-                  <EditOutlined fontSize="large" />
-                </Button>
-                <div class="text-center font-bold  ">
-                  {nonSessionNotStarter() ? (
-                    <span class="italic text-center font-bold text-xs lg:text-sm text-gray-300 ">
-                      Inactive
-                    </span>
-                  ) : (
-                    <span class="italic text-center font-bold text-xs lg:text-sm text-gray-300 ">
-                      Active
-                    </span>
-                  )}
-                </div>
-              </div>
-            </Show>
-          </div>
-          <div class="flex flex-row   w-[60%] justify-center items-center  ">
-            <Show when={isSessionStarted()}>
-              <div>
-                <div>
-                  <CopyLink />
-                  <div>
-                    <input
-                      type="text"
-                      class=" rounded w-full  shadow-sm shadow-gray-50 "
-                      readOnly
-                      value={sessionLink()}
-                      hidden
-                    />
-                  </div>
-                  <div class="flex items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
-                    Session Link
-                  </div>
-                </div>
-              </div>
-            </Show>
-          </div>
-          <div class="flex flex-row h-24  w-[20%] justify-center items-center   ">
-            <Router>
-              <StartGame />
-            </Router>
-          </div>
+        <div class="flex   justify-center items-center    ">
+          <GameImages gameData={objectsImages()} />
         </div>
 
         <div class="flex flex-col h-20 mb-6">
@@ -270,17 +213,89 @@ export default function Game() {
             {gameInfo()}
           </div>
         </div>
+        <div class="flex justify-center items-center">
+          <div class="flex flex-row h-24   justify-center items-center   ">
+            <Show when={!isSessionStarted()}>
+              <Show when={isAuthenticated() && userSubstatus()}>
+                <StartSession />
+              </Show>
+              <Show
+                when={
+                  (!isAuthenticated() && !userSubstatus()) ||
+                  (isAuthenticated() && !userSubstatus())
+                }
+              >
+                <div class="flex flex-col">
+                  <Button
+                    disabled={true}
+                    fullWidth={false}
+                    style="font-weight: bold; text-align: center;"
+                    color="success"
+                  >
+                    <PlayCircleOutlined
+                      fontSize="large"
+                      sx={{ width: "100px", height: "100px" }}
+                    />
+                  </Button>
+                  <div class="text-center font-bold  ">
+                    {nonSessionNotStarter() ? (
+                      <span class="italic text-center font-bold text-xs lg:text-sm text-gray-300 ">
+                        Inactive
+                      </span>
+                    ) : (
+                      <span class="italic text-center font-bold text-xs lg:text-sm text-gray-300 ">
+                        Active
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </Show>
+            </Show>
+          </div>
 
-        <div class="flex   justify-center items-center    ">
-          <GameImages gameData={objectsImages()} />
+          <div
+            class={`${
+              isSessionStarted() ? "" : "hidden"
+            } flex flex-row h-24 justify-center items-center`}
+          >
+            <Router>
+              <StartGame />
+            </Router>
+          </div>
         </div>
-        <div class="flex   py-4     ">
+
+        <div class="flex ">
           <Voice />
-          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300    ">
-            <Button onClick={handleOpenTeamScores}>
-              <SportsScoreOutlined fontSize="large" />
-            </Button>
-            <span class="text-xs lg:text-sm text-center font-bold ">Score</span>
+          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300  mt-8  ">
+            <div class="flex justify-center items-center text-center">
+              <Show when={isSessionStarted()}>
+                <div>
+                  <div>
+                    <CopyLink />
+                    <div>
+                      <input
+                        type="text"
+                        class=" rounded w-full  shadow-sm shadow-gray-50 "
+                        readOnly
+                        value={sessionLink()}
+                        hidden
+                      />
+                    </div>
+                    <div class="flex flex-col  md:flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
+                      <div class="px-2">Session</div> <div>Link</div>
+                    </div>
+                  </div>
+                </div>
+              </Show>
+            </div>
+            <div class="flex flex-col">
+              <Button onClick={handleOpenTeamScores}>
+                <SportsScoreOutlined fontSize="large" />
+              </Button>
+              <span class="text-xs lg:text-sm text-center font-bold ">
+                Score
+              </span>
+            </div>
           </div>
         </div>
         <div class="flex   flex-col justify-center items-center text-gray-300 ">

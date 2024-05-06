@@ -530,7 +530,7 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col h-52 w-[16%] justify-center items-center   ">
+      <div class="flex flex-col   w-[16%] justify-center items-center mt-8   ">
         <div class="flex flex-col justify-between">
           <div class="flex flex-col ">
             <Show when={!isInChat()}>
@@ -538,7 +538,7 @@ export default function Voice() {
                 <Button onClick={joinVoiceChat} disabled={isJoining()}>
                   <Show
                     when={isJoining()}
-                    fallback={<HeadsetMicOutlined fontSize="medium" />}
+                    fallback={<HeadsetMicOutlined fontSize="large" />}
                   >
                     <CircularProgress size={24} />
                   </Show>
@@ -548,7 +548,7 @@ export default function Voice() {
             <Show when={isInChat()}>
               <div>
                 <Button onClick={() => leaveVoiceChat(rtcUid)}>
-                  <LogoutOutlined fontSize="small" />
+                  <LogoutOutlined fontSize="large" />
                 </Button>
               </div>
             </Show>
@@ -561,9 +561,9 @@ export default function Voice() {
             <div>
               <Button onClick={toggleMic}>
                 {micMuted() ? (
-                  <MicOutlined fontSize="medium" />
+                  <MicOutlined fontSize="large" />
                 ) : (
-                  <MicOffOutlined fontSize="medium" />
+                  <MicOffOutlined fontSize="large" />
                 )}
               </Button>
             </div>
@@ -573,13 +573,9 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-300  ">
-        <div class="text-xs lg:text-sm  h-4 text-gray-300  font-bold flex justify-center mb-2   ">
-          Group Voice Call
-        </div>
-
+      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-300  mt-8">
         <div
-          class="users grid grid-cols-5 h-40 gap-0 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
+          class="users grid grid-cols-5 h-52 gap-0 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
           id="users"
         >
           <For each={users}>
