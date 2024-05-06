@@ -17,6 +17,15 @@ const Rules: Component = () => {
 
           <main class="flex flex-col justify-center items-center   gap-4   text-gray-300 ">
             <div class="text-3xl font-bold text-center">Game Rules</div>
+            <div class="w-full mb-4 text-base md:text-lg">
+              <video controls class="w-full h-auto shadow-lg">
+                <source
+                  src="https://media.commonlyodd.com/payment_succes_video.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div class="md:max-w-4xl md:mx-auto px-4 text-lg   ">
               <p class="mt-2 mx-8 py-2">
                 Commonly Odd is a trivia game that can be played by a single

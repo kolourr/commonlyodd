@@ -119,7 +119,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's odd and what's the commonality?
+            {teamName()}, what's the odd one out and what's the commonality among the other three?
           </div>
         </div>
       );
@@ -142,8 +142,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's odd and what's the commonality among the other
-            three?
+            {teamName()}, what's the odd one out and what's the commonality among the other three?
           </div>
         </div>
       );
@@ -210,7 +209,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's odd and what's the commonality?
+            {teamName()}, what's the odd one out and what's the commonality among the other three?
           </div>
         </div>
       );
@@ -254,7 +253,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            {teamName()}, what's odd and what's the commonality?
+            {teamName()}, what's the odd one out and what's the commonality among the other three?
           </div>
         </div>
       );
