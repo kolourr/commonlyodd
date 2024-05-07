@@ -16,6 +16,8 @@ const [open, setOpen] = createSignal(false);
 const [loading, setLoading] = createSignal(false);
 const [selectedTeams, setSelectedTeams] = createSignal<number>(0);
 const [selectedScore, setSelectedScore] = createSignal<number>(0);
+const [countdown, setCountdown] = createSignal<number>(0);
+
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 
@@ -25,10 +27,12 @@ const dialogTextStyle = {
 
 export async function openNewGameConfirmDialog(
   teams: number,
-  targetScore: number
+  targetScore: number,
+  countdown: number
 ) {
   setSelectedTeams(teams);
   setSelectedScore(targetScore);
+  setCountdown(countdown);
   setOpen(true);
 }
 
@@ -39,6 +43,7 @@ async function startNewGame() {
       game_state: "new-game",
       number_of_teams: selectedTeams(),
       target_score: selectedScore(),
+      countdown: countdown(),
     };
     sendMessage(message);
 
@@ -73,8 +78,9 @@ export default function ConfirmStartNewGameDialog() {
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
             You have selected {selectedTeams()} team(s) with a target score of{" "}
-            {selectedScore()}. Are you sure you want to start the session with
-            these settings?
+            {selectedScore()} and a countdown of {countdown()} seconds per
+            round. Are you sure you want to start the session with these
+            settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

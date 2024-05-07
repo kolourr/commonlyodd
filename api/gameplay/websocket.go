@@ -26,6 +26,7 @@ type WebSocketMessage struct {
 	TimeStamp                   int               `json:"time_stamp"`
 	TimeStampReceived           int               `json:"time_stamp_received"`
 	StarterInCall               bool              `json:"starter_in_call"`
+	Countdown                   int               `json:"countdown"`
 }
 
 type WebSocketMessageStarter struct {

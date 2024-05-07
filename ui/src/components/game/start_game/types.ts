@@ -63,6 +63,7 @@ export interface messageData {
   number_of_teams?: number;
   target_score?: number;
   time_stamp?: number;
+  countdown?: number;
 }
 
 export interface GameWinner {

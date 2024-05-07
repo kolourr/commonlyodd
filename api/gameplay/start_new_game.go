@@ -16,6 +16,9 @@ func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessag
 		return
 	}
 
+	//Update countdown duration
+	countdownDuration = msg.Countdown
+
 	// Update game state to 'new-game' in the database
 	if err := updateGameStateInDB(sessionUUID, "new-game"); err != nil {
 		tx.Rollback()

@@ -33,12 +33,12 @@ export default function Countdown({ setCountdown }: CountdownProps) {
         }}
       >
         <InputLabel
-          id="target-score-label"
+          id="countdown-label"
           sx={{
             color: "#f9fafb",
           }}
         >
-          Time per round (seconds)
+          Time in seconds per round
         </InputLabel>
         <Select
           labelId="target-score-label"
