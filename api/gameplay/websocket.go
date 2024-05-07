@@ -53,6 +53,7 @@ var upgrader = websocket.Upgrader{
 
 var gameDataMap = make(map[string]map[string]string)
 var sessionClients = make(map[string][]client)
+var countdownDuration int
 
 // HandleGameWebSocket manages the WebSocket connection and game state transitions
 func HandleGameWebSocket(c *gin.Context) {

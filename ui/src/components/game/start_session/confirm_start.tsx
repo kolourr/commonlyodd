@@ -15,6 +15,7 @@ const [open, setOpen] = createSignal(false);
 const [loading, setLoading] = createSignal(false);
 const [selectedTeams, setSelectedTeams] = createSignal<number>(0);
 const [selectedScore, setSelectedScore] = createSignal<number>(0);
+const [countdown, setCountdown] = createSignal<number>(0);
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 
@@ -22,9 +23,14 @@ const dialogTextStyle = {
   color: "#f9fafb",
 };
 
-export async function openConfirmDialog(teams: number, targetScore: number) {
+export async function openConfirmDialog(
+  teams: number,
+  targetScore: number,
+  countdown: number
+) {
   setSelectedTeams(teams);
   setSelectedScore(targetScore);
+  setCountdown(countdown);
   setOpen(true);
 }
 
@@ -42,6 +48,7 @@ async function startSession() {
         body: JSON.stringify({
           number_of_teams: selectedTeams(),
           target_score: selectedScore(),
+          countdown: countdown(),
         }),
       }
     );
@@ -96,8 +103,9 @@ export default function ConfirmStartDialog() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            You have selected {selectedTeams()} team(s) with a target score of{" "}
-            {selectedScore()}. Want to proceed with these settings?
+            You have selected {selectedTeams()} teams with a target score of{" "}
+            {selectedScore()} and a countdown of {countdown()} seconds per
+            round. Want to proceed with these settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

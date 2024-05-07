@@ -105,7 +105,7 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            Click on <PlayCircleOutlined fontSize="large" /> to get started
+            Once you are ready, click the play button to start the game.
           </div>
         </div>
       );
@@ -264,7 +264,7 @@ export default function Game() {
           </div>
         </div>
 
-        <div class="flex ">
+        <div class="flex mb-16">
           <Voice />
           <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300  mt-8  ">
             <div class="flex justify-center items-center text-center">

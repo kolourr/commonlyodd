@@ -14,6 +14,7 @@ import { openConfirmDialog } from "./confirm_start";
 import CommonDialog from "../common_dialog";
 import { sessionLink } from "../index";
 import { EditOutlined, PlayCircleOutlined } from "@suid/icons-material";
+import Countdown from "./countdown";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -38,6 +39,7 @@ export default function StartSession() {
   const [open, setOpen] = createSignal(false);
   const [teams, setTeams] = createSignal<number>(0);
   const [targetScore, setTargetScore] = createSignal<number>(0);
+  const [countdown, setCountdown] = createSignal<number>(0);
   const [dialogOpen, setDialogOpen] = createSignal(false);
   const [dialogContent, setDialogContent] = createSignal<
     string | JSX.Element
@@ -47,14 +49,14 @@ export default function StartSession() {
   );
 
   const handleStartClick = () => {
-    if (teams() > 0 && targetScore() > 0) {
+    if (teams() > 0 && targetScore() > 0 && countdown() > 0) {
       setOpen(false);
-      openConfirmDialog(teams(), targetScore());
+      openConfirmDialog(teams(), targetScore(), countdown());
     } else {
       setDialogContent(
         <>
-          Please select both the number of teams and a target score to start the
-          session.
+          Please select the number of teams, target score and countdown time per
+          round.
         </>
       );
 
@@ -97,11 +99,11 @@ export default function StartSession() {
           sx={{ width: "100px", height: "100px" }}
         />
       </Button>
-      <div class="text-center font-bold text-xs lg:text-sm text-zinc-200">
+      <div class="text-center font-bold text-base lg:text-md text-zinc-200">
         {isSessionActive() ? (
           <span class="italic  ">Active</span>
         ) : (
-          <span class="text-center font-bold ">Start Session</span>
+          <span class="text-center font-bold ">Get Started</span>
         )}
       </div>
       <Dialog
@@ -125,6 +127,7 @@ export default function StartSession() {
         <DialogContent style={dialogTextStyle}>
           <NumberOfTeams setTeams={setTeams} />
           <TargetScore setTargetScore={setTargetScore} />
+          <Countdown setCountdown={setCountdown} />
         </DialogContent>
         <DialogActions style={dialogTextStyle}>
           <Button class="font-bold" onClick={handleStartClick}>

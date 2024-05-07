@@ -50,10 +50,10 @@ export default function NumberOfTeams({ setTeams }: NumberOfTeamsProps) {
             color: "#f9fafb",
           }}
         >
-          {Array.from({ length: 10 }, (_, i) => (
+          {Array.from({ length: 9 }, (_, i) => (
             <MenuItem
               class="bg-gradient-to-r from-slate-900 via-zinc-950   to-slate-900"
-              value={i + 1}
+              value={i + 2}
               sx={{
                 color: "#f9fafb",
                 "& .MuiMenuItem-root": {
@@ -63,7 +63,7 @@ export default function NumberOfTeams({ setTeams }: NumberOfTeamsProps) {
                 },
               }}
             >
-              {i + 1}
+              {i + 2}
             </MenuItem>
           ))}
         </Select>
