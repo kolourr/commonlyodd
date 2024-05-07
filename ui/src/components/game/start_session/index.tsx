@@ -122,7 +122,9 @@ export default function StartSession() {
           style={dialogTextStyle}
           sx={{ textAlign: "center" }}
         >
-          {"Select the target score and number of teams to start"}
+          {
+            "Select the target score, number of teams and countdown time per round to start the game."
+          }
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <NumberOfTeams setTeams={setTeams} />
@@ -131,7 +133,7 @@ export default function StartSession() {
         </DialogContent>
         <DialogActions style={dialogTextStyle}>
           <Button class="font-bold" onClick={handleStartClick}>
-            Create Session
+            Create Game Session
           </Button>
         </DialogActions>
       </Dialog>
