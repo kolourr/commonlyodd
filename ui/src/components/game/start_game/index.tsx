@@ -103,7 +103,6 @@ function handleWebSocketMessage(event: MessageEvent) {
   const msg: WebSocketMessage = JSON.parse(event.data);
   switch (msg.game_state) {
     case "session-starter-update":
-      console.info(msg);
       setCanJoinVoiceCall(msg.starter_in_call);
       break;
     case "start-in-progress":
@@ -132,7 +131,6 @@ function handleWebSocketMessage(event: MessageEvent) {
       setCanJoinVoiceCall(msg.starter_in_call);
       break;
     case "time_up":
-      console.info(msg);
       //update Team Score
       setMessageSent(msg);
       setGameTime(msg);
@@ -166,7 +164,6 @@ function handleWebSocketMessage(event: MessageEvent) {
       );
       break;
     case "continue":
-      console.info(msg);
       //update Team Score
       setScoreColor(msg.individual_team_score_received);
       setMessageSent(msg);
@@ -194,7 +191,6 @@ function handleWebSocketMessage(event: MessageEvent) {
 
       break;
     case "continue-answer":
-      console.info(msg);
       //update Team Score
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
@@ -219,7 +215,6 @@ function handleWebSocketMessage(event: MessageEvent) {
       startNewTurn();
       break;
     case "end-game":
-      console.info(msg);
       //update Team Score
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
@@ -236,7 +231,6 @@ function handleWebSocketMessage(event: MessageEvent) {
       startNewTurn();
       break;
     case "new-game-started":
-      console.info(msg);
       //update Team Score
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
@@ -264,7 +258,6 @@ function handleWebSocketMessage(event: MessageEvent) {
       startNewTurn();
       break;
     case "complete":
-      console.info(msg);
       //update Team Score
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
