@@ -13,8 +13,6 @@ import CommonDialog from "../common_dialog";
 
 const [open, setOpen] = createSignal(false);
 const [loading, setLoading] = createSignal(false);
-const [selectedTeams, setSelectedTeams] = createSignal<number>(0);
-const [selectedScore, setSelectedScore] = createSignal<number>(0);
 const [countdown, setCountdown] = createSignal<number>(0);
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
@@ -23,16 +21,13 @@ const dialogTextStyle = {
   color: "#f9fafb",
 };
 
-export async function openConfirmDialog(
-  teams: number,
-  targetScore: number,
-  countdown: number
-) {
-  setSelectedTeams(teams);
-  setSelectedScore(targetScore);
+export async function openConfirmDialogFun(countdown: number) {
   setCountdown(countdown);
   setOpen(true);
 }
+
+const numberOfTeams = 1;
+const targetScore = 1000;
 
 async function startSession() {
   setLoading(true);
@@ -46,8 +41,8 @@ async function startSession() {
         },
         credentials: "include",
         body: JSON.stringify({
-          number_of_teams: selectedTeams(),
-          target_score: selectedScore(),
+          number_of_teams: numberOfTeams,
+          target_score: targetScore,
           countdown: countdown(),
         }),
       }
@@ -61,6 +56,7 @@ async function startSession() {
     // Set session UUID and starter token in local storage
     localStorage.setItem("session_uuid", data.session_uuid);
     localStorage.setItem("starter_token", data.starter_token);
+    localStorage.setItem("type", "fun");
 
     // Update session link and Notify user
     setSessionLink(data.join_link);
@@ -82,7 +78,7 @@ async function startSession() {
   }
 }
 
-export default function ConfirmStartDialog() {
+export default function ConfirmStartDialogFun() {
   return (
     <div>
       <Dialog
@@ -103,9 +99,8 @@ export default function ConfirmStartDialog() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            You have selected {selectedTeams()} teams with a target score of{" "}
-            {selectedScore()} and a countdown of {countdown()} seconds per
-            round. Want to proceed with these settings?
+            You have selected a countdown of {countdown()} seconds per round.
+            Want to proceed with these settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

@@ -1,4 +1,4 @@
-import { createSignal, Show, For, createEffect } from "solid-js";
+import { createSignal, Show, For, createEffect, onMount } from "solid-js";
 import CommonDialog from "../common_dialog";
 import { numberOfTeams, targetScore } from "../start_game";
 import "./styles.css";
@@ -10,9 +10,20 @@ type TeamScoresProps = {
 
 export default function TeamScores(props: TeamScoresProps) {
   const [dialogOpen, setDialogOpen] = createSignal(false);
+  const [gameType, setGameType] = createSignal("");
 
   createEffect(() => {
     setDialogOpen(!props.sessionStarted);
+  });
+
+  onMount(() => {
+    const gametype = localStorage.getItem("type");
+    setGameType(gametype || "");
+  });
+
+  createEffect(() => {
+    const gametype = localStorage.getItem("type");
+    setGameType(gametype || "");
   });
 
   const scoresWithIndices = props.teamScores.map((score, index) => ({
@@ -75,12 +86,12 @@ export default function TeamScores(props: TeamScoresProps) {
         <CommonDialog
           open={dialogOpen()}
           title="Team Scores"
-          content="Team scores will be available when a session is underway."
+          content="Team scores is only available for competitive games when a session is underway."
           onClose={() => setDialogOpen(false)}
           showCancelButton={false}
         />
       </Show>
-      <Show when={props.sessionStarted}>
+      <Show when={props.sessionStarted && gameType() == "competitive"}>
         <CommonDialog
           open={true}
           onClose={() => setDialogOpen(false)}

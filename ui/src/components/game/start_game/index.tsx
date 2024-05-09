@@ -57,10 +57,12 @@ const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 const [dialogTitle, setDialogTitle] = createSignal<string | JSX.Element>();
 const [enterScore, setEnterScore] = createSignal(false);
 const [readyToContinue, setReadyToContinue] = createSignal(false);
+const [readyToContinueSolo, setReadyToContinueSolo] = createSignal(false);
 const [teamGameWinner, setTeamGameWinner] = createSignal<string | undefined>();
 const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
 const [complete, setComplete] = createSignal(false);
+const [gameType, setGameType] = createSignal("");
 
 export const sendMessage = (message: messageData) => {
   checkSessionStatus();
@@ -76,6 +78,9 @@ export const sendMessage = (message: messageData) => {
 const checkSessionStatus = () => {
   const sessionUuid = localStorage.getItem("session_uuid");
   const starterToken = localStorage.getItem("starter_token");
+  const gametype = localStorage.getItem("type");
+  setGameType(gametype || "");
+
   setIsSessionActive(!!sessionUuid && !!starterToken);
   setIsSessionStarter(!!starterToken);
 
@@ -124,10 +129,29 @@ function handleWebSocketMessage(event: MessageEvent) {
         </div>
       );
       break;
+    case "start-in-progress-solo":
+      //update Team Score
+      setMessageSent(msg);
+      setIsGameInProgress(true);
+      setObjectsImages(msg);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <div class="flex flex-col justify-center items-center">
+          <div class="md:text-base lg:text-xl">
+            What's the odd one out and what's the commonality among the other
+            three?
+          </div>
+        </div>
+      );
+      break;
     case "timer_update":
       setGameTime(msg);
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      break;
+    case "timer_update_solo":
+      setGameTime(msg);
       setCanJoinVoiceCall(msg.starter_in_call);
       break;
     case "time_up":
@@ -147,7 +171,21 @@ function handleWebSocketMessage(event: MessageEvent) {
         </div>
       );
       break;
-
+    case "time_up_solo":
+      //update Team Score
+      setMessageSent(msg);
+      setGameTime(msg);
+      setTimerUp(true);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <div class="flex flex-col justify-center items-center">
+          <div class="md:text-base lg:text-xl">
+            What's the odd one out and what's the commonality among the other
+            three?
+          </div>
+        </div>
+      );
+      break;
     case "reveal-answer":
       //update Team Score
       setMessageSent(msg);
@@ -155,6 +193,21 @@ function handleWebSocketMessage(event: MessageEvent) {
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <div class="flex flex-col justify-center items-center">
+          <div class="md:text-base lg:text-xl">
+            {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
+          </div>
+        </div>
+      );
+      break;
+    case "reveal-answer-solo":
+      //update Team Score
+      setMessageSent(msg);
+      setOddReasonForSimilarity(msg);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setTimerUp(false);
+      setReadyToContinueSolo(true);
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
@@ -179,7 +232,6 @@ function handleWebSocketMessage(event: MessageEvent) {
       setScoreSubmittedDialogOpen(false);
       setNewGameStarted(false);
       startNewTurn();
-
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
@@ -214,6 +266,24 @@ function handleWebSocketMessage(event: MessageEvent) {
       );
       startNewTurn();
       break;
+    case "continue-answer-solo":
+      setMessageSent(msg);
+      // Update game state with new objects and images
+      setObjectsImages(msg);
+      setIsGameInProgress(true);
+      setReadyToContinue(false);
+      setReadyToContinueSolo(false);
+      setCanJoinVoiceCall(msg.starter_in_call);
+      setGameInfo(
+        <div class="flex flex-col justify-center items-center">
+          <div class="md:text-base lg:text-xl">
+            What's the odd one out and what's the commonality among the other
+            three?
+          </div>
+        </div>
+      );
+      startNewTurn();
+      break;
     case "end-game":
       //update Team Score
       setNumberOfTeams(msg.number_of_teams);
@@ -242,7 +312,6 @@ function handleWebSocketMessage(event: MessageEvent) {
       setScoreSubmittedDialogOpen(false);
       setObjectsImages(msg);
       setTeamID(msg.team_id);
-      console.info(msg.team_id);
       setTeamName(msg.team_name);
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
@@ -275,19 +344,31 @@ export default function StartGame() {
   const navigate = useNavigate();
 
   function handleButtonClick() {
-    if (enterScore()) {
-      openScoreDialog();
-    } else if (gameWinner()) {
-      handleClickOpenNewGameEndSession();
-    } else if (timerUp()) {
-      sendMessage({ game_state: "reveal" });
-      setEnterScore(true);
-    } else if (readyToContinue()) {
-      sendMessage({ game_state: "continue" });
-    } else if (complete()) {
-      handleCompleteOpen();
-    } else {
-      sendMessage({ game_state: "start" });
+    if (gameType() === "competitive") {
+      if (enterScore()) {
+        openScoreDialog();
+      } else if (gameWinner()) {
+        handleClickOpenNewGameEndSession();
+      } else if (timerUp()) {
+        sendMessage({ game_state: "reveal" });
+        setEnterScore(true);
+      } else if (readyToContinue()) {
+        sendMessage({ game_state: "continue" });
+      } else if (complete()) {
+        handleCompleteOpen();
+      } else {
+        sendMessage({ game_state: "start" });
+      }
+    } else if (gameType() === "fun") {
+      if (timerUp()) {
+        sendMessage({ game_state: "reveal-solo" });
+      } else if (readyToContinue()) {
+        sendMessage({ game_state: "continue-solo" });
+      } else if (readyToContinueSolo()) {
+        sendMessage({ game_state: "continue-solo" });
+      } else {
+        sendMessage({ game_state: "start-solo" });
+      }
     }
   }
 
@@ -295,7 +376,8 @@ export default function StartGame() {
     // The button should be disabled if:
     // 1. The session is not active or the user is not the session starter.
     // 2. The game is in progress, but it's neither time to reveal the answer, enter the score, nor continue to the next round.
-    return (
+
+    const competitive =
       !isSessionActive() ||
       !isSessionStarter() ||
       (isGameInProgress() &&
@@ -304,23 +386,50 @@ export default function StartGame() {
         !readyToContinue() &&
         !newGameStarted() &&
         !gameWinner() &&
-        !gameComplete())
-    );
+        !gameComplete());
+
+    const fun =
+      !isSessionActive() ||
+      !isSessionStarter() ||
+      (isGameInProgress() &&
+        !timerUp() &&
+        !readyToContinue() &&
+        !readyToContinueSolo());
+
+    if (gameType() === "competitive") {
+      return competitive;
+    } else if (gameType() === "fun") {
+      return fun;
+    }
   }
 
   function getButtonLabel() {
-    if (enterScore()) {
-      return "Enter Score";
-    } else if (timerUp()) {
-      return "Reveal";
-    } else if (readyToContinue()) {
-      return "Continue";
-    } else if (isGameInProgress()) {
-      return "In Progress";
-    } else if (gameWinner()) {
-      return "End Session or Start New Game?";
-    } else {
-      return "Start Game";
+    if (gameType() === "competitive") {
+      if (enterScore()) {
+        return "Enter Score";
+      } else if (timerUp()) {
+        return "Reveal";
+      } else if (readyToContinue()) {
+        return "Next Round";
+      } else if (isGameInProgress()) {
+        return "In Progress";
+      } else if (gameWinner()) {
+        return "End Session or Start New Game?";
+      } else {
+        return "Start Game";
+      }
+    } else if (gameType() === "fun") {
+      if (timerUp()) {
+        return "Reveal";
+      } else if (readyToContinue()) {
+        return "Next Round";
+      } else if (readyToContinueSolo()) {
+        return "Next Round";
+      } else if (isGameInProgress()) {
+        return "In Progress";
+      } else {
+        return "Start Game";
+      }
     }
   }
 
@@ -351,6 +460,8 @@ export default function StartGame() {
     const sessionUuid =
       urlParams.get("session") || localStorage.getItem("session_uuid");
     const starterToken = localStorage.getItem("starter_token");
+    const gametype = localStorage.getItem("type");
+    setGameType(gametype || "");
 
     setIsSessionActive(!!sessionUuid);
     setIsSessionStarter(!!starterToken);
