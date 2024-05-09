@@ -1,20 +1,17 @@
-import { createSignal, JSX, onCleanup, Show } from "solid-js";
+import { createEffect, createSignal, JSX, onCleanup, Show } from "solid-js";
 import {
   Button,
   Dialog,
-  DialogActions,
   DialogContent,
   DialogTitle,
   Slide,
 } from "@suid/material";
 import { TransitionProps } from "@suid/material/transitions";
-import NumberOfTeams from "./number_of_teams";
-import TargetScore from "./target_score";
-import { openConfirmDialog } from "./confirm_start";
 import CommonDialog from "../common_dialog";
 import { sessionLink } from "../index";
-import { EditOutlined, PlayCircleOutlined } from "@suid/icons-material";
-import Countdown from "./countdown";
+import { PlayCircleOutlined } from "@suid/icons-material";
+import StartSession from "./competitive";
+import StartSessionFun from "./fun";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -35,11 +32,8 @@ export function isSessionStarted() {
   return sessionLink().includes("session");
 }
 
-export default function StartSession() {
+export default function CreateSession() {
   const [open, setOpen] = createSignal(false);
-  const [teams, setTeams] = createSignal<number>(0);
-  const [targetScore, setTargetScore] = createSignal<number>(0);
-  const [countdown, setCountdown] = createSignal<number>(0);
   const [dialogOpen, setDialogOpen] = createSignal(false);
   const [dialogContent, setDialogContent] = createSignal<
     string | JSX.Element
@@ -48,25 +42,25 @@ export default function StartSession() {
     isSessionStarted()
   );
 
-  const handleStartClick = () => {
-    if (teams() > 0 && targetScore() > 0 && countdown() > 0) {
-      setOpen(false);
-      openConfirmDialog(teams(), targetScore(), countdown());
-    } else {
-      setDialogContent(
-        <>
-          Please select the number of teams, target score and countdown time per
-          round.
-        </>
-      );
-
-      setDialogOpen(true);
-    }
-  };
-
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleDocumentClick = (event) => {
+    const menuElement = document.getElementById("game-setup-dialog");
+    if (!menuElement.contains(event.target)) {
+      handleClose();
+    }
+  };
+
+  createEffect(() => {
+    if (open()) {
+      document.addEventListener("click", handleDocumentClick);
+      onCleanup(() =>
+        document.removeEventListener("click", handleDocumentClick)
+      );
+    }
+  });
 
   // Periodically check if the session has started
   function checkSessionStatus() {
@@ -116,26 +110,58 @@ export default function StartSession() {
               "linear-gradient(to right, #0f172a, #09090b, #0f172a)",
           },
         }}
+        class="game-setup-dialog"
       >
         <DialogTitle
           class="flex justify-center items-center"
           style={dialogTextStyle}
           sx={{ textAlign: "center" }}
         >
-          {
-            "Select the target score, number of teams and countdown time per round to start the game."
-          }
+          {" "}
+          <div class="flex flex-col items-center justify-center text-center ">
+            <div class="text-2xl mb-2">Select the game you want to play</div>
+            <div class="text-sm">
+              You can play multi-player in both modes by inviting others via the
+              session link.
+            </div>
+          </div>
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
-          <NumberOfTeams setTeams={setTeams} />
-          <TargetScore setTargetScore={setTargetScore} />
-          <Countdown setCountdown={setCountdown} />
+          <div class="flex flex-col items-center   justify-center">
+            <div class="flex flex-col items-center justify-center mb-6 w-80">
+              <div class="text-2xl mb-2  ">Just for Fun</div>
+
+              <ul class="list-disc text-left  mb-4">
+                <div class="flex flex-col justify-start items-start">
+                  <li>Ideal for playing solo</li>
+                  <li>Scores are untracked</li>
+                  <li>No target score</li>
+                  <li>Rounds are much faster</li>
+                </div>
+              </ul>
+
+              <div class="StartSessionFun mb-6">
+                <StartSessionFun />
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center w-80">
+              <div class="text-2xl mb-2  ">Play Competitively</div>
+
+              <ul class="list-disc text-left ml-10  mb-4">
+                <div class="flex flex-col justify-start items-start ">
+                  <li>Ideal for group play</li>
+                  <li>Scoring is tracked</li>
+                  <li>Target score must be set</li>
+                  <li>Number of teams must be set</li>
+                </div>
+              </ul>
+
+              <div class="StartSession mb-6">
+                <StartSession />
+              </div>
+            </div>
+          </div>
         </DialogContent>
-        <DialogActions style={dialogTextStyle}>
-          <Button class="font-bold" onClick={handleStartClick}>
-            Create Game Session
-          </Button>
-        </DialogActions>
       </Dialog>
       <Show when={dialogOpen()}>
         <CommonDialog

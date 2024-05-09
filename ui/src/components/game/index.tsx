@@ -14,7 +14,7 @@ import {
   EditOutlined,
   LinkOutlined,
 } from "@suid/icons-material";
-import StartSession from "./start_session";
+import StartSession from "./start_session/competitive";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
 import StartGame, {
@@ -43,6 +43,7 @@ import confetti from "canvas-confetti";
 import Footer from "../auth_payments_landing/footer";
 import Header from "../auth_payments_landing/header";
 import HeaderMobile from "../auth_payments_landing/header_mobile";
+import CreateSession from "./start_session";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -217,7 +218,7 @@ export default function Game() {
           <div class="flex flex-row h-24   justify-center items-center   ">
             <Show when={!isSessionStarted()}>
               <Show when={isAuthenticated() && userSubstatus()}>
-                <StartSession />
+                <CreateSession />
               </Show>
               <Show
                 when={
