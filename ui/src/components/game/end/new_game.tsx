@@ -56,16 +56,19 @@ export default function NewGame() {
   return (
     <div>
       <Button
-        sx={{
-          color: "#f9fafb",
-          width: 150,
-          height: 50,
-        }}
-        class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800"
+        variant="contained"
         onClick={() => setOpen(true)}
+        sx={{
+          width: "200px",
+          fontSize: "14px",
+          fontWeight: "bold",
+          color: "white",
+          backgroundColor: "#075985",
+        }}
       >
         Start New Game
       </Button>
+
       <Dialog
         open={open()}
         TransitionComponent={Transition}

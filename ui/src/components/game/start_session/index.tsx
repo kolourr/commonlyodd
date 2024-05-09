@@ -8,8 +8,7 @@ import {
 } from "@suid/material";
 import { TransitionProps } from "@suid/material/transitions";
 import CommonDialog from "../common_dialog";
-import { sessionLink } from "../index";
-import { PlayCircleOutlined } from "@suid/icons-material";
+import { PlayButtonSVG, sessionLink } from "../index";
 import StartSession from "./competitive";
 import StartSessionFun from "./fun";
 
@@ -88,10 +87,7 @@ export default function CreateSession() {
           "text-align": "center",
         }}
       >
-        <PlayCircleOutlined
-          fontSize="large"
-          sx={{ width: "100px", height: "100px" }}
-        />
+        <PlayButtonSVG />
       </Button>
       <div class="text-center font-bold text-base lg:text-md text-zinc-200">
         {isSessionActive() ? (

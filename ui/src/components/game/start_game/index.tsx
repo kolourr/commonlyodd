@@ -22,10 +22,10 @@ import Complete, { handleCompleteOpen } from "./complete";
 import { setScoreSubmittedDialogOpen } from "./score";
 import { setMessageSent, setSessionLink, setGameInfo } from "../index";
 import { useNavigate } from "solid-app-router";
-import { PlayCircleOutlined } from "@suid/icons-material";
 import { setCanJoinVoiceCall } from "../voice";
 import { startNewTurn } from "./images";
 import { setScoreColor } from "..";
+import { PlayButtonSVG } from "../index";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -487,10 +487,7 @@ export default function StartGame() {
             disabled={isButtonDisabled()}
             style="border: none;  "
           >
-            <PlayCircleOutlined
-              fontSize="large"
-              sx={{ width: "100px", height: "100px" }}
-            />
+            <PlayButtonSVG />
           </Button>
         </div>
         <div class="text-center font-bold text-xs lg:text-sm text-gray-300  ">

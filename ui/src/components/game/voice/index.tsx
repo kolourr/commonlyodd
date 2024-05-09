@@ -14,6 +14,7 @@ import {
   MicOffOutlined,
   LogoutOutlined,
   HeadsetMicOutlined,
+  CancelOutlined,
 } from "@suid/icons-material";
 import AgoraRTC, {
   IAgoraRTCClient,
@@ -29,6 +30,7 @@ import {
 } from "../../auth_payments_landing/subscription_status";
 import { sendMessage } from "../start_game";
 import { isSessionStarted } from "../start_session";
+import { handleClickOpenEndGameSession } from "../end_game_session";
 
 type UserState = {
   uid: string;
@@ -482,19 +484,16 @@ export default function Voice() {
     const sessionUuid = urlParams.get("session");
 
     try {
-      const response = await fetch(
-        `http://localhost:8080/session-starter-status`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            sessionUuid: sessionUuid,
-          }),
-        }
-      );
+      const response = await fetch(`${BASE_API}/session-starter-status`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({
+          sessionUuid: sessionUuid,
+        }),
+      });
       const data = await response.json();
 
       if (data.starterInCall !== undefined) {
@@ -530,9 +529,17 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col   w-[16%] justify-center items-center mt-8   ">
+      <div class="flex flex-col   w-[16%] justify-center items-center     ">
         <div class="flex flex-col justify-between">
-          <div class="flex flex-col ">
+          <div class="flex flex-col mb-4">
+            <Button onClick={handleClickOpenEndGameSession}>
+              <CancelOutlined fontSize="large" />
+            </Button>
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
+              <div>End</div>
+            </span>
+          </div>
+          <div class="flex flex-col mb-4 ">
             <Show when={!isInChat()}>
               <div>
                 <Button onClick={joinVoiceChat} disabled={isJoining()}>
@@ -573,9 +580,9 @@ export default function Voice() {
           </div>
         </div>
       </div>
-      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-300  mt-8">
+      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-300   ">
         <div
-          class="users grid grid-cols-5 h-52 gap-0 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
+          class="users grid grid-cols-5 h-64 gap-0 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
           id="users"
         >
           <For each={users}>

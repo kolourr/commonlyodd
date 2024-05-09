@@ -55,16 +55,19 @@ export default function EndSessionMessage() {
   return (
     <div>
       <Button
-        sx={{
-          color: "#f9fafb",
-          width: 150,
-          height: 50,
-        }}
-        class="flex justify-center items-center bg-gradient-to-bl from-warning-800 to-error-800"
+        variant="contained"
         onClick={() => setOpen(true)}
+        sx={{
+          width: "200px",
+          fontSize: "18px",
+          fontWeight: "bold",
+          color: "white",
+          backgroundColor: "#7c2d12",
+        }}
       >
         End Session
       </Button>
+
       <Dialog
         open={open()}
         onClose={() => setOpen(false)}

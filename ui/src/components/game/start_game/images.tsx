@@ -2,6 +2,7 @@ import { For, createEffect, createSignal } from "solid-js";
 import { Objects_Images } from "./types";
 import { oddReasonForSimilarity } from "./index";
 import "./styles.css";
+import { gameInfo } from "..";
 
 interface GameImagesProps {
   gameData: Objects_Images | null;
@@ -79,40 +80,80 @@ export default function GameImages(props: GameImagesProps) {
   };
 
   return (
-    <div class="grid grid-cols-2 gap-2 justify-center items-center">
-      <For each={imagesToShow()}>
-        {(obj, index) => (
-          <div
-            class={`px-1 relative ${obj.animationClass} ${
-              obj.name === highlightName()
-                ? "border-6 border-bright-green glowing-border"
-                : shouldApplyBlur(obj.name)
-                ? "blur-effect"
-                : ""
-            } text-gray-300`}
-          >
-            <p class="text-center">{obj.name}</p>
-            <img
-              src={obj.url}
-              alt={obj.name}
-              loading="lazy"
-              class={`${
+    <div class="flex flex-col items-center justify-center text-center">
+      <div class="grid grid-cols-2 gap-4 justify-center items-center">
+        <For each={imagesToShow().slice(0, 2)}>
+          {(obj, index) => (
+            <div
+              class={`px-1 relative ${obj.animationClass} ${
                 obj.name === highlightName()
-                  ? "text-bright-green"
+                  ? "border-6 border-bright-green glowing-border"
                   : shouldApplyBlur(obj.name)
                   ? "blur-effect"
                   : ""
-              }`}
-            />
-            {obj.name === highlightName() && (
-              <>
-                <div class="absolute  top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse"></div>
-                <p class="odd-overlay">ODD</p>
-              </>
-            )}
-          </div>
-        )}
-      </For>
+              } text-gray-300`}
+            >
+              <p class="text-center">{obj.name}</p>
+              <img
+                src={obj.url}
+                alt={obj.name}
+                loading="lazy"
+                class={`${
+                  obj.name === highlightName()
+                    ? "text-bright-green"
+                    : shouldApplyBlur(obj.name)
+                    ? "blur-effect"
+                    : ""
+                }`}
+              />
+              {obj.name === highlightName() && (
+                <>
+                  <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse"></div>
+                  <p class="odd-overlay">ODD</p>
+                </>
+              )}
+            </div>
+          )}
+        </For>
+      </div>
+      <div class="w-full py-4" id="gameInfo">
+        {gameInfo()}
+      </div>
+      <div class="grid grid-cols-2 gap-4 justify-center items-center">
+        <For each={imagesToShow().slice(2)}>
+          {(obj, index) => (
+            <div
+              class={`px-1 relative ${obj.animationClass} ${
+                obj.name === highlightName()
+                  ? "border-6 border-bright-green glowing-border"
+                  : shouldApplyBlur(obj.name)
+                  ? "blur-effect"
+                  : ""
+              } text-gray-300`}
+            >
+              <p class="text-center">{obj.name}</p>
+              <img
+                src={obj.url}
+                alt={obj.name}
+                loading="lazy"
+                class={`${
+                  obj.name === highlightName()
+                    ? "text-bright-green"
+                    : shouldApplyBlur(obj.name)
+                    ? "blur-effect"
+                    : ""
+                }`}
+              />
+              {obj.name === highlightName() && (
+                <>
+                  <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse"></div>
+                  <p class="odd-overlay">ODD</p>
+                </>
+              )}
+            </div>
+          )}
+        </For>
+      </div>
     </div>
   );
 }

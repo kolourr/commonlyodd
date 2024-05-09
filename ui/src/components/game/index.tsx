@@ -8,13 +8,7 @@ import {
   onMount,
 } from "solid-js";
 import { Button } from "@suid/material";
-import {
-  SportsScoreOutlined,
-  PlayCircleOutlined,
-  EditOutlined,
-  LinkOutlined,
-} from "@suid/icons-material";
-import StartSession from "./start_session/competitive";
+import { RuleSharp, SportsScoreOutlined } from "@suid/icons-material";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
 import StartGame, {
@@ -34,7 +28,6 @@ import {
   checkSubStatus,
   userSubstatus,
 } from "../auth_payments_landing/subscription_status";
-import AccountMenu from "../settings";
 import { isSessionStarted } from "./start_session";
 import { JSX } from "solid-js";
 import "./styles.css";
@@ -44,8 +37,31 @@ import Footer from "../auth_payments_landing/footer";
 import Header from "../auth_payments_landing/header";
 import HeaderMobile from "../auth_payments_landing/header_mobile";
 import CreateSession from "./start_session";
+import CommonDialog from "./common_dialog";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
+
+export const PlayButtonSVG = () => (
+  <>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="100"
+      height="100"
+      viewBox="0 0 24 24"
+      fill="none"
+    >
+      <circle
+        cx="12"
+        cy="12"
+        r="10"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+      />
+      <polygon points="10 8, 16 12, 10 16" fill="currentColor" />
+    </svg>
+  </>
+);
 
 export const [sessionLink, setSessionLink] = createSignal(
   `${BASE_UI_URL}/click-to-start`
@@ -60,6 +76,7 @@ export default function Game() {
   const [isTargetScoreReached, setIsTargetScoreReached] = createSignal(false);
   const [isAuthenticated, setIsAuthenticated] = createSignal(false);
   const [nonSessionNotStarter, setNonSessionNotStarter] = createSignal(false);
+  const [openRules, setOpenRules] = createSignal(false);
 
   // Check if the session has started
   const sessionStarted = () =>
@@ -191,6 +208,30 @@ export default function Game() {
     }
   });
 
+  const handleOpenRules = () => {
+    setOpenRules(true);
+  };
+
+  const rulesContent = () => (
+    <div class="flex flex-col items-center text-center justify-center">
+      <div class="md:text-base lg:text-xl">
+        <div class="w-full mb-4 text-base md:text-lg">
+          <video controls class="w-full h-auto shadow-lg">
+            <source
+              src="https://media.commonlyodd.com/payment_succes_video.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="flex flex-col justify-center items-center text-center">
+          <div class="text-sm lg:text-base">Competitive Scoring Game Rules</div>
+          <img src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/013b53e3-7a12-479d-4ba2-7809b4cd3e00/300x300" />
+        </div>
+      </div>
+    </div>
+  );
+
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
       <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
@@ -206,16 +247,8 @@ export default function Game() {
           <GameImages gameData={objectsImages()} />
         </div>
 
-        <div class="flex flex-col h-20 mb-6 text-center">
-          <div
-            class="flex mt-4 w-[100%] justify-center items-center text-center   shadow-gray-50 text-gray-300 h-28     p-4 break-words mb-4"
-            id="gameInfo"
-          >
-            {gameInfo()}
-          </div>
-        </div>
         <div class="flex justify-center items-center">
-          <div class="flex flex-row h-24   justify-center items-center   ">
+          <div class="flex flex-row h-36   justify-center items-center py-6 my-4 ">
             <Show when={!isSessionStarted()}>
               <Show when={isAuthenticated() && userSubstatus()}>
                 <CreateSession />
@@ -233,10 +266,7 @@ export default function Game() {
                     style="font-weight: bold; text-align: center;"
                     color="success"
                   >
-                    <PlayCircleOutlined
-                      fontSize="large"
-                      sx={{ width: "100px", height: "100px" }}
-                    />
+                    <PlayButtonSVG />
                   </Button>
                   <div class="text-center font-bold  ">
                     {nonSessionNotStarter() ? (
@@ -267,8 +297,8 @@ export default function Game() {
 
         <div class="flex mb-16">
           <Voice />
-          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300  mt-8  ">
-            <div class="flex justify-center items-center text-center">
+          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300    ">
+            <div class="flex justify-center items-center text-center mb-4">
               <Show when={isSessionStarted()}>
                 <div>
                   <div>
@@ -289,6 +319,14 @@ export default function Game() {
                 </div>
               </Show>
             </div>
+            <div class="flex flex-col mb-4">
+              <Button onClick={handleOpenRules}>
+                <RuleSharp fontSize="large" />
+              </Button>
+              <span class="text-xs lg:text-sm text-center font-bold ">
+                Rules
+              </span>
+            </div>
             <div class="flex flex-col">
               <Button onClick={handleOpenTeamScores}>
                 <SportsScoreOutlined fontSize="large" />
@@ -304,6 +342,17 @@ export default function Game() {
             <TeamScores
               teamScores={teamScores}
               sessionStarted={sessionStarted()}
+            />
+          </Show>
+        </div>
+        <div class="flex text-center  flex-col justify-center items-center text-gray-300 ">
+          <Show when={openRules()}>
+            <CommonDialog
+              open={true}
+              onClose={() => setOpenRules(false)}
+              title={`Game Rules`}
+              content={rulesContent()}
+              showCancelButton={false}
             />
           </Show>
         </div>
