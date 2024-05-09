@@ -121,8 +121,7 @@ export default function CreateSession() {
           <div class="flex flex-col items-center justify-center text-center ">
             <div class="text-2xl mb-2">Select the game you want to play</div>
             <div class="text-sm">
-              You can play multi-player in both modes by inviting others via the
-              session link.
+              You can invite others to the game via the session link.
             </div>
           </div>
         </DialogTitle>
@@ -137,6 +136,7 @@ export default function CreateSession() {
                   <li>Scores are untracked</li>
                   <li>No target score</li>
                   <li>Rounds are much faster</li>
+                  <li>Can still play multi-player</li>
                 </div>
               </ul>
 
@@ -147,12 +147,13 @@ export default function CreateSession() {
             <div class="flex flex-col items-center justify-center w-80">
               <div class="text-2xl mb-2  ">Play Competitively</div>
 
-              <ul class="list-disc text-left ml-10  mb-4">
+              <ul class="list-disc text-left ml-8  mb-4">
                 <div class="flex flex-col justify-start items-start ">
                   <li>Ideal for group play</li>
                   <li>Scoring is tracked</li>
                   <li>Target score must be set</li>
                   <li>Number of teams must be set</li>
+                  <li>Can still play solo</li>
                 </div>
               </ul>
 

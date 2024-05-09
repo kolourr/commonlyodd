@@ -118,8 +118,8 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col  justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            You can play the game solo, but if you want others to join, click to
-            get the session link and share it.
+            Play solo or invite others to join by clicking to obtain the session
+            link and sharing it.
           </div>
         </div>
       );
@@ -206,9 +206,9 @@ export default function Game() {
           <GameImages gameData={objectsImages()} />
         </div>
 
-        <div class="flex flex-col h-20 mb-6">
+        <div class="flex flex-col h-20 mb-6 text-center">
           <div
-            class="flex mt-4 w-[100%] justify-center items-center    shadow-gray-50 text-gray-300 h-28     p-4 break-words mb-4"
+            class="flex mt-4 w-[100%] justify-center items-center text-center   shadow-gray-50 text-gray-300 h-28     p-4 break-words mb-4"
             id="gameInfo"
           >
             {gameInfo()}
