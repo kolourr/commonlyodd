@@ -144,8 +144,12 @@ func handleGameStateChange(conn *websocket.Conn, sessionUUID string, msg WebSock
 	switch msg.GameState {
 	case "start":
 		handleStart(conn, sessionUUID, gameDataMap[sessionUUID])
+	case "start-solo":
+		handleStartSolo(conn, sessionUUID, gameDataMap[sessionUUID])
 	case "reveal":
 		handleReveal(conn, sessionUUID, gameDataMap[sessionUUID])
+	case "reveal-solo":
+		handleRevealSolo(conn, sessionUUID, gameDataMap[sessionUUID])
 	case "score":
 		handleScore(conn, sessionUUID, msg)
 	case "starter-in-call":
@@ -154,6 +158,8 @@ func handleGameStateChange(conn *websocket.Conn, sessionUUID string, msg WebSock
 		handleStarterNotInCall(sessionUUID)
 	case "continue":
 		handleContinue(conn, sessionUUID, msg, gameDataMap[sessionUUID])
+	case "continue-solo":
+		handleContinueSolo(conn, sessionUUID, msg, gameDataMap[sessionUUID])
 	case "new-game":
 		handleNewGame(conn, sessionUUID, msg, gameDataMap[sessionUUID])
 	case "end":
