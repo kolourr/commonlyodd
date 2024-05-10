@@ -30,9 +30,12 @@ import { handleClickOpenEndGameSession } from "../game/end_game_session";
 import { stripePortal } from "../auth_payments_landing/stripe_portal";
 import DeleteAccount from "./delete_account";
 import { useLocation, useNavigate } from "solid-app-router";
-import { fetchSubStatus } from "../auth_payments_landing/user";
 import LightsUp from "./lights_up";
 import { sendMessage } from "../game/start_game";
+import {
+  refetchSubStatus,
+  subscriptionStatus,
+} from "../auth_payments_landing/user";
 
 const Transition = function Transition(
   props: TransitionProps & {
@@ -53,8 +56,6 @@ export default function AccountMenu() {
   const [openLogout, setOpenLogout] = createSignal(false);
   const [openDeleteAccount, setOpenDeleteAccount] = createSignal(false);
   const location = useLocation();
-  const [subscriptionStatus, { refetch: refetchSubStatus }] =
-    createResource(fetchSubStatus);
   const navigate = useNavigate();
   const [gameInSession, setGameInSession] = createSignal(false);
   const [openLeaveGame, setOpenLeaveGame] = createSignal(false);

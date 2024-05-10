@@ -38,11 +38,11 @@ export const fetchSubStatus = async () => {
     return false;
   }
 };
+export const [subscriptionStatus, { refetch: refetchSubStatus }] =
+  createResource(fetchSubStatus);
 
 const User = () => {
   const [userProfile] = createResource(fetchUserProfile);
-  const [subscriptionStatus, { refetch: refetchSubStatus }] =
-    createResource(fetchSubStatus);
   const [paymentFailed, setPaymentFailed] = createSignal(false);
   const [paymentSuccess, setPaymentSuccess] = createSignal(false);
   const [userPage, setUserPage] = createSignal(false);
@@ -157,7 +157,10 @@ const User = () => {
             </div>
             <div class="w-full mb-4 text-base md:text-lg">
               <video controls class="w-full h-auto shadow-lg">
-                <source src="https://media.commonlyodd.com/payment_succes_video.mp4" type="video/mp4" />
+                <source
+                  src="https://media.commonlyodd.com/payment_succes_video.mp4"
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
             </div>
