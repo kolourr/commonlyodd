@@ -2,6 +2,7 @@ import { Component } from "solid-js";
 import Header from "./header";
 import Footer from "./footer";
 import HeaderMobile from "./header_mobile.jsx";
+import { CancelOutlined, CheckCircleOutline } from "@suid/icons-material";
 
 const Rules: Component = () => {
   return (
@@ -28,26 +29,37 @@ const Rules: Component = () => {
             </div>
             <div class="md:max-w-4xl md:mx-auto px-4 text-lg   ">
               <p class="mt-2 mx-8 py-2">
-                Commonly Odd is a trivia game that can be played by a single
-                player or a group (up to 10 teams). Each team goes one after the
-                other in a round robin style.
+                Commonly Odd is a trivia game that can be played solo or in
+                groups (up to 10 teams). There are two game modes: Just for Fun
+                and Competitive. Just for Fun is ideal for solo casual play,
+                without score tracking, while Competitive is perfect for groups
+                who enjoy a challenge.
               </p>
-              <p class="mt-2 mx-8 py-2">
-                Players are presented with four items per round. The team must
-                correctly determine which of four items is the outlier and the
-                commonality shared by the other three. Each round is
-                time-limited to 10 seconds.
-              </p>
+              <div class="text-2xl font-bold text-center mt-4">Game Modes</div>
 
-              <div class="text-2xl font-bold text-center mt-4  ">
+              <ul class="list-disc pl-8 mt-2">
+                <li class="py-2">
+                  <span class="font-bold">Just for Fun:</span> Ideal for solo
+                  players, untracked scores, no target score, faster rounds,
+                  multiplayer option available. Only time per round is set.
+                </li>
+                <li class="py-2">
+                  <span class="font-bold">Competitive:</span> Ideal for group
+                  play, scores are tracked, target score and number of teams
+                  must be set, can also be played solo.
+                </li>
+              </ul>
+
+              <div class="text-2xl font-bold text-center mt-4">
                 Setting Up the Game
               </div>
               <ul class="list-disc pl-8 mt-2">
                 <li class="py-2">
-                  <span class="font-bold">Session Creation:</span> A designated
-                  individual, the session starter, sets up the game session.
-                  They select the number of participating teams (up to 10) and
-                  the total score goal (up to 30).
+                  <span class="font-bold">Session Creation:</span> The session
+                  starter sets up the game session. For Competitive games, they
+                  select the number of participating teams and the total score
+                  goal. For Just for Fun, only the time per round needs to be
+                  set.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Link Distribution:</span> A unique
@@ -61,29 +73,96 @@ const Rules: Component = () => {
               </ul>
 
               <div class="text-2xl font-bold text-center mt-4">
-                Scoring Points
-              </div>
-              <ul class="list-disc pl-8 mt-2">
-                <li class="py-2">
-                  <span class="font-bold">2:</span> Awarded for correctly
-                  identifying the outlier and its exact reasoning.
-                </li>
-                <li class="py-2">
-                  <span class="font-bold">1.5:</span> Given for correctly
-                  identifying the outlier and partially correct reasoning.
-                </li>
-                <li class="py-2">
-                  <span class="font-bold">1:</span> For partial correctness,
-                  either in identifying the outlier or reasoning.
-                </li>
-                <li class="py-2">
-                  <span class="font-bold">0:</span> For incorrect guesses or no
-                  response.
-                </li>
-              </ul>
-
-              <div class="text-2xl font-bold text-center mt-4">
                 Winning the Game
+              </div>
+              <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+                <table class="w-full text-md  ">
+                  <caption class="p-5 text-xl font-semibold text-center  ">
+                    Competitive Game Scoring
+                  </caption>
+                  <thead class="text-base   uppercase  ">
+                    <tr>
+                      <th scope="col" class="py-3 px-6">
+                        Points
+                      </th>
+                      <th scope="col" class="py-3 px-6">
+                        Odd
+                      </th>
+                      <th scope="col" class="py-3 px-6">
+                        Reason for Commonality
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="text-center text-base">
+                    <tr class=" ">
+                      <td class="py-4 px-6 text-xl">2</td>
+                      <td class="py-4 px-6">
+                        <CheckCircleOutline
+                          fontSize="large"
+                          sx={{ color: "#4ade80" }}
+                        />
+                      </td>
+                      <td class="py-4 px-6">
+                        <CheckCircleOutline
+                          fontSize="large"
+                          sx={{ color: "#4ade80" }}
+                        />
+                      </td>
+                    </tr>
+                    <tr class=" ">
+                      <td class="py-4 px-6 text-xl">1.5</td>
+                      <td class="py-4 px-6">
+                        <CheckCircleOutline
+                          fontSize="large"
+                          sx={{ color: "#4ade80" }}
+                        />
+                      </td>
+                      <td class="py-4 px-6">
+                        <CheckCircleOutline
+                          fontSize="large"
+                          sx={{ color: "#fde047" }}
+                        />
+                      </td>
+                    </tr>
+                    <tr class=" ">
+                      <td class="py-4 px-6 text-xl">1</td>
+                      <td class="py-4 px-6">
+                        <CheckCircleOutline
+                          fontSize="large"
+                          sx={{ color: "#4ade80" }}
+                        />
+                      </td>
+                      <td class="py-4 px-6">
+                        <CancelOutlined
+                          fontSize="large"
+                          sx={{ color: "#f87171" }}
+                        />
+                      </td>
+                    </tr>
+                    <tr class=" ">
+                      <td class="py-4 px-6 text-xl">0</td>
+                      <td class="py-4 px-6">
+                        <CancelOutlined
+                          fontSize="large"
+                          sx={{ color: "#f87171" }}
+                        />
+                      </td>
+                      <td class="py-4 px-6">
+                        <CancelOutlined
+                          fontSize="large"
+                          sx={{ color: "#f87171" }}
+                        />
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="mt-4 flex items-center justify-center text-center">
+                  <CheckCircleOutline
+                    fontSize="large"
+                    sx={{ color: "#fde047" }}
+                  />
+                  = Partially Correct
+                </div>
               </div>
               <p class="mt-2 mx-8 py-2">
                 The game is won by the first team to meet or exceed the target
@@ -99,8 +178,9 @@ const Rules: Component = () => {
                   reveals, and scorekeeping.
                 </li>
                 <li class="py-2">
-                  <span class="font-bold">Time Constraint:</span> Teams have a
-                  10-second window per round for decision-making.
+                  <span class="font-bold">Time Constraint:</span> Depending on
+                  what the session starter sets, players have a limited time to
+                  answer each question.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Answer Revelation:</span> The session
@@ -140,8 +220,8 @@ const Rules: Component = () => {
                   the start of the game until it ends or a new game begins.
                 </li>
                 <li class="py-2">
-                  <span class="font-bold">Time Limit:</span> Each
-                  decision-making round is restricted to 10 seconds.
+                  <span class="font-bold">Time Limit:</span> The session starter
+                  sets the time limit for each round prior to game commencement.
                 </li>
               </ul>
             </div>

@@ -8,7 +8,12 @@ import {
   onMount,
 } from "solid-js";
 import { Button } from "@suid/material";
-import { RuleSharp, SportsScoreOutlined } from "@suid/icons-material";
+import {
+  CancelOutlined,
+  CheckCircleOutline,
+  RuleSharp,
+  SportsScoreOutlined,
+} from "@suid/icons-material";
 import CopyLink from "./start_session/copy_link";
 import EndGameSession from "./end_game_session";
 import StartGame, {
@@ -212,6 +217,10 @@ export default function Game() {
     setOpenRules(true);
   };
 
+  const handleGameRulesPage = () => {
+    window.location.href = "/rules";
+  };
+
   const rulesContent = () => (
     <div class="flex flex-col items-center text-center justify-center">
       <div class="md:text-base lg:text-xl">
@@ -225,8 +234,107 @@ export default function Game() {
           </video>
         </div>
         <div class="flex flex-col justify-center items-center text-center">
-          <div class="text-sm lg:text-base">Competitive Scoring Game Rules</div>
-          <img src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/013b53e3-7a12-479d-4ba2-7809b4cd3e00/300x300" />
+          <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+            <table class="w-full text-md  ">
+              <caption class="p-5 text-xl font-semibold text-center  ">
+                Competitive Game Scoring
+              </caption>
+              <thead class="text-base   uppercase  ">
+                <tr>
+                  <th scope="col" class="py-3 px-6">
+                    Points
+                  </th>
+                  <th scope="col" class="py-3 px-6">
+                    Odd
+                  </th>
+                  <th scope="col" class="py-3 px-6">
+                    Reason for Commonality
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="text-center text-base">
+                <tr class=" ">
+                  <td class="py-2 px-6 text-xl">2</td>
+                  <td class="py-2 px-6">
+                    <CheckCircleOutline
+                      fontSize="large"
+                      sx={{ color: "#4ade80" }}
+                    />
+                  </td>
+                  <td class="py-2 px-6">
+                    <CheckCircleOutline
+                      fontSize="large"
+                      sx={{ color: "#4ade80" }}
+                    />
+                  </td>
+                </tr>
+                <tr class=" ">
+                  <td class="py-2 px-6 text-xl">1.5</td>
+                  <td class="py-2 px-6">
+                    <CheckCircleOutline
+                      fontSize="large"
+                      sx={{ color: "#4ade80" }}
+                    />
+                  </td>
+                  <td class="py-2 px-6">
+                    <CheckCircleOutline
+                      fontSize="large"
+                      sx={{ color: "#fde047" }}
+                    />
+                  </td>
+                </tr>
+                <tr class=" ">
+                  <td class="py-2 px-6 text-xl">1</td>
+                  <td class="py-2 px-6">
+                    <CheckCircleOutline
+                      fontSize="large"
+                      sx={{ color: "#4ade80" }}
+                    />
+                  </td>
+                  <td class="py-2 px-6">
+                    <CancelOutlined
+                      fontSize="large"
+                      sx={{ color: "#f87171" }}
+                    />
+                  </td>
+                </tr>
+                <tr class=" ">
+                  <td class="py-2 px-6 text-xl">0</td>
+                  <td class="py-2 px-6">
+                    <CancelOutlined
+                      fontSize="large"
+                      sx={{ color: "#f87171" }}
+                    />
+                  </td>
+                  <td class="py-2 px-6">
+                    <CancelOutlined
+                      fontSize="large"
+                      sx={{ color: "#f87171" }}
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="flex flex-col items-center justify-center">
+              <div class="text-base">
+                <CheckCircleOutline
+                  fontSize="large"
+                  sx={{ color: "#fde047" }}
+                />
+                = Partially Correct
+              </div>
+              <div class="mt-2 text-sm">
+                For a full breakdown of the rules, please read the{" "}
+                <a
+                  onClick={handleGameRulesPage}
+                  class="text-blue-400 cursor-pointer"
+                >
+                  game rules
+                </a>{" "}
+                page.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
