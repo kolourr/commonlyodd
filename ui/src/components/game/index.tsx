@@ -405,10 +405,10 @@ export default function Game() {
           </div>
         </div>
 
-        <div class="flex mb-16">
+        <div class="flex mb-16 ">
           <Voice />
-          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300 text-center   ">
-            <div class="flex justify-center items-center text-center mb-4">
+          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300 text-center pl-6  ">
+            <div class="flex justify-center items-center text-center mb-4 min-h-20 ">
               <Show when={isSessionStarted()}>
                 <div>
                   <div>
@@ -448,7 +448,7 @@ export default function Game() {
                 </div>
               </Show>
             </div>
-            <div class="flex flex-col mb-4">
+            <div class="flex flex-col mb-4 min-h-20">
               <Button onClick={handleOpenRules}>
                 <RuleSharp fontSize="large" />
               </Button>
@@ -456,7 +456,7 @@ export default function Game() {
                 Rules
               </span>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col min-h-20">
               <Button onClick={handleOpenTeamScores}>
                 <SportsScoreOutlined fontSize="large" />
               </Button>

@@ -529,9 +529,9 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col   w-[16%] justify-center items-center     ">
+      <div class="flex flex-col   w-[16%] justify-center items-center pr-6   ">
         <div class="flex flex-col justify-between">
-          <div class="flex flex-col mb-4">
+          <div class="flex flex-col mb-4 min-h-20">
             <Button onClick={handleClickOpenEndGameSession}>
               <CancelOutlined fontSize="large" />
             </Button>
@@ -539,7 +539,7 @@ export default function Voice() {
               <div>End</div>
             </span>
           </div>
-          <div class="flex flex-col mb-4 ">
+          <div class="flex flex-col mb-4 min-h-20">
             <Show when={!isInChat()}>
               <div>
                 <Button onClick={joinVoiceChat} disabled={isJoining()}>
@@ -564,7 +564,7 @@ export default function Voice() {
               <Show when={isInChat()}>Leave Call</Show>
             </span>
           </div>
-          <div class="flex flex-col">
+          <div class="flex flex-col min-h-20">
             <div>
               <Button onClick={toggleMic}>
                 {micMuted() ? (
