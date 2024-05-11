@@ -129,6 +129,7 @@ export default function CreateSession() {
               <ul class="list-disc text-left  mb-4">
                 <div class="flex flex-col justify-start items-start">
                   <li>Ideal for playing solo</li>
+                  <li>Can select odd one out</li>
                   <li>Scores are untracked</li>
                   <li>No target score</li>
                   <li>Rounds are much faster</li>
@@ -146,6 +147,7 @@ export default function CreateSession() {
               <ul class="list-disc text-left ml-8  mb-4">
                 <div class="flex flex-col justify-start items-start ">
                   <li>Ideal for group play</li>
+                  <li>Cannot select odd one out</li>
                   <li>Scoring is tracked</li>
                   <li>Target score must be set</li>
                   <li>Number of teams must be set</li>

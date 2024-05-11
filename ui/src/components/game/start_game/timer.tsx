@@ -1,6 +1,7 @@
 import { createEffect, createSignal, onCleanup } from "solid-js";
 import { gameTime } from "./";
 import "./styles.css";
+import { isRevealInitiated } from "./index";
 
 export default function Timer() {
   const [timer, setTimer] = createSignal(gameTime()?.timer);
@@ -8,6 +9,10 @@ export default function Timer() {
   let timeoutId: NodeJS.Timeout;
 
   createEffect(() => {
+    onCleanup(() => {
+      clearTimeout(timeoutId);
+    });
+
     const currentGameTime = gameTime();
     if (currentGameTime && currentGameTime.timer !== undefined) {
       setTimer(currentGameTime.timer);
@@ -18,8 +23,20 @@ export default function Timer() {
     }
   });
 
-  onCleanup(() => {
-    clearTimeout(timeoutId);
+  createEffect(() => {
+    if (isRevealInitiated()) {
+      // As soon as reveal is initiated, reset the timer and clear any timeouts
+      setTimer(undefined);
+      clearTimeout(timeoutId);
+      setShowTimesUp(false);
+    }
+  });
+
+  // This effect ensures that if gameTime() returns undefined, the timer is reset immediately
+  createEffect(() => {
+    if (gameTime()?.timer === undefined) {
+      setTimer(undefined);
+    }
   });
 
   return (

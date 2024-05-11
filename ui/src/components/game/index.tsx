@@ -11,6 +11,7 @@ import { Button } from "@suid/material";
 import {
   CancelOutlined,
   CheckCircleOutline,
+  LinkOutlined,
   RuleSharp,
   SportsScoreOutlined,
 } from "@suid/icons-material";
@@ -43,6 +44,7 @@ import Header from "../auth_payments_landing/header";
 import HeaderMobile from "../auth_payments_landing/header_mobile";
 import CreateSession from "./start_session";
 import CommonDialog from "./common_dialog";
+import CopyLinkInactive from "./start_session/copy_link_inactive";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -140,8 +142,8 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col  justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            Play solo or invite others to join by clicking to obtain the session
-            link and sharing it.
+            Play solo or invite others to the game by clicking <LinkOutlined />{" "}
+            to copy the session link.
           </div>
         </div>
       );
@@ -315,7 +317,7 @@ export default function Game() {
                 </tr>
               </tbody>
             </table>
-            <div class="flex flex-col items-center justify-center">
+            <div class="flex flex-col items-center justify-center mt-4">
               <div class="text-base">
                 <CheckCircleOutline
                   fontSize="large"
@@ -323,7 +325,7 @@ export default function Game() {
                 />
                 = Partially Correct
               </div>
-              <div class="mt-2 text-sm">
+              <div class="mt-4 text-sm">
                 For a full breakdown of the rules, please read the{" "}
                 <a
                   onClick={handleGameRulesPage}
@@ -405,7 +407,7 @@ export default function Game() {
 
         <div class="flex mb-16">
           <Voice />
-          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300    ">
+          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300 text-center   ">
             <div class="flex justify-center items-center text-center mb-4">
               <Show when={isSessionStarted()}>
                 <div>
@@ -420,8 +422,27 @@ export default function Game() {
                         hidden
                       />
                     </div>
-                    <div class="flex flex-col  md:flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
-                      <div class="px-2">Session</div> <div>Link</div>
+                    <div class="flex flex-col md:flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
+                      <div class="px-2">Link</div> <div>Active</div>
+                    </div>
+                  </div>
+                </div>
+              </Show>
+              <Show when={!isSessionStarted()}>
+                <div>
+                  <div>
+                    <CopyLinkInactive />
+                    <div>
+                      <input
+                        type="text"
+                        class=" rounded w-full  shadow-sm shadow-gray-50 "
+                        readOnly
+                        value={sessionLink()}
+                        hidden
+                      />
+                    </div>
+                    <div class="flex flex-col   md:flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
+                      <div class="px-2">Link</div> <div>Inactive</div>
                     </div>
                   </div>
                 </div>

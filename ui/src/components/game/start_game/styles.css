@@ -176,3 +176,27 @@
   letter-spacing: 0.2em;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
+
+.odd-overlay-subtext {
+  position: relative;
+  top: 45%;
+  left: 60%;
+  transform: translate(-50%, -50%) rotate(0deg);
+  font-size: 100px;
+  color: rgb(226, 204, 7);
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.correct-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 70px;
+  color: #4ade80;
+  font-weight: bold;
+  letter-spacing: 0.2em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}

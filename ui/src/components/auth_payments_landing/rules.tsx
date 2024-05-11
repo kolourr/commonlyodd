@@ -40,13 +40,14 @@ const Rules: Component = () => {
               <ul class="list-disc pl-8 mt-2">
                 <li class="py-2">
                   <span class="font-bold">Just for Fun:</span> Ideal for solo
-                  players, untracked scores, no target score, faster rounds,
-                  multiplayer option available. Only time per round is set.
+                  players, manual selection, untracked scores, no target score,
+                  faster rounds, multiplayer option available. Only time per
+                  round is set.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Competitive:</span> Ideal for group
-                  play, scores are tracked, target score and number of teams
-                  must be set, can also be played solo.
+                  play, no manual selection, scores are tracked, target score
+                  and number of teams must be set, can also be played solo.
                 </li>
               </ul>
 

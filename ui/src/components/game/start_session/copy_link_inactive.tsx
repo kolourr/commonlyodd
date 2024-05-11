@@ -1,4 +1,4 @@
-import { ContentCopy, LinkOutlined } from "@suid/icons-material";
+import { ContentCopy, LinkOffOutlined } from "@suid/icons-material";
 import {
   Button,
   Dialog,
@@ -13,11 +13,10 @@ import { sessionLink } from "../index";
 const dialogTextStyle = {
   color: "#f9fafb",
 };
-export default function CopyLink() {
+export default function CopyLinkInactive() {
   const [open, setOpen] = createSignal(false);
 
   const handleClickOpen = () => {
-    navigator.clipboard.writeText(sessionLink());
     setOpen(true);
   };
 
@@ -28,7 +27,7 @@ export default function CopyLink() {
   return (
     <div>
       <Button onClick={handleClickOpen} style="border: none;      ">
-        <LinkOutlined fontSize="large" />
+        <LinkOffOutlined fontSize="large" />
       </Button>
       <Dialog
         open={open()}
@@ -47,14 +46,14 @@ export default function CopyLink() {
           class="text-center"
           style={dialogTextStyle}
         >
-          Session link has been copied
+          Session link is Not Available
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText
             id="alert-dialog-description"
             style={dialogTextStyle}
           >
-            Share the link before starting the game!
+            Create a new game session to get the link!
           </DialogContentText>
         </DialogContent>
       </Dialog>

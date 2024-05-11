@@ -7,8 +7,27 @@ import (
 	"github.com/gorilla/websocket"
 )
 
+var cancelCountdownSolo chan bool = make(chan bool, 1)
+
+// Before starting a new countdown
+func drainChannelSolo(ch chan bool) {
+	for {
+		select {
+		case <-ch:
+			// continue draining
+		default:
+			// if there's nothing more to drain, return
+			return
+		}
+	}
+}
+
 // Start a countdown and send periodic updates to the client.
 func startCountdownSolo(conn *websocket.Conn, sessionUUID string, duration int) {
+
+	// Drain the channel to remove any pending signals that weren't cleared
+	drainChannelSolo(cancelCountdownSolo)
+	cancelCountdownSolo = make(chan bool, 1)
 
 	// Fetch the starter_in_call status from the database
 	starterInCall, err := getStarterInCallStatus(sessionUUID)
@@ -30,6 +49,10 @@ func startCountdownSolo(conn *websocket.Conn, sessionUUID string, duration int) 
 				StarterInCall: starterInCall,
 			}
 			broadcastToSession(sessionUUID, timerMsg)
+			// Listen for cancellation signal
+		case <-cancelCountdownSolo:
+			log.Println("Received cancellation solo signal. Exiting countdown.")
+			return
 
 		}
 

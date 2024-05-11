@@ -1,8 +1,13 @@
 import { For, createEffect, createSignal } from "solid-js";
 import { Objects_Images } from "./types";
-import { oddReasonForSimilarity } from "./index";
 import "./styles.css";
 import { gameInfo } from "..";
+import {
+  sendMessage,
+  gameType,
+  oddReasonForSimilarity,
+  isSessionActive,
+} from "./index";
 
 interface GameImagesProps {
   gameData: Objects_Images | null;
@@ -11,16 +16,47 @@ interface GameImagesProps {
 interface ImageObject {
   name: string;
   url: string;
+  animationClass: string;
 }
+
 const [imagesToShow, setImagesToShow] = createSignal<ImageObject[]>([]);
-const [highlightName, setHighlightName] = createSignal("");
+const [highlightName, setHighlightName] = createSignal<string>("");
+const [selectedImage, setSelectedImage] = createSignal<string>("");
+const [isSelectable, setIsSelectable] = createSignal<boolean>(true);
 
 export const startNewTurn = () => {
   setHighlightName("");
+  setSelectedImage("");
+  setIsSelectable(true);
 };
+let isCorrect;
+
 export default function GameImages(props: GameImagesProps) {
   createEffect(() => {
     const gameData = props.gameData;
+    const defaultImages = [
+      {
+        name: "Create Session",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8209e650-8b9c-44a2-544e-36bf9eb9e800/public",
+        animationClass: "image-slide-in-top",
+      },
+      {
+        name: "Share Link",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/31465145-654c-48fc-2849-1da652707200/public",
+        animationClass: "image-slide-in-side",
+      },
+      {
+        name: "Join Call",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/946e2998-786c-4fab-25ed-7863412bf700/public",
+        animationClass: "image-slide-in-bottom",
+      },
+      {
+        name: "Start Game",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3b86ed8a-e91d-4880-b414-377316989b00/public",
+        animationClass: "image-slide-in-other-side",
+      },
+    ];
+
     if (gameData && gameData.objs_image_links) {
       setImagesToShow([
         {
@@ -45,38 +81,32 @@ export default function GameImages(props: GameImagesProps) {
         },
       ]);
     } else {
-      setImagesToShow([
-        {
-          name: "Create Session",
-          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8209e650-8b9c-44a2-544e-36bf9eb9e800/public",
-          animationClass: "image-slide-in-top",
-        },
-        {
-          name: "Share Link",
-          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/31465145-654c-48fc-2849-1da652707200/public",
-          animationClass: "image-slide-in-side",
-        },
-        {
-          name: "Join Call",
-          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/946e2998-786c-4fab-25ed-7863412bf700/public",
-          animationClass: "image-slide-in-bottom",
-        },
-        {
-          name: "Start Game",
-          url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3b86ed8a-e91d-4880-b414-377316989b00/public",
-          animationClass: "image-slide-in-other-side",
-        },
-      ]);
+      setImagesToShow(defaultImages);
     }
 
     const oddReason = oddReasonForSimilarity()?.odd_reason_for_similarity?.odd;
     setHighlightName(oddReason);
   });
 
+  const clickCheck = (imageName) => {
+    //Check to see if imagesToShow is set to default images
+    const isDefaultImages =
+      imagesToShow().length === 4 &&
+      imagesToShow()[0].name === "Create Session";
+
+    if (isSessionActive() && !isDefaultImages) {
+      if (!isSelectable()) return;
+      if (gameType() === "fun") {
+        setIsSelectable(false);
+        setSelectedImage(imageName);
+        isCorrect = imageName === highlightName();
+        sendMessage({ game_state: "reveal-solo" });
+      }
+    }
+  };
+
   const shouldApplyBlur = (imageName) => {
-    return (
-      highlightName() && highlightName() !== "" && highlightName() !== imageName
-    );
+    return highlightName() && highlightName() !== imageName;
   };
 
   return (
@@ -85,6 +115,7 @@ export default function GameImages(props: GameImagesProps) {
         <For each={imagesToShow().slice(0, 2)}>
           {(obj, index) => (
             <div
+              onClick={() => clickCheck(obj.name)}
               class={`px-1 relative ${obj.animationClass} ${
                 obj.name === highlightName()
                   ? "border-6 border-bright-green glowing-border"
@@ -106,12 +137,33 @@ export default function GameImages(props: GameImagesProps) {
                     : ""
                 }`}
               />
-              {obj.name === highlightName() && (
-                <>
-                  <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse"></div>
-                  <p class="odd-overlay">ODD</p>
-                </>
-              )}
+              <div class="absolute top-0 left-0 w-full h-full">
+                {obj.name === selectedImage() && (
+                  <div
+                    class={
+                      obj.name === highlightName()
+                        ? "absolute top-0 left-0 w-full h-full border-solid border-[12px] border-success-400 rounded-lg animate-pulse"
+                        : "absolute top-0 left-0 w-full h-full border-solid border-[7px] border-warning-400 rounded-lg animate-pulse"
+                    }
+                  >
+                    <p
+                      class={
+                        obj.name === highlightName()
+                          ? "correct-text"
+                          : "odd-overlay-subtext"
+                      }
+                    >
+                      {obj.name === highlightName() ? "ODD" : "X"}
+                    </p>
+                  </div>
+                )}
+                {obj.name === highlightName() &&
+                  selectedImage() !== obj.name && (
+                    <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse">
+                      <p class="odd-overlay">ODD</p>
+                    </div>
+                  )}
+              </div>
             </div>
           )}
         </For>
@@ -123,6 +175,7 @@ export default function GameImages(props: GameImagesProps) {
         <For each={imagesToShow().slice(2)}>
           {(obj, index) => (
             <div
+              onClick={() => clickCheck(obj.name)}
               class={`px-1 relative ${obj.animationClass} ${
                 obj.name === highlightName()
                   ? "border-6 border-bright-green glowing-border"
@@ -135,21 +188,42 @@ export default function GameImages(props: GameImagesProps) {
               <img
                 src={obj.url}
                 alt={obj.name}
-                loading="lazy"
                 class={`${
-                  obj.name === highlightName()
+                  obj.name === selectedImage() || obj.name === highlightName()
                     ? "text-bright-green"
                     : shouldApplyBlur(obj.name)
                     ? "blur-effect"
                     : ""
                 }`}
               />
-              {obj.name === highlightName() && (
-                <>
-                  <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse"></div>
-                  <p class="odd-overlay">ODD</p>
-                </>
-              )}
+
+              <div class="absolute top-0 left-0 w-full h-full">
+                {obj.name === selectedImage() && (
+                  <div
+                    class={
+                      obj.name === highlightName()
+                        ? "absolute top-0 left-0 w-full h-full border-solid border-[12px] border-success-400 rounded-lg animate-pulse"
+                        : "absolute top-0 left-0 w-full h-full border-solid border-[7px] border-warning-400 rounded-lg animate-pulse"
+                    }
+                  >
+                    <p
+                      class={
+                        obj.name === highlightName()
+                          ? "correct-text"
+                          : "odd-overlay-subtext"
+                      }
+                    >
+                      {obj.name === highlightName() ? "ODD" : "X"}
+                    </p>
+                  </div>
+                )}
+                {obj.name === highlightName() &&
+                  selectedImage() !== obj.name && (
+                    <div class="absolute top-0 left-0 w-full h-full border-[7px] border-solid border-bright-green rounded-lg animate-pulse">
+                      <p class="odd-overlay">ODD</p>
+                    </div>
+                  )}
+              </div>
             </div>
           )}
         </For>

@@ -47,8 +47,10 @@ export const [isSessionStarter, setIsSessionStarter] = createSignal(false);
 export const [isSessionEndedEndpoint, setIsSessionEndedEndpoint] =
   createSignal(false);
 export const [gameWinner, setGameWinner] = createSignal(false);
+export const [gameType, setGameType] = createSignal("");
+export const [isRevealInitiated, setIsRevealInitiated] = createSignal(false);
 
-const [isSessionActive, setIsSessionActive] = createSignal(false);
+export const [isSessionActive, setIsSessionActive] = createSignal(false);
 const [isGameInProgress, setIsGameInProgress] = createSignal(false);
 let gameWebSocket: WebSocket | null = null;
 const BASE_API = import.meta.env.CO_API_URL;
@@ -62,7 +64,6 @@ const [teamGameWinner, setTeamGameWinner] = createSignal<string | undefined>();
 const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
 const [complete, setComplete] = createSignal(false);
-const [gameType, setGameType] = createSignal("");
 
 export const sendMessage = (message: messageData) => {
   checkSessionStatus();
@@ -112,6 +113,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       break;
     case "start-in-progress":
       //update Team Score
+      setIsRevealInitiated(false);
       setMessageSent(msg);
       setIsGameInProgress(true);
       setObjectsImages(msg);
@@ -131,6 +133,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       break;
     case "start-in-progress-solo":
       //update Team Score
+      setIsRevealInitiated(false);
       setMessageSent(msg);
       setIsGameInProgress(true);
       setObjectsImages(msg);
@@ -149,10 +152,13 @@ function handleWebSocketMessage(event: MessageEvent) {
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setCanJoinVoiceCall(msg.starter_in_call);
+
       break;
     case "timer_update_solo":
-      setGameTime(msg);
-      setCanJoinVoiceCall(msg.starter_in_call);
+      if (!isRevealInitiated()) {
+        setGameTime(msg);
+        setCanJoinVoiceCall(msg.starter_in_call);
+      }
       break;
     case "time_up":
       //update Team Score
@@ -170,24 +176,30 @@ function handleWebSocketMessage(event: MessageEvent) {
           </div>
         </div>
       );
+
       break;
     case "time_up_solo":
       //update Team Score
-      setMessageSent(msg);
-      setGameTime(msg);
-      setTimerUp(true);
-      setCanJoinVoiceCall(msg.starter_in_call);
-      setGameInfo(
-        <div class="flex flex-col justify-center items-center">
-          <div class="md:text-base lg:text-xl">
-            What's the odd one out and what's the commonality among the other
-            three?
+      if (!isRevealInitiated()) {
+        setMessageSent(msg);
+        setGameTime(msg);
+        setTimerUp(true);
+        setCanJoinVoiceCall(msg.starter_in_call);
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">
+              What's the odd one out and what's the commonality among the other
+              three?
+            </div>
           </div>
-        </div>
-      );
+        );
+      }
+
       break;
+
     case "reveal-answer":
       //update Team Score
+      setIsRevealInitiated(true);
       setMessageSent(msg);
       setOddReasonForSimilarity(msg);
       setNumberOfTeams(msg.number_of_teams);
@@ -203,6 +215,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       break;
     case "reveal-answer-solo":
       //update Team Score
+      setGameTime(null);
+      setIsRevealInitiated(true);
       setMessageSent(msg);
       setOddReasonForSimilarity(msg);
       setCanJoinVoiceCall(msg.starter_in_call);
@@ -218,6 +232,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       break;
     case "continue":
       //update Team Score
+      setIsRevealInitiated(false);
       setScoreColor(msg.individual_team_score_received);
       setMessageSent(msg);
       setNumberOfTeams(msg.number_of_teams);
@@ -244,6 +259,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       break;
     case "continue-answer":
       //update Team Score
+      setIsRevealInitiated(false);
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setMessageSent(msg);
@@ -267,6 +283,8 @@ function handleWebSocketMessage(event: MessageEvent) {
       startNewTurn();
       break;
     case "continue-answer-solo":
+      setIsRevealInitiated(false);
+      setGameTime(null);
       setMessageSent(msg);
       // Update game state with new objects and images
       setObjectsImages(msg);
@@ -286,6 +304,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       break;
     case "end-game":
       //update Team Score
+      setIsRevealInitiated(false);
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setMessageSent(msg);
@@ -302,6 +321,7 @@ function handleWebSocketMessage(event: MessageEvent) {
       break;
     case "new-game-started":
       //update Team Score
+      setIsRevealInitiated(false);
       setNumberOfTeams(msg.number_of_teams);
       setTargetScore(msg.target_score);
       setMessageSent(msg);
@@ -360,8 +380,9 @@ export default function StartGame() {
         sendMessage({ game_state: "start" });
       }
     } else if (gameType() === "fun") {
-      if (timerUp()) {
+      if (timerUp() && !isRevealInitiated()) {
         sendMessage({ game_state: "reveal-solo" });
+        setIsRevealInitiated(true);
       } else if (readyToContinue()) {
         sendMessage({ game_state: "continue-solo" });
       } else if (readyToContinueSolo()) {

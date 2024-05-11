@@ -41,6 +41,7 @@ func handleReveal(conn *websocket.Conn, sessionUUID string, gameData map[string]
 		TargetScore:    targetScore,
 		StarterInCall:  starterInCall,
 	}
+
 	// Broadcast the reveal message to all clients in the session
 	broadcastToSession(sessionUUID, msg)
 
