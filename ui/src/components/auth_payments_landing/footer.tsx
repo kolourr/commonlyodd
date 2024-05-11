@@ -90,8 +90,8 @@ const Footer: Component = () => {
         >
           Community Support{" "}
         </a>
-        |{" "}
         <div class="hidden md:block">
+          |{" "}
           <a
             onClick={handleContactUs}
             class="hover:underline px-2"

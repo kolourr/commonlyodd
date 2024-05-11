@@ -224,7 +224,7 @@ export default function Game() {
   };
 
   const rulesContent = () => (
-    <div class="flex flex-col items-center text-center justify-center">
+    <div class="flex flex-col items-center text-center justify-center px-4 ">
       <div class="md:text-base lg:text-xl">
         <div class="w-full mb-4 text-base md:text-lg">
           <video controls class="w-full h-auto shadow-lg">
