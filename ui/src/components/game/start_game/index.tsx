@@ -26,6 +26,7 @@ import { setCanJoinVoiceCall } from "../voice";
 import { startNewTurn } from "./images";
 import { setScoreColor } from "..";
 import { PlayButtonSVG } from "../index";
+import { create } from "domain";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
@@ -49,11 +50,12 @@ export const [isSessionEndedEndpoint, setIsSessionEndedEndpoint] =
 export const [gameWinner, setGameWinner] = createSignal(false);
 export const [gameType, setGameType] = createSignal("");
 export const [isRevealInitiated, setIsRevealInitiated] = createSignal(false);
-
 export const [isSessionActive, setIsSessionActive] = createSignal(false);
+
 const [isGameInProgress, setIsGameInProgress] = createSignal(false);
 let gameWebSocket: WebSocket | null = null;
 const BASE_API = import.meta.env.CO_API_URL;
+const BASE_UI = import.meta.env.CO_UI_URL;
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 const [dialogTitle, setDialogTitle] = createSignal<string | JSX.Element>();
@@ -487,7 +489,12 @@ export default function StartGame() {
     setIsSessionActive(!!sessionUuid);
     setIsSessionStarter(!!starterToken);
 
-    if (sessionUuid && !gameWebSocket) {
+    const URL = `${BASE_UI}/game/join?session=${sessionUuid}`;
+
+    if (sessionUuid && starterToken && !gameWebSocket) {
+      initializeWebSocket(sessionUuid, starterToken);
+      setSessionLink(URL);
+    } else if (sessionUuid && !gameWebSocket) {
       initializeWebSocket(sessionUuid);
       setSessionLink(window.location.href);
     }

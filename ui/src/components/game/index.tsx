@@ -116,8 +116,8 @@ export default function Game() {
     }
   });
 
-  const handleOpenTeamScores = () => {
-    setShowTeamScores(!showTeamScores());
+  const toggleTeamScores = () => {
+    setShowTeamScores(showTeamScores() ? false : true);
   };
 
   createEffect(async () => {
@@ -391,7 +391,7 @@ export default function Game() {
       </div>
       <div class="flex flex-col  ">
         <div>
-          <Button onClick={handleOpenTeamScores}>
+          <Button onClick={() => setShowTeamScores(!showTeamScores())}>
             <SportsScoreOutlined fontSize="large" />
           </Button>
         </div>
