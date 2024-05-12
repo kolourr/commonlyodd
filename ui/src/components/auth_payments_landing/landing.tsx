@@ -338,8 +338,7 @@ const LandingPage: Component = () => {
             </div>
             <div>
               <div class="text-2xl  text-center  text-gray-400  flex justify-center items-center pt-6 px-8">
-                A multiplayer browser trivia game designed for fun with the
-                crew.
+                A multiplayer browser trivia game that educates and entertains.
               </div>
               <div class="flex flex-col justify-center items-center p-4">
                 <Button

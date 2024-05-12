@@ -32,6 +32,7 @@ export default function EndSessionMessage() {
       // Remove session UUID and starter token in local storage
       localStorage.removeItem("session_uuid");
       localStorage.removeItem("starter_token");
+      localStorage.removeItem("type");
 
       setDialogContent(<>Session has ended successfully .</>);
       setDialogOpen(true);

@@ -535,7 +535,7 @@ export default function Voice(props: VoiceProps) {
     <>
       <div class="flex justify-center items-center text-center mt-4">
         {props.controlPanel}
-        <div class="flex flex-row justify-around text-center items-center mt-4 mb-4 w-[50%]">
+        <div class="flex flex-row justify-around   text-center items-center mt-4 mb-4 w-[50%]">
           <div class="flex flex-col  ">
             <Show when={!isInChat()}>
               <div>

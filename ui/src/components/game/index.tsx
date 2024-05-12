@@ -344,7 +344,7 @@ export default function Game() {
   );
 
   const controlPanel = () => (
-    <div class="flex   justify-around items-center text-gray-300 text-center  w-[50%]  ">
+    <div class="flex   justify-around   items-center text-gray-300 text-center  w-[50%]  ">
       <div class="flex text-center   ">
         <Show when={isSessionStarted()}>
           <div>
@@ -359,7 +359,7 @@ export default function Game() {
               />
             </div>
             <div class="flex  flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
-              <div>Active</div>
+              <div> Active</div>
             </div>
           </div>
         </Show>

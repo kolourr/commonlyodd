@@ -50,6 +50,7 @@ export default function EndSession() {
       // Remove session UUID and starter token in local storage
       localStorage.removeItem("session_uuid");
       localStorage.removeItem("starter_token");
+      localStorage.removeItem("type");
 
       // Reset session link and Notify user
       setSessionLink(`${BASE_UI}/click-to-start`);

@@ -30,9 +30,9 @@ const plans: Plan[] = [
   {
     id: "yearly",
     title: "Yearly Plan",
-    price: "$50",
+    price: "$60",
     period: "year",
-    savings: "Save 53% with yearly plan",
+    savings: "Save 44% with this plan!",
     description: [
       "No download needed",
       "Friends and family play for FREE",
@@ -75,9 +75,7 @@ const PricingPlans = () => {
       {plans.map((plan) => (
         <div
           class={`p-6 rounded-lg text-center shadow-lg ${
-            plan.isBestValue
-              ? " border-4 border-success-300"
-              : "  border-2"
+            plan.isBestValue ? " border-4 border-success-300" : "  border-2"
           } flex flex-col justify-between w-[355px]  `}
           key={plan.id}
         >
@@ -85,7 +83,9 @@ const PricingPlans = () => {
             <h3 class="text-4xl font-bold mb-2">{plan.title}</h3>
             <div class="flex flex-row justify-center items-baseline">
               <p class="text-4xl font-bold text-gray-200">{plan.price}</p>
-              <p class="text-2xl italic font-bold pl-2">{plan.period}</p>
+              <p class="text-2xl italic font-bold pl-2 text-gray-400">
+                {plan.period}
+              </p>
             </div>
             {plan.savings ? (
               <p class="text-2xl font-bold text-success-400 mt-1">

@@ -449,6 +449,7 @@ export default function AccountMenuMobile() {
       sendMessage({ game_state: "end" });
       localStorage.removeItem("session_uuid");
       localStorage.removeItem("starter_token");
+      localStorage.removeItem("type");
     }
 
     if (goToDashboard()) {

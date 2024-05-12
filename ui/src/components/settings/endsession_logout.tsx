@@ -48,6 +48,7 @@ export default function EndSessionLogout() {
         // Remove session UUID and starter token in local storage
         localStorage.removeItem("session_uuid");
         localStorage.removeItem("starter_token");
+        localStorage.removeItem("type");
       }
       window.location.href = `${BASE_API}/logout`;
     } catch (error) {
