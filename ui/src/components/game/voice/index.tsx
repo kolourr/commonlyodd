@@ -53,13 +53,17 @@ let audioTracks = {
   remoteAudioTracks: {} as IRemoteAudioTrack[],
 };
 
+interface VoiceProps {
+  controlPanel: JSX.Element;
+}
+
 //Users in channel
 const MAX_PARTICIPANTS = 10;
 
 export const [canJoinVoiceCall, setCanJoinVoiceCall] =
   createSignal<boolean>(false);
 
-export default function Voice() {
+export default function Voice(props: VoiceProps) {
   const [micMuted, setMicMuted] = createSignal(true);
   const [isSessionStarter, setIsSessionStarter] = createSignal(false);
   const [roomId, setRoomId] = createSignal("");
@@ -529,17 +533,10 @@ export default function Voice() {
 
   return (
     <>
-      <div class="flex flex-col   w-[16%] justify-center items-center pr-6   ">
-        <div class="flex flex-col justify-between">
-          <div class="flex flex-col mb-4 min-h-20">
-            <Button onClick={handleClickOpenEndGameSession}>
-              <CancelOutlined fontSize="large" />
-            </Button>
-            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-              <div>End</div>
-            </span>
-          </div>
-          <div class="flex flex-col mb-4 min-h-20">
+      <div class="flex justify-center items-center text-center mt-4">
+        {props.controlPanel}
+        <div class="flex flex-row justify-around text-center items-center mt-4 mb-4 w-[50%]">
+          <div class="flex flex-col  ">
             <Show when={!isInChat()}>
               <div>
                 <Button onClick={joinVoiceChat} disabled={isJoining()}>
@@ -564,7 +561,7 @@ export default function Voice() {
               <Show when={isInChat()}>Leave Call</Show>
             </span>
           </div>
-          <div class="flex flex-col min-h-20">
+          <div class="flex flex-col  ">
             <div>
               <Button onClick={toggleMic}>
                 {micMuted() ? (
@@ -578,11 +575,22 @@ export default function Voice() {
               {micMuted() ? "Mic On" : "Mic Off"}
             </span>
           </div>
+          <div class="flex flex-col   ">
+            <Button onClick={handleClickOpenEndGameSession}>
+              <CancelOutlined fontSize="large" />
+            </Button>
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
+              <div>End</div>
+            </span>
+          </div>
         </div>
       </div>
-      <div class="   w-[68%] flex flex-col  shadow-inner text-gray-300   ">
+      <div class="   flex flex-col  shadow-inner text-gray-300  mt-2 ">
+        <div class="flex justify-center items-center text-center shadow-md shadow-gray-50 uppercase">
+          Group Voice Call Participants
+        </div>
         <div
-          class="users grid grid-cols-5 h-64 gap-0 items-center justify-start text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
+          class="users grid grid-cols-5 h-52 gap-0 items-center justify-center text-gray-300 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "
           id="users"
         >
           <For each={users}>
@@ -603,7 +611,7 @@ export default function Voice() {
             )}
           </For>
         </div>
-        <div class="pt-2  h-10 text-xs lg:text-sm">
+        <div class="pt-2  h-10 text-sm lg:text-base">
           {voiceCallInfo()}
           {sessionStarterJoinedCall()}
         </div>

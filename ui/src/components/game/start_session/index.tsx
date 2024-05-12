@@ -89,7 +89,7 @@ export default function CreateSession() {
       >
         <PlayButtonSVG />
       </Button>
-      <div class="text-center font-bold text-base lg:text-md text-zinc-200">
+      <div class="text-center font-bold text-base lg:text-lg text-zinc-200">
         {isSessionActive() ? (
           <span class="italic  ">Active</span>
         ) : (

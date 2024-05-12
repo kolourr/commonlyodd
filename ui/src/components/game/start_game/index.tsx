@@ -511,7 +511,7 @@ export default function StartGame() {
             <PlayButtonSVG />
           </Button>
         </div>
-        <div class="text-center font-bold text-xs lg:text-sm text-gray-300  ">
+        <div class="text-center font-bold text-base lg:text-lg text-gray-300  ">
           {getButtonLabel()}
         </div>
       </div>

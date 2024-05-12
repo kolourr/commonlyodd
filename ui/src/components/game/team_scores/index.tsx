@@ -80,13 +80,24 @@ export default function TeamScores(props: TeamScoresProps) {
     </div>
   );
 
+  const scoresContentDialog = () => {
+    return (
+      <div class="flex justify-center text-center items-center">
+        <div>
+          Team scores is only available for competitive games when a session is
+          underway.
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <Show when={dialogOpen()}>
         <CommonDialog
           open={dialogOpen()}
           title="Team Scores"
-          content="Team scores is only available for competitive games when a session is underway."
+          content={scoresContentDialog()}
           onClose={() => setDialogOpen(false)}
           showCancelButton={false}
         />

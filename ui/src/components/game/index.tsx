@@ -45,6 +45,7 @@ import HeaderMobile from "../auth_payments_landing/header_mobile";
 import CreateSession from "./start_session";
 import CommonDialog from "./common_dialog";
 import CopyLinkInactive from "./start_session/copy_link_inactive";
+import ControlPanel from "./control_panel";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -224,7 +225,7 @@ export default function Game() {
   };
 
   const rulesContent = () => (
-    <div class="flex flex-col items-center text-center justify-center px-4 ">
+    <div class="flex flex-col items-center text-center justify-center px-2 ">
       <div class="md:text-base lg:text-xl">
         <div class="w-full mb-4 text-base md:text-lg">
           <video controls class="w-full h-auto shadow-lg">
@@ -342,6 +343,63 @@ export default function Game() {
     </div>
   );
 
+  const controlPanel = () => (
+    <div class="flex   justify-around items-center text-gray-300 text-center  w-[50%]  ">
+      <div class="flex text-center   ">
+        <Show when={isSessionStarted()}>
+          <div>
+            <CopyLink />
+            <div>
+              <input
+                type="text"
+                class=" rounded w-full  shadow-sm shadow-gray-50 "
+                readOnly
+                value={sessionLink()}
+                hidden
+              />
+            </div>
+            <div class="flex  flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
+              <div>Active</div>
+            </div>
+          </div>
+        </Show>
+        <Show when={!isSessionStarted()}>
+          <div>
+            <CopyLinkInactive />
+            <div>
+              <input
+                type="text"
+                class=" rounded w-full  shadow-sm shadow-gray-50 "
+                readOnly
+                value={sessionLink()}
+                hidden
+              />
+            </div>
+            <div class="flex  flex-col items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
+              <div>Inactive</div>
+            </div>
+          </div>
+        </Show>
+      </div>
+      <div class="flex flex-col     ">
+        <div>
+          <Button onClick={handleOpenRules}>
+            <RuleSharp fontSize="large" />
+          </Button>
+        </div>
+        <span class="text-xs lg:text-sm text-center font-bold ">Rules</span>
+      </div>
+      <div class="flex flex-col  ">
+        <div>
+          <Button onClick={handleOpenTeamScores}>
+            <SportsScoreOutlined fontSize="large" />
+          </Button>
+        </div>
+        <span class="text-xs lg:text-sm text-center font-bold ">Score</span>
+      </div>
+    </div>
+  );
+
   return (
     <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
       <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
@@ -405,66 +463,8 @@ export default function Game() {
           </div>
         </div>
 
-        <div class="flex mb-16 ">
-          <Voice />
-          <div class="flex flex-col   w-[16%] justify-center items-center text-gray-300 text-center pl-6  ">
-            <div class="flex justify-center items-center text-center mb-4 min-h-20 ">
-              <Show when={isSessionStarted()}>
-                <div>
-                  <div>
-                    <CopyLink />
-                    <div>
-                      <input
-                        type="text"
-                        class=" rounded w-full  shadow-sm shadow-gray-50 "
-                        readOnly
-                        value={sessionLink()}
-                        hidden
-                      />
-                    </div>
-                    <div class="flex flex-col md:flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
-                      <div class="px-2">Link</div> <div>Active</div>
-                    </div>
-                  </div>
-                </div>
-              </Show>
-              <Show when={!isSessionStarted()}>
-                <div>
-                  <div>
-                    <CopyLinkInactive />
-                    <div>
-                      <input
-                        type="text"
-                        class=" rounded w-full  shadow-sm shadow-gray-50 "
-                        readOnly
-                        value={sessionLink()}
-                        hidden
-                      />
-                    </div>
-                    <div class="flex flex-col   md:flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
-                      <div class="px-2">Link</div> <div>Inactive</div>
-                    </div>
-                  </div>
-                </div>
-              </Show>
-            </div>
-            <div class="flex flex-col mb-4 min-h-20">
-              <Button onClick={handleOpenRules}>
-                <RuleSharp fontSize="large" />
-              </Button>
-              <span class="text-xs lg:text-sm text-center font-bold ">
-                Rules
-              </span>
-            </div>
-            <div class="flex flex-col min-h-20">
-              <Button onClick={handleOpenTeamScores}>
-                <SportsScoreOutlined fontSize="large" />
-              </Button>
-              <span class="text-xs lg:text-sm text-center font-bold ">
-                Score
-              </span>
-            </div>
-          </div>
+        <div class="flex mb-16 flex-col     ">
+          <Voice controlPanel={controlPanel()} />
         </div>
         <div class="flex   flex-col justify-center items-center text-gray-300 ">
           <Show when={showTeamScores()}>
