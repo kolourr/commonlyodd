@@ -125,10 +125,10 @@ const User = () => {
             <p class="ml-8 text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
-                href="mailto:commonlyoddtrivia@gmail.com"
+                href="mailto:bruce@commonlyodd.com"
                 class="text-blue-500 hover:text-blue-700"
               >
-                commonlyoddtrivia@gmail.com
+                bruce@commonlyodd.com
               </a>{" "}
               or send me a message on Twitter at{" "}
               <a
@@ -198,10 +198,10 @@ const User = () => {
             <p class="ml-8 text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
-                href="mailto:commonlyoddtrivia@gmail.com"
+                href="mailto:bruce@commonlyodd.com"
                 class="text-blue-500 hover:text-blue-700"
               >
-                commonlyoddtrivia@gmail.com
+                bruce@commonlyodd.com
               </a>{" "}
               or send me a message on Twitter at{" "}
               <a
@@ -287,10 +287,10 @@ const User = () => {
             <p class="ml-8 text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
-                href="mailto:commonlyoddtrivia@gmail.com"
+                href="mailto:bruce@commonlyodd.com"
                 class="text-blue-500 hover:text-blue-700"
               >
-                commonlyoddtrivia@gmail.com
+                bruce@commonlyodd.com
               </a>{" "}
               or send me a message on Twitter at{" "}
               <a
@@ -362,10 +362,10 @@ const User = () => {
             <p class="ml-8 text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
-                href="mailto:commonlyoddtrivia@gmail.com"
+                href="mailto:bruce@commonlyodd.com"
                 class="text-blue-500 hover:text-blue-700"
               >
-                commonlyoddtrivia@gmail.com
+                bruce@commonlyodd.com
               </a>{" "}
               or send me a message on Twitter at{" "}
               <a

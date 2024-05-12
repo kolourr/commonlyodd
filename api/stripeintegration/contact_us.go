@@ -75,7 +75,7 @@ func ContactUsEmail(c *gin.Context) {
 
 	// Your email address (where you will receive the contact requests)
 	myEmailAddress := "commonlyoddbruce@gmail.com"
-	receiptEmailAddress := "commonlyoddtrivia@gmail.com"
+	receiptEmailAddress := "bruce@commonlyodd.com"
 
 	// Create the email parameters
 	input := &ses.SendEmailInput{

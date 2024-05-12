@@ -48,8 +48,8 @@ const TermsOfUse: Component = () => {
               To fully access our services, you must register and create an
               account. Provide accurate and current information during signup.
               You are responsible for safeguarding your login credentials and
-              must notify us at commonlyoddtrivia@gmail.com immediately if you
-              suspect any unauthorized use of your account.
+              must notify us at bruce@commonlyodd.com immediately if you suspect
+              any unauthorized use of your account.
             </p>
           </section>
           <section>
@@ -152,7 +152,7 @@ const TermsOfUse: Component = () => {
             <h2 class="text-2xl font-bold py-2">Contact Us</h2>
             <p>
               If you have any questions about these Terms, please contact us via
-              email at commonlyoddtrivia@gmail.com or at our mailing address:
+              email at bruce@commonlyodd.com or at our mailing address:
             </p>
             <address>
               I Lov Guitars Inc. 1102-2250 Kennedy Road Scarborough, Ontario M1T

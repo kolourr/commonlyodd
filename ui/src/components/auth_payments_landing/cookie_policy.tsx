@@ -75,12 +75,12 @@ const CookiePolicy: Component = () => {
               You have the right to decide whether to accept or reject cookies.
               Essential cookies cannot be rejected as they are strictly
               necessary to provide you with services. if you have any questions,
-              please reach out to us at commonlyoddtrivia@gmail.com
+              please reach out to us at bruce@commonlyodd.com
             </div>
             <div class="text-xl font-bold py-2">More information</div>
             <div>
               If you have any questions about our use of cookies or other
-              technologies, please email us at commonlyoddtrivia@gmail.com.
+              technologies, please email us at bruce@commonlyodd.com.
             </div>
           </div>
         </main>

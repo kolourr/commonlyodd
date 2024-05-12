@@ -108,8 +108,8 @@ const faqData: FaqItem[] = [
       <p>
         If you encounter any errors or issues in the game, please don't hesitate
         to inform us. You can email us at{" "}
-        <a href="mailto:commonlyoddtrivia@gmail.com" class="text-blue-400">
-          commonlyoddtrivia@gmail.com
+        <a href="mailto:bruce@commonlyodd.com" class="text-blue-400">
+          bruce@commonlyodd.com
         </a>{" "}
         or reach out to{" "}
         <a href="https://twitter.com/kolourrmusic" class="text-blue-400">
@@ -124,8 +124,8 @@ const faqData: FaqItem[] = [
     answer: (
       <p>
         We welcome your feedback and suggestions! Please email us at{" "}
-        <a href="mailto:commonlyoddtrivia@gmail.com" class="text-blue-400">
-          commonlyoddtrivia@gmail.com
+        <a href="mailto:bruce@commonlyodd.com" class="text-blue-400">
+          bruce@commonlyodd.com
         </a>{" "}
         or reach out to{" "}
         <a href="https://twitter.com/kolourrmusic" class="text-blue-400">
@@ -153,8 +153,8 @@ const faqData: FaqItem[] = [
     answer: (
       <p>
         For any inquiries, feel free to email us at{" "}
-        <a href="mailto:commonlyoddtrivia@gmail.com" class="text-blue-400">
-          commonlyoddtrivia@gmail.com
+        <a href="mailto:bruce@commonlyodd.com" class="text-blue-400">
+          bruce@commonlyodd.com
         </a>{" "}
         or reach out to{" "}
         <a href="https://twitter.com/kolourrmusic" class="text-blue-400">

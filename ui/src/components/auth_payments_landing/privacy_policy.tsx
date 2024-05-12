@@ -137,9 +137,9 @@ const PrivacyPolicy: Component = () => {
             <div class="text-2xl font-bold py-2">Contact Us</div>
             <div>
               If you have any questions about this Privacy Policy, please
-              contact us via email at commonlyoddtrivia@gmail.com or visit our
-              contact page. Our mailing address is: I Lov Guitars Inc.,
-              1102-2250 Kennedy Road, Scarborough, Ontario, M1T 3G7, Canada
+              contact us via email at bruce@commonlyodd.com or visit our contact
+              page. Our mailing address is: I Lov Guitars Inc., 1102-2250
+              Kennedy Road, Scarborough, Ontario, M1T 3G7, Canada
             </div>
           </div>
         </main>
