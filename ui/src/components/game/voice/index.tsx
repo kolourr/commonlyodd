@@ -586,7 +586,7 @@ export default function Voice(props: VoiceProps) {
         </div>
       </div>
       <div class="   flex flex-col  shadow-inner text-gray-300  mt-2 ">
-        <div class="flex justify-center items-center text-center shadow-md shadow-gray-50 uppercase">
+        <div class="flex justify-center items-center text-center shadow-md shadow-gray-50 uppercase py-2">
           Group Voice Call Participants
         </div>
         <div
