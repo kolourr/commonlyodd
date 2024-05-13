@@ -27,6 +27,10 @@ export default function TeamScores(props: TeamScoresProps) {
     props.onClose();
   };
 
+  const handleOpen = () => {
+    setDialogOpen(true);
+  };
+
   onMount(() => {
     const gametype = localStorage.getItem("type");
     setGameType(gametype || "");
@@ -121,9 +125,9 @@ export default function TeamScores(props: TeamScoresProps) {
 
   return (
     <>
-      <Show when={dialogOpen()}>
+      <Show when={handleOpen}>
         <CommonDialog
-          open={dialogOpen()}
+          open={true}
           title="Scores"
           content={scoresContentDialog()}
           onClose={handleClose}

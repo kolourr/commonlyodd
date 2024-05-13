@@ -45,7 +45,6 @@ import HeaderMobile from "../auth_payments_landing/header_mobile";
 import CreateSession from "./start_session";
 import CommonDialog from "./common_dialog";
 import CopyLinkInactive from "./start_session/copy_link_inactive";
-import ControlPanel from "./control_panel";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 
@@ -462,7 +461,7 @@ export default function Game() {
           </div>
         </div>
 
-        <div class="flex mb-16 flex-col     ">
+        <div class="flex mb-16 flex-col">
           <Voice controlPanel={controlPanel()} />
         </div>
         <div class="flex   flex-col justify-center items-center text-gray-300 ">

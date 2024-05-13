@@ -11,6 +11,7 @@ import CommonDialog from "../common_dialog";
 import { PlayButtonSVG, sessionLink } from "../index";
 import StartSession from "./competitive";
 import StartSessionFun from "./fun";
+import { LinkOutlined } from "@suid/icons-material";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -117,7 +118,7 @@ export default function CreateSession() {
           <div class="flex flex-col items-center justify-center text-center ">
             <div class="text-2xl mb-2">Select the game you want to play</div>
             <div class="text-sm">
-              You can invite others to the game via the session link.
+              You can invite others by sharing the game link <LinkOutlined />
             </div>
           </div>
         </DialogTitle>
