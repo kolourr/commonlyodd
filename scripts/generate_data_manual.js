@@ -31,32 +31,7 @@ function parseTable(tableString) {
   });
 }
 
-const category_words = [
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "flowers",
-  "herbs",
-  "herbs",
-  "herbs",
-  "herbs",
-  "herbs",
-  "herbs",
-  "herbs",
-  "herbs",
-  "herbs",
-  "herbs",
-];
+const category_words = ["crops"];
 // Main function to generate data and save to CSV
 async function generateDataAndSaveCSV() {
   let allData = []; // Accumulate all iteration data here
@@ -67,11 +42,12 @@ async function generateDataAndSaveCSV() {
     const category = category_words[i];
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o",
       messages: [
         {
           role: "user",
-          content: `I need to develop a game that presents a user with 4 objects. Three of those objects needs to have something in common and the fourth needs to be the odd one out. Focus on the topic of ${category}.     \\n\\n My goal is to make the game very hard and challenging. The odd one out shouldn't be too obvious. It has to be difficult to tell. This is very important, the game has to be very challenging otherwise I will be wasting people's time, so take your time to make it difficult. Everything has to be very closely related, it cannot be something like The Beatles, The Rolling Stones, The Who, Pablo Picasso where Pablo Picasso is the odd one out for being a painter. Here's an example of the input provided, Anakin Skywalker,	Luke Skywalker and	Han Solo. The output returned was Anakin Skywalker, Luke Skywalker, Leia Organa and Han Solo. Han Solo was the odd one out and the reason for similarity for the others was: The others are Skywalkers. As you can see, one of the objects was replaced to make it more challenging and fun. No object must be said twice. I need something similar. \\n\\n  Just output the result in a table with the following columns:   obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity. For the reason for similarity, all you need to say is "The others are blank" where blank is the reason for similarity. Nothing too long. You dont need to provide any written explanation of your thought process.\\n\\n   I need you to generate 30 rows of items for this.`,
+
+          content: `I am developing a game that presents a user with 4 objects. Three of these objects will have something in common, while the fourth will be the odd one out. The theme for these objects will be based on the topic of ${category}.\\n\\n The objective is to make this game very challenging. The odd one out should not be immediately obvious and must require careful thought to identify. This is crucial as the game aims to be engaging and intellectually stimulating. Avoid overly simplistic or unrelated groupings, such as The Beatles, The Rolling Stones, The Who, and Pablo Picasso, where Pablo Picasso is the odd one out for being a painter.\\n\\n Here’s an example of the input provided: Anakin Skywalker, Luke Skywalker, and Han Solo. The output returned was Anakin Skywalker, Luke Skywalker, Leia Organa, and Han Solo, where Han Solo was the odd one out because the others are Skywalkers. Notice how one of the objects was replaced to increase the challenge and enjoyment.\\n\\n Use simple terms for the reasons of similarity. Instead of using technical botanical names like Iridaceae, use 'iris family'. Similarly, instead of 'heliophytes', use 'sun-loving plants'. Ensure that each object is unique within its list.\\n\\n Output the results in a table format with the following columns: obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity. Randomize the position of the odd one out among obj_1, obj_2, obj_3, and obj_4. The similarity reason should be succinctly stated as 'The others are [blank]', where [blank] is the common trait. There is no need for an extended explanation of your thought process.\\n\\n Please generate 30 rows of items following these guidelines.`,
         },
       ],
 

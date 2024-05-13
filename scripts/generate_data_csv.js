@@ -48,7 +48,7 @@ async function generateDataAndSaveCSV() {
     const [obj1, obj2, obj3] = inputs[i]; // Destructure the objects from the current row
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o",
       messages: [
         {
           role: "user",

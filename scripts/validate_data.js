@@ -37,11 +37,16 @@ async function updateCSV() {
     console.log(`Processing row ${i + 1} of ${data.length}`);
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4",
+      model: "gpt-4o",
       messages: [
         {
           role: "user",
-          content: `I have developed a game called Commonly Odd. The user is presented with 4 objects. They need to figure out which one of the four is odd and what the other three have in common.  I have the following objects: ${obj_1}, ${obj_2}, ${obj_3}, ${obj_4}. The odd one out is ${odd}. The reason for similarity between the other three is: ${reason_for_similarity}. I want you to let me know if this is valid or not. I need you to take your time and assess the logic of each statement and if it passes all the tests, let me know if it is valid. Reply yes when valid, otherwise, reply no. But do take you time to perform each logical assessment.`,
+          content: `I have developed a game called Commonly Odd. The user is presented with 4 objects: ${obj_1}, ${obj_2}, ${obj_3}, ${obj_4}. The odd one out is ${odd}, and the reason for similarity between the other three is: ${reason_for_similarity}. Please carefully assess whether the logic holds for the designated odd one out and the commonality among the others. Evaluate the following aspects:
+1. Factual Accuracy: Ensure that all facts about the objects are correct.
+2. Consistency in Category: Check if the three similar items truly belong to the same category as stated.
+3. Relevance of Similarity: Verify that the commonality stated is relevant and significant enough to distinguish the odd one out clearly.
+4. Clarity and Precision: Confirm that the reason for similarity is expressed clearly and precisely without ambiguity.
+Respond with "yes" if the entry is valid. If not, reply "no" and provide a brief explanation identifying the specific issue or issues. Take your time to ensure each assessment is thorough and accurate.`,
         },
       ],
       temperature: 0.5,

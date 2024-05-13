@@ -2,8 +2,8 @@ import fs from "fs";
 import { parse } from "csv-parse";
 import { createObjectCsvWriter } from "csv-writer";
 
-const inputFile = "sheet.csv";
-const outputFile = "filtered_sheet.csv";
+const inputFile = "randomized_output.csv";
+const outputFile = "filtered_output.csv";
 
 const filteredRows = [];
 
