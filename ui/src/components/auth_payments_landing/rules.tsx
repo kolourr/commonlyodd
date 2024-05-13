@@ -32,22 +32,20 @@ const Rules: Component = () => {
                 Commonly Odd is a trivia game that can be played solo or in
                 groups (up to 10 teams). There are two game modes: Just for Fun
                 and Competitive. Just for Fun is ideal for solo casual play,
-                without score tracking, while Competitive is perfect for groups
-                who enjoy a challenge.
+                while Competitive is perfect for groups who enjoy a challenge.
               </p>
               <div class="text-2xl font-bold text-center mt-4">Game Modes</div>
 
               <ul class="list-disc pl-8 mt-2">
                 <li class="py-2">
                   <span class="font-bold">Just for Fun:</span> Ideal for solo
-                  players, manual selection, untracked scores, no target score,
-                  faster rounds, multiplayer option available. Only time per
-                  round is set.
+                  players, manual selection, no target score, faster rounds,
+                  multiplayer option available. Only time per round is set.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Competitive:</span> Ideal for group
-                  play, no manual selection, scores are tracked, target score
-                  and number of teams must be set, can also be played solo.
+                  play, no manual selection, target score and number of teams
+                  must be set, can also be played solo.
                 </li>
               </ul>
 

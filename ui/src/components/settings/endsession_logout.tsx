@@ -49,6 +49,8 @@ export default function EndSessionLogout() {
         localStorage.removeItem("session_uuid");
         localStorage.removeItem("starter_token");
         localStorage.removeItem("type");
+        localStorage.removeItem("total_score");
+        localStorage.removeItem("user_score");
       }
       window.location.href = `${BASE_API}/logout`;
     } catch (error) {

@@ -87,8 +87,7 @@ export default function Game() {
   const [openRules, setOpenRules] = createSignal(false);
 
   // Check if the session has started
-  const sessionStarted = () =>
-    numberOfTeams() !== undefined && targetScore() !== undefined;
+  const sessionStarted = () => isSessionStarted();
 
   // Initialize or update the teamScores array length based on numberOfTeams
   createEffect(() => {
@@ -471,6 +470,7 @@ export default function Game() {
             <TeamScores
               teamScores={teamScores}
               sessionStarted={sessionStarted()}
+              onClose={() => setShowTeamScores(false)}
             />
           </Show>
         </div>

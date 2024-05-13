@@ -34,6 +34,8 @@ export default function EndGame() {
       //incase they left and joined someone else's game
       localStorage.removeItem("starter_token");
       localStorage.removeItem("type");
+      localStorage.removeItem("total_score");
+      localStorage.removeItem("user_score");
 
       // Reset session link and Notify user
       setSessionLink(`${BASE_API}/click-to-start`);

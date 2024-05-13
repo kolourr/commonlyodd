@@ -33,6 +33,8 @@ export default function EndSessionMessage() {
       localStorage.removeItem("session_uuid");
       localStorage.removeItem("starter_token");
       localStorage.removeItem("type");
+      localStorage.removeItem("total_score");
+      localStorage.removeItem("user_score");
 
       setDialogContent(<>Session has ended successfully .</>);
       setDialogOpen(true);

@@ -1,4 +1,4 @@
-import { For, createEffect, createSignal } from "solid-js";
+import { For, createEffect, createSignal, onCleanup } from "solid-js";
 import { Objects_Images } from "./types";
 import "./styles.css";
 import { gameInfo } from "..";
@@ -8,6 +8,7 @@ import {
   oddReasonForSimilarity,
   isSessionActive,
 } from "./index";
+import { create } from "domain";
 
 interface GameImagesProps {
   gameData: Objects_Images | null;
@@ -24,12 +25,30 @@ const [highlightName, setHighlightName] = createSignal<string>("");
 const [selectedImage, setSelectedImage] = createSignal<string>("");
 const [isSelectable, setIsSelectable] = createSignal<boolean>(true);
 
+//Initialize local storage for scoring
+const initializeScores = () => {
+  localStorage.setItem("total_score", "0");
+  localStorage.setItem("user_score", "0");
+};
+// Update scores in local storage
+const updateScores = (isCorrect) => {
+  let total_score = parseInt(localStorage.getItem("total_score") || "0");
+  let user_score = parseInt(localStorage.getItem("user_score") || "0");
+
+  total_score++;
+  if (isCorrect) {
+    user_score++;
+  }
+
+  localStorage.setItem("total_score", total_score.toString());
+  localStorage.setItem("user_score", user_score.toString());
+};
+
 export const startNewTurn = () => {
   setHighlightName("");
   setSelectedImage("");
   setIsSelectable(true);
 };
-let isCorrect;
 
 export default function GameImages(props: GameImagesProps) {
   createEffect(() => {
@@ -85,7 +104,9 @@ export default function GameImages(props: GameImagesProps) {
     }
 
     const oddReason = oddReasonForSimilarity()?.odd_reason_for_similarity?.odd;
-    setHighlightName(oddReason);
+    if (oddReason !== undefined) {
+      setHighlightName(oddReason);
+    }
   });
 
   const clickCheck = (imageName) => {
@@ -99,15 +120,27 @@ export default function GameImages(props: GameImagesProps) {
       if (gameType() === "fun") {
         setIsSelectable(false);
         setSelectedImage(imageName);
-        isCorrect = imageName === highlightName();
         sendMessage({ game_state: "reveal-solo" });
       }
     }
   };
 
+  createEffect(() => {
+    if (gameType() === "fun") {
+      if (selectedImage() && highlightName()) {
+        const isCorrect = selectedImage() === highlightName();
+        updateScores(isCorrect);
+      }
+    }
+  });
+
   const shouldApplyBlur = (imageName) => {
     return highlightName() && highlightName() !== imageName;
   };
+
+  onCleanup(() => {
+    initializeScores();
+  });
 
   return (
     <div class="flex flex-col items-center justify-center text-center">
