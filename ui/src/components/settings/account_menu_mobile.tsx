@@ -274,7 +274,7 @@ export default function AccountMenuMobile() {
                   class="  flex  items-center  justify-start text-lg  py-2 px-2   text-white hover:bg-slate-800 shadow-sm shadow-gray-50 "
                 >
                   <VideogameAssetOutlined fontSize="medium" class="mr-2  " />
-                  Play Game
+                  Go to Game
                 </a>
                 <a
                   onClick={handleDashboardNavigate}

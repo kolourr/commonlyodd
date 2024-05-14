@@ -170,32 +170,30 @@ const User = () => {
                 color="secondary"
                 onClick={handlePlayGame}
                 sx={{
-                  width: "150px",
-                  height: "45px",
+                  width: "180px",
+                  height: "40px",
                   fontSize: "18px",
                   fontWeight: "bold",
                 }}
                 class="flex justify-center items-center text-gray-300 bg-slate-900"
               >
-                Play Game
+                Go to Game
               </Button>
             </div>
-            <p class="mb-4 ml-8 text-base md:text-lg ">
-              If you prefer reading, here's the{" "}
+
+            <p class="  text-base md:text-lg mb-4">
+              If you have any questions or need further assistance, don't
+              hesitate to reach out. For a detailed breakdown on the rules,
+              here's the{" "}
               <a
                 onClick={handleNavigateRules}
                 class="text-blue-500 hover:text-blue-700"
               >
                 link to the rules
               </a>{" "}
-              pages.
-            </p>{" "}
-            <p class="mb-4 ml-8 text-base md:text-lg">
-              If you have any questions or need further assistance, don't If you
-              have any questions or need further assistance, don't hesitate to
-              reach out.
+              page.
             </p>
-            <p class="ml-8 text-base md:text-lg">
+            <p class="  text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
                 href="mailto:bruce@commonlyodd.com"
@@ -312,54 +310,36 @@ const User = () => {
                 welcome back 😊 You're all set!
               </p>
             </div>
-
-            <div class="text-left text-base md:text-lg">
-              <p class="mb-4 ml-8 ">
-                Here's a quick tutorial on how to get started
-              </p>
-            </div>
-
-            <div class="w-full mb-4 text-base md:text-lg">
-              <video controls class="w-full h-auto shadow-lg">
-                <source src="path_to_your_video.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
             <div class="p-4 flex   justify-center items-center">
               <Button
                 variant="contained"
                 color="secondary"
                 onClick={handlePlayGame}
                 sx={{
-                  width: "150px",
-                  height: "45px",
+                  width: "180px",
+                  height: "40px",
                   fontSize: "18px",
                   fontWeight: "bold",
                 }}
                 class="flex justify-center items-center text-gray-300 bg-slate-900"
               >
-                Play Game
+                Go to Game
               </Button>
             </div>
 
-            <p class="mb-4 ml-8 text-base md:text-lg">
-              If you prefer reading, here's the{" "}
+            <p class="  text-base md:text-lg mb-4">
+              If you have any questions or need further assistance, don't
+              hesitate to reach out. For a detailed breakdown on the rules,
+              here's the{" "}
               <a
                 onClick={handleNavigateRules}
                 class="text-blue-500 hover:text-blue-700"
               >
                 link to the rules
               </a>{" "}
-              pages.
+              page.
             </p>
-
-            <p class="mb-4 ml-8 text-base md:text-lg">
-              If you have any questions or need further assistance, don't If you
-              have any questions or need further assistance, don't hesitate to
-              reach out.
-            </p>
-            <p class="ml-8 text-base md:text-lg">
+            <p class="  text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
                 href="mailto:bruce@commonlyodd.com"

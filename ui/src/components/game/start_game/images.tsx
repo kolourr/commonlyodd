@@ -55,23 +55,23 @@ export default function GameImages(props: GameImagesProps) {
     const gameData = props.gameData;
     const defaultImages = [
       {
-        name: "Create Session",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8209e650-8b9c-44a2-544e-36bf9eb9e800/public",
+        name: "Parsnip",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/688be032-60b9-43c0-2f3f-0ac1f7541300/public",
         animationClass: "image-slide-in-top",
       },
       {
-        name: "Share Link",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/31465145-654c-48fc-2849-1da652707200/public",
+        name: "Potato",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c4ae542e-3146-4f56-e89e-c18c75786200/public",
         animationClass: "image-slide-in-side",
       },
       {
-        name: "Join Call",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/946e2998-786c-4fab-25ed-7863412bf700/public",
+        name: "Garlic",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aeecf0c5-f94d-4839-b306-75b30d093800/public",
         animationClass: "image-slide-in-bottom",
       },
       {
-        name: "Start Game",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3b86ed8a-e91d-4880-b414-377316989b00/public",
+        name: "Carrot",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ede3a18b-cfea-492c-9bfc-f312bc683800/public",
         animationClass: "image-slide-in-other-side",
       },
     ];

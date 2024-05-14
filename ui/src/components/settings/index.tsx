@@ -593,7 +593,7 @@ export default function AccountMenu() {
                     backgroundColor: "#1976D2",
                   }}
                 >
-                  Play Game
+                  Go to Game
                 </Button>{" "}
               </div>
             </div>

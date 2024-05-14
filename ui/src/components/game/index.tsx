@@ -129,7 +129,7 @@ export default function Game() {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
-            Once you are ready, click the play button to start the game.
+            Once you are ready, click the play button to get started.
           </div>
         </div>
       );
@@ -223,10 +223,10 @@ export default function Game() {
   };
 
   const rulesContent = () => (
-    <div class="flex flex-col items-center text-center justify-center px-2 ">
+    <div class="flex flex-col items-center text-center justify-center   ">
       <div class="md:text-base lg:text-xl">
-        <div class="w-full mb-4 text-base md:text-lg">
-          <video controls class="w-full h-auto shadow-lg">
+        <div class="w-full mb-4 text-base md:text-lg flex justify-center items-center">
+          <video controls class="w-[90%]  h-auto shadow-lg mx-4 ">
             <source
               src="https://media.commonlyodd.com/payment_succes_video.mp4"
               type="video/mp4"
@@ -234,13 +234,13 @@ export default function Game() {
             Your browser does not support the video tag.
           </video>
         </div>
-        <div class="flex flex-col justify-center items-center text-center">
+        <div class="flex flex-col justify-center items-center text-center  ">
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-md  ">
               <caption class="p-5 text-xl font-semibold text-center  ">
                 Competitive Game Scoring
               </caption>
-              <thead class="text-base   uppercase  ">
+              <thead class="text-base   uppercase mx-4 ">
                 <tr>
                   <th scope="col" class="py-3 px-6">
                     Points
@@ -324,7 +324,7 @@ export default function Game() {
                 />
                 = Partially Correct
               </div>
-              <div class="mt-4 text-sm">
+              <div class="mt-4 text-sm mx-4">
                 For a full breakdown of the rules, please read the{" "}
                 <a
                   onClick={handleGameRulesPage}

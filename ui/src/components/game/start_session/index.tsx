@@ -12,6 +12,7 @@ import { PlayButtonSVG, sessionLink } from "../index";
 import StartSession from "./competitive";
 import StartSessionFun from "./fun";
 import { LinkOutlined } from "@suid/icons-material";
+import QuickGame from "./quick_game";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -124,16 +125,28 @@ export default function CreateSession() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <div class="flex flex-col items-center   justify-center">
-            <div class="flex flex-col items-center justify-center mb-6 w-80">
-              <div class="text-2xl mb-2  ">Just for Fun</div>
+            <div class="flex flex-col items-center justify-center  ">
+              <div class="text-2xl mb-2  ">Quick Game</div>
+
+              <ul class="list-disc text-left mr-8  mb-4">
+                <div class="flex flex-col justify-start items-start ">
+                  <li>No setup needed</li>
+                  <li>Ideal for playing solo</li>
+                  <li>Pre-set time per round</li>
+                </div>
+              </ul>
+
+              <div class="StartSessionFun mb-6">
+                <QuickGame />
+              </div>
+            </div>
+            <div class="flex flex-col items-center justify-center  ">
+              <div class="text-2xl mb-2  ">Quick Game +</div>
 
               <ul class="list-disc text-left  mb-4">
                 <div class="flex flex-col justify-start items-start">
-                  <li>Ideal for playing solo</li>
-                  <li>Can select odd one out</li>
-                  <li>No target score</li>
-                  <li>Rounds are much faster</li>
-                  <li>Can still play multi-player</li>
+                  <li>All of Quick game</li>
+                  <li>Time per round must be set</li>
                 </div>
               </ul>
 
@@ -141,16 +154,15 @@ export default function CreateSession() {
                 <StartSessionFun />
               </div>
             </div>
-            <div class="flex flex-col items-center justify-center w-80">
+            <div class="flex flex-col items-center justify-center  ">
               <div class="text-2xl mb-2  ">Play Competitively</div>
 
-              <ul class="list-disc text-left ml-8  mb-4">
+              <ul class="list-disc text-left   mb-4">
                 <div class="flex flex-col justify-start items-start ">
                   <li>Ideal for group play</li>
-                  <li>Cannot select odd one out</li>
                   <li>Target score must be set</li>
                   <li>Number of teams must be set</li>
-                  <li>Can still play solo</li>
+                  <li>Time per round must be set</li>
                 </div>
               </ul>
 

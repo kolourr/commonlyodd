@@ -58,7 +58,7 @@ export default function StartSessionFun() {
           backgroundColor: "#075985",
         }}
       >
-        Play Just for fun
+        Play Quick Game +
       </Button>
       <Dialog
         open={open()}
