@@ -132,6 +132,7 @@ export default function CreateSession() {
                 <div class="flex flex-col justify-start items-start ">
                   <li>No setup needed</li>
                   <li>Ideal for playing solo</li>
+                  <li>Starts game instantly</li>
                   <li>Pre-set time per round</li>
                 </div>
               </ul>
@@ -146,6 +147,7 @@ export default function CreateSession() {
               <ul class="list-disc text-left  mb-4">
                 <div class="flex flex-col justify-start items-start">
                   <li>All of Quick game</li>
+                  <li>Requires you to start game</li>
                   <li>Time per round must be set</li>
                 </div>
               </ul>
