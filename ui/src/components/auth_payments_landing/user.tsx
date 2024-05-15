@@ -87,6 +87,152 @@ const User = () => {
           <HeaderMobile />
         </div>
 
+        <Show when={subscriptionStatus() && userPage()}>
+          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+            <div class="flex flex-col text-center">
+              <div class="text-center text-base md:text-lg">
+                <p class="mb-4 text-2xl md:text-3xl  ">
+                  Hi <span class="font-bold">{userProfile()?.firstName}</span>,
+                  welcome back 😊 You're all set!
+                </p>
+              </div>
+              <div class="  text-base md:text-lg">
+                <p class="mb-4 ml-8 ">
+                  Here's a quick tutorial on how to get started
+                </p>
+              </div>
+              <div class="w-full mb-4 text-base md:text-lg">
+                <video controls class="w-full h-auto shadow-lg">
+                  <source
+                    src="https://media.commonlyodd.com/payment_succes_video.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+            <div class="p-4 flex   justify-center items-center">
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handlePlayGame}
+                sx={{
+                  width: "180px",
+                  height: "40px",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}
+                class="flex justify-center items-center text-gray-300 bg-slate-900"
+              >
+                Go to Game
+              </Button>
+            </div>
+            <div class="flex flex-col text-center">
+              <p class="  text-base md:text-lg mb-4">
+                If you have any questions or need further assistance, don't
+                hesitate to reach out. For a detailed breakdown on the rules,
+                here's the{" "}
+                <a
+                  onClick={handleNavigateRules}
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  link to the rules
+                </a>{" "}
+                page.
+              </p>
+              <p class="  text-base md:text-lg">
+                Feel free to drop me an email at{" "}
+                <a
+                  href="mailto:bruce@commonlyodd.com"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  bruce@commonlyodd.com
+                </a>{" "}
+                or send me a message on Twitter at{" "}
+                <a
+                  href="https://twitter.com/kolourrmusic"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  @kolourrmusic
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </Show>
+        <Show when={subscriptionStatus() && paymentSuccess()}>
+          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+            <div class="flex flex-col text-center">
+              <div class="text-center text-base md:text-lg">
+                <p class="mb-4 text-2xl md:text-3xl  ">
+                  Hi <span class="font-bold">{userProfile()?.firstName}</span>,
+                  you're all set!
+                </p>
+              </div>
+              <div class="  text-base md:text-lg">
+                <p class="mb-4 ml-8 ">
+                  Here's a quick tutorial on how to get started
+                </p>
+              </div>
+            </div>
+            <div class="w-full mb-4 text-base md:text-lg">
+              <video controls class="w-full h-auto shadow-lg">
+                <source
+                  src="https://media.commonlyodd.com/payment_succes_video.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+            <div class="p-4 flex   justify-center items-center">
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handlePlayGame}
+                sx={{
+                  width: "180px",
+                  height: "40px",
+                  fontSize: "18px",
+                  fontWeight: "bold",
+                }}
+                class="flex justify-center items-center text-gray-300 bg-slate-900"
+              >
+                Go to Game
+              </Button>
+            </div>
+            <div class="flex flex-col text-center">
+              <p class="  text-base md:text-lg mb-4">
+                If you have any questions or need further assistance, don't
+                hesitate to reach out. For a detailed breakdown on the rules,
+                here's the{" "}
+                <a
+                  onClick={handleNavigateRules}
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  link to the rules
+                </a>{" "}
+                page.
+              </p>
+              <p class="  text-base md:text-lg">
+                Feel free to drop me an email at{" "}
+                <a
+                  href="mailto:bruce@commonlyodd.com"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  bruce@commonlyodd.com
+                </a>{" "}
+                or send me a message on Twitter at{" "}
+                <a
+                  href="https://twitter.com/kolourrmusic"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  @kolourrmusic
+                </a>
+                .
+              </p>
+            </div>
+          </div>
+        </Show>
         <Show when={!subscriptionStatus() && paymentFailed()}>
           <div class=" max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
             <div class="text-center">
@@ -141,78 +287,6 @@ const User = () => {
             </p>
           </div>
         </Show>
-
-        <Show when={subscriptionStatus() && paymentSuccess()}>
-          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
-            <div class="text-center text-base md:text-lg">
-              <p class="mb-4 text-2xl md:text-3xl  ">
-                Hi <span class="font-bold">{userProfile()?.firstName}</span>,
-                you're all set!
-              </p>
-            </div>
-            <div class="text-left text-base md:text-lg">
-              <p class="mb-4 ml-8 ">
-                Here's a quick tutorial on how to get started
-              </p>
-            </div>
-            <div class="w-full mb-4 text-base md:text-lg">
-              <video controls class="w-full h-auto shadow-lg">
-                <source
-                  src="https://media.commonlyodd.com/payment_succes_video.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="p-4 flex   justify-center items-center">
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={handlePlayGame}
-                sx={{
-                  width: "180px",
-                  height: "40px",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                }}
-                class="flex justify-center items-center text-gray-300 bg-slate-900"
-              >
-                Go to Game
-              </Button>
-            </div>
-
-            <p class="  text-base md:text-lg mb-4">
-              If you have any questions or need further assistance, don't
-              hesitate to reach out. For a detailed breakdown on the rules,
-              here's the{" "}
-              <a
-                onClick={handleNavigateRules}
-                class="text-blue-500 hover:text-blue-700"
-              >
-                link to the rules
-              </a>{" "}
-              page.
-            </p>
-            <p class="  text-base md:text-lg">
-              Feel free to drop me an email at{" "}
-              <a
-                href="mailto:bruce@commonlyodd.com"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                bruce@commonlyodd.com
-              </a>{" "}
-              or send me a message on Twitter at{" "}
-              <a
-                href="https://twitter.com/kolourrmusic"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                @kolourrmusic
-              </a>
-              .
-            </p>
-          </div>
-        </Show>
-
         <Show when={!subscriptionStatus() && userPage()}>
           <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
             <div class="text-center text-base md:text-lg">
@@ -283,77 +357,6 @@ const User = () => {
               reach out.
             </p>
             <p class="ml-8 text-base md:text-lg">
-              Feel free to drop me an email at{" "}
-              <a
-                href="mailto:bruce@commonlyodd.com"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                bruce@commonlyodd.com
-              </a>{" "}
-              or send me a message on Twitter at{" "}
-              <a
-                href="https://twitter.com/kolourrmusic"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                @kolourrmusic
-              </a>
-              .
-            </p>
-          </div>
-        </Show>
-
-        <Show when={subscriptionStatus() && userPage()}>
-          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
-            <div class="text-center text-base md:text-lg">
-              <p class="mb-4 text-2xl md:text-3xl  ">
-                Hi <span class="font-bold">{userProfile()?.firstName}</span>,
-                welcome back 😊 You're all set!
-              </p>
-            </div>
-            <div class="text-left text-base md:text-lg">
-              <p class="mb-4 ml-8 ">
-                Here's a quick tutorial on how to get started
-              </p>
-            </div>
-            <div class="w-full mb-4 text-base md:text-lg">
-              <video controls class="w-full h-auto shadow-lg">
-                <source
-                  src="https://media.commonlyodd.com/payment_succes_video.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-            <div class="p-4 flex   justify-center items-center">
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={handlePlayGame}
-                sx={{
-                  width: "180px",
-                  height: "40px",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                }}
-                class="flex justify-center items-center text-gray-300 bg-slate-900"
-              >
-                Go to Game
-              </Button>
-            </div>
-
-            <p class="  text-base md:text-lg mb-4">
-              If you have any questions or need further assistance, don't
-              hesitate to reach out. For a detailed breakdown on the rules,
-              here's the{" "}
-              <a
-                onClick={handleNavigateRules}
-                class="text-blue-500 hover:text-blue-700"
-              >
-                link to the rules
-              </a>{" "}
-              page.
-            </p>
-            <p class="  text-base md:text-lg">
               Feel free to drop me an email at{" "}
               <a
                 href="mailto:bruce@commonlyodd.com"
