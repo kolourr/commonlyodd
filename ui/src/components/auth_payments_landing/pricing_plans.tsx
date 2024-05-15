@@ -62,9 +62,9 @@ const plans: Plan[] = [
   },
 ];
 
-const PricingPlans = () => {
-  const [isAuthenticated, setIsAuthenticated] = createSignal(false);
+export const [isAuthenticated, setIsAuthenticated] = createSignal(false);
 
+const PricingPlans = () => {
   createEffect(async () => {
     const auth = await checkAuth();
     setIsAuthenticated(auth);

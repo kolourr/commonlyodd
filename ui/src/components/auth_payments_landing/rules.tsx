@@ -30,17 +30,23 @@ const Rules: Component = () => {
             <div class="md:max-w-4xl md:mx-auto px-4 text-lg   ">
               <p class="mt-2 mx-8 py-2">
                 Commonly Odd is a trivia game that can be played solo or in
-                groups (up to 10 teams). There are two game modes: Just for Fun
-                and Competitive. Just for Fun is ideal for solo casual play,
-                while Competitive is perfect for groups who enjoy a challenge.
+                groups (up to 10 teams). There are three game modes: Quick Game,
+                Quick Game + and Competitive. Quick Game and Quick Game + is
+                ideal for solo casual play, while Competitive is perfect for
+                groups who enjoy a challenge.
               </p>
               <div class="text-2xl font-bold text-center mt-4">Game Modes</div>
 
               <ul class="list-disc pl-8 mt-2">
                 <li class="py-2">
-                  <span class="font-bold">Just for Fun:</span> Ideal for solo
-                  players, manual selection, no target score, faster rounds,
-                  multiplayer option available. Only time per round is set.
+                  <span class="font-bold">Quick Game:</span> Ideal for solo
+                  players. No setup required. This mode has fast rounds and
+                  allows manual selection to override pre-set time set per
+                  round.
+                </li>
+                <li class="py-2">
+                  <span class="font-bold">Quick Game +:</span> All of Quick Game
+                  except that session starter must set time per round.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Competitive:</span> Ideal for group
@@ -57,7 +63,7 @@ const Rules: Component = () => {
                   <span class="font-bold">Session Creation:</span> The session
                   starter sets up the game session. For Competitive games, they
                   select the number of participating teams and the total score
-                  goal. For Just for Fun, only the time per round needs to be
+                  goal. For Quick Game +, only the time per round needs to be
                   set.
                 </li>
                 <li class="py-2">

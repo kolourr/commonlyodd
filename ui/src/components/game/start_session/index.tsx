@@ -117,9 +117,9 @@ export default function CreateSession() {
         >
           {" "}
           <div class="flex flex-col items-center justify-center text-center ">
-            <div class="text-2xl mb-2">Select the game you want to play</div>
+            <div class="text-2xl mb-2">Select a game mode</div>
             <div class="text-sm">
-              You can invite others by sharing the game link <LinkOutlined />
+              Invite others by sharing the game link <LinkOutlined />
             </div>
           </div>
         </DialogTitle>

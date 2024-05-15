@@ -53,7 +53,7 @@ export default function CopyLinkInactive() {
             id="alert-dialog-description"
             style={dialogTextStyle}
           >
-            Create a new game session to get the link!
+            Game session must be active!
           </DialogContentText>
         </DialogContent>
       </Dialog>

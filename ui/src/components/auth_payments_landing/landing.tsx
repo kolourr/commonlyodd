@@ -2,6 +2,7 @@ import {
   Component,
   For,
   JSX,
+  Show,
   createEffect,
   createSignal,
   onCleanup,
@@ -15,8 +16,11 @@ import { Router } from "solid-app-router";
 import AccountMenu from "../settings";
 import FAQitems from "./faq_items";
 import HeaderMobile from "./header_mobile";
+import { subscriptionStatus } from "./user";
+import { isAuthenticated } from "./pricing_plans";
 
 const BASE_API = import.meta.env.CO_API_URL;
+const BASE_UI = import.meta.env.CO_UI_URL;
 const [highlightName, setHighlightName] = createSignal("Garlic");
 const [timer, setTimer] = createSignal(10);
 
@@ -226,8 +230,6 @@ const bottomSection: SectionProps[] = [
             <PricingPlans />
           </div>
         </div>
-
-        <FAQitems />
       </div>
     ),
   },
@@ -325,6 +327,26 @@ const LandingPage: Component = () => {
     return () => clearInterval(interval);
   });
 
+  const landingHeroButton = () => {
+    if (!isAuthenticated()) {
+      return (window.location.href = `${BASE_API}/login`);
+    } else if (isAuthenticated() && !subscriptionStatus()) {
+      return (window.location.href = `${BASE_UI}/user#pricingplans`);
+    } else if (isAuthenticated() && subscriptionStatus()) {
+      return (window.location.href = `${BASE_UI}/game`);
+    }
+  };
+
+  const buttonText = () => {
+    if (!isAuthenticated()) {
+      return "Start Your Free 7-day Trial";
+    } else if (isAuthenticated() && !subscriptionStatus()) {
+      return "Explore Plans";
+    } else if (isAuthenticated() && subscriptionStatus()) {
+      return "Go to Game";
+    }
+  };
+
   const desktopView = () => {
     return (
       <>
@@ -344,7 +366,7 @@ const LandingPage: Component = () => {
                 <Button
                   variant="contained"
                   color="secondary"
-                  href={`${BASE_API}/login`}
+                  onClick={landingHeroButton}
                   sx={{
                     width: "300px",
                     height: "60px",
@@ -353,7 +375,7 @@ const LandingPage: Component = () => {
                   }}
                   class="flex justify-center items-center text-gray-300 bg-slate-900"
                 >
-                  Start Your Free 7-day Trial
+                  {buttonText()}
                 </Button>
               </div>
             </div>
@@ -387,14 +409,14 @@ const LandingPage: Component = () => {
             {activeSection() === 3 && <SectionThree />}
           </div>
           <div class="text-2xl  text-center  text-gray-300   flex justify-center items-center  ">
-            A multiplayer browser trivia game designed for fun with the crew.
+            A multiplayer browser trivia game that educates and entertains.
           </div>
           <div class="flex flex-col justify-center items-center p-4">
             <div>
               <Button
                 variant="contained"
                 color="secondary"
-                href={`${BASE_API}/login`}
+                onClick={landingHeroButton}
                 sx={{
                   width: "300px",
                   height: "60px",
@@ -403,7 +425,7 @@ const LandingPage: Component = () => {
                 }}
                 class="flex justify-center items-center text-gray-300 bg-slate-900"
               >
-                Start Your Free 7-day Trial
+                {buttonText()}
               </Button>
             </div>
           </div>
@@ -461,12 +483,14 @@ const LandingPage: Component = () => {
             </For>
           </div>
         </div>
-
-        <div class="flex flex-col space-y-6 divide-y pt-8 ">
-          {bottomSection.map((section) => (
-            <div>{section.section}</div>
-          ))}
-        </div>
+        <Show when={!subscriptionStatus()}>
+          <div class="flex flex-col space-y-6 divide-y pt-8 ">
+            {bottomSection.map((section) => (
+              <div>{section.section}</div>
+            ))}
+          </div>
+        </Show>
+        <FAQitems />
       </div>
       <Footer />
     </div>

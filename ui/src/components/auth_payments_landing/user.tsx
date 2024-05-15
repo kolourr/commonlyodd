@@ -310,6 +310,20 @@ const User = () => {
                 welcome back 😊 You're all set!
               </p>
             </div>
+            <div class="text-left text-base md:text-lg">
+              <p class="mb-4 ml-8 ">
+                Here's a quick tutorial on how to get started
+              </p>
+            </div>
+            <div class="w-full mb-4 text-base md:text-lg">
+              <video controls class="w-full h-auto shadow-lg">
+                <source
+                  src="https://media.commonlyodd.com/payment_succes_video.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
             <div class="p-4 flex   justify-center items-center">
               <Button
                 variant="contained"
