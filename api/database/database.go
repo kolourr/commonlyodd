@@ -5,7 +5,7 @@ import (
 
 	"database/sql"
 
-	_ "github.com/lib/pq" // Import the PostgreSQL driver
+	_ "github.com/lib/pq"
 )
 
 var DB *sql.DB
