@@ -265,7 +265,7 @@ const features: Feature[] = [
         muted
         playsInline
         class="w-full h-auto"
-        src="https://media.commonlyodd.com/co_group_call_landing.mp4"
+        src="https://media.commonlyodd.com/co_group_call_final_update.mp4"
       ></video>
     ),
     description: (
@@ -284,7 +284,7 @@ const features: Feature[] = [
         muted
         playsInline
         class="w-full h-auto"
-        src="https://media.commonlyodd.com/co_session_link_landing.mp4"
+        src="https://media.commonlyodd.com/co_session_link_update_final_now.mp4"
       ></video>
     ),
     description: (
