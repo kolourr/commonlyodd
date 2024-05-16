@@ -284,7 +284,7 @@ const features: Feature[] = [
         muted
         playsInline
         class="w-full h-auto"
-        src="https://media.commonlyodd.com/co_session_link_update_final_now.mp4"
+        src="https://media.commonlyodd.com/co_session_link_nowww.mp4"
       ></video>
     ),
     description: (
