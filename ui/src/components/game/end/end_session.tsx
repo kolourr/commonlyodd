@@ -62,7 +62,7 @@ export default function EndSessionMessage() {
         onClick={() => setOpen(true)}
         sx={{
           width: "200px",
-          fontSize: "18px",
+          fontSize: "14px",
           fontWeight: "bold",
           color: "white",
           backgroundColor: "#7c2d12",

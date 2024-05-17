@@ -58,8 +58,11 @@ export default function NewGameEndSession(props: GameWinner) {
                   id="alert-dialog-description"
                   style={dialogTextStyle}
                 >
-                  To start a new game in the same session with the same number
-                  of teams and have no repeat questions, click below
+                  <div class="flex justify-center items-center text-center mb-2">
+                    {" "}
+                    To start a new game in the same session with the same number
+                    of teams and have no repeat questions, click below
+                  </div>
                 </DialogContentText>
                 <div class="flex justify-center">
                   <Router>
@@ -74,8 +77,10 @@ export default function NewGameEndSession(props: GameWinner) {
                   id="alert-dialog-description"
                   style={dialogTextStyle}
                 >
-                  If you would like to end this session completely, click on the
-                  button below.
+                  <div class="flex justify-center items-center text-center mb-2">
+                    If you would like to end this session completely, click on
+                    the button below.
+                  </div>
                 </DialogContentText>
                 <div class="flex justify-center">
                   <Router>
