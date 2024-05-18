@@ -253,6 +253,16 @@ const User = () => {
               decide it's not for you, cancelling is easy at any time.
             </p>
 
+            <div class="w-full mb-4 text-base md:text-lg">
+              <video controls class="w-full h-auto shadow-lg">
+                <source
+                  src="https://media.commonlyodd.com/cancel.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+
             <div
               id="pricingplans"
               class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
@@ -324,12 +334,15 @@ const User = () => {
               </li>
             </ul>
             <p class="mb-4  text-center text-base md:text-lg">
-              Here's a quick word from Bruce (founder of Commonly Odd):
+              Here's a quick word from Bruce:
             </p>
 
             <div class="w-full mb-4 text-base md:text-lg">
               <video controls class="w-full h-auto shadow-lg">
-                <source src="path_to_your_video.mp4" type="video/mp4" />
+                <source
+                  src="https://media.commonlyodd.com/welcome.mp4"
+                  type="video/mp4"
+                />
                 Your browser does not support the video tag.
               </video>
             </div>
