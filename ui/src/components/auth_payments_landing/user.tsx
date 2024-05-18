@@ -256,7 +256,7 @@ const User = () => {
             <div class="w-full mb-4 text-base md:text-lg">
               <video controls class="w-full h-auto shadow-lg">
                 <source
-                  src="https://media.commonlyodd.com/cancel.mp4"
+                  src="https://media.commonlyodd.com/cancel_payment.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -340,7 +340,7 @@ const User = () => {
             <div class="w-full mb-4 text-base md:text-lg">
               <video controls class="w-full h-auto shadow-lg">
                 <source
-                  src="https://media.commonlyodd.com/welcome.mp4"
+                  src="https://media.commonlyodd.com/sign_in.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
