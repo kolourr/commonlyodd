@@ -36,22 +36,22 @@ const images = [
   {
     name: "Parsnip",
     url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/688be032-60b9-43c0-2f3f-0ac1f7541300/public",
-    animationClass: "image-slide-in-top",
+    animationClass: "",
   },
   {
     name: "Potato",
     url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c4ae542e-3146-4f56-e89e-c18c75786200/public",
-    animationClass: "image-slide-in-side",
+    animationClass: "",
   },
   {
     name: "Garlic",
     url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aeecf0c5-f94d-4839-b306-75b30d093800/public",
-    animationClass: "image-slide-in-side",
+    animationClass: "",
   },
   {
     name: "Carrot",
     url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ede3a18b-cfea-492c-9bfc-f312bc683800/public",
-    animationClass: "image-slide-in-top",
+    animationClass: "",
   },
 ];
 
@@ -354,7 +354,7 @@ const LandingPage: Component = () => {
         <div class="flex flex-row my-4">
           <div class="w-6/12 flex flex-col justify-end items-center mb-10">
             <div>
-              <div class="text-7xl  text-center text-gray-300   flex justify-center items-center pt-2  px-2 pb-2">
+              <div class="text-7xl  text-center text-gray-300  font-bold flex justify-center items-center pt-2  px-2 pb-2">
                 Trivia nights, anywhere, anytime
               </div>
             </div>
@@ -398,7 +398,7 @@ const LandingPage: Component = () => {
         <HeaderMobile />
         <div class="flex flex-col my-4">
           <div>
-            <div class="text-5xl  text-center text-gray-300   flex justify-center items-center p-4">
+            <div class="text-6xl  text-center text-gray-300  font-bold flex justify-center items-center p-4">
               Trivia nights, anywhere, anytime
             </div>
           </div>
@@ -449,7 +449,7 @@ const LandingPage: Component = () => {
         <div class="w-full mb-4 text-base md:text-lg">
           <video controls class="w-full h-auto shadow-lg">
             <source
-              src="https://media.commonlyodd.com/how_it_works_now_may.mp4"
+              src="https://media.commonlyodd.com/how_it_works_update.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
