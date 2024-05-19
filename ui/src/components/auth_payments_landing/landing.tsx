@@ -240,10 +240,10 @@ const features: Feature[] = [
     title: <>Play Anywhere, Anytime</>,
     video: (
       <video
-        autoPlay
+        autoplay
         loop
         muted
-        playsInline
+        playsinline
         class="w-full h-auto"
         src="https://media.commonlyodd.com/co_browser_landing.mp4"
       ></video>
@@ -260,10 +260,10 @@ const features: Feature[] = [
     title: <>Built-In Group Voice Chat</>,
     video: (
       <video
-        autoPlay
+        autoplay
         loop
         muted
-        playsInline
+        playsinline
         class="w-full h-auto"
         src="https://media.commonlyodd.com/co_group_call_final_update.mp4"
       ></video>
@@ -279,10 +279,10 @@ const features: Feature[] = [
     title: <>Only One Subscription Needed for Group Play</>,
     video: (
       <video
-        autoPlay
+        autoplay
         loop
         muted
-        playsInline
+        playsinline
         class="w-full h-auto"
         src="https://media.commonlyodd.com/co_session_link_nowww.mp4"
       ></video>
@@ -299,10 +299,10 @@ const features: Feature[] = [
     title: <>Frequent Updates</>,
     video: (
       <video
-        autoPlay
+        autoplay
         loop
         muted
-        playsInline
+        playsinline
         class="w-full h-auto"
         src="https://media.commonlyodd.com/co_frequent_updates_landing.mp4"
       ></video>
