@@ -408,15 +408,16 @@ const LandingPage: Component = () => {
               <div>anywhere, anytime</div>
             </div>
           </div>
+          <div class="text-2xl  text-center  text-gray-400   flex justify-center items-center mt-2 mb-4">
+            A multiplayer browser trivia game that educates and entertains.
+          </div>
 
           <div class="flex flex-col space-y-6   mb-6  ">
             {activeSection() === 1 && <SectionOne />}
             {activeSection() === 2 && <SectionTwo />}
             {activeSection() === 3 && <SectionThree />}
           </div>
-          <div class="text-2xl  text-center  text-gray-300   flex justify-center items-center  ">
-            A multiplayer browser trivia game that educates and entertains.
-          </div>
+
           <div class="flex flex-col justify-center items-center p-4">
             <div>
               <Button
