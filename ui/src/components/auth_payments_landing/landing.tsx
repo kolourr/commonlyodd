@@ -353,9 +353,12 @@ const LandingPage: Component = () => {
         <Header />
         <div class="flex flex-row my-4">
           <div class="w-6/12 flex flex-col justify-end items-center mb-10">
-            <div>
-              <div class="text-7xl  text-center text-gray-300  font-bold flex justify-center items-center pt-2  px-2 pb-2">
-                Trivia nights, anywhere, anytime
+            <div class="flex flex-col items-center">
+              <div class="text-7xl  text-center text-gray-300  font-bold flex flex-col justify-center items-center pt-2  px-2 pb-2">
+                <span class="bg-gray-300 text-slate-900 font-bold     my-2 px-2">
+                  Trivia nights
+                </span>
+                <div>anywhere, anytime</div>
               </div>
             </div>
             <div>
@@ -397,9 +400,12 @@ const LandingPage: Component = () => {
       <>
         <HeaderMobile />
         <div class="flex flex-col my-4">
-          <div>
-            <div class="text-5xl  text-center text-gray-300 font-bold flex justify-center items-center p-2">
-              Trivia nights, anywhere, anytime
+          <div class="flex flex-col items-center">
+            <div class="text-6xl text-center text-gray-300 font-bold flex flex-col justify-center items-center py-2">
+              <span class="bg-gray-300 text-slate-900 font-bold   text-6xl my-2 px-2">
+                Trivia nights
+              </span>
+              <div>anywhere, anytime</div>
             </div>
           </div>
 
