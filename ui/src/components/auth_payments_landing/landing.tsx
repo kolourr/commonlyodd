@@ -398,7 +398,7 @@ const LandingPage: Component = () => {
         <HeaderMobile />
         <div class="flex flex-col my-4">
           <div>
-            <div class="text-6xl  text-center text-gray-300  font-bold flex justify-center items-center p-4">
+            <div class="text-5xl  text-center text-gray-300 font-bold flex justify-center items-center p-2">
               Trivia nights, anywhere, anytime
             </div>
           </div>
