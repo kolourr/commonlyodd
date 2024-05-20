@@ -51,7 +51,6 @@ func startCountdownSolo(conn *websocket.Conn, sessionUUID string, duration int) 
 			broadcastToSession(sessionUUID, timerMsg)
 			// Listen for cancellation signal
 		case <-cancelCountdownSolo:
-			log.Println("Received cancellation solo signal. Exiting countdown.")
 			return
 
 		}

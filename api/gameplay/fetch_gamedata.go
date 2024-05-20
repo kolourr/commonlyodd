@@ -3,12 +3,14 @@ package gameplay
 import (
 	"database/sql"
 	"fmt"
+	"time"
 
 	"github.com/kolourr/commonlyodd/database"
 	"github.com/lib/pq"
 )
 
 type ObjectSimilarity struct {
+	Id     int
 	Obj1   string
 	Obj2   string
 	Obj3   string
@@ -24,7 +26,7 @@ func fetchRandomQuestion(sessionUUID string) (map[string]string, error) {
 		return nil, fmt.Errorf("error fetching used object similarity IDs: %w", err)
 	}
 
-	objSim, err := fetchRandomObjectSimilarity(usedIds)
+	objSim, err := fetchRandomObjectSimilarity(sessionUUID, usedIds)
 	if err != nil {
 		return nil, fmt.Errorf("error fetching random object similarity: %w", err)
 	}
@@ -80,25 +82,32 @@ func fetchUsedObjectSimilarityIds(sessionUUID string) ([]int, error) {
 }
 
 // fetchRandomObjectSimilarity fetches a random object similarity record that hasn't been used.
-func fetchRandomObjectSimilarity(usedIds []int) (ObjectSimilarity, error) {
+func fetchRandomObjectSimilarity(sessionUUID string, usedIds []int) (ObjectSimilarity, error) {
 	var objSim ObjectSimilarity
 	var err error
+
+	sessionIdQuery := `SELECT session_id FROM game_sessions WHERE session_uuid = $1`
+	var sessionId int
+	err = database.DB.QueryRow(sessionIdQuery, sessionUUID).Scan(&sessionId)
+	if err != nil {
+		return objSim, fmt.Errorf("error fetching session ID: %w", err)
+	}
 
 	if len(usedIds) == 0 {
 		// If no IDs have been used, select any record
 		query := `
-            SELECT obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity FROM objects_similarity
+            SELECT id, obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity FROM objects_similarity
             ORDER BY RANDOM()
             LIMIT 1`
-		err = database.DB.QueryRow(query).Scan(&objSim.Obj1, &objSim.Obj2, &objSim.Obj3, &objSim.Obj4, &objSim.Odd, &objSim.Reason)
+		err = database.DB.QueryRow(query).Scan(&objSim.Id, &objSim.Obj1, &objSim.Obj2, &objSim.Obj3, &objSim.Obj4, &objSim.Odd, &objSim.Reason)
 	} else {
 		// If there are used IDs, exclude them
 		query := `
-            SELECT obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity FROM objects_similarity
+            SELECT id, obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity FROM objects_similarity
             WHERE id != ALL($1)
             ORDER BY RANDOM()
             LIMIT 1`
-		err = database.DB.QueryRow(query, pq.Array(usedIds)).Scan(&objSim.Obj1, &objSim.Obj2, &objSim.Obj3, &objSim.Obj4, &objSim.Odd, &objSim.Reason)
+		err = database.DB.QueryRow(query, pq.Array(usedIds)).Scan(&objSim.Id, &objSim.Obj1, &objSim.Obj2, &objSim.Obj3, &objSim.Obj4, &objSim.Odd, &objSim.Reason)
 	}
 
 	if err != nil {
@@ -108,6 +117,15 @@ func fetchRandomObjectSimilarity(usedIds []int) (ObjectSimilarity, error) {
 		}
 		// An actual error occurred, return it
 		return ObjectSimilarity{}, fmt.Errorf("error fetching random object similarity: %w", err)
+	}
+
+	// Insert the selected object similarity ID into session_objects
+	insertQuery := `
+        INSERT INTO session_objects (session_id, object_similarity_id, used_at)
+        VALUES ($1, $2, $3)`
+	_, err = database.DB.Exec(insertQuery, sessionId, objSim.Id, time.Now())
+	if err != nil {
+		return ObjectSimilarity{}, fmt.Errorf("error inserting into session_objects: %w", err)
 	}
 
 	return objSim, nil

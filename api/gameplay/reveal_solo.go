@@ -29,7 +29,6 @@ func handleRevealSolo(conn *websocket.Conn, sessionUUID string, gameData map[str
 	// Send the cancellation signal before broadcasting the reveal message
 	select {
 	case cancelCountdownSolo <- true:
-		log.Println("Cancellation solo signal sent successfully.")
 	case <-time.After(time.Millisecond * 100):
 		log.Println("Cancellation solo signal send timed out; channel may be blocked.")
 	default:
