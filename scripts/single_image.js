@@ -69,5 +69,5 @@ async function manuallyGenerateImage(prompt) {
 }
 
 // Example usage
-const prompt = "An image of Karen Horney German psychoanalyst";
+const prompt = "An image of Adam Graves (hockey player).";
 manuallyGenerateImage(prompt).catch(console.error);
