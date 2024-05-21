@@ -3,8 +3,6 @@ package gameplay
 import (
 	"log"
 	"time"
-
-	"github.com/gorilla/websocket"
 )
 
 var cancelCountdownSolo chan bool = make(chan bool, 1)
@@ -23,7 +21,7 @@ func drainChannelSolo(ch chan bool) {
 }
 
 // Start a countdown and send periodic updates to the client.
-func startCountdownSolo(conn *websocket.Conn, sessionUUID string, duration int) {
+func startCountdownSolo(conn *SafeWebSocket, sessionUUID string, duration int) {
 
 	// Drain the channel to remove any pending signals that weren't cleared
 	drainChannelSolo(cancelCountdownSolo)
@@ -52,7 +50,6 @@ func startCountdownSolo(conn *websocket.Conn, sessionUUID string, duration int) 
 			// Listen for cancellation signal
 		case <-cancelCountdownSolo:
 			return
-
 		}
 
 		if remaining == 0 {

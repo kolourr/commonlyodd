@@ -8,6 +8,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/kolourr/commonlyodd/database"
+	"github.com/kolourr/commonlyodd/gameplay"
 	"github.com/kolourr/commonlyodd/platform/authenticator"
 	"github.com/kolourr/commonlyodd/platform/router"
 	"github.com/stripe/stripe-go/v76"
@@ -31,6 +32,7 @@ func main() {
 	databaseURL := os.Getenv("DATABASE_URL")
 	database.InitDB(databaseURL)
 	stripe.Key = os.Getenv("STRIPE_KEY")
+	gameplay.Rdb = gameplay.InitRedisClient()
 
 	//initiate auth0 authenticator
 	auth, err := authenticator.New()

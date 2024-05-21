@@ -1,13 +1,48 @@
 package gameplay
 
 import (
+	"context"
+	"crypto/tls"
 	"database/sql"
+	"encoding/json"
 	"fmt"
+	"log"
+	"os"
+	"strings"
 	"time"
 
+	"github.com/go-redis/redis/v8"
 	"github.com/kolourr/commonlyodd/database"
 	"github.com/lib/pq"
 )
+
+// Initialize Redis client
+func InitRedisClient() *redis.Client {
+	redisURL := os.Getenv("REDIS_URL")
+
+	if redisURL == "" {
+		log.Fatalf("REDIS_URL environment variable not set")
+	}
+
+	// Parse the URL
+	opt, err := redis.ParseURL(redisURL)
+	if err != nil {
+		log.Fatalf("Failed to parse Redis URL: %v", err)
+	}
+
+	// Configure TLS if using a secure URL
+	if strings.HasPrefix(redisURL, "rediss://") {
+		opt.TLSConfig = &tls.Config{
+			InsecureSkipVerify: true,
+		}
+	}
+
+	return redis.NewClient(opt)
+}
+
+var Rdb *redis.Client
+
+var ctx = context.Background()
 
 type ObjectSimilarity struct {
 	Id     int
@@ -55,8 +90,30 @@ func fetchRandomQuestion(sessionUUID string) (map[string]string, error) {
 
 // fetchUsedObjectSimilarityIds retrieves a list of used object similarity IDs for the session.
 func fetchUsedObjectSimilarityIds(sessionUUID string) ([]int, error) {
+
+	//check the cache first
+	cached, err := Rdb.Get(ctx, sessionUUID).Result()
+	if err == nil {
+		var usedIds []int
+		if err := json.Unmarshal([]byte(cached), &usedIds); err == nil {
+			log.Printf("Cache hit: %s", sessionUUID)
+
+			// Refresh the cache expiration time
+			err = Rdb.Expire(ctx, sessionUUID, 120*time.Minute).Err()
+			if err != nil {
+				log.Printf("Redis Expire error: %v", err)
+			}
+
+			return usedIds, nil
+		}
+	} else {
+		log.Printf("Redis Get error: %v", err)
+	}
+
+	log.Printf("Cache miss: %s", sessionUUID)
 	var usedIds []int
 
+	// Query the database if cache miss or Redis unavailable
 	query := `
         SELECT object_similarity_id FROM session_objects
         WHERE session_id = (SELECT session_id FROM game_sessions WHERE session_uuid = $1)`
@@ -76,6 +133,18 @@ func fetchUsedObjectSimilarityIds(sessionUUID string) ([]int, error) {
 
 	if err := rows.Err(); err != nil {
 		return nil, err
+	}
+
+	// Store the result in the cache
+	usedIdsJSON, err := json.Marshal(usedIds)
+	if err != nil {
+		return nil, err
+	}
+	err = Rdb.Set(ctx, sessionUUID, usedIdsJSON, 120*time.Minute).Err()
+	if err != nil {
+		log.Printf("Redis Set error: %v", err)
+	} else {
+		log.Printf("Data cached successfully for session: %s", sessionUUID)
 	}
 
 	return usedIds, nil

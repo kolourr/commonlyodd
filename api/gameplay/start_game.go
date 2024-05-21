@@ -2,11 +2,9 @@ package gameplay
 
 import (
 	"log"
-
-	"github.com/gorilla/websocket"
 )
 
-func handleStart(conn *websocket.Conn, sessionUUID string, gameData map[string]string) {
+func handleStart(conn *SafeWebSocket, sessionUUID string, gameData map[string]string) {
 	// Update game state to 'start' in the database
 	if err := updateGameStateInDB(sessionUUID, "start"); err != nil {
 		log.Printf("Error updating game state: %v", err)

@@ -3,12 +3,10 @@ package gameplay
 import (
 	"log"
 	"time"
-
-	"github.com/gorilla/websocket"
 )
 
 // handleReveal processes the 'reveal' game state
-func handleRevealSolo(conn *websocket.Conn, sessionUUID string, gameData map[string]string) {
+func handleRevealSolo(conn *SafeWebSocket, sessionUUID string, gameData map[string]string) {
 
 	// Fetch the starter_in_call status from the database
 	starterInCall, err := getStarterInCallStatus(sessionUUID)

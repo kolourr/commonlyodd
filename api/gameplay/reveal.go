@@ -2,12 +2,10 @@ package gameplay
 
 import (
 	"log"
-
-	"github.com/gorilla/websocket"
 )
 
 // handleReveal processes the 'reveal' game state
-func handleReveal(conn *websocket.Conn, sessionUUID string, gameData map[string]string) {
+func handleReveal(conn *SafeWebSocket, sessionUUID string, gameData map[string]string) {
 
 	// Fetch current team scores
 	teamScores, err := fetchTeamScores(sessionUUID)

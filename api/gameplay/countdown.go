@@ -3,12 +3,10 @@ package gameplay
 import (
 	"log"
 	"time"
-
-	"github.com/gorilla/websocket"
 )
 
 // Start a countdown and send periodic updates to the client.
-func startCountdown(conn *websocket.Conn, sessionUUID string, duration int) {
+func startCountdown(conn *SafeWebSocket, sessionUUID string, duration int) {
 
 	// Fetch current team scores
 	teamScores, err := fetchTeamScores(sessionUUID)

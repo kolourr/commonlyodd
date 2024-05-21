@@ -219,14 +219,14 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="pr-2 text-3xl text-gray-200">Commonly</span>
               <LightsUp />
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-300 ml-32">
               <div class="flex flex-row items-center justify-center  text-xl">
                 <a href="#howitworks">
                   <div class="px-4">How it Works</div>
@@ -276,10 +276,10 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="pr-2 text-3xl text-gray-200">Commonly</span>
               <LightsUp />
             </div>
 
@@ -321,10 +321,10 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="pr-2 text-3xl text-gray-200">Commonly</span>
               <LightsUp />
             </div>
 
@@ -365,7 +365,7 @@ export default function AccountMenu() {
       {/* Authentication but not subbed */}
       <Show when={isAuthenticated() && !subscriptionStatus()}>
         <Show when={location.pathname !== "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+          <div class="text-center    flex flex-row    mt-6 mb-14 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
@@ -374,14 +374,14 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="pr-2 text-3xl text-gray-200">Commonly</span>
               <LightsUp />
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-300 ml-32">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}
@@ -436,7 +436,7 @@ export default function AccountMenu() {
           </div>
         </Show>
         <Show when={location.pathname === "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+          <div class="text-center    flex flex-row    mt-6 mb-14 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
@@ -445,14 +445,14 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="pr-2 text-3xl text-gray-200">Commonly</span>
               <LightsUp />
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-32">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-300 ml-32">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}
@@ -521,7 +521,7 @@ export default function AccountMenu() {
       {/* Authentication but not subbed */}
       <Show when={isAuthenticated() && subscriptionStatus()}>
         <Show when={location.pathname !== "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+          <div class="text-center    flex flex-row    mt-6 mb-14 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
@@ -530,14 +530,14 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="pr-2 text-3xl text-gray-200">Commonly</span>
               <LightsUp />
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-12">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-300 ml-12">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}
@@ -600,7 +600,7 @@ export default function AccountMenu() {
           </div>
         </Show>
         <Show when={location.pathname === "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-6 ">
+          <div class="text-center    flex flex-row    mt-6 mb-14 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
@@ -609,14 +609,14 @@ export default function AccountMenu() {
               <img
                 src="https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe68c0e-a825-43e6-41ca-dec53b671e00/100x100"
                 alt="logo"
-                width={40}
-                height={40}
+                width={30}
+                height={30}
               />
-              <span class="pr-2 text-4xl text-gray-100">Commonly</span>
+              <span class="pr-2 text-3xl text-gray-200">Commonly</span>
               <LightsUp />
             </div>
 
-            <div class="flex flex-row w-4/6 justify-center items-center text-gray-200 ml-12">
+            <div class="flex flex-row w-4/6 justify-center items-center text-gray-300 ml-12">
               <div class="   cursor-pointer relative group w-44">
                 <div
                   onClick={handleDashboardNavigate}

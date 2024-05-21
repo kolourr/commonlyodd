@@ -3,11 +3,10 @@ package gameplay
 import (
 	"log"
 
-	"github.com/gorilla/websocket"
 	"github.com/kolourr/commonlyodd/database"
 )
 
-func handleNewGame(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage, gameData map[string]string) {
+func handleNewGame(conn *SafeWebSocket, sessionUUID string, msg WebSocketMessage, gameData map[string]string) {
 
 	// Start a database transaction
 	tx, err := database.DB.Begin()

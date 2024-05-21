@@ -2,12 +2,10 @@ package gameplay
 
 import (
 	"log"
-
-	"github.com/gorilla/websocket"
 )
 
 // handleContinue processes the 'continue' game state
-func handleContinueSolo(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage, gameData map[string]string) {
+func handleContinueSolo(conn *SafeWebSocket, sessionUUID string, msg WebSocketMessage, gameData map[string]string) {
 	// Update game state to 'continue' in the database
 	if err := updateGameStateInDB(sessionUUID, "continue-solo"); err != nil {
 		log.Printf("Error updating game state: %v", err)

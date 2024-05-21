@@ -355,10 +355,10 @@ const LandingPage: Component = () => {
           <div class="w-6/12 flex flex-col justify-end items-center mb-10">
             <div class="flex flex-col items-center">
               <div class="text-7xl  text-center text-gray-300  font-bold flex flex-col justify-center items-center pt-2  px-2 pb-2">
-                <span class="bg-gray-300 text-slate-900 font-bold     my-2 px-2">
+                <span class="bg-gray-200 text-slate-900 font-bold     my-2 px-2 py-1">
                   Trivia nights
                 </span>
-                <div>anywhere, anytime</div>
+                <div class="text-gray-300">anywhere, anytime</div>
               </div>
             </div>
             <div>
@@ -402,10 +402,10 @@ const LandingPage: Component = () => {
         <div class="flex flex-col my-4">
           <div class="flex flex-col items-center">
             <div class="text-6xl text-center text-gray-300 font-bold flex flex-col justify-center items-center py-2">
-              <span class="bg-gray-300 text-slate-900 font-bold   text-6xl my-2 px-2">
+              <span class="bg-gray-200 text-slate-900 font-bold   text-6xl my-2 px-2 py-1">
                 Trivia nights
               </span>
-              <div>anywhere, anytime</div>
+              <div class="text-gray-300">anywhere, anytime</div>
             </div>
           </div>
           <div class="text-2xl  text-center  text-gray-400   flex justify-center items-center mt-2 mb-4">

@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/gorilla/websocket"
 	"github.com/kolourr/commonlyodd/database"
 )
 
 // handleScore processes the 'score' game state
-func handleScore(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage) {
+func handleScore(conn *SafeWebSocket, sessionUUID string, msg WebSocketMessage) {
 	// Update the team score in the database
 	if err := updateTeamScore(sessionUUID, msg.TeamID, msg.IndividualTeamScore); err != nil {
 		log.Printf("Error updating team score: %v", err)

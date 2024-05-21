@@ -2,11 +2,9 @@ package gameplay
 
 import (
 	"log"
-
-	"github.com/gorilla/websocket"
 )
 
-func handleStartSolo(conn *websocket.Conn, sessionUUID string, gameData map[string]string) {
+func handleStartSolo(conn *SafeWebSocket, sessionUUID string, gameData map[string]string) {
 	// Update game state to 'start' in the database
 	if err := updateGameStateInDB(sessionUUID, "start-solo"); err != nil {
 		log.Printf("Error updating game state: %v", err)

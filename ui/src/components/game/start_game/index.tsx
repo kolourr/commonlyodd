@@ -66,6 +66,7 @@ const [teamGameWinner, setTeamGameWinner] = createSignal<string | undefined>();
 const [gameComplete, setGameComplete] = createSignal(false);
 const [newGameStarted, setNewGameStarted] = createSignal(false);
 const [complete, setComplete] = createSignal(false);
+const [isButtonProcessing, setIsButtonProcessing] = createSignal(false);
 
 export const sendMessage = (message: messageData) => {
   checkSessionStatus();
@@ -365,33 +366,44 @@ function handleWebSocketMessage(event: MessageEvent) {
 export default function StartGame() {
   const navigate = useNavigate();
 
-  function handleButtonClick() {
-    if (gameType() === "competitive") {
-      if (enterScore()) {
-        openScoreDialog();
-      } else if (gameWinner()) {
-        handleClickOpenNewGameEndSession();
-      } else if (timerUp()) {
-        sendMessage({ game_state: "reveal" });
-        setEnterScore(true);
-      } else if (readyToContinue()) {
-        sendMessage({ game_state: "continue" });
-      } else if (complete()) {
-        handleCompleteOpen();
-      } else {
-        sendMessage({ game_state: "start" });
+  async function handleButtonClick() {
+    if (isButtonProcessing()) return;
+
+    setIsButtonProcessing(true);
+
+    // Delay to ensure the processing state is properly set
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    try {
+      if (gameType() === "competitive") {
+        if (enterScore()) {
+          openScoreDialog();
+        } else if (gameWinner()) {
+          handleClickOpenNewGameEndSession();
+        } else if (timerUp()) {
+          sendMessage({ game_state: "reveal" });
+          setEnterScore(true);
+        } else if (readyToContinue()) {
+          sendMessage({ game_state: "continue" });
+        } else if (complete()) {
+          handleCompleteOpen();
+        } else {
+          sendMessage({ game_state: "start" });
+        }
+      } else if (gameType() === "fun") {
+        if (timerUp() && !isRevealInitiated()) {
+          sendMessage({ game_state: "reveal-solo" });
+          setIsRevealInitiated(true);
+        } else if (readyToContinue()) {
+          sendMessage({ game_state: "continue-solo" });
+        } else if (readyToContinueSolo()) {
+          sendMessage({ game_state: "continue-solo" });
+        } else {
+          sendMessage({ game_state: "start-solo" });
+        }
       }
-    } else if (gameType() === "fun") {
-      if (timerUp() && !isRevealInitiated()) {
-        sendMessage({ game_state: "reveal-solo" });
-        setIsRevealInitiated(true);
-      } else if (readyToContinue()) {
-        sendMessage({ game_state: "continue-solo" });
-      } else if (readyToContinueSolo()) {
-        sendMessage({ game_state: "continue-solo" });
-      } else {
-        sendMessage({ game_state: "start-solo" });
-      }
+    } finally {
+      setIsButtonProcessing(false);
     }
   }
 
@@ -419,11 +431,9 @@ export default function StartGame() {
         !readyToContinue() &&
         !readyToContinueSolo());
 
-    if (gameType() === "competitive") {
-      return competitive;
-    } else if (gameType() === "fun") {
-      return fun;
-    }
+    return (
+      isButtonProcessing() || (gameType() === "competitive" ? competitive : fun)
+    );
   }
 
   function getButtonLabel() {

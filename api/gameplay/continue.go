@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/gorilla/websocket"
 	"github.com/kolourr/commonlyodd/database"
 )
 
 // handleContinue processes the 'continue' game state
-func handleContinue(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage, gameData map[string]string) {
+func handleContinue(conn *SafeWebSocket, sessionUUID string, msg WebSocketMessage, gameData map[string]string) {
 	// Update game state to 'continue' in the database
 	if err := updateGameStateInDB(sessionUUID, "continue"); err != nil {
 		log.Printf("Error updating game state: %v", err)

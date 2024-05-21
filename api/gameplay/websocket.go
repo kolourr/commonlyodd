@@ -3,6 +3,7 @@ package gameplay
 import (
 	"log"
 	"net/http"
+	"sync"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gorilla/websocket"
@@ -39,17 +40,28 @@ type TeamScore struct {
 	Score    float64 `json:"score"`
 }
 
-type client struct {
-	conn      *websocket.Conn
-	isStarter bool
-}
-
 var upgrader = websocket.Upgrader{
 	ReadBufferSize:  1024,
 	WriteBufferSize: 1024,
 	CheckOrigin: func(r *http.Request) bool {
 		return true
 	},
+}
+
+type SafeWebSocket struct {
+	conn  *websocket.Conn
+	mutex sync.Mutex
+}
+
+func (s *SafeWebSocket) WriteJSON(v interface{}) error {
+	s.mutex.Lock()
+	defer s.mutex.Unlock()
+	return s.conn.WriteJSON(v)
+}
+
+type client struct {
+	safeConn  *SafeWebSocket
+	isStarter bool
 }
 
 var gameDataMap = make(map[string]map[string]string)
@@ -77,8 +89,9 @@ func HandleGameWebSocket(c *gin.Context) {
 	if hasToken {
 		isStarter = validateStarterToken(sessionUUID, starterToken)
 	}
-	addClientToSession(sessionUUID, conn, isStarter)
-	defer removeClientFromSession(sessionUUID, conn)
+	safeConn := &SafeWebSocket{conn: conn}
+	addClientToSession(sessionUUID, safeConn, isStarter)
+	defer removeClientFromSession(sessionUUID, safeConn)
 
 	for {
 		var msg WebSocketMessage
@@ -89,7 +102,7 @@ func HandleGameWebSocket(c *gin.Context) {
 		}
 
 		if isStarter {
-			handleGameStateChange(conn, sessionUUID, msg)
+			handleGameStateChange(safeConn, sessionUUID, msg)
 		} else {
 			log.Printf("Non-starter client attempted to control the game")
 		}
@@ -121,21 +134,21 @@ func validateStarterToken(sessionUUID, starterToken string) bool {
 	return exists
 }
 
-func addClientToSession(sessionUUID string, conn *websocket.Conn, isStarter bool) {
-	sessionClients[sessionUUID] = append(sessionClients[sessionUUID], client{conn, isStarter})
+func addClientToSession(sessionUUID string, safeConn *SafeWebSocket, isStarter bool) {
+	sessionClients[sessionUUID] = append(sessionClients[sessionUUID], client{safeConn, isStarter})
 }
 
-func removeClientFromSession(sessionUUID string, conn *websocket.Conn) {
+func removeClientFromSession(sessionUUID string, safeConn *SafeWebSocket) {
 	clients := sessionClients[sessionUUID]
 	for i, c := range clients {
-		if c.conn == conn {
+		if c.safeConn == safeConn {
 			sessionClients[sessionUUID] = append(clients[:i], clients[i+1:]...)
 			break
 		}
 	}
 }
 
-func handleGameStateChange(conn *websocket.Conn, sessionUUID string, msg WebSocketMessage) {
+func handleGameStateChange(conn *SafeWebSocket, sessionUUID string, msg WebSocketMessage) {
 	// Initialize gameDataMap for the session if it's nil
 	if gameDataMap[sessionUUID] == nil {
 		gameDataMap[sessionUUID] = make(map[string]string)
