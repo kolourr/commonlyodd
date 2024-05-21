@@ -365,7 +365,7 @@ export default function AccountMenu() {
       {/* Authentication but not subbed */}
       <Show when={isAuthenticated() && !subscriptionStatus()}>
         <Show when={location.pathname !== "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-14 ">
+          <div class="text-center    flex flex-row    mt-6 mb-20 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
@@ -436,7 +436,7 @@ export default function AccountMenu() {
           </div>
         </Show>
         <Show when={location.pathname === "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-14 ">
+          <div class="text-center    flex flex-row    mt-6 mb-20 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
@@ -521,7 +521,7 @@ export default function AccountMenu() {
       {/* Authentication but not subbed */}
       <Show when={isAuthenticated() && subscriptionStatus()}>
         <Show when={location.pathname !== "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-14 ">
+          <div class="text-center    flex flex-row    mt-6 mb-20 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
@@ -600,7 +600,7 @@ export default function AccountMenu() {
           </div>
         </Show>
         <Show when={location.pathname === "/game"}>
-          <div class="text-center    flex flex-row    mt-6 mb-14 ">
+          <div class="text-center    flex flex-row    mt-6 mb-20 ">
             <div
               onClick={handleHome}
               style={{ cursor: "pointer" }}
