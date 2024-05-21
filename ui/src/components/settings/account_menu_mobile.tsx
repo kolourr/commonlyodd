@@ -517,7 +517,7 @@ export default function AccountMenuMobile() {
 
   return (
     <>
-      <div class="mt-4 mb-14 flex flex-row justify-between ">
+      <div class="mt-4 mb-8 flex flex-row justify-between ">
         <div class=" ">{titleLogo()}</div>
 
         <div class=" flex justify-center items-center  ">
