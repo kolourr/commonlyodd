@@ -5,7 +5,7 @@ import { createObjectCsvWriter as createCsvWriter } from "csv-writer";
 
 async function shuffleRowItems() {
   const inputFilePath = path.join(process.cwd(), "output.csv");
-  const outputFilePath = path.join(process.cwd(), "randomized_output.csv");
+  const outputFilePath = path.join(process.cwd(), "filtered_output.csv");
 
   // Check if the input file exists
   if (!fs.existsSync(inputFilePath)) {
