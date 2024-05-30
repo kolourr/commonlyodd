@@ -4,8 +4,8 @@ import csv from "csv-parser";
 import { createObjectCsvWriter as createCsvWriter } from "csv-writer";
 
 async function shuffleRowItems() {
-  const inputFilePath = path.join(process.cwd(), "output.csv");
-  const outputFilePath = path.join(process.cwd(), "filtered_output.csv");
+  const inputFilePath = path.join(process.cwd(), "basketball.csv");
+  const outputFilePath = path.join(process.cwd(), "filtered_basketball.csv");
 
   // Check if the input file exists
   if (!fs.existsSync(inputFilePath)) {
@@ -55,6 +55,7 @@ async function shuffleRowItems() {
         { id: "obj_4", title: "obj_4" },
         { id: "odd", title: "odd" },
         { id: "reason_for_similarity", title: "reason_for_similarity" },
+        { id: "valid", title: "valid" },
       ],
     });
 

@@ -23,7 +23,7 @@ function stringifyJSON(data) {
 
 // Main function to read CSV, check validity, and update CSV
 async function updateCSV() {
-  const filename = "filtered_output.csv";
+  const filename = "basketball.csv";
   const content = fs.readFileSync(filename, "utf8");
   const data = await parseCSV(content);
 
@@ -41,7 +41,7 @@ async function updateCSV() {
       messages: [
         {
           role: "user",
-          content: `I have developed a game called Commonly Odd. The user is presented with 4 objects: ${obj_1}, ${obj_2}, ${obj_3}, ${obj_4}. The odd one out is ${odd}, and the reason for similarity between the other three is: ${reason_for_similarity}. Please carefully assess whether the logic holds for the designated odd one out and the commonality among the others. Evaluate the following aspects:
+          content: `I have developed a game called Commonly Odd.  The user is presented with 4 objects: ${obj_1}, ${obj_2}, ${obj_3}, ${obj_4}. The odd one out is ${odd}, and the reason for similarity between the other three is: ${reason_for_similarity}. Please carefully assess whether the logic holds for the designated odd one out and the commonality among the others. This category of this game data is Basketball (NBA). Evaluate the following aspects:
 1. Factual Accuracy: Ensure that all facts about the objects are correct.
 2. Consistency in Category: Check if the three similar items truly belong to the same category as stated.
 3. Relevance of Similarity: Verify that the commonality stated is relevant and significant enough to distinguish the odd one out clearly.

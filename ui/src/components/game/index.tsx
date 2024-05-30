@@ -76,13 +76,14 @@ export const [sessionLink, setSessionLink] = createSignal(
 export const [messageSent, setMessageSent] = createSignal<scoreMessageSent>();
 export const [gameInfo, setGameInfo] = createSignal<JSX.Element>();
 export const [scoreColor, setScoreColor] = createSignal<number>(-1);
+export const [nonSessionNotStarter, setNonSessionNotStarter] =
+  createSignal(false);
 
 export default function Game() {
   const [showTeamScores, setShowTeamScores] = createSignal(false);
   const [teamScores, setTeamScores] = createStore<number[]>([]);
   const [isTargetScoreReached, setIsTargetScoreReached] = createSignal(false);
   const [isAuthenticated, setIsAuthenticated] = createSignal(false);
-  const [nonSessionNotStarter, setNonSessionNotStarter] = createSignal(false);
   const [openRules, setOpenRules] = createSignal(false);
 
   // Check if the session has started

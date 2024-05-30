@@ -130,9 +130,9 @@ export default function CreateSession() {
 
               <ul class="list-disc text-left mr-8  mb-4">
                 <div class="flex flex-col justify-start items-start ">
-                  <li>No setup needed</li>
                   <li>Ideal for playing solo</li>
-                  <li>Starts game instantly</li>
+                  <li>No setup needed</li>
+                  <li>Category pre-selected</li>
                   <li>Pre-set time per round</li>
                 </div>
               </ul>
@@ -147,8 +147,8 @@ export default function CreateSession() {
               <ul class="list-disc text-left  mb-4">
                 <div class="flex flex-col justify-start items-start">
                   <li>All of Quick game</li>
-                  <li>Requires you to start game</li>
-                  <li>Time per round must be set</li>
+                  <li>Must set individual category</li>
+                  <li>Must set time per round</li>
                 </div>
               </ul>
 
@@ -162,9 +162,10 @@ export default function CreateSession() {
               <ul class="list-disc text-left   mb-4">
                 <div class="flex flex-col justify-start items-start ">
                   <li>Ideal for group play</li>
-                  <li>Target score must be set</li>
-                  <li>Number of teams must be set</li>
-                  <li>Time per round must be set</li>
+                  <li>Must set individual category</li>
+                  <li>Must set time per round</li>
+                  <li>Must set target score</li>
+                  <li>Must set number of teams</li>
                 </div>
               </ul>
 

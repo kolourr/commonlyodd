@@ -24,7 +24,7 @@ function stringifyJSON(data) {
 
 // Main function to read CSV, check validity, and update CSV
 async function updateCSV() {
-  const filename = "filtered_output.csv";
+  const filename = "filtered_bible.csv";
   const content = fs.readFileSync(filename, "utf8");
   const data = parseCSV(content);
 

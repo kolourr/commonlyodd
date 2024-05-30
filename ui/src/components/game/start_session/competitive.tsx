@@ -13,6 +13,7 @@ import TargetScore from "./target_score";
 import { openConfirmDialog } from "./competitive_confirm_start";
 import CommonDialog from "../common_dialog";
 import Countdown from "./countdown";
+import Category from "./category";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -27,20 +28,26 @@ export default function StartSession() {
   const [teams, setTeams] = createSignal<number>(0);
   const [targetScore, setTargetScore] = createSignal<number>(0);
   const [countdown, setCountdown] = createSignal<number>(0);
+  const [category, setCategory] = createSignal<string>("");
   const [dialogOpen, setDialogOpen] = createSignal(false);
   const [dialogContent, setDialogContent] = createSignal<
     string | JSX.Element
   >();
 
   const handleStartClick = () => {
-    if (teams() > 0 && targetScore() > 0 && countdown() > 0) {
+    if (
+      teams() > 0 &&
+      targetScore() > 0 &&
+      countdown() > 0 &&
+      category() !== ""
+    ) {
       setOpen(false);
-      openConfirmDialog(teams(), targetScore(), countdown());
+      openConfirmDialog(teams(), targetScore(), countdown(), category());
     } else {
       setDialogContent(
         <>
-          Please select the number of teams, target score and countdown time per
-          round.
+          Please select the category, number of teams, target score and
+          countdown time per round.
         </>
       );
 
@@ -84,10 +91,11 @@ export default function StartSession() {
           sx={{ textAlign: "center" }}
         >
           {
-            "Set the target score, number of teams, and countdown duration for each round to initiate the game."
+            "Set the category, target score, number of teams, and countdown duration for each round to initiate the game."
           }
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
+          <Category setCategory={setCategory} />
           <NumberOfTeams setTeams={setTeams} />
           <TargetScore setTargetScore={setTargetScore} />
           <Countdown setCountdown={setCountdown} />

@@ -48,6 +48,7 @@ export default function QuickGame() {
             number_of_teams: numberOfTeams,
             target_score: targetScore,
             countdown: countdownTimer,
+            category: "random",
           }),
         }
       );

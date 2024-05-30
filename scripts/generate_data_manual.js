@@ -31,7 +31,74 @@ function parseTable(tableString) {
   });
 }
 
-const category_words = ["crops"];
+const category_words = [
+  "Bible characters from book Genesis",
+  "Bible characters from book Exodus",
+  "Bible characters from book Leviticus",
+  "Bible characters from book Numbers",
+  "Bible characters from book Deuteronomy",
+  "Bible characters from book Joshua",
+  "Bible characters from book Judges",
+  "Bible characters from book Ruth",
+  "Bible characters from book 1 Samuel",
+  "Bible characters from book 2 Samuel",
+  "Bible characters from book 1 Kings",
+  "Bible characters from book 2 Kings",
+  "Bible characters from book 1 Chronicles",
+  "Bible characters from book 2 Chronicles",
+  "Bible characters from book Ezra",
+  "Bible characters from book Nehemiah",
+  "Bible characters from book Esther",
+  "Bible characters from book Job",
+  "Bible characters from book Psalms",
+  "Bible characters from book Proverbs",
+  "Bible characters from book Ecclesiastes",
+  "Bible characters from book Song of Solomon",
+  "Bible characters from book Isaiah",
+  "Bible characters from book Jeremiah",
+  "Bible characters from book Lamentations",
+  "Bible characters from book Ezekiel",
+  "Bible characters from book Daniel",
+  "Bible characters from book Hosea",
+  "Bible characters from book Joel",
+  "Bible characters from book Amos",
+  "Bible characters from book Obadiah",
+  "Bible characters from book Jonah",
+  "Bible characters from book Micah",
+  "Bible characters from book Nahum",
+  "Bible characters from book Habakkuk",
+  "Bible characters from book Zephaniah",
+  "Bible characters from book Haggai",
+  "Bible characters from book Zechariah",
+  "Bible characters from book Malachi",
+  "Bible characters from book Matthew",
+  "Bible characters from book Mark",
+  "Bible characters from book Luke",
+  "Bible characters from book John",
+  "Bible characters from book Acts",
+  "Bible characters from book Romans",
+  "Bible characters from book 1 Corinthians",
+  "Bible characters from book 2 Corinthians",
+  "Bible characters from book Galatians",
+  "Bible characters from book Ephesians",
+  "Bible characters from book Philippians",
+  "Bible characters from book Colossians",
+  "Bible characters from book 1 Thessalonians",
+  "Bible characters from book 2 Thessalonians",
+  "Bible characters from book 1 Timothy",
+  "Bible characters from book 2 Timothy",
+  "Bible characters from book Titus",
+  "Bible characters from book Philemon",
+  "Bible characters from book Hebrews",
+  "Bible characters from book James",
+  "Bible characters from book 1 Peter",
+  "Bible characters from book 2 Peter",
+  "Bible characters from book 1 John",
+  "Bible characters from book 2 John",
+  "Bible characters from book 3 John",
+  "Bible characters from book Jude",
+  "Bible characters from book Revelation",
+];
 // Main function to generate data and save to CSV
 async function generateDataAndSaveCSV() {
   let allData = []; // Accumulate all iteration data here
@@ -47,7 +114,7 @@ async function generateDataAndSaveCSV() {
         {
           role: "user",
 
-          content: `I am developing a game that presents a user with 4 objects. Three of these objects will have something in common, while the fourth will be the odd one out. The theme for these objects will be based on the topic of ${category}.\\n\\n The objective is to make this game very challenging. The odd one out should not be immediately obvious and must require careful thought to identify. This is crucial as the game aims to be engaging and intellectually stimulating. Avoid overly simplistic or unrelated groupings, such as The Beatles, The Rolling Stones, The Who, and Pablo Picasso, where Pablo Picasso is the odd one out for being a painter.\\n\\n Here’s an example of the input provided: Anakin Skywalker, Luke Skywalker, and Han Solo. The output returned was Anakin Skywalker, Luke Skywalker, Leia Organa, and Han Solo, where Han Solo was the odd one out because the others are Skywalkers. Notice how one of the objects was replaced to increase the challenge and enjoyment.\\n\\n Use simple terms for the reasons of similarity. Instead of using technical botanical names like Iridaceae, use 'iris family'. Similarly, instead of 'heliophytes', use 'sun-loving plants'. Ensure that each object is unique within its list.\\n\\n Output the results in a table format with the following columns: obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity. Randomize the position of the odd one out among obj_1, obj_2, obj_3, and obj_4. The similarity reason should be succinctly stated as 'The others are [blank]', where [blank] is the common trait. There is no need for an extended explanation of your thought process.\\n\\n Please generate 30 rows of items following these guidelines.`,
+          content: `I need to develop a game that presents a user with 4 objects. Three of those objects need to have something in common and the fourth needs to be the odd one out. Focus on the topic of ${category}.\\n\\n My goal is to make the game very hard and challenging. The odd one out shouldn't be too obvious. It has to be difficult to tell. This is very important, the game has to be very challenging otherwise I will be wasting people's time, so take your time to make it difficult. Everything has to be very closely related, it cannot be something like The Beatles, The Rolling Stones, The Who, Pablo Picasso where Pablo Picasso is the odd one out for being a painter. Here's an example of the input provided, Anakin Skywalker, Luke Skywalker and Han Solo. The output returned was Anakin Skywalker, Luke Skywalker, Leia Organa and Han Solo. Han Solo was the odd one out and the reason for similarity for the others was: The others are Skywalkers. As you can see, one of the objects was replaced to make it more challenging and fun. Another thing to note is not to use fancy terms but rather simple terms for items. For example, Crocus, Saffron, Colchicum, Corn where Corn is the odd one out and the others are Iridaceae. Instead of Iridaceae, say iris family. Another example would be  Sunflower, Zinnia , Marigold , Lettuce where Lettuce is odd and The others are heliophytes. Instead of heliophytes, say sun-loving plants. Also, no object must be said twice. I need something similar.\\n\\n Just output the result in a table with the following columns: obj_1, obj_2, obj_3, obj_4, odd, reason_for_similarity. Also for the odd one out, don't put obj_1 or obj_4, etc. use the actual name. For the reason for similarity, all you need to say is 'The others are blank' where blank is the reason for similarity. Nothing too long. You dont need to provide any written explanation of your thought process.\\n\\n I need you to generate 50 rows of items for this.`,
         },
       ],
 
@@ -78,11 +145,10 @@ async function generateDataAndSaveCSV() {
   const opts = { fields };
   const parser = new Parser(opts);
   const csv = parser.parse(allData);
-  const filename = `output.csv`; // Name for the output CSV file
+  const filename = `bible.csv`; // Name for the output CSV file
   fs.writeFileSync(filename, csv);
   console.log(`CSV file saved as ${filename}.`);
 }
 
 // Run the function
 generateDataAndSaveCSV().catch(console.error);
-// const category_words = ["airports", "animals", "books", "cars", "cities", "colors", "countries", "foods", "movies", "music", "sports", "superheroes", "tv shows", "video games", "weather", "writers", "actors", "actresses", "artists", "athletes", "authors", "bands", "basketball players", "baseball players", "boxers", "chess players", "comedians", "composers", "cricketers", "cyclists", "dancers", "directors", "football players", "golfers", "hockey players", "judges", "martial artists", "musicians", "painters", "philosophers", "photographers", "pianists", "poets", "politicians", "singers", "soccer players", "swimmers", "tennis players", "wrestlers", "youtubers", "scientists", "inventors", "astronauts", "engineers", "designers", "architects", "chefs", "doctors", "nurses", "teachers", "professors", "lawyers", "judges", "pilots", "soldiers", "police officers", "firefighters", "paramedics", "veterinarians", "dentists", "psychologists", "therapists", "social workers", "artists", "writers", "poets", "musicians", "singers", "dancers", "actors", "directors", "painters", "sculptors", "photographers", "designers", "architects", "chefs", "bakers", "bartenders", "waiters", "waitresses", "cooks", "sommeliers", "baristas", "brewers", "winemakers", "distillers", "farmers", "butchers", "bakers", "fishermen", "chefs", "cooks", "bartenders", "waiters", "waitresses", "sommeliers", "baristas", "brewers", "winemakers", "distillers", "farmers", "butchers", "bakers", "fishermen", "chefs", "cooks", "bartenders", "waiters", "waitresses", "sommeliers", "baristas"];

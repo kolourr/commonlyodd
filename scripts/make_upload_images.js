@@ -46,7 +46,7 @@ async function generateImage(name) {
     .replace(/[^a-z0-9]/gi, "_")
     .toLowerCase()}.png`;
   const outputPath = path.join(imagesDir, sanitizedFilename);
-  const prompt = `An image of ${name}`;
+  const prompt = `Baseball player ${name}`;
   let imageUrl;
 
   // // Try generating with OpenAI
@@ -136,7 +136,10 @@ async function uploadToCloudflare(filePath) {
   );
 
   if (response.data.success) {
-    return response.data.result.variants[0];
+    const publicUrl = response.data.result.variants.find((url) =>
+      url.includes("/public")
+    );
+    return publicUrl;
   } else {
     throw new Error(`Failed to upload ${fileName} to Cloudflare.`);
   }

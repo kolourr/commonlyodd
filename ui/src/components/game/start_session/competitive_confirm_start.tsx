@@ -15,6 +15,7 @@ const [open, setOpen] = createSignal(false);
 const [loading, setLoading] = createSignal(false);
 const [selectedTeams, setSelectedTeams] = createSignal<number>(0);
 const [selectedScore, setSelectedScore] = createSignal<number>(0);
+const [category, setCategory] = createSignal<string>("");
 const [countdown, setCountdown] = createSignal<number>(0);
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
@@ -26,16 +27,19 @@ const dialogTextStyle = {
 export async function openConfirmDialog(
   teams: number,
   targetScore: number,
-  countdown: number
+  countdown: number,
+  category: string
 ) {
   setSelectedTeams(teams);
   setSelectedScore(targetScore);
   setCountdown(countdown);
+  setCategory(category);
   setOpen(true);
 }
 
 async function startSession() {
   setLoading(true);
+
   try {
     const response = await fetch(
       `${import.meta.env.CO_API_URL}/start-session`,
@@ -49,6 +53,7 @@ async function startSession() {
           number_of_teams: selectedTeams(),
           target_score: selectedScore(),
           countdown: countdown(),
+          category: category().split(" ").join("_").toLowerCase(),
         }),
       }
     );
@@ -104,9 +109,10 @@ export default function ConfirmStartDialog() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            You have selected {selectedTeams()} teams with a target score of{" "}
-            {selectedScore()} and a countdown of {countdown()} seconds per
-            round. Want to proceed with these settings?
+            You have selected the {category()} category, {selectedTeams()} teams
+            with a target score of {selectedScore()} and a countdown of{" "}
+            {countdown()} seconds per round. Want to proceed with these
+            settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

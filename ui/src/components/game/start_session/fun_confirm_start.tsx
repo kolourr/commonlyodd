@@ -14,6 +14,7 @@ import CommonDialog from "../common_dialog";
 const [open, setOpen] = createSignal(false);
 const [loading, setLoading] = createSignal(false);
 const [countdown, setCountdown] = createSignal<number>(0);
+const [category, setCategory] = createSignal<string>("");
 const [dialogOpen, setDialogOpen] = createSignal(false);
 const [dialogContent, setDialogContent] = createSignal<string | JSX.Element>();
 
@@ -21,8 +22,12 @@ const dialogTextStyle = {
   color: "#f9fafb",
 };
 
-export async function openConfirmDialogFun(countdown: number) {
+export async function openConfirmDialogFun(
+  countdown: number,
+  category: string
+) {
   setCountdown(countdown);
+  setCategory(category);
   setOpen(true);
 }
 
@@ -44,6 +49,7 @@ async function startSession() {
           number_of_teams: numberOfTeams,
           target_score: targetScore,
           countdown: countdown(),
+          category: category().split(" ").join("_").toLowerCase(),
         }),
       }
     );
@@ -99,8 +105,9 @@ export default function ConfirmStartDialogFun() {
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText style={dialogTextStyle}>
-            You have selected a countdown of {countdown()} seconds per round.
-            Want to proceed with these settings?
+            You have selected the {category()} category and a countdown of{" "}
+            {countdown()} seconds per round. Want to proceed with these
+            settings?
           </DialogContentText>
           <div class="flex flex-row justify-center py-4">
             {loading() && <CircularProgress color="success" />}{" "}

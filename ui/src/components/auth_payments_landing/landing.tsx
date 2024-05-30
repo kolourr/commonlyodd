@@ -18,6 +18,7 @@ import FAQitems from "./faq_items";
 import HeaderMobile from "./header_mobile";
 import { subscriptionStatus } from "./user";
 import { isAuthenticated } from "./pricing_plans";
+import Demo from "../game/demo";
 
 const BASE_API = import.meta.env.CO_API_URL;
 const BASE_UI = import.meta.env.CO_UI_URL;
@@ -493,6 +494,7 @@ const LandingPage: Component = () => {
             </For>
           </div>
         </div>
+        <Demo />
         <Show when={!subscriptionStatus()}>
           <div class="flex flex-col space-y-6 divide-y pt-8 ">
             {bottomSection.map((section) => (

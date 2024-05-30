@@ -11,9 +11,10 @@ import (
 )
 
 type StartGameRequest struct {
-	NumberOfTeams int `json:"number_of_teams" binding:"required"`
-	TargetScore   int `json:"target_score" binding:"required"`
-	Countdown     int `json:"countdown" binding:"required"`
+	NumberOfTeams int    `json:"number_of_teams" binding:"required"`
+	TargetScore   int    `json:"target_score" binding:"required"`
+	Countdown     int    `json:"countdown" binding:"required"`
+	Category      string `json:"category" binding:"required"`
 }
 
 type GameSessionResponse struct {
@@ -33,6 +34,9 @@ func StartSession(c *gin.Context) {
 
 	//Countdown duration
 	countdownDuration = requestData.Countdown
+
+	// Set the category
+	category = requestData.Category
 
 	// Generate UUIDs for the session and starter token
 	sessionUUID := uuid.New().String()
