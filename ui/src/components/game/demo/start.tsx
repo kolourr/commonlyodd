@@ -256,7 +256,7 @@ export default function StartGameDemo() {
     } else if (isGameInProgress()) {
       return "In Progress";
     } else {
-      return "Start Demo";
+      return "Starting...";
     }
   }
 
@@ -294,6 +294,9 @@ export default function StartGameDemo() {
             onClick={handleButtonClick}
             disabled={isButtonDisabled()}
             style="border: none;  "
+            sx={{
+              color: "#f9fafb",
+            }}
           >
             <PlayButtonSVGDEMO />
           </Button>

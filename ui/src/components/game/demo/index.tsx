@@ -23,22 +23,22 @@ export const PlayButtonSVGDEMO = () => (
         cy="12"
         r="10"
         fill="none"
-        stroke=" #f9fafb"
+        stroke="currentColor"
         strokeWidth="2"
       />
-      <polygon points="10 8, 16 12, 10 16" fill="#f9fafb" />
+      <polygon points="10 8, 16 12, 10 16" fill="currentColor" />
     </svg>
   </>
 );
 
 export default function Demo() {
   return (
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col justify-center items-center ">
       <h3 class="text-4xl font-bold mb-2  text-center">DEMO</h3>
       <div class="flex  flex-col justify-center items-center    ">
         <GameImagesDemo gameData={objectsImages()} />
         <div class="flex justify-center items-center">
-          <div class="flex flex-col h-36   justify-center items-center py-6 mb-4 mt-12">
+          <div class="flex flex-col h-36 justify-center items-center py-6 mb-4 mt-12 text-gray-300">
             <div>
               <Show when={!isSessionActiveDemo()}>
                 <StartSessionDemo />

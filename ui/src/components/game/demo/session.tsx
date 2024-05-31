@@ -67,7 +67,14 @@ export default function StartSessionDemo() {
 
   return (
     <div>
-      <Button variant="outlined" onClick={startSession} style="border: none;  ">
+      <Button
+        variant="outlined"
+        onClick={startSession}
+        style="border: none;  "
+        sx={{
+          color: "#f9fafb",
+        }}
+      >
         <PlayButtonSVGDEMO />
       </Button>
       <div class="text-center font-bold  ">

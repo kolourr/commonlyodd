@@ -34,13 +34,14 @@ export default function EndSessionDemo() {
     <div>
       <Button
         variant="contained"
+        color="action"
         onClick={endSession}
         sx={{
           width: "200px",
-          fontSize: "14px",
+          fontSize: "18px",
           fontWeight: "bold",
-          color: "white",
-          backgroundColor: "#7c2d12",
+          color: "#64748b",
+          backgroundColor: "transparent",
         }}
       >
         Reset Demo
