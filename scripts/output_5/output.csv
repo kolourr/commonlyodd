@@ -1,699 +1,698 @@
-obj_name,obj_image_name,obj_name_alt,obj_name_ext,img_link
-Howie Morenz,,,,
-George Hainsworth,,,,
-Nels Stewart,,,,
-Lionel Conacher,,,,
-Frank Nighbor,,,,
-Sprague Cleghorn,,,,
-Joe Primeau,,,,
-Bun Cook,,,,
-Georges Boucher,,,,
-Eddie Shore,,,,
-Cy Denneny,,,,
-Aurel Joliat,,,,
-Eddie Gerard,,,,
-Ching Johnson,,,,
-Roy Worters,,,,
-Frank Boucher,,,,
-Georges Vezina,,,,
-King Clancy,,,,
-Tiny Thompson,,,,
-Clint Benedict,,,,
-Bill Cook,,,,
-Red Dutton,,,,
-Jack Adams,,,,
-Hap Day,,,,
-Frank Foyston,,,,
-Lionel Hitchman,,,,
-Hooley Smith,,,,
-Joe Malone,,,,
-Frank Fredrickson,,,,
-Charlie Gardiner,,,,
-Dit Clapper,,,,
-Johnny Gottselig,,,,
-Cecil Dillon,,,,
-Dave Kerr,,,,
-Red Horner,,,,
-Charlie Conacher,,,,
-Paul Thompson,,,,
-Earl Seibert,,,,
-Sweeney Schriner,,,,
-Earl Robinson,,,,
-Marty Barry,,,,
-Ebbie Goodfellow,,,,
-Frank Brimsek,,,,
-Toe Blake,,,,
-Milt Schmidt,,,,
-Turk Broda,,,,
-Bill Durnan,,,,
-Syl Apps,,,,
-Cooney Weiland,,,,
-Jimmy Thomson,,,,
-Maurice Richard,,,,
-Gordie Howe,,,,
-Bill Cowley,,,,
-Doug Bentley,,,,
-Red Kelly,,,,
-Sid Abel,,,,
-Ted Kennedy,,,,
-Howie Meeker,,,,
-Ken Reardon,,,,
-Gump Worsley,,,,
-George Armstrong,,,,
-Bobby Bauer,,,,
-Sid Smith,,,,
-Bill Mosienko,,,,
-Jim McFadden,,,,
-Norm Dussault,,,,
-Marty Pavelich,,,,
-Leo Gravelle,,,,
-Metro Prystai,,,,
-Gus Bodnar,,,,
-Bill Ezinicki,,,,
-Elmer Lach,,,,
-Dickie Moore,,,,
-Harry Watson,,,,
-Doug Harvey,,,,
-Jack Stewart,,,,
-Ted Lindsay,,,,
-Bernie Geoffrion,,,,
-Alex Delvecchio,,,,
-Tim Horton,,,,
-Bill Gadsby,,,,
-Andy Bathgate,,,,
-Jean Beliveau,,,,
-Marcel Pronovost,,,,
-Bobby Hull,,,,
-Al Arbour,,,,
-Glenn Hall,,,,
-Johnny Bower,,,,
-Henri Richard,,,,
-Terry Sawchuk,,,,
-Stan Mikita,,,,
-Frank Mahovlich,,,,
-Johnny Bucyk,,,,
-Jacques Plante,,,,
-Doug Mohns,,,,
-Eddie Shack,,,,
-Norm Ullman,,,,
-Bobby Orr,,,,
-Jacques Lemaire,,,,
-Dave Keon,,,,
-Pierre Pilote,,,,
-Phil Goyette,,,,
-Bobby Baun,,,,
-Rod Gilbert,,,,
-Ralph Backstrom,,,,
-Vic Hadfield,,,,
-Bobby Rousseau,,,,
-Harry Howell,,,,
-Ken Hodge,,,,
-Bob Nevin,,,,
-Dave Balon,,,,
-Jacques Laperriere,,,,
-Don Awrey,,,,
-Gary Bergman,,,,
-Dean Prentice,,,,
-Bob Pulford,,,,
-Floyd Smith,,,,
-Dick Duff,,,,
-Jean Béliveau,,,,
-Bobby Clarke,,,,
-Gerry Cheevers,,,,
-Claude Provost,,,,
-Larry Hillman,,,,
-Ted Green,,,,
-Bernie Parent,,,,
-Claude Larose,,,,
-Phil Esposito,,,,
-Jean Ratelle,,,,
-Marcel Dionne,,,,
-Rogie Vachon,,,,
-Larry Robinson,,,,
-Borje Salming,,,,
-Mike Bossy,,,,
-Steve Shutt,,,,
-Denis Potvin,,,,
-Guy Lapointe,,,,
-Rick MacLeish,,,,
-Wayne Cashman,,,,
-Bob Gainey,,,,
-Darryl Sittler,,,,
-Pete Mahovlich,,,,
-Clark Gillies,,,,
+Howie Morenz,howie_morenz,Image of howie_morenz,howie_morenz.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/38f48f75-c990-4e61-0164-ac584175e500/public
+George Hainsworth,george_hainsworth,Image of george_hainsworth,george_hainsworth.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/93561f19-4327-4248-b9ce-5bffb45d8c00/public
+Nels Stewart,nels_stewart,Image of nels_stewart,nels_stewart.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/153dc119-f4ac-46c0-ac78-935a26f17b00/public
+Lionel Conacher,lionel_conacher,Image of lionel_conacher,lionel_conacher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9c03a3d6-4ea0-4cbc-2eb9-a43b28278400/public
+Frank Nighbor,frank_nighbor,Image of frank_nighbor,frank_nighbor.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/476f4926-9fe5-4d45-05fc-55e3f17cbc00/public
+Sprague Cleghorn,sprague_cleghorn,Image of sprague_cleghorn,sprague_cleghorn.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ab3d5b8e-4128-418f-957a-bf2257229000/public
+Joe Primeau,joe_primeau,Image of joe_primeau,joe_primeau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d933248d-2bec-477d-0e70-4b902ac8fa00/public
+Bun Cook,bun_cook,Image of bun_cook,bun_cook.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7fd72bd7-8d03-41ca-d225-44e7470a1100/public
+Georges Boucher,georges_boucher,Image of georges_boucher,georges_boucher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/45341e77-8e03-4032-744e-4685bbc5da00/public
+Eddie Shore,eddie_shore,Image of eddie_shore,eddie_shore.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f0ee67eb-278a-444e-2458-d6325c2c3300/public
+Cy Denneny,cy_denneny,Image of cy_denneny,cy_denneny.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/25d6ac9a-5fc0-47c6-b406-28e6b9dff100/public
+Aurel Joliat,aurel_joliat,Image of aurel_joliat,aurel_joliat.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/be365fe5-a269-44bd-57da-33ecf3a35700/public
+Eddie Gerard,eddie_gerard,Image of eddie_gerard,eddie_gerard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6a0f929b-180a-4889-9ec5-40668ffe6200/public
+Ching Johnson,ching_johnson,Image of ching_johnson,ching_johnson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8a1dc537-6c10-4455-31cc-6f00a7025500/public
+Roy Worters,roy_worters,Image of roy_worters,roy_worters.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/216abfbe-b52d-4732-b023-9123b4f2b300/public
+Frank Boucher,frank_boucher,Image of frank_boucher,frank_boucher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6148b4c1-4a27-483e-2acc-bf08f697a900/public
+Georges Vezina,georges_vezina,Image of georges_vezina,georges_vezina.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b1bfa0c1-b5d7-41d8-b2bd-ae4094462a00/public
+King Clancy,king_clancy,Image of king_clancy,king_clancy.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4810a3cb-6d10-45cc-9d2e-550de9e03600/public
+Tiny Thompson,tiny_thompson,Image of tiny_thompson,tiny_thompson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6a3d05b6-6895-4795-e274-01faace85900/public
+Clint Benedict,clint_benedict,Image of clint_benedict,clint_benedict.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b7f5e594-5fbc-4204-2f3c-c2d9ddd26e00/public
+Bill Cook,bill_cook,Image of bill_cook,bill_cook.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/58f5cffe-739b-4486-fbda-d81df262ab00/public
+Red Dutton,red_dutton,Image of red_dutton,red_dutton.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/06656423-5bc2-4cc9-1682-346b4e094d00/public
+Jack Adams,jack_adams,Image of jack_adams,jack_adams.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/634b9dd3-5fae-4ab3-384a-e468b8cb0500/public
+Hap Day,hap_day,Image of hap_day,hap_day.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b4260b27-9f5c-47c0-f152-609c914db800/public
+Frank Foyston,frank_foyston,Image of frank_foyston,frank_foyston.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a5933270-05cf-46e4-4f23-7a279a6fb400/public
+Lionel Hitchman,lionel_hitchman,Image of lionel_hitchman,lionel_hitchman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3d70a0ef-7d12-4d18-fc55-1d78f50b7400/public
+Hooley Smith,hooley_smith,Image of hooley_smith,hooley_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0c957889-0e2f-4949-4f0a-05dd543dbc00/public
+Joe Malone,joe_malone,Image of joe_malone,joe_malone.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b1690773-e2b7-4234-e02f-764382062600/public
+Frank Fredrickson,frank_fredrickson,Image of frank_fredrickson,frank_fredrickson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0a32c6e5-f3da-4dfb-c2a4-b54b519da700/public
+Charlie Gardiner,charlie_gardiner,Image of charlie_gardiner,charlie_gardiner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7f8168f0-d24f-436b-fdb4-16930c7fd500/public
+Dit Clapper,dit_clapper,Image of dit_clapper,dit_clapper.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d5f3c7b7-e644-4375-5185-39dea3be6e00/public
+Johnny Gottselig,johnny_gottselig,Image of johnny_gottselig,johnny_gottselig.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fd044e11-bedb-4041-a757-aa2cf1578300/public
+Cecil Dillon,cecil_dillon,Image of cecil_dillon,cecil_dillon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f1ab6888-7b74-436b-c78e-292a262c2d00/public
+Dave Kerr,dave_kerr,Image of dave_kerr,dave_kerr.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/66d33c00-5c4f-43b6-ce22-207ad41bbd00/public
+Red Horner,red_horner,Image of red_horner,red_horner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7a489582-5d22-4d5f-cf52-a9748e9cb300/public
+Charlie Conacher,charlie_conacher,Image of charlie_conacher,charlie_conacher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2fc3fccd-a814-4fa0-cdf2-80de179c6500/public
+Paul Thompson,paul_thompson,Image of paul_thompson,paul_thompson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ce654dce-9c49-4483-3c59-4263ec853200/public
+Earl Seibert,earl_seibert,Image of earl_seibert,earl_seibert.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/63c24a0e-327a-4c6b-8a3b-797cd98cda00/public
+Sweeney Schriner,sweeney_schriner,Image of sweeney_schriner,sweeney_schriner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/84a60ae9-339a-4368-66da-5cf27be96200/public
+Earl Robinson,earl_robinson,Image of earl_robinson,earl_robinson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cb8da074-2205-4d9a-65ba-9840f20fa100/public
+Marty Barry,marty_barry,Image of marty_barry,marty_barry.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/173202f9-80cd-42d2-999b-acae354b3c00/public
+Ebbie Goodfellow,ebbie_goodfellow,Image of ebbie_goodfellow,ebbie_goodfellow.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/554daf49-3d34-498f-a152-e2d688291500/public
+Frank Brimsek,frank_brimsek,Image of frank_brimsek,frank_brimsek.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/88ae488e-57ed-4727-9b31-44590f104c00/public
+Toe Blake,toe_blake,Image of toe_blake,toe_blake.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/16288a1b-5868-46d6-19b8-8a2aa779fb00/public
+Milt Schmidt,milt_schmidt,Image of milt_schmidt,milt_schmidt.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aa3b82a2-0a8e-4638-b276-f1b021a98500/public
+Turk Broda,turk_broda,Image of turk_broda,turk_broda.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a519509d-9f4d-4076-1432-6c3e8ec1a100/public
+Bill Durnan,bill_durnan,Image of bill_durnan,bill_durnan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3fe4adaa-8c62-434f-5488-10545e40a400/public
+Syl Apps,syl_apps,Image of syl_apps,syl_apps.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f22dc17b-72eb-4ea2-200c-b5455b3a5900/public
+Cooney Weiland,cooney_weiland,Image of cooney_weiland,cooney_weiland.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0108a819-b86b-4884-7460-f210a23b2c00/public
+Jimmy Thomson,jimmy_thomson,Image of jimmy_thomson,jimmy_thomson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7713f4b2-8459-4a8a-aed8-782ec7a1a900/public
+Maurice Richard,maurice_richard,Image of maurice_richard,maurice_richard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8071ad6e-55e3-4a26-3b03-ddefa97af300/public
+Gordie Howe,gordie_howe,Image of gordie_howe,gordie_howe.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/eb0337b7-486e-4682-d74b-d3e84cf0c200/public
+Bill Cowley,bill_cowley,Image of bill_cowley,bill_cowley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d072a7d6-77d0-4fbd-262c-40bd6bffa300/public
+Doug Bentley,doug_bentley,Image of doug_bentley,doug_bentley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ce4909f9-de5e-443a-42d7-6486485d2900/public
+Red Kelly,red_kelly,Image of red_kelly,red_kelly.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9e927181-5572-457c-6e4e-023a3a94b500/public
+Sid Abel,sid_abel,Image of sid_abel,sid_abel.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/826a208e-cfe3-4299-7e78-d8be1797f700/public
+Ted Kennedy,ted_kennedy,Image of ted_kennedy,ted_kennedy.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0ccbadb4-4a2c-4aa4-4e14-c4002f80e300/public
+Howie Meeker,howie_meeker,Image of howie_meeker,howie_meeker.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fbe5986f-cf7d-46b2-1857-6a71a72c6100/public
+Ken Reardon,ken_reardon,Image of ken_reardon,ken_reardon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8c8454ec-9716-47d4-7cea-f5392e6a7c00/public
+Gump Worsley,gump_worsley,Image of gump_worsley,gump_worsley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c71b2f1f-7497-4f3f-3471-4a720eee6000/public
+George Armstrong,george_armstrong,Image of george_armstrong,george_armstrong.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/acdfe386-a4f7-4fc0-36a6-8ce1b1620600/public
+Bobby Bauer,bobby_bauer,Image of bobby_bauer,bobby_bauer.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0e2a2731-06d8-4e39-cda5-e45011588200/public
+Sid Smith,sid_smith,Image of sid_smith,sid_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f733ac9a-963c-407f-ea27-d27a2c968100/public
+Bill Mosienko,bill_mosienko,Image of bill_mosienko,bill_mosienko.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/df467287-a604-4284-d3ab-1b86fa728f00/public
+Jim McFadden,jim_mcfadden,Image of jim_mcfadden,jim_mcfadden.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f26c0315-5216-4bda-d852-dfdab1d97700/public
+Norm Dussault,norm_dussault,Image of norm_dussault,norm_dussault.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/07c53638-483d-48d0-e633-4c6f5d950d00/public
+Marty Pavelich,marty_pavelich,Image of marty_pavelich,marty_pavelich.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a065c8c7-b056-4c7a-17c4-386f3f8a8100/public
+Leo Gravelle,leo_gravelle,Image of leo_gravelle,leo_gravelle.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8b173caf-2a23-449f-de77-e3b1e6c2a000/public
+Metro Prystai,metro_prystai,Image of metro_prystai,metro_prystai.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c86ac090-3ea5-4e16-09e9-2115913f5b00/public
+Gus Bodnar,gus_bodnar,Image of gus_bodnar,gus_bodnar.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/bc09841e-db5c-4243-e385-91474dbb0b00/public
+Bill Ezinicki,bill_ezinicki,Image of bill_ezinicki,bill_ezinicki.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/08d89467-2270-4d12-e4da-4ef0e37a4e00/public
+Elmer Lach,elmer_lach,Image of elmer_lach,elmer_lach.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a40d1773-73e1-491c-359c-3aef7f0cfd00/public
+Dickie Moore,dickie_moore,Image of dickie_moore,dickie_moore.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cc59d4b8-6354-4534-2c0f-1365c454f800/public
+Harry Watson,harry_watson,Image of harry_watson,harry_watson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aa9e6bf3-636b-4d1d-a3e3-bbdfc66d1200/public
+Doug Harvey,doug_harvey,Image of doug_harvey,doug_harvey.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/14f7357c-8670-49d4-a0de-22f69d258600/public
+Jack Stewart,jack_stewart,Image of jack_stewart,jack_stewart.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/81a4f682-fb73-49cc-4e6e-e2c9f742af00/public
+Ted Lindsay,ted_lindsay,Image of ted_lindsay,ted_lindsay.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a482d883-bba6-4124-e965-b9bd961a3c00/public
+Bernie Geoffrion,bernie_geoffrion,Image of bernie_geoffrion,bernie_geoffrion.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1b2afaab-ece1-41dc-df19-0b978289dc00/public
+Alex Delvecchio,alex_delvecchio,Image of alex_delvecchio,alex_delvecchio.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9da143ee-3db8-46da-a1e0-22b735d2d700/public
+Tim Horton,tim_horton,Image of tim_horton,tim_horton.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f6047c07-30f6-4775-0ed8-dce6da6bdb00/public
+Bill Gadsby,bill_gadsby,Image of bill_gadsby,bill_gadsby.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f25880e7-b490-45e4-c2e2-65b01745e100/public
+Andy Bathgate,andy_bathgate,Image of andy_bathgate,andy_bathgate.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/45ab9e86-7c67-4e5c-0457-230faec17800/public
+Jean Beliveau,jean_beliveau,Image of jean_beliveau,jean_beliveau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/16851c43-3e59-4ffb-41e6-c476f5919200/public
+Marcel Pronovost,marcel_pronovost,Image of marcel_pronovost,marcel_pronovost.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0a61c3c3-c91a-4413-41d5-b4b5ea3ee200/public
+Bobby Hull,bobby_hull,Image of bobby_hull,bobby_hull.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ae6d6f38-d127-4007-017d-e4035998b600/public
+Al Arbour,al_arbour,Image of al_arbour,al_arbour.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ae0a8309-aa22-4782-c02a-b79befcb3c00/public
+Glenn Hall,glenn_hall,Image of glenn_hall,glenn_hall.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b43cfbbb-0de6-463a-bb9c-9c9e47e51b00/public
+Johnny Bower,johnny_bower,Image of johnny_bower,johnny_bower.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d7014cc1-b8e6-4b2c-74ea-e24a59cee300/public
+Henri Richard,henri_richard,Image of henri_richard,henri_richard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4f2f96d0-6087-411e-7912-d5f3cdd3ef00/public
+Terry Sawchuk,terry_sawchuk,Image of terry_sawchuk,terry_sawchuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0c92a251-f0b7-4fbc-6e1f-f8a451ff7200/public
+Stan Mikita,stan_mikita,Image of stan_mikita,stan_mikita.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f28991a3-1948-466a-8f44-dc75d5ce8a00/public
+Frank Mahovlich,frank_mahovlich,Image of frank_mahovlich,frank_mahovlich.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e6f1c7c3-13e2-49ba-af13-379bc7a50b00/public
+Johnny Bucyk,johnny_bucyk,Image of johnny_bucyk,johnny_bucyk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d3e9b41c-6c1e-4b65-1310-f268e24e9000/public
+Jacques Plante,jacques_plante,Image of jacques_plante,jacques_plante.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b3ca3285-2b3b-4984-11a1-a02aa77fd200/public
+Doug Mohns,doug_mohns,Image of doug_mohns,doug_mohns.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/86fccd04-5928-4c3c-e623-562c7d765200/public
+Eddie Shack,eddie_shack,Image of eddie_shack,eddie_shack.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b8c2ceee-37a0-440b-f42b-738ec8ddc600/public
+Norm Ullman,norm_ullman,Image of norm_ullman,norm_ullman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cbf8316e-a1b0-47c0-3022-4944483b4b00/public
+Bobby Orr,bobby_orr,Image of bobby_orr,bobby_orr.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fb551eca-a674-4165-796b-9cbe7642cc00/public
+Jacques Lemaire,jacques_lemaire,Image of jacques_lemaire,jacques_lemaire.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c64f4252-7c25-4ef2-f548-3b5e83421600/public
+Dave Keon,dave_keon,Image of dave_keon,dave_keon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/88cdd438-a58a-47e2-64c1-99d969667f00/public
+Pierre Pilote,pierre_pilote,Image of pierre_pilote,pierre_pilote.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/052a7b4c-41bd-49f9-1a09-bfe88ad5dd00/public
+Phil Goyette,phil_goyette,Image of phil_goyette,phil_goyette.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d121e0b5-7eca-4fc8-eeb2-716292ed5a00/public
+Bobby Baun,bobby_baun,Image of bobby_baun,bobby_baun.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0e579dff-54ad-440e-5907-55572753f700/public
+Rod Gilbert,rod_gilbert,Image of rod_gilbert,rod_gilbert.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/42d56c49-2f2c-49d0-ac7a-09ac00b45a00/public
+Ralph Backstrom,ralph_backstrom,Image of ralph_backstrom,ralph_backstrom.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5a901222-340d-45b4-ec50-c135b7afe400/public
+Vic Hadfield,vic_hadfield,Image of vic_hadfield,vic_hadfield.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1d549b21-1e89-4695-7e08-69acc31dab00/public
+Bobby Rousseau,bobby_rousseau,Image of bobby_rousseau,bobby_rousseau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b08616fd-82a9-4b1e-6656-bd29134c5000/public
+Harry Howell,harry_howell,Image of harry_howell,harry_howell.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/84b5f9a6-5ded-489e-73b0-9dffe8d37c00/public
+Ken Hodge,ken_hodge,Image of ken_hodge,ken_hodge.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3301dea2-6900-41f3-11c1-392bfa16f600/public
+Bob Nevin,bob_nevin,Image of bob_nevin,bob_nevin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f90d2a93-e96d-4919-5d0e-5d943e0f9100/public
+Dave Balon,dave_balon,Image of dave_balon,dave_balon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2df7c674-75a3-4cf9-1dd0-dacde1496f00/public
+Jacques Laperriere,jacques_laperriere,Image of jacques_laperriere,jacques_laperriere.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d1eec96a-68a5-4ef3-b5d6-e2cbb6ebfb00/public
+Don Awrey,don_awrey,Image of don_awrey,don_awrey.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/786dfa05-60b6-4e53-f6b8-2e30f1663a00/public
+Gary Bergman,gary_bergman,Image of gary_bergman,gary_bergman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4caea750-5ef6-4921-b5d8-e387a357c000/public
+Dean Prentice,dean_prentice,Image of dean_prentice,dean_prentice.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7618d937-f76c-41e8-198c-749b086aec00/public
+Bob Pulford,bob_pulford,Image of bob_pulford,bob_pulford.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/11618aa7-02b3-46cb-b189-0838395eac00/public
+Floyd Smith,floyd_smith,Image of floyd_smith,floyd_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/da2c1036-752b-4fe8-35e8-99313de51d00/public
+Dick Duff,dick_duff,Image of dick_duff,dick_duff.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/388e007b-3822-4236-4f19-b5d00cb76c00/public
+Jean Béliveau,jean_b_liveau,Image of jean_b_liveau,jean_b_liveau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/526cb420-7655-4a28-64e7-f007655cfe00/public
+Bobby Clarke,bobby_clarke,Image of bobby_clarke,bobby_clarke.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/75c3c239-bcc2-41d6-6e29-6445a148bc00/public
+Gerry Cheevers,gerry_cheevers,Image of gerry_cheevers,gerry_cheevers.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0e8aa654-ea86-469d-f1da-982016cae700/public
+Claude Provost,claude_provost,Image of claude_provost,claude_provost.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cd5dbb12-8025-4899-9a8c-e8de6e436c00/public
+Larry Hillman,larry_hillman,Image of larry_hillman,larry_hillman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e11dfd50-58a3-4a1b-8010-be0cede1c000/public
+Ted Green,ted_green,Image of ted_green,ted_green.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/69a2ec13-04e9-4831-2126-f95fcd9a2200/public
+Bernie Parent,bernie_parent,Image of bernie_parent,bernie_parent.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/31592f52-5d4b-4278-f19d-c7be49782d00/public
+Claude Larose,claude_larose,Image of claude_larose,claude_larose.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9de34939-b3c2-4d05-6b08-df68871b9a00/public
+Phil Esposito,phil_esposito,Image of phil_esposito,phil_esposito.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8012dcb4-d1ed-4a8e-db48-406015872600/public
+Jean Ratelle,jean_ratelle,Image of jean_ratelle,jean_ratelle.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/98e3cab0-1f8d-47b6-417e-cc3b5b6c5800/public
+Marcel Dionne,marcel_dionne,Image of marcel_dionne,marcel_dionne.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/384281da-f653-41a7-ccc6-807513b11700/public
+Rogie Vachon,rogie_vachon,Image of rogie_vachon,rogie_vachon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4835a6f2-00eb-461a-824e-fc83369e7600/public
+Larry Robinson,larry_robinson,Image of larry_robinson,larry_robinson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6b14347a-1d5d-47aa-c51d-e396101b0100/public
+Borje Salming,borje_salming,Image of borje_salming,borje_salming.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7b2e6ffc-618f-4cfa-1274-ff3f13e1a700/public
+Mike Bossy,mike_bossy,Image of mike_bossy,mike_bossy.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/364a5997-beef-4b40-d793-4e5d90b13300/public
+Steve Shutt,steve_shutt,Image of steve_shutt,steve_shutt.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1b632344-f7ab-4c8a-0300-45aea751ca00/public
+Denis Potvin,denis_potvin,Image of denis_potvin,denis_potvin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d7e62bcf-2d7d-4c8a-328b-3c16ff5e1500/public
+Guy Lapointe,guy_lapointe,Image of guy_lapointe,guy_lapointe.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/85e47793-a4cf-4480-e028-f8f7cc67b700/public
+Rick MacLeish,rick_macleish,Image of rick_macleish,rick_macleish.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/78f41ee2-7fa4-4cfd-219f-1dc3026f0800/public
+Wayne Cashman,wayne_cashman,Image of wayne_cashman,wayne_cashman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/71ebe441-37bb-4328-0df7-c1dc42b3aa00/public
+Bob Gainey,bob_gainey,Image of bob_gainey,bob_gainey.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3f213566-b135-43e6-55b7-c31fdc6a1600/public
+Darryl Sittler,darryl_sittler,Image of darryl_sittler,darryl_sittler.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f19dad32-10c4-4baa-9369-b616322af900/public
+Pete Mahovlich,pete_mahovlich,Image of pete_mahovlich,pete_mahovlich.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/09e13a6d-0c42-4d20-0995-a1d5ddf83200/public
+Clark Gillies,clark_gillies,Image of clark_gillies,clark_gillies.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f6df2ff4-fd6b-4f49-0bd0-248b5c8e3200/public
 Gilbert Perreault,,,,
-Guy Lafleur,,,,
-Ken Dryden,,,,
-Tony Esposito,,,,
-Peter Mahovlich,,,,
-Brad Park,,,,
-Wayne Gretzky,,,,
-Vladislav Tretiak,,,,
-Lanny McDonald,,,,
-Serge Savard,,,,
-Mark Messier,,,,
-Paul Coffey,,,,
-Mario Lemieux,,,,
-Glenn Anderson,,,,
-Dino Ciccarelli,,,,
-Doug Wilson,,,,
+Guy Lafleur,guy_lafleur,Image of guy_lafleur,guy_lafleur.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/94b848c5-4892-4abd-076d-217609e8ac00/public
+Ken Dryden,ken_dryden,Image of ken_dryden,ken_dryden.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9caa41d7-d35f-43dc-33c7-72933c7ccc00/public
+Tony Esposito,tony_esposito,Image of tony_esposito,tony_esposito.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0a623ab6-8789-4dd9-9067-71e529449f00/public
+Peter Mahovlich,peter_mahovlich,Image of peter_mahovlich,peter_mahovlich.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7c54ee6a-2b7c-4fac-77b9-ac50685f4000/public
+Brad Park,brad_park,Image of brad_park,brad_park.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4be5448d-d383-4a32-9d15-ab2ca550f600/public
+Wayne Gretzky,wayne_gretzky,Image of wayne_gretzky,wayne_gretzky.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7b435f0b-9126-4ff6-1c58-e824514adf00/public
+Vladislav Tretiak,vladislav_tretiak,Image of vladislav_tretiak,vladislav_tretiak.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/66f7478a-41ac-4c43-de6b-9606ad03b100/public
+Lanny McDonald,lanny_mcdonald,Image of lanny_mcdonald,lanny_mcdonald.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9e8421fe-eaef-43ec-4c5f-b83ece3d5000/public
+Serge Savard,serge_savard,Image of serge_savard,serge_savard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b881efff-370b-4a04-a907-2b6a90731200/public
+Mark Messier,mark_messier,Image of mark_messier,mark_messier.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fcb1d3fa-0d66-4fc0-04c8-78492238ff00/public
+Paul Coffey,paul_coffey,Image of paul_coffey,paul_coffey.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3b709232-0fe5-4b7a-aa23-47fd79355e00/public
+Mario Lemieux,mario_lemieux,Image of mario_lemieux,mario_lemieux.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/491205da-07a3-4836-587d-d30ef9005600/public
+Glenn Anderson,glenn_anderson,Image of glenn_anderson,glenn_anderson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ea4d6d49-c984-48d0-d4ca-3c7be61dbc00/public
+Dino Ciccarelli,dino_ciccarelli,Image of dino_ciccarelli,dino_ciccarelli.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b0509d71-d9f3-474d-f879-3caa5a968500/public
+Doug Wilson,doug_wilson,Image of doug_wilson,doug_wilson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aac6487c-7606-40dd-7036-7f20a89e2e00/public
 Pat LaFontaine,,,,
-Joe Mullen,,,,
-Luc Robitaille,,,,
-Neal Broten,,,,
-Dave Andreychuk,,,,
-Steve Larmer,,,,
-Ken Linseman,,,,
-Ulf Samuelsson,,,,
-Chris Nilan,,,,
-Bob Probert,,,,
-Randy Carlyle,,,,
-John MacLean,,,,
+Joe Mullen,joe_mullen,Image of joe_mullen,joe_mullen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/65a77e5f-a0a9-4d2d-7960-b4f1fcb59e00/public
+Luc Robitaille,luc_robitaille,Image of luc_robitaille,luc_robitaille.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fbd04e7f-95a1-453e-d9ab-e98fddf8f600/public
+Neal Broten,neal_broten,Image of neal_broten,neal_broten.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/14ac01da-1938-4f06-08be-493b02d0de00/public
+Dave Andreychuk,dave_andreychuk,Image of dave_andreychuk,dave_andreychuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d5442b7c-e9cf-4f6c-2b2c-f2af5c83fe00/public
+Steve Larmer,steve_larmer,Image of steve_larmer,steve_larmer.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a8f1a611-409c-4e29-05ea-5d188966e300/public
+Ken Linseman,ken_linseman,Image of ken_linseman,ken_linseman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a2f3a3ed-e8d9-4a07-4722-3ab1a98c4800/public
+Ulf Samuelsson,ulf_samuelsson,Image of ulf_samuelsson,ulf_samuelsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0217b352-23c6-4212-3cde-6ca6de02be00/public
+Chris Nilan,chris_nilan,Image of chris_nilan,chris_nilan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/be86ba4a-b1f9-48f1-26cd-0d9486d88a00/public
+Bob Probert,bob_probert,Image of bob_probert,bob_probert.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e390244c-0024-4dd5-1478-226da4ff3200/public
+Randy Carlyle,randy_carlyle,Image of randy_carlyle,randy_carlyle.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d359f065-3803-4253-4a0c-a13e6c822500/public
+John MacLean,john_maclean,Image of john_maclean,john_maclean.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/859de6a5-8ef8-4280-f322-c4e57c0f2b00/public
 Rick Vaive,,,,
-Phil Housley,,,,
-Steve Thomas,,,,
-Mike Krushelnyski,,,,
-Brian Mullen,,,,
-Tomas Sandstrom,,,,
-Guy Carbonneau,,,,
-Brett Hull,,,,
-Patrick Roy,,,,
-Denis Savard,,,,
-Mark Howe,,,,
-Rick Middleton,,,,
-Larry Murphy,,,,
-Peter Stastny,,,,
-Tom Barrasso,,,,
-Brian Leetch,,,,
-Joe Sakic,,,,
-Mats Naslund,,,,
-Doug Gilmour,,,,
-Bobby Smith,,,,
-Brad McCrimmon,,,,
-Reggie Lemelin,,,,
-Pat Verbeek,,,,
-Brian Bellows,,,,
-Mike Modano,,,,
-Ron Hextall,,,,
-Ray Ferraro,,,,
-Jari Kurri,,,,
-Ray Bourque,,,,
-Mike Gartner,,,,
-Dave Taylor,,,,
-Mike Liut,,,,
-Michel Goulet,,,,
-Tomas Sandström,,,,
-Dale Hawerchuk,,,,
-Pelle Lindbergh,,,,
-Al MacInnis,,,,
-Mats Näslund,,,,
-Ron Francis,,,,
-Bernie Nicholls,,,,
-Rick Martin,,,,
-Steve Yzerman,,,,
-Bernie Federko,,,,
-Sergei Makarov,,,,
-Mike Vernon,,,,
-Adam Oates,,,,
-Jaromir Jagr,,,,
-Paul Kariya,,,,
-Chris Chelios,,,,
+Phil Housley,phil_housley,Image of phil_housley,phil_housley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cc95f473-5287-43a0-f0ae-15d5af158800/public
+Steve Thomas,steve_thomas,Image of steve_thomas,steve_thomas.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fd65e626-ae87-4d13-021b-26d3144c1400/public
+Mike Krushelnyski,mike_krushelnyski,Image of mike_krushelnyski,mike_krushelnyski.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f44098a9-65c7-4c8a-9250-fd25eeddd300/public
+Brian Mullen,brian_mullen,Image of brian_mullen,brian_mullen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/94e5c04e-ae3e-4bbe-7b67-2f673d167f00/public
+Tomas Sandstrom,tomas_sandstrom,Image of tomas_sandstrom,tomas_sandstrom.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8bacb130-7da5-4a0f-f89c-d03a43b2b000/public
+Guy Carbonneau,guy_carbonneau,Image of guy_carbonneau,guy_carbonneau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/653132b2-9d52-4634-5f7e-c00e6c93c100/public
+Brett Hull,brett_hull,Image of brett_hull,brett_hull.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/792e29ea-b348-4552-15dd-a6bed1fe9b00/public
+Patrick Roy,patrick_roy,Image of patrick_roy,patrick_roy.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6cb1e862-2c09-4719-6126-52cfdcec3000/public
+Denis Savard,denis_savard,Image of denis_savard,denis_savard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7a75dffd-e717-4986-015c-77cefc748600/public
+Mark Howe,mark_howe,Image of mark_howe,mark_howe.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5e03b8ee-5c16-4c58-b4d4-bab3ad56a600/public
+Rick Middleton,rick_middleton,Image of rick_middleton,rick_middleton.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cf813208-71ab-4275-4dd8-d34d1e4aee00/public
+Larry Murphy,larry_murphy,Image of larry_murphy,larry_murphy.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/860d8607-7fbf-4761-5836-db800fb2fb00/public
+Peter Stastny,peter_stastny,Image of peter_stastny,peter_stastny.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/96096c9e-0146-494f-ebf8-4c8f4df48200/public
+Tom Barrasso,tom_barrasso,Image of tom_barrasso,tom_barrasso.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e19d640f-b3ce-4362-518b-9c8093e5f600/public
+Brian Leetch,brian_leetch,Image of brian_leetch,brian_leetch.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fdafb624-cb02-4949-ddeb-3b89bf789700/public
+Joe Sakic,joe_sakic,Image of joe_sakic,joe_sakic.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d301ec71-03c9-4ab5-550e-68dd47627e00/public
+Mats Naslund,mats_naslund,Image of mats_naslund,mats_naslund.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c7681d2f-efef-4124-1901-65029909e600/public
+Doug Gilmour,doug_gilmour,Image of doug_gilmour,doug_gilmour.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/333d2f21-463a-4255-f2b9-4f02378d7900/public
+Bobby Smith,bobby_smith,Image of bobby_smith,bobby_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1d6baff1-d682-4f2d-9292-7514379b4f00/public
+Brad McCrimmon,brad_mccrimmon,Image of brad_mccrimmon,brad_mccrimmon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c69ab0a0-265a-4b4f-4a2d-0a854cf83a00/public
+Reggie Lemelin,reggie_lemelin,Image of reggie_lemelin,reggie_lemelin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ec92bf53-1a7e-4753-1f47-d1f4a5b8aa00/public
+Pat Verbeek,pat_verbeek,Image of pat_verbeek,pat_verbeek.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b6787613-9c39-453a-39e9-8a09c489ca00/public
+Brian Bellows,brian_bellows,Image of brian_bellows,brian_bellows.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4d589595-d9bc-4ed7-feee-7cfec78ee000/public
+Mike Modano,mike_modano,Image of mike_modano,mike_modano.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8409a47c-7416-4b92-aa85-6f1c9e0ad200/public
+Ron Hextall,ron_hextall,Image of ron_hextall,ron_hextall.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/683fea3c-a7d6-4b9b-99cd-e414fad91e00/public
+Ray Ferraro,ray_ferraro,Image of ray_ferraro,ray_ferraro.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/72e0c189-c7f7-4eda-925d-5bb36e138500/public
+Jari Kurri,jari_kurri,Image of jari_kurri,jari_kurri.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7b96bc45-ccab-4762-2f39-c568d3c3d100/public
+Ray Bourque,ray_bourque,Image of ray_bourque,ray_bourque.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2270c83e-5e56-46ed-666d-2473f1424500/public
+Mike Gartner,mike_gartner,Image of mike_gartner,mike_gartner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/dc1a8c7d-6943-4811-d08c-f094718b4500/public
+Dave Taylor,dave_taylor,Image of dave_taylor,dave_taylor.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cae1515a-5118-46e0-e3fd-de3e51013500/public
+Mike Liut,mike_liut,Image of mike_liut,mike_liut.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c5959cff-245a-470b-ab2a-6be73b63ee00/public
+Michel Goulet,michel_goulet,Image of michel_goulet,michel_goulet.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/001c9c1b-2360-4c8d-6aba-a5e24e50a600/public
+Tomas Sandström,tomas_sandstr_m,Image of tomas_sandstr_m,tomas_sandstr_m.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/78a7a090-9efe-4eb0-64af-3aa24512f900/public
+Dale Hawerchuk,dale_hawerchuk,Image of dale_hawerchuk,dale_hawerchuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d309b91b-2bc0-4455-56e5-bde3bf859100/public
+Pelle Lindbergh,pelle_lindbergh,Image of pelle_lindbergh,pelle_lindbergh.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b6b4c71f-864d-41ad-8a8d-f5e7c4c9ab00/public
+Al MacInnis,al_macinnis,Image of al_macinnis,al_macinnis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2f1cb07c-3e6e-4c72-89c2-1ae72494e900/public
+Mats Näslund,mats_n_slund,Image of mats_n_slund,mats_n_slund.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0e1cd323-3f8a-48c3-b944-ea8814ccfe00/public
+Ron Francis,ron_francis,Image of ron_francis,ron_francis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/48156c48-692c-4da1-1085-33cab4bacb00/public
+Bernie Nicholls,bernie_nicholls,Image of bernie_nicholls,bernie_nicholls.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/19474038-3831-4cbc-0083-7a2d586eaa00/public
+Rick Martin,rick_martin,Image of rick_martin,rick_martin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/68aa2906-d285-423d-0022-4d8873688400/public
+Steve Yzerman,steve_yzerman,Image of steve_yzerman,steve_yzerman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c5d46a74-9d5f-4990-35f5-8641b82a6300/public
+Bernie Federko,bernie_federko,Image of bernie_federko,bernie_federko.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/22176956-d401-4158-e3c9-907eb98c5000/public
+Sergei Makarov,sergei_makarov,Image of sergei_makarov,sergei_makarov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/92a58724-dceb-4047-4f1b-a7e8d9790a00/public
+Mike Vernon,mike_vernon,Image of mike_vernon,mike_vernon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2ca05d3c-e46e-4c2e-688e-037f0c411b00/public
+Adam Oates,adam_oates,Image of adam_oates,adam_oates.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0716fed8-a47f-4e1b-6476-1956e4de4a00/public
+Jaromir Jagr,jaromir_jagr,Image of jaromir_jagr,jaromir_jagr.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/287b967f-8afe-4412-d65b-bb2b652faf00/public
+Paul Kariya,paul_kariya,Image of paul_kariya,paul_kariya.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6731351f-e398-4769-6190-13f4d09ba700/public
+Chris Chelios,chris_chelios,Image of chris_chelios,chris_chelios.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/be8aaaae-2507-4005-c22a-769183dc6600/public
 Joe Thornton,,,,
-Chris Pronger,,,,
-Rod Brind'Amour,,,,
-Sergei Zubov,,,,
-Brendan Shanahan,,,,
-Theo Fleury,,,,
-Alexander Mogilny,,,,
-Mike Richter,,,,
-Kirk Muller,,,,
-Pierre Turgeon,,,,
-Kevin Stevens,,,,
-Gary Roberts,,,,
-Sergei Gonchar,,,,
-Rob Blake,,,,
-Peter Bondra,,,,
-Ed Jovanovski,,,,
-Vincent Damphousse,,,,
-Sergei Fedorov,,,,
-Dominik Hasek,,,,
-Mats Sundin,,,,
-John LeClair,,,,
-Scott Mellanby,,,,
-Trevor Linden,,,,
-Owen Nolan,,,,
-Alexei Yashin,,,,
-Tony Granato,,,,
-Mike Peca,,,,
-Geoff Courtnall,,,,
-Esa Tikkanen,,,,
-Chris Osgood,,,,
-Ed Belfour,,,,
-Jarome Iginla,,,,
-Adam Foote,,,,
-Claude Lemieux,,,,
-Markus Naslund,,,,
-Alexei Kovalev,,,,
-Doug Weight,,,,
-Mike Ricci,,,,
-Alexei Zhitnik,,,,
-Teemu Selanne,,,,
-Tony Amonte,,,,
-Nicklas Lidstrom,,,,
-Pavel Bure,,,,
-Mark Recchi,,,,
-Sidney Crosby,,,,
-Martin Brodeur,,,,
-Pavel Datsyuk,,,,
-Jonathan Toews,,,,
-Vincent Lecavalier,,,,
-Peter Forsberg,,,,
-Marian Gaborik,,,,
-Daniel Sedin,,,,
-Eric Staal,,,,
-Mike Richards,,,,
-Shea Weber,,,,
-Corey Perry,,,,
-Henrik Zetterberg,,,,
-Alex Ovechkin,,,,
-Roberto Luongo,,,,
-Brad Richards,,,,
-Ryan Suter,,,,
-Daniel Alfredsson,,,,
-Marian Hossa,,,,
-Henrik Lundqvist,,,,
-Scott Niedermayer,,,,
-Marc-Andre Fleury,,,,
-Zdeno Chara,,,,
-Joe Nieuwendyk,,,,
-Patrick Marleau,,,,
-Patrick Kane,,,,
-Martin St. Louis,,,,
-Ilya Kovalchuk,,,,
-Rick Nash,,,,
-Shane Doan,,,,
-Anze Kopitar,,,,
-Ryan Getzlaf,,,,
-Scott Gomez,,,,
-Nicklas Lidström,,,,
-Ilya Bryzgalov,,,,
-Tuukka Rask,,,,
-Saku Koivu,,,,
-Evgeni Nabokov,,,,
-Carey Price,,,,
-Duncan Keith,,,,
-Connor McDavid,,,,
-Brent Burns,,,,
-Claude Giroux,,,,
-Patrice Bergeron,,,,
-Phil Kessel,,,,
-Jamie Benn,,,,
-P.K. Subban,,,,
-Leon Draisaitl,,,,
-Matt Duchene,,,,
-Alex Pietrangelo,,,,
-John Tavares,,,,
-Taylor Hall,,,,
-Mark Giordano,,,,
-Blake Wheeler,,,,
-Aleksander Barkov,,,,
-John Klingberg,,,,
-Cam Fowler,,,,
-Ryan Nugent-Hopkins,,,,
-Dustin Byfuglien,,,,
-J.T. Miller,,,,
-Erik Karlsson,,,,
-Drew Doughty,,,,
-Steven Stamkos,,,,
-Brad Marchand,,,,
-Artemi Panarin,,,,
-Joe Pavelski,,,,
-Tyler Seguin,,,,
-Johnny Gaudreau,,,,
-Connor Hellebuyck,,,,
-Henrik Sedin,,,,
-Nicklas Backstrom,,,,
-Jack Eichel,,,,
-David Pastrnak,,,,
-Gabriel Landeskog,,,,
-Oliver Ekman-Larsson,,,,
-Mathew Barzal,,,,
-Mark Scheifele,,,,
-Vladimir Tarasenko,,,,
-Elias Pettersson,,,,
-Evgeni Malkin,,,,
-Auston Matthews,,,,
-Zach Parise,,,,
-Jonathan Huberdeau,,,,
-Tyler Johnson,,,,
-Max Pacioretty,,,,
-Chris Kreider,,,,
-Sean Couturier,,,,
-Jeff Carter,,,,
-Logan Couture,,,,
-Mika Zibanejad,,,,
-Bo Horvat,,,,
-Victor Hedman,,,,
-Brayden Point,,,,
-Mitch Marner,,,,
-Matthew Tkachuk,,,,
-Ryan O'Reilly,,,,
-Sebastian Aho,,,,
-Jack Hughes,,,,
-Nick Suzuki,,,,
-Tomas Hertl,,,,
-Dylan Larkin,,,,
-Nathan MacKinnon,,,,
-Quinn Hughes,,,,
-Mark Stone,,,,
-Filip Forsberg,,,,
-Jordan Binnington,,,,
-Andrei Vasilevskiy,,,,
-Kyle Connor,,,,
-Dougie Hamilton,,,,
-Mikko Rantanen,,,,
-Jeff Petry,,,,
-John Gibson,,,,
+Chris Pronger,chris_pronger,Image of chris_pronger,chris_pronger.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6d40c79f-550c-4318-c2a6-a8737904d500/public
+Rod Brind'Amour,rod_brind_amour,Image of rod_brind_amour,rod_brind_amour.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cef50f77-f0ee-417e-23e3-63a06a423300/public
+Sergei Zubov,sergei_zubov,Image of sergei_zubov,sergei_zubov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/01abf7c7-d6be-48d6-6f7b-0ed05f0c9a00/public
+Brendan Shanahan,brendan_shanahan,Image of brendan_shanahan,brendan_shanahan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e4f8c38e-64e4-4130-a40d-2963207dda00/public
+Theo Fleury,theo_fleury,Image of theo_fleury,theo_fleury.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4ab2a583-1f3e-4afe-0d83-e239dc264f00/public
+Alexander Mogilny,alexander_mogilny,Image of alexander_mogilny,alexander_mogilny.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1d5a2d3b-aed6-4856-53da-96fe44ee5000/public
+Mike Richter,mike_richter,Image of mike_richter,mike_richter.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4e8cecbf-b72e-40f5-693e-fc79dbed9700/public
+Kirk Muller,kirk_muller,Image of kirk_muller,kirk_muller.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b507add7-a838-4664-e81c-387ed3e22f00/public
+Pierre Turgeon,pierre_turgeon,Image of pierre_turgeon,pierre_turgeon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d39d7e4e-f2f7-43ed-f3e8-952f959d7600/public
+Kevin Stevens,kevin_stevens,Image of kevin_stevens,kevin_stevens.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0ba1cbae-bc4b-444c-95ba-d598b9a2cc00/public
+Gary Roberts,gary_roberts,Image of gary_roberts,gary_roberts.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/62e42101-c45d-4ed2-cfdb-13045c75bc00/public
+Sergei Gonchar,sergei_gonchar,Image of sergei_gonchar,sergei_gonchar.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/151b741a-7db9-4e63-4902-a74a5650eb00/public
+Rob Blake,rob_blake,Image of rob_blake,rob_blake.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2ef51278-b089-41f2-3aec-e6804731f600/public
+Peter Bondra,peter_bondra,Image of peter_bondra,peter_bondra.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/76980e94-4176-4fdc-b971-4bc49ac5ff00/public
+Ed Jovanovski,ed_jovanovski,Image of ed_jovanovski,ed_jovanovski.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/78f5094e-73ee-4602-97ed-d736e84a5e00/public
+Vincent Damphousse,vincent_damphousse,Image of vincent_damphousse,vincent_damphousse.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/15c56076-c08b-424c-4aeb-a8267bb02200/public
+Sergei Fedorov,sergei_fedorov,Image of sergei_fedorov,sergei_fedorov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/29a28dff-4b6d-418c-225e-7c4dace59400/public
+Dominik Hasek,dominik_hasek,Image of dominik_hasek,dominik_hasek.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/da763eec-3f32-4de0-be32-0789adbdca00/public
+Mats Sundin,mats_sundin,Image of mats_sundin,mats_sundin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d8461431-cab6-4826-6fbe-d80992792a00/public
+John LeClair,john_leclair,Image of john_leclair,john_leclair.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5619e97d-ad9e-475e-c9ed-ab56635b9100/public
+Scott Mellanby,scott_mellanby,Image of scott_mellanby,scott_mellanby.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/948df4f9-ce54-4f5a-c411-15d8b5ee3700/public
+Trevor Linden,trevor_linden,Image of trevor_linden,trevor_linden.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/28ff6819-0e24-48f5-6d0f-ec887c22cc00/public
+Owen Nolan,owen_nolan,Image of owen_nolan,owen_nolan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/092ba546-ba7a-4ee4-eff5-2c8617b1c300/public
+Alexei Yashin,alexei_yashin,Image of alexei_yashin,alexei_yashin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5a7773b2-f852-435e-f4fd-1d1ddd4cf600/public
+Tony Granato,tony_granato,Image of tony_granato,tony_granato.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ee307c85-e04c-40b3-e363-425566d30300/public
+Mike Peca,mike_peca,Image of mike_peca,mike_peca.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/55cd18d3-5f17-4908-5093-d3e944495d00/public
+Geoff Courtnall,geoff_courtnall,Image of geoff_courtnall,geoff_courtnall.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/69810152-2172-499f-8ab6-db2534901000/public
+Esa Tikkanen,esa_tikkanen,Image of esa_tikkanen,esa_tikkanen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d6922efb-5426-481f-1801-880323071400/public
+Chris Osgood,chris_osgood,Image of chris_osgood,chris_osgood.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/02b47c19-6d4c-463a-ea2e-d72190639a00/public
+Ed Belfour,ed_belfour,Image of ed_belfour,ed_belfour.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6f0981ea-f5a8-4519-2fe1-2460704e9200/public
+Jarome Iginla,jarome_iginla,Image of jarome_iginla,jarome_iginla.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d54d72f1-526c-4bc8-b79b-bf8e11631400/public
+Adam Foote,adam_foote,Image of adam_foote,adam_foote.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4ed48cc5-b641-4cbc-47cd-65c5c3143700/public
+Claude Lemieux,claude_lemieux,Image of claude_lemieux,claude_lemieux.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b4fa8f41-3cfd-4176-ae99-6d6af86b7100/public
+Markus Naslund,markus_naslund,Image of markus_naslund,markus_naslund.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3073408b-b0d0-4d7c-183d-980ac3420700/public
+Alexei Kovalev,alexei_kovalev,Image of alexei_kovalev,alexei_kovalev.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/502e36a4-d9d5-49ad-6db1-7fc5b1599c00/public
+Doug Weight,doug_weight,Image of doug_weight,doug_weight.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f72c6b6f-8d82-43a5-20f5-2c7a3c330000/public
+Mike Ricci,mike_ricci,Image of mike_ricci,mike_ricci.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/05d88a3c-43ad-4d9e-dfe3-e274b07ba000/public
+Alexei Zhitnik,alexei_zhitnik,Image of alexei_zhitnik,alexei_zhitnik.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/99c61f39-114f-4c4e-35af-c43f7b810a00/public
+Teemu Selanne,teemu_selanne,Image of teemu_selanne,teemu_selanne.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/05c494c2-e168-4643-026b-b3ed2b0afe00/public
+Tony Amonte,tony_amonte,Image of tony_amonte,tony_amonte.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b55b8934-d6df-4f0b-d0b3-9fd07a08fb00/public
+Nicklas Lidstrom,nicklas_lidstrom,Image of nicklas_lidstrom,nicklas_lidstrom.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/09bff062-e38d-438b-96ea-39d407307c00/public
+Pavel Bure,pavel_bure,Image of pavel_bure,pavel_bure.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3c6bf8da-9df1-4950-3425-a85cf5b97200/public
+Mark Recchi,mark_recchi,Image of mark_recchi,mark_recchi.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/082cb73e-e0a0-46b9-e9d6-d7bf112f1100/public
+Sidney Crosby,sidney_crosby,Image of sidney_crosby,sidney_crosby.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/39e28960-03da-4256-5d39-ba89eff2cd00/public
+Martin Brodeur,martin_brodeur,Image of martin_brodeur,martin_brodeur.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/03cf2650-008b-432a-50eb-6164e20a8d00/public
+Pavel Datsyuk,pavel_datsyuk,Image of pavel_datsyuk,pavel_datsyuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/81c461cc-6668-4a36-f2cb-a92442ab4f00/public
+Jonathan Toews,jonathan_toews,Image of jonathan_toews,jonathan_toews.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c4c216f6-862e-47e8-7fea-3011b0c94900/public
+Vincent Lecavalier,vincent_lecavalier,Image of vincent_lecavalier,vincent_lecavalier.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a00b4a64-4197-4b80-7727-7de34e6e9600/public
+Peter Forsberg,peter_forsberg,Image of peter_forsberg,peter_forsberg.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/39eca9fe-62f7-44dd-9d9f-b03b60e4db00/public
+Marian Gaborik,marian_gaborik,Image of marian_gaborik,marian_gaborik.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/36c090c6-090a-4c7d-1eba-96278fac4800/public
+Daniel Sedin,daniel_sedin,Image of daniel_sedin,daniel_sedin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a832502c-92e9-4fca-3788-ddc8f7209800/public
+Eric Staal,eric_staal,Image of eric_staal,eric_staal.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2ea25311-aaaa-4f58-a153-94f6bfe38900/public
+Mike Richards,mike_richards,Image of mike_richards,mike_richards.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1681e7fb-b3e5-4318-0b45-0fbcb9e0f600/public
+Shea Weber,shea_weber,Image of shea_weber,shea_weber.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3146f765-cc2e-4451-d846-aea4d4da6500/public
+Corey Perry,corey_perry,Image of corey_perry,corey_perry.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b9ec0812-a962-4197-0025-d6868d111800/public
+Henrik Zetterberg,henrik_zetterberg,Image of henrik_zetterberg,henrik_zetterberg.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f94ed3ee-211a-4c43-8f5a-fe8e3eadc700/public
+Alex Ovechkin,alex_ovechkin,Image of alex_ovechkin,alex_ovechkin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/916ad216-ca46-4413-5622-e9f2c037d900/public
+Roberto Luongo,roberto_luongo,Image of roberto_luongo,roberto_luongo.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/332b10fe-4c02-4364-c4af-24797736e900/public
+Brad Richards,brad_richards,Image of brad_richards,brad_richards.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8860779d-4232-426d-99ee-eb627bc8e500/public
+Ryan Suter,ryan_suter,Image of ryan_suter,ryan_suter.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/762edb76-fed6-46d6-52df-4b11c83c0200/public
+Daniel Alfredsson,daniel_alfredsson,Image of daniel_alfredsson,daniel_alfredsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7f82fc69-b04b-4bba-ea6c-ca36e346c700/public
+Marian Hossa,marian_hossa,Image of marian_hossa,marian_hossa.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2a9baf27-2e59-4cfe-58d5-65e0a9c6c700/public
+Henrik Lundqvist,henrik_lundqvist,Image of henrik_lundqvist,henrik_lundqvist.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/52e5c0e2-b5f0-4040-00ba-5dbef6334200/public
+Scott Niedermayer,scott_niedermayer,Image of scott_niedermayer,scott_niedermayer.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1c8ee6fb-c30e-46d9-0e4f-de72a749a100/public
+Marc-Andre Fleury,marc_andre_fleury,Image of marc_andre_fleury,marc_andre_fleury.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1419d99d-1aff-44cd-7ea1-841c79bdd000/public
+Zdeno Chara,zdeno_chara,Image of zdeno_chara,zdeno_chara.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2fd1e91c-dac8-41a5-4a9b-42461d90cf00/public
+Joe Nieuwendyk,joe_nieuwendyk,Image of joe_nieuwendyk,joe_nieuwendyk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4028fc62-e710-44c1-d483-a333bfd3fa00/public
+Patrick Marleau,patrick_marleau,Image of patrick_marleau,patrick_marleau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/59e81cf3-fc78-401d-8736-af6e1c510500/public
+Patrick Kane,patrick_kane,Image of patrick_kane,patrick_kane.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b6c13fd9-689b-43c5-6b57-35f5cb678e00/public
+Martin St. Louis,martin_st__louis,Image of martin_st__louis,martin_st__louis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d53fb7ee-3950-49a8-4e46-70ea96154e00/public
+Ilya Kovalchuk,ilya_kovalchuk,Image of ilya_kovalchuk,ilya_kovalchuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/033d9903-7d9a-4c6b-99f4-4d9920594700/public
+Rick Nash,rick_nash,Image of rick_nash,rick_nash.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c664b876-ec0d-47ec-70b5-3e853c10cb00/public
+Shane Doan,shane_doan,Image of shane_doan,shane_doan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1b463bb6-9bd7-4c95-7e11-d51f8ebcb800/public
+Anze Kopitar,anze_kopitar,Image of anze_kopitar,anze_kopitar.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1a006151-b86a-4879-d971-ccc73202c400/public
+Ryan Getzlaf,ryan_getzlaf,Image of ryan_getzlaf,ryan_getzlaf.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2e1af8b5-69f7-4d86-193d-792fa5010400/public
+Scott Gomez,scott_gomez,Image of scott_gomez,scott_gomez.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/06d7b84b-de1b-4e74-9562-e89a7fec6a00/public
+Nicklas Lidström,nicklas_lidstr_m,Image of nicklas_lidstr_m,nicklas_lidstr_m.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/55b4089d-cc18-40c0-398f-49478c07b900/public
+Ilya Bryzgalov,ilya_bryzgalov,Image of ilya_bryzgalov,ilya_bryzgalov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ecb6097d-48c6-44b3-c02e-d8342ba8d800/public
+Tuukka Rask,tuukka_rask,Image of tuukka_rask,tuukka_rask.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0e1604b2-ba15-4691-36d3-e48787259100/public
+Saku Koivu,saku_koivu,Image of saku_koivu,saku_koivu.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/21fd99aa-2164-4d18-e905-ffc5826d5400/public
+Evgeni Nabokov,evgeni_nabokov,Image of evgeni_nabokov,evgeni_nabokov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c5a87716-8c41-48c8-2da4-01f7c6f20f00/public
+Carey Price,carey_price,Image of carey_price,carey_price.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/50b8d9bb-c906-4642-32d5-b47fcbd4d500/public
+Duncan Keith,duncan_keith,Image of duncan_keith,duncan_keith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5cd1acf0-0a54-4359-e341-ef997c288f00/public
+Connor McDavid,connor_mcdavid,Image of connor_mcdavid,connor_mcdavid.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1fec1ac0-2751-4b55-83f7-f0157449d500/public
+Brent Burns,brent_burns,Image of brent_burns,brent_burns.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/645a37ba-6756-4896-1bf9-fb2af588e100/public
+Claude Giroux,claude_giroux,Image of claude_giroux,claude_giroux.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/05c0989c-cc0a-488d-09ab-aa8b7d4f5700/public
+Patrice Bergeron,patrice_bergeron,Image of patrice_bergeron,patrice_bergeron.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ea0102b9-eb5b-41e5-4d59-dfe85f603c00/public
+Phil Kessel,phil_kessel,Image of phil_kessel,phil_kessel.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5acbbb1c-4d7a-46aa-71a2-6e63512c4600/public
+Jamie Benn,jamie_benn,Image of jamie_benn,jamie_benn.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/baa9ca3a-68ee-4a22-3ca4-1edb5b815800/public
+P.K. Subban,p_k__subban,Image of p_k__subban,p_k__subban.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ad7e68ce-74d7-4255-3612-ab9e9d9a1200/public
+Leon Draisaitl,leon_draisaitl,Image of leon_draisaitl,leon_draisaitl.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e448241a-b85a-4e54-de5d-e830b13ce600/public
+Matt Duchene,matt_duchene,Image of matt_duchene,matt_duchene.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/43433edb-2db8-4471-c6c7-9680050be200/public
+Alex Pietrangelo,alex_pietrangelo,Image of alex_pietrangelo,alex_pietrangelo.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ef2b433f-d7f3-4109-c8ed-157d73180d00/public
+John Tavares,john_tavares,Image of john_tavares,john_tavares.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e1e0ece3-ab17-4c96-0076-96d280a07b00/public
+Taylor Hall,taylor_hall,Image of taylor_hall,taylor_hall.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1d36bef8-d39d-4626-4da1-3636a905b900/public
+Mark Giordano,mark_giordano,Image of mark_giordano,mark_giordano.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/bb7ab62a-5d94-4e0d-2951-56035f9c3500/public
+Blake Wheeler,blake_wheeler,Image of blake_wheeler,blake_wheeler.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f4641e19-0676-4092-c62d-f47e1286bc00/public
+Aleksander Barkov,aleksander_barkov,Image of aleksander_barkov,aleksander_barkov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b4137963-7982-4b8c-7a78-811f963b6a00/public
+John Klingberg,john_klingberg,Image of john_klingberg,john_klingberg.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8076ec01-62d4-4d46-d06d-f08f0827b700/public
+Cam Fowler,cam_fowler,Image of cam_fowler,cam_fowler.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/375a490a-48d6-4f3c-c897-5d0222067200/public
+Ryan Nugent-Hopkins,ryan_nugent_hopkins,Image of ryan_nugent_hopkins,ryan_nugent_hopkins.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b5af81b1-081d-4c1a-4628-c78f81a86900/public
+Dustin Byfuglien,dustin_byfuglien,Image of dustin_byfuglien,dustin_byfuglien.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/65624aea-be70-4870-f0b5-78c69037aa00/public
+J.T. Miller,j_t__miller,Image of j_t__miller,j_t__miller.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f36d4b18-f68c-47e2-e0cf-309b6a83cb00/public
+Erik Karlsson,erik_karlsson,Image of erik_karlsson,erik_karlsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e92a84b4-c4aa-463d-0140-c70e248bfc00/public
+Drew Doughty,drew_doughty,Image of drew_doughty,drew_doughty.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/68d39889-5fa7-45b5-a571-711d11313b00/public
+Steven Stamkos,steven_stamkos,Image of steven_stamkos,steven_stamkos.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9bb2832e-8751-4c04-a3e5-d1b53faca200/public
+Brad Marchand,brad_marchand,Image of brad_marchand,brad_marchand.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/30949bfb-4d28-4c34-1cbd-3ac54377fe00/public
+Artemi Panarin,artemi_panarin,Image of artemi_panarin,artemi_panarin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/570d137e-ce92-4d56-73ae-8f951325a500/public
+Joe Pavelski,joe_pavelski,Image of joe_pavelski,joe_pavelski.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/97834fbc-986d-41b2-b6eb-eb4b7d014a00/public
+Tyler Seguin,tyler_seguin,Image of tyler_seguin,tyler_seguin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f8146c17-b213-4ef0-7702-6c7ebcdbd700/public
+Johnny Gaudreau,johnny_gaudreau,Image of johnny_gaudreau,johnny_gaudreau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1d3752f8-0027-407c-28ed-bc6b6f6e0200/public
+Connor Hellebuyck,connor_hellebuyck,Image of connor_hellebuyck,connor_hellebuyck.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ce2b2f06-de8c-45be-b001-40d677bbe200/public
+Henrik Sedin,henrik_sedin,Image of henrik_sedin,henrik_sedin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2d1b8cca-dabd-4b85-7aff-c9e9d18bcf00/public
+Nicklas Backstrom,nicklas_backstrom,Image of nicklas_backstrom,nicklas_backstrom.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/616cb7fb-5eab-4dbb-c499-68cc983eca00/public
+Jack Eichel,jack_eichel,Image of jack_eichel,jack_eichel.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4f8ae93c-7b10-4d0b-53cc-64512de39300/public
+David Pastrnak,david_pastrnak,Image of david_pastrnak,david_pastrnak.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b729ae4f-b610-45e8-9987-631833675500/public
+Gabriel Landeskog,gabriel_landeskog,Image of gabriel_landeskog,gabriel_landeskog.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5009087b-ab9d-4bf2-8947-14e98c153800/public
+Oliver Ekman-Larsson,oliver_ekman_larsson,Image of oliver_ekman_larsson,oliver_ekman_larsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f632ba06-146d-4b5d-3234-6892cf927a00/public
+Mathew Barzal,mathew_barzal,Image of mathew_barzal,mathew_barzal.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b1c7134a-1656-46b3-c044-c9d79a44d200/public
+Mark Scheifele,mark_scheifele,Image of mark_scheifele,mark_scheifele.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/040faebc-bc17-4be1-0dc2-f44a4ffd8600/public
+Vladimir Tarasenko,vladimir_tarasenko,Image of vladimir_tarasenko,vladimir_tarasenko.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/44fc7c58-493e-4d89-baf1-c90687c81700/public
+Elias Pettersson,elias_pettersson,Image of elias_pettersson,elias_pettersson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fd9bcbbc-7d4d-4e61-81ec-dda9d678e200/public
+Evgeni Malkin,evgeni_malkin,Image of evgeni_malkin,evgeni_malkin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e16b87dc-0a28-4378-7d09-c72dfaf96700/public
+Auston Matthews,auston_matthews,Image of auston_matthews,auston_matthews.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5d6351f0-ff85-4b38-1787-62cd47153c00/public
+Zach Parise,zach_parise,Image of zach_parise,zach_parise.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b78b8a3a-a273-40b8-a46f-0bacc845a400/public
+Jonathan Huberdeau,jonathan_huberdeau,Image of jonathan_huberdeau,jonathan_huberdeau.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/711dd820-1266-41a0-e509-a4b1f891a000/public
+Tyler Johnson,tyler_johnson,Image of tyler_johnson,tyler_johnson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/daeed32f-f403-4fc1-80fb-9ecc6b4fde00/public
+Max Pacioretty,max_pacioretty,Image of max_pacioretty,max_pacioretty.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/03cf1a77-75b1-49c6-2646-aeda494bea00/public
+Chris Kreider,chris_kreider,Image of chris_kreider,chris_kreider.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cdb5e45e-9b6f-42e0-4522-01cbeb555100/public
+Sean Couturier,sean_couturier,Image of sean_couturier,sean_couturier.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f73f78fe-38cc-4ce1-22ae-0012edc94800/public
+Jeff Carter,jeff_carter,Image of jeff_carter,jeff_carter.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0acb6885-86ac-4d3a-7df4-8429ffd06300/public
+Logan Couture,logan_couture,Image of logan_couture,logan_couture.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e8b32aff-6486-4b58-0817-0a83325dda00/public
+Mika Zibanejad,mika_zibanejad,Image of mika_zibanejad,mika_zibanejad.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/12100f55-de24-4ce1-7271-493c5f9b0f00/public
+Bo Horvat,bo_horvat,Image of bo_horvat,bo_horvat.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6559f880-a863-46b0-ba30-aff4c2d78600/public
+Victor Hedman,victor_hedman,Image of victor_hedman,victor_hedman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8cf1e4b2-b50f-4587-978f-123a81423f00/public
+Brayden Point,brayden_point,Image of brayden_point,brayden_point.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c2343e41-5ac5-4de5-5a91-cb8dcd065400/public
+Mitch Marner,mitch_marner,Image of mitch_marner,mitch_marner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/098f94fb-0a03-446d-863b-a1700e450200/public
+Matthew Tkachuk,matthew_tkachuk,Image of matthew_tkachuk,matthew_tkachuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3dcee7d8-28f3-4d3a-8c3b-990687a75c00/public
+Ryan O'Reilly,ryan_o_reilly,Image of ryan_o_reilly,ryan_o_reilly.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/81170332-4a8f-48e5-fa13-d2e5f6216600/public
+Sebastian Aho,sebastian_aho,Image of sebastian_aho,sebastian_aho.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/254f5d80-2e0a-4171-4c1f-007c025afe00/public
+Jack Hughes,jack_hughes,Image of jack_hughes,jack_hughes.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9a971c22-6ec9-4f39-7026-952e29746700/public
+Nick Suzuki,nick_suzuki,Image of nick_suzuki,nick_suzuki.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d72f4a51-310d-4fd0-482c-2135309d1e00/public
+Tomas Hertl,tomas_hertl,Image of tomas_hertl,tomas_hertl.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/723014be-e292-4197-cc9f-e8d5d4f8ba00/public
+Dylan Larkin,dylan_larkin,Image of dylan_larkin,dylan_larkin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ea47122f-2e71-4b20-b4ba-9936a2107f00/public
+Nathan MacKinnon,nathan_mackinnon,Image of nathan_mackinnon,nathan_mackinnon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b91703c5-14b4-490e-aefe-1ccb766be500/public
+Quinn Hughes,quinn_hughes,Image of quinn_hughes,quinn_hughes.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/03ae6ca2-c5c3-4a88-dfcf-5ba08b97f200/public
+Mark Stone,mark_stone,Image of mark_stone,mark_stone.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a7148e8f-439a-43ea-3774-828d748e6b00/public
+Filip Forsberg,filip_forsberg,Image of filip_forsberg,filip_forsberg.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/de9830eb-dff1-444f-640d-41a02c532600/public
+Jordan Binnington,jordan_binnington,Image of jordan_binnington,jordan_binnington.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d51410c1-1b31-41b5-3262-fe4faa008600/public
+Andrei Vasilevskiy,andrei_vasilevskiy,Image of andrei_vasilevskiy,andrei_vasilevskiy.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c91221fd-537c-42b1-a54c-0bf0ae6e7300/public
+Kyle Connor,kyle_connor,Image of kyle_connor,kyle_connor.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fa8bcd69-6979-4358-9fd1-b2338d075800/public
+Dougie Hamilton,dougie_hamilton,Image of dougie_hamilton,dougie_hamilton.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6dfd3aeb-1753-4dc1-b389-164cd1f30400/public
+Mikko Rantanen,mikko_rantanen,Image of mikko_rantanen,mikko_rantanen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/32a93921-e9c1-4bac-2c00-7250074ec300/public
+Jeff Petry,jeff_petry,Image of jeff_petry,jeff_petry.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/978753f2-7942-4019-a92f-29bf46735e00/public
+John Gibson,john_gibson,Image of john_gibson,john_gibson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3bbc9a08-a5d7-4a56-7600-2e154474f600/public
 David Perron,,,,
-Tyler Toffoli,,,,
-Joe Simpson,,,,
-Jack Walker,,,,
-Aurèle Joliat,,,,
-Newsy Lalonde,,,,
-Mush March,,,,
-Bill Beveridge,,,,
-Harvey Jackson,,,,
-Gus Mortson,,,,
-Max Bentley,,,,
-Edgar Laprade,,,,
-Bill Quackenbush,,,,
-Fern Flaman,,,,
-Don Gallinger,,,,
-Pentti Lund,,,,
-Pete Babando,,,,
-Buddy O'Connor,,,,
-Jimmy Peters,,,,
-Don Raleigh,,,,
-Cal Gardner,,,,
-Pete Horeck,,,,
-Fleming Mackell,,,,
-Ken Mosdell,,,,
-Bob Goldham,,,,
-Sugar Jim Henry,,,,
-Camille Henry,,,,
-Leo Boivin,,,,
-Harry Lumley,,,,
-Yvan Cournoyer,,,,
-Don Marshall,,,,
-Dallas Smith,,,,
-Ron Ellis,,,,
-Bryan Trottier,,,,
-Reggie Leach,,,,
-Bill Barber,,,,
-Brian Propp,,,,
-Kevin Dineen,,,,
-Tim Kerr,,,,
-Rick Tocchet,,,,
-Craig MacTavish,,,,
-Kjell Samuelsson,,,,
-Dave Brown,,,,
-Joey Kocur,,,,
-Rod Langway,,,,
-Dave Hunter,,,,
-Bob Bourne,,,,
+Tyler Toffoli,tyler_toffoli,Image of tyler_toffoli,tyler_toffoli.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d1089a9b-a192-42ea-8cc2-9092911ce600/public
+Joe Simpson,joe_simpson,Image of joe_simpson,joe_simpson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fb49eb74-4476-4b30-88f6-1c4b49ce5200/public
+Jack Walker,jack_walker,Image of jack_walker,jack_walker.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a8c91e77-4daf-489b-f92d-43cd2e2d0500/public
+Aurèle Joliat,aur_le_joliat,Image of aur_le_joliat,aur_le_joliat.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/552e4964-290c-48bb-3601-7be7f2b83600/public
+Newsy Lalonde,newsy_lalonde,Image of newsy_lalonde,newsy_lalonde.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3e370601-38a9-4cb4-5e71-71023e326e00/public
+Mush March,mush_march,Image of mush_march,mush_march.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/abf73c82-a673-4f5a-2da6-50a9bcf68300/public
+Bill Beveridge,bill_beveridge,Image of bill_beveridge,bill_beveridge.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ed33dca5-5a6f-4656-10f3-1434afe2c800/public
+Harvey Jackson,harvey_jackson,Image of harvey_jackson,harvey_jackson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8a9f88df-f0f9-4749-b1fb-55552f5aad00/public
+Gus Mortson,gus_mortson,Image of gus_mortson,gus_mortson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7ace4911-cbab-41a6-772b-e5b79938c600/public
+Max Bentley,max_bentley,Image of max_bentley,max_bentley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/17f28713-c209-40ca-622f-1424e403c000/public
+Edgar Laprade,edgar_laprade,Image of edgar_laprade,edgar_laprade.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9d808d08-c610-42f7-0fb8-874850095400/public
+Bill Quackenbush,bill_quackenbush,Image of bill_quackenbush,bill_quackenbush.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5ee05af0-a087-4ff7-9611-4950fae99b00/public
+Fern Flaman,fern_flaman,Image of fern_flaman,fern_flaman.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e12c8812-6d12-43ec-0930-46529172d300/public
+Don Gallinger,don_gallinger,Image of don_gallinger,don_gallinger.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a5ecad92-5084-4303-13ea-448dad653900/public
+Pentti Lund,pentti_lund,Image of pentti_lund,pentti_lund.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1ecdb50c-0743-44ae-c556-74af49dcb500/public
+Pete Babando,pete_babando,Image of pete_babando,pete_babando.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6c287842-9693-480b-2767-46d122b12600/public
+Buddy O'Connor,buddy_o_connor,Image of buddy_o_connor,buddy_o_connor.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a72680c3-7c39-4c3a-4517-02eb018b9200/public
+Jimmy Peters,jimmy_peters,Image of jimmy_peters,jimmy_peters.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/73a1f4ea-263c-4edb-4b9b-51bb395fa400/public
+Don Raleigh,don_raleigh,Image of don_raleigh,don_raleigh.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a4505c38-87ba-4d52-910f-b70a660b8200/public
+Cal Gardner,cal_gardner,Image of cal_gardner,cal_gardner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7d3fb14c-6f96-46d4-fd36-881a3a2e8100/public
+Pete Horeck,pete_horeck,Image of pete_horeck,pete_horeck.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1f49f842-03e2-44a2-62ca-e3501c76f000/public
+Fleming Mackell,fleming_mackell,Image of fleming_mackell,fleming_mackell.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3bfc000e-72cc-4fbe-c279-7af42e057000/public
+Ken Mosdell,ken_mosdell,Image of ken_mosdell,ken_mosdell.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ddbce281-933b-4c04-b585-3551e9f3e200/public
+Bob Goldham,bob_goldham,Image of bob_goldham,bob_goldham.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/05e105a2-29ea-4e97-084d-8763c17e8300/public
+Sugar Jim Henry,sugar_jim_henry,Image of sugar_jim_henry,sugar_jim_henry.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/45c975fd-86f5-4215-edf5-e7d47f6c0300/public
+Camille Henry,camille_henry,Image of camille_henry,camille_henry.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/30037196-28f6-4925-3cb3-a1836f138400/public
+Leo Boivin,leo_boivin,Image of leo_boivin,leo_boivin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/508bd48b-6545-42fd-9eae-f840210ba800/public
+Harry Lumley,harry_lumley,Image of harry_lumley,harry_lumley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/186b5a51-547a-4690-2f74-83516a4fc000/public
+Yvan Cournoyer,yvan_cournoyer,Image of yvan_cournoyer,yvan_cournoyer.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/47cddb36-e625-4105-52c2-5adf31869100/public
+Don Marshall,don_marshall,Image of don_marshall,don_marshall.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b5b57ef9-92e3-4eb7-8d53-b9cf24b9a700/public
+Dallas Smith,dallas_smith,Image of dallas_smith,dallas_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/07af3809-a4b3-4b4a-4908-628ae2e92300/public
+Ron Ellis,ron_ellis,Image of ron_ellis,ron_ellis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d9c59ebc-b2cf-4c0a-be19-a39d48679800/public
+Bryan Trottier,bryan_trottier,Image of bryan_trottier,bryan_trottier.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/69c51f38-0fab-4c36-ef17-1da621b6f000/public
+Reggie Leach,reggie_leach,Image of reggie_leach,reggie_leach.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9c8c3955-1ce9-4d47-efd6-8a2445827d00/public
+Bill Barber,bill_barber,Image of bill_barber,bill_barber.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7952f3cf-46f7-41f4-1d52-f2ef7ecfc600/public
+Brian Propp,brian_propp,Image of brian_propp,brian_propp.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/227c3e54-bd9b-4950-8eca-0d82c6366800/public
+Kevin Dineen,kevin_dineen,Image of kevin_dineen,kevin_dineen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/43ca23a8-a7cf-4caa-4358-cbd7ad5e1000/public
+Tim Kerr,tim_kerr,Image of tim_kerr,tim_kerr.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fe7d1c01-d0e0-46f2-5f4b-dd1bbe037700/public
+Rick Tocchet,rick_tocchet,Image of rick_tocchet,rick_tocchet.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c1877436-4ae8-46be-072c-09fabe7ca000/public
+Craig MacTavish,craig_mactavish,Image of craig_mactavish,craig_mactavish.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/78eccbbe-11bf-4b7e-3732-95b820d3b600/public
+Kjell Samuelsson,kjell_samuelsson,Image of kjell_samuelsson,kjell_samuelsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e94cee68-7533-4b98-1b45-1a06bd9f9a00/public
+Dave Brown,dave_brown,Image of dave_brown,dave_brown.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/55969bd6-add2-44f2-dad3-5919b8a6b900/public
+Joey Kocur,joey_kocur,Image of joey_kocur,joey_kocur.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c0386493-dbc6-441a-9992-2dc79f56b100/public
+Rod Langway,rod_langway,Image of rod_langway,rod_langway.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2856eeeb-963c-4fd2-31f1-9785afddc700/public
+Dave Hunter,dave_hunter,Image of dave_hunter,dave_hunter.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/49e8902c-f43a-423a-841c-c625dfd8be00/public
+Bob Bourne,bob_bourne,Image of bob_bourne,bob_bourne.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a920819a-2412-44b0-a959-baba3dce0d00/public
 Hakan Loob,,,,
-Grant Fuhr,,,,
-John Vanbiesbrouck,,,,
-Paul Reinhart,,,,
-Dale Hunter,,,,
-Mike Bullard,,,,
-Kelly Hrudey,,,,
-Gary Suter,,,,
-Adam Graves,,,,
-Craig Hartsburg,,,,
-Dave Gagner,,,,
-John Ogrodnick,,,,
-Kent Nilsson,,,,
-Peter Šťastný,,,,
-Thomas Steen,,,,
-Igor Larionov,,,,
-Billy Smith,,,,
-Scott Stevens,,,,
-Jeremy Roenick,,,,
-Alexei Zhamnov,,,,
-Valeri Kamensky,,,,
-Wendel Clark,,,,
-Darius Kasparaitis,,,,
-Ziggy Palffy,,,,
-Wade Redden,,,,
-Eric Desjardins,,,,
-Tom Fitzgerald,,,,
-Cliff Ronning,,,,
-Mike Keane,,,,
-Todd Bertuzzi,,,,
+Grant Fuhr,grant_fuhr,Image of grant_fuhr,grant_fuhr.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/35ff3377-d4fd-4641-628f-ee32a7c93700/public
+John Vanbiesbrouck,john_vanbiesbrouck,Image of john_vanbiesbrouck,john_vanbiesbrouck.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/326d7459-bf72-442c-99db-deeb47525200/public
+Paul Reinhart,paul_reinhart,Image of paul_reinhart,paul_reinhart.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6a1527f5-b467-47a8-fb2b-f261811b8b00/public
+Dale Hunter,dale_hunter,Image of dale_hunter,dale_hunter.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/246123dc-16b3-4fe5-8c09-34d8cf2f3600/public
+Mike Bullard,mike_bullard,Image of mike_bullard,mike_bullard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5d69351c-4740-4809-ab40-0c66d0b3a200/public
+Kelly Hrudey,kelly_hrudey,Image of kelly_hrudey,kelly_hrudey.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1c0ed7d3-475a-4f71-2606-f03742764000/public
+Gary Suter,gary_suter,Image of gary_suter,gary_suter.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c107cbc3-7c36-46a5-bdac-0f1fc1adb000/public
+Adam Graves,adam_graves,Image of adam_graves,adam_graves.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ce44f1c0-8791-42e6-7edc-084343832300/public
+Craig Hartsburg,craig_hartsburg,Image of craig_hartsburg,craig_hartsburg.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4bfcc1a9-3a22-4afe-e990-8629490b6c00/public
+Dave Gagner,dave_gagner,Image of dave_gagner,dave_gagner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/dd8948ca-15f5-42f7-baa1-546543ff3b00/public
+John Ogrodnick,john_ogrodnick,Image of john_ogrodnick,john_ogrodnick.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/87e4e3ae-ba2f-4756-b416-56e82ee8fd00/public
+Kent Nilsson,kent_nilsson,Image of kent_nilsson,kent_nilsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/be154c61-f157-49f1-89f7-ba6fe6f0ef00/public
+Peter Šťastný,peter___astn_,Image of peter___astn_,peter___astn_.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f1e85059-8231-4789-0a34-b993ac4f9400/public
+Thomas Steen,thomas_steen,Image of thomas_steen,thomas_steen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6ff8b4f2-d56d-4f82-6c41-32094f147500/public
+Igor Larionov,igor_larionov,Image of igor_larionov,igor_larionov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2f633f15-5b85-4d70-b234-50b3569de900/public
+Billy Smith,billy_smith,Image of billy_smith,billy_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3dc5b129-8ece-4da2-7b2d-f6b30a54fb00/public
+Scott Stevens,scott_stevens,Image of scott_stevens,scott_stevens.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/93f48407-f685-47f4-a5eb-f7d5c31d9e00/public
+Jeremy Roenick,jeremy_roenick,Image of jeremy_roenick,jeremy_roenick.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/dbab71d0-c12b-4fe8-5c69-122a1d44c700/public
+Alexei Zhamnov,alexei_zhamnov,Image of alexei_zhamnov,alexei_zhamnov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b26ee05e-768b-4bb2-53a0-c30c88b8d600/public
+Valeri Kamensky,valeri_kamensky,Image of valeri_kamensky,valeri_kamensky.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a6843f59-06a3-4819-f104-792980014700/public
+Wendel Clark,wendel_clark,Image of wendel_clark,wendel_clark.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d21c2306-2130-4eed-d03d-f03d352a8700/public
+Darius Kasparaitis,darius_kasparaitis,Image of darius_kasparaitis,darius_kasparaitis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/89108bb4-188f-40f4-703f-2537a5593800/public
+Ziggy Palffy,ziggy_palffy,Image of ziggy_palffy,ziggy_palffy.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/06abd33a-3d9a-4174-b846-a2c8686c7800/public
+Wade Redden,wade_redden,Image of wade_redden,wade_redden.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/25dca6eb-594b-415c-a86b-4b585e5b4300/public
+Eric Desjardins,eric_desjardins,Image of eric_desjardins,eric_desjardins.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b67ec512-71f8-4e87-c576-4dfee92d1500/public
+Tom Fitzgerald,tom_fitzgerald,Image of tom_fitzgerald,tom_fitzgerald.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a944ff18-a61c-4f59-4dd8-3c70a6ce6600/public
+Cliff Ronning,cliff_ronning,Image of cliff_ronning,cliff_ronning.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/095f09fe-3e69-40b3-1da1-44460a203600/public
+Mike Keane,mike_keane,Image of mike_keane,mike_keane.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/87899b72-e736-4049-3acd-fb6b5c6de200/public
+Todd Bertuzzi,todd_bertuzzi,Image of todd_bertuzzi,todd_bertuzzi.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b288c932-a22a-4081-d634-4ecadfeb2600/public
 Keith Primeau,,,,
-Petr Nedved,,,,
-Russ Courtnall,,,,
-Teppo Numminen,,,,
-Curtis Joseph,,,,
-Keith Tkachuk,,,,
-Derian Hatcher,,,,
-Sandis Ozolinsh,,,,
-Adam Deadmarsh,,,,
-Eric Lindros,,,,
-Milan Hejduk,,,,
-Jordan Staal,,,,
-Jason Spezza,,,,
-Jere Lehtinen,,,,
-Dany Heatley,,,,
-Dustin Brown,,,,
-Patrik Elias,,,,
-Miikka Kiprusoff,,,,
-Mikko Koivu,,,,
-Cory Schneider,,,,
-Andrei Markov,,,,
-Brendan Morrow,,,,
-Mike Smith,,,,
-Tim Thomas,,,,
-Petr Sykora,,,,
-Tomas Plekanec,,,,
-Jaroslav Halak,,,,
-Ryan McDonagh,,,,
-Torey Krug,,,,
-Hampus Lindholm,,,,
-Brent Seabrook,,,,
-David Krejci,,,,
-Sean Monahan,,,,
-Ben Bishop,,,,
-Evgeny Kuznetsov,,,,
-Jonathan Quick,,,,
-Miro Heiskanen,,,,
-Sam Reinhart,,,,
-Colton Parayko,,,,
-Keith Yandle,,,,
-Anders Lee,,,,
-Brayden Schenn,,,,
-Nico Hischier,,,,
-Jordan Eberle,,,,
-Nikita Kucherov,,,,
-Brendan Gallagher,,,,
-Mats Zuccarello,,,,
-Ryan Johansen,,,,
-Roman Josi,,,,
-William Nylander,,,,
-Andrei Svechnikov,,,,
-Brock Boeser,,,,
-Rickard Rakell,,,,
-Tyler Bertuzzi,,,,
-Rasmus Andersson,,,,
-Jared Spurgeon,,,,
-Jakob Chychrun,,,,
-Cale Makar,,,,
-Teuvo Teravainen,,,,
-Jake Guentzel,,,,
-Brady Tkachuk,,,,
-Carter Hart,,,,
-Jaccob Slavin,,,,
-Shea Theodore,,,,
-Babe Siebert,,,,
-Billy Burch,,,,
-Harry Holmes,,,,
-George Owen,,,,
-George Boucher,,,,
-Flash Hollett,,,,
-Busher Jackson,,,,
-Syd Howe,,,,
-Chuck Gardiner,,,,
-Chuck Rayner,,,,
-Bill Barilko,,,,
-Clint Smith,,,,
-Roy Conacher,,,,
-Bud Poile,,,,
-Leo Reise,,,,
-Woody Dumart,,,,
-Paul Ronty,,,,
-Grant Warwick,,,,
-Tony Leswick,,,,
-Floyd Curry,,,,
-Johnny Peirson,,,,
-George Gee,,,,
-Ron Stewart,,,,
-Charlie Hodge,,,,
-Bill Hicke,,,,
-Gilles Tremblay,,,,
-John Ferguson,,,,
-Ed Johnston,,,,
-Pete Stemkowski,,,,
-Dennis Hull,,,,
-Rene Robert,,,,
-Mikko Leinonen,,,,
-John Tonelli,,,,
-Mike Foligno,,,,
-Tomas Jonsson,,,,
-Marty McSorley,,,,
-Craig Coxe,,,,
-Tony Tanti,,,,
-Dave Lumley,,,,
-Butch Goring,,,,
-Doug Jarvis,,,,
-Keith Acton,,,,
-Al Iafrate,,,,
-Kevin Lowe,,,,
-Brent Sutter,,,,
-Andy Moog,,,,
-Norm MacIver,,,,
-Dennis Maruk,,,,
-Charlie Simmer,,,,
-Anton Šťastný,,,,
-Paul MacLean,,,,
-Vladimir Krutov,,,,
-Slava Fetisov,,,,
-Slava Kozlov,,,,
-Miroslav Satan,,,,
-Bryan McCabe,,,,
-Stu Barnes,,,,
-Martin Gelinas,,,,
-Brendan Morrison,,,,
-Michael Peca,,,,
-Joel Otto,,,,
-Uwe Krupp,,,,
-Bill Ranford,,,,
-Dmitri Yushkevich,,,,
-Brian Campbell,,,,
-Ryan Kesler,,,,
-Marc Staal,,,,
-Simon Gagne,,,,
-Brian Rafalski,,,,
-Johan Franzen,,,,
-Kris Letang,,,,
-Mike Green,,,,
-Pekka Rinne,,,,
-Darcy Tucker,,,,
-Brian Gionta,,,,
-Dion Phaneuf,,,,
-Jacob Markstrom,,,,
-Niklas Kronwall,,,,
-Bobby Ryan,,,,
-Pierre-Marc Bouchard,,,,
-Jimmy Howard,,,,
-Nikolai Khabibulin,,,,
-Andrew Raycroft,,,,
-Martin Straka,,,,
-Tomas Holmstrom,,,,
-Antti Niemi,,,,
-Cristobal Huet,,,,
-John Carlson,,,,
-Vincent Trocheck,,,,
-Morgan Rielly,,,,
-Josh Manson,,,,
-James Neal,,,,
-Elias Lindholm,,,,
-Robin Lehner,,,,
-T.J. Oshie,,,,
-Ryan Ellis,,,,
-Braden Holtby,,,,
-Alexander Radulov,,,,
-Esa Lindell,,,,
-Rasmus Dahlin,,,,
-Jay Bouwmeester,,,,
-Alex Goligoski,,,,
-Marc-Edouard Vlasic,,,,
-Patrik Laine,,,,
-Ondrej Palat,,,,
-Tomas Tatar,,,,
-Derek Stepan,,,,
-Jakub Voracek,,,,
-Pavel Buchnevich,,,,
-Jeff Skinner,,,,
-Aaron Ekblad,,,,
-William Karlsson,,,,
-Filip Hronek,,,,
-Semyon Varlamov,,,,
-Noah Hanifin,,,,
-Matt Dumba,,,,
-Darcy Kuemper,,,,
+Petr Nedved,petr_nedved,Image of petr_nedved,petr_nedved.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/bdea70a8-28ed-4063-1cac-497ad3f7a400/public
+Russ Courtnall,russ_courtnall,Image of russ_courtnall,russ_courtnall.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/56dc2deb-00d1-4bfd-53dc-e692ad2e8000/public
+Teppo Numminen,teppo_numminen,Image of teppo_numminen,teppo_numminen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/23531c1b-a795-4aff-4812-2bc9430cf200/public
+Curtis Joseph,curtis_joseph,Image of curtis_joseph,curtis_joseph.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c0d9ece7-cb0e-4db3-a922-717d9a403400/public
+Keith Tkachuk,keith_tkachuk,Image of keith_tkachuk,keith_tkachuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/10c8be03-963d-49d6-15a9-c3b9f9eda200/public
+Derian Hatcher,derian_hatcher,Image of derian_hatcher,derian_hatcher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/150ecc5d-53d5-4cab-591f-4b570d73b800/public
+Sandis Ozolinsh,sandis_ozolinsh,Image of sandis_ozolinsh,sandis_ozolinsh.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a56b6df9-83a0-4564-eaf6-77cf7e5ec700/public
+Adam Deadmarsh,adam_deadmarsh,Image of adam_deadmarsh,adam_deadmarsh.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/75fcaee7-97b7-4c73-9afc-c45bfeb64000/public
+Eric Lindros,eric_lindros,Image of eric_lindros,eric_lindros.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/37a71cf6-3e0a-4256-02a1-a99e6a7ed500/public
+Milan Hejduk,milan_hejduk,Image of milan_hejduk,milan_hejduk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7e75a51e-6f70-47e8-842a-89b995aa8000/public
+Jordan Staal,jordan_staal,Image of jordan_staal,jordan_staal.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0429724b-5885-4a4d-b9e3-6e2cd4495200/public
+Jason Spezza,jason_spezza,Image of jason_spezza,jason_spezza.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d3f11291-856e-418f-1655-9f0bd8680300/public
+Jere Lehtinen,jere_lehtinen,Image of jere_lehtinen,jere_lehtinen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c68fc1d0-8afb-42e0-c35b-d1a97877a500/public
+Dany Heatley,dany_heatley,Image of dany_heatley,dany_heatley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/148481a1-6b55-4e8b-3367-0fc7d89c7800/public
+Dustin Brown,dustin_brown,Image of dustin_brown,dustin_brown.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0a2495f8-a10e-4ac1-a001-ae16fff86000/public
+Patrik Elias,patrik_elias,Image of patrik_elias,patrik_elias.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5d5d4984-dcb8-4917-3b30-e3a37fc77f00/public
+Miikka Kiprusoff,miikka_kiprusoff,Image of miikka_kiprusoff,miikka_kiprusoff.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b8ef7de5-d88a-42cf-b695-14daa6100600/public
+Mikko Koivu,mikko_koivu,Image of mikko_koivu,mikko_koivu.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ef06e2ea-9689-48ec-4cb8-a1f57e2e9200/public
+Cory Schneider,cory_schneider,Image of cory_schneider,cory_schneider.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a3f24b08-6698-41a0-958c-a72bbe4fdf00/public
+Andrei Markov,andrei_markov,Image of andrei_markov,andrei_markov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8a57597a-d85c-47e7-3c0c-564532717d00/public
+Brendan Morrow,brendan_morrow,Image of brendan_morrow,brendan_morrow.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a478f403-ee21-4a01-d7bb-4ffb1cf9cd00/public
+Mike Smith,mike_smith,Image of mike_smith,mike_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c55cad79-4b7c-4fbc-b488-df73f4bfab00/public
+Tim Thomas,tim_thomas,Image of tim_thomas,tim_thomas.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1fea3ac2-9d9b-4097-8a38-6f9a030ab400/public
+Petr Sykora,petr_sykora,Image of petr_sykora,petr_sykora.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/eb096e5d-9696-4c93-4102-6a28ef221900/public
+Tomas Plekanec,tomas_plekanec,Image of tomas_plekanec,tomas_plekanec.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/dedb9a24-5507-46eb-a3fe-67b66fb76700/public
+Jaroslav Halak,jaroslav_halak,Image of jaroslav_halak,jaroslav_halak.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a5082c3f-ea2b-434e-30e0-b6891dd7a800/public
+Ryan McDonagh,ryan_mcdonagh,Image of ryan_mcdonagh,ryan_mcdonagh.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ce2f2032-b93e-4c24-d7a0-2649ed0abd00/public
+Torey Krug,torey_krug,Image of torey_krug,torey_krug.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/63ec455b-0cac-4f45-4f57-04aae5fe8600/public
+Hampus Lindholm,hampus_lindholm,Image of hampus_lindholm,hampus_lindholm.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d2bec56f-17d0-4103-54e0-14ac29f06800/public
+Brent Seabrook,brent_seabrook,Image of brent_seabrook,brent_seabrook.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a8620d38-1099-493e-8847-3fbb8a9b0900/public
+David Krejci,david_krejci,Image of david_krejci,david_krejci.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7554f3e3-2940-4166-1b9f-585350dd3b00/public
+Sean Monahan,sean_monahan,Image of sean_monahan,sean_monahan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/38b5c4af-83f5-4e07-d705-0f996592ae00/public
+Ben Bishop,ben_bishop,Image of ben_bishop,ben_bishop.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d1e853f2-c2fd-457d-92a2-4d69f2262200/public
+Evgeny Kuznetsov,evgeny_kuznetsov,Image of evgeny_kuznetsov,evgeny_kuznetsov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/52264f91-7034-4872-877c-7d82be74ab00/public
+Jonathan Quick,jonathan_quick,Image of jonathan_quick,jonathan_quick.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1997c51d-de21-44f5-d92d-1fde2ede4e00/public
+Miro Heiskanen,miro_heiskanen,Image of miro_heiskanen,miro_heiskanen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8a34d44f-9e5f-466c-8eea-396ec3d64e00/public
+Sam Reinhart,sam_reinhart,Image of sam_reinhart,sam_reinhart.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0934e915-25f7-4153-5db8-40278fe47800/public
+Colton Parayko,colton_parayko,Image of colton_parayko,colton_parayko.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9c433a54-3667-4ed2-5728-a1541d16f200/public
+Keith Yandle,keith_yandle,Image of keith_yandle,keith_yandle.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/950d8df1-2c55-47f0-4a3b-3221c4d63b00/public
+Anders Lee,anders_lee,Image of anders_lee,anders_lee.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/af7929de-f049-43ab-5999-3c7978d6c800/public
+Brayden Schenn,brayden_schenn,Image of brayden_schenn,brayden_schenn.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9aab9cf4-337e-49b1-aeae-cc4188a2aa00/public
+Nico Hischier,nico_hischier,Image of nico_hischier,nico_hischier.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/376a2d2b-b79a-46df-61bd-8a38c5989c00/public
+Jordan Eberle,jordan_eberle,Image of jordan_eberle,jordan_eberle.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/98a3567a-ea87-407e-e27e-84d756fda100/public
+Nikita Kucherov,nikita_kucherov,Image of nikita_kucherov,nikita_kucherov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0ce1b419-e885-4d5b-d231-13e9b4147200/public
+Brendan Gallagher,brendan_gallagher,Image of brendan_gallagher,brendan_gallagher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2c11aaba-bbce-4084-49ff-996fe987fb00/public
+Mats Zuccarello,mats_zuccarello,Image of mats_zuccarello,mats_zuccarello.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5acf19b2-60e3-42d9-9276-836d2efef500/public
+Ryan Johansen,ryan_johansen,Image of ryan_johansen,ryan_johansen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c5e2f85b-b0b5-4f4c-21fd-555f03f80700/public
+Roman Josi,roman_josi,Image of roman_josi,roman_josi.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3a04809f-b4cc-4173-8eeb-e93c0d66d700/public
+William Nylander,william_nylander,Image of william_nylander,william_nylander.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/14dc231b-d3e5-47fb-0142-b35b8eac0e00/public
+Andrei Svechnikov,andrei_svechnikov,Image of andrei_svechnikov,andrei_svechnikov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c4a3fe3b-b70d-473a-b63f-c4280ba72d00/public
+Brock Boeser,brock_boeser,Image of brock_boeser,brock_boeser.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/63198312-786f-44b9-5703-400796334700/public
+Rickard Rakell,rickard_rakell,Image of rickard_rakell,rickard_rakell.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d6e5f206-21b5-4a61-4325-89e0c364dc00/public
+Tyler Bertuzzi,tyler_bertuzzi,Image of tyler_bertuzzi,tyler_bertuzzi.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/76d0f6d8-d6a7-402b-8b84-1c5018919100/public
+Rasmus Andersson,rasmus_andersson,Image of rasmus_andersson,rasmus_andersson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/adb65a7a-f607-4e1a-972b-b1adb2a84a00/public
+Jared Spurgeon,jared_spurgeon,Image of jared_spurgeon,jared_spurgeon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a490938b-3dfe-48ee-35fe-479878dff800/public
+Jakob Chychrun,jakob_chychrun,Image of jakob_chychrun,jakob_chychrun.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2af4c477-5b9b-4628-97a0-b147e6fd2e00/public
+Cale Makar,cale_makar,Image of cale_makar,cale_makar.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/79f1220c-9d2d-4527-9d35-e3d2f8efcd00/public
+Teuvo Teravainen,teuvo_teravainen,Image of teuvo_teravainen,teuvo_teravainen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/76a412d9-e36d-4e09-5c97-a8586682c200/public
+Jake Guentzel,jake_guentzel,Image of jake_guentzel,jake_guentzel.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/21f15ead-1c72-44c4-9c3f-329f9db3dd00/public
+Brady Tkachuk,brady_tkachuk,Image of brady_tkachuk,brady_tkachuk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/eb115b3f-4a72-41e6-f193-de3ce8a71600/public
+Carter Hart,carter_hart,Image of carter_hart,carter_hart.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1aba954a-8cd6-4957-9c64-0d8e70c64a00/public
+Jaccob Slavin,jaccob_slavin,Image of jaccob_slavin,jaccob_slavin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/69241f16-760e-4475-c695-7f11231bfa00/public
+Shea Theodore,shea_theodore,Image of shea_theodore,shea_theodore.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/99129d32-2632-4af1-a134-24f60da40100/public
+Babe Siebert,babe_siebert,Image of babe_siebert,babe_siebert.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/60f719f5-be41-485d-3b3b-a714fbb1fc00/public
+Billy Burch,billy_burch,Image of billy_burch,billy_burch.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/31cfede7-d3e3-4c94-f7e3-2e0adf0a6300/public
+Harry Holmes,harry_holmes,Image of harry_holmes,harry_holmes.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2b2a1d7d-5261-47e5-bf4c-66b744fa1a00/public
+George Owen,george_owen,Image of george_owen,george_owen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e600b15d-f54c-4f4a-5266-1afbd8169500/public
+George Boucher,george_boucher,Image of george_boucher,george_boucher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/51dc0ad6-e718-4766-0ba1-acce6ad4a200/public
+Flash Hollett,flash_hollett,Image of flash_hollett,flash_hollett.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2f601827-f6b2-47d1-bcd7-d06036bb6000/public
+Busher Jackson,busher_jackson,Image of busher_jackson,busher_jackson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d863371a-ef6c-4e82-dc30-2bbb530d1d00/public
+Syd Howe,syd_howe,Image of syd_howe,syd_howe.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e8112a86-e8f5-432c-d1e3-ffa6eb15c100/public
+Chuck Gardiner,chuck_gardiner,Image of chuck_gardiner,chuck_gardiner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/bc09deab-2fbf-42b7-6e5c-577550f50600/public
+Chuck Rayner,chuck_rayner,Image of chuck_rayner,chuck_rayner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5d2ca8e1-db5e-4b98-049d-c7ef198cca00/public
+Bill Barilko,bill_barilko,Image of bill_barilko,bill_barilko.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2b20e955-f51c-41fb-392d-e067f7cd5700/public
+Clint Smith,clint_smith,Image of clint_smith,clint_smith.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/20a117aa-1432-40a3-ead0-ddc5c7501300/public
+Roy Conacher,roy_conacher,Image of roy_conacher,roy_conacher.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2e617e1c-cfdb-4e74-b1df-0caa8b234c00/public
+Bud Poile,bud_poile,Image of bud_poile,bud_poile.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e9352672-eff6-4c3e-2d10-63ab347f5700/public
+Leo Reise,leo_reise,Image of leo_reise,leo_reise.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/920659da-b78c-498a-cfdb-c9cb0c3eea00/public
+Woody Dumart,woody_dumart,Image of woody_dumart,woody_dumart.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d7a4294a-5799-4165-47a5-07a277d11100/public
+Paul Ronty,paul_ronty,Image of paul_ronty,paul_ronty.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/86159d9c-1c71-4c97-c2ce-ec18ec7ceb00/public
+Grant Warwick,grant_warwick,Image of grant_warwick,grant_warwick.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f5b8712e-3ee5-462c-0166-799840048c00/public
+Tony Leswick,tony_leswick,Image of tony_leswick,tony_leswick.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/55228f74-f8cc-4a6c-d94b-7b087f318c00/public
+Floyd Curry,floyd_curry,Image of floyd_curry,floyd_curry.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d132d310-1f2c-4a57-7585-abb3df9d4100/public
+Johnny Peirson,johnny_peirson,Image of johnny_peirson,johnny_peirson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f509a7ad-97b2-41a9-bf63-5c9c2761ef00/public
+George Gee,george_gee,Image of george_gee,george_gee.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/948dc082-88d6-4507-1719-368997408000/public
+Ron Stewart,ron_stewart,Image of ron_stewart,ron_stewart.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1e573c0d-e60b-476d-c47a-aa1e7e6aff00/public
+Charlie Hodge,charlie_hodge,Image of charlie_hodge,charlie_hodge.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c4561f9d-1675-4f84-5052-9020f29e0700/public
+Bill Hicke,bill_hicke,Image of bill_hicke,bill_hicke.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/76524be1-4419-42af-221c-c95dae2a5000/public
+Gilles Tremblay,gilles_tremblay,Image of gilles_tremblay,gilles_tremblay.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/36693e3c-4dfa-48a2-462a-98f356f4f800/public
+John Ferguson,john_ferguson,Image of john_ferguson,john_ferguson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9058b174-440f-4237-ba44-98a94ebe6e00/public
+Ed Johnston,ed_johnston,Image of ed_johnston,ed_johnston.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f77b2d55-46e7-418b-2103-71931a6f0f00/public
+Pete Stemkowski,pete_stemkowski,Image of pete_stemkowski,pete_stemkowski.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/20953275-3965-497d-915e-1a825458b600/public
+Dennis Hull,dennis_hull,Image of dennis_hull,dennis_hull.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4ae65030-c342-4430-9b25-004516ed8500/public
+Rene Robert,rene_robert,Image of rene_robert,rene_robert.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fe1df71a-cc12-4640-c6d2-eb8d80d8cf00/public
+Mikko Leinonen,mikko_leinonen,Image of mikko_leinonen,mikko_leinonen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/653e0f1c-d612-4bb0-5811-71484d8eb100/public
+John Tonelli,john_tonelli,Image of john_tonelli,john_tonelli.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6f8e51fd-8a3f-46e0-b92e-6e7a19f6e000/public
+Mike Foligno,mike_foligno,Image of mike_foligno,mike_foligno.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b7447591-bf16-4455-42bd-246a18220c00/public
+Tomas Jonsson,tomas_jonsson,Image of tomas_jonsson,tomas_jonsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aa0a3075-7c11-4fec-3c31-0ec1cb753b00/public
+Marty McSorley,marty_mcsorley,Image of marty_mcsorley,marty_mcsorley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/69c1daf4-2ad1-4775-9374-ec0a7df05000/public
+Craig Coxe,craig_coxe,Image of craig_coxe,craig_coxe.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e3f6da69-07f8-437f-5a54-c7755b572000/public
+Tony Tanti,tony_tanti,Image of tony_tanti,tony_tanti.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ad597afb-ef63-40ac-adef-bc7deebe4000/public
+Dave Lumley,dave_lumley,Image of dave_lumley,dave_lumley.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a81a9870-6cc3-4f61-9993-ee6d4cde3500/public
+Butch Goring,butch_goring,Image of butch_goring,butch_goring.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/58ff7450-82ae-48d2-72e4-77d5f4e3e100/public
+Doug Jarvis,doug_jarvis,Image of doug_jarvis,doug_jarvis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0c675579-8543-4803-db84-ed5df26acc00/public
+Keith Acton,keith_acton,Image of keith_acton,keith_acton.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/94d907b6-baab-4e20-58e2-a0272fb60000/public
+Al Iafrate,al_iafrate,Image of al_iafrate,al_iafrate.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/dd27c9a1-f161-4d93-d377-4df58bd19500/public
+Kevin Lowe,kevin_lowe,Image of kevin_lowe,kevin_lowe.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d188f3ff-86cd-4609-40cb-dec4b2d02700/public
+Brent Sutter,brent_sutter,Image of brent_sutter,brent_sutter.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/95725be9-1b2e-47fe-7ffe-5b6440547800/public
+Andy Moog,andy_moog,Image of andy_moog,andy_moog.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b580b0a6-1594-47fe-88a7-037f9c42c000/public
+Norm MacIver,norm_maciver,Image of norm_maciver,norm_maciver.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/23f3dafd-b330-4211-161a-52de59624000/public
+Dennis Maruk,dennis_maruk,Image of dennis_maruk,dennis_maruk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/37ffc1f9-9017-4d01-5720-51ecaace8a00/public
+Charlie Simmer,charlie_simmer,Image of charlie_simmer,charlie_simmer.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c7b762e2-8c6d-4a83-11a1-2efd2ce29500/public
+Anton Šťastný,anton___astn_,Image of anton___astn_,anton___astn_.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9751ab61-e1e5-4332-ba76-3c8681dec700/public
+Paul MacLean,paul_maclean,Image of paul_maclean,paul_maclean.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5d538c0c-ff4a-4570-4b9e-c88f64038600/public
+Vladimir Krutov,vladimir_krutov,Image of vladimir_krutov,vladimir_krutov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/21afe65d-cc1c-4090-3357-e43932129d00/public
+Slava Fetisov,slava_fetisov,Image of slava_fetisov,slava_fetisov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b3337d21-03a1-4a1a-afef-4d2f4fa0a400/public
+Slava Kozlov,slava_kozlov,Image of slava_kozlov,slava_kozlov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/12c9b497-78c8-47d9-c82e-feb85ba5f400/public
+Miroslav Satan,miroslav_satan,Image of miroslav_satan,miroslav_satan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a884259d-9e4b-42e1-8e02-970452961400/public
+Bryan McCabe,bryan_mccabe,Image of bryan_mccabe,bryan_mccabe.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1c430d90-9f18-403e-7113-feff51622400/public
+Stu Barnes,stu_barnes,Image of stu_barnes,stu_barnes.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/12d054a3-d0f6-48f9-4a52-42e033a20400/public
+Martin Gelinas,martin_gelinas,Image of martin_gelinas,martin_gelinas.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1fd5f967-17c3-4fde-a4d5-c5933e29dd00/public
+Brendan Morrison,brendan_morrison,Image of brendan_morrison,brendan_morrison.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9cbfd9e1-0347-4856-a170-6cf686f2cf00/public
+Michael Peca,michael_peca,Image of michael_peca,michael_peca.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fc5931c4-c791-4ee5-616e-9c51f7a52300/public
+Joel Otto,joel_otto,Image of joel_otto,joel_otto.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/05dff177-e63b-4045-478b-5a8efa3e6c00/public
+Uwe Krupp,uwe_krupp,Image of uwe_krupp,uwe_krupp.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/faa4937b-6800-4188-a80a-ba8f8a25b500/public
+Bill Ranford,bill_ranford,Image of bill_ranford,bill_ranford.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0fb58428-495b-4a64-e7ea-fc70ed14e700/public
+Dmitri Yushkevich,dmitri_yushkevich,Image of dmitri_yushkevich,dmitri_yushkevich.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/dfbe049e-40d4-46fd-6b12-e54672331100/public
+Brian Campbell,brian_campbell,Image of brian_campbell,brian_campbell.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a5416ed8-1982-494f-9725-d0a613831900/public
+Ryan Kesler,ryan_kesler,Image of ryan_kesler,ryan_kesler.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/cfe188e4-45fa-4029-dd07-76bb78e29e00/public
+Marc Staal,marc_staal,Image of marc_staal,marc_staal.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ec44f8c8-22a0-4cc6-0f9d-7259c8c37d00/public
+Simon Gagne,simon_gagne,Image of simon_gagne,simon_gagne.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/fb12bcf3-23a6-46ed-ec86-cda4e134e900/public
+Brian Rafalski,brian_rafalski,Image of brian_rafalski,brian_rafalski.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/98213340-7756-46e7-de09-9327db846600/public
+Johan Franzen,johan_franzen,Image of johan_franzen,johan_franzen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/21d37691-c221-4337-7227-04fbab668700/public
+Kris Letang,kris_letang,Image of kris_letang,kris_letang.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/000dc8fb-4233-486e-a594-d420e1d94100/public
+Mike Green,mike_green,Image of mike_green,mike_green.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e772ebe7-aab1-4ecc-ee57-8dd6de75be00/public
+Pekka Rinne,pekka_rinne,Image of pekka_rinne,pekka_rinne.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1aacfa00-70f4-46ef-71b7-15b9486e6600/public
+Darcy Tucker,darcy_tucker,Image of darcy_tucker,darcy_tucker.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/49a5d460-dc64-4903-d273-499887143500/public
+Brian Gionta,brian_gionta,Image of brian_gionta,brian_gionta.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1be93438-9a05-4e7b-ea3f-b09593069600/public
+Dion Phaneuf,dion_phaneuf,Image of dion_phaneuf,dion_phaneuf.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9547eb68-0384-43b2-2133-676f5c92ce00/public
+Jacob Markstrom,jacob_markstrom,Image of jacob_markstrom,jacob_markstrom.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/30ecd6be-6937-4636-45ab-f539fcb7cc00/public
+Niklas Kronwall,niklas_kronwall,Image of niklas_kronwall,niklas_kronwall.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/810cfd0f-f296-4e25-4d98-5cf270cc8200/public
+Bobby Ryan,bobby_ryan,Image of bobby_ryan,bobby_ryan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1d91b270-90d7-4aef-2d9d-e41e93a30700/public
+Pierre-Marc Bouchard,pierre_marc_bouchard,Image of pierre_marc_bouchard,pierre_marc_bouchard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/569b7c26-32a2-4c36-ac1a-e50f40d0ec00/public
+Jimmy Howard,jimmy_howard,Image of jimmy_howard,jimmy_howard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/33c9fa6b-b5f4-46ac-d83e-9994409f2b00/public
+Nikolai Khabibulin,nikolai_khabibulin,Image of nikolai_khabibulin,nikolai_khabibulin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/db21047d-f1ea-4681-3f23-82603f1e2500/public
+Andrew Raycroft,andrew_raycroft,Image of andrew_raycroft,andrew_raycroft.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/391bcd23-995e-4691-c9b0-7635d172ea00/public
+Martin Straka,martin_straka,Image of martin_straka,martin_straka.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/72f5c99c-884e-4c6f-b454-42499cf29100/public
+Tomas Holmstrom,tomas_holmstrom,Image of tomas_holmstrom,tomas_holmstrom.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6f953507-a074-4d63-0c5d-de600b20c800/public
+Antti Niemi,antti_niemi,Image of antti_niemi,antti_niemi.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d0940858-68b0-4622-d5b2-f4e38e04f000/public
+Cristobal Huet,cristobal_huet,Image of cristobal_huet,cristobal_huet.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/df298e79-dac1-4303-4b03-108696b6f000/public
+John Carlson,john_carlson,Image of john_carlson,john_carlson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5338f703-d647-4151-e4cf-0aa31ef47400/public
+Vincent Trocheck,vincent_trocheck,Image of vincent_trocheck,vincent_trocheck.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c9db6b82-c0a2-4189-cfad-cd7c0546c900/public
+Morgan Rielly,morgan_rielly,Image of morgan_rielly,morgan_rielly.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/728cea42-3b47-4d06-ab14-f06d0e74c700/public
+Josh Manson,josh_manson,Image of josh_manson,josh_manson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8a80be2b-fd9d-4ca8-c3aa-1bc946de0300/public
+James Neal,james_neal,Image of james_neal,james_neal.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0334c6cd-0f7b-41e7-b34f-4d2b86510a00/public
+Elias Lindholm,elias_lindholm,Image of elias_lindholm,elias_lindholm.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/43f05e26-7a06-4884-f567-dac8b5dbc200/public
+Robin Lehner,robin_lehner,Image of robin_lehner,robin_lehner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7564a661-5d46-4ed2-105d-79bcee552e00/public
+T.J. Oshie,t_j__oshie,Image of t_j__oshie,t_j__oshie.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/499d14ab-8dd7-4545-6d8d-40aed33d2700/public
+Ryan Ellis,ryan_ellis,Image of ryan_ellis,ryan_ellis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1452d051-3068-4219-eec9-c54f48db3f00/public
+Braden Holtby,braden_holtby,Image of braden_holtby,braden_holtby.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aa89ece7-9c67-4da8-82a9-f44797dbb800/public
+Alexander Radulov,alexander_radulov,Image of alexander_radulov,alexander_radulov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6a1f37e4-fbf3-4c9b-44e4-2cd816c0cf00/public
+Esa Lindell,esa_lindell,Image of esa_lindell,esa_lindell.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/02d08a78-c693-43af-51a6-f4c89e9d8b00/public
+Rasmus Dahlin,rasmus_dahlin,Image of rasmus_dahlin,rasmus_dahlin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/826a45c4-e84d-44e7-88d4-01251da6b200/public
+Jay Bouwmeester,jay_bouwmeester,Image of jay_bouwmeester,jay_bouwmeester.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/bf50c0df-2ee4-4f3b-db69-10b61716f200/public
+Alex Goligoski,alex_goligoski,Image of alex_goligoski,alex_goligoski.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/42f34b98-b164-47e4-2415-fec20befa700/public
+Marc-Edouard Vlasic,marc_edouard_vlasic,Image of marc_edouard_vlasic,marc_edouard_vlasic.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3baa60e8-bce9-4fb8-7574-20bf401f8100/public
+Patrik Laine,patrik_laine,Image of patrik_laine,patrik_laine.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ae59b279-5c3e-416c-21bc-462026dbd500/public
+Ondrej Palat,ondrej_palat,Image of ondrej_palat,ondrej_palat.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b0bf4a2c-e7ef-4265-55a9-f64c406bf800/public
+Tomas Tatar,tomas_tatar,Image of tomas_tatar,tomas_tatar.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/a212d078-89da-46c8-5cb4-929bfb5bf900/public
+Derek Stepan,derek_stepan,Image of derek_stepan,derek_stepan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/02f7ec57-a909-444a-013d-8116651e4b00/public
+Jakub Voracek,jakub_voracek,Image of jakub_voracek,jakub_voracek.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/303fc9f3-17bf-4112-31e7-6e964791d300/public
+Pavel Buchnevich,pavel_buchnevich,Image of pavel_buchnevich,pavel_buchnevich.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/eda71c5b-0896-4904-58cd-2606da626500/public
+Jeff Skinner,jeff_skinner,Image of jeff_skinner,jeff_skinner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4372c2dd-291a-44cd-188c-39174316f100/public
+Aaron Ekblad,aaron_ekblad,Image of aaron_ekblad,aaron_ekblad.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/784d40f1-4a6d-4a82-3774-52b22059f300/public
+William Karlsson,william_karlsson,Image of william_karlsson,william_karlsson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7635a6ad-fd74-420e-05ce-0c8b646c0d00/public
+Filip Hronek,filip_hronek,Image of filip_hronek,filip_hronek.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ea3b4392-0bec-4247-d34f-6611fa67b800/public
+Semyon Varlamov,semyon_varlamov,Image of semyon_varlamov,semyon_varlamov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/48867e2e-5b38-442a-7a74-3e75690d1700/public
+Noah Hanifin,noah_hanifin,Image of noah_hanifin,noah_hanifin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/464468e4-7424-43f3-3511-697b69878800/public
+Matt Dumba,matt_dumba,Image of matt_dumba,matt_dumba.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/69efab8c-d69d-4482-f429-d600b60a0900/public
+Darcy Kuemper,darcy_kuemper,Image of darcy_kuemper,darcy_kuemper.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1a3ccc7e-63c4-418b-5ad2-b2aae31bf700/public
 Travis Konecny,,,,
-Brock Nelson,,,,
-Alex DeBrincat,,,,
-Tom Wilson,,,,
-Thatcher Demko,,,,
-Anthony Mantha,,,,
-Kevin Hayes,,,,
-Lorne Chabot,,,,
-Frank Finnigan,,,,
-Hec Kilrea,,,,
-Rocket Richard,,,,
-Emile Francis,,,,
-Jim Henry,,,,
-Al Rollins,,,,
-Roger Crozier,,,,
-Ed Giacomin,,,,
-Eddie Giacomin,,,,
-Bert Olmstead,,,,
-Rogatien Vachon,,,,
-Paul Henderson,,,,
-Kirk McLean,,,,
-Pete Peeters,,,,
-Don Beaupre,,,,
-Brian Hayward,,,,
-Dave Babych,,,,
-Bob Froese,,,,
-Cam Neely,,,,
-Patrick Sundstrom,,,,
-Petr Svoboda,,,,
-Pavol Demitra,,,,
-Chris Phillips,,,,
-Rob Niedermayer,,,,
-Felix Potvin,,,,
-Patrick Sharp,,,,
-Ryan Miller,,,,
-Marty Turco,,,,
-Danny Briere,,,,
-Cam Ward,,,,
-Thomas Holmström,,,,
-Dustin Penner,,,,
-Manny Legace,,,,
-Devan Dubnyk,,,,
-Kari Lehtonen,,,,
-Jose Theodore,,,,
-Sergei Bobrovsky,,,,
-Corey Crawford,,,,
-Jamie Oleksiak,,,,
-Clayton Keller,,,,
-Josh Bailey,,,,
-Martin Jones,,,,
-Rasmus Ristolainen,,,,
-Connor Brown,,,,
-Matt Murray,,,,
-Juuse Saros,,,,
-Cam Talbot,,,,
-Frederik Andersen,,,,
-Kevin Fiala,,,,
-Jonathan Marchessault,,,,
-Adam Fox,,,,
-Bryan Rust,,,,
-Ivan Provorov,,,,
-Josh Morrissey,,,,
-Ryan Pulock,,,,
-Igor Shesterkin,,,,
-Moritz Seider,,,,
+Brock Nelson,brock_nelson,Image of brock_nelson,brock_nelson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/69205f4c-d0be-4427-7e54-485fb66a7d00/public
+Alex DeBrincat,alex_debrincat,Image of alex_debrincat,alex_debrincat.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/07e5ae79-300b-42a4-8b6b-ec92ed1b8400/public
+Tom Wilson,tom_wilson,Image of tom_wilson,tom_wilson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/374584b2-cdc8-4e20-388a-5d098ffd2b00/public
+Thatcher Demko,thatcher_demko,Image of thatcher_demko,thatcher_demko.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b902e4a3-2bb5-47fa-f669-6c0b6f328400/public
+Anthony Mantha,anthony_mantha,Image of anthony_mantha,anthony_mantha.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b2e11c6d-c439-45d1-1b24-5661d9a2eb00/public
+Kevin Hayes,kevin_hayes,Image of kevin_hayes,kevin_hayes.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/411b0f45-ca36-47bb-a619-cbf486117400/public
+Lorne Chabot,lorne_chabot,Image of lorne_chabot,lorne_chabot.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c147163c-7321-4d76-0154-d5749fceb000/public
+Frank Finnigan,frank_finnigan,Image of frank_finnigan,frank_finnigan.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/15e6cd12-bc54-4981-3482-cc5de5556100/public
+Hec Kilrea,hec_kilrea,Image of hec_kilrea,hec_kilrea.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8c30dc1e-4a18-4ea1-c2ef-838e31867600/public
+Rocket Richard,rocket_richard,Image of rocket_richard,rocket_richard.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/14e1384c-3417-492c-0417-24e807dcd800/public
+Emile Francis,emile_francis,Image of emile_francis,emile_francis.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/dba05a3a-31a0-42b7-0794-1ead4deec100/public
+Jim Henry,jim_henry,Image of jim_henry,jim_henry.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/27599c4a-e8b2-4e9a-80ff-da3ccf9db000/public
+Al Rollins,al_rollins,Image of al_rollins,al_rollins.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e7018972-ba4c-4db3-9de0-5b8878f14900/public
+Roger Crozier,roger_crozier,Image of roger_crozier,roger_crozier.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/65b7c8ba-cc46-4c67-0e69-b54147baae00/public
+Ed Giacomin,ed_giacomin,Image of ed_giacomin,ed_giacomin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/e8fe6479-722e-4e44-713c-135ee169e500/public
+Eddie Giacomin,eddie_giacomin,Image of eddie_giacomin,eddie_giacomin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c30a91c7-7414-4d48-7b70-e795a12b1e00/public
+Bert Olmstead,bert_olmstead,Image of bert_olmstead,bert_olmstead.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7dc21386-22cb-4ace-d9b1-ef7553787900/public
+Rogatien Vachon,rogatien_vachon,Image of rogatien_vachon,rogatien_vachon.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/764269f3-2b81-4b84-65df-b8199d8f0200/public
+Paul Henderson,paul_henderson,Image of paul_henderson,paul_henderson.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/eca5e760-38a5-459e-eb9a-0f2588138600/public
+Kirk McLean,kirk_mclean,Image of kirk_mclean,kirk_mclean.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5da766d4-1311-42c9-7355-16ae0be03000/public
+Pete Peeters,pete_peeters,Image of pete_peeters,pete_peeters.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/4b8e51cc-ca26-4072-494a-8b037af20c00/public
+Don Beaupre,don_beaupre,Image of don_beaupre,don_beaupre.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/8021be54-c10d-46a0-2f05-4952a8fa3700/public
+Brian Hayward,brian_hayward,Image of brian_hayward,brian_hayward.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0c83f7a1-9c23-4c5d-1729-90024f683000/public
+Dave Babych,dave_babych,Image of dave_babych,dave_babych.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6a9c91b5-07a6-4511-1206-f0cd7f621300/public
+Bob Froese,bob_froese,Image of bob_froese,bob_froese.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d7ff3cf6-17dd-462b-89ee-0518f5af8100/public
+Cam Neely,cam_neely,Image of cam_neely,cam_neely.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f8c3bfb6-c0ed-44ab-fb6b-54dc9dbf0400/public
+Patrick Sundstrom,patrick_sundstrom,Image of patrick_sundstrom,patrick_sundstrom.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c0dea870-f0a6-4a54-a86e-d955e0760200/public
+Petr Svoboda,petr_svoboda,Image of petr_svoboda,petr_svoboda.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/73c159ab-6f9c-4502-3347-b66a6bc3d000/public
+Pavol Demitra,pavol_demitra,Image of pavol_demitra,pavol_demitra.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/14dadbcb-c7ef-4773-d2a7-a5412f421a00/public
+Chris Phillips,chris_phillips,Image of chris_phillips,chris_phillips.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7a2ded1f-11d1-443b-50f2-591e054b4a00/public
+Rob Niedermayer,rob_niedermayer,Image of rob_niedermayer,rob_niedermayer.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/90694284-42f7-4630-8d40-3deb87030900/public
+Felix Potvin,felix_potvin,Image of felix_potvin,felix_potvin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/eb2ef9b8-aa7c-4ede-05ab-9f7110c26e00/public
+Patrick Sharp,patrick_sharp,Image of patrick_sharp,patrick_sharp.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/7a4d9132-85f8-4cac-b398-9cecf7354000/public
+Ryan Miller,ryan_miller,Image of ryan_miller,ryan_miller.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/9886876c-a25a-4593-5c04-8ee62f385000/public
+Marty Turco,marty_turco,Image of marty_turco,marty_turco.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ab08d231-b267-48cd-85d0-f08c36650800/public
+Danny Briere,danny_briere,Image of danny_briere,danny_briere.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/d2a0b68a-0ee4-4ae2-aa79-c2cf5b896100/public
+Cam Ward,cam_ward,Image of cam_ward,cam_ward.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/22ddfd61-0231-4cf4-7c8d-1f918977cf00/public
+Thomas Holmström,thomas_holmstr_m,Image of thomas_holmstr_m,thomas_holmstr_m.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/62223d0f-64c1-4737-2740-a29653147300/public
+Dustin Penner,dustin_penner,Image of dustin_penner,dustin_penner.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ca0117bd-4911-4d21-e225-4acd4d6f2500/public
+Manny Legace,manny_legace,Image of manny_legace,manny_legace.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/15f7d228-c009-4782-70d9-bc6378d6c100/public
+Devan Dubnyk,devan_dubnyk,Image of devan_dubnyk,devan_dubnyk.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b7a3a0cb-f535-4443-a2ec-fab69b20d400/public
+Kari Lehtonen,kari_lehtonen,Image of kari_lehtonen,kari_lehtonen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/b47e5242-4457-41f1-17ea-7798e4ed6000/public
+Jose Theodore,jose_theodore,Image of jose_theodore,jose_theodore.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/f97abdb7-2a5d-4c20-4445-cc16258a4c00/public
+Sergei Bobrovsky,sergei_bobrovsky,Image of sergei_bobrovsky,sergei_bobrovsky.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/19acc18c-063a-4ed5-2b4b-915201d1fb00/public
+Corey Crawford,corey_crawford,Image of corey_crawford,corey_crawford.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/31c3224a-ed0e-4419-7743-72fae0f50d00/public
+Jamie Oleksiak,jamie_oleksiak,Image of jamie_oleksiak,jamie_oleksiak.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c46bcea0-8c8c-4603-8aea-4c439b83d500/public
+Clayton Keller,clayton_keller,Image of clayton_keller,clayton_keller.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/94eb4a15-c737-44e5-457b-9eed40cadc00/public
+Josh Bailey,josh_bailey,Image of josh_bailey,josh_bailey.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6e20f9bb-855f-47c1-c23a-ccd2e3444600/public
+Martin Jones,martin_jones,Image of martin_jones,martin_jones.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0f2ab73d-8113-497d-1488-4ecc2c44d000/public
+Rasmus Ristolainen,rasmus_ristolainen,Image of rasmus_ristolainen,rasmus_ristolainen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/413b653c-cac7-43ee-3825-47186b0c7900/public
+Connor Brown,connor_brown,Image of connor_brown,connor_brown.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/731b5acc-fcd5-4b23-3df6-6863e9989000/public
+Matt Murray,matt_murray,Image of matt_murray,matt_murray.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/10ed466a-02eb-4cc7-8de9-cad506c5f400/public
+Juuse Saros,juuse_saros,Image of juuse_saros,juuse_saros.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/6d2f661e-176d-4106-049f-cd2629016000/public
+Cam Talbot,cam_talbot,Image of cam_talbot,cam_talbot.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0e4a558a-62d3-478b-e788-e1c6fc7fc900/public
+Frederik Andersen,frederik_andersen,Image of frederik_andersen,frederik_andersen.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/5b4c8431-ff7f-4dba-65d3-d5ae11b7b100/public
+Kevin Fiala,kevin_fiala,Image of kevin_fiala,kevin_fiala.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/04092794-4d1d-48d0-8edf-edf3e6a4ef00/public
+Jonathan Marchessault,jonathan_marchessault,Image of jonathan_marchessault,jonathan_marchessault.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/2eb0a2d0-3dc1-4156-3b02-6d215ef18b00/public
+Adam Fox,adam_fox,Image of adam_fox,adam_fox.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/486fb79c-3632-49d1-2172-feb62d44fa00/public
+Bryan Rust,bryan_rust,Image of bryan_rust,bryan_rust.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1671d00e-8ddc-4e1c-6df7-efbb7ba1cc00/public
+Ivan Provorov,ivan_provorov,Image of ivan_provorov,ivan_provorov.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/3358095f-70f0-4ad2-4cf8-26c453d1ff00/public
+Josh Morrissey,josh_morrissey,Image of josh_morrissey,josh_morrissey.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/62dd3e77-e4f9-4c39-e004-1cba467bb100/public
+Ryan Pulock,ryan_pulock,Image of ryan_pulock,ryan_pulock.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/de0a2af0-baee-413e-489a-dd4077455a00/public
+Igor Shesterkin,igor_shesterkin,Image of igor_shesterkin,igor_shesterkin.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/0220ab7b-e4df-4fc1-6005-3f86eccd8e00/public
+Moritz Seider,moritz_seider,Image of moritz_seider,moritz_seider.png,https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/1d4a60c8-aa27-4ef7-fc67-35791319a200/public

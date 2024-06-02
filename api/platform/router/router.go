@@ -103,6 +103,7 @@ func New(auth *authenticator.Authenticator) *gin.Engine {
 
 	// New route for starting a game
 	router.POST("/start-session", middleware.IsAuthenticated, gameplay.StartSession)
+	router.POST("/start-session-demo", gameplay.StartSession)
 	router.POST("/end-session", gameplay.EndSessionEndpoint)
 	router.POST("/generate-tokens", gameplay.GenerateTokens)
 	router.GET("/ws", gameplay.HandleGameWebSocket)

@@ -21,9 +21,11 @@ const faqData: FaqItem[] = [
     question: "What types of categories are available in Commonly Odd?",
     answer: (
       <p>
-        Currently, the game features a dynamic mix of categories. We are
-        actively developing the option to select individual categories and
-        topics, aiming to enhance your gaming experience soon.
+        Currently, the game allows for the individual selection of: baseball,
+        hockey, basketball, football, 80's, harry potter, bible and random (this
+        includes but is not limited to philosophy, rome, world history, food
+        etc.). New categories are added daily and we welcome your suggestions
+        for additional topics as well.
       </p>
     ),
   },
@@ -179,7 +181,7 @@ const FAQitems: Component = () => {
 
   return (
     <>
-      <div class=" py-10     mx-auto   ">
+      <div class=" py-10     mx-auto  mt-8 mb-2  ">
         <div class="text-3xl font-bold text-center mb-5">
           Frequently Asked Questions
         </div>

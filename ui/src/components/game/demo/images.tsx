@@ -8,6 +8,8 @@ import {
   oddReasonForSimilarity,
   isSessionActive,
 } from "./start";
+import { VolumeDownOutlined, VolumeOffOutlined } from "@suid/icons-material";
+import { Button } from "@suid/material";
 
 interface GameImagesProps {
   gameData: Objects_Images | null;
@@ -19,10 +21,36 @@ interface ImageObject {
   animationClass: string;
 }
 
+export const [countReached, setCountReached] = createSignal<boolean>(false);
+export const [countPlusOne, setCountPlusOne] = createSignal<boolean>(false);
 const [imagesToShow, setImagesToShow] = createSignal<ImageObject[]>([]);
 const [highlightName, setHighlightName] = createSignal<string>("");
 const [selectedImage, setSelectedImage] = createSignal<string>("");
 const [isSelectable, setIsSelectable] = createSignal<boolean>(true);
+const [soundOn, setSoundOn] = createSignal<boolean>(true);
+
+const correctSound = new Audio("https://media.commonlyodd.com/right.mp3");
+const wrongSound = new Audio("https://media.commonlyodd.com/wrong.mp3");
+
+const initializeTotalDemoCount = () => {
+  localStorage.setItem("total_score_demo", "0");
+};
+
+const updateScores = (isCorrect) => {
+  let total_score = parseInt(localStorage.getItem("total_score_demo") || "0");
+
+  if (isCorrect || !isCorrect) {
+    total_score++;
+  }
+
+  localStorage.setItem("total_score_demo", total_score.toString());
+  if (total_score === 10) {
+    setCountReached(true);
+  }
+  if (total_score === 11) {
+    setCountPlusOne(true);
+  }
+};
 
 export const startNewTurn = () => {
   setHighlightName("");
@@ -30,28 +58,39 @@ export const startNewTurn = () => {
   setIsSelectable(true);
 };
 
+const playSound = (sound) => {
+  if (soundOn()) {
+    sound.play();
+  }
+};
+
 export default function GameImagesDemo(props: GameImagesProps) {
+  createEffect(() => {
+    correctSound.load();
+    wrongSound.load();
+  });
+
   createEffect(() => {
     const gameData = props.gameData;
     const defaultImages = [
       {
-        name: "Parsnip",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/688be032-60b9-43c0-2f3f-0ac1f7541300/public",
+        // name: "Parsnip",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c64e46b2-1df5-4919-197d-6ff7fbfc8900/public",
         animationClass: "image-slide-in-top",
       },
       {
-        name: "Potato",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/c4ae542e-3146-4f56-e89e-c18c75786200/public",
+        // name: "Potato",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/34a16638-8c88-401d-4aaf-63d6f14c9100/public",
         animationClass: "image-slide-in-side",
       },
       {
-        name: "Garlic",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/aeecf0c5-f94d-4839-b306-75b30d093800/public",
+        // name: "Garlic",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/56f8af98-6ce6-48a0-0dfb-6ba371c2d700/public",
         animationClass: "image-slide-in-bottom",
       },
       {
-        name: "Carrot",
-        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/ede3a18b-cfea-492c-9bfc-f312bc683800/public",
+        // name: "Carrot",
+        url: "https://imagedelivery.net/CSGzrEc723GAS-rv6GanQw/54d6d568-021b-4352-f2d2-6b342646cf00/public",
         animationClass: "image-slide-in-other-side",
       },
     ];
@@ -95,8 +134,6 @@ export default function GameImagesDemo(props: GameImagesProps) {
       imagesToShow().length === 4 &&
       imagesToShow()[0].name === "Create Session";
 
-    console.log("Game Type: ", gameType());
-
     if (isSessionActive() && !isDefaultImages) {
       if (!isSelectable()) return;
       if (gameType() === "demo") {
@@ -111,6 +148,8 @@ export default function GameImagesDemo(props: GameImagesProps) {
     if (gameType() === "demo") {
       if (selectedImage() && highlightName()) {
         const isCorrect = selectedImage() === highlightName();
+        updateScores(isCorrect);
+        playSound(isCorrect ? correctSound : wrongSound);
       }
     }
   });
@@ -119,8 +158,28 @@ export default function GameImagesDemo(props: GameImagesProps) {
     return highlightName() && highlightName() !== imageName;
   };
 
+  onCleanup(() => {
+    initializeTotalDemoCount();
+  });
+
   return (
     <div class="flex flex-col items-center justify-center text-center">
+      <div class="relative w-full flex justify-center items-center pb-2">
+        <Button
+          fontSize="large"
+          variant="outlined"
+          sx={{
+            color: "#f9fafb",
+            width: "50px",
+            height: "50px",
+            borderColor: " #f9fafb",
+          }}
+          onClick={() => setSoundOn(!soundOn())}
+        >
+          {soundOn() ? <VolumeDownOutlined /> : <VolumeOffOutlined />}
+        </Button>
+      </div>
+
       <div class="grid grid-cols-2 gap-4 justify-center items-center">
         <For each={imagesToShow().slice(0, 2)}>
           {(obj, index) => (

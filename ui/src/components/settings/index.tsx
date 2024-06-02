@@ -148,6 +148,10 @@ export default function AccountMenu() {
       localStorage.removeItem("type");
       localStorage.removeItem("total_score");
       localStorage.removeItem("user_score");
+      localStorage.removeItem("session_uuid_demo");
+      localStorage.removeItem("starter_token_demo");
+      localStorage.removeItem("type_demo");
+      localStorage.removeItem("total_score_demo");
     }
 
     if (goToDashboard()) {
@@ -233,6 +237,9 @@ export default function AccountMenu() {
                 </a>
                 <a href="#features">
                   <div class="px-4">Features</div>
+                </a>
+                <a href="#demo">
+                  <div class="px-4">Demo</div>
                 </a>
                 <a href="#pricing-plans">
                   <div class="px-4">Explore Plans</div>

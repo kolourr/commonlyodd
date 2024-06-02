@@ -46,7 +46,7 @@ async function generateImage(name) {
     .replace(/[^a-z0-9]/gi, "_")
     .toLowerCase()}.png`;
   const outputPath = path.join(imagesDir, sanitizedFilename);
-  const prompt = `From the NHL: ${name}`;
+  const prompt = `NHL Player: ${name}`;
   let imageUrl;
 
   // // Try generating with OpenAI

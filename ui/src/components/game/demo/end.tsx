@@ -16,6 +16,7 @@ export default function EndSessionDemo() {
       localStorage.removeItem("session_uuid_demo");
       localStorage.removeItem("starter_token_demo");
       localStorage.removeItem("type_demo");
+      localStorage.removeItem("total_score_demo");
 
       // // Navigate to the base URL
       // navigate("/");

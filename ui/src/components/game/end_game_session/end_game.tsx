@@ -36,6 +36,10 @@ export default function EndGame() {
       localStorage.removeItem("type");
       localStorage.removeItem("total_score");
       localStorage.removeItem("user_score");
+      localStorage.removeItem("session_uuid_demo");
+      localStorage.removeItem("starter_token_demo");
+      localStorage.removeItem("type_demo");
+      localStorage.removeItem("total_score_demo");
 
       // Reset session link and Notify user
       setSessionLink(`${BASE_API}/click-to-start`);

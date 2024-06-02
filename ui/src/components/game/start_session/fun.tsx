@@ -80,9 +80,7 @@ export default function StartSessionFun() {
           style={dialogTextStyle}
           sx={{ textAlign: "center" }}
         >
-          {
-            "Choose the category and countdown duration for each round to initiate the game."
-          }
+          {"Choose the category and countdown duration for the rounds."}
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <Category setCategory={setCategory} />

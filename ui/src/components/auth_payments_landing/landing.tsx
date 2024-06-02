@@ -33,6 +33,26 @@ createEffect(() => {
   onCleanup(() => clearInterval(interval));
 });
 
+export const landingHeroButton = () => {
+  if (!isAuthenticated()) {
+    return (window.location.href = `${BASE_API}/login`);
+  } else if (isAuthenticated() && !subscriptionStatus()) {
+    return (window.location.href = `${BASE_UI}/user#pricingplans`);
+  } else if (isAuthenticated() && subscriptionStatus()) {
+    return (window.location.href = `${BASE_UI}/game`);
+  }
+};
+
+export const buttonText = () => {
+  if (!isAuthenticated()) {
+    return "Start Playing for Free";
+  } else if (isAuthenticated() && !subscriptionStatus()) {
+    return "Explore Plans";
+  } else if (isAuthenticated() && subscriptionStatus()) {
+    return "Go to Game";
+  }
+};
+
 const images = [
   {
     name: "Parsnip",
@@ -224,7 +244,7 @@ const bottomSection: SectionProps[] = [
         </div>
         <div class="flex flex-col items-center justify-center">
           <div class="text-lg mb-3 text-slate-400 ">
-            Play risk free, enjoy a full week on us.
+            Enjoy a 7-day risk free trial
           </div>
           <div class="flex jsutify-center items-center">
             {" "}
@@ -327,26 +347,6 @@ const LandingPage: Component = () => {
     const interval = setInterval(cycleSections, 4000);
     return () => clearInterval(interval);
   });
-
-  const landingHeroButton = () => {
-    if (!isAuthenticated()) {
-      return (window.location.href = `${BASE_API}/login`);
-    } else if (isAuthenticated() && !subscriptionStatus()) {
-      return (window.location.href = `${BASE_UI}/user#pricingplans`);
-    } else if (isAuthenticated() && subscriptionStatus()) {
-      return (window.location.href = `${BASE_UI}/game`);
-    }
-  };
-
-  const buttonText = () => {
-    if (!isAuthenticated()) {
-      return "Start Your Free 7-day Trial";
-    } else if (isAuthenticated() && !subscriptionStatus()) {
-      return "Explore Plans";
-    } else if (isAuthenticated() && subscriptionStatus()) {
-      return "Go to Game";
-    }
-  };
 
   const desktopView = () => {
     return (
@@ -466,7 +466,7 @@ const LandingPage: Component = () => {
 
         <div
           id="features"
-          class="mb-10 text-center text-4xl font-bold  text-gray-200 "
+          class="my-8 text-center text-4xl font-bold  text-gray-200  "
         >
           Features
         </div>
@@ -495,6 +495,9 @@ const LandingPage: Component = () => {
           </div>
         </div>
         <Demo />
+
+        <FAQitems />
+
         <Show when={!subscriptionStatus()}>
           <div class="flex flex-col space-y-6 divide-y pt-8 ">
             {bottomSection.map((section) => (
@@ -502,7 +505,6 @@ const LandingPage: Component = () => {
             ))}
           </div>
         </Show>
-        <FAQitems />
       </div>
       <Footer />
     </div>

@@ -41,17 +41,18 @@ const Rules: Component = () => {
                 <li class="py-2">
                   <span class="font-bold">Quick Game:</span> Ideal for solo
                   players. No setup required. This mode has fast rounds and
-                  allows manual selection to override pre-set time set per
-                  round.
+                  allows manual selection to override pre-set time set per round
+                  but does not allow for manual selection of category.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Quick Game +:</span> All of Quick Game
-                  except that session starter must set time per round.
+                  except that session starter must set time per round and
+                  category of questions.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Competitive:</span> Ideal for group
-                  play, no manual selection, target score and number of teams
-                  must be set, can also be played solo.
+                  play, target score, category and number of teams must be set,
+                  can also be played solo.
                 </li>
               </ul>
 
@@ -61,10 +62,7 @@ const Rules: Component = () => {
               <ul class="list-disc pl-8 mt-2">
                 <li class="py-2">
                   <span class="font-bold">Session Creation:</span> The session
-                  starter sets up the game session. For Competitive games, they
-                  select the number of participating teams and the total score
-                  goal. For Quick Game +, only the time per round needs to be
-                  set.
+                  starter sets up the game session.
                 </li>
                 <li class="py-2">
                   <span class="font-bold">Link Distribution:</span> A unique

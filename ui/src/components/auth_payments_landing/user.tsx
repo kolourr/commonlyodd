@@ -127,7 +127,7 @@ const User = () => {
                 Go to Game
               </Button>
             </div>
-            <div class="flex flex-col text-center">
+            <div class="flex flex-col text-left">
               <p class="  text-base md:text-lg mb-4">
                 If you have any questions or need further assistance, don't
                 hesitate to reach out. For a detailed breakdown on the rules,
@@ -200,8 +200,8 @@ const User = () => {
                 Go to Game
               </Button>
             </div>
-            <div class="flex flex-col text-center">
-              <p class="  text-base md:text-lg mb-4">
+            <div class="flex flex-col text-left">
+              <p class="text-base md:text-lg mb-4">
                 If you have any questions or need further assistance, don't
                 hesitate to reach out. For a detailed breakdown on the rules,
                 here's the{" "}
@@ -213,7 +213,7 @@ const User = () => {
                 </a>{" "}
                 page.
               </p>
-              <p class="  text-base md:text-lg">
+              <p class="text-base md:text-lg">
                 Feel free to drop me an email at{" "}
                 <a
                   href="mailto:bruce@commonlyodd.com"
@@ -242,11 +242,11 @@ const User = () => {
               </p>
             </div>
 
-            <p class="mb-4 ml-8 text-left text-base md:text-lg">
+            <p class="mb-4 ml-8 text-center text-base md:text-lg">
               We noticed a snag while setting up your access, but no
               worries—we've got you covered!
             </p>
-            <p class="mb-4 ml-8 text-left text-base md:text-lg">
+            <p class="mb-4 ml-8 text-center text-base md:text-lg">
               Remember, you can still enjoy a{" "}
               <span class="font-bold">7-day free trial</span> of Commonly Odd
               with all its features. Feel free to continue exploring and if you
@@ -273,28 +273,30 @@ const User = () => {
               <PricingPlans />
             </div>
 
-            <p class="mb-4 ml-8 text-base md:text-lg">
-              If you have any questions or need further assistance, don't If you
-              have any questions or need further assistance, don't hesitate to
-              reach out.
-            </p>
-            <p class="ml-8 text-base md:text-lg">
-              Feel free to drop me an email at{" "}
-              <a
-                href="mailto:bruce@commonlyodd.com"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                bruce@commonlyodd.com
-              </a>{" "}
-              or send me a message on Twitter at{" "}
-              <a
-                href="https://twitter.com/kolourrmusic"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                @kolourrmusic
-              </a>
-              .
-            </p>
+            <div class="text-left">
+              <p class="mb-4 ml-8 text-base md:text-lg">
+                If you have any questions or need further assistance, don't If
+                you have any questions or need further assistance, don't
+                hesitate to reach out.
+              </p>
+              <p class="ml-8 text-base md:text-lg">
+                Feel free to drop me an email at{" "}
+                <a
+                  href="mailto:bruce@commonlyodd.com"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  bruce@commonlyodd.com
+                </a>{" "}
+                or send me a message on Twitter at{" "}
+                <a
+                  href="https://twitter.com/kolourrmusic"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  @kolourrmusic
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </Show>
         <Show when={!subscriptionStatus() && userPage()}>
@@ -363,29 +365,30 @@ const User = () => {
                 <PricingPlans />
               </div>
             </div>
-
-            <p class="mb-4 ml-8 text-base md:text-lg">
-              If you have any questions or need further assistance, don't If you
-              have any questions or need further assistance, don't hesitate to
-              reach out.
-            </p>
-            <p class="ml-8 text-base md:text-lg">
-              Feel free to drop me an email at{" "}
-              <a
-                href="mailto:bruce@commonlyodd.com"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                bruce@commonlyodd.com
-              </a>{" "}
-              or send me a message on Twitter at{" "}
-              <a
-                href="https://twitter.com/kolourrmusic"
-                class="text-blue-500 hover:text-blue-700"
-              >
-                @kolourrmusic
-              </a>
-              .
-            </p>
+            <div class="text-left">
+              <p class="mb-4 ml-8 text-base md:text-lg ">
+                If you have any questions or need further assistance, don't If
+                you have any questions or need further assistance, don't
+                hesitate to reach out.
+              </p>
+              <p class="ml-8 text-base md:text-lg">
+                Feel free to drop me an email at{" "}
+                <a
+                  href="mailto:bruce@commonlyodd.com"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  bruce@commonlyodd.com
+                </a>{" "}
+                or send me a message on Twitter at{" "}
+                <a
+                  href="https://twitter.com/kolourrmusic"
+                  class="text-blue-500 hover:text-blue-700"
+                >
+                  @kolourrmusic
+                </a>
+                .
+              </p>
+            </div>
           </div>
         </Show>
       </div>

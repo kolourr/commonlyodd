@@ -2,7 +2,7 @@ import { Button, Slide } from "@suid/material";
 import { TransitionProps } from "@suid/material/transitions";
 import { sendMessage } from "./start";
 import { PlayButtonSVG } from "..";
-import { Show, createSignal } from "solid-js";
+import { Show, createSignal, onMount } from "solid-js";
 import { PlayButtonSVGDEMO } from ".";
 
 const Transition = (props: TransitionProps & { children: any }) => (
@@ -30,7 +30,7 @@ export default function StartSessionDemo() {
   async function startSession() {
     try {
       const response = await fetch(
-        `${import.meta.env.CO_API_URL}/start-session`,
+        `${import.meta.env.CO_API_URL}/start-session-demo`,
         {
           method: "POST",
           headers: {
@@ -41,7 +41,7 @@ export default function StartSessionDemo() {
             number_of_teams: numberOfTeams,
             target_score: targetScore,
             countdown: countdownTimer,
-            category: "random",
+            category: "demo",
           }),
         }
       );

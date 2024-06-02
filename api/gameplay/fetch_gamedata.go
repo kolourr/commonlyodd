@@ -199,6 +199,8 @@ func fetchRandomObjectSimilarity(sessionUUID string, usedIds []int) (ObjectSimil
 		categoryToUse = category + "_objects_similarity"
 	}
 
+	categoryToUse = `"` + categoryToUse + `"`
+
 	if len(usedIds) == 0 {
 		// If no IDs have been used, select any record
 		query := `
@@ -250,6 +252,8 @@ func fetchObjectImageLinks(objSim ObjectSimilarity) (map[string]string, error) {
 	} else {
 		imagesToUse = category + "_object_images"
 	}
+
+	imagesToUse = `"` + imagesToUse + `"`
 
 	objs := []string{objSim.Obj1, objSim.Obj2, objSim.Obj3, objSim.Obj4}
 	for _, obj := range objs {

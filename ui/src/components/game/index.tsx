@@ -45,6 +45,8 @@ import HeaderMobile from "../auth_payments_landing/header_mobile";
 import CreateSession from "./start_session";
 import CommonDialog from "./common_dialog";
 import CopyLinkInactive from "./start_session/copy_link_inactive";
+import { countReached } from "./demo/images";
+import { gameType } from "./demo/start";
 
 const BASE_UI_URL = import.meta.env.CO_UI_URL;
 

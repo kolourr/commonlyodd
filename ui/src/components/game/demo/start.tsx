@@ -18,25 +18,16 @@ import {
 import { setMessageSent, setGameInfo } from "../index";
 import { useNavigate } from "solid-app-router";
 import { startNewTurn } from "./images";
-import { PlayButtonSVG } from "../index";
 import { PlayButtonSVGDEMO } from ".";
+import { countReached, countPlusOne } from "./images";
 
 export const [objectsImages, setObjectsImages] =
   createSignal<Objects_Images | null>(null);
 export const [gameTime, setGameTime] = createSignal<Timer | null>(null);
 export const [oddReasonForSimilarity, setOddReasonForSimilarity] =
   createSignal<Odd_Reason_for_Similarity | null>(null);
-export const [teamName, setTeamName] = createSignal<string | undefined>(
-  undefined
-);
+
 export const [timerUp, setTimerUp] = createSignal(false);
-export const [teamID, setTeamID] = createSignal<number | undefined>(undefined);
-export const [numberOfTeams, setNumberOfTeams] = createSignal<
-  number | undefined
->(undefined);
-export const [targetScore, setTargetScore] = createSignal<number | undefined>(
-  undefined
-);
 export const [isSessionStarter, setIsSessionStarter] = createSignal(false);
 export const [isSessionEndedEndpoint, setIsSessionEndedEndpoint] =
   createSignal(false);
@@ -101,14 +92,26 @@ function handleWebSocketMessage(event: MessageEvent) {
       setMessageSent(msg);
       setIsGameInProgress(true);
       setObjectsImages(msg);
-      setGameInfo(
-        <div class="flex flex-col justify-center items-center">
-          <div class="md:text-base lg:text-xl">
-            What's the odd one out and what's the commonality among the other
-            three?
+      if (countReached() || countPlusOne()) {
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">This concludes the demo.</div>
+            <div class="md:text-base lg:text-xl">
+              To unlock the full experience, including the option to select
+              individual categories and play with others, please sign in below.
+            </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">
+              What's the odd one out and what's the commonality among the other
+              three?
+            </div>
+          </div>
+        );
+      }
       break;
     case "timer_update_solo":
       if (!isRevealInitiated()) {
@@ -121,6 +124,18 @@ function handleWebSocketMessage(event: MessageEvent) {
         setMessageSent(msg);
         setGameTime(msg);
         setTimerUp(true);
+      }
+      if (countReached() || countPlusOne()) {
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">This concludes the demo.</div>
+            <div class="md:text-base lg:text-xl">
+              To unlock the full experience, including the option to select
+              individual categories and play with others, please sign in below.
+            </div>
+          </div>
+        );
+      } else {
         setGameInfo(
           <div class="flex flex-col justify-center items-center">
             <div class="md:text-base lg:text-xl">
@@ -130,6 +145,7 @@ function handleWebSocketMessage(event: MessageEvent) {
           </div>
         );
       }
+
       break;
     case "reveal-answer-solo":
       //update Team Score
@@ -139,37 +155,27 @@ function handleWebSocketMessage(event: MessageEvent) {
       setOddReasonForSimilarity(msg);
       setTimerUp(false);
       setReadyToContinueSolo(true);
-      setGameInfo(
-        <div class="flex flex-col justify-center items-center">
-          <div class="md:text-base lg:text-xl">
-            {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
+      if (countReached() || countPlusOne()) {
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">This concludes the demo.</div>
+            <div class="md:text-base lg:text-xl">
+              To unlock the full experience, including the option to select
+              individual categories and play with others, please sign in below.
+            </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">
+              {oddReasonForSimilarity()?.odd_reason_for_similarity?.reason}
+            </div>
+          </div>
+        );
+      }
       break;
 
-    case "continue":
-      //update Team Score
-      setIsRevealInitiated(false);
-      setMessageSent(msg);
-      setNumberOfTeams(msg.number_of_teams);
-      setTargetScore(msg.target_score);
-      setTimerUp(false);
-      setIsGameInProgress(true);
-      setTeamID(msg.team_id);
-      setTeamName(msg.team_name);
-      setReadyToContinue(true);
-      startNewTurn();
-      setGameInfo(
-        <div class="flex flex-col justify-center items-center">
-          <div class="md:text-base lg:text-xl">
-            Session starter, continue to {teamName()}
-            's round.
-          </div>
-        </div>
-      );
-
-      break;
     case "continue-answer-solo":
       setIsRevealInitiated(false);
       setGameTime(null);
@@ -179,21 +185,31 @@ function handleWebSocketMessage(event: MessageEvent) {
       setIsGameInProgress(true);
       setReadyToContinue(false);
       setReadyToContinueSolo(false);
-      setGameInfo(
-        <div class="flex flex-col justify-center items-center">
-          <div class="md:text-base lg:text-xl">
-            What's the odd one out and what's the commonality among the other
-            three?
+      if (countReached() || countPlusOne()) {
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">
+              This concludes the demo. To unlock the full experience, including
+              the option to select individual categories and play with others,
+              please sign in below.
+            </div>
           </div>
-        </div>
-      );
+        );
+      } else {
+        setGameInfo(
+          <div class="flex flex-col justify-center items-center">
+            <div class="md:text-base lg:text-xl">
+              What's the odd one out and what's the commonality among the other
+              three?
+            </div>
+          </div>
+        );
+      }
       startNewTurn();
       break;
     case "end-game":
       //update Team Score
       setIsRevealInitiated(false);
-      setNumberOfTeams(msg.number_of_teams);
-      setTargetScore(msg.target_score);
       setMessageSent(msg);
       setTimerUp(false);
       setIsGameInProgress(false);
@@ -231,11 +247,8 @@ export default function StartGameDemo() {
   }
 
   function isButtonDisabled() {
-    // The button should be disabled if:
-    // 1. The session is not active or the user is not the session starter.
-    // 2. The game is in progress, but it's neither time to reveal the answer, enter the score, nor continue to the next round.
-
     const fun =
+      countPlusOne() ||
       !isSessionActive() ||
       !isSessionStarter() ||
       (isGameInProgress() &&
@@ -255,8 +268,6 @@ export default function StartGameDemo() {
       return "Next Round";
     } else if (isGameInProgress()) {
       return "In Progress";
-    } else {
-      return "Starting...";
     }
   }
 
@@ -265,7 +276,6 @@ export default function StartGameDemo() {
     onCleanup(() => clearInterval(interval));
   });
 
-  //Start game for non-starter
   onMount(() => {
     const sessionUuid = localStorage.getItem("session_uuid_demo");
     const starterToken = localStorage.getItem("starter_token_demo");
@@ -278,6 +288,7 @@ export default function StartGameDemo() {
     if (sessionUuid && starterToken && !gameWebSocket) {
       initializeWebSocket(sessionUuid, starterToken);
     }
+
     checkSessionStatus();
   });
 

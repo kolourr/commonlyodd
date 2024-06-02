@@ -91,7 +91,7 @@ export default function StartSession() {
           sx={{ textAlign: "center" }}
         >
           {
-            "Set the category, target score, number of teams, and countdown duration for each round to initiate the game."
+            "Choose the category, target score, number of teams, and countdown duration for the rounds."
           }
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>

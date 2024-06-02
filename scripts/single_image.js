@@ -69,5 +69,6 @@ async function manuallyGenerateImage(prompt) {
 }
 
 // Example usage
-const prompt = "An image of Pascal (Philosopher)";
+const prompt =
+  "Ivan Wilfred Johnson Canadian professional ice hockey defenceman";
 manuallyGenerateImage(prompt).catch(console.error);
