@@ -15,6 +15,8 @@ import {
   LogoutOutlined,
   HeadsetMicOutlined,
   CancelOutlined,
+  VolumeDownOutlined,
+  VolumeOffOutlined,
 } from "@suid/icons-material";
 import AgoraRTC, {
   IAgoraRTCClient,
@@ -31,6 +33,7 @@ import {
 import { sendMessage } from "../start_game";
 import { isSessionStarted } from "../start_session";
 import { handleClickOpenEndGameSession } from "../end_game_session";
+import { setSoundOn, soundOn } from "../start_game/images";
 
 type UserState = {
   uid: string;
@@ -541,13 +544,41 @@ export default function Voice(props: VoiceProps) {
         Control Panel
       </div>
       <Show when={showControlPanel()}>
-        <div class="flex justify-center items-center text-center shadow-md shadow-gray-400 text text-gray-400">
-          {props.controlPanel}
-          <div class="flex flex-row justify-around   text-center items-center mt-2 mb-2 w-[50%] text-gray-400">
+        <div class="flex    justify-center   items-center text-center shadow-md shadow-gray-400 text text-gray-400 space-x-1 ">
+          <div>{props.controlPanel}</div>
+
+          <div class="    flex flex-col   ">
+            <Button
+              sx={{
+                width: 50,
+                height: 50,
+                minWidth: 0,
+              }}
+              onClick={() => setSoundOn(!soundOn())}
+            >
+              {soundOn() ? (
+                <VolumeDownOutlined fontSize="large" />
+              ) : (
+                <VolumeOffOutlined fontSize="large" />
+              )}
+            </Button>
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
+              {soundOn() ? "On" : "Off"}
+            </span>
+          </div>
+          <div class="flex flex-row    items-center   text-center   mt-2 mb-2   text-gray-400 space-x-1">
             <div class="flex flex-col  ">
               <Show when={!isInChat()}>
                 <div>
-                  <Button onClick={joinVoiceChat} disabled={isJoining()}>
+                  <Button
+                    sx={{
+                      width: 50,
+                      height: 50,
+                      minWidth: 0,
+                    }}
+                    onClick={joinVoiceChat}
+                    disabled={isJoining()}
+                  >
                     <Show
                       when={isJoining()}
                       fallback={<HeadsetMicOutlined fontSize="large" />}
@@ -559,19 +590,33 @@ export default function Voice(props: VoiceProps) {
               </Show>
               <Show when={isInChat()}>
                 <div>
-                  <Button onClick={() => leaveVoiceChat(rtcUid)}>
+                  <Button
+                    sx={{
+                      width: 50,
+                      height: 50,
+                      minWidth: 0,
+                    }}
+                    onClick={() => leaveVoiceChat(rtcUid)}
+                  >
                     <LogoutOutlined fontSize="large" />
                   </Button>
                 </div>
               </Show>
               <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-                <Show when={!isInChat()}>Join Call</Show>
-                <Show when={isInChat()}>Leave Call</Show>
+                <Show when={!isInChat()}>Join</Show>
+                <Show when={isInChat()}>Leave</Show>
               </span>
             </div>
             <div class="flex flex-col  ">
               <div>
-                <Button onClick={toggleMic}>
+                <Button
+                  sx={{
+                    width: 50,
+                    height: 50,
+                    minWidth: 0,
+                  }}
+                  onClick={toggleMic}
+                >
                   {micMuted() ? (
                     <MicOutlined fontSize="large" />
                   ) : (
@@ -580,11 +625,18 @@ export default function Voice(props: VoiceProps) {
                 </Button>
               </div>
               <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-                {micMuted() ? "Mic On" : "Mic Off"}
+                {micMuted() ? "On" : "Off"}
               </span>
             </div>
             <div class="flex flex-col   ">
-              <Button onClick={handleClickOpenEndGameSession}>
+              <Button
+                sx={{
+                  width: 50,
+                  height: 50,
+                  minWidth: 0,
+                }}
+                onClick={handleClickOpenEndGameSession}
+              >
                 <CancelOutlined fontSize="large" />
               </Button>
               <span class="text-xs lg:text-sm text-center font-bold text-gray-300">

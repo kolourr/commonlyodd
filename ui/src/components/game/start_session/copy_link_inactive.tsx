@@ -26,8 +26,15 @@ export default function CopyLinkInactive() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen} style="border: none;      ">
-        <LinkOffOutlined fontSize="large" />
+      <Button
+        onClick={handleClickOpen}
+        sx={{
+          width: 50,
+          height: 50,
+          minWidth: 0,
+        }}
+      >
+        <LinkOffOutlined />
       </Button>
       <Dialog
         open={open()}

@@ -22,11 +22,12 @@ interface ImageObject {
   animationClass: string;
 }
 
+export const [soundOn, setSoundOn] = createSignal<boolean>(true);
+
 const [imagesToShow, setImagesToShow] = createSignal<ImageObject[]>([]);
 const [highlightName, setHighlightName] = createSignal<string>("");
 const [selectedImage, setSelectedImage] = createSignal<string>("");
 const [isSelectable, setIsSelectable] = createSignal<boolean>(true);
-const [soundOn, setSoundOn] = createSignal<boolean>(true);
 
 const correctSound = new Audio("https://media.commonlyodd.com/right.mp3");
 const wrongSound = new Audio("https://media.commonlyodd.com/wrong.mp3");
@@ -161,21 +162,6 @@ export default function GameImages(props: GameImagesProps) {
 
   return (
     <div class="flex flex-col items-center justify-center text-center">
-      <div class="relative w-full flex justify-center items-center pb-2">
-        <Button
-          fontSize="large"
-          variant="outlined"
-          sx={{
-            color: "#f9fafb",
-            width: "50px",
-            height: "50px",
-            borderColor: " #f9fafb",
-          }}
-          onClick={() => setSoundOn(!soundOn())}
-        >
-          {soundOn() ? <VolumeDownOutlined /> : <VolumeOffOutlined />}
-        </Button>
-      </div>
       <div class="grid grid-cols-2 gap-4 justify-center items-center">
         <For each={imagesToShow().slice(0, 2)}>
           {(obj, index) => (

@@ -231,7 +231,7 @@ export default function Game() {
         <div class="w-full mb-4 text-base md:text-lg flex justify-center items-center">
           <video controls class="w-[90%]  h-auto shadow-lg mx-4 ">
             <source
-              src="https://media.commonlyodd.com/how_it_works_22.mp4"
+              src="https://media.commonlyodd.com/how_it_works.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -345,46 +345,37 @@ export default function Game() {
   );
 
   const controlPanel = () => (
-    <div class="flex   justify-around   items-center text-gray-300 text-center  w-[50%]  ">
-      <div class="flex text-center   ">
+    <div class="flex items-center text-gray-300 text-center  space-x-1 ">
+      <div class="flex flex-col items-center text-center   ">
         <Show when={isSessionStarted()}>
           <div>
             <CopyLink />
-            <div>
-              <input
-                type="text"
-                class=" rounded w-full  shadow-sm shadow-gray-50 "
-                readOnly
-                value={sessionLink()}
-                hidden
-              />
-            </div>
-            <div class="flex  flex-row items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
-              <div> Active</div>
-            </div>
+            <input type="text" readOnly value={sessionLink()} hidden />
           </div>
+          <span class="text-xs lg:text-sm text-center font-bold text-gray-300 ">
+            Active
+          </span>
         </Show>
         <Show when={!isSessionStarted()}>
           <div>
             <CopyLinkInactive />
-            <div>
-              <input
-                type="text"
-                class=" rounded w-full  shadow-sm shadow-gray-50 "
-                readOnly
-                value={sessionLink()}
-                hidden
-              />
-            </div>
-            <div class="flex  flex-col items-center justify-center font-bold text-xs lg:text-sm text-gray-300  ">
-              <div>Inactive</div>
-            </div>
+            <input type="text" readOnly value={sessionLink()} hidden />
           </div>
+          <span class="text-xs lg:text-sm text-center font-bold text-gray-300  ">
+            Inactive
+          </span>
         </Show>
       </div>
-      <div class="flex flex-col     ">
+      <div class="flex flex-col ">
         <div>
-          <Button onClick={handleOpenRules}>
+          <Button
+            sx={{
+              width: 50,
+              height: 50,
+              minWidth: 0,
+            }}
+            onClick={handleOpenRules}
+          >
             <RuleSharp fontSize="large" />
           </Button>
         </div>
@@ -392,7 +383,14 @@ export default function Game() {
       </div>
       <div class="flex flex-col  ">
         <div>
-          <Button onClick={() => setShowTeamScores(!showTeamScores())}>
+          <Button
+            sx={{
+              width: 50,
+              height: 50,
+              minWidth: 0,
+            }}
+            onClick={() => setShowTeamScores(!showTeamScores())}
+          >
             <SportsScoreOutlined fontSize="large" />
           </Button>
         </div>

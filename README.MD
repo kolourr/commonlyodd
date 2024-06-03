@@ -11,7 +11,8 @@ CompileDaemon -command="./main" -build="go build cmd/server/main.go"
 `go get github.com/githubnemo/CompileDaemon
 export PATH=$PATH:$(go env GOPATH)/bin
 source ~/.zshrc # or ~/.bashrc
-CompileDaemon -command="./main" -build="go build cmd/server/main.go"`
+CompileDaemon -command="./main" -build="go build cmd/server/main.go"
+`
 
 `go build -o ./main cmd/server/main.go`
 

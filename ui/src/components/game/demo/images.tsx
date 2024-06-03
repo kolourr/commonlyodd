@@ -166,17 +166,16 @@ export default function GameImagesDemo(props: GameImagesProps) {
     <div class="flex flex-col items-center justify-center text-center">
       <div class="relative w-full flex justify-center items-center pb-2">
         <Button
-          fontSize="large"
-          variant="outlined"
           sx={{
             color: "#f9fafb",
-            width: "50px",
-            height: "50px",
-            borderColor: " #f9fafb",
           }}
           onClick={() => setSoundOn(!soundOn())}
         >
-          {soundOn() ? <VolumeDownOutlined /> : <VolumeOffOutlined />}
+          {soundOn() ? (
+            <VolumeDownOutlined fontSize="large" />
+          ) : (
+            <VolumeOffOutlined fontSize="large" />
+          )}
         </Button>
       </div>
 

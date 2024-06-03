@@ -39,9 +39,7 @@ export const PlayButtonSVGDEMO = () => (
 export default function Demo() {
   setGameInfo(
     <div class="flex flex-col  justify-center items-center">
-      <div class="md:text-base lg:text-xl">
-        To experience this simplified demo, click on play below.
-      </div>
+      <div class="md:text-base lg:text-xl">Click play to begin.</div>
     </div>
   );
 
@@ -50,14 +48,14 @@ export default function Demo() {
       <h3 class="text-4xl font-bold my-4 text-center" id="demo">
         Quick Mode - Demo
       </h3>
-      <p class="text-xl text-slate-400    flex justify-center items-center text-center   lg:px-44 ">
-        This demo is a simplified version of quick mode. It is designed to give
-        you a taste of the game.
+      <p class="text-xl text-slate-400    flex justify-center items-center text-center py-2 lg:px-44 ">
+        This demo is a simplified version of quick mode.
       </p>
-      <p class="text-xl text-slate-400 mb-8  flex justify-center items-center text-center py-4 lg:px-44 ">
-        You cannot select individual categories or make use of the full range of
-        features available in the game.
+      <p class="text-xl text-slate-400  mb-8  flex justify-center items-center text-center pb-2 lg:px-44 ">
+        It features a mix of trivia categories, including baseball, basketball,
+        football, harry potter and the Bible.
       </p>
+
       <div class="flex  flex-col justify-center items-center    ">
         <GameImagesDemo gameData={objectsImages()} />
         <div class="flex justify-center items-center">

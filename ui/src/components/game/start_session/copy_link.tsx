@@ -27,8 +27,15 @@ export default function CopyLink() {
 
   return (
     <div>
-      <Button onClick={handleClickOpen} style="border: none;      ">
-        <LinkOutlined fontSize="large" />
+      <Button
+        onClick={handleClickOpen}
+        sx={{
+          width: 50,
+          height: 50,
+          minWidth: 0,
+        }}
+      >
+        <LinkOutlined />
       </Button>
       <Dialog
         open={open()}
