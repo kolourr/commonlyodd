@@ -7,7 +7,7 @@ import EndSessionDemo from "./end";
 import { Router } from "solid-app-router";
 import StartGameDemo from "./start";
 import TimerDemo from "./timer";
-import { Show } from "solid-js";
+import { Show, onMount } from "solid-js";
 import { setGameInfo } from "..";
 import {
   buttonText,
@@ -42,6 +42,14 @@ export default function Demo() {
       <div class="md:text-base lg:text-xl">Click play to begin.</div>
     </div>
   );
+
+  onMount(() => {
+    // Set session UUID and starter token in local storage
+    localStorage.removeItem("session_uuid_demo");
+    localStorage.removeItem("starter_token_demo");
+    localStorage.removeItem("type_demo");
+    localStorage.removeItem("total_score_demo");
+  });
 
   return (
     <div class="flex flex-col justify-center items-center ">

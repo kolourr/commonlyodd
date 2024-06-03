@@ -1,4 +1,4 @@
-import { For, createEffect, createSignal, onCleanup } from "solid-js";
+import { For, createEffect, createSignal, onCleanup, onMount } from "solid-js";
 import { Objects_Images } from "../start_game/types";
 import "./styles.css";
 import { gameInfo } from "..";
