@@ -2,7 +2,7 @@ import { Component } from "solid-js";
 
 const Footer: Component = () => {
   const handleCommunitySupport = () => {
-    window.open("https://www.reddit.com/r/commonlyodd/", "_blank");
+    window.open("https://www.reddit.com/r/commonlyoddtrivia/", "_blank");
   };
 
   const handleHome = () => {

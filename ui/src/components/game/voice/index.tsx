@@ -537,115 +537,62 @@ export default function Voice(props: VoiceProps) {
 
   return (
     <>
-      <div
-        class="flex justify-center items-center text-center font-bold  shadow-sm shadow-gray-400 uppercase py-2 cursor-pointer mt-4"
-        onClick={() => setShowControlPanel(!showControlPanel())}
-      >
+      <div class="flex justify-center items-center text-center font-bold  shadow-sm shadow-gray-400 uppercase py-2 cursor-pointer mt-4">
         Control Panel
       </div>
-      <Show when={showControlPanel()}>
-        <div class="flex    justify-center   items-center text-center shadow-md shadow-gray-400 text text-gray-400 space-x-1 ">
-          <div>{props.controlPanel}</div>
-
-          <div class="    flex flex-col   ">
-            <Button
-              sx={{
-                width: 50,
-                height: 50,
-                minWidth: 0,
-              }}
-              onClick={() => setSoundOn(!soundOn())}
-            >
-              {soundOn() ? (
-                <VolumeDownOutlined fontSize="large" />
-              ) : (
-                <VolumeOffOutlined fontSize="large" />
-              )}
-            </Button>
-            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-              {soundOn() ? "On" : "Off"}
-            </span>
-          </div>
-          <div class="flex flex-row    items-center   text-center   mt-2 mb-2   text-gray-400 space-x-1">
-            <div class="flex flex-col  ">
-              <Show when={!isInChat()}>
-                <div>
-                  <Button
-                    sx={{
-                      width: 50,
-                      height: 50,
-                      minWidth: 0,
-                    }}
-                    onClick={joinVoiceChat}
-                    disabled={isJoining()}
-                  >
-                    <Show
-                      when={isJoining()}
-                      fallback={<HeadsetMicOutlined fontSize="large" />}
-                    >
-                      <CircularProgress size={24} />
-                    </Show>
-                  </Button>
-                </div>
-              </Show>
-              <Show when={isInChat()}>
-                <div>
-                  <Button
-                    sx={{
-                      width: 50,
-                      height: 50,
-                      minWidth: 0,
-                    }}
-                    onClick={() => leaveVoiceChat(rtcUid)}
-                  >
-                    <LogoutOutlined fontSize="large" />
-                  </Button>
-                </div>
-              </Show>
-              <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-                <Show when={!isInChat()}>Join</Show>
-                <Show when={isInChat()}>Leave</Show>
-              </span>
-            </div>
-            <div class="flex flex-col  ">
+      <div class="flex   flex-col   text-center shadow-md shadow-gray-400 text text-gray-400 space-y-1 ">
+        <div class="flex flex-row justify-around items-center   text-center   mt-2 mb-2   text-gray-400 space-x-1">
+          <div class="flex flex-col  ">
+            <Show when={!isInChat()}>
               <div>
-                <Button
-                  sx={{
-                    width: 50,
-                    height: 50,
-                    minWidth: 0,
-                  }}
-                  onClick={toggleMic}
-                >
-                  {micMuted() ? (
-                    <MicOutlined fontSize="large" />
-                  ) : (
-                    <MicOffOutlined fontSize="large" />
-                  )}
+                <Button onClick={joinVoiceChat} disabled={isJoining()}>
+                  <Show
+                    when={isJoining()}
+                    fallback={<HeadsetMicOutlined fontSize="large" />}
+                  >
+                    <CircularProgress size={24} />
+                  </Show>
                 </Button>
               </div>
-              <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-                {micMuted() ? "On" : "Off"}
-              </span>
-            </div>
-            <div class="flex flex-col   ">
-              <Button
-                sx={{
-                  width: 50,
-                  height: 50,
-                  minWidth: 0,
-                }}
-                onClick={handleClickOpenEndGameSession}
-              >
-                <CancelOutlined fontSize="large" />
+            </Show>
+            <Show when={isInChat()}>
+              <div>
+                <Button onClick={() => leaveVoiceChat(rtcUid)}>
+                  <LogoutOutlined fontSize="large" />
+                </Button>
+              </div>
+            </Show>
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
+              <Show when={!isInChat()}>Join Call</Show>
+              <Show when={isInChat()}>Leave Call</Show>
+            </span>
+          </div>
+          <div class="flex flex-col  ">
+            <div>
+              <Button onClick={toggleMic}>
+                {micMuted() ? (
+                  <MicOutlined fontSize="large" />
+                ) : (
+                  <MicOffOutlined fontSize="large" />
+                )}
               </Button>
-              <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-                <div>End</div>
-              </span>
             </div>
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
+              {micMuted() ? "Mic On" : "Mic Off"}
+            </span>
+          </div>
+          <div class="flex flex-col   ">
+            <Button onClick={handleClickOpenEndGameSession}>
+              <CancelOutlined fontSize="large" />
+            </Button>
+            <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
+              <div>End Game</div>
+            </span>
           </div>
         </div>
-      </Show>
+        <div>{props.controlPanel}</div>
+      </div>
+
       <div class="   flex flex-col  shadow-inner text-gray-300  mt-2 ">
         <div
           class="users grid grid-cols-5 h-52 gap-0 items-center justify-center text-gray-400 shadow-md shadow-gray-50 bg-gradient-to-bl from-slate-900 via-zinc-950  to-slate-900   "

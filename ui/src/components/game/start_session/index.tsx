@@ -130,10 +130,9 @@ export default function CreateSession() {
 
               <ul class="list-disc text-left mr-8  mb-4">
                 <div class="flex flex-col justify-start items-start ">
-                  <li>Ideal for playing solo</li>
-                  <li>No setup needed</li>
-                  <li>Category pre-selected</li>
-                  <li>Pre-set time per round</li>
+                  <li>Trivia questions chosen at random</li>
+                  <li>Pre-set time per round of 7 seconds</li>
+                  <li>Game starts instantly</li>
                 </div>
               </ul>
 
@@ -146,9 +145,9 @@ export default function CreateSession() {
 
               <ul class="list-disc text-left  mb-4">
                 <div class="flex flex-col justify-start items-start">
-                  <li>All of Quick game</li>
-                  <li>Must set individual category</li>
-                  <li>Must set time per round</li>
+                  <li>Can choose individual trivia category</li>
+                  <li>Can set time per round</li>
+                  <li>Game can be started in your own time</li>
                 </div>
               </ul>
 
@@ -156,7 +155,7 @@ export default function CreateSession() {
                 <StartSessionFun />
               </div>
             </div>
-            <div class="flex flex-col items-center justify-center  ">
+            {/* <div class="flex flex-col items-center justify-center  ">
               <div class="text-2xl mb-2  ">Play Competitively</div>
 
               <ul class="list-disc text-left   mb-4">
@@ -172,7 +171,7 @@ export default function CreateSession() {
               <div class="StartSession mb-6">
                 <StartSession />
               </div>
-            </div>
+            </div> */}
           </div>
         </DialogContent>
       </Dialog>

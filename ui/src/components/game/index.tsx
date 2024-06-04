@@ -237,7 +237,7 @@ export default function Game() {
             Your browser does not support the video tag.
           </video>
         </div>
-        <div class="flex flex-col justify-center items-center text-center  ">
+        {/* <div class="flex flex-col justify-center items-center text-center  ">
           <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="w-full text-md  ">
               <caption class="p-5 text-xl font-semibold text-center  ">
@@ -339,13 +339,13 @@ export default function Game() {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
 
   const controlPanel = () => (
-    <div class="flex items-center text-gray-300 text-center  space-x-1 ">
+    <div class="flex justify-around items-center text-gray-300 text-center  space-x-1 mt-2">
       <div class="flex flex-col items-center text-center   ">
         <Show when={isSessionStarted()}>
           <div>
@@ -353,7 +353,7 @@ export default function Game() {
             <input type="text" readOnly value={sessionLink()} hidden />
           </div>
           <span class="text-xs lg:text-sm text-center font-bold text-gray-300 ">
-            Active
+            Link
           </span>
         </Show>
         <Show when={!isSessionStarted()}>
@@ -362,20 +362,13 @@ export default function Game() {
             <input type="text" readOnly value={sessionLink()} hidden />
           </div>
           <span class="text-xs lg:text-sm text-center font-bold text-gray-300  ">
-            Inactive
+            Link
           </span>
         </Show>
       </div>
       <div class="flex flex-col ">
         <div>
-          <Button
-            sx={{
-              width: 50,
-              height: 50,
-              minWidth: 0,
-            }}
-            onClick={handleOpenRules}
-          >
+          <Button onClick={handleOpenRules}>
             <RuleSharp fontSize="large" />
           </Button>
         </div>
@@ -383,14 +376,7 @@ export default function Game() {
       </div>
       <div class="flex flex-col  ">
         <div>
-          <Button
-            sx={{
-              width: 50,
-              height: 50,
-              minWidth: 0,
-            }}
-            onClick={() => setShowTeamScores(!showTeamScores())}
-          >
+          <Button onClick={() => setShowTeamScores(!showTeamScores())}>
             <SportsScoreOutlined fontSize="large" />
           </Button>
         </div>

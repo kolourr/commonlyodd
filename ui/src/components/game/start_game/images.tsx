@@ -162,6 +162,18 @@ export default function GameImages(props: GameImagesProps) {
 
   return (
     <div class="flex flex-col items-center justify-center text-center">
+      <div class="    flex flex-col   ">
+        <Button onClick={() => setSoundOn(!soundOn())}>
+          {soundOn() ? (
+            <VolumeDownOutlined fontSize="large" />
+          ) : (
+            <VolumeOffOutlined fontSize="large" />
+          )}
+        </Button>
+        <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
+          {soundOn() ? "On" : "Off"}
+        </span>
+      </div>
       <div class="grid grid-cols-2 gap-4 justify-center items-center">
         <For each={imagesToShow().slice(0, 2)}>
           {(obj, index) => (

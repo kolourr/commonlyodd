@@ -143,7 +143,10 @@ const faqData: FaqItem[] = [
       <p>
         Join our vibrant community on Reddit to connect with other players and
         discuss the game. Visit our{" "}
-        <a href="https://www.reddit.com/r/commonlyodd/" class="text-blue-400">
+        <a
+          href="https://www.reddit.com/r/commonlyoddtrivia/"
+          class="text-blue-400"
+        >
           Subreddit
         </a>
         .

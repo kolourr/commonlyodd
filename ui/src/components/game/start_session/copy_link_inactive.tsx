@@ -26,15 +26,8 @@ export default function CopyLinkInactive() {
 
   return (
     <div>
-      <Button
-        onClick={handleClickOpen}
-        sx={{
-          width: 50,
-          height: 50,
-          minWidth: 0,
-        }}
-      >
-        <LinkOffOutlined />
+      <Button onClick={handleClickOpen}>
+        <LinkOffOutlined fontSize="large" />
       </Button>
       <Dialog
         open={open()}
@@ -53,14 +46,15 @@ export default function CopyLinkInactive() {
           class="text-center"
           style={dialogTextStyle}
         >
-          Session link is Not Available
+          Game link is Not Available
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
           <DialogContentText
             id="alert-dialog-description"
             style={dialogTextStyle}
           >
-            Game session must be active!
+            Game Link will be available once the game is setup. Click on the
+            play button to setup the game.
           </DialogContentText>
         </DialogContent>
       </Dialog>
