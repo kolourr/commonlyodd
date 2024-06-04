@@ -45,7 +45,7 @@ export const landingHeroButton = () => {
 
 export const buttonText = () => {
   if (!isAuthenticated()) {
-    return "Start Playing for Free";
+    return "Start your 7-day Free Trial";
   } else if (isAuthenticated() && !subscriptionStatus()) {
     return "Explore Plans";
   } else if (isAuthenticated() && subscriptionStatus()) {

@@ -242,15 +242,29 @@ const User = () => {
               </p>
             </div>
 
-            <p class="mb-4 ml-8 text-center text-base md:text-lg">
-              We noticed a snag while setting up your access, but no
-              worries—we've got you covered!
-            </p>
-            <p class="mb-4 ml-8 text-center text-base md:text-lg">
+            <p class="mb-4 ml-8 text-center text-base md:text-lg text-gray-400">
               Remember, you can still enjoy a{" "}
               <span class="font-bold">7-day free trial</span> of Commonly Odd
-              with all its features. Feel free to continue exploring and if you
-              decide it's not for you, cancelling is easy at any time.
+              with all its features.
+            </p>
+            <p class="mb-4 ml-8 text-center text-base md:text-lg text-gray-400">
+              You won't be charged until the end of your trial period. So rest
+              assured, you can enjoy all the features of Commonly Odd without
+              any commitment.
+            </p>
+
+            <div
+              id="pricingplans"
+              class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
+            >
+              Start your 7-day free trial
+            </div>
+            <div class="flex justify-center items-center">
+              <PricingPlans />
+            </div>
+
+            <p class="mb-4  text-center text-base md:text-lg">
+              Here's a quick word from Bruce:
             </p>
 
             <div class="w-full mb-4 text-base md:text-lg">
@@ -261,16 +275,6 @@ const User = () => {
                 />
                 Your browser does not support the video tag.
               </video>
-            </div>
-
-            <div
-              id="pricingplans"
-              class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
-            >
-              Explore Plans
-            </div>
-            <div class="flex justify-center items-center">
-              <PricingPlans />
             </div>
 
             <div class="text-left">
@@ -310,31 +314,30 @@ const User = () => {
             </div>
 
             <div class="text-left text-base md:text-lg">
-              <p class="mb-4 ml-8 ">
+              <p class="mb-4 ml-8 text-gray-400">
                 As our newest member, you're granted an exclusive{" "}
                 <span class="font-bold">7-day free trial</span> to dive into the
-                full Commonly Odd experience.
+                full Commonly Odd experience. You can cancel anytime during the
+                trial period if you decide it's not for you.
+              </p>
+
+              <p class="mb-4 ml-8 text-gray-400">
+                You won't be charged until the end of your trial period. So rest
+                assured, you can enjoy all the features of Commonly Odd without
+                any commitment.
               </p>
             </div>
 
-            <p class="mb-4 text-2xl md:text-3xl font-bold text-center ">
-              Get ready to
-            </p>
-            <ul class="list-disc pl-8 mb-4 text-left text-base md:text-lg">
-              <li class="mb-2">
-                Test your wits with our wide-ranging trivia questions across
-                various categories.
-              </li>
-              <li class="mb-2">
-                Connect and compete by inviting friends and family to join you
-                in the game, all equipped with group voice chat for a livelier
-                challenge!
-              </li>
-              <li class="mb-2">
-                Enjoy continuous updates, including fresh questions and new
-                categories, to keep the gameplay exciting and engaging.
-              </li>
-            </ul>
+            <div
+              id="pricingplans"
+              class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
+            >
+              Start your 7-day free trial
+            </div>
+            <div class="flex justify-center items-center">
+              <PricingPlans />
+            </div>
+
             <p class="mb-4  text-center text-base md:text-lg">
               Here's a quick word from Bruce:
             </p>
@@ -349,22 +352,6 @@ const User = () => {
               </video>
             </div>
 
-            <p class="mb-4 ml-8 text-left text-base md:text-lg">
-              Ready to start playing? Choose a plan below to begin your free
-              trial and play to your heart's content!
-            </p>
-
-            <div class="flex flex-col items-center justify-center ">
-              <div
-                id="pricingplans"
-                class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
-              >
-                Explore Plans
-              </div>
-              <div class="flex flex-row justify-center mb-4">
-                <PricingPlans />
-              </div>
-            </div>
             <div class="text-left">
               <p class="mb-4 ml-8 text-base md:text-lg ">
                 If you have any questions or need further assistance, don't If
