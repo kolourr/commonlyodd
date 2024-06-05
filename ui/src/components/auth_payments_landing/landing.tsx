@@ -463,6 +463,11 @@ const LandingPage: Component = () => {
                 {buttonText()}
               </Button>
             </div>
+            <Show when={!isAuthenticated()}>
+              <span class="mt-2 text-gray-400">
+                No credit card required for trial
+              </span>
+            </Show>
           </div>
         </div>
       </>
