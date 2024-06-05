@@ -30,29 +30,23 @@ const Rules: Component = () => {
             <div class="md:max-w-4xl md:mx-auto px-4 text-lg   ">
               <p class="mt-2 mx-8 py-2">
                 Commonly Odd is a trivia game that can be played solo or in
-                groups (up to 10 teams). There are three game modes: Quick Game,
-                Quick Game + and Competitive. Quick Game and Quick Game + is
-                ideal for solo casual play, while Competitive is perfect for
-                groups who enjoy a challenge.
+                groups (up to 10 teams). There are 2 game modes: Quick and
+                Competitive.
               </p>
               <div class="text-2xl font-bold text-center mt-4">Game Modes</div>
 
               <ul class="list-disc pl-8 mt-2">
                 <li class="py-2">
-                  <span class="font-bold">Quick Game:</span> Ideal for solo
-                  players. No setup required. This mode has fast rounds and
-                  allows manual selection to override pre-set time set per round
-                  but does not allow for manual selection of category.
+                  <span class="font-bold">Quick Mode: </span>There is perfect
+                  for solo play. The answer is revealed instantly for upon odd
+                  selection of selection bypassing the timer. Each round's time
+                  can be set between 1 and 15 seconds.
                 </li>
                 <li class="py-2">
-                  <span class="font-bold">Quick Game +:</span> All of Quick Game
-                  except that session starter must set time per round and
-                  category of questions.
-                </li>
-                <li class="py-2">
-                  <span class="font-bold">Competitive:</span> Ideal for group
-                  play, target score, category and number of teams must be set,
-                  can also be played solo.
+                  <span class="font-bold">Competitive Mode:</span> This is
+                  perfect for playing with others. The answer is revealed at the
+                  end of the countdown. Each round's time can be set between 1
+                  and 15 seconds.
                 </li>
               </ul>
 
@@ -75,7 +69,7 @@ const Rules: Component = () => {
                 </li>
               </ul>
 
-              <div class="text-2xl font-bold text-center mt-4">
+              {/* <div class="text-2xl font-bold text-center mt-4">
                 Winning the Game
               </div>
               <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
@@ -171,7 +165,7 @@ const Rules: Component = () => {
                 The game is won by the first team to meet or exceed the target
                 score. Post-game, the session starter can launch a new game or
                 end the session.
-              </p>
+              </p> */}
 
               <div class="text-2xl font-bold text-center mt-4">Gameplay</div>
               <ul class="list-disc pl-8 mt-2">
@@ -189,10 +183,10 @@ const Rules: Component = () => {
                   <span class="font-bold">Answer Revelation:</span> The session
                   starter reveals the correct answers after each round.
                 </li>
-                <li class="py-2">
+                {/* <li class="py-2">
                   <span class="font-bold">Scoring System:</span> Points are
                   awarded based on accuracy.
-                </li>
+                </li> */}
                 <li class="py-2">
                   <span class="font-bold">Sportsmanship:</span> Players are
                   encouraged to maintain a friendly and respectful environment

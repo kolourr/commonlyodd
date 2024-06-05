@@ -1,7 +1,13 @@
 import { createEffect, createSignal, onCleanup } from "solid-js";
 import { gameTime } from "./";
 import "./styles.css";
-import { isRevealInitiated } from "./index";
+import {
+  isRevealInitiated,
+  sendMessage,
+  setIsRevealInitiated,
+  gameType,
+} from "./index";
+import { updateScores, selectedImage } from "./images";
 
 export default function Timer() {
   const [timer, setTimer] = createSignal(gameTime()?.timer);
@@ -19,6 +25,15 @@ export default function Timer() {
       if (currentGameTime.timer === 0) {
         setShowTimesUp(true);
         timeoutId = setTimeout(() => setShowTimesUp(false), 1000);
+
+        if (!selectedImage()) {
+          sendMessage({ game_state: "reveal-solo" });
+          setIsRevealInitiated(true);
+          updateScores(false);
+        } else {
+          sendMessage({ game_state: "reveal-solo" });
+          setIsRevealInitiated(true);
+        }
       }
     }
   });

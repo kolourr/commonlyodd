@@ -36,20 +36,32 @@ createEffect(() => {
 export const landingHeroButton = () => {
   if (!isAuthenticated()) {
     return (window.location.href = `${BASE_API}/login`);
-  } else if (isAuthenticated() && !subscriptionStatus()) {
-    return (window.location.href = `${BASE_UI}/user#pricingplans`);
-  } else if (isAuthenticated() && subscriptionStatus()) {
+  } else if (
+    (isAuthenticated() && subscriptionStatus()?.status) ||
+    (isAuthenticated() && subscriptionStatus()?.trial)
+  ) {
     return (window.location.href = `${BASE_UI}/game`);
+  } else if (
+    (isAuthenticated() && !subscriptionStatus()?.status) ||
+    (isAuthenticated() && !subscriptionStatus()?.trial)
+  ) {
+    return (window.location.href = `${BASE_UI}/user#pricingplans`);
   }
 };
 
 export const buttonText = () => {
   if (!isAuthenticated()) {
-    return "Start your 7-day Free Trial";
-  } else if (isAuthenticated() && !subscriptionStatus()) {
-    return "Explore Plans";
-  } else if (isAuthenticated() && subscriptionStatus()) {
+    return "Start playing for Free";
+  } else if (
+    (isAuthenticated() && subscriptionStatus()?.status) ||
+    (isAuthenticated() && subscriptionStatus()?.trial)
+  ) {
     return "Go to Game";
+  } else if (
+    (isAuthenticated() && !subscriptionStatus()?.status) ||
+    (isAuthenticated() && !subscriptionStatus()?.trial)
+  ) {
+    return "Explore Plans";
   }
 };
 
@@ -240,12 +252,22 @@ const bottomSection: SectionProps[] = [
           id="pricing-plans"
           class="  text-gray-300 mb-3 flex justify-center text-4xl font-bold  "
         >
-          Explore Plans
+          <Show when={!isAuthenticated()}>Start Playing for Free</Show>
+          <Show when={isAuthenticated() && !subscriptionStatus()?.status}>
+            Explore Plans
+          </Show>
         </div>
         <div class="flex flex-col items-center justify-center">
-          <div class="text-lg mb-3 text-slate-400 ">
-            Enjoy a 7-day risk free trial
-          </div>
+          <Show when={!isAuthenticated()}>
+            <span class="mt-2 text-gray-400">
+              No credit card required for trial
+            </span>
+          </Show>
+          <Show when={isAuthenticated()}>
+            <span class="mt-2 text-gray-400">
+              No lock in. Cancel anytime. No questions asked.
+            </span>
+          </Show>
           <div class="flex jsutify-center items-center">
             {" "}
             <PricingPlans />
@@ -381,6 +403,11 @@ const LandingPage: Component = () => {
                 >
                   {buttonText()}
                 </Button>
+                <Show when={!isAuthenticated()}>
+                  <span class="mt-2 text-gray-400">
+                    No credit card required for trial
+                  </span>
+                </Show>
               </div>
             </div>
           </div>
@@ -498,7 +525,7 @@ const LandingPage: Component = () => {
 
         <FAQitems />
 
-        <Show when={!subscriptionStatus()}>
+        <Show when={!subscriptionStatus()?.status}>
           <div class="flex flex-col space-y-6 divide-y pt-8 ">
             {bottomSection.map((section) => (
               <div>{section.section}</div>

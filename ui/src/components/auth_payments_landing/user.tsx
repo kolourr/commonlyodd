@@ -32,12 +32,13 @@ export const fetchSubStatus = async () => {
     }
 
     const data = await response.json();
-    return data.status;
+    return { status: data.status, trial: data.trial };
   } catch (error) {
     console.error("Error getting user's sub status:", error);
-    return false;
+    return { status: false, trial: false };
   }
 };
+
 export const [subscriptionStatus, { refetch: refetchSubStatus }] =
   createResource(fetchSubStatus);
 
@@ -77,27 +78,135 @@ const User = () => {
   });
 
   return (
-    <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200  ">
-      <div class="flex flex-col max-w-7xl  mx-auto min-h-screen">
+    <div class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 px-4 text-gray-200">
+      <div class="flex flex-col max-w-7xl mx-auto min-h-screen">
         <div class="hidden md:block">
-          {" "}
           <Header />
         </div>
         <div class="block md:hidden">
           <HeaderMobile />
         </div>
 
-        <Show when={subscriptionStatus() && userPage()}>
-          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+        <Show
+          when={
+            subscriptionStatus()?.trial &&
+            !subscriptionStatus()?.status &&
+            userPage()
+          }
+        >
+          <div class="max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
             <div class="flex flex-col text-center">
               <div class="text-center text-base md:text-lg">
-                <p class="mb-4 text-2xl md:text-3xl  ">
+                <p class="mb-4 text-2xl md:text-3xl">
+                  Hi <span class="font-bold">{userProfile()?.firstName}</span>,
+                  welcome to{" "}
+                  <span class="font-bold text-white">Commonly Odd</span>
+                </p>
+              </div>
+
+              <div class="text-left text-base md:text-lg">
+                <p class="mb-4 ml-8 text-gray-400">
+                  As our newest member, you're granted an exclusive{" "}
+                  <span class="font-bold">1-day free trial</span> to dive into
+                  the full Commonly Odd experience. You get access to all
+                  premium features and unlimited games for 24 hours.
+                </p>
+              </div>
+
+              <div class="p-4 my-4 flex justify-center items-center">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handlePlayGame}
+                  sx={{
+                    width: "180px",
+                    height: "40px",
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                  }}
+                  class="flex justify-center items-center text-gray-300 bg-slate-900"
+                >
+                  Go to Game
+                </Button>
+              </div>
+
+              <div class="text-base md:text-lg">
+                <p class="mb-4 ml-8">
+                  Here's a quick tutorial on how to get started if needed.
+                </p>
+              </div>
+              <div class="w-full mb-4 text-base md:text-lg">
+                <video controls class="w-full h-auto shadow-lg">
+                  <source
+                    src="https://media.commonlyodd.com/how_it_works.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div class="flex flex-col text-left">
+                <p class="text-base md:text-lg mb-4">
+                  If you have any questions or need further assistance, don't
+                  hesitate to reach out. For a detailed breakdown on the rules,
+                  here's the{" "}
+                  <a
+                    onClick={handleNavigateRules}
+                    class="text-blue-500 hover:text-blue-700"
+                  >
+                    link to the rules
+                  </a>{" "}
+                  page.
+                </p>
+                <p class="text-base md:text-lg">
+                  Feel free to drop me an email at{" "}
+                  <a
+                    href="mailto:bruce@commonlyodd.com"
+                    class="text-blue-500 hover:text-blue-700"
+                  >
+                    bruce@commonlyodd.com
+                  </a>{" "}
+                  or send me a message on Twitter at{" "}
+                  <a
+                    href="https://twitter.com/kolourrmusic"
+                    class="text-blue-500 hover:text-blue-700"
+                  >
+                    @kolourrmusic
+                  </a>
+                  .
+                </p>
+              </div>
+            </div>
+          </div>
+        </Show>
+
+        <Show when={subscriptionStatus()?.status && userPage()}>
+          <div class="max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+            <div class="flex flex-col text-center">
+              <div class="text-center text-base md:text-lg">
+                <p class="mb-4 text-2xl md:text-3xl">
                   Hi <span class="font-bold">{userProfile()?.firstName}</span>,
                   welcome back 😊 You're all set!
                 </p>
               </div>
-              <div class="  text-base md:text-lg">
-                <p class="mb-4 ml-8 ">
+
+              <div class="p-4 flex my-4 justify-center items-center">
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={handlePlayGame}
+                  sx={{
+                    width: "180px",
+                    height: "40px",
+                    fontSize: "18px",
+                    fontWeight: "bold",
+                  }}
+                  class="flex justify-center items-center text-gray-300 bg-slate-900"
+                >
+                  Go to Game
+                </Button>
+              </div>
+              <div class="text-base md:text-lg">
+                <p class="mb-4 ml-8">
                   Here's a quick tutorial on how to get started
                 </p>
               </div>
@@ -111,24 +220,9 @@ const User = () => {
                 </video>
               </div>
             </div>
-            <div class="p-4 flex   justify-center items-center">
-              <Button
-                variant="contained"
-                color="secondary"
-                onClick={handlePlayGame}
-                sx={{
-                  width: "180px",
-                  height: "40px",
-                  fontSize: "18px",
-                  fontWeight: "bold",
-                }}
-                class="flex justify-center items-center text-gray-300 bg-slate-900"
-              >
-                Go to Game
-              </Button>
-            </div>
+
             <div class="flex flex-col text-left">
-              <p class="  text-base md:text-lg mb-4">
+              <p class="text-base md:text-lg mb-4">
                 If you have any questions or need further assistance, don't
                 hesitate to reach out. For a detailed breakdown on the rules,
                 here's the{" "}
@@ -140,7 +234,7 @@ const User = () => {
                 </a>{" "}
                 page.
               </p>
-              <p class="  text-base md:text-lg">
+              <p class="text-base md:text-lg">
                 Feel free to drop me an email at{" "}
                 <a
                   href="mailto:bruce@commonlyodd.com"
@@ -160,17 +254,17 @@ const User = () => {
             </div>
           </div>
         </Show>
-        <Show when={subscriptionStatus() && paymentSuccess()}>
-          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+        <Show when={subscriptionStatus()?.status && paymentSuccess()}>
+          <div class="max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
             <div class="flex flex-col text-center">
               <div class="text-center text-base md:text-lg">
-                <p class="mb-4 text-2xl md:text-3xl  ">
+                <p class="mb-4 text-2xl md:text-3xl">
                   Hi <span class="font-bold">{userProfile()?.firstName}</span>,
                   you're all set!
                 </p>
               </div>
-              <div class="  text-base md:text-lg">
-                <p class="mb-4 ml-8 ">
+              <div class="text-base md:text-lg">
+                <p class="mb-4 ml-8">
                   Here's a quick tutorial on how to get started
                 </p>
               </div>
@@ -184,7 +278,7 @@ const User = () => {
                 Your browser does not support the video tag.
               </video>
             </div>
-            <div class="p-4 flex   justify-center items-center">
+            <div class="p-4 flex justify-center items-center">
               <Button
                 variant="contained"
                 color="secondary"
@@ -233,8 +327,8 @@ const User = () => {
             </div>
           </div>
         </Show>
-        <Show when={!subscriptionStatus() && paymentFailed()}>
-          <div class=" max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+        <Show when={!subscriptionStatus()?.status && paymentFailed()}>
+          <div class="max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
             <div class="text-center">
               <p class="mb-4 text-2xl md:text-3xl font-bold">
                 Oops, there seems to be a hiccup,{" "}
@@ -243,44 +337,21 @@ const User = () => {
             </div>
 
             <p class="mb-4 ml-8 text-center text-base md:text-lg text-gray-400">
-              Remember, you can still enjoy a{" "}
-              <span class="font-bold">7-day free trial</span> of Commonly Odd
-              with all its features.
-            </p>
-            <p class="mb-4 ml-8 text-center text-base md:text-lg text-gray-400">
-              You won't be charged until the end of your trial period. So rest
-              assured, you can enjoy all the features of Commonly Odd without
-              any commitment.
+              To continue playing Commonly Odd, please pick one of the plans
+              below
             </p>
 
             <div
               id="pricingplans"
               class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
-            >
-              Start your 7-day free trial
-            </div>
+            ></div>
             <div class="flex justify-center items-center">
               <PricingPlans />
             </div>
 
-            <p class="mb-4  text-center text-base md:text-lg">
-              Here's a quick word from Bruce:
-            </p>
-
-            <div class="w-full mb-4 text-base md:text-lg">
-              <video controls class="w-full h-auto shadow-lg">
-                <source
-                  src="https://media.commonlyodd.com/cancel_payment.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
             <div class="text-left">
               <p class="mb-4 ml-8 text-base md:text-lg">
-                If you have any questions or need further assistance, don't If
-                you have any questions or need further assistance, don't
+                If you have any questions or need further assistance, don't
                 hesitate to reach out.
               </p>
               <p class="ml-8 text-base md:text-lg">
@@ -303,59 +374,35 @@ const User = () => {
             </div>
           </div>
         </Show>
-        <Show when={!subscriptionStatus() && userPage()}>
-          <div class="  max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
+        <Show
+          when={
+            !subscriptionStatus()?.trial &&
+            !subscriptionStatus()?.status &&
+            userPage()
+          }
+        >
+          <div class="max-w-4xl md:mx-auto text-gray-300 flex flex-col items-center px-4 py-4">
             <div class="text-center text-base md:text-lg">
-              <p class="mb-4 text-2xl md:text-3xl  ">
-                <span class="font-bold">{userProfile()?.firstName}</span>,
-                welcome to{" "}
-                <span class="font-bold text-white">Commonly Odd</span>
+              <p class="mb-4 text-2xl md:text-3xl">
+                Hi <span class="font-bold">{userProfile()?.firstName}</span>,
+                your trial period or subscription has ended.
               </p>
             </div>
 
             <div class="text-left text-base md:text-lg">
               <p class="mb-4 ml-8 text-gray-400">
-                As our newest member, you're granted an exclusive{" "}
-                <span class="font-bold">7-day free trial</span> to dive into the
-                full Commonly Odd experience. You can cancel anytime during the
-                trial period if you decide it's not for you.
-              </p>
-
-              <p class="mb-4 ml-8 text-gray-400">
-                You won't be charged until the end of your trial period. So rest
-                assured, you can enjoy all the features of Commonly Odd without
-                any commitment.
+                To continue playing Commonly Odd, please pick one of the plans
+                below.
               </p>
             </div>
 
-            <div
-              id="pricingplans"
-              class="text-gray-300 mb-3 text-4xl font-bold flex justify-center w-full"
-            >
-              Start your 7-day free trial
-            </div>
             <div class="flex justify-center items-center">
               <PricingPlans />
             </div>
 
-            <p class="mb-4  text-center text-base md:text-lg">
-              Here's a quick word from Bruce:
-            </p>
-
-            <div class="w-full mb-4 text-base md:text-lg">
-              <video controls class="w-full h-auto shadow-lg">
-                <source
-                  src="https://media.commonlyodd.com/sign_in.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-
             <div class="text-left">
-              <p class="mb-4 ml-8 text-base md:text-lg ">
-                If you have any questions or need further assistance, don't If
-                you have any questions or need further assistance, don't
+              <p class="mb-4 ml-8 text-base md:text-lg">
+                If you have any questions or need further assistance, don't
                 hesitate to reach out.
               </p>
               <p class="ml-8 text-base md:text-lg">

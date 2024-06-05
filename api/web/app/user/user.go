@@ -17,17 +17,17 @@ import (
 	_ "github.com/lib/pq"
 )
 
-func insertUser(auth0ID, email, connection, firstName, pictureURL, customerID string, dateJoined time.Time) error {
+func insertUser(auth0ID, email, connection, firstName, pictureURL, customerID string, dateJoined, trialEnd time.Time) error {
 	query := `
-        INSERT INTO Users (auth0_id, email, connection, first_name, picture_url, customer_id, date_joined)
-        VALUES ($1, $2, $3, $4, $5, $6, $7)
+        INSERT INTO Users (auth0_id, email, connection, first_name, picture_url, customer_id, date_joined, trial_end)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
         ON CONFLICT (auth0_id) DO NOTHING
     `
-	_, err := database.DB.Exec(query, auth0ID, email, connection, firstName, pictureURL, customerID, dateJoined)
+	_, err := database.DB.Exec(query, auth0ID, email, connection, firstName, pictureURL, customerID, dateJoined, trialEnd)
 	return err
 }
 
-func subscribeToNewsletter(firstName, email, userID, customerID string, dateJoined time.Time) error {
+func subscribeToNewsletter(firstName, email, userID, customerID string, dateJoined, trialEnd time.Time) error {
 	apiKey := os.Getenv("SENDY_API_KEY")
 	listID := os.Getenv("SENDY_LIST_ID")
 	apiURL := os.Getenv("SENDY_URL_SUBSCRIBE")
@@ -40,6 +40,7 @@ func subscribeToNewsletter(firstName, email, userID, customerID string, dateJoin
 		"auth0_id":    {userID},
 		"customer_id": {customerID},
 		"date_joined": {dateJoined.Format(time.RFC3339)},
+		"trial_end":   {trialEnd.Format(time.RFC3339)},
 		"boolean":     {"true"},
 	}
 
@@ -113,6 +114,7 @@ func Handler(ctx *gin.Context) {
 	}
 
 	dateJoined := time.Now()
+	trialEnd := dateJoined.Add(24 * time.Hour)
 
 	// Check if a Stripe customer already exists for this user
 	customerID, err := stripeintegration.GetStripeCustomerID(userID)
@@ -140,15 +142,14 @@ func Handler(ctx *gin.Context) {
 	session.Set("auth0Full", auth0ID)
 	session.Save()
 
-	// Now include the Stripe customer ID when inserting the user
-	err = insertUser(userID, email, connection, firstName, pictureURL, customerID, dateJoined)
+	err = insertUser(userID, email, connection, firstName, pictureURL, customerID, dateJoined, trialEnd)
 	if err != nil {
 		log.Printf("Error inserting user with Stripe customer ID: %v", err)
 		ctx.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to insert user"})
 		return
 	}
 
-	err = subscribeToNewsletter(firstName, email, userID, customerID, dateJoined)
+	err = subscribeToNewsletter(firstName, email, userID, customerID, dateJoined, trialEnd)
 	if err != nil {
 		log.Printf("Error updating email newsletter subscription: %v", err)
 		// Handle the error as needed.

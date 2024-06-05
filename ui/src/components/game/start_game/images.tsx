@@ -1,4 +1,4 @@
-import { For, createEffect, createSignal, onCleanup } from "solid-js";
+import { For, createEffect, createSignal, onCleanup, onMount } from "solid-js";
 import { Objects_Images } from "./types";
 import "./styles.css";
 import { gameInfo } from "..";
@@ -7,6 +7,7 @@ import {
   gameType,
   oddReasonForSimilarity,
   isSessionActive,
+  isSessionStarter,
 } from "./index";
 import { create } from "domain";
 import { Button } from "@suid/material";
@@ -23,10 +24,10 @@ interface ImageObject {
 }
 
 export const [soundOn, setSoundOn] = createSignal<boolean>(true);
+export const [selectedImage, setSelectedImage] = createSignal<string>("");
 
 const [imagesToShow, setImagesToShow] = createSignal<ImageObject[]>([]);
 const [highlightName, setHighlightName] = createSignal<string>("");
-const [selectedImage, setSelectedImage] = createSignal<string>("");
 const [isSelectable, setIsSelectable] = createSignal<boolean>(true);
 
 const correctSound = new Audio("https://media.commonlyodd.com/right.mp3");
@@ -38,7 +39,7 @@ const initializeScores = () => {
   localStorage.setItem("user_score", "0");
 };
 // Update scores in local storage
-const updateScores = (isCorrect) => {
+export const updateScores = (isCorrect) => {
   let total_score = parseInt(localStorage.getItem("total_score") || "0");
   let user_score = parseInt(localStorage.getItem("user_score") || "0");
 
@@ -127,28 +128,30 @@ export default function GameImages(props: GameImagesProps) {
   });
 
   const clickCheck = (imageName) => {
-    //Check to see if imagesToShow is set to default images
     const isDefaultImages =
-      imagesToShow().length === 4 &&
-      imagesToShow()[0].name === "Create Session";
+      imagesToShow().length === 4 && imagesToShow()[0].name === "Parsnip";
 
-    if (isSessionActive() && !isDefaultImages) {
+    if (!isDefaultImages) {
       if (!isSelectable()) return;
-      if (gameType() === "fun") {
+
+      if (isSessionStarter()) {
         setIsSelectable(false);
         setSelectedImage(imageName);
-        sendMessage({ game_state: "reveal-solo" });
+        if (gameType() === "quick") {
+          sendMessage({ game_state: "reveal-solo" });
+        }
+      } else {
+        setIsSelectable(false);
+        setSelectedImage(imageName);
       }
     }
   };
 
   createEffect(() => {
-    if (gameType() === "fun") {
-      if (selectedImage() && highlightName()) {
-        const isCorrect = selectedImage() === highlightName();
-        updateScores(isCorrect);
-        playSound(isCorrect ? correctSound : wrongSound);
-      }
+    if (selectedImage() && highlightName()) {
+      const isCorrect = selectedImage() === highlightName();
+      updateScores(isCorrect);
+      playSound(isCorrect ? correctSound : wrongSound);
     }
   });
 
@@ -160,20 +163,18 @@ export default function GameImages(props: GameImagesProps) {
     initializeScores();
   });
 
+  onMount(() => {
+    if (!isSessionStarter()) {
+      //check if local storage has game type and if not, set it to fun
+      const gametype = localStorage.getItem("type");
+      if (!gametype) {
+        localStorage.setItem("type", "fun");
+      }
+    }
+  });
+
   return (
     <div class="flex flex-col items-center justify-center text-center">
-      <div class="    flex flex-col   ">
-        <Button onClick={() => setSoundOn(!soundOn())}>
-          {soundOn() ? (
-            <VolumeDownOutlined fontSize="large" />
-          ) : (
-            <VolumeOffOutlined fontSize="large" />
-          )}
-        </Button>
-        <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-          {soundOn() ? "On" : "Off"}
-        </span>
-      </div>
       <div class="grid grid-cols-2 gap-4 justify-center items-center">
         <For each={imagesToShow().slice(0, 2)}>
           {(obj, index) => (

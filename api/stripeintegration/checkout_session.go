@@ -38,9 +38,9 @@ func CreateCheckoutSessionHandler(c *gin.Context) {
 		Mode:       stripe.String(string(stripe.CheckoutSessionModeSubscription)),
 		SuccessURL: stripe.String(fmt.Sprintf("%s/success?session_id={CHECKOUT_SESSION_ID}", url)),
 		CancelURL:  stripe.String(fmt.Sprintf("%s/cancel", url)),
-		SubscriptionData: &stripe.CheckoutSessionSubscriptionDataParams{
-			TrialPeriodDays: stripe.Int64(7),
-		},
+		// SubscriptionData: &stripe.CheckoutSessionSubscriptionDataParams{
+		// 	TrialPeriodDays: stripe.Int64(7),
+		// },
 	}
 
 	s, err := checkoutSession.New(sessionParams)

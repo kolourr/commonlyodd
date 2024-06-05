@@ -127,7 +127,7 @@ const PricingPlans = () => {
                 onClick={plan.checkoutSession}
                 class="w-full mt-2"
               >
-                Start your 7-day Free Trial
+                Subscribe Now
               </Button>
             </Match>
             <Match when={!isAuthenticated()}>
@@ -137,8 +137,11 @@ const PricingPlans = () => {
                 href={`${BASE_API}/login`}
                 class="w-full mt-2"
               >
-                Start your 7-day Free Trial
+                Start Playing for Free
               </Button>
+              <span class="mt-2 text-gray-400">
+                No credit card required for trial
+              </span>
             </Match>
           </Switch>
         </div>

@@ -1,18 +1,19 @@
 import { createSignal, JSX, onCleanup, Show } from "solid-js";
 import {
   Button,
-  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
-  DialogContentText,
   DialogTitle,
   Slide,
 } from "@suid/material";
 import { TransitionProps } from "@suid/material/transitions";
+import ConfirmStartDialogQuick, {
+  openConfirmDialogFun,
+} from "./quick_game_confirm";
 import CommonDialog from "../common_dialog";
-import { setSessionLink } from "..";
-import { sendMessage } from "../start_game";
+import Countdown from "./countdown";
+import Category from "./category";
 
 const Transition = (props: TransitionProps & { children: any }) => (
   <Slide direction="down" {...props} />
@@ -23,65 +24,36 @@ const dialogTextStyle = {
 };
 
 export default function QuickGame() {
-  const [loading, setLoading] = createSignal(false);
+  const [open, setOpen] = createSignal(false);
+  const [countdown, setCountdown] = createSignal<number>(0);
+  const [category, setCategory] = createSignal<string>("");
   const [dialogOpen, setDialogOpen] = createSignal(false);
   const [dialogContent, setDialogContent] = createSignal<
     string | JSX.Element
   >();
 
-  const numberOfTeams = 1;
-  const targetScore = 1000;
-  const countdownTimer = 7;
-
-  async function startSession() {
-    setLoading(true);
-    try {
-      const response = await fetch(
-        `${import.meta.env.CO_API_URL}/start-session`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-          body: JSON.stringify({
-            number_of_teams: numberOfTeams,
-            target_score: targetScore,
-            countdown: countdownTimer,
-            category: "random",
-          }),
-        }
+  const handleStartClick = () => {
+    if (countdown() > 0 && category() !== "") {
+      setOpen(false);
+      openConfirmDialogFun(countdown(), category());
+    } else {
+      setDialogContent(
+        <>Please select the category and ideal countdown time per round.</>
       );
 
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-
-      const data = await response.json();
-
-      // Set session UUID and starter token in local storage
-      localStorage.setItem("session_uuid", data.session_uuid);
-      localStorage.setItem("starter_token", data.starter_token);
-      localStorage.setItem("type", "fun");
-
-      // Update session link
-      setSessionLink(data.join_link);
       setDialogOpen(true);
-      sendMessage({ game_state: "start-solo" });
-    } catch (error) {
-      console.error("Failed to start session:", error);
-      setDialogContent(<>Error starting session. Please try again.</>);
-      setDialogOpen(true);
-    } finally {
-      setLoading(false);
     }
-  }
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
       <Button
         variant="contained"
-        onClick={startSession}
+        onClick={() => setOpen(true)}
         sx={{
           width: "200px",
           fontSize: "14px",
@@ -90,12 +62,12 @@ export default function QuickGame() {
           backgroundColor: "#15803d",
         }}
       >
-        Play Quick Game
+        Play Quick
       </Button>
-
       <Dialog
-        open={dialogOpen()}
-        onClose={() => setDialogOpen(false)}
+        open={open()}
+        TransitionComponent={Transition}
+        onClose={handleClose}
         PaperProps={{
           sx: {
             backgroundImage:
@@ -106,19 +78,30 @@ export default function QuickGame() {
         <DialogTitle
           class="flex justify-center items-center"
           style={dialogTextStyle}
+          sx={{ textAlign: "center" }}
         >
-          Game Status!
+          {"Choose the category and countdown duration for the rounds."}
         </DialogTitle>
         <DialogContent style={dialogTextStyle}>
-          <DialogContentText style={dialogTextStyle}>
-            Session created successfully. If you are inviting others to join,
-            send all players the session link prior to starting the game.
-            <div class="flex flex-row justify-center py-4">
-              {loading() && <CircularProgress color="success" />}{" "}
-            </div>{" "}
-          </DialogContentText>
+          <Category setCategory={setCategory} />
+          <Countdown setCountdown={setCountdown} />
         </DialogContent>
+        <DialogActions style={dialogTextStyle}>
+          <Button class="font-bold" onClick={handleStartClick}>
+            Create Game Session
+          </Button>
+        </DialogActions>
       </Dialog>
+      <Show when={dialogOpen()}>
+        <CommonDialog
+          open={dialogOpen()}
+          title="Wait a second!"
+          content={dialogContent()}
+          onClose={() => setDialogOpen(false)}
+          showCancelButton={false}
+        />
+      </Show>
+      <ConfirmStartDialogQuick />
     </div>
   );
 }

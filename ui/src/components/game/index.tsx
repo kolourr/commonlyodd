@@ -16,7 +16,9 @@ import {
   SportsScoreOutlined,
 } from "@suid/icons-material";
 import CopyLink from "./start_session/copy_link";
-import EndGameSession from "./end_game_session";
+import EndGameSession, {
+  handleClickOpenEndGameSession,
+} from "./end_game_session";
 import StartGame, {
   objectsImages,
   numberOfTeams,
@@ -33,6 +35,7 @@ import { checkAuth } from "../auth_payments_landing/use_auth";
 import {
   checkSubStatus,
   userSubstatus,
+  trial,
 } from "../auth_payments_landing/subscription_status";
 import { isSessionStarted } from "./start_session";
 import { JSX } from "solid-js";
@@ -128,7 +131,11 @@ export default function Game() {
   });
 
   createEffect(() => {
-    if (!isSessionStarted() && isAuthenticated() && userSubstatus()) {
+    if (
+      !isSessionStarted() &&
+      isAuthenticated() &&
+      (userSubstatus() || trial())
+    ) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
@@ -155,7 +162,7 @@ export default function Game() {
   createEffect(() => {
     const starterToken = localStorage.getItem("starter_token");
 
-    if (!isAuthenticated() && !userSubstatus() && !starterToken) {
+    if (!isAuthenticated() && (!userSubstatus() || !trial()) && !starterToken) {
       setGameInfo(
         <div class="flex flex-col justify-center items-center">
           <div class="md:text-base lg:text-xl">
@@ -345,7 +352,7 @@ export default function Game() {
   );
 
   const controlPanel = () => (
-    <div class="flex justify-around items-center text-gray-300 text-center  space-x-1 mt-2">
+    <div class="flex justify-around items-center text-gray-300 text-center mb-2 space-x-1 mt-2">
       <div class="flex flex-col items-center text-center   ">
         <Show when={isSessionStarted()}>
           <div>
@@ -400,16 +407,16 @@ export default function Game() {
           <GameImages gameData={objectsImages()} />
         </div>
 
-        <div class="flex justify-center items-center">
-          <div class="flex flex-row h-36   justify-center items-center py-6 my-4 ">
+        <div class="flex flex-col justify-center items-center  ">
+          <div class="flex flex-row mt-6 justify-center items-center   ">
             <Show when={!isSessionStarted()}>
-              <Show when={isAuthenticated() && userSubstatus()}>
+              <Show when={isAuthenticated() && (userSubstatus() || trial())}>
                 <CreateSession />
               </Show>
               <Show
                 when={
-                  (!isAuthenticated() && !userSubstatus()) ||
-                  (isAuthenticated() && !userSubstatus())
+                  (!isAuthenticated() && !userSubstatus() && !trial()) ||
+                  (isAuthenticated() && !userSubstatus() && !trial())
                 }
               >
                 <div class="flex flex-col">
@@ -440,11 +447,27 @@ export default function Game() {
           <div
             class={`${
               isSessionStarted() ? "" : "hidden"
-            } flex flex-row h-24 justify-center items-center`}
+            } flex flex-row   justify-center items-center`}
           >
             <Router>
               <StartGame />
             </Router>
+          </div>
+          <div class="mt-6">
+            <Button
+              variant="contained"
+              color="action"
+              onClick={handleClickOpenEndGameSession}
+              sx={{
+                width: "200px",
+                fontSize: "18px",
+                fontWeight: "bold",
+                color: "#9ca3af",
+                backgroundColor: "transparent",
+              }}
+            >
+              Reset
+            </Button>
           </div>
         </div>
 
@@ -475,7 +498,7 @@ export default function Game() {
         <EndGameSession />
         <Timer />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

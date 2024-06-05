@@ -212,7 +212,12 @@ export default function AccountMenu() {
 
   return (
     <>
-      <Show when={!subscriptionStatus() && !isAuthenticated()}>
+      <Show
+        when={
+          (!subscriptionStatus()?.status && !isAuthenticated()) ||
+          (!subscriptionStatus()?.trial && !isAuthenticated())
+        }
+      >
         <Show when={location.pathname === "/"}>
           <div class="text-center    flex flex-row    mt-6 mb-24 ">
             <div
@@ -370,7 +375,13 @@ export default function AccountMenu() {
       </Show>
 
       {/* Authentication but not subbed */}
-      <Show when={isAuthenticated() && !subscriptionStatus()}>
+      <Show
+        when={
+          isAuthenticated() &&
+          !subscriptionStatus()?.status &&
+          !subscriptionStatus()?.trial
+        }
+      >
         <Show when={location.pathname !== "/game"}>
           <div class="text-center    flex flex-row    mt-6 mb-14 ">
             <div
@@ -525,8 +536,12 @@ export default function AccountMenu() {
         </Show>
       </Show>
 
-      {/* Authentication but not subbed */}
-      <Show when={isAuthenticated() && subscriptionStatus()}>
+      <Show
+        when={
+          (isAuthenticated() && subscriptionStatus()?.status) ||
+          (isAuthenticated() && subscriptionStatus()?.trial)
+        }
+      >
         <Show when={location.pathname !== "/game"}>
           <div class="text-center    flex flex-row    mt-6 mb-14 ">
             <div
@@ -694,7 +709,7 @@ export default function AccountMenu() {
           },
         }}
       >
-        <Show when={subscriptionStatus() || isAuthenticated}>
+        <Show when={isAuthenticated()}>
           <div class="flex flex-col justify-center items-center">
             <div>
               <DialogContent style={dialogTextStyle}>

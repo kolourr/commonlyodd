@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 	"path/filepath"
+	"time"
 
 	"github.com/joho/godotenv"
 	"github.com/kolourr/commonlyodd/database"
@@ -13,6 +14,24 @@ import (
 	"github.com/kolourr/commonlyodd/platform/router"
 	"github.com/stripe/stripe-go/v76"
 )
+
+func removeExpiredTrials() {
+	now := time.Now()
+	query := "UPDATE Users SET trial_end = NULL WHERE trial_end IS NOT NULL AND trial_end <= $1"
+	_, err := database.DB.Exec(query, now)
+	if err != nil {
+		log.Printf("Error removing expired trials: %v", err)
+	}
+}
+
+func startTrialCleaner() {
+	go func() {
+		for {
+			removeExpiredTrials()
+			time.Sleep(5 * time.Minute)
+		}
+	}()
+}
 
 func main() {
 	// Set environment variables
@@ -39,6 +58,8 @@ func main() {
 	if err != nil {
 		log.Fatalf("Failed to initialize the authenticator: %v", err)
 	}
+
+	startTrialCleaner()
 
 	//Setup router and server
 	rtr := router.New(auth)

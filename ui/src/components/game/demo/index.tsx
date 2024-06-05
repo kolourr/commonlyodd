@@ -13,6 +13,7 @@ import {
   buttonText,
   landingHeroButton,
 } from "~/components/auth_payments_landing/landing";
+import { isAuthenticated } from "~/components/auth_payments_landing/pricing_plans";
 
 export const PlayButtonSVGDEMO = () => (
   <>
@@ -100,6 +101,11 @@ export default function Demo() {
               >
                 {buttonText()}
               </Button>
+              <Show when={!isAuthenticated()}>
+                <span class="mt-2 text-gray-400">
+                  No credit card required for trial
+                </span>
+              </Show>
             </div>
           </div>
           <TimerDemo />

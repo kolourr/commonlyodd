@@ -165,12 +165,11 @@ export default function EndGameSession() {
                     <div>
                       <DialogContentText
                         id="alert-dialog-slide-description"
-                        class="pt-4"
+                        class="mt-2"
                         style={dialogTextStyle}
                       >
-                        The session is not active right now. If the session were
-                        active, you would be able to end the session or the game
-                        here.
+                        The game is not active. Start a new game by clicking
+                        play.
                       </DialogContentText>
                     </div>
                   </div>

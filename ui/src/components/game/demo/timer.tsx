@@ -1,6 +1,11 @@
 import { createEffect, createSignal, onCleanup } from "solid-js";
 import "./styles.css";
-import { isRevealInitiated, gameTime } from "./start";
+import {
+  isRevealInitiated,
+  gameTime,
+  sendMessage,
+  setIsRevealInitiated,
+} from "./start";
 
 export default function TimerDemo() {
   const [timer, setTimer] = createSignal(gameTime()?.timer);
@@ -18,6 +23,8 @@ export default function TimerDemo() {
       if (currentGameTime.timer === 0) {
         setShowTimesUp(true);
         timeoutId = setTimeout(() => setShowTimesUp(false), 1000);
+        sendMessage({ game_state: "reveal-solo" });
+        setIsRevealInitiated(true);
       }
     }
   });

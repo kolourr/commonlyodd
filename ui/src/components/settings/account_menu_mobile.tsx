@@ -135,7 +135,12 @@ export default function AccountMenuMobile() {
   const hamburgerMenuNoAuth = () => {
     return (
       <>
-        <Show when={!subscriptionStatus() && !isAuthenticated()}>
+        <Show
+          when={
+            (!subscriptionStatus()?.status && !isAuthenticated()) ||
+            (!subscriptionStatus()?.trial && !isAuthenticated())
+          }
+        >
           <Show when={location.pathname !== "/game"}>
             <Show when={isOpen()}>
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
@@ -174,7 +179,13 @@ export default function AccountMenuMobile() {
           </Show>
         </Show>
 
-        <Show when={isAuthenticated() && !subscriptionStatus()}>
+        <Show
+          when={
+            isAuthenticated() &&
+            !subscriptionStatus()?.status &&
+            !subscriptionStatus()?.trial
+          }
+        >
           <Show when={location.pathname !== "/game"}>
             <Show when={isOpen()}>
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
@@ -254,7 +265,12 @@ export default function AccountMenuMobile() {
             </Show>
           </Show>
         </Show>
-        <Show when={isAuthenticated() && subscriptionStatus()}>
+        <Show
+          when={
+            (isAuthenticated() && subscriptionStatus()?.status) ||
+            (isAuthenticated() && subscriptionStatus()?.trial)
+          }
+        >
           <Show when={location.pathname !== "/game"}>
             <Show when={isOpen()}>
               <div class="absolute w-full left-0 top-20   bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900 shadow-md p-4 z-10 rounded-md  ">
@@ -542,7 +558,7 @@ export default function AccountMenuMobile() {
           },
         }}
       >
-        <Show when={subscriptionStatus() || isAuthenticated}>
+        <Show when={isAuthenticated()}>
           <div class="flex flex-col justify-center items-center">
             <div>
               <DialogContent style={dialogTextStyle}>

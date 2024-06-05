@@ -9,12 +9,16 @@ const faqData: FaqItem[] = [
   {
     question: "Can I try out Commonly Odd for free?",
     answer: (
-      <p>
-        Yes, you can enjoy a free 7-day trial to experience all that Commonly
-        Odd has to offer. Your payment method will not be charged until the
-        trial period ends. Should you decide it's not the game for you, simply
-        cancel your subscription before the trial expires to avoid any charges.
-      </p>
+      <>
+        <p class="mb-2">
+          Yes, absolutely! No credit card is required. All you need to do is
+          sign in.
+        </p>
+        <p>
+          Once the trial is complete, you can choose to subscribe to the game
+          for a small monthly or yearly fee if you wish to continue playing.
+        </p>
+      </>
     ),
   },
   {
@@ -79,8 +83,8 @@ const faqData: FaqItem[] = [
     answer: (
       <p>
         If you encounter issues starting your game, we recommend ending the
-        current session and starting a new one. This typically resolves most
-        problems.
+        current session/game and starting a new one. This typically resolves
+        most problems.
       </p>
     ),
   },

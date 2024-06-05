@@ -29,6 +29,7 @@ import { createStore } from "solid-js/store";
 import {
   checkSubStatus,
   userSubstatus,
+  trial,
 } from "../../auth_payments_landing/subscription_status";
 import { sendMessage } from "../start_game";
 import { isSessionStarted } from "../start_session";
@@ -321,8 +322,8 @@ export default function Voice(props: VoiceProps) {
   };
 
   const joinVoiceChat = async () => {
-    if (!isSessionStarted() && userSubstatus()) {
-      setHasSessionStarted(!isSessionStarted() && userSubstatus());
+    if (!isSessionStarted() && (userSubstatus() || trial())) {
+      setHasSessionStarted(!isSessionStarted() && (userSubstatus() || trial()));
       return;
     }
     setIsJoining(true);
@@ -400,7 +401,7 @@ export default function Voice(props: VoiceProps) {
   };
 
   const leaveVoiceChat = async (userId: number) => {
-    if (isSessionStarter() && userSubstatus()) {
+    if (isSessionStarter() && (userSubstatus() || trial())) {
       await channel.sendMessage({
         text: JSON.stringify({ type: "SESSION_END" }),
       });
@@ -430,7 +431,7 @@ export default function Voice(props: VoiceProps) {
   };
 
   const voiceCallInfoSetSessionStarter = () => {
-    if (!canJoinVoiceCall() && userSubstatus()) {
+    if (!canJoinVoiceCall() && (userSubstatus() || trial())) {
       setVoiceCallInfo(
         <>
           <div class=" flex items-center justify-center  ">
@@ -442,7 +443,7 @@ export default function Voice(props: VoiceProps) {
         </>
       );
       setSessionStarterJoinedCall();
-    } else if (canJoinVoiceCall() && userSubstatus()) {
+    } else if (canJoinVoiceCall() && (userSubstatus() || trial())) {
       setVoiceCallInfo();
       setSessionStarterJoinedCall(
         <div class=" flex items-center justify-center">
@@ -453,7 +454,7 @@ export default function Voice(props: VoiceProps) {
   };
 
   const notifyOtherPlayers = () => {
-    if (canJoinVoiceCall() && !userSubstatus()) {
+    if (canJoinVoiceCall() && (!userSubstatus() || !trial())) {
       setSessionStarterJoinedCall(
         <div class=" flex items-center justify-center">
           The session starter is in the voice call. You may now join.
@@ -463,7 +464,7 @@ export default function Voice(props: VoiceProps) {
   };
 
   const voiceCallInfoSetNonSessionStarter = () => {
-    if (!canJoinVoiceCall() && !userSubstatus()) {
+    if (!canJoinVoiceCall() && (!userSubstatus() || !trial())) {
       setSessionStarterJoinedCall(
         <div class=" flex items-center justify-center">
           You can join the call once the session starter joins.
@@ -537,9 +538,7 @@ export default function Voice(props: VoiceProps) {
 
   return (
     <>
-      <div class="flex justify-center items-center text-center font-bold  shadow-sm shadow-gray-400 uppercase py-2 cursor-pointer mt-4">
-        Control Panel
-      </div>
+      <div class="flex justify-center items-center text-center font-bold  shadow-sm shadow-gray-400 uppercase py-2 cursor-pointer mt-4"></div>
       <div class="flex   flex-col   text-center shadow-md shadow-gray-400 text text-gray-400 space-y-1 ">
         <div class="flex flex-row justify-around items-center   text-center   mt-2 mb-2   text-gray-400 space-x-1">
           <div class="flex flex-col  ">
@@ -581,12 +580,17 @@ export default function Voice(props: VoiceProps) {
               {micMuted() ? "Mic On" : "Mic Off"}
             </span>
           </div>
-          <div class="flex flex-col   ">
-            <Button onClick={handleClickOpenEndGameSession}>
-              <CancelOutlined fontSize="large" />
+
+          <div class="    flex flex-col   ">
+            <Button onClick={() => setSoundOn(!soundOn())}>
+              {soundOn() ? (
+                <VolumeDownOutlined fontSize="large" />
+              ) : (
+                <VolumeOffOutlined fontSize="large" />
+              )}
             </Button>
             <span class="text-xs lg:text-sm text-center font-bold text-gray-300">
-              <div>End Game</div>
+              {soundOn() ? "On" : "Off"}
             </span>
           </div>
         </div>
@@ -636,8 +640,8 @@ export default function Voice(props: VoiceProps) {
       <Show when={hasSessionStarted()}>
         <CommonDialog
           open={hasSessionStarted()}
-          title="Session Inactive"
-          content={"Session must be active prior to joining call."}
+          title="Game Inactive"
+          content={"Game must be active prior to joining call."}
           onClose={() => setHasSessionStarted(false)}
           showCancelButton={false}
         />
@@ -646,7 +650,7 @@ export default function Voice(props: VoiceProps) {
         <CommonDialog
           open={maxCallParticipantsReached()}
           title="Maximum Call Participants Reached"
-          content={"A session call can only have a maximum of 10 participants."}
+          content={"A game call can only have a maximum of 10 participants."}
           onClose={() => setMaxCallParticipantsReached(false)}
           showCancelButton={false}
         />

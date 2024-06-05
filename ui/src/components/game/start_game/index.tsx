@@ -390,7 +390,7 @@ export default function StartGame() {
         } else {
           sendMessage({ game_state: "start" });
         }
-      } else if (gameType() === "fun") {
+      } else if (gameType() === "fun" || gameType() === "quick") {
         if (timerUp() && !isRevealInitiated()) {
           sendMessage({ game_state: "reveal-solo" });
           setIsRevealInitiated(true);
@@ -412,16 +412,24 @@ export default function StartGame() {
     // 1. The session is not active or the user is not the session starter.
     // 2. The game is in progress, but it's neither time to reveal the answer, enter the score, nor continue to the next round.
 
-    const competitive =
+    // const competitive =
+    //   !isSessionActive() ||
+    //   !isSessionStarter() ||
+    //   (isGameInProgress() &&
+    //     !timerUp() &&
+    //     !enterScore() &&
+    //     !readyToContinue() &&
+    //     !newGameStarted() &&
+    //     !gameWinner() &&
+    //     !gameComplete());
+
+    const quick =
       !isSessionActive() ||
       !isSessionStarter() ||
       (isGameInProgress() &&
         !timerUp() &&
-        !enterScore() &&
         !readyToContinue() &&
-        !newGameStarted() &&
-        !gameWinner() &&
-        !gameComplete());
+        !readyToContinueSolo());
 
     const fun =
       !isSessionActive() ||
@@ -431,9 +439,7 @@ export default function StartGame() {
         !readyToContinue() &&
         !readyToContinueSolo());
 
-    return (
-      isButtonProcessing() || (gameType() === "competitive" ? competitive : fun)
-    );
+    return isButtonProcessing() || (gameType() === "quick" ? quick : fun);
   }
 
   function getButtonLabel() {
@@ -451,7 +457,7 @@ export default function StartGame() {
       } else {
         return "Start Game";
       }
-    } else if (gameType() === "fun") {
+    } else if (gameType() === "fun" || gameType() === "quick") {
       if (timerUp()) {
         return "Reveal";
       } else if (readyToContinue()) {

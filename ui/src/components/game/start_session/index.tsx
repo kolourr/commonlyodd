@@ -126,13 +126,12 @@ export default function CreateSession() {
         <DialogContent style={dialogTextStyle}>
           <div class="flex flex-col items-center   justify-center">
             <div class="flex flex-col items-center justify-center  ">
-              <div class="text-2xl mb-2  ">Quick Game</div>
+              <div class="text-2xl mb-2  ">Quick Mode</div>
 
-              <ul class="list-disc text-left mr-8  mb-4">
+              <ul class="list-disc text-left   mb-4">
                 <div class="flex flex-col justify-start items-start ">
-                  <li>Trivia questions chosen at random</li>
-                  <li>Pre-set time per round of 7 seconds</li>
-                  <li>Game starts instantly</li>
+                  <li>Perfect for solo play</li>
+                  <li>Instant answer reveal for odd selection</li>
                 </div>
               </ul>
 
@@ -141,13 +140,12 @@ export default function CreateSession() {
               </div>
             </div>
             <div class="flex flex-col items-center justify-center  ">
-              <div class="text-2xl mb-2  ">Quick Game +</div>
+              <div class="text-2xl mb-2  ">Competitive Mode</div>
 
-              <ul class="list-disc text-left  mb-4">
+              <ul class="list-disc text-left mr-4 mb-4">
                 <div class="flex flex-col justify-start items-start">
-                  <li>Can choose individual trivia category</li>
-                  <li>Can set time per round</li>
-                  <li>Game can be started in your own time</li>
+                  <li>Perfect for group play</li>
+                  <li>Answer revealed at end of countdown</li>
                 </div>
               </ul>
 

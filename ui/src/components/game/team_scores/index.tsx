@@ -102,7 +102,7 @@ export default function TeamScores(props: TeamScoresProps) {
   const scoresContentDialog = () => {
     return (
       <div class="flex justify-center text-center items-center">
-        <div>Scores are only available for when a session is underway.</div>
+        <div>Scores are only available for when a game is underway.</div>
       </div>
     );
   };
@@ -144,7 +144,12 @@ export default function TeamScores(props: TeamScoresProps) {
         />
       </Show>
 
-      <Show when={props.sessionStarted && gameType() == "fun"}>
+      <Show
+        when={
+          (props.sessionStarted && gameType() == "fun") ||
+          (props.sessionStarted && gameType() == "quick")
+        }
+      >
         <CommonDialog
           open={true}
           onClose={handleClose}
