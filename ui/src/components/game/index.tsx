@@ -334,19 +334,17 @@ export default function Game() {
                 />
                 = Partially Correct
               </div>
-              <div class="mt-4 text-sm mx-4">
-                For a full breakdown of the rules, please read the{" "}
-                <a
-                  onClick={handleGameRulesPage}
-                  class="text-blue-400 cursor-pointer"
-                >
-                  game rules
-                </a>{" "}
-                page.
-              </div>
+
             </div>
           </div>
         </div> */}
+        <div class="mt-4 lg:text-md mx-4">
+          For the full breakdown, check out the{" "}
+          <a onClick={handleGameRulesPage} class="text-blue-400 cursor-pointer">
+            rules
+          </a>{" "}
+          page.
+        </div>
       </div>
     </div>
   );
