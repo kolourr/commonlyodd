@@ -259,9 +259,7 @@ const bottomSection: SectionProps[] = [
         </div>
         <div class="flex flex-col items-center justify-center">
           <Show when={!isAuthenticated()}>
-            <span class="mt-2 text-gray-400">
-              No credit card required for trial
-            </span>
+            <span class="mt-2 text-gray-400">No credit card required</span>
           </Show>
           <Show when={isAuthenticated()}>
             <span class="mt-2 text-gray-400">
@@ -405,7 +403,7 @@ const LandingPage: Component = () => {
                 </Button>
                 <Show when={!isAuthenticated()}>
                   <span class="mt-2 text-gray-400">
-                    No credit card required for trial
+                    No credit card required
                   </span>
                 </Show>
               </div>
@@ -464,9 +462,7 @@ const LandingPage: Component = () => {
               </Button>
             </div>
             <Show when={!isAuthenticated()}>
-              <span class="mt-2 text-gray-400">
-                No credit card required for trial
-              </span>
+              <span class="mt-2 text-gray-400">No credit card required</span>
             </Show>
           </div>
         </div>

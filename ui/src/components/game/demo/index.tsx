@@ -102,9 +102,7 @@ export default function Demo() {
                 {buttonText()}
               </Button>
               <Show when={!isAuthenticated()}>
-                <span class="mt-2 text-gray-400">
-                  No credit card required for trial
-                </span>
+                <span class="mt-2 text-gray-400">No credit card required</span>
               </Show>
             </div>
           </div>
