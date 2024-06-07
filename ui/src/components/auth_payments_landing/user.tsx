@@ -138,7 +138,7 @@ const User = () => {
               <div class="w-full mb-4 text-base md:text-lg">
                 <video controls class="w-full h-auto shadow-lg">
                   <source
-                    src="https://media.commonlyodd.com/how_it_works.mp4"
+                    src="https://media.commonlyodd.com/how_it_works_jun7.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -213,7 +213,7 @@ const User = () => {
               <div class="w-full mb-4 text-base md:text-lg">
                 <video controls class="w-full h-auto shadow-lg">
                   <source
-                    src="https://media.commonlyodd.com/how_it_works.mp4"
+                    src="https://media.commonlyodd.com/how_it_works_jun7.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -272,7 +272,7 @@ const User = () => {
             <div class="w-full mb-4 text-base md:text-lg">
               <video controls class="w-full h-auto shadow-lg">
                 <source
-                  src="https://media.commonlyodd.com/how_it_works.mp4"
+                  src="https://media.commonlyodd.com/how_it_works_jun7.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

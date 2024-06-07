@@ -238,7 +238,7 @@ export default function Game() {
         <div class="w-full mb-4 text-base md:text-lg flex justify-center items-center">
           <video controls class="w-[90%]  h-auto shadow-lg mx-4 ">
             <source
-              src="https://media.commonlyodd.com/how_it_works.mp4"
+              src="https://media.commonlyodd.com/how_it_works_jun7.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
