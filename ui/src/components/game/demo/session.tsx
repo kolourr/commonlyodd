@@ -25,7 +25,7 @@ function isSessionStartedDemo() {
 export default function StartSessionDemo() {
   const numberOfTeams = 1;
   const targetScore = 10;
-  const countdownTimer = 7;
+  const countdownTimer = 12;
 
   async function startSession() {
     try {
