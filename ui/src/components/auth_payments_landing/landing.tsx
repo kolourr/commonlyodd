@@ -248,7 +248,7 @@ const bottomSection: SectionProps[] = [
   {
     section: (
       <div class="section-container">
-        <div
+        {/* <div
           id="pricing-plans"
           class="  text-gray-300 mb-3 flex justify-center text-4xl font-bold  "
         >
@@ -270,7 +270,7 @@ const bottomSection: SectionProps[] = [
             {" "}
             <PricingPlans />
           </div>
-        </div>
+        </div> */}
       </div>
     ),
   },

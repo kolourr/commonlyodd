@@ -246,9 +246,9 @@ export default function AccountMenu() {
                 <a href="#demo">
                   <div class="px-4">Demo</div>
                 </a>
-                <a href="#pricing-plans">
+                {/* <a href="#pricing-plans">
                   <div class="px-4">Explore Plans</div>
-                </a>
+                </a> */}
               </div>
             </div>
             <div class="flex flex-row w-1/6 justify-end items-center">
