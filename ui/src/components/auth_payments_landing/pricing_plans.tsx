@@ -30,7 +30,7 @@ const plans: Plan[] = [
   {
     id: "yearly",
     title: "Yearly Plan",
-    price: "$60",
+    price: "$27",
     period: "year",
     savings: "Save 44% with this plan!",
     description: [
@@ -47,7 +47,7 @@ const plans: Plan[] = [
   {
     id: "monthly",
     title: "Monthly Plan",
-    price: "$9",
+    price: "$4",
     period: "month",
     description: [
       "No download needed",
