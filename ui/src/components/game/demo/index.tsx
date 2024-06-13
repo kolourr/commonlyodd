@@ -101,9 +101,9 @@ export default function Demo() {
               >
                 {buttonText()}
               </Button>
-              <Show when={!isAuthenticated()}>
+              {/* <Show when={!isAuthenticated()}>
                 <span class="mt-2 text-gray-400">No credit card required</span>
-              </Show>
+              </Show> */}
             </div>
           </div>
           <TimerDemo />

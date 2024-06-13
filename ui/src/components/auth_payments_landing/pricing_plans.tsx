@@ -139,7 +139,7 @@ const PricingPlans = () => {
               >
                 Start Playing for Free
               </Button>
-              <span class="mt-2 text-gray-400">No credit card required</span>
+              {/* <span class="mt-2 text-gray-400">No credit card required</span> */}
             </Match>
           </Switch>
         </div>
