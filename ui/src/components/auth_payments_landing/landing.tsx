@@ -61,7 +61,7 @@ export const buttonText = () => {
     (isAuthenticated() && !subscriptionStatus()?.status) ||
     (isAuthenticated() && !subscriptionStatus()?.trial)
   ) {
-    return "Explore Plans";
+    return "Explore Plan";
   }
 };
 
@@ -254,7 +254,7 @@ const bottomSection: SectionProps[] = [
         >
           <Show when={!isAuthenticated()}>Start Playing for Free</Show>
           <Show when={isAuthenticated() && !subscriptionStatus()?.status}>
-            Explore Plans
+            Explore Plan
           </Show>
         </div>
         <div class="flex flex-col items-center justify-center">

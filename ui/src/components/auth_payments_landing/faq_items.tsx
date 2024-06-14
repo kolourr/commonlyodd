@@ -15,8 +15,8 @@ const faqData: FaqItem[] = [
           sign in.
         </p>
         <p>
-          Once the trial is complete, you can choose to subscribe to the game
-          for a small monthly or yearly fee if you wish to continue playing.
+          Once the trial is complete, you can choose to continue playing for the
+          price of a cup of coffee a month.
         </p>
       </>
     ),

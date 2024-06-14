@@ -27,23 +27,23 @@ interface Plan {
 }
 
 const plans: Plan[] = [
-  {
-    id: "yearly",
-    title: "Yearly Plan",
-    price: "$27",
-    period: "year",
-    savings: "Save 44% with this plan!",
-    description: [
-      "No download needed",
-      "Friends and family play for FREE",
-      "Group Voice chat included for FREE",
-      "Learn and have fun at the same time",
-      "Request new categories",
-      "Frequent updates",
-    ],
-    isBestValue: true,
-    checkoutSession: createCheckoutSessionYearly,
-  },
+  // {
+  //   id: "yearly",
+  //   title: "Yearly Plan",
+  //   price: "$27",
+  //   period: "year",
+  //   savings: "Save 44% with this plan!",
+  //   description: [
+  //     "No download needed",
+  //     "Friends and family play for FREE",
+  //     "Group Voice chat included for FREE",
+  //     "Learn and have fun at the same time",
+  //     "Request new categories",
+  //     "Frequent updates",
+  //   ],
+  //   isBestValue: true,
+  //   checkoutSession: createCheckoutSessionYearly,
+  // },
   {
     id: "monthly",
     title: "Monthly Plan",
