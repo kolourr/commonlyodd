@@ -337,8 +337,8 @@ const User = () => {
             </div>
 
             <p class="mb-4 ml-8 text-center text-base md:text-lg text-gray-400">
-              To continue playing Commonly Odd, please pick one of the plans
-              below
+              To continue playing Commonly Odd, please complete the payment
+              below.
             </p>
 
             <div
@@ -391,7 +391,7 @@ const User = () => {
 
             <div class="text-left text-base md:text-lg">
               <p class="mb-4 ml-8 text-gray-400">
-                To continue playing Commonly Odd, please pick one of the plans
+                To continue playing Commonly Odd, please complete the payment
                 below.
               </p>
             </div>
