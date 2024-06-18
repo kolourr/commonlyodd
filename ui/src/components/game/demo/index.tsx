@@ -53,7 +53,7 @@ export default function Demo() {
   });
 
   return (
-    <div class="flex flex-col justify-center items-center ">
+    <div class="flex flex-col justify-center items-center pb-28">
       <h3 class="text-4xl font-bold my-4 text-center" id="demo">
         Quick Mode - Demo
       </h3>

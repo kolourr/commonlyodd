@@ -524,7 +524,7 @@ const LandingPage: Component = () => {
         </div>
         <Demo />
 
-        <FAQitems />
+        {/* <FAQitems /> */}
 
         {/* <Show when={!subscriptionStatus()?.status}>
           <div class="flex flex-col space-y-6 divide-y pt-8 ">
