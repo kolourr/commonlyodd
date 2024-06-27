@@ -51,16 +51,7 @@ export default function Category({ setCategory }: CategoryProps) {
             color: "#f9fafb",
           }}
         >
-          {[
-            "Random",
-            "Bible",
-            "Baseball",
-            "Hockey",
-            "Basketball",
-            "Football",
-            "80s",
-            "Harry Potter",
-          ].map((category) => (
+          {["Random", "Bible", "80s"].map((category) => (
             <MenuItem
               class="bg-gradient-to-r from-slate-900 via-zinc-950 to-slate-900"
               value={category}
