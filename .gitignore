@@ -6,6 +6,7 @@ api/main.exe
 #ui
 ui/node_modules/
 ui/dist
+ui/environment/
 ui/environment/.env.local
 ui/environment/.env.production
 ui/environment/.env.development
