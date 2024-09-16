@@ -1,50 +1,93 @@
-## API Usage
+# Commonly Odd - Trivia Game
 
-`export APP_ENV=local
-CompileDaemon -command="./main" -build="go build cmd/server/main.go"
-`
+Welcome to Commonly Odd, an engaging trivia game that offers a unique and fun experience for players of all levels!
 
-`export APP_ENV=production
-CompileDaemon -command="./main" -build="go build cmd/server/main.go"
-`
+## Getting Started
 
-`go get github.com/githubnemo/CompileDaemon
-export PATH=$PATH:$(go env GOPATH)/bin
-source ~/.zshrc # or ~/.bashrc
-CompileDaemon -command="./main" -build="go build cmd/server/main.go"
-`
+### API Setup
 
-`go build -o ./main cmd/server/main.go`
+1. Set up the environment:
+   ```bash
+   export APP_ENV=local  # For local development
+   # or
+   export APP_ENV=production  # For production environment
+   ```
 
-## UI Usage
+2. Install CompileDaemon:
+   ```bash
+   go get github.com/githubnemo/CompileDaemon
+   export PATH=$PATH:$(go env GOPATH)/bin
+   source ~/.zshrc  # or ~/.bashrc
+   ```
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+3. Run the API:
+   ```bash
+   CompileDaemon -command="./main" -build="go build cmd/server/main.go"
+   ```
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+4. Build the API:
+   ```bash
+   go build -o ./main cmd/server/main.go
+   ```
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+### UI Setup
 
-## Available Scripts
+1. Install dependencies:
+   ```bash
+   npm install  # or pnpm install or yarn install
+   ```
 
-In the project directory, you can run:
+2. Run the development server:
+   ```bash
+   npm run dev  # or npm start
+   ```
+   Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `npm run dev` or `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+3. Build for production:
+   ```bash
+   npm run build
+   ```
+   This creates a `dist` folder ready for deployment.
 
 ## Deployment
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+Deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+
+## Game Features
+
+- **Free Trial**: Try Commonly Odd for free! No credit card required, just sign in.
+- **Diverse Categories**: Choose from baseball, hockey, basketball, football, 80's, Harry Potter, Bible, and random topics.
+- **Group Play**: Up to 10 participants in voice chat, with no limit on total players per session.
+- **AI-Generated Images**: Unique, AI-created images for each question.
+- **Unlimited Games**: Play as many games as you want in a single session.
+
+## FAQ
+
+### Gameplay
+
+- **Q: How many people can play?**
+  A: There's no limit to players joining via link, but voice calls are limited to 10 participants.
+
+- **Q: How many games can I play?**
+  A: You can play unlimited games within each session.
+
+- **Q: What if I can't start my game?**
+  A: Try ending the current session and starting a new one.
+
+### Account Management
+
+- **Q: Can I update or cancel my membership?**
+  A: Yes, use 'Manage Subscription' on our website to access Stripe's billing page.
+
+- **Q: How do I delete my account?**
+  A: Go to 'Delete Account' in the settings menu and follow the prompts.
+
+### Support and Community
+
+- **Q: How can I report errors or make suggestions?**
+  A: Email bruce@commonlyodd.com or contact @kolourrmusic on Twitter.
+
+- **Q: Is there a community forum?**
+  A: Yes! Join our [Subreddit](https://www.reddit.com/r/commonlyoddtrivia/).
+
+For more information or inquiries, please contact bruce@commonlyodd.com.
